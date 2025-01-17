@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ParadoxTranslationHelper_Test": {
+      "commandName": "Project",
+      "commandLineArgs": "6"
+    }
+  }
+}

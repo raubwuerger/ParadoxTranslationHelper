@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>ParadoxTranslationHelper</RootNamespace>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="ParadoxTranslationHelper_Test" />
+  </ItemGroup>
+  <ItemGroup>
+      <None Remove="ParadoxTranslationHelper.xml" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="ParadoxTranslationHelper.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="coverlet.collector">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+</Project>
