@@ -146,8 +146,14 @@ namespace ParadoxTranslationHelper
             Console.WriteLine("Writing substituted source file started: " + fileName);
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {
+                string missingKeyFile = "";
                 foreach (LineObject line in lineObjects)
                 {
+                    if( false == missingKeyFile.Equals(line.TranslationFile.FileName) )
+                    {
+                        missingKeyFile = line.TranslationFile.FileName;
+                        outputFile.WriteLine( "##### " +missingKeyFile );
+                    }
                     outputFile.WriteLine(GetSubstitutedLineTabbed(line));
                 }
             }
