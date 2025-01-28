@@ -24,5 +24,10 @@ namespace ParadoxTranslationHelper
         public static string LOCALISATION_EXTENSION = ".yml";
         public static string LOCALISATION_START_STRING = "_l_";
 
+        public static string FUNCTION_SUB = "sub";
+        public static string FUNCTION_RESUB = "resub";
+        public static string FUNCTION_ANALYSIS = "analyse";
+        public static string FUNCTION_DIFF = "diff";
+
     }
 }

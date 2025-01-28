@@ -2,7 +2,7 @@
   "profiles": {
     "RoadTo56 sub": {
       "commandName": "Project",
-      "commandLineArgs": "Stellaris analyse"
+      "commandLineArgs": "S-STNC analyse"
     }
   }
 }

@@ -39,6 +39,7 @@ namespace ParadoxTranslationHelper
             Console.WriteLine("        => sub (substitute translation file)");
             Console.WriteLine("        => resub (resubstitute translation file)");
             Console.WriteLine("        => analyse (analyse translation file)");
+            Console.WriteLine("        => diff (write missing keys to file)");
             Console.WriteLine("Known mods (ParadoxTranslationHelper.xml): ");
             Console.WriteLine(Environment.NewLine);
             foreach (DataSetMod dataSetMod in ModSelector.ModList)
@@ -55,7 +56,6 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            ModSelector.ModList = configReader.ModList;
             return true;
         }
 
@@ -72,18 +72,23 @@ namespace ParadoxTranslationHelper
 
         private static void AnalyseFunction(string text)
         { 
-            if( text.Equals("sub",StringComparison.CurrentCultureIgnoreCase) )
+            if( text.Equals(Constants.FUNCTION_SUB, StringComparison.CurrentCultureIgnoreCase) )
             {
                 TranslationFileAnalyser.SubstitueSourceFiles();
             }
-            else if( text.Equals("resub", StringComparison.CurrentCultureIgnoreCase ) ) 
+            else if( text.Equals(Constants.FUNCTION_RESUB, StringComparison.CurrentCultureIgnoreCase ) ) 
             {
                 TranslationFileAnalyser.ReSubstitueSourceFiles();
             }
-            else if( text.Equals("analyse", StringComparison.CurrentCultureIgnoreCase) )
+            else if( text.Equals(Constants.FUNCTION_ANALYSIS, StringComparison.CurrentCultureIgnoreCase) )
             {
                 TranslationFileAnalyser.Compare();
             }
+            else if(text.Equals(Constants.FUNCTION_DIFF, StringComparison.CurrentCultureIgnoreCase) )
+            {
+                TranslationFileAnalyser.DiffTranslationVersions();
+            }
+
         }
 
     }

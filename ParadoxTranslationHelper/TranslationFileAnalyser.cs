@@ -52,19 +52,24 @@ namespace ParadoxTranslationHelper
         {
             Analyse();
 
-//            CheckTranslationFilesMissingUpdate();
-//            CheckTranslationFilesDeletedUpdate();
-            CheckNewKeysUpdate();
+            CheckTranslationFilesMissingUpdate();
+            CheckTranslationFilesDeletedUpdate();
 
-            //            CheckMissingTranslationFile();
-            //            CheckMissingKeys();
+            CheckMissingTranslationFile();
+            CheckMissingKeys();
+        }
+
+        public static void DiffTranslationVersions()
+        {
+            Analyse();
+            CheckNewKeysUpdate();
         }
 
         private static void Analyse()
         {
-            _localisationEnglish = AnalyseDirectory(HoI4_TranslationHelper_Config.PathEnglish);
-            _localisationEnglishUpdated = AnalyseDirectory(HoI4_TranslationHelper_Config.PathEnglishUpdated);
-            _localisationGerman = AnalyseDirectory(HoI4_TranslationHelper_Config.PathGerman);
+            _localisationEnglish = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+            _localisationEnglishUpdated = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglishUpdated);
+            _localisationGerman = AnalyseDirectory(ParadoxTranslationHelperConfig.PathGerman);
         }
 
         private static TranslationFileSetSubstitution Create(TranslationFile substitutedFile, string pathToSubstiteFile)
@@ -182,7 +187,10 @@ namespace ParadoxTranslationHelper
                 Console.WriteLine(pair.Key +";" +pair.Value.OriginalLine);
             }
 
-            Utility.WriteLines(toCreate.Values.ToList(), "C:\\Projects\\Stellaris-StarTrek-NewCivilizations\\1886496498\\english_diff\\MissingKeysToCreate.yml");
+            //TODO: 2025-01-28 - JHA - Append AnalysisPathAppendix to base mod path (C:\\Projects\\Stellaris-StarTrek-NewCivilizations\\1886496498\\)
+            //TODO: 2025-01-28 - JHA - Extend ParadoxTranslationHelper.xml - BaseModPath, german, english, english_updated, analysation (<-- All created stuff in this directory)
+            //TODO: 2025-01-28 - JHA - Refactor function part to dictionary Dictionary<string(sub,resub,...), IFunctionObject>
+            Utility.WriteLines(toCreate.Values.ToList(), "C:\\Projects\\Stellaris-StarTrek-NewCivilizations\\1886496498\\english_diff\\MissingKeysToCreate.yml"
 
 
             Dictionary<string, LineObject> toDelete = new Dictionary<string, LineObject>();

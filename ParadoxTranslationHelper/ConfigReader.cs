@@ -9,55 +9,80 @@ namespace ParadoxTranslationHelper
 {
     public class ConfigReader
     {
-        public const string CONFIG_BASEPATH = "/ParadoxTranslationHelper/Paths";
+        public const string CONFIG_MODS = "/ParadoxTranslationHelper/Mods";
         public const string CONFIG_MOD = "/Mod";
+        public const string CONFIG_MOD_NAME_ATTRIBUTE = "name";
+
+        public const string CONFIG_GLOBAL = "/ParadoxTranslationHelper/Global";
+        public const string CONFIG_GLOBAL_RESULT_PATH = "ResultPath";
+
         public const string CONFIG_FUNCTION = "/ParadoxTranslationHelper/Function";
-        private List<DataSetMod> _modList = new List<DataSetMod>();
+
+
         public bool Read()
         {
-            _modList.Clear();
             XmlDocument config = XMLFileUtility.Load(Constants.CONFIG);
             if (null == config)
             {
                 Console.WriteLine("Unable to load config: " + Constants.CONFIG + Environment.NewLine);
                 return false;
             }
-            
-            XmlNodeList configPaths = config.SelectNodes(CONFIG_BASEPATH + CONFIG_MOD);
 
-            foreach (XmlNode configPath in configPaths) 
+            ReadGlobal(config);
+            ReadMods(config);
+
+            return true;
+        }
+
+        private void ReadGlobal(XmlDocument config)
+        {
+            XmlNodeList global = config.SelectNodes(CONFIG_GLOBAL);
+            foreach (XmlNode mod in global)
             {
-                string modName = Utility.GetAttributeValueByName(configPath.Attributes, "name");
-                if (null == modName )
+                string resultPath = Utility.FindNodeByName(mod.ChildNodes, CONFIG_GLOBAL_RESULT_PATH);
+                if (null == resultPath)
+                {
+                    continue;
+                }
+
+                ParadoxTranslationHelperConfig.AnalysisPathAppendix = resultPath;
+                return;
+            }
+        }
+
+        private void ReadMods(XmlDocument config)
+        {
+            XmlNodeList modPaths = config.SelectNodes(CONFIG_MODS + CONFIG_MOD);
+
+            foreach (XmlNode mod in modPaths)
+            {
+                string modName = Utility.GetAttributeValueByName(mod.Attributes, CONFIG_MOD_NAME_ATTRIBUTE);
+                if (null == modName)
                 {
                     continue;
                 }
 
                 DataSetMod dataSetMod = new DataSetMod(modName);
-                string pathEnglish = Utility.FindNodeByName(configPath.ChildNodes, Constants.CONFIG_NODE_PATH_ENGLISH);
+                string pathEnglish = Utility.FindNodeByName(mod.ChildNodes, Constants.CONFIG_NODE_PATH_ENGLISH);
                 if (null != pathEnglish)
                 {
                     dataSetMod.PathEnglish = pathEnglish;
                 }
 
-                string pathEnglishUpdated = Utility.FindNodeByName(configPath.ChildNodes, Constants.CONFIG_NODE_PATH_ENGLISH_UPDATED);
+                string pathEnglishUpdated = Utility.FindNodeByName(mod.ChildNodes, Constants.CONFIG_NODE_PATH_ENGLISH_UPDATED);
                 if (null != pathEnglishUpdated)
                 {
                     dataSetMod.PathEnglishUpdated = pathEnglishUpdated;
                 }
 
-                string pathGerman = Utility.FindNodeByName(configPath.ChildNodes, Constants.CONFIG_NODE_PATH_GERMAN);
+                string pathGerman = Utility.FindNodeByName(mod.ChildNodes, Constants.CONFIG_NODE_PATH_GERMAN);
                 if (null != pathGerman)
                 {
                     dataSetMod.PathGerman = pathGerman;
                 }
 
-                _modList.Add(dataSetMod);
+                ModSelector.ModList.Add(dataSetMod);
             }
-
-            return true;
         }
-
-        internal List<DataSetMod> ModList { get => _modList; }
     }
 }

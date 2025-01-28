@@ -1,5 +1,5 @@
 <ParadoxTranslationHelper>
-  <Paths>
+  <Mods>
     <Mod name="RoadTo56">
       <english>C:\Projects\Hearts-of-Iron-IV_RoadTo56\2421485863\localisation\english</english>
       <english_updated>C:\Projects\Hearts-of-Iron-IV_RoadTo56\2421485863\localisation\english_2024-12</english_updated>
@@ -10,13 +10,16 @@
       <english_updated>C:\Projects\Hearts-of-Iron-IV_BlackICE\2993385538\localisation\english_9.0.4</english_updated>
       <german>C:\Projects\Hearts-of-Iron-IV_BlackICE\2993385538\localisation\german</german>
     </Mod>
-    <Mod name="Stellaris">
+    <Mod name="S-STNC">
       <english>C:\Projects\Stellaris-StarTrek-NewCivilizations\1886496498\english</english>
       <english_updated>C:\Projects\Stellaris-StarTrek-NewCivilizations\1886496498\english_changed</english_updated>
       <german>C:\Projects\Stellaris-StarTrek-NewCivilizations\1886496498\german</german>
     </Mod>
-  </Paths>
+  </Mods>
+  <Global>
+    <ResultPath>Analysis</ResultPath>
+  </Global>
   <Function>
-		<SubFile>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper\bin\Release\net8.0\publish\updateMissingKeys.txt</SubFile>
+    <SubFile>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper\bin\Release\net8.0\publish\updateMissingKeys.txt</SubFile>
   </Function>
 </ParadoxTranslationHelper>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper
 {
-    internal class DataSetMod
+    public class DataSetMod
     {
         private string _name;
         private string _pathGerman;
