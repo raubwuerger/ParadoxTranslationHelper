@@ -15,6 +15,7 @@ namespace ParadoxTranslationHelper
         static List<TranslationFile> _localisationEnglish = null;
         static List<TranslationFile> _localisationEnglishUpdated = null;
         static List<TranslationFile> _localisationGerman = null;
+        static List<TranslationFile> _localisationCompare = null;
 
         public static void ReSubstitueSourceFiles()
         {
@@ -62,6 +63,11 @@ namespace ParadoxTranslationHelper
         public static void DiffTranslationVersions()
         {
             Analyse();
+            _localisationCompare = AnalyseDirectory(ParadoxTranslationHelperConfig.PathCompare);
+            if( _localisationCompare != null )
+            {
+                _localisationEnglishUpdated = _localisationCompare;
+            }
             CheckNewKeysUpdate();
         }
 

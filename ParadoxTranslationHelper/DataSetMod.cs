@@ -14,6 +14,7 @@ namespace ParadoxTranslationHelper
         private string _pathEnglish;
         private string _pathEnglishUpdated;
         private string _pathResult;
+        private string _pathCompare;
         private DataSetMod() { }
 
         public string Name { get { return _name; }  }
@@ -22,6 +23,7 @@ namespace ParadoxTranslationHelper
         public string PathEnglishUpdated { get => _pathEnglishUpdated; set => _pathEnglishUpdated = value; }
         public string PathBase { get => _pathBase; set => _pathBase = value; }
         public string PathResult { get => _pathResult; set => _pathResult = value; }
+        public string PathCompare { get => _pathCompare; set => _pathCompare = value; }
 
         public DataSetMod( string name )
         { 

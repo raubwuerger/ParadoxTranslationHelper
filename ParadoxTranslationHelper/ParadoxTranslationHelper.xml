@@ -5,18 +5,21 @@
       <english>english</english>
       <english_updated>english_2024-12</english_updated>
       <german>german</german>
+      <compare></compare>
     </Mod>
     <Mod name="BlackICE">
       <basePath>C:\Projects\Hearts-of-Iron-IV_BlackICE\2993385538\localisation</basePath>
       <english>english</english>
       <english_updated>english_9.0.4</english_updated>
       <german>german</german>
+      <compare></compare>
     </Mod>
     <Mod name="S-STNC">
       <basePath>C:\Projects\Stellaris-StarTrek-NewCivilizations\1886496498</basePath>
       <english>english</english>
       <english_updated>english_changed</english_updated>
       <german>german</german>
+      <compare>D:\Spiele\SteamLibrary\steamapps\workshop\content\281990\1886496498\localisation\english</compare>
     </Mod>
   </Mods>
   <Global>
