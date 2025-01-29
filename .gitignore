@@ -61,6 +61,7 @@ crashlytics-build.properties
 /ParadoxTranslationHelper/TestResults/
 /ParadoxTranslationHelper/bin/
 /ParadoxTranslationHelper/obj/
+/ParadoxTranslationHelper/Properties/
 /Compiler
 /ParadoxTranslationHelper_Test/bin/Debug/net8.0
 /ParadoxTranslationHelper_Test/bin/Release/net8.0
