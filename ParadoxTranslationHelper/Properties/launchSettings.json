@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "RoadTo56 sub": {
-      "commandName": "Project",
-      "commandLineArgs": "S-STNC resub"
-    }
-  }
-}
