@@ -8,15 +8,16 @@ namespace ParadoxTranslationHelper
 {
     public static class ParadoxTranslationHelperConfig
     {
-        public static string AnalysisPathAppendix = "";
+        private static string _pathResult = "";
+        private static string _pathBase = "";
+        private static string _pathEnglish = "";
+        private static string _pathEnglishUpdated = "";
+        private static string _pathGerman = "";
 
-        private static string pathEnglish = Constants.PATH_DEFAULT_ENGLISH;
-        private static string pathEnglishUpdated = Constants.PATH_DEFAULT_ENGLISH_UPDATED;
-        private static string pathGerman = Constants.PATH_DEFAULT_GERMAN;
-
-        public static string PathEnglish { get => pathEnglish; set => pathEnglish = value; }
-        public static string PathGerman { get => pathGerman; set => pathGerman = value; }
-        public static string PathEnglishUpdated { get => pathEnglishUpdated; set => pathEnglishUpdated = value; }
-
+        public static string PathEnglish { get => _pathEnglish; set => _pathEnglish = value; }
+        public static string PathGerman { get => _pathGerman; set => _pathGerman = value; }
+        public static string PathEnglishUpdated { get => _pathEnglishUpdated; set => _pathEnglishUpdated = value; }
+        public static string PathBase { get => _pathBase; set => _pathBase = value; }
+        public static string PathResult { get => _pathResult; set => _pathResult = value; }
     }
 }

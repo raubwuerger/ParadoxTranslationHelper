@@ -9,6 +9,11 @@ namespace ParadoxTranslationHelper
 {
     public class ConfigReader
     {
+        public const string CONFIG_NODE_PATH_ENGLISH = "english";
+        public const string CONFIG_NODE_PATH_ENGLISH_UPDATED = "english_updated";
+        public const string CONFIG_NODE_PATH_GERMAN = "german";
+        public const string CONFIG_NODE_PATH_BASE = "basePath";
+
         public const string CONFIG_MODS = "/ParadoxTranslationHelper/Mods";
         public const string CONFIG_MOD = "/Mod";
         public const string CONFIG_MOD_NAME_ATTRIBUTE = "name";
@@ -34,6 +39,8 @@ namespace ParadoxTranslationHelper
             return true;
         }
 
+
+
         private void ReadGlobal(XmlDocument config)
         {
             XmlNodeList global = config.SelectNodes(CONFIG_GLOBAL);
@@ -45,7 +52,7 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
-                ParadoxTranslationHelperConfig.AnalysisPathAppendix = resultPath;
+                ParadoxTranslationHelperConfig.PathResult = resultPath;
                 return;
             }
         }
@@ -63,26 +70,43 @@ namespace ParadoxTranslationHelper
                 }
 
                 DataSetMod dataSetMod = new DataSetMod(modName);
-                string pathEnglish = Utility.FindNodeByName(mod.ChildNodes, Constants.CONFIG_NODE_PATH_ENGLISH);
-                if (null != pathEnglish)
+
+                if( false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_BASE), value => dataSetMod.PathBase = value) )
                 {
-                    dataSetMod.PathEnglish = pathEnglish;
+                    continue;
                 }
 
-                string pathEnglishUpdated = Utility.FindNodeByName(mod.ChildNodes, Constants.CONFIG_NODE_PATH_ENGLISH_UPDATED);
-                if (null != pathEnglishUpdated)
+                if (false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_ENGLISH), value => dataSetMod.PathEnglish = value))
                 {
-                    dataSetMod.PathEnglishUpdated = pathEnglishUpdated;
+                    continue;
                 }
 
-                string pathGerman = Utility.FindNodeByName(mod.ChildNodes, Constants.CONFIG_NODE_PATH_GERMAN);
-                if (null != pathGerman)
+                if (false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_ENGLISH_UPDATED), value => dataSetMod.PathEnglishUpdated = value))
                 {
-                    dataSetMod.PathGerman = pathGerman;
+                    continue;
                 }
+
+                if (false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_GERMAN), value => dataSetMod.PathGerman = value))
+                {
+                    continue;
+                }
+
+                dataSetMod.PathResult = ParadoxTranslationHelperConfig.PathResult;
 
                 ModSelector.ModList.Add(dataSetMod);
             }
+        }
+
+        private bool SetItem( string foundItem, Action<string> itemToSet )
+        {
+            if (foundItem == null)
+            { 
+                return false;
+            }
+
+            itemToSet(foundItem);
+
+            return true;
         }
     }
 }

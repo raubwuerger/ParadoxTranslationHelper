@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +29,11 @@ namespace ParadoxTranslationHelper
             }
             Console.WriteLine("Mod found: " + modName);
 
-            ParadoxTranslationHelperConfig.PathEnglish = found.PathEnglish;
-            ParadoxTranslationHelperConfig.PathEnglishUpdated = found.PathEnglishUpdated;
-            ParadoxTranslationHelperConfig.PathGerman = found.PathGerman;
+            ParadoxTranslationHelperConfig.PathEnglish = Path.Combine(found.PathBase, found.PathEnglish);
+            ParadoxTranslationHelperConfig.PathEnglishUpdated = Path.Combine(found.PathBase, found.PathEnglishUpdated);
+            ParadoxTranslationHelperConfig.PathGerman = Path.Combine(found.PathBase, found.PathGerman);
+            ParadoxTranslationHelperConfig.PathBase = found.PathBase;
+            ParadoxTranslationHelperConfig.PathResult = Path.Combine(found.PathBase, found.PathResult);
 
             return true;
         }

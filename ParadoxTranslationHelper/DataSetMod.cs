@@ -9,33 +9,19 @@ namespace ParadoxTranslationHelper
     public class DataSetMod
     {
         private string _name;
+        private string _pathBase;
         private string _pathGerman;
         private string _pathEnglish;
         private string _pathEnglishUpdated;
+        private string _pathResult;
         private DataSetMod() { }
 
-        public string Name
-        {
-            get { return _name; }  
-        }
-
-        public string PathGerman
-        {
-            get { return _pathGerman;  }
-            set { _pathGerman = value;}
-        }
-
-        public string PathEnglish
-        {
-            get { return _pathEnglish; }
-            set { _pathEnglish = value;}
-        }
-
-        public string PathEnglishUpdated
-        { 
-            get => _pathEnglishUpdated; 
-            set => _pathEnglishUpdated = value; 
-        }
+        public string Name { get { return _name; }  }
+        public string PathGerman { get { return _pathGerman;  } set { _pathGerman = value;} }
+        public string PathEnglish { get { return _pathEnglish; } set { _pathEnglish = value;} }
+        public string PathEnglishUpdated { get => _pathEnglishUpdated; set => _pathEnglishUpdated = value; }
+        public string PathBase { get => _pathBase; set => _pathBase = value; }
+        public string PathResult { get => _pathResult; set => _pathResult = value; }
 
         public DataSetMod( string name )
         { 

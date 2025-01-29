@@ -187,10 +187,9 @@ namespace ParadoxTranslationHelper
                 Console.WriteLine(pair.Key +";" +pair.Value.OriginalLine);
             }
 
-            //TODO: 2025-01-28 - JHA - Append AnalysisPathAppendix to base mod path (C:\\Projects\\Stellaris-StarTrek-NewCivilizations\\1886496498\\)
-            //TODO: 2025-01-28 - JHA - Extend ParadoxTranslationHelper.xml - BaseModPath, german, english, english_updated, analysation (<-- All created stuff in this directory)
+            //TODO: 2025-01-28 - JHA - Path analysation (<-- All created stuff in this directory)
             //TODO: 2025-01-28 - JHA - Refactor function part to dictionary Dictionary<string(sub,resub,...), IFunctionObject>
-            Utility.WriteLines(toCreate.Values.ToList(), "C:\\Projects\\Stellaris-StarTrek-NewCivilizations\\1886496498\\english_diff\\MissingKeysToCreate.yml"
+            //Utility.WriteLines(toCreate.Values.ToList(), "C:\\Projects\\Stellaris-StarTrek-NewCivilizations\\1886496498\\english_diff\\MissingKeysToCreate.yml"
 
 
             Dictionary<string, LineObject> toDelete = new Dictionary<string, LineObject>();
