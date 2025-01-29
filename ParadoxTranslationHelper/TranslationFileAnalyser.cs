@@ -189,8 +189,14 @@ namespace ParadoxTranslationHelper
 
             //TODO: 2025-01-28 - JHA - Path analysation (<-- All created stuff in this directory)
             //TODO: 2025-01-28 - JHA - Refactor function part to dictionary Dictionary<string(sub,resub,...), IFunctionObject>
-            //Utility.WriteLines(toCreate.Values.ToList(), "C:\\Projects\\Stellaris-StarTrek-NewCivilizations\\1886496498\\english_diff\\MissingKeysToCreate.yml"
+            string directory = CreateDirectory();
+            if( null == directory )
+            {
+                Console.WriteLine("Unable to create directory! " + Path.Combine(ParadoxTranslationHelperConfig.PathBase, ParadoxTranslationHelperConfig.PathResult));
+                return;
+            }
 
+            Utility.WriteLines(toCreate.Values.ToList(), Path.Combine(directory, "MissingTranslationKeys.yml"));
 
             Dictionary<string, LineObject> toDelete = new Dictionary<string, LineObject>();
             foreach (KeyValuePair<string, LineObject> pair in old)
@@ -215,6 +221,20 @@ namespace ParadoxTranslationHelper
                 }
                 Console.WriteLine(pair.Key + ";" + pair.Value.OriginalLine);
             }
+        }
+
+        private static string? CreateDirectory()
+        {
+            string pathDiff = Path.Combine(ParadoxTranslationHelperConfig.PathBase, ParadoxTranslationHelperConfig.PathResult);
+            if (false == Directory.Exists(pathDiff))
+            {
+                DirectoryInfo directoryInfo = Directory.CreateDirectory(pathDiff);
+                if( null == directoryInfo) 
+                {
+                    return null;
+                }
+            }
+            return pathDiff;
         }
 
         private static Dictionary<string, LineObject> GetKeys( List<TranslationFile> files )
