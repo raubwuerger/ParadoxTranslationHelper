@@ -60,14 +60,22 @@ namespace ParadoxTranslationHelper
             CheckMissingKeys();
         }
 
-        public static void DiffTranslationVersions()
+        public static void DiffTranslationVersionsSteam()
         {
             Analyse();
             _localisationCompare = AnalyseDirectory(ParadoxTranslationHelperConfig.PathCompare);
-            if( _localisationCompare != null )
+            if( _localisationCompare == null )
             {
-                _localisationEnglishUpdated = _localisationCompare;
+                Console.WriteLine("Steam path not set!");
+                return;
             }
+            
+            _localisationEnglishUpdated = _localisationCompare;
+            CheckNewKeysUpdate();
+        }
+        public static void DiffTranslationVersions()
+        {
+            Analyse();
             CheckNewKeysUpdate();
         }
 
@@ -92,6 +100,11 @@ namespace ParadoxTranslationHelper
 
         private static List<TranslationFile> AnalyseDirectory( string directory )
         {
+            if( null  == directory )
+            {
+                return null;
+            }
+
             string[] files = Directory.GetFiles(directory, FILE_PATTERN, SearchOption.AllDirectories);
             if (files.Length <= 0)
             {

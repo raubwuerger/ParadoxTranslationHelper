@@ -40,14 +40,17 @@ namespace ParadoxTranslationHelper
             Console.WriteLine("        => resub (resubstitute translation file)");
             Console.WriteLine("        => analyse (analyse translation file)");
             Console.WriteLine("        => diff (write missing keys to file)");
+            Console.WriteLine("        => diff_steam (write missing keys to file against steam path)");
+            Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Known mods (ParadoxTranslationHelper.xml): ");
             Console.WriteLine(Environment.NewLine);
             foreach (DataSetMod dataSetMod in ModSelector.ModList)
             {
-                Console.WriteLine( dataSetMod.Name + Environment.NewLine);
+                Console.WriteLine( dataSetMod.Name);
             }
+            Console.WriteLine(Environment.NewLine);
         }
-        
+
         private static bool ReadConfig()
         {
             ConfigReader configReader = new ConfigReader();
@@ -87,6 +90,15 @@ namespace ParadoxTranslationHelper
             else if(text.Equals(Constants.FUNCTION_DIFF, StringComparison.CurrentCultureIgnoreCase) )
             {
                 TranslationFileAnalyser.DiffTranslationVersions();
+            }
+            else if (text.Equals(Constants.FUNCTION_DIFF_STEAM, StringComparison.CurrentCultureIgnoreCase))
+            {
+                TranslationFileAnalyser.DiffTranslationVersionsSteam();
+            }
+            else 
+            {
+                Console.WriteLine("Unknown analyze function defined: " + text);
+                LogInfosMods("");
             }
 
         }

@@ -13,7 +13,7 @@ namespace ParadoxTranslationHelper
         public const string CONFIG_NODE_PATH_ENGLISH_UPDATED = "english_updated";
         public const string CONFIG_NODE_PATH_GERMAN = "german";
         public const string CONFIG_NODE_PATH_BASE = "basePath";
-        public const string CONFIG_NODE_PATH_COMPARE = "compare";
+        public const string CONFIG_NODE_PATH_STEAM = "steam";
 
         public const string CONFIG_MODS = "/ParadoxTranslationHelper/Mods";
         public const string CONFIG_MOD = "/Mod";
@@ -92,7 +92,7 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
-                SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_COMPARE), value => dataSetMod.PathCompare = value);
+                SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_STEAM), value => dataSetMod.PathCompare = value);
 
                 dataSetMod.PathResult = ParadoxTranslationHelperConfig.PathResult;
 
