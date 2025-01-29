@@ -185,7 +185,7 @@ namespace ParadoxTranslationHelper
             {
                 foreach (LineObject line in lineObjects)
                 {
-                    outputFile.WriteLine(GetSubstitutedLineTabbed(line));
+                    outputFile.WriteLine(GetSubstitutedLine(line));
                 }
             }
             Console.WriteLine("Writing substituted source file finished ...");
@@ -199,6 +199,16 @@ namespace ParadoxTranslationHelper
             }
 
             return GetStringTabbed(lineObject);
+        }
+
+        private static string GetSubstitutedLine(LineObject lineObject)
+        {
+            if (lineObject.OriginalLineSubstituted == null)
+            {
+                lineObject.OriginalLineSubstituted = lineObject.OriginalLine;
+            }
+
+            return lineObject.OriginalLineSubstituted;
         }
 
         private static string GetStringTabbed(LineObject lineObject)
