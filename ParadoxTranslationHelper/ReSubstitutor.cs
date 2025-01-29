@@ -66,7 +66,7 @@ namespace ParadoxTranslationHelper
             SubstituteLines(lineObjects, _namespaceReSubstitute);
             SubstituteLines(lineObjects, _iconReSubstitute);
 
-            Utility.WriteLines(lineObjects, _translationFileSetSubstitution.SubstitutedFile.FileName + ".lineObjects.sub.txt.yml");
+            Utility.WriteLines(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile, ParadoxTranslationHelperConfig.PathResult) + FileSubstitutionConstants.RESUBSTITUTED_FILE_SUFFIX);
             Console.WriteLine("Finished ...");
         }
 

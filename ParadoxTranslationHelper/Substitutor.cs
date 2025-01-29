@@ -34,7 +34,7 @@ namespace ParadoxTranslationHelper
 
         private bool WriteSubstitionFiles(TranslationFile translationFile)
         {
-            string replacedPath = ReplaceWithAnalyseDirectory(translationFile);
+            string replacedPath = Utility.ReplaceWithAnalyseDirectory(translationFile, ParadoxTranslationHelperConfig.PathResult);
 
             fileWriterSubstitutionItem.FileName = replacedPath;
             fileWriterSubstitutionItem.FileSuffix = "";
@@ -61,14 +61,6 @@ namespace ParadoxTranslationHelper
 
         }
 
-        private string ReplaceWithAnalyseDirectory(TranslationFile translationFile)
-        {
-            string fullPath = Path.GetDirectoryName(translationFile.FileName);
-            DirectoryInfo directoryInfo = Directory.GetParent(fullPath);
-            string analysePath = Path.Combine(directoryInfo.FullName, ParadoxTranslationHelperConfig.PathResult);
-
-            return Path.Combine(analysePath, Path.GetFileName(translationFile.FileName));
-        }
         private void Substitute(List<LineObject> lineObjects)
         {
             if (lineObjects == null)

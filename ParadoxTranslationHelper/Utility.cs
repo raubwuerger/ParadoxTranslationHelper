@@ -250,6 +250,15 @@ namespace ParadoxTranslationHelper
 
             return keys;
         }
+        public static string ReplaceWithAnalyseDirectory(TranslationFile translationFile, string substitutePath )
+        {
+            string fullPath = Path.GetDirectoryName(translationFile.FileName);
+            DirectoryInfo directoryInfo = Directory.GetParent(fullPath);
+            string analysePath = Path.Combine(directoryInfo.FullName, substitutePath);
+
+            return Path.Combine(analysePath, Path.GetFileName(translationFile.FileName));
+        }
+
 
     }
 }

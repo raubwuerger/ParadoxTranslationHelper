@@ -34,7 +34,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            return corresponding.FileName;
+            return Utility.ReplaceWithAnalyseDirectory(corresponding, ParadoxTranslationHelperConfig.PathResult);
         }
 
         public static void SubstitueSourceFiles()
