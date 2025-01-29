@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,9 +34,11 @@ namespace ParadoxTranslationHelper
 
         private bool WriteSubstitionFiles(TranslationFile translationFile)
         {
-            fileWriterSubstitutionItem.FileName = translationFile.FileName;
+            string replacedPath = ReplaceWithAnalyseDirectory(translationFile);
+
+            fileWriterSubstitutionItem.FileName = replacedPath;
             fileWriterSubstitutionItem.FileSuffix = "";
-            WriteSubstitionFile(translationFile);
+            WriteSubstitionFile(translationFile, replacedPath + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX);
 
             fileWriterSubstitutionItem.FileSuffix = "." + FileSubstitutionConstants.NESTING_STRING_SUFFIX;
             WriteSubstitionFile(_nestingStringsSubstitute);
@@ -58,6 +61,14 @@ namespace ParadoxTranslationHelper
 
         }
 
+        private string ReplaceWithAnalyseDirectory(TranslationFile translationFile)
+        {
+            string fullPath = Path.GetDirectoryName(translationFile.FileName);
+            DirectoryInfo directoryInfo = Directory.GetParent(fullPath);
+            string analysePath = Path.Combine(directoryInfo.FullName, ParadoxTranslationHelperConfig.PathResult);
+
+            return Path.Combine(analysePath, Path.GetFileName(translationFile.FileName));
+        }
         private void Substitute(List<LineObject> lineObjects)
         {
             if (lineObjects == null)
@@ -191,9 +202,9 @@ namespace ParadoxTranslationHelper
             return sub + ";" + lineObject.Key + ";" + lineObject.LineNumber;
         }
 
-        private void WriteSubstitionFile(TranslationFile translationFile)
+        private void WriteSubstitionFile(TranslationFile translationFile, string fileName)
         {
-            Utility.WriteTranslationFile(translationFile);
+            Utility.WriteTranslationFile(translationFile, fileName);
         }
         private void WriteSubstitionFile(Dictionary<string, string> nestingStrings)
         {

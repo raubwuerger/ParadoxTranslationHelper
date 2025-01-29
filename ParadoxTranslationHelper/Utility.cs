@@ -177,13 +177,11 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
-            string substitionFileSuffix = ".sub";
-
             Dictionary<int, LineObject> _lines = translationFile.Lines;
             List<LineObject> lineObjects = _lines.Values.ToList();
 
             Console.WriteLine("Writing substituted source file started: " + fileName);
-            using (StreamWriter outputFile = new StreamWriter(fileName + substitionFileSuffix))
+            using (StreamWriter outputFile = new StreamWriter(fileName))
             {
                 foreach (LineObject line in lineObjects)
                 {
