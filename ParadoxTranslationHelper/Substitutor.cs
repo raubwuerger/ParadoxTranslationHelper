@@ -76,7 +76,6 @@ namespace ParadoxTranslationHelper
             foreach (var lineObject in lineObjects)
             {
                 SubstituteNestingString(lineObject);
-                SubstituteColorCode(lineObject);
                 SubstituteNamespace(lineObject);
                 SubstituteIcon(lineObject);
             }
