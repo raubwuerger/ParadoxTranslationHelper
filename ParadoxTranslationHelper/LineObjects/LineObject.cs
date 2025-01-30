@@ -32,7 +32,7 @@ namespace ParadoxTranslationHelper
         public List<string> NestingStrings { get => _nestingStrings; set => _nestingStrings = value; }
         public List<string> ColorCodes { get => _colorCodes; set => _colorCodes = value; }
         public List<string> Icons { get => _icons; set => _icons = value; }
-        public string OriginalLine { get => _originalLine; set => _originalLine = value;  }
+        public string OriginalLine { get => _originalLine; set => _originalLine = value; }
         public string OriginalLineSubstituted { get => _originalLineSubstituted; set => _originalLineSubstituted = value; }
         public List<string> NewLines { get => _newLines; set => _newLines = value; }
     }

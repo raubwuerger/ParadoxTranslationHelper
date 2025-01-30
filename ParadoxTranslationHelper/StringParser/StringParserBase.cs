@@ -39,12 +39,12 @@ namespace ParadoxTranslationHelper
 
             return true;
         }
-        
+
         protected bool IgnoreLine(string source)
         {
-            foreach( string ignore in _lineIgnores )
+            foreach (string ignore in _lineIgnores)
             {
-                if( 0 == source.IndexOf(ignore) )
+                if (0 == source.IndexOf(ignore))
                 {
                     return true;
                 }

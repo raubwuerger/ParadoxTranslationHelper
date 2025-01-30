@@ -10,7 +10,7 @@ namespace ParadoxTranslationHelper
     {
         public override List<string> GetToken(string source, List<string> tokens)
         {
-            if( tokens == null )
+            if (tokens == null)
             {
                 return new List<string>();
             }
@@ -26,7 +26,7 @@ namespace ParadoxTranslationHelper
             }
 
             int _startPos = source.IndexOf(StartTag, 0) + StartTag.Length;
-            foreach (string endTag in EndTags )
+            foreach (string endTag in EndTags)
             {
                 string subString = source.Substring(_startPos, source.Length - _startPos);
 
@@ -37,16 +37,16 @@ namespace ParadoxTranslationHelper
                 int _endPos = source.IndexOf(endTag, _startPos);
 
                 int startPosCalculated = _startPos + StartIndexShift;
-                if ( startPosCalculated  < 0 || startPosCalculated >= subString.Length )
+                if (startPosCalculated < 0 || startPosCalculated >= subString.Length)
                 {
                     startPosCalculated = _startPos;
                 }
 
-                if(SubStringCount == 0 )
+                if (SubStringCount == 0)
                 {
                     tokens.Add(source.Substring(startPosCalculated, _endPos - _startPos));
                 }
-                else 
+                else
                 {
                     tokens.Add(source.Substring(startPosCalculated, SubStringCount));
                 }

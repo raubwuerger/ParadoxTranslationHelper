@@ -13,7 +13,7 @@ namespace ParadoxTranslationHelper
         {
             get
             {
-                if( null == instance )
+                if (null == instance)
                 {
                     instance = new StringParserFactory();
                 }

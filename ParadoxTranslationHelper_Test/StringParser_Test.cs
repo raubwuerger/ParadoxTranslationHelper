@@ -1,5 +1,5 @@
-using ParadoxTranslationHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ParadoxTranslationHelper;
 using System.Collections.Generic;
 
 namespace HoI4_TranslationHelper_Test

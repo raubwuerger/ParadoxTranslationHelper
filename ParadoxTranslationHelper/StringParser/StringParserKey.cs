@@ -15,7 +15,7 @@ namespace ParadoxTranslationHelper
                 return tokens;
             }
 
-            if( true == IgnoreLine(source) )
+            if (true == IgnoreLine(source))
             {
                 return tokens;
             }
@@ -24,7 +24,7 @@ namespace ParadoxTranslationHelper
             int _endPos = _startPos;
             _startPos = 0;
 
-            String tokenToAdd;
+            string tokenToAdd;
 
             if (SubStringCount == 0)
             {

@@ -29,7 +29,7 @@ namespace ParadoxTranslationHelper
                 if (SubStringCount == 0)
                 {
                     int count = source.Length - _endPos - 1;
-                    if( count > 0 )
+                    if (count > 0)
                     {
                         count--;
                     }

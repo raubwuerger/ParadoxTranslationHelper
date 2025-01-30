@@ -25,9 +25,9 @@ namespace ParadoxTranslationHelper
         List<string> _newLines = new List<string>();
 
 
-        public LineObject Create( int lineNumber )
+        public LineObject Create(int lineNumber)
         {
-            LineObject lineObject = new LineObject( lineNumber );
+            LineObject lineObject = new LineObject(lineNumber);
             lineObject.TranslationFile = _translationFile;
             lineObject.Key = _key;
             lineObject.NameSpaces = _nameSpace;
