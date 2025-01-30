@@ -60,19 +60,6 @@ namespace ParadoxTranslationHelper
             CheckMissingKeys();
         }
 
-        public static void DiffTranslationVersionsSteam()
-        {
-            Analyse();
-            _localisationCompare = AnalyseDirectory(ParadoxTranslationHelperConfig.PathCompare);
-            if( _localisationCompare == null )
-            {
-                Console.WriteLine("Steam path not set!");
-                return;
-            }
-            
-            _localisationEnglishUpdated = _localisationCompare;
-            CheckNewKeysUpdate();
-        }
         public static void DiffTranslationVersions()
         {
             Analyse();
@@ -206,8 +193,6 @@ namespace ParadoxTranslationHelper
                 Console.WriteLine(pair.Key +";" +pair.Value.OriginalLine);
             }
 
-            //TODO: 2025-01-28 - JHA - Path analysation (<-- All created stuff in this directory)
-            //TODO: 2025-01-28 - JHA - Refactor function part to dictionary Dictionary<string(sub,resub,...), IFunctionObject>
             string directory = CreateDirectory();
             if( null == directory )
             {

@@ -34,7 +34,7 @@ namespace ParadoxTranslationHelper
             ParadoxTranslationHelperConfig.PathGerman = Path.Combine(found.PathBase, found.PathGerman);
             ParadoxTranslationHelperConfig.PathBase = found.PathBase;
             ParadoxTranslationHelperConfig.PathResult = Path.Combine(found.PathBase, found.PathResult);
-            ParadoxTranslationHelperConfig.PathCompare = found.PathCompare;
+            ParadoxTranslationHelperConfig.PathSteam = found.PathCompare;
 
             return true;
         }

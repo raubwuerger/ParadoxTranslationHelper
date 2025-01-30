@@ -93,7 +93,8 @@ namespace ParadoxTranslationHelper
             }
             else if (text.Equals(Constants.FUNCTION_DIFF_STEAM, StringComparison.CurrentCultureIgnoreCase))
             {
-                TranslationFileAnalyser.DiffTranslationVersionsSteam();
+                IFunctionObject functionObject = FunctionObjectFactory.CreateDiffSteam();
+                functionObject.DoWork();
             }
             else 
             {
