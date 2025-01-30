@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper
 {
-    public class FunctionObjectDiffSteam : FunctionObjectBase
+    public class FunctionObjectDiff : FunctionObjectBase
     {
-        public FunctionObjectDiffSteam(string name) : base(name)
+        public FunctionObjectDiff(string name) : base(name)
         {
         }
 
@@ -52,7 +52,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            Utility.WriteLines(toCreate.Values.ToList(), Path.Combine(directory, "MissingTranslationKeys.yml"));
+            Utility.WriteLines(toCreate.Values.ToList(), Path.Combine(directory, ResultFileName ));
 
             Dictionary<string, LineObject> toDelete = new Dictionary<string, LineObject>();
             foreach (KeyValuePair<string, LineObject> pair in old)

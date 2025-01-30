@@ -12,7 +12,7 @@ namespace ParadoxTranslationHelper
         public static string FILE_PATTERN = "*.yml";
         public static IFunctionObject? CreateDiffSteam()
         {
-            FunctionObjectDiffSteam functionObjectDiffSteam = new FunctionObjectDiffSteam(Constants.FUNCTION_DIFF_STEAM);
+            FunctionObjectDiff functionObjectDiffSteam = new FunctionObjectDiff(Constants.FUNCTION_DIFF_STEAM);
 
             functionObjectDiffSteam.LocalisationEnglishUpdated = AnalyseDirectory(ParadoxTranslationHelperConfig.PathSteam);
             if( null == functionObjectDiffSteam.LocalisationEnglishUpdated)
@@ -22,9 +22,22 @@ namespace ParadoxTranslationHelper
             }
 
             functionObjectDiffSteam.LocalisationEnglish = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+            functionObjectDiffSteam.ResultFileName = "MissingTranslationKeysSteam.yml"; ;
 
             return functionObjectDiffSteam;
         }
+
+        public static IFunctionObject? CreateDiff()
+        {
+            FunctionObjectDiff functionObjectDiff = new FunctionObjectDiff(Constants.FUNCTION_DIFF);
+
+            functionObjectDiff.LocalisationEnglish = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+            functionObjectDiff.LocalisationEnglishUpdated = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglishUpdated);
+            functionObjectDiff.ResultFileName = "MissingTranslationKeys.yml"; ;
+
+            return functionObjectDiff;
+        }
+
 
         private static List<TranslationFile> AnalyseDirectory(string directory)
         {

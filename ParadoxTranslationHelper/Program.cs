@@ -89,7 +89,8 @@ namespace ParadoxTranslationHelper
             }
             else if(text.Equals(Constants.FUNCTION_DIFF, StringComparison.CurrentCultureIgnoreCase) )
             {
-                TranslationFileAnalyser.DiffTranslationVersions();
+                IFunctionObject functionObject = FunctionObjectFactory.CreateDiff();
+                functionObject.DoWork();
             }
             else if (text.Equals(Constants.FUNCTION_DIFF_STEAM, StringComparison.CurrentCultureIgnoreCase))
             {

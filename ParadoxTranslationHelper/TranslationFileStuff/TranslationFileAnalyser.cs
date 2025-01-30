@@ -60,12 +60,6 @@ namespace ParadoxTranslationHelper
             CheckMissingKeys();
         }
 
-        public static void DiffTranslationVersions()
-        {
-            Analyse();
-            CheckNewKeysUpdate();
-        }
-
         private static void Analyse()
         {
             _localisationEnglish = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
