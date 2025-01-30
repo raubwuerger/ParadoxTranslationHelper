@@ -259,6 +259,37 @@ namespace ParadoxTranslationHelper
             return Path.Combine(analysePath, Path.GetFileName(translationFile.FileName));
         }
 
+        public static string FILE_PATTERN = "*.yml";
+        public static List<TranslationFile> AnalyseDirectory(string directory)
+        {
+            if (null == directory)
+            {
+                return null;
+            }
+
+            if (false == Directory.Exists(directory))
+            {
+                Console.WriteLine("Directory doesn't exist: " + directory);
+                return null;
+            }
+
+            string[] files = Directory.GetFiles(directory, FILE_PATTERN, SearchOption.AllDirectories);
+            if (files.Length <= 0)
+            {
+                return null;
+            }
+
+            List<TranslationFile> translationFiles = new List<TranslationFile>();
+            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
+
+            foreach (string file in files)
+            {
+                translationFiles.Add(translationFileCreator.Create(file));
+            }
+
+            return translationFiles;
+        }
+
 
     }
 }

@@ -14,6 +14,8 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
+            LocalisationEnglish = Utility.AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+
             foreach (TranslationFile translationFile in LocalisationEnglish)
             {
                 FileSubstitutor fileSubstitutor = new FileSubstitutor();

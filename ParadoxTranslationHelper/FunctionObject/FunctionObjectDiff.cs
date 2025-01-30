@@ -15,10 +15,14 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
+            LocalisationEnglish = Utility.AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+            LocalisationEnglishUpdated = Utility.AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglishUpdated);
+            ResultFileName = "MissingTranslationKeys.yml";
+
             return CheckNewKeysUpdate();
         }
 
-        private bool CheckNewKeysUpdate()
+        protected bool CheckNewKeysUpdate()
         {
             Dictionary<string, LineObject> updated = GetKeys(LocalisationEnglishUpdated);
             Dictionary<string, LineObject> old = GetKeys(LocalisationEnglish);
