@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.FunctionObject;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -15,20 +16,27 @@ namespace ParadoxTranslationHelper
         static void Main(string[] args)
         {
             ReadConfig();
+
             if (args.Length < 2)
             {
                 LogInfosMods("Too few arguments passed ...");
                 return;
             }
 
-            if( false == SetActiveMod(args[0]))
+            if ( false == SetActiveMod(args[0]))
             {
                 LogInfosMods("No mod selected ...");
                 return;
             }
 
-            AnalyseFunction(args[1]);
-
+            FunctionObjectRegistryInitialiser.Init();
+            IFunctionObject functionObject = FunctionObjectRegistry.Instance.GetFunctionObject(args[1]);
+            if( functionObject == null ) 
+            {
+                LogInfosMods("Function not found ...");
+                return;
+            }
+            functionObject.DoWork();
         }
 
         private static void LogInfosMods(string text)
@@ -36,14 +44,15 @@ namespace ParadoxTranslationHelper
             Console.WriteLine(text + Environment.NewLine);
             Console.WriteLine("args[0] == mod name");
             Console.WriteLine("args[1] == function");
-            Console.WriteLine("        => sub (substitute translation file)");
-            Console.WriteLine("        => resub (resubstitute translation file)");
-            Console.WriteLine("        => analyse (analyse translation file)");
-            Console.WriteLine("        => diff (write missing keys to file)");
-            Console.WriteLine("        => diff_steam (write missing keys to file against steam path)");
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Registered functions");
+            foreach ( KeyValuePair<string,IFunctionObject> valueKeyPair in FunctionObjectRegistry.Instance.GetAll() )
+            {
+                Console.WriteLine("        =>" +valueKeyPair.Key +" (" + "description" +")" );
+            }
+
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Known mods (ParadoxTranslationHelper.xml): ");
-            Console.WriteLine(Environment.NewLine);
             foreach (DataSetMod dataSetMod in ModSelector.ModList)
             {
                 Console.WriteLine( dataSetMod.Name);
@@ -71,41 +80,6 @@ namespace ParadoxTranslationHelper
             }
 
             return true;
-        }
-
-        private static void AnalyseFunction(string text)
-        { 
-            if( text.Equals(Constants.FUNCTION_SUB, StringComparison.CurrentCultureIgnoreCase) )
-            {
-                IFunctionObject functionObject = FunctionObjectFactory.CreateSubstitute();
-                functionObject.DoWork();
-            }
-            else if( text.Equals(Constants.FUNCTION_RESUB, StringComparison.CurrentCultureIgnoreCase ) ) 
-            {
-                IFunctionObject functionObject = FunctionObjectFactory.CreateReSubstitute();
-                functionObject.DoWork();
-            }
-            else if( text.Equals(Constants.FUNCTION_ANALYSIS, StringComparison.CurrentCultureIgnoreCase) )
-            {
-                IFunctionObject functionObject = FunctionObjectFactory.CreateAnalyse();
-                functionObject.DoWork();
-            }
-            else if(text.Equals(Constants.FUNCTION_DIFF, StringComparison.CurrentCultureIgnoreCase) )
-            {
-                IFunctionObject functionObject = FunctionObjectFactory.CreateDiff();
-                functionObject.DoWork();
-            }
-            else if (text.Equals(Constants.FUNCTION_DIFF_STEAM, StringComparison.CurrentCultureIgnoreCase))
-            {
-                IFunctionObject functionObject = FunctionObjectFactory.CreateDiffSteam();
-                functionObject.DoWork();
-            }
-            else 
-            {
-                Console.WriteLine("Unknown analyze function defined: " + text);
-                LogInfosMods("");
-            }
-
         }
 
     }

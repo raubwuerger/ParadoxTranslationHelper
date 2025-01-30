@@ -16,11 +16,14 @@ namespace ParadoxTranslationHelper
         string _resultFileName = null;
 
         string _name;
+
+        string _description;
         public string Name { get => _name; }
         public List<TranslationFile> LocalisationEnglish { get => _localisationEnglish; set => _localisationEnglish = value; }
         public List<TranslationFile> LocalisationEnglishUpdated { get => _localisationEnglishUpdated; set => _localisationEnglishUpdated = value; }
         public List<TranslationFile> LocalisationGerman { get => _localisationGerman; set => _localisationGerman = value; }
         public string ResultFileName { get => _resultFileName; set => _resultFileName = value; }
+        public string Description { get => _description; set => _description = value; }
 
         protected FunctionObjectBase(string name) 
         { 
