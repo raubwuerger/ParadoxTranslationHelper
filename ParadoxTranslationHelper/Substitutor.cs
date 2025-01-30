@@ -15,11 +15,11 @@ namespace ParadoxTranslationHelper
         private Dictionary<string, string> _iconSubstitute = new Dictionary<string, string>(); //ulong substitute number, string original text
         FileWriterSubstitutionItem fileWriterSubstitutionItem = new FileWriterSubstitutionItem();
 
-        public void Substitute(TranslationFile translationFile)
+        public bool Substitute(TranslationFile translationFile)
         {
             if (translationFile == null)
             {
-                return;
+                return false;
             }
 
             Console.WriteLine("Substituting file: " + translationFile.FileName);
@@ -30,6 +30,7 @@ namespace ParadoxTranslationHelper
             Console.WriteLine("Substituted icons : " + _iconSubstitute.Count);
 
             WriteSubstitionFiles(translationFile);
+            return true;
         }
 
         private bool WriteSubstitionFiles(TranslationFile translationFile)

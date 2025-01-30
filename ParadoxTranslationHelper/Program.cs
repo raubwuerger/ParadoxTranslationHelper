@@ -77,11 +77,13 @@ namespace ParadoxTranslationHelper
         { 
             if( text.Equals(Constants.FUNCTION_SUB, StringComparison.CurrentCultureIgnoreCase) )
             {
-                TranslationFileAnalyser.SubstitueSourceFiles();
+                IFunctionObject functionObject = FunctionObjectFactory.CreateSubstitute();
+                functionObject.DoWork();
             }
             else if( text.Equals(Constants.FUNCTION_RESUB, StringComparison.CurrentCultureIgnoreCase ) ) 
             {
-                TranslationFileAnalyser.ReSubstitueSourceFiles();
+                IFunctionObject functionObject = FunctionObjectFactory.CreateReSubstitute();
+                functionObject.DoWork();
             }
             else if( text.Equals(Constants.FUNCTION_ANALYSIS, StringComparison.CurrentCultureIgnoreCase) )
             {

@@ -41,6 +41,7 @@ namespace ParadoxTranslationHelper
         public static IFunctionObject? CreateAnalyse()
         {
             FunctionObjectAnalyse functionObjectAnalyse = new FunctionObjectAnalyse(Constants.FUNCTION_ANALYSIS);
+
             functionObjectAnalyse.LocalisationEnglish = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
             functionObjectAnalyse.LocalisationEnglishUpdated = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglishUpdated);
             functionObjectAnalyse.LocalisationGerman = AnalyseDirectory(ParadoxTranslationHelperConfig.PathGerman);
@@ -48,6 +49,24 @@ namespace ParadoxTranslationHelper
             return functionObjectAnalyse;
         }
 
+        public static IFunctionObject? CreateSubstitute()
+        {
+            FunctionObjectSubstitute functionObjectSubstitute = new FunctionObjectSubstitute(Constants.FUNCTION_SUB);
+
+            functionObjectSubstitute.LocalisationEnglish = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+
+            return functionObjectSubstitute;
+        }
+
+        public static IFunctionObject? CreateReSubstitute()
+        {
+            FunctionObjectReSubstitute functionObjectReSubstitute = new FunctionObjectReSubstitute(Constants.FUNCTION_RESUB);
+
+            functionObjectReSubstitute.LocalisationEnglish = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+            functionObjectReSubstitute.LocalisationGerman = AnalyseDirectory(ParadoxTranslationHelperConfig.PathGerman);
+
+            return functionObjectReSubstitute;
+        }
 
         private static List<TranslationFile> AnalyseDirectory(string directory)
         {

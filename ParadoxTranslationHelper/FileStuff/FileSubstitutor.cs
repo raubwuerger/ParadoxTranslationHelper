@@ -20,15 +20,15 @@ namespace ParadoxTranslationHelper
             reSubstitutor.ReSubstitute();
         }
 
-        public void Substitute(TranslationFile translationFile)
+        public bool Substitute(TranslationFile translationFile)
         {
             if (translationFile == null)
             {
-                return;
+                return false;
             }
 
             Substitutor substitutor = new Substitutor();
-            substitutor.Substitute(translationFile);
+            return substitutor.Substitute(translationFile);
         }
 
     }
