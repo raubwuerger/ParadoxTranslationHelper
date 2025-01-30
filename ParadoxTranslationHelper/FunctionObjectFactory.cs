@@ -38,6 +38,16 @@ namespace ParadoxTranslationHelper
             return functionObjectDiff;
         }
 
+        public static IFunctionObject? CreateAnalyse()
+        {
+            FunctionObjectAnalyse functionObjectAnalyse = new FunctionObjectAnalyse(Constants.FUNCTION_ANALYSIS);
+            functionObjectAnalyse.LocalisationEnglish = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+            functionObjectAnalyse.LocalisationEnglishUpdated = AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglishUpdated);
+            functionObjectAnalyse.LocalisationGerman = AnalyseDirectory(ParadoxTranslationHelperConfig.PathGerman);
+
+            return functionObjectAnalyse;
+        }
+
 
         private static List<TranslationFile> AnalyseDirectory(string directory)
         {
