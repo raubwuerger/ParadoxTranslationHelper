@@ -8,7 +8,9 @@ namespace ParadoxTranslationHelper
 {
     public interface IFunctionObject
     {
-        public string Name { get; }
-        public bool DoWork();
+        string Name { get; }
+
+        string Description { get; set; }
+        bool DoWork();
     }
 }

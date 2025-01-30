@@ -12,37 +12,42 @@ namespace ParadoxTranslationHelper
     {
         public static IFunctionObject? CreateDiffSteam()
         {
-            FunctionObjectDiffSteam functionObjectDiffSteam = new FunctionObjectDiffSteam(Constants.FUNCTION_DIFF_STEAM);
+            FunctionObjectDiffSteam functionObject = new FunctionObjectDiffSteam(Constants.FUNCTION_DIFF_STEAM);
+            functionObject.Description = "write missing keys to file against steam path";
 
-            return functionObjectDiffSteam;
+            return functionObject;
         }
 
         public static IFunctionObject? CreateDiff()
         {
-            FunctionObjectDiff functionObjectDiff = new FunctionObjectDiff(Constants.FUNCTION_DIFF);
+            FunctionObjectDiff functionObject = new FunctionObjectDiff(Constants.FUNCTION_DIFF);
+            functionObject.Description = "write missing keys to file";
 
-            return functionObjectDiff;
+            return functionObject;
         }
 
         public static IFunctionObject? CreateAnalyse()
         {
-            FunctionObjectAnalyse functionObjectAnalyse = new FunctionObjectAnalyse(Constants.FUNCTION_ANALYSIS);
+            FunctionObjectAnalyse functionObject = new FunctionObjectAnalyse(Constants.FUNCTION_ANALYSIS);
+            functionObject.Description = "analyse translation file";
 
-            return functionObjectAnalyse;
+            return functionObject;
         }
 
         public static IFunctionObject? CreateSubstitute()
         {
-            FunctionObjectSubstitute functionObjectSubstitute = new FunctionObjectSubstitute(Constants.FUNCTION_SUB);
+            FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(Constants.FUNCTION_SUB);
+            functionObject.Description = "substitute translation file";
 
-            return functionObjectSubstitute;
+            return functionObject;
         }
 
         public static IFunctionObject? CreateReSubstitute()
         {
-            FunctionObjectReSubstitute functionObjectReSubstitute = new FunctionObjectReSubstitute(Constants.FUNCTION_RESUB);
+            FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(Constants.FUNCTION_RESUB);
+            functionObject.Description = "resubstitute translation file";
 
-            return functionObjectReSubstitute;
+            return functionObject;
         }
     }
 }

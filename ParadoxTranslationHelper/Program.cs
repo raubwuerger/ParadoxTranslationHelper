@@ -48,7 +48,7 @@ namespace ParadoxTranslationHelper
             Console.WriteLine("Registered functions");
             foreach ( KeyValuePair<string,IFunctionObject> valueKeyPair in FunctionObjectRegistry.Instance.GetAll() )
             {
-                Console.WriteLine("        =>" +valueKeyPair.Key +" (" + "description" +")" );
+                Console.WriteLine("        => " +valueKeyPair.Key +" (" + valueKeyPair.Value.Description + ")" );
             }
 
             Console.WriteLine(Environment.NewLine);
