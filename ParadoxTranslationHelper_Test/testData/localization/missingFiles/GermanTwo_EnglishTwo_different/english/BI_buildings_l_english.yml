@@ -1,0 +1,61 @@
+﻿l_english:
+#### BICE ####
+ steel_refinery:0 "Steel Mill"
+ steel_refinery_desc:0 "This building coverts Iron to Steel.$steel_refinery_effect$"
+ steel_refinery_plural:0 "Steel Mills"
+ steel_refinery_effect: "\n\nMax Level: §Y20§!\nBuilding Health: §Y6§!\nInfrastructure Effect: §GYes§!"
+ 
+ aluminium_refinery:0 "Aluminium Mill"
+ aluminium_refinery_plural:0 "Aluminium Mills"
+ aluminium_refinery_desc:0 "This building converts Bauxite to Aluminium.$aluminium_refinery_effect$"
+ aluminium_refinery_effect: "\n\nMax Level: §Y20§!\nBuilding Health: §Y6§!\nInfrastructure Effect: §GYes§!"
+ 
+ synthetic_rubber_refinery:0 "Synthetic Rubber Refinery"
+ synthetic_rubber_refinery_desc:0 "This building provides the state with synthetic rubber production.\n\nMax Level: §Y4§!\nBuilding Health: §Y6§!\nInfrastructure Effect: §GYes§!"
+ synthetic_rubber_refinery_plural:0 "Synthetic Rubber Refineries"
+ 
+ police_station:0 "Police Station"
+ police_station_desc:0 "This building provides the state with means to prevent Partisan activity.\n\nMax Level: §Y1§!\nBuilding Health: §Y0§!\nInfrastructure Effect: §RNo§! \n\n$police_station_effect$"
+ police_station_effect:0 "Resistance Growth Speed: §G-10%§! \nRequired Garrisons: §G-5%§!"
+ recruitment_building:0 "Recruitment Centre"
+ recruitment_building_desc:0 "This building provides the state with means to enforce conscription more reliably.\n\nMax Level: §Y1§!\nBuilding Health: §Y0§!\nInfrastructure Effect: §RNo§!"
+ modifier_production_speed_recruitment_building_factor:0 "§YRecruitment Centre§! construction speed"
+
+ storage: "Resource Storage"
+ storage_plural: "Resource Storages"
+ storage_desc: "This building provides the state with means to store §YResources§!. After its construction it can be assigned to §Y1§! specific resource.$storage_effect$"
+ storage_effect: "\n\nMax Level: §Y1§!\nBuilding Health: §Y1§!\nInfrastructure Effect: §GYes§!\n\nStorage Capacity: §Y+50§! units of §YImport§!"
+ 
+ farm:0 "Industrial Farm"
+ farm_plural:0 "Industrial Farms"
+ farm_desc:0 "Larger scale mechanized agriculture, increasing production of §YFood§!.$farm_effect$"
+ farm_effect: "\n\nMax Level: §Y1§!\nBuilding Health: §Y0§!\nInfrastructure Effect: §GYes§!\n\nProduction in State:"
+ 
+ food_storage: "Food Storage"
+ food_storage_plural: "Food Storages"
+ food_storage_desc: "This building provides the state with means to store §YFood§!.$food_storage_effect$"
+ food_storage_effect: "\n\nMax Level: §Y4§!\nBuilding Health: §Y1§!\nInfrastructure Effect: §GYes§!\n\nStorage Capacity (K): §Y+300.00§!"
+ 
+ power_plant: "Power Plant"
+ power_plant_plural: "Power Plants"
+ power_plant_desc: "Thermal power plants generate §YEnergy§! by consuming §YCoal§! or §YFuel§!.$power_plant_effect$"
+ power_plant_effect: "\n\nMax Level: §Y20§!\nBuilding Health: §Y4§!\nInfrastructure Effect: §GYes§!"
+ 
+ hydro_power:0 "Hydroelectric Plant"
+ hydro_power_plural:0 "Hydroelectric Plants"
+ hydro_power_desc:0 "Hydroelectric power plants generate §YEnergy§! from renewable sources.$hydro_power_effect$"
+ hydro_power_effect:0 "\n\nMax Level: §Y5§!\nBuilding Health: §Y6§!"
+ hydro_power_overlay: "§YHydroelectric Plant§!\nHydroelectric power plants generate §YEnergy§! from renewable sources.\n\nMax Level: §Y5§!\nBuilding Health: §Y6§!\n\n£electricity_medium Energy Production: §Y+160§!\n\n£trigger_no This building is §Runbuildable.§!"
+
+ concentric_cirle:0 "AI construction"
+ concentric_cirle_desc:0 "This is used to script AI construction. You who read this shall not be aware, as the AI still builds buildings."
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ### EOF ###
