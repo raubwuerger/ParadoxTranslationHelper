@@ -260,7 +260,7 @@ namespace ParadoxTranslationHelper
         }
 
         public static string FILE_PATTERN = "*.yml";
-        public static List<TranslationFile> AnalyseDirectory(string directory)
+        public static List<TranslationFile> CreateTranslationFilesFromDirectory(string directory)
         {
             if (null == directory)
             {

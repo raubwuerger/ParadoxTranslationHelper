@@ -14,14 +14,14 @@ namespace ParadoxTranslationHelper.FunctionObject
 
         public override bool DoWork()
         {
-            LocalisationEnglishUpdated = Utility.AnalyseDirectory(ParadoxTranslationHelperConfig.PathSteam);
+            LocalisationEnglishUpdated = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathSteam);
             if (null == LocalisationEnglishUpdated)
             {
                 Console.WriteLine("Steam path not set!");
                 return false;
             }
 
-            LocalisationEnglish = Utility.AnalyseDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathEnglish);
             ResultFileName = "MissingTranslationKeysSteam.yml"; ;
 
             return CheckNewKeysUpdate();
