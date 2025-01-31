@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ParadoxTranslationHelper;
 using System.Collections.Generic;
 
-namespace HoI4_TranslationHelper_Test
+namespace ParadoxTranslationHelper_Test
 {
     [TestClass]
     public class StringParser_Test

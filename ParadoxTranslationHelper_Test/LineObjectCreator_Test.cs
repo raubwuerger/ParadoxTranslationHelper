@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HoI4_TranslationHelper_Test
+namespace ParadoxTranslationHelper_Test
 {
     [TestClass]
     public class LineObjectCreator_Test

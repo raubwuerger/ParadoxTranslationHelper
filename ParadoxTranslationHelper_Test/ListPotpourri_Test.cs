@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace HoI4_TranslationHelper_Test
+namespace ParadoxTranslationHelper_Test
 {
     [TestClass]
     public class ListPotpourri_Test
