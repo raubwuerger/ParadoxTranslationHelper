@@ -11,7 +11,12 @@ namespace ParadoxTranslationHelper
         public static string CONFIG = @".\ParadoxTranslationHelper.xml";
 
         public static string LOCALISATION_ENGLISH_FULL = "_l_english";
+        public static string LOCALISATION_ENGLISH_FILE_IDENTIFIER = "l_english:";
+        public static string LOCALISATION_ENGLISH = "english";
+
         public static string LOCALISATION_GERMAN_FULL = "_l_german";
+        public static string LOCALISATION_GERMAN_FILE_IDENTIFIER = "l_german:";
+        public static string LOCALISATION_GERMAN = "german";
 
         public static string LOCALISATION_EXTENSION = ".yml";
         public static string LOCALISATION_START_STRING = "_l_";

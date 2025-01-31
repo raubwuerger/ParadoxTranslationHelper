@@ -10,6 +10,7 @@ namespace ParadoxTranslationHelper
 {
     internal class TranslationFileCreator
     {
+        LineObjectCreator _lineObjectCreator = new LineObjectCreator();
         public TranslationFile CopyExceptFileName( string filename, TranslationFile other )
         {
             TranslationFile translationFile = new TranslationFile(filename);
@@ -19,13 +20,18 @@ namespace ParadoxTranslationHelper
             return translationFile;
         }
 
-        LineObjectCreator lineObjectCreator = new LineObjectCreator();
         public TranslationFile Create(string fileName)
         {
+            if( string.IsNullOrEmpty(fileName) )
+            {
+                Console.WriteLine("Parameter <fileName> must not be null or empty!");
+                return null;
+            }
+
             TranslationFile translationFile = new TranslationFile(fileName);
             translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(fileName);
 
-            lineObjectCreator.TranslationFile = translationFile;
+            _lineObjectCreator.TranslationFile = translationFile;
             translationFile.Lines = CreateLineObjects(File.ReadAllLines(fileName));
 
             return translationFile;
@@ -69,7 +75,7 @@ namespace ParadoxTranslationHelper
                 }
 
                 lineNumber++;
-                LineObject lineObject = lineObjectCreator.Create(lineNumber);
+                LineObject lineObject = _lineObjectCreator.Create(lineNumber);
                 lineObject.OriginalLine = line;
                 lineObjects.Add(lineNumber, lineObject);
             }
@@ -99,7 +105,7 @@ namespace ParadoxTranslationHelper
             token = stringParser.GetToken(line, token);
             if (token.Count > 0)
             {
-                lineObjectCreator.Key = token[0];
+                _lineObjectCreator.Key = token[0];
             }
         }
 
@@ -107,35 +113,35 @@ namespace ParadoxTranslationHelper
         {
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
             List<string> token = new List<string>();
-            lineObjectCreator.NameSpace = stringParser.GetToken(line, token);
+            _lineObjectCreator.NameSpace = stringParser.GetToken(line, token);
         }
 
         private void SetNestingStrings(string line)
         {
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNestingStrings();
             List<string> token = new List<string>();
-            lineObjectCreator.NestingStrings = stringParser.GetToken(line, token);
+            _lineObjectCreator.NestingStrings = stringParser.GetToken(line, token);
         }
 
         private void SetColorCodes(string line)
         {
             IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes(); 
             List<string> token = new List<string>();
-            lineObjectCreator.ColorCodes = stringParser.GetToken(line, token);
+            _lineObjectCreator.ColorCodes = stringParser.GetToken(line, token);
         }
 
         private void SetIcons(string line) 
         {
             IStringParser stringParser = StringParserFactory.Instance.CreateParserIcons();
             List<string> token = new List<string>();
-            lineObjectCreator.Icons = stringParser.GetToken(line, token);
+            _lineObjectCreator.Icons = stringParser.GetToken(line, token);
         }
 
         private void SetNewLine(string line)
         {
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
             List<string> token = new List<string>();
-            lineObjectCreator.NewLines = stringParser.GetToken(line, token);
+            _lineObjectCreator.NewLines = stringParser.GetToken(line, token);
         }
     }
 }

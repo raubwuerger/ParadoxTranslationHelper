@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -291,5 +292,60 @@ namespace ParadoxTranslationHelper
         }
 
 
+        public static TranslationFile ConvertToGerman(TranslationFile translationFile)
+        {
+            if (null == translationFile)
+            {
+                Console.WriteLine("Parameter <translationFile> must not be null!");
+                return null;
+            }
+
+            TranslationFileCreator translationFileCreator = new();
+
+            TranslationFile translationConverted = translationFileCreator.CopyExceptFileName(ConvertLocalisationToGerman(translationFile.FileName), translationFile);
+            translationConverted = ConvertFileContentIdentifierToGerman(translationConverted);
+
+            return translationConverted;
+        }
+
+        public static string ConvertLocalisationToGerman( string localisation )
+        {
+            if ( true == string.IsNullOrEmpty(localisation) )
+            {
+                Console.WriteLine("Parameter <localisation> must not be null nor empty!");
+                return null;
+            }
+
+            string path = Path.GetDirectoryName(localisation);
+            string pathParent = Directory.GetParent(path).FullName;
+            string pathConverted = Path.Combine(pathParent, Constants.LOCALISATION_GERMAN );
+
+            string fileName = Path.GetFileName(localisation);
+            string fileNameConverted = fileName.Replace(Constants.LOCALISATION_ENGLISH_FULL, Constants.LOCALISATION_GERMAN_FULL);
+
+            return Path.Combine(pathConverted, fileNameConverted);
+        }
+
+        public static TranslationFile ConvertFileContentIdentifierToGerman( TranslationFile translationFile )
+        {
+            if (null == translationFile)
+            {
+                Console.WriteLine("Parameter <translationFile> must not be null!");
+                return null;
+            }
+
+            foreach ( KeyValuePair<int,LineObject> lineObject in translationFile.Lines)
+            {
+                if( false == lineObject.Value.OriginalLine.Contains(Constants.LOCALISATION_ENGLISH_FILE_IDENTIFIER) )
+                { 
+                    continue; 
+                }
+
+                lineObject.Value.OriginalLine = lineObject.Value.OriginalLine.Replace(Constants.LOCALISATION_ENGLISH_FILE_IDENTIFIER, Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER);
+                break;
+            }
+
+            return translationFile;
+        }
     }
 }
