@@ -22,7 +22,6 @@ namespace ParadoxTranslationHelper.FunctionObject
             }
 
             LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathEnglish);
-            ResultFileName = "MissingTranslationKeysSteam.yml"; ;
 
             return CheckNewKeysUpdate();
         }

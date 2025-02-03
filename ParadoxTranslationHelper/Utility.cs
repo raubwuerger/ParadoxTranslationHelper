@@ -221,6 +221,13 @@ namespace ParadoxTranslationHelper
 
             int indexOfKay = lineObject.OriginalLineSubstituted.IndexOf(lineObject.Key);
             int endOfKey = indexOfKay +lineObject.Key.Length;
+
+            //Remove space after key.
+            if( lineObject.OriginalLineSubstituted[endOfKey] == ' ' )
+            {
+                endOfKey++;
+            }
+
             StringBuilder sb = new StringBuilder();
             sb.Append(lineObject.Key);
             sb.Append("\t");

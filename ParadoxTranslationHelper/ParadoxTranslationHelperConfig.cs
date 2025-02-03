@@ -14,6 +14,7 @@ namespace ParadoxTranslationHelper
         private static string _pathEnglishUpdated = "";
         private static string _pathGerman = "";
         private static string _pathSteam = "";
+        private static string _pathAnalyse = "";
 
         public static string PathEnglish { get => _pathEnglish; set => _pathEnglish = value; }
         public static string PathGerman { get => _pathGerman; set => _pathGerman = value; }

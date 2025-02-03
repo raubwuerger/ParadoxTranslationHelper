@@ -14,6 +14,7 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectDiffSteam functionObject = new FunctionObjectDiffSteam(Constants.FUNCTION_DIFF_STEAM);
             functionObject.Description = "write missing keys to file against steam path";
+            functionObject.ResultFileName = Constants.FUNCTION_FILE_NAME_STEAM;
 
             return functionObject;
         }
@@ -42,6 +43,15 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
+        public static IFunctionObject? CreateSubstituteAnalyse()
+        {
+            FunctionObjectSubstituteAnalyse functionObject = new FunctionObjectSubstituteAnalyse(Constants.FUNCTION_SUB_ANALYSE);
+            functionObject.Description = "substitute translation file in folder analysis";
+            functionObject.LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathResult);
+
+            return functionObject;
+        }
+
         public static IFunctionObject? CreateReSubstitute()
         {
             FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(Constants.FUNCTION_RESUB);
@@ -49,5 +59,6 @@ namespace ParadoxTranslationHelper
 
             return functionObject;
         }
+
     }
 }

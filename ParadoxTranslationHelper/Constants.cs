@@ -22,10 +22,14 @@ namespace ParadoxTranslationHelper
         public static string LOCALISATION_START_STRING = "_l_";
 
         public static string FUNCTION_SUB = "sub";
+        public static string FUNCTION_SUB_ANALYSE = "sub_analyse";
         public static string FUNCTION_RESUB = "resub";
+        public static string FUNCTION_RESUB_ANALYSE = "resub_analyse";
         public static string FUNCTION_ANALYSIS = "analyse";
         public static string FUNCTION_DIFF = "diff";
         public static string FUNCTION_DIFF_STEAM = "diff_steam";
+
+        public static string FUNCTION_FILE_NAME_STEAM = "MissingTranslationKeysSteam.yml";
 
     }
 }
