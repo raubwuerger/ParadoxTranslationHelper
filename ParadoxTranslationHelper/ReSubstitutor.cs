@@ -14,7 +14,7 @@ namespace ParadoxTranslationHelper
         private Dictionary<string, string> _namespaceReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _iconReSubstitute = new Dictionary<string, string>();
 
-        FileReaderSubstitutionItem fileReaderSubstitutionItem = new FileReaderSubstitutionItem();
+        FileReaderSubstitutionItem _fileReaderSubstitutionItem = new FileReaderSubstitutionItem();
 
         private static string SUBSTITUTION_FILE_APPENDIX = ".substituted.txt";
         private TranslationFileSetSubstitution _translationFileSetSubstitution;
@@ -37,14 +37,14 @@ namespace ParadoxTranslationHelper
 
         private bool ReadSubstitutionFiles()
         {
-            fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathNestingStringsFile;
-            _nestingStringsReSubstitute = fileReaderSubstitutionItem.Read();
+            _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathNestingStringsFile;
+            _nestingStringsReSubstitute = _fileReaderSubstitutionItem.Read();
 
-            fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathNamespaceFile;
-            _namespaceReSubstitute = fileReaderSubstitutionItem.Read();
+            _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathNamespaceFile;
+            _namespaceReSubstitute = _fileReaderSubstitutionItem.Read();
 
-            fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathIconFile; 
-            _iconReSubstitute = fileReaderSubstitutionItem.Read();
+            _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathIconFile; 
+            _iconReSubstitute = _fileReaderSubstitutionItem.Read();
             
 
             return true;

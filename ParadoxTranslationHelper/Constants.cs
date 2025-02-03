@@ -31,5 +31,7 @@ namespace ParadoxTranslationHelper
 
         public static string FUNCTION_FILE_NAME_STEAM = "MissingTranslationKeysSteam.yml";
 
+        public static string FILE_EXTENSION_PREFIX = "*.";
+
     }
 }

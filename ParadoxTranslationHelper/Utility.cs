@@ -268,7 +268,7 @@ namespace ParadoxTranslationHelper
         }
 
         public static string FILE_PATTERN = "*.yml";
-        public static List<TranslationFile> CreateTranslationFilesFromDirectory(string directory)
+        public static List<TranslationFile> CreateTranslationFilesFromDirectory(string directory, string filePattern = "*.yml")
         {
             if (null == directory)
             {
@@ -281,7 +281,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            string[] files = Directory.GetFiles(directory, FILE_PATTERN, SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(directory, filePattern, SearchOption.AllDirectories);
             if (files.Length <= 0)
             {
                 return null;
@@ -353,6 +353,23 @@ namespace ParadoxTranslationHelper
             }
 
             return translationFile;
+        }
+
+        public static string? RemoveAllFileExtensions( string fileName ) 
+        { 
+            if( string.IsNullOrEmpty(fileName) )
+            {
+                Console.WriteLine("Parameter <fileNam> must not be null or empty!");
+                return null;
+            }
+
+            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
+            if( fileName.Equals(Path.GetFileNameWithoutExtension(fileName)) )
+            {
+                return fileNameWithoutExtension;
+            }
+
+            return RemoveAllFileExtensions(fileNameWithoutExtension);
         }
     }
 }

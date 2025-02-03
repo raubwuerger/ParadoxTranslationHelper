@@ -16,6 +16,7 @@ namespace ParadoxTranslationHelper.FunctionObject
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateDiff());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateDiffSteam());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSubstituteAnalyse());
+            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateReSubstituteAnalyse());
         }
     }
 }

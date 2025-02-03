@@ -46,7 +46,7 @@ namespace ParadoxTranslationHelper
         public static IFunctionObject? CreateSubstituteAnalyse()
         {
             FunctionObjectSubstituteAnalyse functionObject = new FunctionObjectSubstituteAnalyse(Constants.FUNCTION_SUB_ANALYSE);
-            functionObject.Description = "substitute translation file in folder analysis";
+            functionObject.Description = "substitute translation file in folder analysis (MissingTranslationKeysSteam)";
             functionObject.LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathResult);
 
             return functionObject;
@@ -56,6 +56,18 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(Constants.FUNCTION_RESUB);
             functionObject.Description = "resubstitute translation file";
+
+            return functionObject;
+        }
+
+        public static IFunctionObject? CreateReSubstituteAnalyse()
+        {
+            FunctionObjectReSubstituteAnalyse functionObject = new FunctionObjectReSubstituteAnalyse(Constants.FUNCTION_RESUB_ANALYSE);
+            functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
+            functionObject.LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathResult);
+            functionObject.LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_EXTENSION_PREFIX +Constants.FUNCTION_SUB);
+
+            string fileName = Path.GetFileNameWithoutExtension("FileWithNoExtension");
 
             return functionObject;
         }

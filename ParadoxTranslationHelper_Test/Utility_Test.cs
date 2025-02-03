@@ -57,5 +57,47 @@ namespace ParadoxTranslationHelper_Test
             twoEntries.Add("entryTwo;valueTwo");
             Assert.AreEqual(2, Utility.ConvertToDictionary(twoEntries).Count);
         }
+
+        [TestMethod]
+        [DataRow(DisplayName = "RemoveAllFileExtensions: null --> null")]
+        public void RemoveAllFileExtensions001()
+        {
+            Assert.IsNull(Utility.RemoveAllFileExtensions(null));
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "RemoveAllFileExtensions: fileName --> fileName")]
+        public void RemoveAllFileExtensions002()
+        {
+            string fileName = "fileName";
+            Assert.AreEqual(fileName, Utility.RemoveAllFileExtensions(fileName));
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "RemoveAllFileExtensions: fileName.ext1 --> fileName")]
+        public void RemoveAllFileExtensions003()
+        {
+            string fileName = "fileName";
+            string fileNameWithExtension = fileName + ".ext1";
+            Assert.AreEqual(fileName, Utility.RemoveAllFileExtensions(fileNameWithExtension));
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "RemoveAllFileExtensions: fileName.ext1.ext2 --> fileName")]
+        public void RemoveAllFileExtensions004()
+        {
+            string fileName = "fileName";
+            string fileNameWithExtension = fileName + ".ext1" +".ext2";
+            Assert.AreEqual(fileName, Utility.RemoveAllFileExtensions(fileNameWithExtension));
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "RemoveAllFileExtensions: fileName.ext1.ext2.ext3 --> fileName")]
+        public void RemoveAllFileExtensions005()
+        {
+            string fileName = "fileName";
+            string fileNameWithExtension = fileName + ".ext1" + ".ext2" +".ext3";
+            Assert.AreEqual(fileName, Utility.RemoveAllFileExtensions(fileNameWithExtension));
+        }
     }
 }
