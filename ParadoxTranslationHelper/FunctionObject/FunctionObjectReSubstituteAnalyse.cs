@@ -15,7 +15,10 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
-            if( null == LocalisationGerman )
+            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathResult);
+            LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_EXTENSION_PREFIX + Constants.FUNCTION_SUB);
+
+            if ( null == LocalisationGerman )
             {
                 Console.WriteLine("Member <LocalisationGerman> must not be null!");
                 return false;

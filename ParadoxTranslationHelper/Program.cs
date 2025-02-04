@@ -23,13 +23,14 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
+            FunctionObjectRegistryInitialiser.Init();
+
             if ( false == SetActiveMod(args[0]))
             {
                 LogInfosMods("No mod selected ...");
                 return;
             }
 
-            FunctionObjectRegistryInitialiser.Init();
             IFunctionObject functionObject = FunctionObjectRegistry.Instance.GetFunctionObject(args[1]);
             if( functionObject == null ) 
             {
