@@ -16,7 +16,7 @@ namespace ParadoxTranslationHelper
         public override bool DoWork()
         {
             LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathEnglish);
-            LocalisationEnglishUpdated = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathEnglishUpdated);
+            LocalisationEnglishUpdated = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathSteam);
             ResultFileName = "MissingTranslationKeys.yml";
 
             return CheckNewKeysUpdate();

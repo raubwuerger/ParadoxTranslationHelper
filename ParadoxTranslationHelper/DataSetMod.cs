@@ -12,18 +12,16 @@ namespace ParadoxTranslationHelper
         private string _pathBase;
         private string _pathGerman;
         private string _pathEnglish;
-        private string _pathEnglishUpdated;
         private string _pathResult;
-        private string _pathCompare;
+        private string _pathSteam;
         private DataSetMod() { }
 
         public string Name { get { return _name; }  }
         public string PathGerman { get { return _pathGerman;  } set { _pathGerman = value;} }
         public string PathEnglish { get { return _pathEnglish; } set { _pathEnglish = value;} }
-        public string PathEnglishUpdated { get => _pathEnglishUpdated; set => _pathEnglishUpdated = value; }
         public string PathBase { get => _pathBase; set => _pathBase = value; }
         public string PathResult { get => _pathResult; set => _pathResult = value; }
-        public string PathCompare { get => _pathCompare; set => _pathCompare = value; }
+        public string PathSteam { get => _pathSteam; set => _pathSteam = value; }
 
         public DataSetMod( string name )
         { 

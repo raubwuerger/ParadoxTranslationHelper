@@ -3,21 +3,18 @@
     <Mod name="RoadTo56">
       <basePath>C:\Projects\Hearts-of-Iron-IV_RoadTo56\2421485863\localisation</basePath>
       <english>english</english>
-      <english_updated>english_2024-12</english_updated>
       <german>german</german>
       <steam></steam>
     </Mod>
     <Mod name="BlackICE">
       <basePath>C:\Projects\Hearts-of-Iron-IV_BlackICE\2993385538\localisation</basePath>
       <english>english</english>
-      <english_updated>english_9.0.4</english_updated>
       <german>german</german>
       <steam>D:\Spiele\SteamLibrary\steamapps\workshop\content\394360\1137372539\localisation\english</steam>
     </Mod>
     <Mod name="Stellaris-STNC">
       <basePath>C:\Projects\Stellaris-StarTrek-NewCivilizations\1886496498</basePath>
       <english>english</english>
-      <english_updated>english_changed</english_updated>
       <german>german</german>
       <steam>D:\Spiele\SteamLibrary\steamapps\workshop\content\281990\1886496498\localisation\english</steam>
     </Mod>

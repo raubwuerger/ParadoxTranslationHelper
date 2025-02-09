@@ -30,11 +30,10 @@ namespace ParadoxTranslationHelper
             Console.WriteLine("Mod found: " + modName);
 
             ParadoxTranslationHelperConfig.PathEnglish = Path.Combine(found.PathBase, found.PathEnglish);
-            ParadoxTranslationHelperConfig.PathEnglishUpdated = Path.Combine(found.PathBase, found.PathEnglishUpdated);
             ParadoxTranslationHelperConfig.PathGerman = Path.Combine(found.PathBase, found.PathGerman);
             ParadoxTranslationHelperConfig.PathBase = found.PathBase;
             ParadoxTranslationHelperConfig.PathResult = Path.Combine(found.PathBase, found.PathResult);
-            ParadoxTranslationHelperConfig.PathSteam = found.PathCompare;
+            ParadoxTranslationHelperConfig.PathSteam = found.PathSteam;
 
             return true;
         }

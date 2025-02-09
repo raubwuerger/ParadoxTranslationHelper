@@ -10,7 +10,7 @@ namespace ParadoxTranslationHelper
     public class ConfigReader
     {
         public const string CONFIG_NODE_PATH_ENGLISH = "english";
-        public const string CONFIG_NODE_PATH_ENGLISH_UPDATED = "english_updated";
+        //public const string CONFIG_NODE_PATH_ENGLISH_UPDATED = "english_updated";
         public const string CONFIG_NODE_PATH_GERMAN = "german";
         public const string CONFIG_NODE_PATH_BASE = "basePath";
         public const string CONFIG_NODE_PATH_STEAM = "steam";
@@ -82,17 +82,15 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
-                if (false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_ENGLISH_UPDATED), value => dataSetMod.PathEnglishUpdated = value))
-                {
-                    continue;
-                }
-
                 if (false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_GERMAN), value => dataSetMod.PathGerman = value))
                 {
                     continue;
                 }
 
-                SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_STEAM), value => dataSetMod.PathCompare = value);
+                if (false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_STEAM), value => dataSetMod.PathSteam = value))
+                {
+                    continue;
+                }
 
                 dataSetMod.PathResult = ParadoxTranslationHelperConfig.PathResult;
 
