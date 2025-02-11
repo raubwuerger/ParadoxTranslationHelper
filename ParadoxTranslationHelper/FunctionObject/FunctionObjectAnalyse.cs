@@ -88,8 +88,8 @@ namespace ParadoxTranslationHelper
 
         private void CheckMissingKeys()
         {
-            DataSetLineObjectCompare dataSetLineObjectCompareEnglish = CreateDataSetLineObjectCompare(LocalisationEnglish);
-            DataSetLineObjectCompare dataSetLineObjectCompareGerman = CreateDataSetLineObjectCompare(LocalisationGerman);
+            DataSetLineObjectCompare dataSetLineObjectCompareEnglish = CreateDataSetLineObjectMultipleKeys(LocalisationEnglish);
+            DataSetLineObjectCompare dataSetLineObjectCompareGerman = CreateDataSetLineObjectMultipleKeys(LocalisationGerman);
 
             LogMissingKeys(dataSetLineObjectCompareEnglish.keysUnique, dataSetLineObjectCompareGerman.keysUnique);
             LogMissingNamespaces(dataSetLineObjectCompareEnglish.keysUnique, dataSetLineObjectCompareGerman.keysUnique);
@@ -99,7 +99,7 @@ namespace ParadoxTranslationHelper
             LogMultipleKeys(dataSetLineObjectCompareGerman.keysMultiple);
         }
 
-        private DataSetLineObjectCompare CreateDataSetLineObjectCompare(List<TranslationFile> localisation)
+        private DataSetLineObjectCompare CreateDataSetLineObjectMultipleKeys(List<TranslationFile> localisation)
         {
             DataSetLineObjectCompare dataSetLineObjectCompare = new DataSetLineObjectCompare();
 
@@ -107,7 +107,7 @@ namespace ParadoxTranslationHelper
             {
                 foreach (var item in translationFile.Lines)
                 {
-                    if (null == item.Value.Key)
+                    if (true == string.IsNullOrWhiteSpace(item.Value.Key))
                     {
                         continue;
                     }
