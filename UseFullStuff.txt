@@ -1,1 +1,3 @@
-for %f in (*.sub) do type "%f" >> output.sub
+for %f in (*.sub) do type "%f" >> allFiles.sub
+for %f in (*.yml) do type "%f" >> allFiles.yml
+copy /B *.yml allFiles.yml

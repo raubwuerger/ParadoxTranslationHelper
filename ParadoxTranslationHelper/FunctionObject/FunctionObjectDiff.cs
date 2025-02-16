@@ -28,13 +28,20 @@ namespace ParadoxTranslationHelper
             Dictionary<string, LineObject> old = GetKeys(LocalisationEnglish);
             Dictionary<string, LineObject> toCreate = new Dictionary<string, LineObject>();
 
-            foreach (KeyValuePair<string, LineObject> pair in updated)
+            if (old != null)
             {
-                if (old.ContainsKey(pair.Key))
+                foreach (KeyValuePair<string, LineObject> pair in updated)
                 {
-                    continue;
+                    if (old.ContainsKey(pair.Key))
+                    {
+                        continue;
+                    }
+                    toCreate.Add(pair.Key, pair.Value);
                 }
-                toCreate.Add(pair.Key, pair.Value);
+            }
+            else
+            {
+                toCreate = updated;
             }
 
             string containedInFile = "";
@@ -59,6 +66,11 @@ namespace ParadoxTranslationHelper
             Utility.WriteLines(toCreate.Values.ToList(), Path.Combine(directory, ResultFileName ));
 
             Dictionary<string, LineObject> toDelete = new Dictionary<string, LineObject>();
+            if (old == null)
+            {
+                return false;
+            }
+
             foreach (KeyValuePair<string, LineObject> pair in old)
             {
                 if (updated.ContainsKey(pair.Key))
@@ -67,7 +79,7 @@ namespace ParadoxTranslationHelper
                 }
                 toDelete.Add(pair.Key, pair.Value);
             }
-
+            
             Console.WriteLine();
             Console.WriteLine();
             containedInFile = "";
@@ -87,6 +99,12 @@ namespace ParadoxTranslationHelper
 
         private Dictionary<string, LineObject> GetKeys(List<TranslationFile> files)
         {
+            if( null == files )
+            {
+                Console.WriteLine("No translation files found!");
+                return null;
+            }
+
             if (false == files.Any())
             {
                 Console.WriteLine("No translation files found!");
