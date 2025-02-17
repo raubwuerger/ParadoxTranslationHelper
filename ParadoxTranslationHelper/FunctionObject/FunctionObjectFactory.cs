@@ -64,7 +64,13 @@ namespace ParadoxTranslationHelper
             FunctionObjectReSubstituteAnalyse functionObject = new FunctionObjectReSubstituteAnalyse(Constants.FUNCTION_RESUB_ANALYSE);
             functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
-            string fileName = Path.GetFileNameWithoutExtension("FileWithNoExtension");
+            return functionObject;
+        }
+
+        public static IFunctionObject? CreateInsertIntoLocalizationFiles()
+        {
+            FunctionObjectInsertIntoLocalizationFiles functionObject = new FunctionObjectInsertIntoLocalizationFiles(Constants.FUNCTION_INSERT);
+            functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
             return functionObject;
         }

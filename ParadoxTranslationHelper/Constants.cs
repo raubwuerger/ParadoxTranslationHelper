@@ -28,6 +28,7 @@ namespace ParadoxTranslationHelper
         public static string FUNCTION_ANALYSIS = "analyse";
         public static string FUNCTION_DIFF = "diff";
         public static string FUNCTION_DIFF_STEAM = "diff_steam";
+        public static string FUNCTION_INSERT = "insert";
 
         public static string FUNCTION_FILE_NAME_STEAM = "MissingTranslationKeysSteam.yml";
 

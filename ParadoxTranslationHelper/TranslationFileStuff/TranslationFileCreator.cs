@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -36,6 +37,42 @@ namespace ParadoxTranslationHelper
 
             return translationFile;
         }
+
+        /**
+         * First entry must contain filename
+         */
+        public TranslationFile Create(List<string> lines)
+        {
+            if( lines == null ) 
+            {
+                Console.WriteLine("Parameter <lines> must not be null!");
+                return null;
+            }
+
+            if (lines.Count == 0)
+            {
+                Console.WriteLine("Parameter <lines> must not be empty!");
+                return null;
+            }
+
+            string fileName = lines[0];
+            lines.RemoveAt(0);
+
+            if (string.IsNullOrEmpty(fileName) ) 
+            {
+                Console.WriteLine("Parameter <lines>: First entry must contain valid file name!");
+                return null;
+            }
+
+            TranslationFile translationFile = new TranslationFile(fileName);
+            translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(fileName);
+
+            _lineObjectCreator.TranslationFile = translationFile;
+            translationFile.Lines = CreateLineObjects(lines.ToArray());
+
+            return translationFile;
+        }
+
 
         private string CreateFileNameWithoutLocalisation(string fileName)
         {
