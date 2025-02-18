@@ -20,7 +20,7 @@ namespace ParadoxTranslationHelper_Test
             List<TranslationFile> german = Utility.CreateTranslationFilesFromDirectory(@"C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\localization\missingFiles\GermanThree_EnglishThree_different_OneIdentical\german");
 
             AnalyzerMissingFiles.GenerateMissingGermanTranslationFiles(german, english);
-            AnalyzerMissingFiles.GenerateMissingGermanTranslationFiles(null,null);
+            Assert.IsNull( AnalyzerMissingFiles.GenerateMissingGermanTranslationFiles(null,null) );
         }
     }
 }

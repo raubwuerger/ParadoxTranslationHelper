@@ -13,7 +13,7 @@ namespace ParadoxTranslationHelper
     {
         private string _fileName;
         private string _fileNameWithoutLocalisation;
-        private Dictionary<int, LineObject> _lines = new Dictionary<int, LineObject>(); //long is line number
+        private Dictionary<int, LineObject> _lines = new Dictionary<int, LineObject>();
         public TranslationFile(string filename)
         {
             _fileName = filename;

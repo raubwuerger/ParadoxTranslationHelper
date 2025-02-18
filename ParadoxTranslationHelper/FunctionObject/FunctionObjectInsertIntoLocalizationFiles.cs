@@ -143,7 +143,7 @@ namespace ParadoxTranslationHelper
         {
             if( null == original )
             {
-                return null;
+                return CreateMissingTranslationFile(missing);
             }
 
             if( null == missing )
@@ -181,6 +181,33 @@ namespace ParadoxTranslationHelper
             }
 
             return updatedFiles;
+        }
+
+        private LineObject CreateLanguageIdentifierLineObject(TranslationFile missing)
+        {
+            LineObject languageIdentifier = new LineObject(1);
+            languageIdentifier.OriginalLine = Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER;
+            languageIdentifier.TranslationFile = missing;
+            return languageIdentifier;
+        }
+
+        private TranslationFile CreateMissingTranslationFile( TranslationFile missing )
+        {
+            Dictionary<int, LineObject> includingLanguageIdentifier = new Dictionary<int, LineObject>
+            {
+                { 1, CreateLanguageIdentifierLineObject(missing) }
+            };
+
+            foreach ( KeyValuePair<int, LineObject> keyValuePair in missing.Lines )
+            {
+                int newLineNumber = includingLanguageIdentifier.Count + 1;
+                includingLanguageIdentifier.Add( newLineNumber, new LineObject( newLineNumber, keyValuePair.Value ) );
+            }
+
+            missing.Lines = includingLanguageIdentifier;
+
+            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
+            return translationFileCreator.CopyExceptFileName( Path.Combine(ParadoxTranslationHelperConfig.PathGerman, Utility.ConvertLocalisationToGerman(missing.FileName)), missing );
         }
     }
 }

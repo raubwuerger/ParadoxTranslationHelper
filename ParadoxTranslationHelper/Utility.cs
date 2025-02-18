@@ -144,7 +144,7 @@ namespace ParadoxTranslationHelper
 
         public static void WriteLines( List<LineObject> lineObjects, string fileName )
         {
-            Console.WriteLine("Writing substituted source file started: " + fileName);
+            Console.WriteLine("Writing file started: " + fileName);
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {
                 string missingKeyFile = "";
@@ -158,7 +158,7 @@ namespace ParadoxTranslationHelper
                     outputFile.WriteLine(GetSubstitutedLineTabbed(line));
                 }
             }
-            Console.WriteLine("Writing substituted source file finished ...");
+            Console.WriteLine("Writing file finished ...");
         }
 
         public static void WriteTranslationFile(TranslationFile translationFile)
@@ -181,7 +181,7 @@ namespace ParadoxTranslationHelper
             Dictionary<int, LineObject> _lines = translationFile.Lines;
             List<LineObject> lineObjects = _lines.Values.ToList();
 
-            Console.WriteLine("Writing substituted source file started: " + fileName);
+            Console.WriteLine("Writing file started: " + fileName);
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {
                 foreach (LineObject line in lineObjects)
@@ -189,7 +189,7 @@ namespace ParadoxTranslationHelper
                     outputFile.WriteLine(GetSubstitutedLine(line));
                 }
             }
-            Console.WriteLine("Writing substituted source file finished ...");
+            Console.WriteLine("Writing file finished ...");
 
         }
         private static string GetSubstitutedLineTabbed(LineObject lineObject)
@@ -324,8 +324,13 @@ namespace ParadoxTranslationHelper
             }
 
             string path = Path.GetDirectoryName(localisation);
-            string pathParent = Directory.GetParent(path).FullName;
-            string pathConverted = Path.Combine(pathParent, Constants.LOCALISATION_GERMAN );
+            string pathParent = "";
+            string pathConverted = "";
+            if ( false == string.IsNullOrEmpty(path) )
+            {
+                pathParent = Directory.GetParent(path).FullName;
+                pathConverted = Path.Combine(pathParent, Constants.LOCALISATION_GERMAN);
+            }
 
             string fileName = Path.GetFileName(localisation);
             string fileNameConverted = fileName.Replace(Constants.LOCALISATION_ENGLISH_FULL, Constants.LOCALISATION_GERMAN_FULL);
@@ -370,6 +375,11 @@ namespace ParadoxTranslationHelper
             }
 
             return RemoveAllFileExtensions(fileNameWithoutExtension);
+        }
+
+        public static string? CreateFileNameGerman()
+        {
+            return null;
         }
     }
 }
