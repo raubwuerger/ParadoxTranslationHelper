@@ -23,6 +23,40 @@ namespace ParadoxTranslationHelper
             _lineNumber = lineNumber;
         }
 
+        public LineObject(int lineNumber, LineObject lineObject)
+        {
+            _lineNumber = lineNumber;
+            CopyEverythingExceptLineNumber(lineObject);
+        }
+
+        private void CopyEverythingExceptLineNumber(LineObject lineObject)
+        {
+            if (lineObject == null) 
+            {
+                Key = null;
+                TranslationFile = null;
+                NameSpaces = null;
+                NestingStrings = null;
+                ColorCodes = null;
+                Icons = null;
+                OriginalLine = null;
+                OriginalLineSubstituted = null;
+                NewLines = null;
+            }
+            else 
+            {
+                Key = lineObject.Key;
+                TranslationFile = lineObject.TranslationFile;
+                NameSpaces = lineObject.NameSpaces;
+                NestingStrings = lineObject.NestingStrings;
+                ColorCodes = lineObject.ColorCodes;
+                Icons = lineObject.Icons;
+                OriginalLine = lineObject.OriginalLine;
+                OriginalLineSubstituted = lineObject.OriginalLineSubstituted;
+                NewLines = lineObject.NewLines;
+            }
+        }
+
         private LineObject() { }
 
         public int LineNumber { get => _lineNumber; }

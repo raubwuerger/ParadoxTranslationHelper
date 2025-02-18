@@ -22,6 +22,11 @@ namespace ParadoxTranslationHelper
 
             //TODO: 2025-02-17 - JHA - Anhand FileNameWithoutLocalisation die deutsche Übersetzung suchen und fehlende Schlüssel einsetzen, und in andere Datei speichern
 
+            List<TranslationFile> updatedFiles = CreateUpdateFiles(missingKeysToInsert);
+            foreach (TranslationFile file in updatedFiles) 
+            {
+                Utility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName + ".updated.yml");
+            }
 
             return false;
         }
@@ -132,6 +137,50 @@ namespace ParadoxTranslationHelper
             }
 
             return fileName.Remove(startFileExtension + Constants.LOCALISATION_EXTENSION.Length);
+        }
+
+        private TranslationFile InsertInto( TranslationFile original,  TranslationFile missing )
+        {
+            if( null == original )
+            {
+                return null;
+            }
+
+            if( null == missing )
+            {
+                return null;
+            }
+
+            if(missing.Lines == null ) 
+            {
+                Console.WriteLine("Dictionary toInsert is null!");
+                return null;
+            }
+
+            if(original.Lines == null ) 
+            {
+                Console.WriteLine("Dictionary original is null!");
+                return null;
+            }
+
+            foreach( KeyValuePair<int, LineObject> line in missing.Lines ) 
+            {
+                int newLineNumber = original.Lines.Count + 1;
+                original.Lines.Add( newLineNumber, new LineObject( newLineNumber, line.Value ) );
+            }
+
+            return original;
+        }
+
+        private List<TranslationFile> CreateUpdateFiles( List<TranslationFile> missingKeysToInsert)
+        {
+            List<TranslationFile> updatedFiles = new List<TranslationFile>();
+            foreach (TranslationFile translationFile in missingKeysToInsert)
+            {
+                updatedFiles.Add(InsertInto(LocalisationGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation)), translationFile));
+            }
+
+            return updatedFiles;
         }
     }
 }
