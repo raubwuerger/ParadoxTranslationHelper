@@ -69,7 +69,7 @@ namespace ParadoxTranslationHelper
                         continue;
                     }
 
-                    foundFile.Add(line);
+                    foundFile.Add(fileName);
                 }
             }
 
