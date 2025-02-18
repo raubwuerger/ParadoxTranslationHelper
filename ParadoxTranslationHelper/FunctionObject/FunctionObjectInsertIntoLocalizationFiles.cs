@@ -25,10 +25,20 @@ namespace ParadoxTranslationHelper
             List<TranslationFile> updatedFiles = CreateUpdateFiles(missingKeysToInsert);
             foreach (TranslationFile file in updatedFiles) 
             {
-                Utility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName + ".updated.yml");
+                Utility.WriteLines(file.Lines.Values.ToList<LineObject>(), CreateFileNameResultPathGerman(file.FileNameWithoutLocalisation));
             }
 
-            return false;
+            return true;
+        }
+
+        private string? CreateFileNameResultPathGerman(string fileNameWithoutLocalisation )
+        {
+            if (string.IsNullOrEmpty(fileNameWithoutLocalisation))
+            {
+                return null;
+            }
+
+            return Path.Combine(ParadoxTranslationHelperConfig.PathResult, fileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL + ".updated.yml");
         }
 
         private List<TranslationFile>? CreateMissingKeysToInsert( string pathMissingKeys ) 

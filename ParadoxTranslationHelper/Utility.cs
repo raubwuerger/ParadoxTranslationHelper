@@ -144,7 +144,7 @@ namespace ParadoxTranslationHelper
 
         public static void WriteLines( List<LineObject> lineObjects, string fileName )
         {
-            Console.WriteLine("Writing file started: " + fileName);
+            Console.WriteLine("Writing file: " + fileName);
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {
                 string missingKeyFile = "";
@@ -158,7 +158,6 @@ namespace ParadoxTranslationHelper
                     outputFile.WriteLine(GetSubstitutedLineTabbed(line));
                 }
             }
-            Console.WriteLine("Writing file finished ...");
         }
 
         public static void WriteTranslationFile(TranslationFile translationFile)
@@ -181,7 +180,7 @@ namespace ParadoxTranslationHelper
             Dictionary<int, LineObject> _lines = translationFile.Lines;
             List<LineObject> lineObjects = _lines.Values.ToList();
 
-            Console.WriteLine("Writing file started: " + fileName);
+            Console.WriteLine("Writing file: " + fileName);
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {
                 foreach (LineObject line in lineObjects)
@@ -189,8 +188,6 @@ namespace ParadoxTranslationHelper
                     outputFile.WriteLine(GetSubstitutedLine(line));
                 }
             }
-            Console.WriteLine("Writing file finished ...");
-
         }
         private static string GetSubstitutedLineTabbed(LineObject lineObject)
         {
@@ -377,9 +374,5 @@ namespace ParadoxTranslationHelper
             return RemoveAllFileExtensions(fileNameWithoutExtension);
         }
 
-        public static string? CreateFileNameGerman()
-        {
-            return null;
-        }
     }
 }
