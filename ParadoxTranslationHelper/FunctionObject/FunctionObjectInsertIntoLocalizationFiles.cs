@@ -9,7 +9,8 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectInsertIntoLocalizationFiles : FunctionObjectBase
     {
-        private const string _translationFileIdentifier = "##### ";
+        private const string TRANSLATION_FILE_IDENTIFIER = ">>>>> ";
+        private const string _originalFileBackupExtension = ".bak";
         public FunctionObjectInsertIntoLocalizationFiles(string name) : base(name)
         {
         }
@@ -19,8 +20,6 @@ namespace ParadoxTranslationHelper
             const string pathMissingKeys = "MissingTranslationKeysSteam.yml.sub.resub";
             List<TranslationFile> missingKeysToInsert = CreateMissingKeysToInsert( Path.Combine(ParadoxTranslationHelperConfig.PathResult, pathMissingKeys));
             LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathGerman);
-
-            //TODO: 2025-02-17 - JHA - Anhand FileNameWithoutLocalisation die deutsche Übersetzung suchen und fehlende Schlüssel einsetzen, und in andere Datei speichern
 
             List<TranslationFile> updatedFiles = CreateUpdateFiles(missingKeysToInsert);
             foreach (TranslationFile file in updatedFiles) 
@@ -109,7 +108,7 @@ namespace ParadoxTranslationHelper
 
         private bool ContainsFileName( string fileName ) 
         {
-            return fileName.Contains( _translationFileIdentifier );
+            return fileName.Contains( TRANSLATION_FILE_IDENTIFIER );
         }
 
         private string? CreateFileName( string line )
@@ -130,7 +129,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            int indexFileNameStart = containsFileName.IndexOf( _translationFileIdentifier );
+            int indexFileNameStart = containsFileName.IndexOf( TRANSLATION_FILE_IDENTIFIER );
             if( indexFileNameStart == -1 ) 
             {
                 Console.WriteLine("_translationFileIdentifier not found!");
@@ -173,8 +172,14 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            foreach( KeyValuePair<int, LineObject> line in missing.Lines ) 
+            RemoveTranslationFileIdentifier(original.Lines);
+
+            foreach ( KeyValuePair<int, LineObject> line in missing.Lines ) 
             {
+                if ( line.Value.OriginalLine.Contains(TRANSLATION_FILE_IDENTIFIER) )
+                {
+                    continue;
+                }
                 int newLineNumber = original.Lines.Count + 1;
                 original.Lines.Add( newLineNumber, new LineObject( newLineNumber, line.Value ) );
             }
@@ -193,7 +198,7 @@ namespace ParadoxTranslationHelper
             return updatedFiles;
         }
 
-        private LineObject CreateLanguageIdentifierLineObject(TranslationFile missing)
+        private LineObject CreateLineObjectLanguageIdentifier(TranslationFile missing)
         {
             LineObject languageIdentifier = new LineObject(1);
             languageIdentifier.OriginalLine = Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER;
@@ -205,7 +210,7 @@ namespace ParadoxTranslationHelper
         {
             Dictionary<int, LineObject> includingLanguageIdentifier = new Dictionary<int, LineObject>
             {
-                { 1, CreateLanguageIdentifierLineObject(missing) }
+                { 1, CreateLineObjectLanguageIdentifier(missing) }
             };
 
             foreach ( KeyValuePair<int, LineObject> keyValuePair in missing.Lines )
@@ -218,6 +223,25 @@ namespace ParadoxTranslationHelper
 
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
             return translationFileCreator.CopyExceptFileName( Path.Combine(ParadoxTranslationHelperConfig.PathGerman, Utility.ConvertLocalisationToGerman(missing.FileName)), missing );
+        }
+
+        private bool RemoveTranslationFileIdentifier(Dictionary<int, LineObject> lines ) 
+        {
+            if(lines == null )
+            {
+                Console.WriteLine("Parameter <lines> must not be null!");
+                return false;
+            }
+
+            foreach( KeyValuePair<int, LineObject> lineObject in lines )
+            {
+                if( lineObject.Value.OriginalLine.Contains(TRANSLATION_FILE_IDENTIFIER) )
+                {
+                    lines.Remove(lineObject.Key);
+                }
+            }
+
+            return true;
         }
     }
 }
