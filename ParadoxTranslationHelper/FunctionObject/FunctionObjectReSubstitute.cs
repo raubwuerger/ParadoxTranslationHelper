@@ -12,10 +12,12 @@ namespace ParadoxTranslationHelper
         string _pathToReSubstituteCorresponding;
 
         bool _removeFileExtension = false;
+        bool _readOnlyLocalizationFilesSub = false;
 
         public string PathToReSubstitute { get => _pathToReSubstitute; set => _pathToReSubstitute = value; }
         public string PathToReSubstituteCorresponding { get => _pathToReSubstituteCorresponding; set => _pathToReSubstituteCorresponding = value; }
         public bool RemoveFileExtension { get => _removeFileExtension; set => _removeFileExtension = value; }
+        public bool ReadOnlyLocalizationFilesSub { get => _readOnlyLocalizationFilesSub; set => _readOnlyLocalizationFilesSub = value; }
 
         public FunctionObjectReSubstitute(string name) : base(name)
         {
@@ -35,7 +37,15 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstitute);
+            if ( ReadOnlyLocalizationFilesSub )
+            {
+                LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstitute, Constants.FILE_EXTENSION_PREFIX + Constants.FUNCTION_SUB);
+            }
+            else
+            {
+                LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstitute);
+            }
+
             LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstituteCorresponding);
 
             foreach (TranslationFile translationFile in LocalisationGerman)

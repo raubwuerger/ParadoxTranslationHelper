@@ -9,11 +9,14 @@ namespace ParadoxTranslationHelper
     public class FunctionObjectSubstitute : FunctionObjectBase
     {
         string _pathToSubstitute;
+        bool _substituteAgainstSteam = false;
+
         public FunctionObjectSubstitute(string name) : base(name)
         {
         }
 
         public string PathToSubstitute { get => _pathToSubstitute; set => _pathToSubstitute = value; }
+        public bool SubstituteAgainstSteam { get => _substituteAgainstSteam; set => _substituteAgainstSteam = value; }
 
         public override bool DoWork()
         {
