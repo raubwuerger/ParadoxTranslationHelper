@@ -222,5 +222,11 @@ namespace ParadoxTranslationHelper_Test
             stringParser = StringParserFactory.Instance.CreateParserNewLine();
             Assert.AreEqual(0, stringParser.GetToken(corruptedToken3, null).Count);
         }
+
+        [TestMethod]
+        public void ReadFileWithDifferentKeys()
+        {
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserKey();
+        }
     }
 }

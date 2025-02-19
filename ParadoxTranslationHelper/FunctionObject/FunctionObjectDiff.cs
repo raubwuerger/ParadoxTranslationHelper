@@ -44,18 +44,6 @@ namespace ParadoxTranslationHelper
                 toCreate = updated;
             }
 
-            string containedInFile = "";
-            Console.WriteLine("Following keys (" + toCreate.Count + ") are new in update: " + Path.GetFullPath(LocalisationEnglishUpdated[0].FileName) + Environment.NewLine);
-            foreach (KeyValuePair<string, LineObject> pair in toCreate)
-            {
-                if (false == containedInFile.Equals(pair.Value.TranslationFile.FileName))
-                {
-                    Console.WriteLine("##### " + pair.Value.TranslationFile);
-                    containedInFile = pair.Value.TranslationFile.FileName;
-                }
-                Console.WriteLine(pair.Key + ";" + pair.Value.OriginalLine);
-            }
-
             string directory = CreateDirectory();
             if (null == directory)
             {
@@ -64,35 +52,6 @@ namespace ParadoxTranslationHelper
             }
 
             Utility.WriteLines(toCreate.Values.ToList(), Path.Combine(directory, ResultFileName ));
-
-            Dictionary<string, LineObject> toDelete = new Dictionary<string, LineObject>();
-            if (old == null)
-            {
-                return false;
-            }
-
-            foreach (KeyValuePair<string, LineObject> pair in old)
-            {
-                if (updated.ContainsKey(pair.Key))
-                {
-                    continue;
-                }
-                toDelete.Add(pair.Key, pair.Value);
-            }
-            
-            Console.WriteLine();
-            Console.WriteLine();
-            containedInFile = "";
-            Console.WriteLine("Following keys (" + toDelete.Count + ") should be deleted: " + Path.GetFullPath(LocalisationEnglishUpdated[0].FileName) + Environment.NewLine);
-            foreach (KeyValuePair<string, LineObject> pair in toDelete)
-            {
-                if (false == containedInFile.Equals(pair.Value.TranslationFile.FileName))
-                {
-                    Console.WriteLine("##### " + pair.Value.TranslationFile);
-                    containedInFile = pair.Value.TranslationFile.FileName;
-                }
-                Console.WriteLine(pair.Key + ";" + pair.Value.OriginalLine);
-            }
 
             return true;
         }
