@@ -20,24 +20,24 @@ namespace ParadoxTranslationHelper
                 return tokens;
             }
 
-            int _startPos = source.IndexOf(StartTag, 0) + StartTag.Length;
-            int _endPos = _startPos;
-            _startPos = 0;
+            int startPos = source.IndexOf(StartTag, 0) + StartTag.Length;
+            int endPos = startPos;
+            startPos = 0;
 
             string tokenToAdd;
 
             if (SubStringCount == 0)
             {
-                int count = _endPos - 1;
+                int count = endPos;
                 if (count > 0)
                 {
                     count--;
                 }
-                tokenToAdd = source.Substring(_startPos, count);
+                tokenToAdd = source.Substring(startPos, count).TrimEnd();
             }
             else
             {
-                tokenToAdd = source.Substring(_startPos, SubStringCount);
+                tokenToAdd = source.Substring(startPos, SubStringCount).TrimEnd();
             }
 
             tokens.Add(tokenToAdd.TrimStart());

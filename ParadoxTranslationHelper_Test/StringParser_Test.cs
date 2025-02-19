@@ -1,6 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ParadoxTranslationHelper;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ParadoxTranslationHelper_Test
 {
@@ -226,7 +228,28 @@ namespace ParadoxTranslationHelper_Test
         [TestMethod]
         public void ReadFileWithDifferentKeys()
         {
+            const string testFileName = @"C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\stringParser\TestStrings.yml";
             IStringParser stringParser = StringParserFactory.Instance.CreateParserKey();
+            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
+            TranslationFile translationFile = translationFileCreator.Create(testFileName);
+
+            Assert.IsNotNull(translationFile);
+
+            List<string> lines = Utility.ConvertToList(File.ReadAllLines(testFileName));
+            Assert.IsTrue(lines.Count > 0);
+
+            List<string> keys = new List<string>();
+            foreach (string line in lines) 
+            {
+                List<string> token = new List<string>();
+                token = stringParser.GetToken(line, token);
+                if (token.Count > 0)
+                {
+                    keys.Add(token[0]);
+                }
+            }
+
+            Console.WriteLine(keys.ToArray()); 
         }
     }
 }
