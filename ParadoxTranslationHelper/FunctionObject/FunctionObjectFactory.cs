@@ -39,14 +39,16 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(Constants.FUNCTION_SUB);
             functionObject.Description = "substitute translation file";
+            functionObject.PathToSubstitute = ParadoxTranslationHelperConfig.PathEnglish;
 
             return functionObject;
         }
 
         public static IFunctionObject? CreateSubstituteAnalyse()
         {
-            FunctionObjectSubstituteAnalyse functionObject = new FunctionObjectSubstituteAnalyse(Constants.FUNCTION_SUB_ANALYSE);
+            FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(Constants.FUNCTION_SUB_ANALYSE);
             functionObject.Description = "substitute translation file in folder analysis (MissingTranslationKeysSteam)";
+            functionObject.PathToSubstitute = ParadoxTranslationHelperConfig.PathResult;
 
             return functionObject;
         }
@@ -55,14 +57,19 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(Constants.FUNCTION_RESUB);
             functionObject.Description = "resubstitute translation file";
+            functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.PathToReSubstituteCorresponding = ParadoxTranslationHelperConfig.PathEnglish;
 
             return functionObject;
         }
 
         public static IFunctionObject? CreateReSubstituteAnalyse()
         {
-            FunctionObjectReSubstituteAnalyse functionObject = new FunctionObjectReSubstituteAnalyse(Constants.FUNCTION_RESUB_ANALYSE);
+            FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(Constants.FUNCTION_RESUB_ANALYSE);
             functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
+            functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
+            functionObject.PathToReSubstituteCorresponding = ParadoxTranslationHelperConfig.PathResult;
+            functionObject.RemoveFileExtension = true;
 
             return functionObject;
         }

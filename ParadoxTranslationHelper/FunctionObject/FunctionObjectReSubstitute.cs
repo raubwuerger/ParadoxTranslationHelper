@@ -8,18 +8,43 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectReSubstitute : FunctionObjectBase
     {
+        string _pathToReSubstitute;
+        string _pathToReSubstituteCorresponding;
+
+        bool _removeFileExtension = false;
+
+        public string PathToReSubstitute { get => _pathToReSubstitute; set => _pathToReSubstitute = value; }
+        public string PathToReSubstituteCorresponding { get => _pathToReSubstituteCorresponding; set => _pathToReSubstituteCorresponding = value; }
+        public bool RemoveFileExtension { get => _removeFileExtension; set => _removeFileExtension = value; }
+
         public FunctionObjectReSubstitute(string name) : base(name)
         {
         }
 
         public override bool DoWork()
         {
-            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathEnglish);
-            LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathGerman);
+            if (_pathToReSubstitute == null) 
+            {
+                Console.WriteLine("Member <PathToReSubstitute> must not be null!");
+                return false;
+            }
+
+            if (_pathToReSubstituteCorresponding == null)
+            {
+                Console.WriteLine("Member <PathToReSubstituteCorresponding> must not be null!");
+                return false;
+            }
+
+            LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstitute);
+            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstituteCorresponding);
 
             foreach (TranslationFile translationFile in LocalisationGerman)
             {
                 FileSubstitutor fileSubstitutor = new FileSubstitutor();
+                if( true == RemoveFileExtension )
+                {
+                    translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
+                }
                 fileSubstitutor.ReSubstitute(Create(translationFile, FindCorrespondingTranslationFile(translationFile)));
             }
 

@@ -8,13 +8,22 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectSubstitute : FunctionObjectBase
     {
+        string _pathToSubstitute;
         public FunctionObjectSubstitute(string name) : base(name)
         {
         }
 
+        public string PathToSubstitute { get => _pathToSubstitute; set => _pathToSubstitute = value; }
+
         public override bool DoWork()
         {
-            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+            if( _pathToSubstitute == null)
+            {
+                Console.WriteLine("Member <PathToSubstitute> not set!");
+                return false;
+            }
+
+            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(_pathToSubstitute);
 
             foreach (TranslationFile translationFile in LocalisationEnglish)
             {
