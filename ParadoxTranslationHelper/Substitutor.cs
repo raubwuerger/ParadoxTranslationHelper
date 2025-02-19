@@ -79,6 +79,7 @@ namespace ParadoxTranslationHelper
                 SubstituteNestingString(lineObject);
                 SubstituteNamespace(lineObject);
                 SubstituteIcon(lineObject);
+                SubstituteColorCode(lineObject);
             }
         }
 
@@ -115,26 +116,11 @@ namespace ParadoxTranslationHelper
             string substitute = lineObject.OriginalLineSubstituted;
             foreach (string subs in token)
             {
-                substitute = StringExtensionMethods.ReplaceFirst(substitute, GenerateCompleteColorCodeToken(subs), GenerateColorCodeSubstitute(GenerateCompleteColorCodeToken(subs), lineObject));
+                substitute = substitute.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_END, FileSubstitutionConstants.COLOR_CODE_END_SUBSTITUTE);
             }
 
             lineObject.OriginalLineSubstituted = substitute;
         }
-
-        private string GenerateCompleteColorCodeToken(string subs)
-        {
-            return FileSubstitutionConstants.COLOR_CODE_SIGN_START + subs;
-        }
-
-        private string GenerateColorCodeSubstitute(string sub, LineObject lineObject)
-        {
-            int count = _colorCodeSubstitute.Count();
-            count++;
-            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + count.ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
-            _colorCodeSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
-            return subString;
-        }
-
 
         private void SubstituteNamespace(LineObject lineObject)
         {
@@ -177,7 +163,7 @@ namespace ParadoxTranslationHelper
 
         private string GenerateCompleteIconToken(string subs)
         {
-            return FileSubstitutionConstants.ICON_START_SIGN_START + subs + FileSubstitutionConstants.ICON_START_SIGN_END;
+            return FileSubstitutionConstants.ICON_START_SIGN_START + subs;
         }
 
         private string GenerateIconSubstitute(string sub, LineObject lineObject)

@@ -38,6 +38,7 @@ namespace ParadoxTranslationHelper
         public static string NEW_LINE_START = "\\";
         public static string NEW_LINE_END = "n";
 
+
         public IStringParser CreateParserNamespaces()
         {
             StringParser stringParser = new StringParser();
@@ -72,10 +73,9 @@ namespace ParadoxTranslationHelper
         public IStringParser CreateParserColorCodes()
         {
             StringParser stringParser = new StringParser();
-            stringParser.StartTag = COLOR_CODE_START;
+            stringParser.StartTag = COLOR_CODE_END;
             stringParser.EndTags.Add(COLOR_CODE_END);
             IgnoreCommentLines(stringParser);
-            stringParser.SubStringCount = 1;
             return stringParser;
         }
 
