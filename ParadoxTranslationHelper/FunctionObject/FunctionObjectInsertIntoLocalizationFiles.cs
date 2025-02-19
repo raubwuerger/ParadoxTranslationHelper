@@ -51,7 +51,7 @@ namespace ParadoxTranslationHelper
             List<TranslationFile> missingKeys = new List<TranslationFile>();
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
 
-            List<string> lines = CreateLines(File.ReadAllLines(pathMissingKeys));
+            List<string> lines = Utility.ConvertToList(File.ReadAllLines(pathMissingKeys));
             List<string> foundFile = new List<string>();
             foreach ( string line in lines ) 
             {
@@ -93,17 +93,6 @@ namespace ParadoxTranslationHelper
             }
 
             return missingKeys;
-        }
-
-        private List<string> CreateLines(string[] lines )
-        {
-            if( lines.Length == 0 ) 
-            {
-                Console.WriteLine("File has no content!");
-                return null;
-            }
-
-            return new List<string>( lines );
         }
 
         private bool ContainsFileName( string fileName ) 

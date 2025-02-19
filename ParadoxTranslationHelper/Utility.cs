@@ -374,5 +374,17 @@ namespace ParadoxTranslationHelper
             return RemoveAllFileExtensions(fileNameWithoutExtension);
         }
 
+        public static List<string>? ConvertToList(string[] lines)
+        {
+            if (lines.Length == 0)
+            {
+                Console.WriteLine("Parameter <lines> must not be null!");
+                return null;
+            }
+
+            return new List<string>(lines);
+        }
+
+
     }
 }
