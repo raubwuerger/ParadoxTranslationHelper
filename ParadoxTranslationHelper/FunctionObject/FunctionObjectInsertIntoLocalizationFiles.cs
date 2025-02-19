@@ -9,7 +9,6 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectInsertIntoLocalizationFiles : FunctionObjectBase
     {
-        private const string TRANSLATION_FILE_IDENTIFIER = ">>>>> ";
         private const string _originalFileBackupExtension = ".bak";
         public FunctionObjectInsertIntoLocalizationFiles(string name) : base(name)
         {
@@ -97,7 +96,7 @@ namespace ParadoxTranslationHelper
 
         private bool ContainsFileName( string fileName ) 
         {
-            return fileName.Contains( TRANSLATION_FILE_IDENTIFIER );
+            return fileName.Contains( Constants.TRANSLATION_FILE_IDENTIFIER );
         }
 
         private string? CreateFileName( string line )
@@ -118,7 +117,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            int indexFileNameStart = containsFileName.IndexOf( TRANSLATION_FILE_IDENTIFIER );
+            int indexFileNameStart = containsFileName.IndexOf(Constants.TRANSLATION_FILE_IDENTIFIER );
             if( indexFileNameStart == -1 ) 
             {
                 Console.WriteLine("_translationFileIdentifier not found!");
@@ -165,7 +164,7 @@ namespace ParadoxTranslationHelper
 
             foreach ( KeyValuePair<int, LineObject> line in missing.Lines ) 
             {
-                if ( line.Value.OriginalLine.Contains(TRANSLATION_FILE_IDENTIFIER) )
+                if ( line.Value.OriginalLine.Contains(Constants.TRANSLATION_FILE_IDENTIFIER) )
                 {
                     continue;
                 }
@@ -224,7 +223,7 @@ namespace ParadoxTranslationHelper
 
             foreach( KeyValuePair<int, LineObject> lineObject in lines )
             {
-                if( lineObject.Value.OriginalLine.Contains(TRANSLATION_FILE_IDENTIFIER) )
+                if( lineObject.Value.OriginalLine.Contains(Constants.TRANSLATION_FILE_IDENTIFIER) )
                 {
                     lines.Remove(lineObject.Key);
                 }

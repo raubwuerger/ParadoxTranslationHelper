@@ -34,5 +34,8 @@ namespace ParadoxTranslationHelper
 
         public static string FILE_EXTENSION_PREFIX = "*.";
 
+        public static string TRANSLATION_FILE_IDENTIFIER = ">>>>> ";
+
+
     }
 }

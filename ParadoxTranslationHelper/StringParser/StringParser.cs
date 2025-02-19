@@ -25,33 +25,33 @@ namespace ParadoxTranslationHelper
                 return tokens;
             }
 
-            int _startPos = source.IndexOf(StartTag, 0) + StartTag.Length;
+            int startPos = source.IndexOf(StartTag, 0) + StartTag.Length;
             foreach (string endTag in EndTags)
             {
-                string subString = source.Substring(_startPos, source.Length - _startPos);
+                string subString = source.Substring(startPos, source.Length - startPos);
 
                 if (false == subString.Contains(endTag))
                 {
                     continue;
                 }
-                int _endPos = source.IndexOf(endTag, _startPos);
+                int endPos = source.IndexOf(endTag, startPos);
 
-                int startPosCalculated = _startPos + StartIndexShift;
+                int startPosCalculated = startPos + StartIndexShift;
                 if (startPosCalculated < 0 || startPosCalculated >= subString.Length)
                 {
-                    startPosCalculated = _startPos;
+                    startPosCalculated = startPos;
                 }
 
                 if (SubStringCount == 0)
                 {
-                    tokens.Add(source.Substring(startPosCalculated, _endPos - _startPos));
+                    tokens.Add(source.Substring(startPosCalculated, endPos - startPos));
                 }
                 else
                 {
                     tokens.Add(source.Substring(startPosCalculated, SubStringCount));
                 }
 
-                string remainingContent = source.Substring(_endPos + 1, source.Length - _endPos - 1);
+                string remainingContent = source.Substring(endPos + 1, source.Length - endPos - 1);
 
                 return GetToken(remainingContent, tokens);
             }

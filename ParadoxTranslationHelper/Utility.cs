@@ -153,7 +153,7 @@ namespace ParadoxTranslationHelper
                     if( false == missingKeyFile.Equals(line.TranslationFile.FileName) )
                     {
                         missingKeyFile = line.TranslationFile.FileName;
-                        outputFile.WriteLine( "##### " +missingKeyFile );
+                        outputFile.WriteLine(Constants.TRANSLATION_FILE_IDENTIFIER +missingKeyFile );
                     }
                     outputFile.WriteLine(GetSubstitutedLineTabbed(line));
                 }

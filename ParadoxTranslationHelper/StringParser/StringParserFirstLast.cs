@@ -14,30 +14,30 @@ namespace ParadoxTranslationHelper
             {
                 return tokens;
             }
-            int _startPos = source.IndexOf(StartTag, 0) + StartTag.Length;
+            int startPos = source.IndexOf(StartTag, 0) + StartTag.Length;
 
             foreach (string endTag in EndTags)
             {
-                string subString = source.Substring(_startPos, source.Length - _startPos);
+                string subString = source.Substring(startPos, source.Length - startPos);
 
                 if (false == subString.Contains(endTag))
                 {
                     continue;
                 }
-                int _endPos = source.LastIndexOf(endTag, _startPos);
+                int endPos = source.LastIndexOf(endTag, startPos);
 
                 if (SubStringCount == 0)
                 {
-                    int count = source.Length - _endPos - 1;
+                    int count = source.Length - endPos - 1;
                     if (count > 0)
                     {
                         count--;
                     }
-                    tokens.Add(source.Substring(_startPos, count));
+                    tokens.Add(source.Substring(startPos, count));
                 }
                 else
                 {
-                    tokens.Add(source.Substring(_startPos, SubStringCount));
+                    tokens.Add(source.Substring(startPos, SubStringCount));
                 }
             }
 
