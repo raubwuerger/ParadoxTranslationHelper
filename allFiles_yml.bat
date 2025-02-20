@@ -1,0 +1,1 @@
+for %f in (*.yml) do type "%f" >> allFiles.yml

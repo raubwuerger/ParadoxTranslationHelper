@@ -14,10 +14,10 @@ namespace ParadoxTranslationHelper.FunctionObject
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateReSubstitute());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateAnalyse());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateDiff());
-            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateDiffSteam());
-            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSubstituteAnalyse());
-            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateReSubstituteAnalyse());
-            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateInsertIntoLocalizationFiles());
+            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSteamDiff());
+            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSteamSubstitute());
+            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSteamResubstitute());
+            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSteamInsertDiff());
         }
     }
 }

@@ -111,15 +111,7 @@ namespace ParadoxTranslationHelper
 
         private void SubstituteColorCode(LineObject lineObject)
         {
-            List<string> token = lineObject.ColorCodes;
-
-            string substitute = lineObject.OriginalLineSubstituted;
-            foreach (string subs in token)
-            {
-                substitute = substitute.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_END, FileSubstitutionConstants.COLOR_CODE_END_SUBSTITUTE);
-            }
-
-            lineObject.OriginalLineSubstituted = substitute;
+            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_END, FileSubstitutionConstants.COLOR_CODE_END_SUBSTITUTE);
         }
 
         private void SubstituteNamespace(LineObject lineObject)

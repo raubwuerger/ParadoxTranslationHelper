@@ -106,7 +106,6 @@ namespace ParadoxTranslationHelper
                     SetKey(line);
                     SetNamespaces(line);
                     SetNestingStrings(line);
-                    SetColorCodes(line);
                     SetIcons(line);
                     SetNewLine(line);
                 }

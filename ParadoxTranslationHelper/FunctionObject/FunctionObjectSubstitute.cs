@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,12 @@ namespace ParadoxTranslationHelper
             foreach (TranslationFile translationFile in LocalisationEnglish)
             {
                 FileSubstitutor fileSubstitutor = new FileSubstitutor();
-                fileSubstitutor.Substitute(translationFile);
+                if( true == fileSubstitutor.Substitute(translationFile) )
+                {
+                    Console.WriteLine("Substitution succesfull!");
+                    File.Create(translationFile.FileName + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX_GERMAN);
+                    //TODO: 2025-02-20 - JHA - Create File with extension <FileName>.yml.sub.german, UTF-8 BOM
+                }
             }
 
             return true;

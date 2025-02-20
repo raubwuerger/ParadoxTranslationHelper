@@ -53,10 +53,10 @@ namespace ParadoxTranslationHelper
         {
             StringParser stringParser = new StringParser();
             stringParser.StartTag = ICON_START;
-            stringParser.EndTags.Add(ICON_END);
             stringParser.EndTags.Add(" ");
             stringParser.EndTags.Add("\n");
             stringParser.EndTags.Add("\"");
+            stringParser.EndTags.Add(ICON_END);
             IgnoreCommentLines(stringParser);
             return stringParser;
         }

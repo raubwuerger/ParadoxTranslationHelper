@@ -47,10 +47,14 @@ namespace ParadoxTranslationHelper
             Console.WriteLine("args[1] == function");
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Registered functions");
-            foreach ( KeyValuePair<string,IFunctionObject> valueKeyPair in FunctionObjectRegistry.Instance.GetAll() )
-            {
-                Console.WriteLine("        => " +valueKeyPair.Key +" (" + valueKeyPair.Value.Description + ")" );
-            }
+            Console.WriteLine("STEAM_DIFF");
+            Console.WriteLine("STEAM_SUB");
+            Console.WriteLine("STEAM_RESUB");
+            Console.WriteLine("STEAM_INSERT");
+            Console.WriteLine("DIFF");
+            Console.WriteLine("SUB");
+            Console.WriteLine("RESUB");
+            Console.WriteLine("ANALYSE");
 
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Known mods (ParadoxTranslationHelper.xml): ");

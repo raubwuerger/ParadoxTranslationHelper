@@ -35,5 +35,7 @@ namespace ParadoxTranslationHelper
         public static string SUBSTITUTED_FILE_SUFFIX = ".sub";
         public static string RESUBSTITUTED_FILE_SUFFIX = ".resub";
 
+        public static string SUBSTITUTED_FILE_SUFFIX_GERMAN = ".german";
+
     }
 }

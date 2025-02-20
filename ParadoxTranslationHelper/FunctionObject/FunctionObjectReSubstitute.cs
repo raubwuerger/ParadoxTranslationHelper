@@ -39,7 +39,7 @@ namespace ParadoxTranslationHelper
 
             if ( ReadOnlyLocalizationFilesSub )
             {
-                LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstitute, Constants.FILE_EXTENSION_PREFIX + Constants.FUNCTION_SUB);
+                LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstitute, Constants.FILE_EXTENSION_PREFIX + Constants.FILE_EXTENSION_SUB);
             }
             else
             {
