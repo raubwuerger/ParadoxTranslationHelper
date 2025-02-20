@@ -51,7 +51,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            Utility.WriteLines(toCreate.Values.ToList(), Path.Combine(directory, ResultFileName ));
+            Utility.WriteLinesPushFrontTranslationIdentifier(toCreate.Values.ToList(), Path.Combine(directory, ResultFileName ));
 
             return true;
         }

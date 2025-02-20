@@ -9,34 +9,53 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectInsertIntoLocalizationFiles : FunctionObjectBase
     {
-        private const string _originalFileBackupExtension = ".bak";
+        private string _localizationFileNameDiff;
+        private string _localizationFilePathGerman;
+        private string _localizationFilePathAnalyze;
+
+        public string LocalizationFileNameDiff { get => _localizationFileNameDiff; set => _localizationFileNameDiff = value; }
+        public string LocalizationFilePathGerman { get => _localizationFilePathGerman; set => _localizationFilePathGerman = value; }
+        public string LocalizationFilePathAnalyze { get => _localizationFilePathAnalyze; set => _localizationFilePathAnalyze = value; }
+
         public FunctionObjectInsertIntoLocalizationFiles(string name) : base(name)
         {
         }
 
         public override bool DoWork()
         {
-            const string pathMissingKeys = "MissingTranslationKeysSteam.yml.sub.resub";
-            List<TranslationFile> missingKeysToInsert = CreateMissingKeysToInsert( Path.Combine(ParadoxTranslationHelperConfig.PathResult, pathMissingKeys));
-            LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathGerman);
+            if (true == string.IsNullOrEmpty(_localizationFileNameDiff))
+            {
+                Console.WriteLine("Member <LocalizationFileNameDiff> must not be null!");
+                return false;
+            }
+
+            if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
+            {
+                Console.WriteLine("Member <LocalizationFilePathGerman> must not be null!");
+                return false;
+            }
+
+            if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
+            {
+                Console.WriteLine("Member <LocalizationFilePathAnalyze> must not be null!");
+                return false;
+            }
+
+            List<TranslationFile> missingKeysToInsert = CreateMissingKeysToInsert(_localizationFileNameDiff);
+            if (missingKeysToInsert.Count > 0)
+            {
+                missingKeysToInsert.RemoveAt(0);
+            }
+
+            LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
 
             List<TranslationFile> updatedFiles = CreateUpdateFiles(missingKeysToInsert);
             foreach (TranslationFile file in updatedFiles) 
             {
-                Utility.WriteLines(file.Lines.Values.ToList<LineObject>(), CreateFileNameResultPathGerman(file.FileNameWithoutLocalisation));
+                Utility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName);
             }
 
             return true;
-        }
-
-        private string? CreateFileNameResultPathGerman(string fileNameWithoutLocalisation )
-        {
-            if (string.IsNullOrEmpty(fileNameWithoutLocalisation))
-            {
-                return null;
-            }
-
-            return Path.Combine(ParadoxTranslationHelperConfig.PathResult, fileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL + ".updated.yml");
         }
 
         private List<TranslationFile>? CreateMissingKeysToInsert( string pathMissingKeys ) 
@@ -129,7 +148,7 @@ namespace ParadoxTranslationHelper
 
             if( startFileExtension == -1 ) 
             {
-                Console.WriteLine("Not a valid localisation file: LOCALISATION_EXTENSION not found!");
+                Console.WriteLine("Not a valid localization file: LOCALISATION_EXTENSION not found!");
                 return null;
             }
 
@@ -159,6 +178,8 @@ namespace ParadoxTranslationHelper
                 Console.WriteLine("Dictionary original is null!");
                 return null;
             }
+
+            Utility.WriteTranslationFile(original, Path.Combine(LocalizationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
 
             RemoveTranslationFileIdentifier(original.Lines);
 
@@ -210,7 +231,7 @@ namespace ParadoxTranslationHelper
             missing.Lines = includingLanguageIdentifier;
 
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
-            return translationFileCreator.CopyExceptFileName( Path.Combine(ParadoxTranslationHelperConfig.PathGerman, Utility.ConvertLocalisationToGerman(missing.FileName)), missing );
+            return translationFileCreator.CopyExceptFileName( Path.Combine(_localizationFilePathGerman, Utility.ConvertLocalisationToGerman(missing.FileName)), missing );
         }
 
         private bool RemoveTranslationFileIdentifier(Dictionary<int, LineObject> lines ) 

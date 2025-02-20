@@ -31,7 +31,7 @@ namespace ParadoxTranslationHelper
 
             FunctionObjectRegistryInitialiser.Init();
 
-            IFunctionObject functionObject = FunctionObjectRegistry.Instance.GetFunctionObject(args[1]);
+            IFunctionObject functionObject = FunctionObjectRegistry.Instance.GetFunctionObject(args[1].ToUpper());
             if( functionObject == null ) 
             {
                 LogInfosMods("Function not found ...");

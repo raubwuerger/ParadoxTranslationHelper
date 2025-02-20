@@ -43,6 +43,9 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectInsertIntoLocalizationFiles functionObject = new FunctionObjectInsertIntoLocalizationFiles(FunctionTypes.SteamInsert);
             functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
+            functionObject.LocalizationFileNameDiff = Path.Combine(ParadoxTranslationHelperConfig.PathResult, "MissingTranslationKeysSteam.yml.sub.german.resub");
+            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 
             return functionObject;
         }

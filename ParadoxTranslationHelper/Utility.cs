@@ -142,7 +142,7 @@ namespace ParadoxTranslationHelper
             return resubstitutes;
         }
 
-        public static void WriteLines( List<LineObject> lineObjects, string fileName )
+        public static void WriteLinesPushFrontTranslationIdentifier( List<LineObject> lineObjects, string fileName )
         {
             Console.WriteLine("Writing file: " + fileName);
             using (StreamWriter outputFile = new StreamWriter(fileName))
@@ -155,6 +155,18 @@ namespace ParadoxTranslationHelper
                         missingKeyFile = line.TranslationFile.FileName;
                         outputFile.WriteLine(Constants.TRANSLATION_FILE_IDENTIFIER +missingKeyFile );
                     }
+                    outputFile.WriteLine(GetSubstitutedLineTabbed(line));
+                }
+            }
+        }
+
+        public static void WriteLines(List<LineObject> lineObjects, string fileName)
+        {
+            Console.WriteLine("Writing file: " + fileName);
+            using (StreamWriter outputFile = new StreamWriter(fileName))
+            {
+                foreach (LineObject line in lineObjects)
+                {
                     outputFile.WriteLine(GetSubstitutedLineTabbed(line));
                 }
             }
@@ -264,7 +276,6 @@ namespace ParadoxTranslationHelper
             return Path.Combine(analysePath, Path.GetFileName(translationFile.FileName));
         }
 
-        public static string FILE_PATTERN = "*.yml";
         public static List<TranslationFile> CreateTranslationFilesFromDirectory(string directory, string filePattern = "*.yml")
         {
             if (null == directory)
@@ -407,7 +418,6 @@ namespace ParadoxTranslationHelper
                 return false;
             }
         }
-
 
     }
 }
