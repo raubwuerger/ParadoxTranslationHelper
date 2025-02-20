@@ -56,6 +56,7 @@ namespace ParadoxTranslationHelper
             stringParser.EndTags.Add(" ");
             stringParser.EndTags.Add("\n");
             stringParser.EndTags.Add("\"");
+            stringParser.EndTags.Add("|");
             stringParser.EndTags.Add(ICON_END);
             IgnoreCommentLines(stringParser);
             return stringParser;

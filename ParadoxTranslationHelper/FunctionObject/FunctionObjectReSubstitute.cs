@@ -54,8 +54,13 @@ namespace ParadoxTranslationHelper
                 if( true == RemoveFileExtension )
                 {
                     translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
+                    TranslationFileCreator creator = new TranslationFileCreator();
+                    fileSubstitutor.ReSubstitute(Create(creator.CopyExceptFileName(translationFile.FileName + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX_GERMAN, translationFile), FindCorrespondingTranslationFile(translationFile)));
                 }
-                fileSubstitutor.ReSubstitute(Create(translationFile, FindCorrespondingTranslationFile(translationFile)));
+                else
+                {
+                    fileSubstitutor.ReSubstitute(Create(translationFile, FindCorrespondingTranslationFile(translationFile)));
+                }
             }
 
             return true;

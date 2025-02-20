@@ -16,7 +16,6 @@ namespace ParadoxTranslationHelper
 
         FileReaderSubstitutionItem _fileReaderSubstitutionItem = new FileReaderSubstitutionItem();
 
-        private static string SUBSTITUTION_FILE_APPENDIX = ".substituted.txt";
         private TranslationFileSetSubstitution _translationFileSetSubstitution;
 
         internal TranslationFileSetSubstitution TranslationFileSetSubstitution { get => _translationFileSetSubstitution; set => _translationFileSetSubstitution = value; }
@@ -45,7 +44,6 @@ namespace ParadoxTranslationHelper
 
             _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathIconFile; 
             _iconReSubstitute = _fileReaderSubstitutionItem.Read();
-            
 
             return true;
         }
@@ -65,9 +63,24 @@ namespace ParadoxTranslationHelper
             SubstituteLines(lineObjects, _nestingStringsReSubstitute);
             SubstituteLines(lineObjects, _namespaceReSubstitute);
             SubstituteLines(lineObjects, _iconReSubstitute);
+            SubstituteLinesColorCodeEnd(lineObjects);
 
             Utility.WriteLines(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile, ParadoxTranslationHelperConfig.PathResult) + FileSubstitutionConstants.RESUBSTITUTED_FILE_SUFFIX);
             Console.WriteLine("Finished ...");
+        }
+
+        private void SubstituteLinesColorCodeEnd(List<LineObject> lineObjects)
+        {
+            foreach (LineObject lineObject in lineObjects)
+            {
+                if (false == lineObject.OriginalLine.Contains(FileSubstitutionConstants.COLOR_CODE_END))
+                {
+                    continue;
+                }
+
+                Console.WriteLine("Replacing item: " + FileSubstitutionConstants.COLOR_CODE_END);
+                lineObject.OriginalLine = lineObject.OriginalLine.Replace(FileSubstitutionConstants.COLOR_CODE_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+            }
         }
 
         private void SubstituteLines(List<LineObject> lineObjects, Dictionary<string, string> substituteTokens )
