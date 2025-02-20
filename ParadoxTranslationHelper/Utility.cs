@@ -385,6 +385,29 @@ namespace ParadoxTranslationHelper
             return new List<string>(lines);
         }
 
+        public static bool CreateEmptyFileUTF8_BOM( string filename )
+        {
+            if (string.IsNullOrEmpty(filename))
+            {
+                Console.WriteLine("Parameter <filename> must not be null or empty!");
+                return false;
+            }
+
+            try
+            {
+                using (Stream stream = File.OpenWrite(filename))
+                using (var writer = new StreamWriter(stream, new UTF8Encoding(true)))
+                {
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception occurred: " +e.ToString());
+                return false;
+            }
+        }
+
 
     }
 }

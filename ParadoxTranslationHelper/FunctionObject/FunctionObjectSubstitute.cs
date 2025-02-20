@@ -34,9 +34,11 @@ namespace ParadoxTranslationHelper
                 FileSubstitutor fileSubstitutor = new FileSubstitutor();
                 if( true == fileSubstitutor.Substitute(translationFile) )
                 {
-                    Console.WriteLine("Substitution succesfull!");
-                    File.Create(translationFile.FileName + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX_GERMAN);
-                    //TODO: 2025-02-20 - JHA - Create File with extension <FileName>.yml.sub.german, UTF-8 BOM
+                    Console.WriteLine("Substitution successfully!");
+                    if( false == Utility.CreateEmptyFileUTF8_BOM( SubstitutionHelper.CreateFileNameResub(translationFile.FileName) ) )
+                    {
+                        Console.WriteLine("Unable to create file: " + SubstitutionHelper.CreateFileNameResub(translationFile.FileName) );
+                    }
                 }
             }
 
