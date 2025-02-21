@@ -21,7 +21,7 @@ namespace ParadoxTranslationHelper.FunctionObject
                 return false;
             }
 
-            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathEnglish);
+            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathGerman);
 
             return CheckNewKeysUpdate();
         }
