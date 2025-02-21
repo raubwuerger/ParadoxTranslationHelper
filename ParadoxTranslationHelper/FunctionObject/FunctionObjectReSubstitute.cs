@@ -39,7 +39,7 @@ namespace ParadoxTranslationHelper
 
             if ( ReadOnlyLocalizationFilesSub )
             {
-                LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstitute, Constants.FILE_EXTENSION_PREFIX + Constants.FILE_EXTENSION_SUB);
+                LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstitute, Constants.FILE_EXTENSION_PREFIX + Constants.LOCALISATION_GERMAN);
             }
             else
             {
@@ -55,7 +55,7 @@ namespace ParadoxTranslationHelper
                 {
                     translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
                     TranslationFileCreator creator = new TranslationFileCreator();
-                    fileSubstitutor.ReSubstitute(Create(creator.CopyExceptFileName(translationFile.FileName + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX_GERMAN, translationFile), FindCorrespondingTranslationFile(translationFile)));
+                    fileSubstitutor.ReSubstitute(Create(creator.CopyExceptFileName(translationFile.FileName, translationFile), FindCorrespondingTranslationFile(translationFile)));
                 }
                 else
                 {
