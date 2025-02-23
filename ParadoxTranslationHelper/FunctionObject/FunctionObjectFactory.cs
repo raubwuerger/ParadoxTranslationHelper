@@ -14,6 +14,8 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectDiffSteam functionObject = new FunctionObjectDiffSteam(FunctionTypes.SteamDiff);
             functionObject.Description = "write missing keys to file against steam path";
+            functionObject.PathRepository = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
             functionObject.ResultFileName = Constants.FUNCTION_FILE_NAME_STEAM;
 
             return functionObject;

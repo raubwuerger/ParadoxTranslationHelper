@@ -9,15 +9,40 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectDiff : FunctionObjectBase
     {
+        private string _pathRepository;
+        private string _pathSteam;
+        private string _resultFileName;
+
+        public string PathRepository { get => _pathRepository; set => _pathRepository = value; }
+        public string PathSteam { get => _pathSteam; set => _pathSteam = value; }
+        public string ResultFileName { get => _resultFileName; set => _resultFileName = value; }
+
         public FunctionObjectDiff(string name) : base(name)
         {
         }
 
         public override bool DoWork()
         {
-            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathEnglish);
-            LocalisationEnglishUpdated = Utility.CreateTranslationFilesFromDirectory(ParadoxTranslationHelperConfig.PathSteam);
-            ResultFileName = "MissingTranslationKeys.yml";
+            if( _pathRepository == null) 
+            {
+                Console.WriteLine("Member <PathRepository> must not be null!");
+                return false;
+            }
+
+            if (_pathSteam == null)
+            {
+                Console.WriteLine("Member <PathSteam> must not be null!");
+                return false;
+            }
+
+            if(_resultFileName == null) 
+            {
+                Console.WriteLine("Member <ResultFileName> must not be null!");
+                return false;
+            }
+
+            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(_pathRepository);
+            LocalisationEnglishUpdated = Utility.CreateTranslationFilesFromDirectory(_pathSteam);
 
             return CheckNewKeysUpdate();
         }
