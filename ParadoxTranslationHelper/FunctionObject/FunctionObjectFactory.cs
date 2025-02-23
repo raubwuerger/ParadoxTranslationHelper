@@ -88,5 +88,14 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
+        public static IFunctionObject? CreateCheckForDoubleKeys()
+        {
+            FunctionCheckForDoubleKeys functionObject = new FunctionCheckForDoubleKeys(FunctionTypes.CheckForDoubleKeys);
+            functionObject.Description = "Compare for duplicate keys. File by file.";
+            functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
+
+            return functionObject;
+        }
+
     }
 }
