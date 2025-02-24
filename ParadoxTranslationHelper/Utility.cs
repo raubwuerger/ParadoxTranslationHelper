@@ -145,7 +145,8 @@ namespace ParadoxTranslationHelper
         public static void WriteLinesPushFrontTranslationIdentifier( List<LineObject> lineObjects, string fileName )
         {
             Console.WriteLine("Writing file: " + fileName);
-            using (StreamWriter outputFile = new StreamWriter(fileName))
+            using (Stream stream = File.OpenWrite(fileName))
+            using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
             {
                 string missingKeyFile = "";
                 foreach (LineObject line in lineObjects)
@@ -163,7 +164,8 @@ namespace ParadoxTranslationHelper
         public static void WriteLines(List<LineObject> lineObjects, string fileName)
         {
             Console.WriteLine("Writing file: " + fileName);
-            using (StreamWriter outputFile = new StreamWriter(fileName))
+            using (Stream stream = File.OpenWrite(fileName))
+            using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
             {
                 foreach (LineObject line in lineObjects)
                 {
@@ -193,7 +195,8 @@ namespace ParadoxTranslationHelper
             List<LineObject> lineObjects = _lines.Values.ToList();
 
             Console.WriteLine("Writing file: " + fileName);
-            using (StreamWriter outputFile = new StreamWriter(fileName))
+            using (Stream stream = File.OpenWrite(fileName))
+            using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
             {
                 foreach (LineObject line in lineObjects)
                 {
