@@ -18,5 +18,6 @@ namespace ParadoxTranslationHelper
         public static readonly string Analyse = "ANALYSE";          // public static string FUNCTION_ANALYSIS = "analyse";
         public static readonly string CheckForDoubleKeys = "CHECK_FOR_DOUBLE_KEYS";
         public static readonly string CheckForDoubleKeysAllFiles = "CHECK_FOR_DOUBLE_KEYS_ALL_FILES";
+        public static readonly string CheckForDoubleKeysAllFilesFix = "CHECK_FOR_DOUBLE_KEYS_ALL_FILES_FIX";
     }
 }

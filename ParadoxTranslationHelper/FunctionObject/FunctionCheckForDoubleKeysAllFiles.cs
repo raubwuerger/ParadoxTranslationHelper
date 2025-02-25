@@ -11,12 +11,14 @@ namespace ParadoxTranslationHelper
     {
         private string _pathGerman;
         private string _pathAnalyze;
+        private bool _deleteDoubleKeys = false;
         public FunctionCheckForDoubleKeysAllFiles(string name) : base(name)
         {
         }
 
         public string PathGerman { get => _pathGerman; set => _pathGerman = value; }
         public string PathAnalyze { get => _pathAnalyze; set => _pathAnalyze = value; }
+        public bool DeleteDoubleKeys { get => _deleteDoubleKeys; set => _deleteDoubleKeys = value; }
 
         public override bool DoWork()
         {
@@ -32,7 +34,12 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            WriteDoubleKeyFiles( DoFunctionCheckForDoubleKeys( Utility.CreateTranslationFilesFromDirectory(PathGerman)) );
+            Dictionary<string, List<LineObject>> doubleKeyFiles = WriteDoubleKeyFiles(DoFunctionCheckForDoubleKeys(Utility.CreateTranslationFilesFromDirectory(PathGerman)));
+
+            if (true == _deleteDoubleKeys)
+            {
+                DoDeleteDoubleKeys(doubleKeyFiles);
+            }
 
             return true;
         }
@@ -80,7 +87,7 @@ namespace ParadoxTranslationHelper
 
             return doubleKeyFiles;
         }
-        private void WriteDoubleKeyFiles( Dictionary<string, List<LineObject>> doubleKeyFiles )
+        private Dictionary<string, List<LineObject>> WriteDoubleKeyFiles( Dictionary<string, List<LineObject>> doubleKeyFiles )
         {
             if ( doubleKeyFiles == null ) 
             {
@@ -91,6 +98,12 @@ namespace ParadoxTranslationHelper
 
 
             Utility.Write(doubleKeyFiles);
+            return doubleKeyFiles;
+        }
+
+        private void DoDeleteDoubleKeys(Dictionary<string, List<LineObject>> doubleKeyFiles)
+        {
+            //TODO: 2025-02-25 - JHA - To Implement
         }
     }
 }
