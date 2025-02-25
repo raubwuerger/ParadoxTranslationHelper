@@ -17,5 +17,6 @@ namespace ParadoxTranslationHelper
         public static readonly string Resub = "RESUB";              // public static string FUNCTION_RESUB = "resub";
         public static readonly string Analyse = "ANALYSE";          // public static string FUNCTION_ANALYSIS = "analyse";
         public static readonly string CheckForDoubleKeys = "CHECK_FOR_DOUBLE_KEYS";
+        public static readonly string RemoveDoubleKeys = "REMOVE_DOUBLE_KEYS";
     }
 }
