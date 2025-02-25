@@ -10,13 +10,15 @@ namespace ParadoxTranslationHelper
     public class FunctionCheckForDoubleKeys : FunctionObjectBase
     {
         private string _pathGerman;
-        private string _resultFileName;
+        private string _resultFileNameAppendix;
+        private string _pathAnalyze;
         public FunctionCheckForDoubleKeys(string name) : base(name)
         {
         }
 
         public string PathGerman { get => _pathGerman; set => _pathGerman = value; }
-        public string ResultFileName { get => _resultFileName; set => _resultFileName = value; }
+        public string ResultFileNameAppendix { get => _resultFileNameAppendix; set => _resultFileNameAppendix = value; }
+        public string PathAnalyze { get => _pathAnalyze; set => _pathAnalyze = value; }
 
         public override bool DoWork()
         {
@@ -26,24 +28,25 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            if (true == string.IsNullOrEmpty(_resultFileName))
+            if (true == string.IsNullOrEmpty(_resultFileNameAppendix))
             {
-                Console.WriteLine("Member <ResultFileName> must not be null or empty!");
+                Console.WriteLine("Member <ResultFileNameAppendix> must not be null or empty!");
                 return false;
             }
 
-            List<string> doubleKeys = DoFunctionCheckForDoubleKeys( Utility.CreateTranslationFilesFromDirectory(PathGerman));
+            if(true == string.IsNullOrEmpty(_pathAnalyze) ) 
+            {
+                Console.WriteLine("Member <PathAnalyze> must not be null or empty!");
+                return false;
+            }
+
+            WriteDoubleKeyFiles( DoFunctionCheckForDoubleKeys( Utility.CreateTranslationFilesFromDirectory(PathGerman)) );
 
             return true;
         }
 
-        private List<string>? DoFunctionCheckForDoubleKeys(List<TranslationFile> translationFiles) 
+        private Dictionary<string, List<string>>? DoFunctionCheckForDoubleKeys(List<TranslationFile> translationFiles) 
         {
-            //TODO: 2025-02-23 - JHA - To implement
-            //TranslationFileCreator
-            //Iterate over every TranslationFile.lineObjects
-            //If double key found put string with filename in top of list, then put double key with line number.
-
             if (translationFiles == null)
             {
                 Console.WriteLine("Parameter <translationFiles> must not be null!");
@@ -56,12 +59,29 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            List<List<string>> doubleKeys = new List<List<string>>();
+            Dictionary<string,List<string>> doubleKeyFiles = new Dictionary<string, List<string>>();
             foreach( TranslationFile translationFile in translationFiles )
             {
-                doubleKeys.Add(CheckForDoubleKeys(translationFile));
+                List<string> doubleKeys = CheckForDoubleKeys(translationFile);
+                if( doubleKeys == null )
+                {
+                    continue;
+                }
+
+                if(doubleKeys.Count == 0 ) 
+                {
+                    continue;
+                }
+
+                doubleKeyFiles.Add(CreateFileNameDoubleKey(translationFile), doubleKeys );
             }
-            return null;
+
+            return doubleKeyFiles;
+        }
+
+        private string CreateFileNameDoubleKey(TranslationFile translationFile)
+        {
+            return Path.Combine(PathAnalyze, Path.GetFileName(translationFile.FileName) + ResultFileNameAppendix);
         }
 
         private List<string>? CheckForDoubleKeys(TranslationFile translationFile)
@@ -98,6 +118,19 @@ namespace ParadoxTranslationHelper
             }
 
             return doubleKeys;
+        }
+
+        private void WriteDoubleKeyFiles(Dictionary<string, List<string>> doubleKeyFiles )
+        {
+            if ( doubleKeyFiles == null ) 
+            {
+                Console.WriteLine("Parameter <doubleKeyFiles> must not be null!");
+            }
+
+            DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);
+
+
+            Utility.Write(doubleKeyFiles);
         }
     }
 }
