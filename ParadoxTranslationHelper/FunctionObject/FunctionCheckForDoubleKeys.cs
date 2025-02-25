@@ -73,6 +73,9 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
+                DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);
+
+                Utility.WriteTranslationFile(translationFile, Path.Combine(PathAnalyze, translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL +Constants.LOCALISATION_EXTENSION));
                 doubleKeyFiles.Add(CreateFileNameDoubleKey(translationFile), doubleKeys );
             }
 
@@ -100,11 +103,13 @@ namespace ParadoxTranslationHelper
             }
 
             Dictionary<string,LineObject> keyLines = new Dictionary<string,LineObject>();
+            Dictionary<int, LineObject> uniqueLines = new Dictionary<int, LineObject>();
 
             foreach (var line in translationFile.Lines)
             {
                 if( string.IsNullOrEmpty(line.Value.Key) )
-                { 
+                {
+                    uniqueLines.Add(line.Key, line.Value);
                     continue; 
                 }
 
@@ -115,7 +120,10 @@ namespace ParadoxTranslationHelper
                 }
 
                 keyLines.Add(line.Value.Key,line.Value);
+                uniqueLines.Add(line.Key,line.Value);
             }
+
+            translationFile.Lines = uniqueLines;
 
             return doubleKeys;
         }
