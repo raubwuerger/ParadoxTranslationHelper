@@ -18,7 +18,8 @@ namespace ParadoxTranslationHelper.FunctionObject
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSteamSubstitute());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSteamResubstitute());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSteamInsertDiff());
-            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateCheckForDoubleKeys()); 
+            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateCheckForDoubleKeys());
+            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateCheckForDoubleKeysAllFiles());
         }
     }
 }

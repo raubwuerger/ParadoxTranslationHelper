@@ -220,6 +220,44 @@ namespace ParadoxTranslationHelper
             return true;
         }
 
+        public static bool Write(Dictionary<string, List<LineObject>> doubleKeyFiles)
+        {
+            if (doubleKeyFiles == null)
+            {
+                Console.WriteLine("Parameter <doubleKeyFiles> must not be null or empty!");
+                return false;
+            }
+
+            if (doubleKeyFiles.Count == 0)
+            {
+                Console.WriteLine("Parameter <doubleKeyFiles> must not be empty!");
+                return false;
+            }
+
+/*            foreach (var keyFile in doubleKeyFiles)
+            {
+                try
+                {
+                    using (Stream stream = File.OpenWrite(keyFile.Key))
+                    using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+                    {
+                        List<LineObject> temp = keyFile.Value;
+                        foreach (LineObject doubleKey in keyFile.Value)
+                        {
+                            outputFile.WriteLine(doubleKey);
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Exception occurred: " + e.ToString());
+                    continue;
+                }
+            }
+*/
+            return true;
+        }
+
         private static string GetSubstitutedLineTabbed(LineObject lineObject)
         {
             if (lineObject.OriginalLineSubstituted == null)
