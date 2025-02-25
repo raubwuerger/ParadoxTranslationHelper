@@ -28,5 +28,52 @@ namespace ParadoxTranslationHelper
                 return null;
             }
         }
+
+        public static string FindNodeByNameAttribute(XmlNodeList nodes, string nodeName)
+        {
+            foreach (XmlNode node in nodes)
+            {
+                return node[nodeName].InnerText;
+            }
+            return null;
+        }
+        public static string FindChildNodeByName(XmlNodeList nodes, string nodeName)
+        {
+            foreach (XmlNode node in nodes)
+            {
+                return node[nodeName].InnerText;
+            }
+            return null;
+        }
+
+        public static string FindNodeByName(XmlNodeList nodes, string nodeName)
+        {
+            foreach (XmlNode node in nodes)
+            {
+                if (node.Name == nodeName)
+                {
+                    return node.InnerText;
+                }
+            }
+            return null;
+        }
+        public static string GetAttributeValueByName(XmlAttributeCollection xmlAttributeCollection, string name)
+        {
+            if (xmlAttributeCollection == null)
+            {
+                return null;
+            }
+
+            foreach (XmlAttribute attribute in xmlAttributeCollection)
+            {
+                if (attribute.Name == name)
+                {
+                    return attribute.Value;
+                }
+            }
+
+            return null;
+        }
+
     }
 }

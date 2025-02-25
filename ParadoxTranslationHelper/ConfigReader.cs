@@ -47,7 +47,7 @@ namespace ParadoxTranslationHelper
             XmlNodeList global = config.SelectNodes(CONFIG_GLOBAL);
             foreach (XmlNode mod in global)
             {
-                string resultPath = Utility.FindNodeByName(mod.ChildNodes, CONFIG_GLOBAL_RESULT_PATH);
+                string resultPath = XMLFileUtility.FindNodeByName(mod.ChildNodes, CONFIG_GLOBAL_RESULT_PATH);
                 if (null == resultPath)
                 {
                     continue;
@@ -64,7 +64,7 @@ namespace ParadoxTranslationHelper
 
             foreach (XmlNode mod in modPaths)
             {
-                string modName = Utility.GetAttributeValueByName(mod.Attributes, CONFIG_MOD_NAME_ATTRIBUTE);
+                string modName = XMLFileUtility.GetAttributeValueByName(mod.Attributes, CONFIG_MOD_NAME_ATTRIBUTE);
                 if (null == modName)
                 {
                     continue;
@@ -72,22 +72,22 @@ namespace ParadoxTranslationHelper
 
                 DataSetMod dataSetMod = new DataSetMod(modName);
 
-                if( false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_BASE), value => dataSetMod.PathBase = value) )
+                if( false == SetItem(XMLFileUtility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_BASE), value => dataSetMod.PathBase = value) )
                 {
                     continue;
                 }
 
-                if (false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_ENGLISH), value => dataSetMod.PathEnglish = value))
+                if (false == SetItem(XMLFileUtility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_ENGLISH), value => dataSetMod.PathEnglish = value))
                 {
                     continue;
                 }
 
-                if (false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_GERMAN), value => dataSetMod.PathGerman = value))
+                if (false == SetItem(XMLFileUtility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_GERMAN), value => dataSetMod.PathGerman = value))
                 {
                     continue;
                 }
 
-                if (false == SetItem(Utility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_STEAM), value => dataSetMod.PathSteam = value))
+                if (false == SetItem(XMLFileUtility.FindNodeByName(mod.ChildNodes, CONFIG_NODE_PATH_STEAM), value => dataSetMod.PathSteam = value))
                 {
                     continue;
                 }
