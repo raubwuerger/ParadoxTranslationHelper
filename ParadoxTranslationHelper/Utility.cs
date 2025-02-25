@@ -158,6 +158,68 @@ namespace ParadoxTranslationHelper
                 }
             }
         }
+
+        public static bool WriteEmptyFileUTF8_BOM(string filename)
+        {
+            if (string.IsNullOrEmpty(filename))
+            {
+                Console.WriteLine("Parameter <filename> must not be null or empty!");
+                return false;
+            }
+
+            try
+            {
+                using (Stream stream = File.OpenWrite(filename))
+                using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+                {
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception occurred: " + e.ToString());
+                return false;
+            }
+        }
+
+        public static bool Write(Dictionary<string, List<string>> doubleKeyFiles )
+        {
+            if (doubleKeyFiles == null)
+            {
+                Console.WriteLine("Parameter <doubleKeyFiles> must not be null or empty!");
+                return false;
+            }
+
+            if( doubleKeyFiles.Count == 0 ) 
+            {
+                Console.WriteLine("Parameter <doubleKeyFiles> must not be empty!");
+                return false;
+            }
+
+            foreach ( var keyFile in doubleKeyFiles ) 
+            {
+                try
+                {
+                    using (Stream stream = File.OpenWrite(keyFile.Key))
+                    using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+                    {
+                        List<string> temp = keyFile.Value;
+                        foreach( string doubleKey in keyFile.Value )
+                        {
+                            outputFile.WriteLine(doubleKey);
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Exception occurred: " + e.ToString());
+                    continue;
+                }
+            }
+
+            return true;
+        }
+
         private static string GetSubstitutedLineTabbed(LineObject lineObject)
         {
             if (lineObject.OriginalLineSubstituted == null)
@@ -351,29 +413,6 @@ namespace ParadoxTranslationHelper
             }
 
             return new List<string>(lines);
-        }
-
-        public static bool CreateEmptyFileUTF8_BOM( string filename )
-        {
-            if (string.IsNullOrEmpty(filename))
-            {
-                Console.WriteLine("Parameter <filename> must not be null or empty!");
-                return false;
-            }
-
-            try
-            {
-                using (Stream stream = File.OpenWrite(filename))
-                using (var writer = new StreamWriter(stream, new UTF8Encoding(true)))
-                {
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception occurred: " +e.ToString());
-                return false;
-            }
         }
 
     }

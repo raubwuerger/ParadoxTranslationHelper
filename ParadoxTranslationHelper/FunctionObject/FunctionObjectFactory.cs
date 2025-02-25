@@ -93,7 +93,8 @@ namespace ParadoxTranslationHelper
             FunctionCheckForDoubleKeys functionObject = new FunctionCheckForDoubleKeys(FunctionTypes.CheckForDoubleKeys);
             functionObject.Description = "Compare for duplicate keys. File by file.";
             functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
-            functionObject.ResultFileName = Path.Combine(ParadoxTranslationHelperConfig.PathResult, "DoubleKeay.txt");
+            functionObject.ResultFileNameAppendix = Constants.FUNCTION_FILE_NAME_APPENDIX;
+            functionObject.PathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 
             return functionObject;
         }
