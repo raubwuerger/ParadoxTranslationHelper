@@ -144,21 +144,19 @@ namespace ParadoxTranslationHelper
             List<TranslationFile> translationFilesCorrected = new List<TranslationFile>();
             foreach (KeyValuePair<string, List<LineObject>> doubleKey in doubleKeyFiles)
             {
-                foreach( LineObject lineObject in doubleKey.Value )
+                LineObject last = doubleKey.Value.Last();
+                TranslationFile translationFile = originalFiles.Find(x => x.FileName.Equals(last.TranslationFile.FileName));
+                if (translationFile == null)
                 {
-                    TranslationFile translationFile = originalFiles.Find(x => x.FileName.Equals(lineObject.TranslationFile.FileName));
-                    if (translationFile == null)
-                    {
-                        Console.WriteLine("Unable to find translation file: " + lineObject.TranslationFile.FileName);
-                        continue;
-                    }
-
-                    if( false == translationFilesCorrected.Contains(translationFile) )
-                    {
-                        translationFilesCorrected.Add(translationFile);
-                    }
-                    translationFile.Lines.Remove(lineObject.LineNumber);
+                    Console.WriteLine("Unable to find translation file: " + last.TranslationFile.FileName);
+                    continue;
                 }
+
+                if (false == translationFilesCorrected.Contains(translationFile))
+                {
+                    translationFilesCorrected.Add(translationFile);
+                }
+                translationFile.Lines.Remove(last.LineNumber);
             }
 
             return translationFilesCorrected;
