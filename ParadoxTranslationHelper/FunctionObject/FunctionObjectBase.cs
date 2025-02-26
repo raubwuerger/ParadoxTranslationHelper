@@ -13,8 +13,6 @@ namespace ParadoxTranslationHelper
         List<TranslationFile> _localisationEnglishUpdated = null;
         List<TranslationFile> _localisationGerman = null;
 
-        string _resultFileName = null;
-
         string _name;
 
         string _description;

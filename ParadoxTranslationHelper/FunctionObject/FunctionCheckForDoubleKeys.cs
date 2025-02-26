@@ -49,13 +49,13 @@ namespace ParadoxTranslationHelper
         {
             if (translationFiles == null)
             {
-                Console.WriteLine("Parameter <translationFiles> must not be null!");
+                Console.WriteLine("Parameter <translationFiles> must not be null!", translationFiles);
                 return null;
             }
 
             if (translationFiles.Count == 0)
             {
-                Console.WriteLine("Parameter <translationFiles> contains no translation files!");
+                Console.WriteLine("Parameter <translationFiles> contains no translation files!", translationFiles);
                 return null;
             }
 
@@ -75,7 +75,7 @@ namespace ParadoxTranslationHelper
 
                 DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);
 
-                Utility.WriteTranslationFile(translationFile, Path.Combine(PathAnalyze, translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL +Constants.LOCALISATION_EXTENSION));
+                Utility.WriteTranslationFile(translationFile, Path.Combine(PathAnalyze, Utility.CreateFullNameGerman(translationFile)));
                 doubleKeyFiles.Add(CreateFileNameDoubleKey(translationFile), doubleKeys );
             }
 

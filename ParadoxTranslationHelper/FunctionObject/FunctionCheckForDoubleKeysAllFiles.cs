@@ -34,11 +34,37 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            Dictionary<string, List<LineObject>> doubleKeyFiles = WriteDoubleKeyFiles(DoFunctionCheckForDoubleKeys(Utility.CreateTranslationFilesFromDirectory(PathGerman)));
+            List<TranslationFile> translationFiles = Utility.CreateTranslationFilesFromDirectory(PathGerman);
+            if( null == translationFiles )
+            {
+                Console.WriteLine("No translation files found at path! " +PathGerman);
+                return false;
+            }
+
+            Dictionary<string, List<LineObject>> doubleKeyFiles = WriteDoubleKeyFiles(DoFunctionCheckForDoubleKeys(translationFiles));
+
+            if (null == doubleKeyFiles)
+            {
+                return true;
+            }
+
+            if (doubleKeyFiles.Count == 0 )
+            { 
+                return true; 
+            }
 
             if (true == _deleteDoubleKeys)
             {
-                DoDeleteDoubleKeys(doubleKeyFiles);
+                List<TranslationFile> translationFilesCorrected = DoDeleteDoubleKeys(doubleKeyFiles, translationFiles);
+                if (null == translationFilesCorrected)
+                {
+                    return true;
+                }
+                
+                foreach (TranslationFile translationFile in translationFilesCorrected )
+                {
+                    Utility.WriteTranslationFile(translationFile,Path.Combine(_pathAnalyze, Utility.CreateFullNameGerman(translationFile)) );
+                }
             }
 
             return true;
@@ -97,13 +123,45 @@ namespace ParadoxTranslationHelper
             DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);
 
 
-            Utility.Write(doubleKeyFiles);
+            Utility.Write(doubleKeyFiles,Path.Combine(_pathAnalyze,"KeysDouble.txt"));
             return doubleKeyFiles;
         }
 
-        private void DoDeleteDoubleKeys(Dictionary<string, List<LineObject>> doubleKeyFiles)
+        private List<TranslationFile>? DoDeleteDoubleKeys(Dictionary<string, List<LineObject>> doubleKeyFiles, List<TranslationFile> originalFiles)
         {
-            //TODO: 2025-02-25 - JHA - To Implement
+            if (doubleKeyFiles == null)
+            {
+                Console.WriteLine("Parameter <doubleKeyFiles> must not be null!");
+                return null;
+            }
+
+            if (originalFiles == null)
+            {
+                Console.WriteLine("Parameter <originalFiles> must not be null!");
+                return null;
+            }
+
+            List<TranslationFile> translationFilesCorrected = new List<TranslationFile>();
+            foreach (KeyValuePair<string, List<LineObject>> doubleKey in doubleKeyFiles)
+            {
+                foreach( LineObject lineObject in doubleKey.Value )
+                {
+                    TranslationFile translationFile = originalFiles.Find(x => x.FileName.Equals(lineObject.TranslationFile.FileName));
+                    if (translationFile == null)
+                    {
+                        Console.WriteLine("Unable to find translation file: " + lineObject.TranslationFile.FileName);
+                        continue;
+                    }
+
+                    if( false == translationFilesCorrected.Contains(translationFile) )
+                    {
+                        translationFilesCorrected.Add(translationFile);
+                    }
+                    translationFile.Lines.Remove(lineObject.LineNumber);
+                }
+            }
+
+            return translationFilesCorrected;
         }
     }
 }

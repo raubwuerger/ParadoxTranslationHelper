@@ -220,7 +220,7 @@ namespace ParadoxTranslationHelper
             return true;
         }
 
-        public static bool Write(Dictionary<string, List<LineObject>> doubleKeyFiles)
+        public static bool Write(Dictionary<string, List<LineObject>> doubleKeyFiles, string fileName )
         {
             if (doubleKeyFiles == null)
             {
@@ -234,28 +234,40 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-/*            foreach (var keyFile in doubleKeyFiles)
+            try
             {
-                try
+                using (Stream stream = File.OpenWrite(fileName))
+                using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
-                    using (Stream stream = File.OpenWrite(keyFile.Key))
-                    using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+                    foreach ( KeyValuePair<string,List<LineObject>> doubleKey in doubleKeyFiles)
                     {
-                        List<LineObject> temp = keyFile.Value;
-                        foreach (LineObject doubleKey in keyFile.Value)
-                        {
-                            outputFile.WriteLine(doubleKey);
-                        }
+                        outputFile.WriteLine(ToString(doubleKey));
                     }
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Exception occurred: " + e.ToString());
-                    continue;
-                }
             }
-*/
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception occurred: " + e.ToString());
+                return false;
+            }
+
             return true;
+        }
+
+        public static string ToString( KeyValuePair<string, List<LineObject>> keyValuePair )
+        {
+            string toString = keyValuePair.Key;
+            toString += ";";
+
+            foreach( LineObject lineObject in keyValuePair.Value) 
+            {
+                if( false == toString[toString.Length - 1].Equals(';') )
+                {
+                    toString += "|";
+                }
+                toString += lineObject.TranslationFile + ";" +lineObject.LineNumber;
+            }
+            return toString;
         }
 
         private static string GetSubstitutedLineTabbed(LineObject lineObject)
@@ -451,6 +463,16 @@ namespace ParadoxTranslationHelper
             }
 
             return new List<string>(lines);
+        }
+
+        public static string? CreateFullNameGerman(TranslationFile translationFile)
+        {
+            if (null == translationFile)
+            {
+                Console.WriteLine("Parameter <translationFile> must not be null!");
+                return null;
+            }
+            return translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL + Constants.LOCALISATION_EXTENSION;
         }
 
     }

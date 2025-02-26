@@ -56,6 +56,8 @@ namespace ParadoxTranslationHelper
             Console.WriteLine(FunctionTypes.Resub);
             Console.WriteLine(FunctionTypes.Analyse);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeys);
+            Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFiles);
+            Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFilesFix);
             Console.WriteLine("");
 
             Console.WriteLine(Environment.NewLine);
