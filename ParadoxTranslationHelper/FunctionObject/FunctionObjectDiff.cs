@@ -69,14 +69,21 @@ namespace ParadoxTranslationHelper
                 toCreate = updated;
             }
 
-            string directory = CreateDirectory();
+            string directory = Utility.CreateDirectoryAnalysis();
             if (null == directory)
             {
-                Console.WriteLine("Unable to create directory! " + Path.Combine(ParadoxTranslationHelperConfig.PathBase, ParadoxTranslationHelperConfig.PathResult));
+                Console.WriteLine("Unable to create directory! " + directory);
                 return false;
             }
 
-            Utility.WriteLinesPushFrontTranslationIdentifier(toCreate.Values.ToList(), Path.Combine(directory, ResultFileName ));
+            if (toCreate.Values.Count > 0)
+            {
+                Utility.WriteLinesPushFrontTranslationIdentifier(toCreate.Values.ToList(), Path.Combine(directory, ResultFileName));
+            }
+            else
+            {
+                Utility.WriteEmptyFileUTF8_BOM(Path.Combine(directory, "SteamDiff_NoMissingKeysFound.txt"));
+            }
 
             return true;
         }
@@ -102,20 +109,6 @@ namespace ParadoxTranslationHelper
             }
 
             return keys;
-        }
-
-        private string? CreateDirectory()
-        {
-            string pathDiff = Path.Combine(ParadoxTranslationHelperConfig.PathBase, ParadoxTranslationHelperConfig.PathResult);
-            if (false == Directory.Exists(pathDiff))
-            {
-                DirectoryInfo directoryInfo = Directory.CreateDirectory(pathDiff);
-                if (null == directoryInfo)
-                {
-                    return null;
-                }
-            }
-            return pathDiff;
         }
 
     }

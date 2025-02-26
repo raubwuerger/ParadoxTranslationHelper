@@ -475,5 +475,20 @@ namespace ParadoxTranslationHelper
             return translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL + Constants.LOCALISATION_EXTENSION;
         }
 
+        public static string? CreateDirectoryAnalysis()
+        {
+            string pathAnalyze = Path.Combine(ParadoxTranslationHelperConfig.PathBase, ParadoxTranslationHelperConfig.PathResult);
+            if (false == Directory.Exists(pathAnalyze))
+            {
+                DirectoryInfo directoryInfo = Directory.CreateDirectory(pathAnalyze);
+                if (null == directoryInfo)
+                {
+                    return null;
+                }
+            }
+            return pathAnalyze;
+        }
+
+
     }
 }
