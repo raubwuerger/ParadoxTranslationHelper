@@ -28,9 +28,9 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            LocalisationEnglish = FileUtility.CreateTranslationFilesFromDirectory(_pathToSubstitute);
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathToSubstitute);
 
-            foreach (TranslationFile translationFile in LocalisationEnglish)
+            foreach (TranslationFile translationFile in LocalisationFilesGerman)
             {
                 FileSubstitutor fileSubstitutor = new FileSubstitutor();
                 if( true == fileSubstitutor.Substitute(translationFile) )

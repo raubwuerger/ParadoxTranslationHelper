@@ -48,7 +48,7 @@ namespace ParadoxTranslationHelper
                 missingKeysToInsert.RemoveAt(0);
             }
 
-            LocalisationGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
 
             List<TranslationFile> updatedFiles = CreateUpdateFiles(missingKeysToInsert);
             foreach (TranslationFile file in updatedFiles) 
@@ -202,7 +202,7 @@ namespace ParadoxTranslationHelper
             List<TranslationFile> updatedFiles = new List<TranslationFile>();
             foreach (TranslationFile translationFile in missingKeysToInsert)
             {
-                updatedFiles.Add(InsertInto(LocalisationGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation)), translationFile));
+                updatedFiles.Add(InsertInto(LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation)), translationFile));
             }
 
             return updatedFiles;

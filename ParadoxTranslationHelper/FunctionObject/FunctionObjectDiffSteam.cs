@@ -1,22 +1,30 @@
-﻿using ParadoxTranslationHelper.Utilities;
+﻿using ParadoxTranslationHelper.Helper;
+using ParadoxTranslationHelper.Utilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper.FunctionObject
 {
-    public class FunctionObjectDiffSteam : FunctionObjectDiff
+    public class FunctionObjectDiffSteam : FunctionObjectBase
     {
         string _pathSteam;
         string _pathGerman;
+        string _fileNameMissingKeys;
+        string _fileNameNoMissingKeysFound = "SteamDiff_NoMissingKeysFound.txt";
+        string _fileNameKeysToDelete;
+        string _fileNameNoKeysToDeleteFound = "SteamDiff_NoKeysToDeleteFound.txt";
         public FunctionObjectDiffSteam(string name) : base(name)
         {
         }
 
         public string PathSteam { get => _pathSteam; set => _pathSteam = value; }
         public string PathGerman { get => _pathGerman; set => _pathGerman = value; }
+        public string FileNameMissingKeys { get => _fileNameMissingKeys; set => _fileNameMissingKeys = value; }
+        public string FileNameKeysToDelete { get => _fileNameKeysToDelete; set => _fileNameKeysToDelete = value; }
 
         public override bool DoWork()
         {
@@ -32,17 +40,82 @@ namespace ParadoxTranslationHelper.FunctionObject
                 return false;
             }
 
-            LocalisationEnglishSteam = FileUtility.CreateTranslationFilesFromDirectory(_pathSteam);
-            if (null == LocalisationEnglishSteam)
+            if (true == string.IsNullOrEmpty(_fileNameMissingKeys))
+            {
+                Console.WriteLine("Member <FileNameMissingKeys> must not be null or empty!");
+                return false;
+            }
+
+            if (true == string.IsNullOrEmpty(_fileNameKeysToDelete))
+            {
+                Console.WriteLine("Member <FileNameKeysToDelete> must not be null or empty!");
+                return false;
+            }
+
+            LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_pathSteam);
+            if (null == LocalisationFilesSteam)
             {
                 Console.WriteLine("Steam path not set!");
                 return false;
             }
 
-            LocalisationEnglish = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
 
-            return CheckNewKeysUpdate();
+            return AnalyzeKeys();
         }
 
+        protected bool AnalyzeKeys()
+        {
+            Dictionary<string, LineObject> steam = Utility.GetKeys(LocalisationFilesSteam);
+            Dictionary<string, LineObject> repository = Utility.GetKeys(LocalisationFilesGerman);
+
+            Dictionary<string, LineObject> toDelete = FunctionUtility.FindToCreate(steam, repository);
+            Dictionary<string, LineObject> toCreate = FunctionUtility.FindToCreate(repository, steam);
+
+            CreateFileMissingKeysFound(toCreate);
+            CreateFileKeysToDelete(toDelete);
+
+            return true;
+        }
+
+        private bool CreateFileMissingKeysFound(Dictionary<string, LineObject> keys )
+        {
+            string directory = FileUtility.CreateDirectoryAnalysis();
+            if (null == directory)
+            {
+                Console.WriteLine("Unable to create directory! " + directory);
+                return false;
+            }
+
+            if (keys.Values.Count > 0)
+            {
+                FileUtility.WriteLinesPushFrontTranslationIdentifier(keys.Values.ToList(), Path.Combine(directory, _fileNameMissingKeys));
+            }
+            else
+            {
+                FileUtility.WriteEmptyFileUTF8_BOM(Path.Combine(directory, _fileNameNoMissingKeysFound));
+            }
+            return true;
+        }
+
+        private bool CreateFileKeysToDelete(Dictionary<string, LineObject> keys)
+        {
+            string directory = FileUtility.CreateDirectoryAnalysis();
+            if (null == directory)
+            {
+                Console.WriteLine("Unable to create directory! " + directory);
+                return false;
+            }
+
+            if (keys.Values.Count > 0)
+            {
+                FileUtility.WriteLinesPushFrontTranslationIdentifier(keys.Values.ToList(), Path.Combine(directory,_fileNameKeysToDelete));
+            }
+            else
+            {
+                FileUtility.WriteEmptyFileUTF8_BOM(Path.Combine(directory, _fileNameNoKeysToDeleteFound));
+            }
+            return true;
+        }
     }
 }

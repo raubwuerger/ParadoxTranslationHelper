@@ -14,9 +14,10 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectDiffSteam functionObject = new FunctionObjectDiffSteam(FunctionTypes.SteamDiff);
             functionObject.Description = "write missing keys to file against steam path";
-            functionObject.PathRepository = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
-            functionObject.ResultFileName = Constants.FUNCTION_FILE_NAME_STEAM;
+            functionObject.FileNameMissingKeys = Constants.FILE_NAME_STEAM_MISSING_KEYS;
+            functionObject.FileNameKeysToDelete = Constants.FILE_NAME_STEAM_TO_DELETE_KEYS;
 
             return functionObject;
         }
@@ -48,14 +49,6 @@ namespace ParadoxTranslationHelper
             functionObject.LocalizationFileNameDiff = Path.Combine(ParadoxTranslationHelperConfig.PathResult, "MissingTranslationKeysSteam.yml.sub.german.resub");
             functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
-
-            return functionObject;
-        }
-
-        public static IFunctionObject? CreateDiff()
-        {
-            FunctionObjectDiff functionObject = new FunctionObjectDiff(FunctionTypes.Diff);
-            functionObject.Description = "write missing keys to file";
 
             return functionObject;
         }

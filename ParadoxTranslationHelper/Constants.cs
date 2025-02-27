@@ -21,7 +21,8 @@ namespace ParadoxTranslationHelper
         public const string LOCALISATION_EXTENSION = ".yml";
         public const string LOCALISATION_START_STRING = "_l_";
 
-        public const string FUNCTION_FILE_NAME_STEAM = "MissingTranslationKeysSteam.yml";
+        public const string FILE_NAME_STEAM_TO_DELETE_KEYS = "_SteamKeysToDelete.yml";
+        public const string FILE_NAME_STEAM_MISSING_KEYS = "_SteamKeysToCreate.yml";
         public const string FUNCTION_FILE_NAME_APPENDIX = ".DoubleKey.txt";
 
         public const string FILE_EXTENSION_PREFIX = "*.";

@@ -9,17 +9,15 @@ namespace ParadoxTranslationHelper
 {
     public abstract class FunctionObjectBase : IFunctionObject
     {
-        List<TranslationFile> _localisationEnglish = null;
-        List<TranslationFile> _localisationEnglishUpdated = null;
-        List<TranslationFile> _localisationGerman = null;
+        List<TranslationFile> _localisationFilesSteam = null;
+        List<TranslationFile> _localisationFilesGerman = null;
 
         string _name;
 
         string _description;
         public string Name { get => _name; }
-        public List<TranslationFile> LocalisationEnglish { get => _localisationEnglish; set => _localisationEnglish = value; }
-        public List<TranslationFile> LocalisationEnglishSteam { get => _localisationEnglishUpdated; set => _localisationEnglishUpdated = value; }
-        public List<TranslationFile> LocalisationGerman { get => _localisationGerman; set => _localisationGerman = value; }
+        public List<TranslationFile> LocalisationFilesSteam { get => _localisationFilesSteam; set => _localisationFilesSteam = value; }
+        public List<TranslationFile> LocalisationFilesGerman { get => _localisationFilesGerman; set => _localisationFilesGerman = value; }
         public string Description { get => _description; set => _description = value; }
 
         protected FunctionObjectBase(string name) 

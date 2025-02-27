@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.Helper;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -205,5 +206,29 @@ namespace ParadoxTranslationHelper
             return translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL + Constants.LOCALISATION_EXTENSION;
         }
 
+        public static Dictionary<string, LineObject> GetKeys(List<TranslationFile> translationFiles)
+        {
+            if (null == translationFiles)
+            {
+                Console.WriteLine("Parameter <translationFiles> must not be null!");
+                return null;
+            }
+
+            if (false == translationFiles.Any())
+            {
+                Console.WriteLine("Parameter <translationFiles> must not be empty!");
+                return null;
+            }
+
+            Dictionary<string, LineObject> keys = new Dictionary<string, LineObject>();
+            foreach (TranslationFile translationFile in translationFiles)
+            {
+                keys = keys.Union(DictionaryHelper.GetValidKeys(translationFile.Lines.Values.ToList()).Where(k => !keys.ContainsKey(k.Key))).ToDictionary(k => k.Key, v => v.Value);
+            }
+
+            return keys;
+        }
+
     }
+
 }
