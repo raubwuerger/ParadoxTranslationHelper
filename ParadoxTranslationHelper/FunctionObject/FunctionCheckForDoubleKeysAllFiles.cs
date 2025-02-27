@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.Utilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            List<TranslationFile> translationFiles = Utility.CreateTranslationFilesFromDirectory(PathGerman);
+            List<TranslationFile> translationFiles = FileUtility.CreateTranslationFilesFromDirectory(PathGerman);
             if( null == translationFiles )
             {
                 Console.WriteLine("No translation files found at path! " +PathGerman);
@@ -63,7 +64,7 @@ namespace ParadoxTranslationHelper
                 
                 foreach (TranslationFile translationFile in translationFilesCorrected )
                 {
-                    Utility.WriteTranslationFile(translationFile,Path.Combine(_pathAnalyze, Utility.CreateFullNameGerman(translationFile)) );
+                    FileUtility.WriteTranslationFile(translationFile,Path.Combine(_pathAnalyze, Utility.CreateFullNameGerman(translationFile)) );
                 }
             }
 
@@ -123,7 +124,7 @@ namespace ParadoxTranslationHelper
             DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);
 
 
-            Utility.Write(doubleKeyFiles,Path.Combine(_pathAnalyze,"KeysDouble.txt"));
+            FileUtility.Write(doubleKeyFiles,Path.Combine(_pathAnalyze,"KeysDouble.txt"));
             return doubleKeyFiles;
         }
 

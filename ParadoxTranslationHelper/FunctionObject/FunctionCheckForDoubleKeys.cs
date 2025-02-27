@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.Utilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -40,7 +41,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            WriteDoubleKeyFiles( DoFunctionCheckForDoubleKeys( Utility.CreateTranslationFilesFromDirectory(PathGerman)) );
+            WriteDoubleKeyFiles( DoFunctionCheckForDoubleKeys(FileUtility.CreateTranslationFilesFromDirectory(PathGerman)) );
 
             return true;
         }
@@ -75,7 +76,7 @@ namespace ParadoxTranslationHelper
 
                 DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);
 
-                Utility.WriteTranslationFile(translationFile, Path.Combine(PathAnalyze, Utility.CreateFullNameGerman(translationFile)));
+                FileUtility.WriteTranslationFile(translationFile, Path.Combine(PathAnalyze, Utility.CreateFullNameGerman(translationFile)));
                 doubleKeyFiles.Add(CreateFileNameDoubleKey(translationFile), doubleKeys );
             }
 
@@ -138,7 +139,7 @@ namespace ParadoxTranslationHelper
             DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);
 
 
-            Utility.Write(doubleKeyFiles);
+            FileUtility.Write(doubleKeyFiles);
         }
     }
 }

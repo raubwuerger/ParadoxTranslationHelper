@@ -73,6 +73,9 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectAnalyse functionObject = new FunctionObjectAnalyse(FunctionTypes.Analyse);
             functionObject.Description = "analyse translation file";
+            functionObject.PathEnglish = ParadoxTranslationHelperConfig.PathEnglish;
+            functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
+            functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
 
             return functionObject;
         }

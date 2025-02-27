@@ -18,7 +18,7 @@ namespace ParadoxTranslationHelper
         string _description;
         public string Name { get => _name; }
         public List<TranslationFile> LocalisationEnglish { get => _localisationEnglish; set => _localisationEnglish = value; }
-        public List<TranslationFile> LocalisationEnglishUpdated { get => _localisationEnglishUpdated; set => _localisationEnglishUpdated = value; }
+        public List<TranslationFile> LocalisationEnglishSteam { get => _localisationEnglishUpdated; set => _localisationEnglishUpdated = value; }
         public List<TranslationFile> LocalisationGerman { get => _localisationGerman; set => _localisationGerman = value; }
         public string Description { get => _description; set => _description = value; }
 

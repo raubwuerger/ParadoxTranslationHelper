@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,14 +40,14 @@ namespace ParadoxTranslationHelper
 
             if ( ReadOnlyLocalizationFilesSub )
             {
-                LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstitute, Constants.FILE_EXTENSION_PREFIX + Constants.LOCALISATION_GERMAN);
+                LocalisationGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathToReSubstitute, Constants.FILE_EXTENSION_PREFIX + Constants.LOCALISATION_GERMAN);
             }
             else
             {
-                LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstitute);
+                LocalisationGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathToReSubstitute);
             }
 
-            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(_pathToReSubstituteCorresponding);
+            LocalisationEnglish = FileUtility.CreateTranslationFilesFromDirectory(_pathToReSubstituteCorresponding);
 
             foreach (TranslationFile translationFile in LocalisationGerman)
             {
@@ -74,7 +75,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            return Utility.ReplaceWithAnalyseDirectory(corresponding, ParadoxTranslationHelperConfig.PathResult);
+            return Utility.ReplaceWithAnalyseDirectory(corresponding);
         }
 
         private TranslationFileSetSubstitution Create(TranslationFile substitutedFile, string pathToSubstiteFile)

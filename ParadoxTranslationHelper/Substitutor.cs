@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.Utilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace ParadoxTranslationHelper
 
         private bool WriteSubstitionFiles(TranslationFile translationFile)
         {
-            string replacedPath = Utility.ReplaceWithAnalyseDirectory(translationFile, ParadoxTranslationHelperConfig.PathResult);
+            string replacedPath = Utility.ReplaceWithAnalyseDirectory(translationFile);
 
             fileWriterSubstitutionItem.FileName = replacedPath;
             fileWriterSubstitutionItem.FileSuffix = "";
@@ -174,7 +175,7 @@ namespace ParadoxTranslationHelper
 
         private void WriteSubstitionFile(TranslationFile translationFile, string fileName)
         {
-            Utility.WriteTranslationFile(translationFile, fileName);
+            FileUtility.WriteTranslationFile(translationFile, fileName);
         }
         private void WriteSubstitionFile(Dictionary<string, string> nestingStrings)
         {

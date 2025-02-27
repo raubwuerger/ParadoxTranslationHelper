@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.Utilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(_pathToSubstitute);
+            LocalisationEnglish = FileUtility.CreateTranslationFilesFromDirectory(_pathToSubstitute);
 
             foreach (TranslationFile translationFile in LocalisationEnglish)
             {
@@ -35,7 +36,7 @@ namespace ParadoxTranslationHelper
                 if( true == fileSubstitutor.Substitute(translationFile) )
                 {
                     Console.WriteLine("Substitution successfully!");
-                    if( false == Utility.WriteEmptyFileUTF8_BOM( SubstitutionHelper.CreateFileNameResub(translationFile.FileName) ) )
+                    if( false == FileUtility.WriteEmptyFileUTF8_BOM( SubstitutionHelper.CreateFileNameResub(translationFile.FileName) ) )
                     {
                         Console.WriteLine("Unable to create file: " + SubstitutionHelper.CreateFileNameResub(translationFile.FileName) );
                     }

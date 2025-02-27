@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.Helper;
+using ParadoxTranslationHelper.Utilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,15 +43,15 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            LocalisationEnglish = Utility.CreateTranslationFilesFromDirectory(_pathRepository);
-            LocalisationEnglishUpdated = Utility.CreateTranslationFilesFromDirectory(_pathSteam);
+            LocalisationEnglish = FileUtility.CreateTranslationFilesFromDirectory(_pathRepository);
+            LocalisationEnglishSteam = FileUtility.CreateTranslationFilesFromDirectory(_pathSteam);
 
             return CheckNewKeysUpdate();
         }
 
         protected bool CheckNewKeysUpdate()
         {
-            Dictionary<string, LineObject> updated = GetKeys(LocalisationEnglishUpdated);
+            Dictionary<string, LineObject> updated = GetKeys(LocalisationEnglishSteam);
             Dictionary<string, LineObject> old = GetKeys(LocalisationEnglish);
             Dictionary<string, LineObject> toCreate = new Dictionary<string, LineObject>();
 
@@ -69,7 +71,7 @@ namespace ParadoxTranslationHelper
                 toCreate = updated;
             }
 
-            string directory = Utility.CreateDirectoryAnalysis();
+            string directory = FileUtility.CreateDirectoryAnalysis();
             if (null == directory)
             {
                 Console.WriteLine("Unable to create directory! " + directory);
@@ -78,11 +80,11 @@ namespace ParadoxTranslationHelper
 
             if (toCreate.Values.Count > 0)
             {
-                Utility.WriteLinesPushFrontTranslationIdentifier(toCreate.Values.ToList(), Path.Combine(directory, ResultFileName));
+                FileUtility.WriteLinesPushFrontTranslationIdentifier(toCreate.Values.ToList(), Path.Combine(directory, ResultFileName));
             }
             else
             {
-                Utility.WriteEmptyFileUTF8_BOM(Path.Combine(directory, "SteamDiff_NoMissingKeysFound.txt"));
+                FileUtility.WriteEmptyFileUTF8_BOM(Path.Combine(directory, "SteamDiff_NoMissingKeysFound.txt"));
             }
 
             return true;
@@ -105,7 +107,7 @@ namespace ParadoxTranslationHelper
             Dictionary<string, LineObject> keys = new Dictionary<string, LineObject>();
             foreach (TranslationFile translationFile in files)
             {
-                keys = keys.Union(Utility.GetValidKeys(translationFile.Lines.Values.ToList()).Where(k => !keys.ContainsKey(k.Key))).ToDictionary(k => k.Key, v => v.Value);
+                keys = keys.Union(DictionaryHelper.GetValidKeys(translationFile.Lines.Values.ToList()).Where(k => !keys.ContainsKey(k.Key))).ToDictionary(k => k.Key, v => v.Value);
             }
 
             return keys;

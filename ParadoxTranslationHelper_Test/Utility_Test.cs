@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ParadoxTranslationHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ParadoxTranslationHelper.Helper;
 
 namespace ParadoxTranslationHelper_Test
 {
@@ -14,14 +15,14 @@ namespace ParadoxTranslationHelper_Test
         [TestMethod]
         public void ConvertToDictionaryNull()
         {
-            Assert.IsFalse(Utility.ConvertToDictionary(null).Any());
+            Assert.IsFalse(DictionaryHelper.ConvertToDictionary(null).Any());
         }
 
         [TestMethod]
         public void ConvertToDictionaryEmpty()
         {
             List<string> empty = new List<string>();
-            Assert.IsFalse(Utility.ConvertToDictionary(empty).Any());
+            Assert.IsFalse(DictionaryHelper.ConvertToDictionary(empty).Any());
         }
 
         [TestMethod]
@@ -29,7 +30,7 @@ namespace ParadoxTranslationHelper_Test
         {
             List<string> onlyKey = new List<string>();
             onlyKey.Add("onlyKey");
-            Assert.IsFalse(Utility.ConvertToDictionary(onlyKey).Any());
+            Assert.IsFalse(DictionaryHelper.ConvertToDictionary(onlyKey).Any());
         }
 
         [TestMethod]
@@ -37,7 +38,7 @@ namespace ParadoxTranslationHelper_Test
         {
             List<string> onlyValue = new List<string>();
             onlyValue.Add(";onlyValue");
-            Assert.IsFalse(Utility.ConvertToDictionary(onlyValue).Any());
+            Assert.IsFalse(DictionaryHelper.ConvertToDictionary(onlyValue).Any());
         }
 
         [TestMethod]
@@ -46,7 +47,7 @@ namespace ParadoxTranslationHelper_Test
             List<string> doubleKey = new List<string>();
             doubleKey.Add("entryOne;valueOne");
             doubleKey.Add("entryOne;valueOne");
-            Assert.AreEqual(1, Utility.ConvertToDictionary(doubleKey).Count);
+            Assert.AreEqual(1, DictionaryHelper.ConvertToDictionary(doubleKey).Count);
         }
 
         [TestMethod]
@@ -55,7 +56,7 @@ namespace ParadoxTranslationHelper_Test
             List<string> twoEntries = new List<string>();
             twoEntries.Add("entryOne;valueOne");
             twoEntries.Add("entryTwo;valueTwo");
-            Assert.AreEqual(2, Utility.ConvertToDictionary(twoEntries).Count);
+            Assert.AreEqual(2, DictionaryHelper.ConvertToDictionary(twoEntries).Count);
         }
 
         [TestMethod]

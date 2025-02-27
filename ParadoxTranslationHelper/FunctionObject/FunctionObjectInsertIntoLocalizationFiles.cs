@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.Utilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -47,12 +48,12 @@ namespace ParadoxTranslationHelper
                 missingKeysToInsert.RemoveAt(0);
             }
 
-            LocalisationGerman = Utility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
+            LocalisationGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
 
             List<TranslationFile> updatedFiles = CreateUpdateFiles(missingKeysToInsert);
             foreach (TranslationFile file in updatedFiles) 
             {
-                Utility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName);
+                FileUtility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName);
             }
 
             return true;
@@ -179,7 +180,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            Utility.WriteTranslationFile(original, Path.Combine(LocalizationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
+            FileUtility.WriteTranslationFile(original, Path.Combine(LocalizationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
 
             RemoveTranslationFileIdentifier(original.Lines);
 

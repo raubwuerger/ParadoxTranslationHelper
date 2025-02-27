@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.Helper;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace ParadoxTranslationHelper
                 allLines = ReadAllLines(reader);
             }
 
-            return Utility.ConvertToDictionary(allLines);
+            return DictionaryHelper.ConvertToDictionary(allLines);
         }
 
         private List<string> ReadAllLines(TextReader reader)
