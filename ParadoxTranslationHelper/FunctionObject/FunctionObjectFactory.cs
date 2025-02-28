@@ -42,9 +42,9 @@ namespace ParadoxTranslationHelper
 
             return functionObject;
         }
-        public static IFunctionObject? CreateSteamInsertDiff()
+        public static IFunctionObject? CreateInsertKeys()
         {
-            FunctionObjectInsertIntoLocalizationFiles functionObject = new FunctionObjectInsertIntoLocalizationFiles(FunctionTypes.SteamInsert);
+            FunctionObjectInsertKeys functionObject = new FunctionObjectInsertKeys(FunctionTypes.SteamInsert);
             functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
             functionObject.LocalizationFileNameDiff = Path.Combine(ParadoxTranslationHelperConfig.PathResult, "MissingTranslationKeysSteam.yml.sub.german.resub");
             functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
@@ -56,7 +56,7 @@ namespace ParadoxTranslationHelper
         public static IFunctionObject? CreateRemoveKeys()
         {
             FunctionObjectRemoveKeys functionObject = new FunctionObjectRemoveKeys(FunctionTypes.SteamRemove);
-            functionObject.Description = "Deletes "
+            functionObject.Description = "Deletes keys no longer available";
 
             return functionObject;
         }

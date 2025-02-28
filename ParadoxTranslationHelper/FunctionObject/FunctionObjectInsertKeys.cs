@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper
 {
-    public class FunctionObjectInsertIntoLocalizationFiles : FunctionObjectBase
+    public class FunctionObjectInsertKeys : FunctionObjectBase
     {
         private string _localizationFileNameDiff;
         private string _localizationFilePathGerman;
@@ -18,7 +18,7 @@ namespace ParadoxTranslationHelper
         public string LocalizationFilePathGerman { get => _localizationFilePathGerman; set => _localizationFilePathGerman = value; }
         public string LocalizationFilePathAnalyze { get => _localizationFilePathAnalyze; set => _localizationFilePathAnalyze = value; }
 
-        public FunctionObjectInsertIntoLocalizationFiles(string name) : base(name)
+        public FunctionObjectInsertKeys(string name) : base(name)
         {
         }
 
@@ -42,7 +42,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            List<TranslationFile> missingKeysToInsert = CreateMissingKeysToInsert(_localizationFileNameDiff);
+            List<TranslationFile> missingKeysToInsert = FunctionUtility.CreateKeys(_localizationFileNameDiff);
             if (missingKeysToInsert.Count > 0)
             {
                 missingKeysToInsert.RemoveAt(0);
@@ -57,103 +57,6 @@ namespace ParadoxTranslationHelper
             }
 
             return true;
-        }
-
-        private List<TranslationFile>? CreateMissingKeysToInsert( string pathMissingKeys ) 
-        {
-            if( string.IsNullOrWhiteSpace( pathMissingKeys ) ) 
-            {
-                Console.WriteLine("Parameter <pathMissingKeys> must not be null or empty!");
-                return null; 
-            }
-
-            List<TranslationFile> missingKeys = new List<TranslationFile>();
-            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
-
-            List<string> lines = Utility.ConvertToList(File.ReadAllLines(pathMissingKeys));
-            List<string> foundFile = new List<string>();
-            foreach ( string line in lines ) 
-            {
-                if (false == foundFile.Any() && true == ContainsFileName(line) ) 
-                {
-                    string fileName = CreateFileName( line );
-                    if( true == string.IsNullOrEmpty(fileName) )
-                    {
-                        continue;
-                    }
-
-                    foundFile.Add(fileName);
-                    continue;
-                }
-
-                if( true == foundFile.Any() && false == ContainsFileName(line) ) 
-                {
-                    foundFile.Add(line);
-                    continue;
-                }
-
-                if ( true == ContainsFileName(line) )
-                {
-                    missingKeys.Add(translationFileCreator.Create(foundFile));
-                    foundFile = new List<string>();
-                    string fileName = CreateFileName(line);
-                    if( true == string.IsNullOrEmpty(fileName) )
-                    {
-                        continue;
-                    }
-
-                    foundFile.Add(fileName);
-                }
-            }
-
-            if( true == foundFile.Any()) 
-            {
-                missingKeys.Add(translationFileCreator.Create(foundFile));
-            }
-
-            return missingKeys;
-        }
-
-        private bool ContainsFileName( string fileName ) 
-        {
-            return fileName.Contains( Constants.TRANSLATION_FILE_IDENTIFIER );
-        }
-
-        private string? CreateFileName( string line )
-        {
-            string fileName = ExtractFileNameFromString(line);
-            if (true == string.IsNullOrEmpty(fileName))
-            {
-                return null;
-            }
-
-            return fileName;
-        }
-
-        private string? ExtractFileNameFromString( string containsFileName ) 
-        {
-            if( string.IsNullOrEmpty( containsFileName ) ) 
-            {
-                return null;
-            }
-
-            int indexFileNameStart = containsFileName.IndexOf(Constants.TRANSLATION_FILE_IDENTIFIER );
-            if( indexFileNameStart == -1 ) 
-            {
-                Console.WriteLine("_translationFileIdentifier not found!");
-                return null;
-            }
-
-            string fileName = Path.GetFileName(containsFileName.Substring(indexFileNameStart) );
-            int startFileExtension = fileName.IndexOf( Constants.LOCALISATION_EXTENSION );
-
-            if( startFileExtension == -1 ) 
-            {
-                Console.WriteLine("Not a valid localization file: LOCALISATION_EXTENSION not found!");
-                return null;
-            }
-
-            return fileName.Remove(startFileExtension + Constants.LOCALISATION_EXTENSION.Length);
         }
 
         private TranslationFile InsertInto( TranslationFile original,  TranslationFile missing )
