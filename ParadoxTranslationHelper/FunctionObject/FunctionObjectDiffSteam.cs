@@ -66,19 +66,16 @@ namespace ParadoxTranslationHelper.FunctionObject
 
         protected bool AnalyzeKeys()
         {
-            Dictionary<string, LineObject> steam = Utility.GetKeys(LocalisationFilesSteam);
-            Dictionary<string, LineObject> repository = Utility.GetKeys(LocalisationFilesGerman);
+            Dictionary<string, LineObject> steam = Utility.ExtractKeys(LocalisationFilesSteam);
+            Dictionary<string, LineObject> repository = Utility.ExtractKeys(LocalisationFilesGerman);
 
-            Dictionary<string, LineObject> toDelete = FunctionUtility.FindToCreate(steam, repository);
-            Dictionary<string, LineObject> toCreate = FunctionUtility.FindToCreate(repository, steam);
-
-            CreateFileMissingKeysFound(toCreate);
-            CreateFileKeysToDelete(toDelete);
+            CreateFileKeys(FunctionUtility.FindToCreate(steam, repository), _fileNameKeysToDelete);
+            CreateFileKeys(FunctionUtility.FindToCreate(repository, steam), _fileNameMissingKeys);
 
             return true;
         }
 
-        private bool CreateFileMissingKeysFound(Dictionary<string, LineObject> keys )
+        private bool CreateFileKeys(Dictionary<string, LineObject> keys, string fileName )
         {
             string directory = FileUtility.CreateDirectoryAnalysis();
             if (null == directory)
@@ -89,33 +86,14 @@ namespace ParadoxTranslationHelper.FunctionObject
 
             if (keys.Values.Count > 0)
             {
-                FileUtility.WriteLinesPushFrontTranslationIdentifier(keys.Values.ToList(), Path.Combine(directory, _fileNameMissingKeys));
+                FileUtility.WriteLinesPushFrontTranslationIdentifier(keys.Values.ToList(), Path.Combine(directory, fileName));
             }
             else
             {
-                FileUtility.WriteEmptyFileUTF8_BOM(Path.Combine(directory, _fileNameNoMissingKeysFound));
+                FileUtility.WriteEmptyFileUTF8_BOM(Path.Combine(directory, fileName));
             }
             return true;
         }
 
-        private bool CreateFileKeysToDelete(Dictionary<string, LineObject> keys)
-        {
-            string directory = FileUtility.CreateDirectoryAnalysis();
-            if (null == directory)
-            {
-                Console.WriteLine("Unable to create directory! " + directory);
-                return false;
-            }
-
-            if (keys.Values.Count > 0)
-            {
-                FileUtility.WriteLinesPushFrontTranslationIdentifier(keys.Values.ToList(), Path.Combine(directory,_fileNameKeysToDelete));
-            }
-            else
-            {
-                FileUtility.WriteEmptyFileUTF8_BOM(Path.Combine(directory, _fileNameNoKeysToDeleteFound));
-            }
-            return true;
-        }
     }
 }

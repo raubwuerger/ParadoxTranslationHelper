@@ -112,11 +112,32 @@ namespace ParadoxTranslationHelper
 
                 lineNumber++;
                 LineObject lineObject = _lineObjectCreator.Create(lineNumber);
-                lineObject.OriginalLine = line;
+                lineObject.OriginalLine = ProcessOriginalLine(lineObject, line);
                 lineObjects.Add(lineNumber, lineObject);
             }
 
             return lineObjects;
+        }
+
+        private string ProcessOriginalLine(LineObject lineObject, string line)
+        {
+            if(lineObject == null)
+            {
+                return line;
+            }
+
+            if( false == lineObject.HasKey() )
+            {
+                return line;
+            }
+
+            int lastIndex = line.LastIndexOf(Constants.SIGN_HASH_TAG);
+            if( lastIndex == -1 )
+            {
+                return line;
+            }
+
+            return line.Substring(0, lastIndex);
         }
 
         private bool IgnoreLine(string line) 
@@ -126,7 +147,7 @@ namespace ParadoxTranslationHelper
                 return true;
             }
             string lineTrimmed = line.Trim();
-            if (lineTrimmed.StartsWith("#") )
+            if (lineTrimmed.StartsWith(Constants.SIGN_HASH_TAG) )
             {
                 return true;
             }

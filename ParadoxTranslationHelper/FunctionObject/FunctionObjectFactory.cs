@@ -53,6 +53,14 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
+        public static IFunctionObject? CreateRemoveKeys()
+        {
+            FunctionObjectRemoveKeys functionObject = new FunctionObjectRemoveKeys(FunctionTypes.SteamRemove);
+            functionObject.Description = "Deletes "
+
+            return functionObject;
+        }
+
         public static IFunctionObject? CreateSubstitute()
         {
             FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(FunctionTypes.Sub);

@@ -41,33 +41,71 @@ namespace ParadoxTranslationHelper.Utilities
 
         public static void WriteLinesPushFrontTranslationIdentifier(List<LineObject> lineObjects, string fileName)
         {
-            Console.WriteLine("Writing file: " + fileName);
-            using (Stream stream = File.OpenWrite(fileName))
-            using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+            if( null == lineObjects )
             {
-                string missingKeyFile = "";
-                foreach (LineObject line in lineObjects)
+                Console.WriteLine("Parameter <lineObjects> must not be null!");
+                return;
+            }
+
+            if( true == string.IsNullOrEmpty(fileName) )
+            {
+                Console.WriteLine("Parameter <fileName> must not be null!");
+                return;
+            }
+
+            Console.WriteLine("Writing file: " + fileName);
+            try
+            {
+                using (Stream stream = File.OpenWrite(fileName))
+                using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
-                    if (false == missingKeyFile.Equals(line.TranslationFile.FileName))
+                    string missingKeyFile = "";
+                    foreach (LineObject line in lineObjects)
                     {
-                        missingKeyFile = line.TranslationFile.FileName;
-                        outputFile.WriteLine(Constants.TRANSLATION_FILE_IDENTIFIER + missingKeyFile);
+                        if (false == missingKeyFile.Equals(line.TranslationFile.FileName))
+                        {
+                            missingKeyFile = line.TranslationFile.FileName;
+                            outputFile.WriteLine(Constants.TRANSLATION_FILE_IDENTIFIER + missingKeyFile);
+                        }
+                        outputFile.WriteLine(Utility.GetSubstitutedLineTabbed(line));
                     }
-                    outputFile.WriteLine(Utility.GetSubstitutedLineTabbed(line));
                 }
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
 
         public static void WriteLines(List<LineObject> lineObjects, string fileName)
         {
-            Console.WriteLine("Writing file: " + fileName);
-            using (Stream stream = File.OpenWrite(fileName))
-            using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+            if (null == lineObjects)
             {
-                foreach (LineObject line in lineObjects)
+                Console.WriteLine("Parameter <lineObjects> must not be null!");
+                return;
+            }
+
+            if (true == string.IsNullOrEmpty(fileName))
+            {
+                Console.WriteLine("Parameter <fileName> must not be null!");
+                return;
+            }
+
+            Console.WriteLine("Writing file: " + fileName);
+            try
+            {
+                using (Stream stream = File.OpenWrite(fileName))
+                using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
-                    outputFile.WriteLine(Utility.GetSubstitutedLineTabbed(line));
+                    foreach (LineObject line in lineObjects)
+                    {
+                        outputFile.WriteLine(Utility.GetSubstitutedLineTabbed(line));
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
 
@@ -85,6 +123,13 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if (translationFile == null)
             {
+                Console.WriteLine("Parameter <translationFile> must not be null!");
+                return;
+            }
+
+            if (true == string.IsNullOrEmpty(fileName))
+            {
+                Console.WriteLine("Parameter <fileName> must not be null!");
                 return;
             }
 
@@ -92,13 +137,20 @@ namespace ParadoxTranslationHelper.Utilities
             List<LineObject> lineObjects = _lines.Values.ToList();
 
             Console.WriteLine("Writing file: " + fileName);
-            using (Stream stream = File.OpenWrite(fileName))
-            using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+            try
             {
-                foreach (LineObject line in lineObjects)
+                using (Stream stream = File.OpenWrite(fileName))
+                using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
-                    outputFile.WriteLine(Utility.GetSubstitutedLine(line));
+                    foreach (LineObject line in lineObjects)
+                    {
+                        outputFile.WriteLine(Utility.GetSubstitutedLine(line));
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
 

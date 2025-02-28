@@ -69,5 +69,7 @@ namespace ParadoxTranslationHelper
         public string OriginalLine { get => _originalLine; set => _originalLine = value; }
         public string OriginalLineSubstituted { get => _originalLineSubstituted; set => _originalLineSubstituted = value; }
         public List<string> NewLines { get => _newLines; set => _newLines = value; }
+
+        public bool HasKey() { return false == string.IsNullOrEmpty(_key); }
     }
 }

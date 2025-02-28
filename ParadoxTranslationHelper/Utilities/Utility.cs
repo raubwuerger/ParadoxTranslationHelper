@@ -206,7 +206,7 @@ namespace ParadoxTranslationHelper
             return translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL + Constants.LOCALISATION_EXTENSION;
         }
 
-        public static Dictionary<string, LineObject> GetKeys(List<TranslationFile> translationFiles)
+        public static Dictionary<string, LineObject> ExtractKeys(List<TranslationFile> translationFiles)
         {
             if (null == translationFiles)
             {
