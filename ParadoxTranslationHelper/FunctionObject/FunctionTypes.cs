@@ -13,6 +13,7 @@ namespace ParadoxTranslationHelper
         public static readonly string SteamResub = "STEAM_RESUB";
         public static readonly string SteamInsert = "STEAM_INSERT";
         public static readonly string SteamRemove = "STEAM_REMOVE";
+        public static readonly string Validate = "VALIDATE";
         public static readonly string Diff = "DIFF";                // public static string FUNCTION_DIFF = "diff";
         public static readonly string Sub = "SUB";                  // public static string FUNCTION_SUB = "sub";
         public static readonly string Resub = "RESUB";              // public static string FUNCTION_RESUB = "resub";

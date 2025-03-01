@@ -49,7 +49,8 @@ namespace ParadoxTranslationHelper
             List<TranslationFile> updatedFiles = CreateUpdateFiles(translationFilesKeysToDelete);
             foreach (TranslationFile file in updatedFiles) 
             {
-                FileUtility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName);
+                BackupOriginalFile(FindFileByNameWithoutLocalosation(file.FileNameWithoutLocalisation));
+                WriteOriginalWithoutKeysToDelete(file);
             }
 
             return true;
@@ -115,7 +116,7 @@ namespace ParadoxTranslationHelper
             List<TranslationFile> updatedFiles = new List<TranslationFile>();
             foreach (TranslationFile translationFile in translationFilesKeysToDelete)
             {
-                TranslationFile originalFile = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
+                TranslationFile originalFile = FindFileByNameWithoutLocalosation(translationFile.FileNameWithoutLocalisation);
                 if( originalFile == null ) 
                 {
                     Console.WriteLine("Original file not found: " + translationFile.FileNameWithoutLocalisation);
@@ -128,23 +129,12 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
-                CreateBackup(originalFile);
-
                 updatedFiles.Add(translationWithRemovedKeys);
             }
 
             return updatedFiles;
         }
 
-        private void CreateBackup(TranslationFile translationFile)
-        {
-            if(  translationFile == null )
-            {
-                return;
-            }
-
-            FileUtility.WriteTranslationFile(translationFile, translationFile.FileName + Constants.FILE_BACKUP_EXTENSION );
-        }
         private TranslationFile RemoveKeysFromOriginal(TranslationFile original, Dictionary<int, LineObject> keysToRemove)
         {
             if (null == original)
@@ -165,15 +155,41 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            TranslationFile originalWithRemovedKeys = original;
+            TranslationFile originalWithRemovedKeys = new TranslationFile( original );
 
             foreach (KeyValuePair<int, LineObject> line in keysToRemove)
             {
-                original.Lines.Remove(line.Key);
+                KeyValuePair<int, LineObject> found;
+                try
+                {
+                    found = originalWithRemovedKeys.Lines.First(KeyValuePair => KeyValuePair.Value.Key.Equals(line.Value.Key));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Key not found! " + line.Value.Key);
+                    continue;
+                }
+                originalWithRemovedKeys.Lines.Remove(found.Key);
             }
 
-            return original;
+            return originalWithRemovedKeys;
         }
+
+        private TranslationFile FindFileByNameWithoutLocalosation(string fileNameWithoutLocalisation)
+        {
+            return LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(fileNameWithoutLocalisation));
+        }
+
+        private void WriteOriginalWithoutKeysToDelete(TranslationFile translationFile)
+        {
+            FileUtility.WriteTranslationFile(translationFile);
+        }
+        
+        private void BackupOriginalFile(TranslationFile translationFile)
+        {
+            FileUtility.WriteTranslationFile(translationFile, translationFile.FileName + Constants.FILE_BACKUP_EXTENSION);
+        }
+
 
     }
 }
