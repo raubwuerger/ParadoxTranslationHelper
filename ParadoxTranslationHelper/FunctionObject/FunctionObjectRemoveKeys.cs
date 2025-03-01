@@ -10,11 +10,11 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectRemoveKeys : FunctionObjectBase
     {
-        private string _fileNameKeysToDelete;
+        private string _localizationFileNameKeysToDelete;
         private string _localizationFilePathGerman;
         private string _localizationFilePathAnalyze;
 
-        public string FileNameKeysToDelete { get => _fileNameKeysToDelete; set => _fileNameKeysToDelete = value; }
+        public string LocalizationFileNameKeysToDelete { get => _localizationFileNameKeysToDelete; set => _localizationFileNameKeysToDelete = value; }
         public string LocalizationFilePathGerman { get => _localizationFilePathGerman; set => _localizationFilePathGerman = value; }
         public string LocalizationFilePathAnalyze { get => _localizationFilePathAnalyze; set => _localizationFilePathAnalyze = value; }
 
@@ -24,9 +24,9 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
-            if (true == string.IsNullOrEmpty(_fileNameKeysToDelete))
+            if (true == string.IsNullOrEmpty(_localizationFileNameKeysToDelete))
             {
-                Console.WriteLine("Member <FileNameKeysToDelete> must not be null!");
+                Console.WriteLine("Member <LocalizationFileNameKeysToDelete> must not be null!");
                 return false;
             }
 
@@ -42,15 +42,11 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            List<TranslationFile> missingKeysToInsert = CreateMissingKeysToInsert(_fileNameKeysToDelete);
-            if (missingKeysToInsert.Count > 0)
-            {
-                missingKeysToInsert.RemoveAt(0);
-            }
-
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
+            List<TranslationFile> translationFilesKeysToDelete = CreateTranslationFilesKeysToDelete(_localizationFileNameKeysToDelete);
 
-            List<TranslationFile> updatedFiles = CreateUpdateFiles(missingKeysToInsert);
+
+            List<TranslationFile> updatedFiles = CreateUpdateFiles(translationFilesKeysToDelete);
             foreach (TranslationFile file in updatedFiles) 
             {
                 FileUtility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName);
@@ -59,24 +55,24 @@ namespace ParadoxTranslationHelper
             return true;
         }
 
-        private List<TranslationFile>? CreateMissingKeysToInsert( string pathMissingKeys ) 
+        private List<TranslationFile>? CreateTranslationFilesKeysToDelete( string fileNamekeysToDelete ) 
         {
-            if( string.IsNullOrWhiteSpace( pathMissingKeys ) ) 
+            if( string.IsNullOrWhiteSpace( fileNamekeysToDelete ) ) 
             {
-                Console.WriteLine("Parameter <pathMissingKeys> must not be null or empty!");
+                Console.WriteLine("Parameter <fileNamekeysToDelete> must not be null or empty!");
                 return null; 
             }
 
-            List<TranslationFile> missingKeys = new List<TranslationFile>();
+            List<TranslationFile> translationFilesKeysToDelete = new List<TranslationFile>();
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
 
-            List<string> lines = Utility.ConvertToList(File.ReadAllLines(pathMissingKeys));
+            List<string> lines = Utility.ConvertToList(File.ReadAllLines(fileNamekeysToDelete));
             List<string> foundFile = new List<string>();
             foreach ( string line in lines ) 
             {
-                if (false == foundFile.Any() && true == ContainsFileName(line) ) 
+                if (false == foundFile.Any() && true == FunctionUtility.ContainsFileName(line) ) 
                 {
-                    string fileName = CreateFileName( line );
+                    string fileName = FunctionUtility.CreateFileName( line );
                     if( true == string.IsNullOrEmpty(fileName) )
                     {
                         continue;
@@ -86,17 +82,17 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
-                if( true == foundFile.Any() && false == ContainsFileName(line) ) 
+                if( true == foundFile.Any() && false == FunctionUtility.ContainsFileName(line) ) 
                 {
                     foundFile.Add(line);
                     continue;
                 }
 
-                if ( true == ContainsFileName(line) )
+                if ( true == FunctionUtility.ContainsFileName(line) )
                 {
-                    missingKeys.Add(translationFileCreator.Create(foundFile));
+                    translationFilesKeysToDelete.Add(translationFileCreator.Create(foundFile));
                     foundFile = new List<string>();
-                    string fileName = CreateFileName(line);
+                    string fileName = FunctionUtility.CreateFileName(line);
                     if( true == string.IsNullOrEmpty(fileName) )
                     {
                         continue;
@@ -108,150 +104,76 @@ namespace ParadoxTranslationHelper
 
             if( true == foundFile.Any()) 
             {
-                missingKeys.Add(translationFileCreator.Create(foundFile));
+                translationFilesKeysToDelete.Add(translationFileCreator.Create(foundFile));
             }
 
-            return missingKeys;
+            return translationFilesKeysToDelete;
         }
 
-        private bool ContainsFileName( string fileName ) 
+        private List<TranslationFile> CreateUpdateFiles( List<TranslationFile> translationFilesKeysToDelete)
         {
-            return fileName.Contains( Constants.TRANSLATION_FILE_IDENTIFIER );
-        }
-
-        private string? CreateFileName( string line )
-        {
-            string fileName = ExtractFileNameFromString(line);
-            if (true == string.IsNullOrEmpty(fileName))
+            List<TranslationFile> updatedFiles = new List<TranslationFile>();
+            foreach (TranslationFile translationFile in translationFilesKeysToDelete)
             {
-                return null;
-            }
+                TranslationFile originalFile = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
+                if( originalFile == null ) 
+                {
+                    Console.WriteLine("Original file not found: " + translationFile.FileNameWithoutLocalisation);
+                    continue;
+                }
 
-            return fileName;
-        }
-
-        private string? ExtractFileNameFromString( string containsFileName ) 
-        {
-            if( string.IsNullOrEmpty( containsFileName ) ) 
-            {
-                return null;
-            }
-
-            int indexFileNameStart = containsFileName.IndexOf(Constants.TRANSLATION_FILE_IDENTIFIER );
-            if( indexFileNameStart == -1 ) 
-            {
-                Console.WriteLine("_translationFileIdentifier not found!");
-                return null;
-            }
-
-            string fileName = Path.GetFileName(containsFileName.Substring(indexFileNameStart) );
-            int startFileExtension = fileName.IndexOf( Constants.LOCALISATION_EXTENSION );
-
-            if( startFileExtension == -1 ) 
-            {
-                Console.WriteLine("Not a valid localization file: LOCALISATION_EXTENSION not found!");
-                return null;
-            }
-
-            return fileName.Remove(startFileExtension + Constants.LOCALISATION_EXTENSION.Length);
-        }
-
-        private TranslationFile InsertInto( TranslationFile original,  TranslationFile missing )
-        {
-            if( null == original )
-            {
-                return CreateMissingTranslationFile(missing);
-            }
-
-            if( null == missing )
-            {
-                return null;
-            }
-
-            if(missing.Lines == null ) 
-            {
-                Console.WriteLine("Dictionary toInsert is null!");
-                return null;
-            }
-
-            if(original.Lines == null ) 
-            {
-                Console.WriteLine("Dictionary original is null!");
-                return null;
-            }
-
-            FileUtility.WriteTranslationFile(original, Path.Combine(LocalizationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
-
-            RemoveTranslationFileIdentifier(original.Lines);
-
-            foreach ( KeyValuePair<int, LineObject> line in missing.Lines ) 
-            {
-                if ( line.Value.OriginalLine.Contains(Constants.TRANSLATION_FILE_IDENTIFIER) )
+                TranslationFile translationWithRemovedKeys = RemoveKeysFromOriginal(originalFile, translationFile.Lines);
+                if( null == translationWithRemovedKeys ) 
                 {
                     continue;
                 }
-                int newLineNumber = original.Lines.Count + 1;
-                original.Lines.Add( newLineNumber, new LineObject( newLineNumber, line.Value ) );
-            }
 
-            return original;
-        }
+                CreateBackup(originalFile);
 
-        private List<TranslationFile> CreateUpdateFiles( List<TranslationFile> missingKeysToInsert)
-        {
-            List<TranslationFile> updatedFiles = new List<TranslationFile>();
-            foreach (TranslationFile translationFile in missingKeysToInsert)
-            {
-                updatedFiles.Add(InsertInto(LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation)), translationFile));
+                updatedFiles.Add(translationWithRemovedKeys);
             }
 
             return updatedFiles;
         }
 
-        private LineObject CreateLineObjectLanguageIdentifier(TranslationFile missing)
+        private void CreateBackup(TranslationFile translationFile)
         {
-            LineObject languageIdentifier = new LineObject(1);
-            languageIdentifier.OriginalLine = Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER;
-            languageIdentifier.TranslationFile = missing;
-            return languageIdentifier;
-        }
-
-        private TranslationFile CreateMissingTranslationFile( TranslationFile missing )
-        {
-            Dictionary<int, LineObject> includingLanguageIdentifier = new Dictionary<int, LineObject>
+            if(  translationFile == null )
             {
-                { 1, CreateLineObjectLanguageIdentifier(missing) }
-            };
-
-            foreach ( KeyValuePair<int, LineObject> keyValuePair in missing.Lines )
-            {
-                int newLineNumber = includingLanguageIdentifier.Count + 1;
-                includingLanguageIdentifier.Add( newLineNumber, new LineObject( newLineNumber, keyValuePair.Value ) );
+                return;
             }
 
-            missing.Lines = includingLanguageIdentifier;
-
-            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
-            return translationFileCreator.CopyExceptFileName( Path.Combine(_localizationFilePathGerman, Utility.ConvertLocalisationToGerman(missing.FileName)), missing );
+            FileUtility.WriteTranslationFile(translationFile, translationFile.FileName + Constants.FILE_BACKUP_EXTENSION );
         }
-
-        private bool RemoveTranslationFileIdentifier(Dictionary<int, LineObject> lines ) 
+        private TranslationFile RemoveKeysFromOriginal(TranslationFile original, Dictionary<int, LineObject> keysToRemove)
         {
-            if(lines == null )
+            if (null == original)
             {
-                Console.WriteLine("Parameter <lines> must not be null!");
-                return false;
+                Console.WriteLine("Parameter <original> must not be null!");
+                return null;
             }
 
-            foreach( KeyValuePair<int, LineObject> lineObject in lines )
+            if (null == keysToRemove)
             {
-                if( lineObject.Value.OriginalLine.Contains(Constants.TRANSLATION_FILE_IDENTIFIER) )
-                {
-                    lines.Remove(lineObject.Key);
-                }
+                Console.WriteLine("Parameter <keysToRemove> must not be null!");
+                return null;
             }
 
-            return true;
+            if (keysToRemove.Count == 0)
+            {
+                Console.WriteLine("Parameter <keysToRemove> must not be empty!");
+                return null;
+            }
+
+            TranslationFile originalWithRemovedKeys = original;
+
+            foreach (KeyValuePair<int, LineObject> line in keysToRemove)
+            {
+                original.Lines.Remove(line.Key);
+            }
+
+            return original;
         }
+
     }
 }

@@ -11,13 +11,33 @@ namespace ParadoxTranslationHelper
         int _lineNumber;
         TranslationFile _translationFile;
         string _key;
+        string _originalLine;
+        string _originalLineSubstituted;
         List<string> _nameSpaces = new List<string>();
         List<string> _nestingStrings = new List<string>();
         List<string> _colorCodes = new List<string>();
         List<string> _icons = new List<string>();
         List<string> _newLines = new List<string>();
-        string _originalLine;
-        string _originalLineSubstituted;
+        
+        public LineObject(LineObject lineObject)
+        {
+            if (lineObject == null)
+            {
+                throw new ArgumentNullException("Parameter <lineObject> must not be null!");
+            }
+
+            this._lineNumber = lineObject.LineNumber;
+            this._translationFile = lineObject.TranslationFile;
+            this._key = lineObject.Key;
+            this._originalLine = lineObject.OriginalLine;
+            this._originalLineSubstituted = lineObject.OriginalLineSubstituted;
+            this._nameSpaces = new List<string>(lineObject.NameSpaces);
+            this._nestingStrings = new List<string>(lineObject._nestingStrings);
+            this._colorCodes = new List<string>(lineObject._colorCodes);
+            this._icons = new List<string>(lineObject._icons);
+            this._newLines = new List<string>(lineObject._newLines);
+        }
+
         public LineObject(int lineNumber)
         {
             _lineNumber = lineNumber;

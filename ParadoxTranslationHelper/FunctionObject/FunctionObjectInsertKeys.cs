@@ -10,11 +10,11 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectInsertKeys : FunctionObjectBase
     {
-        private string _localizationFileNameDiff;
+        private string _localizationFileNameKeysToCreate;
         private string _localizationFilePathGerman;
         private string _localizationFilePathAnalyze;
 
-        public string LocalizationFileNameDiff { get => _localizationFileNameDiff; set => _localizationFileNameDiff = value; }
+        public string LocalizationFileNameKeysToCreate { get => _localizationFileNameKeysToCreate; set => _localizationFileNameKeysToCreate = value; }
         public string LocalizationFilePathGerman { get => _localizationFilePathGerman; set => _localizationFilePathGerman = value; }
         public string LocalizationFilePathAnalyze { get => _localizationFilePathAnalyze; set => _localizationFilePathAnalyze = value; }
 
@@ -24,9 +24,9 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
-            if (true == string.IsNullOrEmpty(_localizationFileNameDiff))
+            if (true == string.IsNullOrEmpty(_localizationFileNameKeysToCreate))
             {
-                Console.WriteLine("Member <LocalizationFileNameDiff> must not be null!");
+                Console.WriteLine("Member <LocalizationFileNameKeysToCreate> must not be null!");
                 return false;
             }
 
@@ -42,15 +42,11 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            List<TranslationFile> missingKeysToInsert = FunctionUtility.CreateKeys(_localizationFileNameDiff);
-            if (missingKeysToInsert.Count > 0)
-            {
-                missingKeysToInsert.RemoveAt(0);
-            }
+            List<TranslationFile> keysToInsert = FunctionUtility.CreateKeys(_localizationFileNameKeysToCreate);
 
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
 
-            List<TranslationFile> updatedFiles = CreateUpdateFiles(missingKeysToInsert);
+            List<TranslationFile> updatedFiles = CreateUpdateFiles(keysToInsert);
             foreach (TranslationFile file in updatedFiles) 
             {
                 FileUtility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName);

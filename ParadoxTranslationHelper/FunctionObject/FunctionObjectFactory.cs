@@ -14,6 +14,7 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectDiffSteam functionObject = new FunctionObjectDiffSteam(FunctionTypes.SteamDiff);
             functionObject.Description = "write missing keys to file against steam path";
+
             functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
             functionObject.FileNameMissingKeys = Constants.FILE_NAME_STEAM_MISSING_KEYS;
@@ -21,32 +22,12 @@ namespace ParadoxTranslationHelper
 
             return functionObject;
         }
-        public static IFunctionObject? CreateSteamSubstitute()
-        {
-            FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(FunctionTypes.SteamSub);
-            functionObject.Description = "substitute translation file in folder analysis (MissingTranslationKeysSteam)";
-            functionObject.PathToSubstitute = ParadoxTranslationHelperConfig.PathResult;
-            functionObject.SubstituteAgainstSteam = true;
-
-            return functionObject;
-        }
-
-        public static IFunctionObject? CreateSteamResubstitute()
-        {
-            FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(FunctionTypes.SteamResub);
-            functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
-            functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
-            functionObject.PathToReSubstituteCorresponding = ParadoxTranslationHelperConfig.PathResult;
-            functionObject.ReadOnlyLocalizationFilesSub = true;
-            functionObject.RemoveFileExtension = true;
-
-            return functionObject;
-        }
         public static IFunctionObject? CreateInsertKeys()
         {
             FunctionObjectInsertKeys functionObject = new FunctionObjectInsertKeys(FunctionTypes.SteamInsert);
             functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
-            functionObject.LocalizationFileNameDiff = Path.Combine(ParadoxTranslationHelperConfig.PathResult, "MissingTranslationKeysSteam.yml.sub.german.resub");
+
+            functionObject.LocalizationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX_GERMAN + FileSubstitutionConstants.RESUBSTITUTED_FILE_SUFFIX);
             functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 
@@ -58,6 +39,34 @@ namespace ParadoxTranslationHelper
             FunctionObjectRemoveKeys functionObject = new FunctionObjectRemoveKeys(FunctionTypes.SteamRemove);
             functionObject.Description = "Deletes keys no longer available";
 
+            functionObject.LocalizationFileNameKeysToDelete = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_TO_DELETE_KEYS);
+            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
+
+            return functionObject;
+        }
+
+        public static IFunctionObject? CreateSteamSubstitute()
+        {
+            FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(FunctionTypes.SteamSub);
+            functionObject.Description = "substitute translation file in folder analysis (MissingTranslationKeysSteam)";
+
+            functionObject.PathToSubstitute = ParadoxTranslationHelperConfig.PathResult;
+            functionObject.SubstituteAgainstSteam = true;
+
+            return functionObject;
+        }
+
+        public static IFunctionObject? CreateSteamResubstitute()
+        {
+            FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(FunctionTypes.SteamResub);
+            functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
+
+            functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
+            functionObject.PathToReSubstituteCorresponding = ParadoxTranslationHelperConfig.PathResult;
+            functionObject.ReadOnlyLocalizationFilesSub = true;
+            functionObject.RemoveFileExtension = true;
+
             return functionObject;
         }
 
@@ -65,6 +74,7 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(FunctionTypes.Sub);
             functionObject.Description = "substitute translation file";
+
             functionObject.PathToSubstitute = ParadoxTranslationHelperConfig.PathEnglish;
 
             return functionObject;
@@ -74,6 +84,7 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectAnalyse functionObject = new FunctionObjectAnalyse(FunctionTypes.Analyse);
             functionObject.Description = "analyse translation file";
+
             functionObject.PathEnglish = ParadoxTranslationHelperConfig.PathEnglish;
             functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
             functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
@@ -86,6 +97,7 @@ namespace ParadoxTranslationHelper
         {
             FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(FunctionTypes.Resub);
             functionObject.Description = "resubstitute translation file";
+
             functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.PathToReSubstituteCorresponding = ParadoxTranslationHelperConfig.PathEnglish;
 
@@ -96,6 +108,7 @@ namespace ParadoxTranslationHelper
         {
             FunctionCheckForDoubleKeys functionObject = new FunctionCheckForDoubleKeys(FunctionTypes.CheckForDoubleKeys);
             functionObject.Description = "Compare for duplicate keys. File by file.";
+
             functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.ResultFileNameAppendix = Constants.FUNCTION_FILE_NAME_APPENDIX;
             functionObject.PathAnalyze = ParadoxTranslationHelperConfig.PathResult;
@@ -107,6 +120,7 @@ namespace ParadoxTranslationHelper
         {
             FunctionCheckForDoubleKeysAllFiles functionObject = new FunctionCheckForDoubleKeysAllFiles(FunctionTypes.CheckForDoubleKeysAllFiles);
             functionObject.Description = "Compare for duplicate keys, over all files.";
+
             functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.PathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 
@@ -117,6 +131,7 @@ namespace ParadoxTranslationHelper
         {
             FunctionCheckForDoubleKeysAllFiles functionObject = new FunctionCheckForDoubleKeysAllFiles(FunctionTypes.CheckForDoubleKeysAllFilesFix);
             functionObject.Description = "Compare for duplicate keys, over all files.";
+
             functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.PathAnalyze = ParadoxTranslationHelperConfig.PathResult;
             functionObject.DeleteDoubleKeys = true;

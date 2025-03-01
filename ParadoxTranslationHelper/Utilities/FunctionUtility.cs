@@ -89,12 +89,12 @@ namespace ParadoxTranslationHelper.Utilities
             return keys;
         }
 
-        private static bool ContainsFileName(string fileName)
+        public static bool ContainsFileName(string fileName)
         {
             return fileName.Contains(Constants.TRANSLATION_FILE_IDENTIFIER);
         }
 
-        private static string? CreateFileName(string line)
+        public static string? CreateFileName(string line)
         {
             string fileName = ExtractFileNameFromString(line);
             if (true == string.IsNullOrEmpty(fileName))

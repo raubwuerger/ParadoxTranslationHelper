@@ -19,6 +19,20 @@ namespace ParadoxTranslationHelper
             _fileName = filename;
         }
 
+        public TranslationFile(TranslationFile translationFile)
+        {
+            if (translationFile == null)
+            {
+                throw new ArgumentNullException("Parameter <translationFile> must not be null!");
+            }
+
+            this._fileName = translationFile._fileName;
+            this._fileNameWithoutLocalisation = translationFile._fileNameWithoutLocalisation;
+            foreach( KeyValuePair<int,LineObject> keyValuePair in translationFile.Lines )
+            {
+                _lines.Add( keyValuePair.Key, keyValuePair.Value ); 
+            }
+        }
         protected TranslationFile() 
         {
         }
