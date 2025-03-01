@@ -53,9 +53,11 @@ namespace ParadoxTranslationHelper.Utilities
                 return;
             }
 
+
             Console.WriteLine("Writing file: " + fileName);
             try
             {
+                ClearFileContent(fileName);
                 using (Stream stream = File.OpenWrite(fileName))
                 using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
@@ -94,6 +96,7 @@ namespace ParadoxTranslationHelper.Utilities
             Console.WriteLine("Writing file: " + fileName);
             try
             {
+                ClearFileContent(fileName);
                 using (Stream stream = File.OpenWrite(fileName))
                 using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
@@ -139,6 +142,7 @@ namespace ParadoxTranslationHelper.Utilities
             Console.WriteLine("Writing file: " + fileName);
             try
             {
+                ClearFileContent(fileName);
                 using (Stream stream = File.OpenWrite(fileName))
                 using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
@@ -154,9 +158,26 @@ namespace ParadoxTranslationHelper.Utilities
             }
         }
 
-        public static bool WriteEmptyFileUTF8_BOM(string filename)
+        public static void ClearFileContent( string fileName )
         {
-            if (string.IsNullOrEmpty(filename))
+            if ( false == File.Exists(fileName) )
+            {
+                Console.WriteLine("File doesn't exist: " + fileName);
+                return;
+            }
+
+            using (FileStream fs = File.Open(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            {
+                lock (fs)
+                {
+                    fs.SetLength(0);
+                }
+            }
+        }
+
+        public static bool WriteEmptyFileUTF8_BOM(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName))
             {
                 Console.WriteLine("Parameter <filename> must not be null or empty!");
                 return false;
@@ -164,7 +185,8 @@ namespace ParadoxTranslationHelper.Utilities
 
             try
             {
-                using (Stream stream = File.OpenWrite(filename))
+                ClearFileContent(fileName);
+                using (Stream stream = File.OpenWrite(fileName))
                 using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
                 }
@@ -195,6 +217,7 @@ namespace ParadoxTranslationHelper.Utilities
             {
                 try
                 {
+                    ClearFileContent(keyFile.Key);
                     using (Stream stream = File.OpenWrite(keyFile.Key))
                     using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                     {
@@ -231,6 +254,7 @@ namespace ParadoxTranslationHelper.Utilities
 
             try
             {
+                ClearFileContent(fileName);
                 using (Stream stream = File.OpenWrite(fileName))
                 using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
