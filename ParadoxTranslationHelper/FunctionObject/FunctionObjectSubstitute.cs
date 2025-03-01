@@ -12,6 +12,7 @@ namespace ParadoxTranslationHelper
     {
         string _pathToSubstitute;
         bool _substituteAgainstSteam = false;
+        string _translationFileToIgnore;
 
         public FunctionObjectSubstitute(string name) : base(name)
         {
@@ -19,6 +20,7 @@ namespace ParadoxTranslationHelper
 
         public string PathToSubstitute { get => _pathToSubstitute; set => _pathToSubstitute = value; }
         public bool SubstituteAgainstSteam { get => _substituteAgainstSteam; set => _substituteAgainstSteam = value; }
+        public string TranslationFileToIgnore { get => _translationFileToIgnore; set => _translationFileToIgnore = value; }
 
         public override bool DoWork()
         {
@@ -29,6 +31,7 @@ namespace ParadoxTranslationHelper
             }
 
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathToSubstitute);
+            RemoveFileOnIgnoreList();
 
             foreach (TranslationFile translationFile in LocalisationFilesGerman)
             {
@@ -44,6 +47,16 @@ namespace ParadoxTranslationHelper
             }
 
             return true;
+        }
+
+        private void RemoveFileOnIgnoreList()
+        {
+            if( null == _translationFileToIgnore )
+            {
+                return;
+            }
+
+            LocalisationFilesGerman.Remove( LocalisationFilesGerman.First( x => x.FileNameWithoutLocalisation.Equals(_translationFileToIgnore)));
         }
     }
 }

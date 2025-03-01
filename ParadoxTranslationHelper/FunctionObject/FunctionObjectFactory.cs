@@ -51,6 +51,7 @@ namespace ParadoxTranslationHelper
             FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(FunctionTypes.SteamSub);
             functionObject.Description = "substitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
+            functionObject.TranslationFileToIgnore = Constants.FILE_NAME_STEAM_TO_DELETE_KEYS_WITHOUT_EXTENSION;
             functionObject.PathToSubstitute = ParadoxTranslationHelperConfig.PathResult;
             functionObject.SubstituteAgainstSteam = true;
 

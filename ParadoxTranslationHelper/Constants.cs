@@ -22,6 +22,8 @@ namespace ParadoxTranslationHelper
         public const string LOCALISATION_START_STRING = "_l_";
 
         public const string FILE_NAME_STEAM_TO_DELETE_KEYS = "_SteamKeysToDelete.yml";
+        //TODO: 2025-03-01 - JHA - Remove hack!!!
+        public const string FILE_NAME_STEAM_TO_DELETE_KEYS_WITHOUT_EXTENSION = "_SteamKeysToDelete";
         public const string FILE_NAME_STEAM_MISSING_KEYS = "_SteamKeysToCreate.yml";
         public const string FUNCTION_FILE_NAME_APPENDIX = ".DoubleKey.txt";
 
