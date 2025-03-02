@@ -19,7 +19,7 @@ namespace ParadoxTranslationHelper
 
         private TranslationFileSetSubstitution _translationFileSetSubstitution;
 
-        internal TranslationFileSetSubstitution TranslationFileSetSubstitution { get => _translationFileSetSubstitution; set => _translationFileSetSubstitution = value; }
+        public TranslationFileSetSubstitution TranslationFileSetSubstitution { get => _translationFileSetSubstitution; set => _translationFileSetSubstitution = value; }
 
         public void ReSubstitute()
         {
@@ -66,7 +66,7 @@ namespace ParadoxTranslationHelper
             SubstituteLines(lineObjects, _iconReSubstitute);
             SubstituteLinesColorCodeEnd(lineObjects);
 
-            FileUtility.WriteLinesPushFrontTranslationIdentifier(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.RESUBSTITUTED_FILE_SUFFIX);
+            FileUtility.WriteLinesPushFrontTranslationIdentifier(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
             Console.WriteLine("Finished ...");
         }
 

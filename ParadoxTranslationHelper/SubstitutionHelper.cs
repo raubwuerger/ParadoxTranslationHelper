@@ -15,7 +15,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            return fileName + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX_GERMAN;
+            return fileName + FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED + FileSubstitutionConstants.FILE_SUFFIX_GERMAN;
         }
 
     }

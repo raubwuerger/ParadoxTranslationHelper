@@ -27,7 +27,7 @@ namespace ParadoxTranslationHelper
             FunctionObjectInsertKeys functionObject = new FunctionObjectInsertKeys(FunctionTypes.SteamInsert);
             functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
-            functionObject.LocalizationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX_GERMAN + FileSubstitutionConstants.RESUBSTITUTED_FILE_SUFFIX);
+            functionObject.LocalizationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffSubGerman());
             functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 
@@ -64,9 +64,9 @@ namespace ParadoxTranslationHelper
             functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
             functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
-            functionObject.PathToReSubstituteCorresponding = ParadoxTranslationHelperConfig.PathResult;
-            functionObject.ReadOnlyLocalizationFilesSub = true;
-            functionObject.RemoveFileExtension = true;
+            functionObject.TranslationFileNameDiff = Constants.FILE_NAME_STEAM_MISSING_KEYS;
+            functionObject.TranslationFileNameSub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffSubGerman());
+            functionObject.TranslationFileNameResub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman() );
 
             return functionObject;
         }
@@ -89,18 +89,6 @@ namespace ParadoxTranslationHelper
             functionObject.PathEnglish = ParadoxTranslationHelperConfig.PathEnglish;
             functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
             functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
-
-            return functionObject;
-        }
-
-
-        public static IFunctionObject? CreateReSubstitute()
-        {
-            FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(FunctionTypes.Resub);
-            functionObject.Description = "resubstitute translation file";
-
-            functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathGerman;
-            functionObject.PathToReSubstituteCorresponding = ParadoxTranslationHelperConfig.PathEnglish;
 
             return functionObject;
         }
@@ -140,5 +128,19 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
+        private static string CreateFileNameDiffResubGerman()
+        {
+            return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED;
+        }
+
+        private static string CreateFileNameDiffSubGerman()
+        {
+            return CreateFileNameDiffSub() + FileSubstitutionConstants.FILE_SUFFIX_GERMAN;
+        }
+
+        private static string CreateFileNameDiffSub()
+        {
+            return Constants.FILE_NAME_STEAM_MISSING_KEYS + FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED;
+        }
     }
 }

@@ -29,14 +29,25 @@ namespace ParadoxTranslationHelper.Utilities
             }
 
             List<TranslationFile> translationFiles = new List<TranslationFile>();
-            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
 
             foreach (string file in files)
             {
-                translationFiles.Add(translationFileCreator.Create(file));
+                translationFiles.Add(CreateTranslationFileFromFile(file));
             }
 
             return translationFiles;
+        }
+
+        public static TranslationFile CreateTranslationFileFromFile( string fileName )
+        {
+            if( false == File.Exists(fileName) )
+            {
+                Console.WriteLine("File not found! " + fileName);
+                return null;
+            }
+
+            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
+            return translationFileCreator.Create(fileName);
         }
 
         public static void WriteLinesPushFrontTranslationIdentifier(List<LineObject> lineObjects, string fileName)

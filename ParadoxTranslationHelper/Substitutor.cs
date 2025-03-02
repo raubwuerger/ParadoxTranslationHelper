@@ -40,7 +40,7 @@ namespace ParadoxTranslationHelper
 
             fileWriterSubstitutionItem.FileName = replacedPath;
             fileWriterSubstitutionItem.FileSuffix = "";
-            WriteSubstitionFile(translationFile, replacedPath + FileSubstitutionConstants.SUBSTITUTED_FILE_SUFFIX);
+            WriteSubstitionFile(translationFile, replacedPath + FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED);
 
             fileWriterSubstitutionItem.FileSuffix = "." + FileSubstitutionConstants.NESTING_STRING_SUFFIX;
             WriteSubstitionFile(_nestingStringsSubstitute);

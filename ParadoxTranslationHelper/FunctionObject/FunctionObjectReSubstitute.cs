@@ -1,6 +1,7 @@
 ﻿using ParadoxTranslationHelper.Utilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +11,14 @@ namespace ParadoxTranslationHelper
     public class FunctionObjectReSubstitute : FunctionObjectBase
     {
         string _pathToReSubstitute;
-        string _pathToReSubstituteCorresponding;
-
-        bool _removeFileExtension = false;
-        bool _readOnlyLocalizationFilesSub = false;
+        string _translationFileNameDiff;
+        string _translationFileNameSub;
+        string _translationFileNameResub;
 
         public string PathToReSubstitute { get => _pathToReSubstitute; set => _pathToReSubstitute = value; }
-        public string PathToReSubstituteCorresponding { get => _pathToReSubstituteCorresponding; set => _pathToReSubstituteCorresponding = value; }
-        public bool RemoveFileExtension { get => _removeFileExtension; set => _removeFileExtension = value; }
-        public bool ReadOnlyLocalizationFilesSub { get => _readOnlyLocalizationFilesSub; set => _readOnlyLocalizationFilesSub = value; }
+        public string TranslationFileNameDiff { get => _translationFileNameDiff; set => _translationFileNameDiff = value; }
+        public string TranslationFileNameResub { get => _translationFileNameResub; set => _translationFileNameResub = value; }
+        public string TranslationFileNameSub { get => _translationFileNameSub; set => _translationFileNameSub = value; }
 
         public FunctionObjectReSubstitute(string name) : base(name)
         {
@@ -32,60 +32,46 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            if (_pathToReSubstituteCorresponding == null)
+            if (_translationFileNameDiff == null)
             {
-                Console.WriteLine("Member <PathToReSubstituteCorresponding> must not be null!");
+                Console.WriteLine("Member <TranslationFileNameSteamDiff> must not be null!");
                 return false;
             }
 
-            if ( ReadOnlyLocalizationFilesSub )
+            if (_translationFileNameResub == null)
             {
-                LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathToReSubstitute, Constants.FILE_EXTENSION_PREFIX + Constants.LOCALISATION_GERMAN);
-            }
-            else
-            {
-                LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathToReSubstitute);
+                Console.WriteLine("Member <TranslationFileNameResub> must not be null!");
+                return false;
             }
 
-            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathToReSubstituteCorresponding);
-
-            foreach (TranslationFile translationFile in LocalisationFilesGerman)
+            if (_translationFileNameSub == null)
             {
-                FileSubstitutor fileSubstitutor = new FileSubstitutor();
-                if( true == RemoveFileExtension )
-                {
-                    translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
-                    TranslationFileCreator creator = new TranslationFileCreator();
-                    fileSubstitutor.ReSubstitute(Create(creator.CopyExceptFileName(translationFile.FileName, translationFile), FindCorrespondingTranslationFile(translationFile)));
-                }
-                else
-                {
-                    fileSubstitutor.ReSubstitute(Create(translationFile, FindCorrespondingTranslationFile(translationFile)));
-                }
+                Console.WriteLine("Member <TranslationFileNameSub> must not be null!");
+                return false;
             }
+
+            TranslationFile translationFile = FileUtility.CreateTranslationFileFromFile(_translationFileNameSub);
+            if(translationFile == null) 
+            {
+                Console.WriteLine("Translation file zu resub not found! " + _translationFileNameSub);
+                return false;
+            }
+
+            FileSubstitutor fileSubstitutor = new FileSubstitutor();
+            translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
+            fileSubstitutor.ReSubstitute(CreateTranslationFileSetSubstitution(translationFile, Path.Combine(_pathToReSubstitute, _translationFileNameDiff)));
 
             return true;
         }
 
-        private string FindCorrespondingTranslationFile(TranslationFile translationFile)
-        {
-            TranslationFile corresponding = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
-            if (corresponding == null)
-            {
-                return null;
-            }
-
-            return Utility.ReplaceWithAnalyseDirectory(corresponding);
-        }
-
-        private TranslationFileSetSubstitution Create(TranslationFile substitutedFile, string pathToSubstiteFile)
+        private TranslationFileSetSubstitution CreateTranslationFileSetSubstitution(TranslationFile substitutedFile, string pathToSubstitedFileParts)
         {
             TranslationFileSetSubstitution translationFileSetSubstitution = new TranslationFileSetSubstitution();
 
             translationFileSetSubstitution.SubstitutedFile = substitutedFile;
-            translationFileSetSubstitution.PathNestingStringsFile = pathToSubstiteFile + "." + FileSubstitutionConstants.NESTING_STRING_SUFFIX;
-            translationFileSetSubstitution.PathNamespaceFile = pathToSubstiteFile + "." + FileSubstitutionConstants.NAMESPACE_SUFFIX;
-            translationFileSetSubstitution.PathIconFile = pathToSubstiteFile + "." + FileSubstitutionConstants.ICON_SUFFIX;
+            translationFileSetSubstitution.PathNestingStringsFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.NESTING_STRING_SUFFIX;
+            translationFileSetSubstitution.PathNamespaceFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.NAMESPACE_SUFFIX;
+            translationFileSetSubstitution.PathIconFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.ICON_SUFFIX;
 
             return translationFileSetSubstitution;
         }

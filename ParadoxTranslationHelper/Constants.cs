@@ -28,7 +28,7 @@ namespace ParadoxTranslationHelper
         public const string FUNCTION_FILE_NAME_APPENDIX = ".DoubleKey.txt";
 
         public const string FILE_EXTENSION_PREFIX = "*.";
-        public const string FILE_EXTENSION_SUB = "sub";
+        private const string FILE_EXTENSION_SUB = "sub";
 
         public const string TRANSLATION_FILE_IDENTIFIER = ">>>>> ";
 
