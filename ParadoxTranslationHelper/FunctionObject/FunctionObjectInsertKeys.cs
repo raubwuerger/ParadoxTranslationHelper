@@ -43,8 +43,28 @@ namespace ParadoxTranslationHelper
             }
 
             List<TranslationFile> keysToInsert = FunctionUtility.CreateKeys(_localizationFileNameKeysToCreate);
+            if( keysToInsert == null )
+            {
+                return false;
+            }
+
+            if( keysToInsert.Count == 0 )
+            { 
+                Console.WriteLine("File doesn't contain keys to insert: " + _localizationFileNameKeysToCreate);
+                return false; 
+            }   
 
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
+            if( LocalisationFilesGerman == null )
+            {
+                return false;
+            }
+
+            if( LocalisationFilesGerman.Count == 0 )
+            {
+                Console.WriteLine("Path contains no files:" + _localizationFilePathGerman);
+                return false;
+            }
 
             List<TranslationFile> updatedFiles = CreateUpdateFiles(keysToInsert);
             foreach (TranslationFile file in updatedFiles) 
@@ -101,7 +121,12 @@ namespace ParadoxTranslationHelper
             List<TranslationFile> updatedFiles = new List<TranslationFile>();
             foreach (TranslationFile translationFile in missingKeysToInsert)
             {
-                updatedFiles.Add(InsertInto(LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation)), translationFile));
+                TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
+                if (translationKeysToInsert == null)
+                {
+                    Console.WriteLine("File to insert not found! " + translationFile.FileName);
+                }
+                updatedFiles.Add(InsertInto(translationKeysToInsert, translationFile));
             }
 
             return updatedFiles;

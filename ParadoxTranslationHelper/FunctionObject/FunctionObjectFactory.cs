@@ -27,7 +27,7 @@ namespace ParadoxTranslationHelper
             FunctionObjectInsertKeys functionObject = new FunctionObjectInsertKeys(FunctionTypes.SteamInsert);
             functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
-            functionObject.LocalizationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffSubGerman());
+            functionObject.LocalizationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman());
             functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 

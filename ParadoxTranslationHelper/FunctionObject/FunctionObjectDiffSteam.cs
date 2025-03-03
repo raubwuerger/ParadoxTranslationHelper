@@ -59,7 +59,22 @@ namespace ParadoxTranslationHelper.FunctionObject
                 return false;
             }
 
+            if( LocalisationFilesSteam.Count == 0 )
+            {
+                Console.WriteLine("Steam path containes no files: " + _pathSteam);
+                return false;
+            }
+
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
+            if( null == LocalisationFilesGerman )
+            {
+                return false;
+            }
+
+            if (LocalisationFilesGerman.Count == 0)
+            {
+                return false;
+            }
 
             return AnalyzeKeys();
         }

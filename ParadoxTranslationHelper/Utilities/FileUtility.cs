@@ -11,8 +11,9 @@ namespace ParadoxTranslationHelper.Utilities
     {
         public static List<TranslationFile> CreateTranslationFilesFromDirectory(string directory, string filePattern = "*.yml")
         {
-            if (null == directory)
+            if ( true == string.IsNullOrEmpty(directory) )
             {
+                Console.WriteLine("Parameter <Directory> must not be null!");
                 return null;
             }
 
@@ -25,6 +26,7 @@ namespace ParadoxTranslationHelper.Utilities
             string[] files = Directory.GetFiles(directory, filePattern, SearchOption.AllDirectories);
             if (files.Length <= 0)
             {
+                Console.WriteLine("Directory contains no files: " + directory);
                 return null;
             }
 
@@ -173,7 +175,6 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if ( false == File.Exists(fileName) )
             {
-                Console.WriteLine("File doesn't exist: " + fileName);
                 return;
             }
 
