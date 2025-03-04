@@ -66,7 +66,7 @@ namespace ParadoxTranslationHelper
             SubstituteLines(lineObjects, _iconReSubstitute);
             SubstituteLinesColorCodeEnd(lineObjects);
 
-            FileUtility.WriteLinesPushFrontTranslationIdentifier(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
+            FileUtility.WriteLines(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
             Console.WriteLine("Finished ...");
         }
 
