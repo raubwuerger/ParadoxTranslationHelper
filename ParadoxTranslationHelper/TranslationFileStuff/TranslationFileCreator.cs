@@ -12,28 +12,32 @@ namespace ParadoxTranslationHelper
     internal class TranslationFileCreator
     {
         LineObjectCreator _lineObjectCreator = new LineObjectCreator();
+        public TranslationFile Create(string completeFileName)
+        {
+            if (string.IsNullOrEmpty(completeFileName))
+            {
+                Console.WriteLine("Parameter <completeFileName> must not be null or empty!");
+                return null;
+            }
+
+            string fileName = Path.GetFileName(completeFileName);
+            string basePath = Path.GetDirectoryName(completeFileName);
+
+            TranslationFile translationFile = new TranslationFile(fileName);
+            translationFile.BasePath = basePath;
+            translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(completeFileName);
+
+            _lineObjectCreator.TranslationFile = translationFile;
+            translationFile.Lines = CreateLineObjects(File.ReadAllLines(completeFileName));
+
+            return translationFile;
+        }
+
         public TranslationFile CopyExceptFileName( string filename, TranslationFile other )
         {
             TranslationFile translationFile = new TranslationFile(filename);
             translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(filename);
             translationFile.Lines = other.Lines;
-
-            return translationFile;
-        }
-
-        public TranslationFile Create(string fileName)
-        {
-            if( string.IsNullOrEmpty(fileName) )
-            {
-                Console.WriteLine("Parameter <fileName> must not be null or empty!");
-                return null;
-            }
-
-            TranslationFile translationFile = new TranslationFile(fileName);
-            translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(fileName);
-
-            _lineObjectCreator.TranslationFile = translationFile;
-            translationFile.Lines = CreateLineObjects(File.ReadAllLines(fileName));
 
             return translationFile;
         }

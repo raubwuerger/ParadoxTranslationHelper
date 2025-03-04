@@ -71,27 +71,6 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
-        public static IFunctionObject? CreateSubstitute()
-        {
-            FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(FunctionTypes.Sub);
-            functionObject.Description = "substitute translation file";
-
-            functionObject.PathToSubstitute = ParadoxTranslationHelperConfig.PathEnglish;
-
-            return functionObject;
-        }
-
-        public static IFunctionObject? CreateAnalyse()
-        {
-            FunctionObjectAnalyse functionObject = new FunctionObjectAnalyse(FunctionTypes.Analyse);
-            functionObject.Description = "analyse translation file";
-
-            functionObject.PathEnglish = ParadoxTranslationHelperConfig.PathEnglish;
-            functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
-            functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
-
-            return functionObject;
-        }
 
         public static IFunctionObject? CreateCheckForDoubleKeys()
         {
