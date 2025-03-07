@@ -43,7 +43,6 @@ namespace ParadoxTranslationHelper
 
         private void CleanUp()
         {
-            _translationFile = null;
             _key = "";
             _nameSpace = new List<string>();
             _nestingStrings = new List<string>();
