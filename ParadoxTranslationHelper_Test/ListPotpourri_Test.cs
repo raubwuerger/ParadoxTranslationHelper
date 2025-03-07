@@ -16,6 +16,7 @@ namespace ParadoxTranslationHelper_Test
         List<string> listItemsA = new List<string>();
         List<string> listItemsAB = new List<string>();
         List<string> listItemsABC = new List<string>();
+        List<string> listItemsAD = new List<string>();
         List<string> listItemsB = new List<string>();
         List<string> listItemsAC = new List<string>();
         List<string> listItemsBC = new List<string>();
@@ -65,6 +66,9 @@ namespace ParadoxTranslationHelper_Test
             listItemsXYZ.Add(x);
             listItemsXYZ.Add(y);
             listItemsXYZ.Add(z);
+
+            listItemsAD.Add(a);
+            listItemsAD.Add(d);
         }
 
         [TestMethod]
@@ -103,6 +107,8 @@ namespace ParadoxTranslationHelper_Test
             List<string> list_ABC_except_A = listItemsABC.Except(listItemsA).ToList<string>();
             List<string> list_ABC_except_AB = listItemsABC.Except(listItemsAB).ToList<string>();
 
+            List<string> list_ABC_except_AD = listItemsABC.Except(listItemsAD).ToList<string>();
+            List<string> list_AD_except_ABC = listItemsAD.Except(listItemsABC).ToList<string>();
 
             List<string> inSecondOnly = listItemsAB.Except(listItemsA).ToList<string>();
             Assert.AreEqual(list_A_except_AB, inSecondOnly);

@@ -81,6 +81,15 @@ namespace ParadoxTranslationHelper.FunctionObject
 
         protected bool AnalyzeKeys()
         {
+            RemoveFilesNoLongerInSteamExistent(CreateFilesNoLongerInSteamExistent());
+
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
+            List<TranslationFile> translationFilesToRemove = LocalisationFilesGerman
+                .ExceptBy(
+                    LocalisationFilesSteam.Select(locFilesSteam => locFilesSteam.FileNameWithoutLocalisation.ToUpper()),
+                    locFilesGerman => locFilesGerman.FileNameWithoutLocalisation.ToUpper())
+                .ToList();
+
             Dictionary<string, LineObject> steam = Utility.ExtractKeys(LocalisationFilesSteam);
             Dictionary<string, LineObject> repository = Utility.ExtractKeys(LocalisationFilesGerman);
 
@@ -108,6 +117,45 @@ namespace ParadoxTranslationHelper.FunctionObject
                 FileUtility.WriteEmptyFileUTF8_BOM(Path.Combine(directory, fileName));
             }
             return true;
+        }
+
+        private List<TranslationFile>? CreateFilesNoLongerInSteamExistent()
+        {
+            List<TranslationFile> translationFilesToRemove;
+            try
+            {
+                translationFilesToRemove = LocalisationFilesGerman
+                    .ExceptBy(
+                    LocalisationFilesSteam.Select(locFilesSteam => locFilesSteam.FileNameWithoutLocalisation.ToUpper()),
+                    locFilesGerman => locFilesGerman.FileNameWithoutLocalisation.ToUpper())
+                    .ToList();
+                return translationFilesToRemove;
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        private void RemoveFilesNoLongerInSteamExistent( List<TranslationFile>? filesToRemove )
+        {
+            if( filesToRemove == null ) 
+            {
+                return;
+            }
+
+            const string fileToRemove = ".toRemove";
+
+            foreach(TranslationFile file in filesToRemove ) 
+            {
+                string fileNameToRemove = file.FileName + fileToRemove;
+                if ( File.Exists(fileNameToRemove) )
+                {
+                    File.Delete(fileNameToRemove);
+                }
+                File.Move(file.FileName, fileNameToRemove);
+            }
         }
 
     }

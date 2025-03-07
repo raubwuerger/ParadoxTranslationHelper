@@ -99,6 +99,8 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
+            string fileName = missing.FileName;
+
             FileUtility.WriteTranslationFile(original, Path.Combine(LocalizationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
 
             RemoveTranslationFileIdentifier(original.Lines);

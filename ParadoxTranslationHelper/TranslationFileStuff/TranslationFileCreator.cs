@@ -20,12 +20,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            string fileName = Path.GetFileName(completeFileName);
-            string basePath = Path.GetDirectoryName(completeFileName);
-
-            TranslationFile translationFile = new TranslationFile(fileName);
-            translationFile.BasePath = basePath;
-            translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(completeFileName);
+            TranslationFile translationFile = FileNameSetter(completeFileName);
 
             _lineObjectCreator.TranslationFile = translationFile;
             translationFile.Lines = CreateLineObjects(File.ReadAllLines(completeFileName));
@@ -69,6 +64,7 @@ namespace ParadoxTranslationHelper
             }
 
             TranslationFile translationFile = new TranslationFile(fileName);
+            translationFile.BasePath = GetBasePath(fileName);
             translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(fileName);
 
             _lineObjectCreator.TranslationFile = translationFile;
@@ -203,6 +199,36 @@ namespace ParadoxTranslationHelper
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
             List<string> token = new List<string>();
             _lineObjectCreator.NewLines = stringParser.GetToken(line, token);
+        }
+
+        private TranslationFile FileNameSetter(string fileNameComplete)
+        {
+            if (true == string.IsNullOrEmpty(fileNameComplete))
+            {
+                return null;
+            }
+
+            string fileName = Path.GetFileName(fileNameComplete);
+            if ( true == string.IsNullOrEmpty(fileName) )
+            {
+                return null;
+            }
+
+            TranslationFile translationFile = new TranslationFile(fileName);
+            translationFile.BasePath = GetBasePath(fileNameComplete);
+            translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(fileNameComplete);
+
+            return translationFile;
+        }
+
+        private string GetBasePath(string fileNameComplete)
+        {
+            if (true == string.IsNullOrEmpty(fileNameComplete))
+            {
+                return null;
+            }
+
+            return Path.GetDirectoryName(fileNameComplete);
         }
     }
 }

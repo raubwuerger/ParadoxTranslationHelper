@@ -119,7 +119,8 @@ namespace ParadoxTranslationHelper.Utilities
                 return null;
             }
 
-            string fileName = Path.GetFileName(containsFileName.Substring(indexFileNameStart));
+//            string fileName = Path.GetFileName(containsFileName.Substring(indexFileNameStart));
+            string fileName = containsFileName.Substring(indexFileNameStart + Constants.TRANSLATION_FILE_IDENTIFIER.Length);
             int startFileExtension = fileName.IndexOf(Constants.LOCALISATION_EXTENSION);
 
             if (startFileExtension == -1)
@@ -128,6 +129,7 @@ namespace ParadoxTranslationHelper.Utilities
                 return null;
             }
 
+            string whatIsThis = fileName.Remove(startFileExtension + Constants.LOCALISATION_EXTENSION.Length);
             return fileName.Remove(startFileExtension + Constants.LOCALISATION_EXTENSION.Length);
         }
 
