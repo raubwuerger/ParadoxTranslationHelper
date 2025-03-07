@@ -64,7 +64,7 @@ namespace ParadoxTranslationHelper
                 
                 foreach (TranslationFile translationFile in translationFilesCorrected )
                 {
-                    FileUtility.WriteTranslationFile(translationFile,Path.Combine(_pathAnalyze, Utility.CreateFullNameGerman(translationFile)) );
+                    FileUtility.Write(translationFile,Path.Combine(_pathAnalyze, Utility.CreateFileNameWithoutLocalisationGerman(translationFile)) );
                 }
             }
 

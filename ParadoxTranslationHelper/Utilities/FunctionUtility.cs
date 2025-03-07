@@ -119,7 +119,6 @@ namespace ParadoxTranslationHelper.Utilities
                 return null;
             }
 
-//            string fileName = Path.GetFileName(containsFileName.Substring(indexFileNameStart));
             string fileName = containsFileName.Substring(indexFileNameStart + Constants.TRANSLATION_FILE_IDENTIFIER.Length);
             int startFileExtension = fileName.IndexOf(Constants.LOCALISATION_EXTENSION);
 
@@ -131,6 +130,20 @@ namespace ParadoxTranslationHelper.Utilities
 
             string whatIsThis = fileName.Remove(startFileExtension + Constants.LOCALISATION_EXTENSION.Length);
             return fileName.Remove(startFileExtension + Constants.LOCALISATION_EXTENSION.Length);
+        }
+
+        public static LineObject? CreateLineObjectLanguageIdentifier(TranslationFile translationFileMissing)
+        {
+            if (translationFileMissing == null)
+            {
+                Console.WriteLine("Parameter <translationFileMissing> must not be null!");
+                return null;
+            }
+
+            LineObject languageIdentifier = new LineObject(1);
+            languageIdentifier.OriginalLine = Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER;
+            languageIdentifier.TranslationFile = translationFileMissing;
+            return languageIdentifier;
         }
 
     }

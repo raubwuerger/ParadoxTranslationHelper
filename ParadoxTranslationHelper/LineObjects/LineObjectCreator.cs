@@ -43,12 +43,21 @@ namespace ParadoxTranslationHelper
 
         private void CleanUp()
         {
+            _translationFile = null;
             _key = "";
             _nameSpace = new List<string>();
             _nestingStrings = new List<string>();
             _colorCodes = new List<string>();
             _icons = new List<string>();
             _newLines = new List<string>();
+        }
+
+        public static LineObject CreateLineObjectLanguageIdentifierGerman()
+        {
+            LineObject lineObject = new LineObject(1);
+            lineObject.OriginalLine = Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER;
+
+            return lineObject;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace ParadoxTranslationHelper
     internal class TranslationFileCreator
     {
         LineObjectCreator _lineObjectCreator = new LineObjectCreator();
-        public TranslationFile Create(string completeFileName)
+        public TranslationFile? Create(string completeFileName)
         {
             if (string.IsNullOrEmpty(completeFileName))
             {
@@ -35,6 +35,17 @@ namespace ParadoxTranslationHelper
             translationFile.Lines = other.Lines;
 
             return translationFile;
+        }
+
+        public static TranslationFile? CreateEmpy( string completeFileName)
+        {
+            if( string.IsNullOrEmpty(completeFileName))
+            {
+                Console.WriteLine("Parameter <completeFileName> must not be null or empty!");
+                return null;
+            }
+
+            return FileNameSetter(completeFileName);
         }
 
         /**
@@ -73,8 +84,7 @@ namespace ParadoxTranslationHelper
             return translationFile;
         }
 
-
-        private string CreateFileNameWithoutLocalisation(string fileName)
+        private static string CreateFileNameWithoutLocalisation(string fileName)
         {
             string fileNameOnly = Path.GetFileNameWithoutExtension(fileName);
             int indexOf_LocalisationStartString = fileNameOnly.IndexOf(Constants.LOCALISATION_START_STRING, StringComparison.OrdinalIgnoreCase);
@@ -201,7 +211,7 @@ namespace ParadoxTranslationHelper
             _lineObjectCreator.NewLines = stringParser.GetToken(line, token);
         }
 
-        private TranslationFile FileNameSetter(string fileNameComplete)
+        private static TranslationFile FileNameSetter(string fileNameComplete)
         {
             if (true == string.IsNullOrEmpty(fileNameComplete))
             {
@@ -221,7 +231,7 @@ namespace ParadoxTranslationHelper
             return translationFile;
         }
 
-        private string GetBasePath(string fileNameComplete)
+        private static string GetBasePath(string fileNameComplete)
         {
             if (true == string.IsNullOrEmpty(fileNameComplete))
             {

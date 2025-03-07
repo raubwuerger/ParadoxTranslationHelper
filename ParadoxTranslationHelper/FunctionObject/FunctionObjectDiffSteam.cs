@@ -81,14 +81,11 @@ namespace ParadoxTranslationHelper.FunctionObject
 
         protected bool AnalyzeKeys()
         {
-            RemoveFilesNoLongerInSteamExistent(CreateFilesNoLongerInSteamExistent());
+            RemoveFilesNoLongerInSteamExisting(CreateFilesNoLongerInSteamExistent());
+
+            CreateFilesMissingLocally(CreateFilesMissingLocally());
 
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
-            List<TranslationFile> translationFilesToRemove = LocalisationFilesGerman
-                .ExceptBy(
-                    LocalisationFilesSteam.Select(locFilesSteam => locFilesSteam.FileNameWithoutLocalisation.ToUpper()),
-                    locFilesGerman => locFilesGerman.FileNameWithoutLocalisation.ToUpper())
-                .ToList();
 
             Dictionary<string, LineObject> steam = Utility.ExtractKeys(LocalisationFilesSteam);
             Dictionary<string, LineObject> repository = Utility.ExtractKeys(LocalisationFilesGerman);
@@ -121,15 +118,12 @@ namespace ParadoxTranslationHelper.FunctionObject
 
         private List<TranslationFile>? CreateFilesNoLongerInSteamExistent()
         {
-            List<TranslationFile> translationFilesToRemove;
             try
             {
-                translationFilesToRemove = LocalisationFilesGerman
-                    .ExceptBy(
+                return LocalisationFilesGerman.ExceptBy(
                     LocalisationFilesSteam.Select(locFilesSteam => locFilesSteam.FileNameWithoutLocalisation.ToUpper()),
                     locFilesGerman => locFilesGerman.FileNameWithoutLocalisation.ToUpper())
                     .ToList();
-                return translationFilesToRemove;
             }
             catch (Exception ex) 
             {
@@ -137,8 +131,7 @@ namespace ParadoxTranslationHelper.FunctionObject
                 return null;
             }
         }
-
-        private void RemoveFilesNoLongerInSteamExistent( List<TranslationFile>? filesToRemove )
+        private void RemoveFilesNoLongerInSteamExisting( List<TranslationFile>? filesToRemove )
         {
             if( filesToRemove == null ) 
             {
@@ -158,5 +151,54 @@ namespace ParadoxTranslationHelper.FunctionObject
             }
         }
 
+        private List<TranslationFile>? CreateFilesMissingLocally()
+        {
+            try 
+            {
+                return LocalisationFilesSteam.ExceptBy(
+                        LocalisationFilesGerman.Select(LocalisationFilesGerman => LocalisationFilesGerman.FileNameWithoutLocalisation.ToUpper()),
+                        LocalisationFilesSteam => LocalisationFilesSteam.FileNameWithoutLocalisation.ToUpper())
+                    .ToList();
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                return null;    
+            }
+        }
+
+        private void CreateFilesMissingLocally(List<TranslationFile>? translationFiles)
+        {
+            if (translationFiles == null)
+            {
+                return;
+            }
+
+            foreach(TranslationFile translationFile in translationFiles )
+            {
+
+                TranslationFile translationCreated = TranslationFileCreator.CreateEmpy(Utility.CreateFileNameGerman(translationFile, PathGerman));
+                if( translationCreated == null )
+                {
+                    Console.WriteLine("Unable to create TranslationFile!");
+                    continue;
+                }
+                
+                LineObject lineObject = LineObjectCreator.CreateLineObjectLanguageIdentifierGerman();
+                if( lineObject == null )
+                {
+                    Console.WriteLine("Unable to create LineObject!");
+                    continue;
+                }
+
+                translationCreated.Lines.Add(lineObject.LineNumber, lineObject);
+
+                if( false == FileUtility.Write(translationCreated) )
+                {
+                    Console.WriteLine("Unable to create file:" +translationCreated.FileName);
+                }
+
+            }
+        }
     }
 }

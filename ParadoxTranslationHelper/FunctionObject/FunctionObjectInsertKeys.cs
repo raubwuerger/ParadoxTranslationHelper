@@ -101,7 +101,7 @@ namespace ParadoxTranslationHelper
 
             string fileName = missing.FileName;
 
-            FileUtility.WriteTranslationFile(original, Path.Combine(LocalizationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
+            FileUtility.Write(original, Path.Combine(LocalizationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
 
             RemoveTranslationFileIdentifier(original.Lines);
 
@@ -134,19 +134,11 @@ namespace ParadoxTranslationHelper
             return updatedFiles;
         }
 
-        private LineObject CreateLineObjectLanguageIdentifier(TranslationFile missing)
-        {
-            LineObject languageIdentifier = new LineObject(1);
-            languageIdentifier.OriginalLine = Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER;
-            languageIdentifier.TranslationFile = missing;
-            return languageIdentifier;
-        }
-
         private TranslationFile CreateMissingTranslationFile( TranslationFile missing )
         {
             Dictionary<int, LineObject> includingLanguageIdentifier = new Dictionary<int, LineObject>
             {
-                { 1, CreateLineObjectLanguageIdentifier(missing) }
+                { 1, FunctionUtility.CreateLineObjectLanguageIdentifier(missing) }
             };
 
             foreach ( KeyValuePair<int, LineObject> keyValuePair in missing.Lines )

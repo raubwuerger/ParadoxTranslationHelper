@@ -76,7 +76,7 @@ namespace ParadoxTranslationHelper
 
                 DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);
 
-                FileUtility.WriteTranslationFile(translationFile, Path.Combine(PathAnalyze, Utility.CreateFullNameGerman(translationFile)));
+                FileUtility.Write(translationFile, Path.Combine(PathAnalyze, Utility.CreateFileNameWithoutLocalisationGerman(translationFile)));
                 doubleKeyFiles.Add(CreateFileNameDoubleKey(translationFile), doubleKeys );
             }
 

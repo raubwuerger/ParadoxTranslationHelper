@@ -175,7 +175,7 @@ namespace ParadoxTranslationHelper
 
         private void WriteSubstitionFile(TranslationFile translationFile, string fileName)
         {
-            FileUtility.WriteTranslationFile(translationFile, fileName);
+            FileUtility.Write(translationFile, fileName);
         }
         private void WriteSubstitionFile(Dictionary<string, string> nestingStrings)
         {
