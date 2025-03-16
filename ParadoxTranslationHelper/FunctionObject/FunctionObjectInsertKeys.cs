@@ -42,6 +42,12 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
+            if( false == File.Exists(_localizationFilePathGerman)) 
+            {
+                Console.WriteLine("File doesn't exist: " + _localizationFilePathGerman);
+                return false;
+            }
+
             List<TranslationFile> keysToInsert = FunctionUtility.CreateKeys(_localizationFileNameKeysToCreate);
             if( keysToInsert == null )
             {
