@@ -182,12 +182,12 @@ namespace ParadoxTranslationHelper
 
         private void WriteOriginalWithoutKeysToDelete(TranslationFile translationFile)
         {
-            FileUtility.WriteTranslationFile(translationFile);
+            FileUtility.Write(translationFile);
         }
         
         private void BackupOriginalFile(TranslationFile translationFile)
         {
-            FileUtility.WriteTranslationFile(translationFile, translationFile.FileName + Constants.FILE_BACKUP_EXTENSION);
+            FileUtility.Write(translationFile, translationFile.FileName + Constants.FILE_BACKUP_EXTENSION);
         }
 
 

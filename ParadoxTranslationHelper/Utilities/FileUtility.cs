@@ -125,28 +125,29 @@ namespace ParadoxTranslationHelper.Utilities
             }
         }
 
-        public static void WriteTranslationFile(TranslationFile translationFile)
-        {
-            if (translationFile == null)
-            {
-                return;
-            }
-
-            WriteTranslationFile(translationFile, translationFile.FileName);
-        }
-
-        public static void WriteTranslationFile(TranslationFile translationFile, string fileName)
+        public static bool Write(TranslationFile translationFile)
         {
             if (translationFile == null)
             {
                 Console.WriteLine("Parameter <translationFile> must not be null!");
-                return;
+                return false;
+            }
+
+            return Write(translationFile, translationFile.FileName);
+        }
+
+        public static bool Write(TranslationFile translationFile, string fileName)
+        {
+            if (translationFile == null)
+            {
+                Console.WriteLine("Parameter <translationFile> must not be null!");
+                return false;
             }
 
             if (true == string.IsNullOrEmpty(fileName))
             {
                 Console.WriteLine("Parameter <fileName> must not be null!");
-                return;
+                return false;
             }
 
             Dictionary<int, LineObject> _lines = translationFile.Lines;
@@ -164,10 +165,12 @@ namespace ParadoxTranslationHelper.Utilities
                         outputFile.WriteLine(Utility.GetSubstitutedLine(line));
                     }
                 }
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                return false;
             }
         }
 

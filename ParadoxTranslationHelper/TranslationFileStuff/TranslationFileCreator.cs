@@ -12,7 +12,7 @@ namespace ParadoxTranslationHelper
     internal class TranslationFileCreator
     {
         LineObjectCreator _lineObjectCreator = new LineObjectCreator();
-        public TranslationFile Create(string completeFileName)
+        public TranslationFile? Create(string completeFileName)
         {
             if (string.IsNullOrEmpty(completeFileName))
             {
@@ -20,12 +20,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            string fileName = Path.GetFileName(completeFileName);
-            string basePath = Path.GetDirectoryName(completeFileName);
-
-            TranslationFile translationFile = new TranslationFile(fileName);
-            translationFile.BasePath = basePath;
-            translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(completeFileName);
+            TranslationFile translationFile = FileNameSetter(completeFileName);
 
             _lineObjectCreator.TranslationFile = translationFile;
             translationFile.Lines = CreateLineObjects(File.ReadAllLines(completeFileName));
@@ -40,6 +35,17 @@ namespace ParadoxTranslationHelper
             translationFile.Lines = other.Lines;
 
             return translationFile;
+        }
+
+        public static TranslationFile? CreateEmpy( string completeFileName)
+        {
+            if( string.IsNullOrEmpty(completeFileName))
+            {
+                Console.WriteLine("Parameter <completeFileName> must not be null or empty!");
+                return null;
+            }
+
+            return FileNameSetter(completeFileName);
         }
 
         /**
@@ -69,6 +75,7 @@ namespace ParadoxTranslationHelper
             }
 
             TranslationFile translationFile = new TranslationFile(fileName);
+            translationFile.BasePath = GetBasePath(fileName);
             translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(fileName);
 
             _lineObjectCreator.TranslationFile = translationFile;
@@ -77,8 +84,7 @@ namespace ParadoxTranslationHelper
             return translationFile;
         }
 
-
-        private string CreateFileNameWithoutLocalisation(string fileName)
+        private static string CreateFileNameWithoutLocalisation(string fileName)
         {
             string fileNameOnly = Path.GetFileNameWithoutExtension(fileName);
             int indexOf_LocalisationStartString = fileNameOnly.IndexOf(Constants.LOCALISATION_START_STRING, StringComparison.OrdinalIgnoreCase);
@@ -203,6 +209,36 @@ namespace ParadoxTranslationHelper
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
             List<string> token = new List<string>();
             _lineObjectCreator.NewLines = stringParser.GetToken(line, token);
+        }
+
+        private static TranslationFile FileNameSetter(string fileNameComplete)
+        {
+            if (true == string.IsNullOrEmpty(fileNameComplete))
+            {
+                return null;
+            }
+
+            string fileName = Path.GetFileName(fileNameComplete);
+            if ( true == string.IsNullOrEmpty(fileName) )
+            {
+                return null;
+            }
+
+            TranslationFile translationFile = new TranslationFile(fileName);
+            translationFile.BasePath = GetBasePath(fileNameComplete);
+            translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(fileNameComplete);
+
+            return translationFile;
+        }
+
+        private static string GetBasePath(string fileNameComplete)
+        {
+            if (true == string.IsNullOrEmpty(fileNameComplete))
+            {
+                return null;
+            }
+
+            return Path.GetDirectoryName(fileNameComplete);
         }
     }
 }

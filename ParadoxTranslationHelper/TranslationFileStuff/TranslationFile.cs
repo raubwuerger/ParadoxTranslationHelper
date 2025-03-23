@@ -17,7 +17,8 @@ namespace ParadoxTranslationHelper
         private Dictionary<int, LineObject> _lines = new Dictionary<int, LineObject>();
         public TranslationFile(string filename)
         {
-            _fileName = filename;
+            _fileName = Path.GetFileName(filename);
+            _basePath = Path.GetDirectoryName(filename);
         }
 
         public TranslationFile(TranslationFile translationFile)
@@ -39,10 +40,17 @@ namespace ParadoxTranslationHelper
         {
         }
 
-        public string FileName { get => Path.Combine(_basePath, _fileName); }
+        public string FileName
+        { 
+            get => Path.Combine(_basePath, _fileName); 
+        }
         public string FileNameWithoutLocalisation { get => _fileNameWithoutLocalisation; set => _fileNameWithoutLocalisation = value; }
         internal Dictionary<int, LineObject> Lines { get => _lines; set => _lines = value; }
-        public string BasePath { get => _basePath; set => _basePath = value; }
+        public string BasePath 
+        { 
+            get => _basePath; 
+            set => _basePath = value; 
+        }
 
         public override string ToString()
         {

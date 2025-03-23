@@ -50,5 +50,13 @@ namespace ParadoxTranslationHelper
             _icons = new List<string>();
             _newLines = new List<string>();
         }
+
+        public static LineObject CreateLineObjectLanguageIdentifierGerman()
+        {
+            LineObject lineObject = new LineObject(1);
+            lineObject.OriginalLine = Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER;
+
+            return lineObject;
+        }
     }
 }

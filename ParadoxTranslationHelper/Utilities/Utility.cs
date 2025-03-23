@@ -196,7 +196,7 @@ namespace ParadoxTranslationHelper
             return new List<string>(lines);
         }
 
-        public static string? CreateFullNameGerman(TranslationFile translationFile)
+        public static string? CreateFileNameWithoutLocalisationGerman(TranslationFile translationFile)
         {
             if (null == translationFile)
             {
@@ -204,6 +204,29 @@ namespace ParadoxTranslationHelper
                 return null;
             }
             return translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL + Constants.LOCALISATION_EXTENSION;
+        }
+
+        /**
+         * Replaces localisationName and basePath
+         * 
+         * 
+         * 
+         */
+        public static string? CreateFileNameGerman(TranslationFile translationFile, string basePath)
+        {
+            if (null == translationFile)
+            {
+                Console.WriteLine("Parameter <translationFile> must not be null!");
+                return null;
+            }
+
+            if( string.IsNullOrEmpty(basePath) ) 
+            {
+                Console.WriteLine("Parameter <basePath> must not be null or empty!");
+                return null;
+            }
+
+            return Path.Combine(basePath, translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL +Constants.LOCALISATION_EXTENSION);
         }
 
         public static Dictionary<string, LineObject> ExtractKeys(List<TranslationFile> translationFiles)

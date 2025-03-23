@@ -81,6 +81,12 @@ namespace ParadoxTranslationHelper.FunctionObject
 
         protected bool AnalyzeKeys()
         {
+            RemoveFilesNoLongerInSteamExisting(CreateFilesNoLongerInSteamExistent());
+
+            CreateFilesMissingLocally(CreateFilesMissingLocally());
+
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
+
             Dictionary<string, LineObject> steam = Utility.ExtractKeys(LocalisationFilesSteam);
             Dictionary<string, LineObject> repository = Utility.ExtractKeys(LocalisationFilesGerman);
 
@@ -110,5 +116,89 @@ namespace ParadoxTranslationHelper.FunctionObject
             return true;
         }
 
+        private List<TranslationFile>? CreateFilesNoLongerInSteamExistent()
+        {
+            try
+            {
+                return LocalisationFilesGerman.ExceptBy(
+                    LocalisationFilesSteam.Select(locFilesSteam => locFilesSteam.FileNameWithoutLocalisation.ToUpper()),
+                    locFilesGerman => locFilesGerman.FileNameWithoutLocalisation.ToUpper())
+                    .ToList();
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+        private void RemoveFilesNoLongerInSteamExisting( List<TranslationFile>? filesToRemove )
+        {
+            if( filesToRemove == null ) 
+            {
+                return;
+            }
+
+            const string fileToRemove = ".toRemove";
+
+            foreach(TranslationFile file in filesToRemove ) 
+            {
+                string fileNameToRemove = file.FileName + fileToRemove;
+                if ( File.Exists(fileNameToRemove) )
+                {
+                    File.Delete(fileNameToRemove);
+                }
+                File.Move(file.FileName, fileNameToRemove);
+            }
+        }
+
+        private List<TranslationFile>? CreateFilesMissingLocally()
+        {
+            try 
+            {
+                return LocalisationFilesSteam.ExceptBy(
+                        LocalisationFilesGerman.Select(LocalisationFilesGerman => LocalisationFilesGerman.FileNameWithoutLocalisation.ToUpper()),
+                        LocalisationFilesSteam => LocalisationFilesSteam.FileNameWithoutLocalisation.ToUpper())
+                    .ToList();
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                return null;    
+            }
+        }
+
+        private void CreateFilesMissingLocally(List<TranslationFile>? translationFiles)
+        {
+            if (translationFiles == null)
+            {
+                return;
+            }
+
+            foreach(TranslationFile translationFile in translationFiles )
+            {
+
+                TranslationFile translationCreated = TranslationFileCreator.CreateEmpy(Utility.CreateFileNameGerman(translationFile, PathGerman));
+                if( translationCreated == null )
+                {
+                    Console.WriteLine("Unable to create TranslationFile!");
+                    continue;
+                }
+                
+                LineObject lineObject = LineObjectCreator.CreateLineObjectLanguageIdentifierGerman();
+                if( lineObject == null )
+                {
+                    Console.WriteLine("Unable to create LineObject!");
+                    continue;
+                }
+
+                translationCreated.Lines.Add(lineObject.LineNumber, lineObject);
+
+                if( false == FileUtility.Write(translationCreated) )
+                {
+                    Console.WriteLine("Unable to create file:" +translationCreated.FileName);
+                }
+
+            }
+        }
     }
 }
