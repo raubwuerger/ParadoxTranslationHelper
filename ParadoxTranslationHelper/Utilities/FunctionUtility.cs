@@ -34,7 +34,7 @@ namespace ParadoxTranslationHelper.Utilities
             return toCreate;
         }
 
-        public static List<TranslationFile>? CreateKeys(string pathKeys)
+        public static List<TranslationFile>? LoadFileAndCreateKeys(string pathKeys)
         {
             if (string.IsNullOrWhiteSpace(pathKeys))
             {

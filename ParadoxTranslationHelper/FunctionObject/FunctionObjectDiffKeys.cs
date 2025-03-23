@@ -8,25 +8,25 @@ using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper
 {
-    public class FunctionObjectInsertKeys : FunctionObjectBase
+    public class FunctionObjectDiffKeys : FunctionObjectBase
     {
-        private string _localizationFileNameKeysToCreate;
+        private string _localizationFilePathSteam;
         private string _localizationFilePathGerman;
         private string _localizationFilePathAnalyze;
 
-        public string LocalizationFileNameKeysToCreate { get => _localizationFileNameKeysToCreate; set => _localizationFileNameKeysToCreate = value; }
         public string LocalizationFilePathGerman { get => _localizationFilePathGerman; set => _localizationFilePathGerman = value; }
         public string LocalizationFilePathAnalyze { get => _localizationFilePathAnalyze; set => _localizationFilePathAnalyze = value; }
+        public string LocalizationFilePathSteam { get => _localizationFilePathSteam; set => _localizationFilePathSteam = value; }
 
-        public FunctionObjectInsertKeys(string name) : base(name)
+        public FunctionObjectDiffKeys(string name) : base(name)
         {
         }
 
         public override bool DoWork()
         {
-            if (true == string.IsNullOrEmpty(_localizationFileNameKeysToCreate))
+            if (true == string.IsNullOrEmpty(_localizationFilePathSteam))
             {
-                Console.WriteLine("Member <LocalizationFileNameKeysToCreate> must not be null!");
+                Console.WriteLine("Member <LocalizationFilePathSteam> must not be null!");
                 return false;
             }
 
@@ -42,7 +42,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            List<TranslationFile> keysToInsert = FunctionUtility.LoadFileAndCreateKeys(_localizationFileNameKeysToCreate);
+            List<TranslationFile> keysToInsert = FunctionUtility.CreateKeys(_localizationFileNameKeysToCreate);
             if( keysToInsert == null )
             {
                 return false;
