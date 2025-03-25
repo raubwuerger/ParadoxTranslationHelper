@@ -48,7 +48,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            List<TranslationFile> keysToInsert = FunctionUtility.CreateKeys(_localizationFileNameKeysToCreate);
+            List<TranslationFile> keysToInsert = FunctionUtility.LoadFileAndCreateKeys(_localizationFileNameKeysToCreate);
             if( keysToInsert == null )
             {
                 return false;

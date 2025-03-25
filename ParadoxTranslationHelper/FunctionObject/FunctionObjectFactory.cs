@@ -107,6 +107,17 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
+        public static IFunctionObject? CreateKeysDiff()
+        {
+            FunctionObjectDiffKeys functionObject = new FunctionObjectDiffKeys(FunctionTypes.KeysDiff);
+            functionObject.Description = "Diffs keys content (colors, icons, nested strings, namespaces ) file by file";
+
+            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.LocalizationFilePathSteam = ParadoxTranslationHelperConfig.PathSteam;
+
+            return functionObject;
+        }
+
         private static string CreateFileNameDiffResubGerman()
         {
             return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED;

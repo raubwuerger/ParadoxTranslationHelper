@@ -146,5 +146,81 @@ namespace ParadoxTranslationHelper.Utilities
             return languageIdentifier;
         }
 
+        public static TranslationFile? FindCorrespondingTranslationFile( List<TranslationFile> translationFiles, TranslationFile toFind )
+        {
+            if( null == translationFiles)
+            {
+                Console.WriteLine("Parameter <translationFiles> must not be null!");
+                return null;
+            }
+
+            if( translationFiles.Count() == 0 )
+            {
+                Console.WriteLine("Parameter <translationFiles> contains no data!");
+                return null;
+            }
+
+            if (null == toFind)
+            {
+                Console.WriteLine("Parameter <toFind> must not be null!");
+                return null;
+            }
+
+            try
+            {
+                return translationFiles.Find(x => x.FileNameWithoutLocalisation.Equals(toFind.FileNameWithoutLocalisation));
+            }
+            catch (Exception ex) 
+            { 
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
+        public static LineObject FindCorrespondingLineObject( List<LineObject> lineObjects, LineObject toFind )
+        {
+            if (null == lineObjects)
+            {
+                Console.WriteLine("Parameter <lineObjects> must not be null!");
+                return null;
+            }
+
+            if (lineObjects.Count() == 0)
+            {
+                Console.WriteLine("Parameter <lineObjects> contains no data!");
+                return null;
+            }
+
+            if (null == toFind)
+            {
+                Console.WriteLine("Parameter <toFind> must not be null!");
+                return null;
+            }
+
+            if( false == toFind.HasKey() )
+            {
+                Console.WriteLine("Parameter <toFind> is not a valid key!");
+                return null;    
+            }
+
+            try
+            {
+                LineObject found = lineObjects.Find(x => x.Key.Equals(toFind.Key));
+                if( found == null)
+                {
+                    Console.WriteLine("LineObject with Key not found: " +toFind.Key);
+                    return null;
+                }
+
+                return found;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+
+        }
+
     }
 }

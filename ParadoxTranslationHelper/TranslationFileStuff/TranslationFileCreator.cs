@@ -118,6 +118,7 @@ namespace ParadoxTranslationHelper
                     SetNestingStrings(line);
                     SetIcons(line);
                     SetNewLine(line);
+                    SetColorCodes(line);
                 }
 
                 lineNumber++;

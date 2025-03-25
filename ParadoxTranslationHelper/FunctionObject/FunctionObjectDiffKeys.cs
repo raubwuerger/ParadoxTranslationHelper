@@ -36,24 +36,12 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
+/*            if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
             {
                 Console.WriteLine("Member <LocalizationFilePathAnalyze> must not be null!");
                 return false;
             }
-
-            List<TranslationFile> keysToInsert = FunctionUtility.CreateKeys(_localizationFileNameKeysToCreate);
-            if( keysToInsert == null )
-            {
-                return false;
-            }
-
-            if( keysToInsert.Count == 0 )
-            { 
-                Console.WriteLine("File doesn't contain keys to insert: " + _localizationFileNameKeysToCreate);
-                return false; 
-            }   
-
+*/
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
             if( LocalisationFilesGerman == null )
             {
@@ -66,116 +54,73 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            List<TranslationFile> updatedFiles = CreateUpdateFiles(keysToInsert);
-            foreach (TranslationFile file in updatedFiles) 
+            LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathSteam);
+            if (LocalisationFilesSteam == null)
             {
-                FileUtility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName);
-            }
-
-            return true;
-        }
-
-        private TranslationFile InsertInto( TranslationFile original,  TranslationFile missing )
-        {
-            if( null == original )
-            {
-                return CreateMissingTranslationFile(missing);
-            }
-
-            if( null == missing )
-            {
-                return null;
-            }
-
-            if(missing.Lines == null ) 
-            {
-                Console.WriteLine("Dictionary toInsert is null!");
-                return null;
-            }
-
-            if(original.Lines == null ) 
-            {
-                Console.WriteLine("Dictionary original is null!");
-                return null;
-            }
-
-            FileUtility.WriteTranslationFile(original, Path.Combine(LocalizationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
-
-            RemoveTranslationFileIdentifier(original.Lines);
-
-            foreach ( KeyValuePair<int, LineObject> line in missing.Lines ) 
-            {
-                if ( line.Value.OriginalLine.Contains(Constants.TRANSLATION_FILE_IDENTIFIER) )
-                {
-                    continue;
-                }
-                int newLineNumber = original.Lines.Count + 1;
-                original.Lines.Add( newLineNumber, new LineObject( newLineNumber, line.Value ) );
-            }
-
-            return original;
-        }
-
-        private List<TranslationFile> CreateUpdateFiles( List<TranslationFile> missingKeysToInsert)
-        {
-            List<TranslationFile> updatedFiles = new List<TranslationFile>();
-            foreach (TranslationFile translationFile in missingKeysToInsert)
-            {
-                TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
-                if (translationKeysToInsert == null)
-                {
-                    Console.WriteLine("File to insert not found! " + translationFile.FileName);
-                }
-                updatedFiles.Add(InsertInto(translationKeysToInsert, translationFile));
-            }
-
-            return updatedFiles;
-        }
-
-        private LineObject CreateLineObjectLanguageIdentifier(TranslationFile missing)
-        {
-            LineObject languageIdentifier = new LineObject(1);
-            languageIdentifier.OriginalLine = Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER;
-            languageIdentifier.TranslationFile = missing;
-            return languageIdentifier;
-        }
-
-        private TranslationFile CreateMissingTranslationFile( TranslationFile missing )
-        {
-            Dictionary<int, LineObject> includingLanguageIdentifier = new Dictionary<int, LineObject>
-            {
-                { 1, CreateLineObjectLanguageIdentifier(missing) }
-            };
-
-            foreach ( KeyValuePair<int, LineObject> keyValuePair in missing.Lines )
-            {
-                int newLineNumber = includingLanguageIdentifier.Count + 1;
-                includingLanguageIdentifier.Add( newLineNumber, new LineObject( newLineNumber, keyValuePair.Value ) );
-            }
-
-            missing.Lines = includingLanguageIdentifier;
-
-            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
-            return translationFileCreator.CopyExceptFileName( Path.Combine(_localizationFilePathGerman, Utility.ConvertLocalisationToGerman(missing.FileName)), missing );
-        }
-
-        private bool RemoveTranslationFileIdentifier(Dictionary<int, LineObject> lines ) 
-        {
-            if(lines == null )
-            {
-                Console.WriteLine("Parameter <lines> must not be null!");
                 return false;
             }
 
-            foreach( KeyValuePair<int, LineObject> lineObject in lines )
+            if (LocalisationFilesSteam.Count == 0)
             {
-                if( lineObject.Value.OriginalLine.Contains(Constants.TRANSLATION_FILE_IDENTIFIER) )
-                {
-                    lines.Remove(lineObject.Key);
-                }
+                Console.WriteLine("Path contains no files:" + _localizationFilePathSteam);
+                return false;
             }
+
+            DiffKeys();
 
             return true;
         }
+
+        private void DiffKeys() 
+        {
+           foreach( TranslationFile translationFile in LocalisationFilesSteam ) 
+           {
+                DiffKeys(translationFile, FunctionUtility.FindCorrespondingTranslationFile(LocalisationFilesGerman, translationFile));
+           }
+        }
+
+        private void DiffKeys( TranslationFile org, TranslationFile toVerify )
+        {
+            if( org == null ) 
+            {
+                Console.WriteLine("Parameter <org> must not be null!");
+                return;
+            }
+
+            if (org == null)
+            {
+                Console.WriteLine("Parameter <toVerify> must not be null!");
+                return;
+            }
+
+            foreach( LineObject line in org.Lines.Values.ToList() ) 
+            {
+                if( false == DiffKeys(line, FunctionUtility.FindCorrespondingLineObject(toVerify.Lines.Values.ToList(), line)) )
+                {
+                    Console.WriteLine("Key not found: " + line.Key);
+                }
+            }
+        }
+
+        private bool DiffKeys( LineObject org, LineObject toVerify )
+        {
+            if (org == null)
+            {
+                Console.WriteLine("Parameter <org> must not be null!");
+                return false;
+            }
+
+            if (toVerify == null)
+            {
+                Console.WriteLine("Parameter <toVerify> must not be null!");
+                return false;
+            }
+
+            int orgColorCodes = org.ColorCodes.Count;
+            int toVerifyColorCodes = toVerify.ColorCodes.Count;
+
+            return true;
+        }
+
     }
 }
