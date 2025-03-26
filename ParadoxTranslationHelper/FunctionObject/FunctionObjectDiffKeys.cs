@@ -119,6 +119,16 @@ namespace ParadoxTranslationHelper
             int orgColorCodes = org.ColorCodes.Count;
             int toVerifyColorCodes = toVerify.ColorCodes.Count;
 
+            if( orgColorCodes != toVerifyColorCodes )
+            {
+                Console.WriteLine("Key color code mismatch: Should->" );
+            }
+
+            if( orgColorCodes != 0 ) 
+            {
+                Console.WriteLine("ColorCode Found!");
+            }
+
             return true;
         }
 

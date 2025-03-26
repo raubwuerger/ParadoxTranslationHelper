@@ -114,10 +114,10 @@ namespace ParadoxTranslationHelper
                 if( false == IgnoreLine(line) )
                 {
                     SetKey(line);
-                    SetNamespaces(line);
-                    SetNestingStrings(line);
-                    SetIcons(line);
-                    SetNewLine(line);
+//                    SetNamespaces(line);
+//                    SetNestingStrings(line);
+//                    SetIcons(line);
+//                    SetNewLine(line);
                     SetColorCodes(line);
                 }
 
