@@ -116,18 +116,21 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            int orgColorCodes = org.ColorCodes.Count;
-            int toVerifyColorCodes = toVerify.ColorCodes.Count;
+            List<string> orgCopy = org.ColorCodes.ConvertAll( x => String.Copy(x) );
+            List<string> toVerifyCopy = toVerify.ColorCodes.ConvertAll( x => String.Copy(x) );
 
-            if( orgColorCodes != toVerifyColorCodes )
+            foreach (string item in toVerify.ColorCodes)
             {
-                Console.WriteLine("Key color code mismatch: Should->" );
+                if( false == orgCopy.Contains(item) )
+                {
+                    continue;
+                }
+                orgCopy.Remove(item);
+                toVerifyCopy.Remove(item);
             }
 
-            if( orgColorCodes != 0 ) 
-            {
-                Console.WriteLine("ColorCode Found!");
-            }
+            Console.WriteLine("ColorCodes not found in toVerify: " +orgCopy.ToArray().ToString() );
+            Console.WriteLine("ColorCodes wrong in toVerify: " + toVerifyCopy.ToArray().ToString());
 
             return true;
         }
