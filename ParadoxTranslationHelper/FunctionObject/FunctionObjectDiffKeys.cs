@@ -127,8 +127,15 @@ namespace ParadoxTranslationHelper
                 toVerifyCopy.Remove(item);
             }
 
-            Log.Information("ColorCodes not found in toVerify: " +orgCopy.ToArray().ToString() );
-            Log.Information("ColorCodes wrong in toVerify: " + toVerifyCopy.ToArray().ToString());
+            if( orgCopy.Count > 0 ) 
+            {
+                Log.Warning("ColorCodes not found in toVerify: " + org.Key + ": " + string.Join(",", orgCopy));
+            }
+
+            if( toVerifyCopy.Count > 0 ) 
+            {
+                Log.Warning("ColorCodes wrong in toVerify: " + toVerify.Key + ": " + string.Join(",", toVerifyCopy));
+            }
 
             return true;
         }

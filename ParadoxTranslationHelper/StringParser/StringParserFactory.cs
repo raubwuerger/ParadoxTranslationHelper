@@ -76,7 +76,7 @@ namespace ParadoxTranslationHelper
             StringParser stringParser = new StringParser();
             stringParser.StartTag = COLOR_CODE_START;
             stringParser.EndTags.Add(COLOR_CODE_END);
-            stringParser.StartIndexShift = -1;
+//            stringParser.StartIndexShift = -1;
             stringParser.SubStringCount = 2;
             IgnoreCommentLines(stringParser);
             return stringParser;

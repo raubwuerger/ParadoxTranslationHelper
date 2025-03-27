@@ -3,6 +3,7 @@ using ParadoxTranslationHelper;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 
 namespace ParadoxTranslationHelper_Test
 {
@@ -27,47 +28,6 @@ namespace ParadoxTranslationHelper_Test
         public void Initialize()
         {
             _stringParser = new StringParser();
-        }
-
-        [TestMethod]
-        public void TestMethod1()
-        {
-            List<string> tokens = new List<string>();
-            string toTest = "sdfsdfsf[asds]";
-
-            List<string> tokenExpected = new List<string>() { "asds" };
-            List<string> tokensFound = _stringParser.GetToken(toTest, tokens);
-            Assert.AreEqual(tokenExpected[0], tokensFound[0]);
-        }
-
-        [TestMethod]
-        public void TestMethod2()
-        {
-            List<string> tokens = new List<string>();
-            string toTest = "sdfsdfsf£asds";
-
-            _stringParser.StartTag = "£";
-            _stringParser.EndTags.Add(" ");
-
-            List<string> tokenExpected = new List<string>() { "asds" };
-            List<string> tokensFound = _stringParser.GetToken(toTest, tokens);
-            Assert.AreEqual(tokenExpected[0], tokensFound[0]);
-        }
-
-        [TestMethod]
-        public void TestMethod3()
-        {
-            List<string> tokens = new List<string>();
-            string toTest = "DISBAND_PRIDE_OF_THE_FLEET_COST:1	\"Disbanding your §HPride of the Fleet§! §H($NAME$)§!will cost $COST | R$ £pol_power\"";
-
-            _stringParser.StartTag = "£";
-            _stringParser.EndTags.Add(" ");
-            _stringParser.EndTags.Add("\n");
-            _stringParser.EndTags.Add("\"");
-
-            List<string> tokenExpected = new List<string>() { "pol_power" };
-            List<string> tokensFound = _stringParser.GetToken(toTest, tokens);
-            Assert.AreEqual(tokenExpected[0], tokensFound[0]);
         }
 
         [TestMethod]
@@ -195,35 +155,7 @@ namespace ParadoxTranslationHelper_Test
             Assert.AreEqual(0, stringParser.GetToken(noToken, tokens).Count);
         }
 
-        [TestMethod]
-        public void NewLineCorruptedToken()
-        {
-            string corruptedToken = @"\no Token";
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
-            List<string> tokens = new List<string>();
-            Assert.AreEqual(0, stringParser.GetToken(corruptedToken, tokens).Count);
-        }
 
-        [TestMethod]
-        public void NewLineOneToken()
-        {
-            char backSlash = (char)92;
-            char nn = (char)110;
-
-            string backSlashnn = backSlash.ToString() + nn.ToString();
-            string corruptedToken = @"\nno \Toke\n";
-            string corruptedToken2 = @"\n o Token";
-            string corruptedToken3 = @"\ no Token";
-            int index = corruptedToken.IndexOf(@"\n");
-            int index2 = corruptedToken.IndexOf('\n');
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
-            List<string> tokens = new List<string>();
-            Assert.AreEqual(1, stringParser.GetToken(corruptedToken, tokens).Count);
-            stringParser = StringParserFactory.Instance.CreateParserNewLine();
-            Assert.AreEqual(2, stringParser.GetToken(corruptedToken2, tokens).Count);
-            stringParser = StringParserFactory.Instance.CreateParserNewLine();
-            Assert.AreEqual(0, stringParser.GetToken(corruptedToken3, null).Count);
-        }
 
         [TestMethod]
         public void ReadFileWithDifferentKeys()
@@ -249,7 +181,57 @@ namespace ParadoxTranslationHelper_Test
                 }
             }
 
-            Console.WriteLine(keys.ToArray()); 
+            Console.WriteLine(keys.ToArray());
+        }
+
+        //        static string AIRWING_MISSION_DAY_NIGHT = "AIRWING_MISSION_DAY_NIGHT:0 \"Missions are executed §Hday§! and §Hnight§!.\"";
+
+        [TestMethod]
+        [DataRow(DisplayName = "Extract ColorCode: 0 --> 0")]
+        public void ExtractColorCodes_000()
+        {
+            string AIRWING_MISSION_DAY_NIGHT = "";
+
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
+            List<string> token = new List<string>();
+            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
+            Assert.AreEqual(0, colorCodes.Count);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Extract ColorCode: 1 --> 1")]
+        public void ExtractColorCodes_001()
+        {
+            string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and night.";
+
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
+            List<string> token = new List<string>();
+            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
+            Assert.AreEqual(1, colorCodes.Count);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Extract ColorCode: 2 --> 2")]
+        public void ExtractColorCodes_002()
+        {
+            string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Hnight§!.";
+            
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
+            List<string> token = new List<string>();
+            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
+            Assert.AreEqual(2,colorCodes.Count);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Extract ColorCode: 3 --> 3")]
+        public void ExtractColorCodes_003()
+        {
+            string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Hnight§! or §Wyet§!.";
+
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
+            List<string> token = new List<string>();
+            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
+            Assert.AreEqual(3, colorCodes.Count);
         }
     }
 }

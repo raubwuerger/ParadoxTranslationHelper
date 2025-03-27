@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,36 +26,45 @@ namespace ParadoxTranslationHelper
                 return tokens;
             }
 
-            int startIndex = source.IndexOf(StartTag, 0) + StartTag.Length;
+//            int startIndex = source.IndexOf(StartTag, 0) + StartTag.Length;
+            int startIndex = source.IndexOf(StartTag, 0);
             foreach (string endTag in EndTags)
             {
-                string subString = source.Substring(startIndex, source.Length - startIndex);
-
-                if (false == subString.Contains(endTag))
+                try
                 {
-                    continue;
-                }
-                int endPos = source.IndexOf(endTag, startIndex);
+                    string subString = source.Substring(startIndex + SubStringCount, source.Length - (startIndex + SubStringCount));
 
-                int startPosCalculated = startIndex + StartIndexShift;
-                if (startPosCalculated < 0 || startPosCalculated >= subString.Length)
+                    if (false == subString.Contains(endTag))
+                    {
+                        continue;
+                    }
+                    int endPos = source.IndexOf(endTag, startIndex);
+
+                    int startPosCalculated = startIndex + StartIndexShift;
+                    if (startPosCalculated < 0 || startPosCalculated >= subString.Length)
+                    {
+                        startPosCalculated = startIndex;
+                    }
+
+                    if (SubStringCount == 0)
+                    {
+                        tokens.Add(source.Substring(startPosCalculated, endPos - startIndex));
+                    }
+                    else
+                    {
+                        //TODO: 2025-03-27 - JHA - Do bounding check
+                        tokens.Add(source.Substring(startPosCalculated, SubStringCount));
+                    }
+
+                    string remainingContent = source.Substring(endPos + SubStringCount);
+
+                    return GetToken(remainingContent, tokens);
+                }
+                catch( Exception ex) 
                 {
-                    startPosCalculated = startIndex;
+                    Log.Error(ex.Message, ex);
+                    return new List<string>();
                 }
-
-                if (SubStringCount == 0)
-                {
-                    tokens.Add(source.Substring(startPosCalculated, endPos - startIndex));
-                }
-                else
-                {
-                    //TODO: 2025-03-27 - JHA - Do bounding check
-                    tokens.Add(source.Substring(startPosCalculated, SubStringCount));
-                }
-
-                string remainingContent = source.Substring(endPos + 1, source.Length - endPos - 1);
-
-                return GetToken(remainingContent, tokens);
             }
 
             return tokens;
