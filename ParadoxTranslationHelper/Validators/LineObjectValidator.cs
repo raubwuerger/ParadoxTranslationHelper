@@ -8,7 +8,7 @@ namespace ParadoxTranslationHelper.Validators
         {
             if (lineObject == null)
             {
-                Log.Debug("Parameter <lineObject> must not be null!");
+                Log.Verbose("Parameter <lineObject> must not be null!");
                 return false;
             }
 

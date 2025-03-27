@@ -28,38 +28,38 @@ namespace ParadoxTranslationHelper.FunctionObject
         {
             if (true == string.IsNullOrEmpty(_pathGerman))
             {
-                Log.Debug("Member <PathGerman> must not be null or empty!");
+                Log.Verbose("Member <PathGerman> must not be null or empty!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_pathSteam))
             {
-                Log.Debug("Member <PathSteam> must not be null or empty!");
+                Log.Verbose("Member <PathSteam> must not be null or empty!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_fileNameMissingKeys))
             {
-                Log.Debug("Member <FileNameMissingKeys> must not be null or empty!");
+                Log.Verbose("Member <FileNameMissingKeys> must not be null or empty!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_fileNameKeysToDelete))
             {
-                Log.Debug("Member <FileNameKeysToDelete> must not be null or empty!");
+                Log.Verbose("Member <FileNameKeysToDelete> must not be null or empty!");
                 return false;
             }
 
             LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_pathSteam);
             if (null == LocalisationFilesSteam)
             {
-                Log.Debug("Steam path not set!");
+                Log.Verbose("Steam path not set!");
                 return false;
             }
 
             if( LocalisationFilesSteam.Count == 0 )
             {
-                Log.Debug("Steam path containes no files: " + _pathSteam);
+                Log.Verbose("Steam path containes no files: " + _pathSteam);
                 return false;
             }
 

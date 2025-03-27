@@ -26,19 +26,19 @@ namespace ParadoxTranslationHelper
         {
             if( true == string.IsNullOrEmpty(_pathGerman ) )
             {
-                Log.Debug("Member <PathGerman> must not be null or empty!");
+                Log.Verbose("Member <PathGerman> must not be null or empty!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_resultFileNameAppendix))
             {
-                Log.Debug("Member <ResultFileNameAppendix> must not be null or empty!");
+                Log.Verbose("Member <ResultFileNameAppendix> must not be null or empty!");
                 return false;
             }
 
             if(true == string.IsNullOrEmpty(_pathAnalyze) ) 
             {
-                Log.Debug("Member <PathAnalyze> must not be null or empty!");
+                Log.Verbose("Member <PathAnalyze> must not be null or empty!");
                 return false;
             }
 
@@ -51,13 +51,13 @@ namespace ParadoxTranslationHelper
         {
             if (translationFiles == null)
             {
-                Log.Debug("Parameter <translationFiles> must not be null!", translationFiles);
+                Log.Verbose("Parameter <translationFiles> must not be null!", translationFiles);
                 return null;
             }
 
             if (translationFiles.Count == 0)
             {
-                Log.Debug("Parameter <translationFiles> contains no translation files!", translationFiles);
+                Log.Verbose("Parameter <translationFiles> contains no translation files!", translationFiles);
                 return null;
             }
 
@@ -93,14 +93,14 @@ namespace ParadoxTranslationHelper
         {
             if (translationFile == null)
             {
-                Log.Debug("Parameter <translationFile> must not be null!");
+                Log.Verbose("Parameter <translationFile> must not be null!");
                 return null;
             }
 
             List<string> doubleKeys = new List<string>();
             if (translationFile.Lines.Count == 0)
             {
-                Log.Debug("Parameter <translationFile> must not be null!");
+                Log.Verbose("Parameter <translationFile> must not be null!");
                 return doubleKeys;
             }
 
@@ -134,7 +134,7 @@ namespace ParadoxTranslationHelper
         {
             if ( doubleKeyFiles == null ) 
             {
-                Log.Debug("Parameter <doubleKeyFiles> must not be null!");
+                Log.Verbose("Parameter <doubleKeyFiles> must not be null!");
             }
 
             DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);

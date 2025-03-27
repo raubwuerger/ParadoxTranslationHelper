@@ -27,25 +27,25 @@ namespace ParadoxTranslationHelper
         {
             if (_pathToReSubstitute == null) 
             {
-                Log.Debug("Member <PathToReSubstitute> must not be null!");
+                Log.Verbose("Member <PathToReSubstitute> must not be null!");
                 return false;
             }
 
             if (_translationFileNameDiff == null)
             {
-                Log.Debug("Member <TranslationFileNameSteamDiff> must not be null!");
+                Log.Verbose("Member <TranslationFileNameSteamDiff> must not be null!");
                 return false;
             }
 
             if (_translationFileNameResub == null)
             {
-                Log.Debug("Member <TranslationFileNameResub> must not be null!");
+                Log.Verbose("Member <TranslationFileNameResub> must not be null!");
                 return false;
             }
 
             if (_translationFileNameSub == null)
             {
-                Log.Debug("Member <TranslationFileNameSub> must not be null!");
+                Log.Verbose("Member <TranslationFileNameSub> must not be null!");
                 return false;
             }
 

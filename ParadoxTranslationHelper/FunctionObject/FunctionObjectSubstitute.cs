@@ -23,7 +23,7 @@ namespace ParadoxTranslationHelper
         {
             if( _pathToSubstitute == null)
             {
-                Log.Debug("Member <PathToSubstitute> not set!");
+                Log.Verbose("Member <PathToSubstitute> not set!");
                 return false;
             }
 
@@ -35,7 +35,7 @@ namespace ParadoxTranslationHelper
                 FileSubstitutor fileSubstitutor = new FileSubstitutor();
                 if( true == fileSubstitutor.Substitute(translationFile) )
                 {
-                    Log.Debug("Substitution successfully!");
+                    Log.Verbose("Substitution successfully!");
                     if( false == FileUtility.WriteEmptyFileUTF8_BOM( SubstitutionHelper.CreateFileNameResub(translationFile.FileName) ) )
                     {
                         Log.Warning("Unable to create file: " + SubstitutionHelper.CreateFileNameResub(translationFile.FileName) );

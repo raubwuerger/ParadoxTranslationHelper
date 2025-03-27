@@ -26,19 +26,19 @@ namespace ParadoxTranslationHelper
         {
             if (true == string.IsNullOrEmpty(_localizationFileNameKeysToCreate))
             {
-                Log.Debug("Member <LocalizationFileNameKeysToCreate> must not be null!");
+                Log.Verbose("Member <LocalizationFileNameKeysToCreate> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
             {
-                Log.Debug("Member <LocalizationFilePathGerman> must not be null!");
+                Log.Verbose("Member <LocalizationFilePathGerman> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
             {
-                Log.Debug("Member <LocalizationFilePathAnalyze> must not be null!");
+                Log.Verbose("Member <LocalizationFilePathAnalyze> must not be null!");
                 return false;
             }
 
@@ -163,7 +163,7 @@ namespace ParadoxTranslationHelper
         {
             if(lines == null )
             {
-                Log.Debug("Parameter <lines> must not be null!");
+                Log.Verbose("Parameter <lines> must not be null!");
                 return false;
             }
 

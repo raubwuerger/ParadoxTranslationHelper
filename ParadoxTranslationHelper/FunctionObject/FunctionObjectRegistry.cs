@@ -28,13 +28,13 @@ namespace ParadoxTranslationHelper.FunctionObject
         {
             if( null == functionObject)
             {
-                Log.Debug("Parameter <functionObject> is null!");
+                Log.Verbose("Parameter <functionObject> is null!");
                 return false;
             }
 
             if( string.IsNullOrEmpty(functionObject.Name) ) 
             {
-                Log.Debug("FunctionObject should be neither zero nor empty!");
+                Log.Verbose("FunctionObject should be neither zero nor empty!");
                 return false;
             }
 
@@ -42,7 +42,7 @@ namespace ParadoxTranslationHelper.FunctionObject
             {
                 if ( true == functions.ContainsKey(functionObject.Name) )
                 {
-                    Log.Debug("Function already registered: " +functionObject.Name);
+                    Log.Verbose("Function already registered: " +functionObject.Name);
                     return false;
                 }
 
@@ -66,17 +66,17 @@ namespace ParadoxTranslationHelper.FunctionObject
         {
             if( true == string.IsNullOrEmpty(name) )
             {
-                Log.Debug("Name should be neither zero nor empty!");
+                Log.Verbose("Name should be neither zero nor empty!");
                 return null; 
             }
 
             if( false == functions.ContainsKey(name) ) 
             {
-                Log.Debug("FunctionObject not registered! [name] = " + name);
+                Log.Verbose("FunctionObject not registered! [name] = " + name);
                 return null; 
             }
 
-            Log.Debug("FunctionObject found! [name] = " + name);
+            Log.Verbose("FunctionObject found! [name] = " + name);
             return functions[name];
         }
 
@@ -89,7 +89,7 @@ namespace ParadoxTranslationHelper.FunctionObject
         {
             if (true == string.IsNullOrEmpty(name))
             {
-                Log.Debug("Name should be neither zero nor empty!");
+                Log.Verbose("Name should be neither zero nor empty!");
                 return null;
             }
 

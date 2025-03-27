@@ -13,13 +13,13 @@ namespace ParadoxTranslationHelper
         {
             if(filesGerman == null )
             {
-                Log.Debug("Parameter <filesGerman> must not be null!");
+                Log.Verbose("Parameter <filesGerman> must not be null!");
                 return null;
             }
 
             if(filesEnglish == null)
             {
-                Log.Debug("Parameter <filesEnglish> must not be null!");
+                Log.Verbose("Parameter <filesEnglish> must not be null!");
                 return null;
             }
 

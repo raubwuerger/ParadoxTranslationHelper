@@ -24,19 +24,19 @@ namespace ParadoxTranslationHelper
         {
             if (true == string.IsNullOrEmpty(_localizationFilePathSteam))
             {
-                Log.Debug("Member <LocalizationFilePathSteam> must not be null!");
+                Log.Verbose("Member <LocalizationFilePathSteam> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
             {
-                Log.Debug("Member <LocalizationFilePathGerman> must not be null!");
+                Log.Verbose("Member <LocalizationFilePathGerman> must not be null!");
                 return false;
             }
 
 /*            if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
             {
-                Log.Debug("Member <LocalizationFilePathAnalyze> must not be null!");
+                Log.Verbose("Member <LocalizationFilePathAnalyze> must not be null!");
                 return false;
             }
 */
@@ -48,7 +48,7 @@ namespace ParadoxTranslationHelper
 
             if( LocalisationFilesGerman.Count == 0 )
             {
-                Log.Debug("Path contains no files:" + _localizationFilePathGerman);
+                Log.Verbose("Path contains no files:" + _localizationFilePathGerman);
                 return false;
             }
 
@@ -60,7 +60,7 @@ namespace ParadoxTranslationHelper
 
             if (LocalisationFilesSteam.Count == 0)
             {
-                Log.Debug("Path contains no files:" + _localizationFilePathSteam);
+                Log.Verbose("Path contains no files:" + _localizationFilePathSteam);
                 return false;
             }
 
@@ -81,18 +81,23 @@ namespace ParadoxTranslationHelper
         {
             if( org == null ) 
             {
-                Log.Debug("Parameter <org> must not be null!");
+                Log.Verbose("Parameter <org> must not be null!");
                 return;
             }
 
             if (org == null)
             {
-                Log.Debug("Parameter <toVerify> must not be null!");
+                Log.Verbose("Parameter <toVerify> must not be null!");
                 return;
             }
 
             foreach( LineObject line in org.Lines.Values.ToList() ) 
             {
+                if (false == line.HasKey())
+                {
+                    continue;
+                }
+
                 if( false == DiffKeys(line, FunctionUtility.FindCorrespondingLineObject(toVerify.Lines.Values.ToList(), line)) )
                 {
                     Log.Information("Key not found: " + line.Key);
@@ -104,13 +109,13 @@ namespace ParadoxTranslationHelper
         {
             if (org == null)
             {
-                Log.Debug("Parameter <org> must not be null!");
+                Log.Verbose("Parameter <org> must not be null!");
                 return false;
             }
 
             if (toVerify == null)
             {
-                Log.Debug("Parameter <toVerify> must not be null!");
+                Log.Verbose("Parameter <toVerify> must not be null!");
                 return false;
             }
 

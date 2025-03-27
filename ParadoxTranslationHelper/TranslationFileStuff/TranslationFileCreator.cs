@@ -12,7 +12,7 @@ namespace ParadoxTranslationHelper
         {
             if (string.IsNullOrEmpty(completeFileName))
             {
-                Log.Debug("Parameter <completeFileName> must not be null or empty!");
+                Log.Verbose("Parameter <completeFileName> must not be null or empty!");
                 return null;
             }
 
@@ -37,7 +37,7 @@ namespace ParadoxTranslationHelper
         {
             if( string.IsNullOrEmpty(completeFileName))
             {
-                Log.Debug("Parameter <completeFileName> must not be null or empty!");
+                Log.Verbose("Parameter <completeFileName> must not be null or empty!");
                 return null;
             }
 
@@ -51,13 +51,13 @@ namespace ParadoxTranslationHelper
         {
             if( lines == null ) 
             {
-                Log.Debug("Parameter <lines> must not be null!");
+                Log.Verbose("Parameter <lines> must not be null!");
                 return null;
             }
 
             if (lines.Count == 0)
             {
-                Log.Debug("Parameter <lines> must not be empty!");
+                Log.Verbose("Parameter <lines> must not be empty!");
                 return null;
             }
 
@@ -66,7 +66,7 @@ namespace ParadoxTranslationHelper
 
             if (string.IsNullOrEmpty(fileName) ) 
             {
-                Log.Debug("Parameter <lines>: First entry must contain valid file name!");
+                Log.Verbose("Parameter <lines>: First entry must contain valid file name!");
                 return null;
             }
 
@@ -110,10 +110,10 @@ namespace ParadoxTranslationHelper
                 if( false == IgnoreLine(line) )
                 {
                     SetKey(line);
-//                    SetNamespaces(line);
-//                    SetNestingStrings(line);
-//                    SetIcons(line);
-//                    SetNewLine(line);
+                    SetNamespaces(line);
+                    SetNestingStrings(line);
+                    SetIcons(line);
+                    SetNewLine(line);
                     SetColorCodes(line);
                 }
 

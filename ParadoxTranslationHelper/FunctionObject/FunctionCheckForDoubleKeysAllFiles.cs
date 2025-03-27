@@ -26,13 +26,13 @@ namespace ParadoxTranslationHelper
         {
             if( true == string.IsNullOrEmpty(_pathGerman ) )
             {
-                Log.Debug("Member <PathGerman> must not be null or empty!");
+                Log.Verbose("Member <PathGerman> must not be null or empty!");
                 return false;
             }
 
             if(true == string.IsNullOrEmpty(_pathAnalyze) ) 
             {
-                Log.Debug("Member <PathAnalyze> must not be null or empty!");
+                Log.Verbose("Member <PathAnalyze> must not be null or empty!");
                 return false;
             }
 
@@ -76,13 +76,13 @@ namespace ParadoxTranslationHelper
         {
             if (translationFiles == null)
             {
-                Log.Debug("Parameter <translationFiles> must not be null!");
+                Log.Verbose("Parameter <translationFiles> must not be null!");
                 return null;
             }
 
             if (translationFiles.Count == 0)
             {
-                Log.Debug("Parameter <translationFiles> contains no translation files!");
+                Log.Verbose("Parameter <translationFiles> contains no translation files!");
                 return null;
             }
 
@@ -119,7 +119,7 @@ namespace ParadoxTranslationHelper
         {
             if ( doubleKeyFiles == null ) 
             {
-                Log.Debug("Parameter <doubleKeyFiles> must not be null!");
+                Log.Verbose("Parameter <doubleKeyFiles> must not be null!");
             }
 
             DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);
@@ -133,13 +133,13 @@ namespace ParadoxTranslationHelper
         {
             if (doubleKeyFiles == null)
             {
-                Log.Debug("Parameter <doubleKeyFiles> must not be null!");
+                Log.Verbose("Parameter <doubleKeyFiles> must not be null!");
                 return null;
             }
 
             if (originalFiles == null)
             {
-                Log.Debug("Parameter <originalFiles> must not be null!");
+                Log.Verbose("Parameter <originalFiles> must not be null!");
                 return null;
             }
 

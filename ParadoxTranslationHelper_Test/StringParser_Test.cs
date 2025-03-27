@@ -208,30 +208,50 @@ namespace ParadoxTranslationHelper_Test
             List<string> token = new List<string>();
             List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
             Assert.AreEqual(1, colorCodes.Count);
+            Assert.AreEqual("§H",colorCodes[0]);
         }
 
         [TestMethod]
         [DataRow(DisplayName = "Extract ColorCode: 2 --> 2")]
         public void ExtractColorCodes_002()
         {
-            string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Hnight§!.";
+            string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Anight§!.";
             
             IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
             List<string> token = new List<string>();
             List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
             Assert.AreEqual(2,colorCodes.Count);
+            Assert.AreEqual("§H", colorCodes[0]);
+            Assert.AreEqual("§A", colorCodes[1]);
         }
 
         [TestMethod]
         [DataRow(DisplayName = "Extract ColorCode: 3 --> 3")]
         public void ExtractColorCodes_003()
         {
-            string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Hnight§! or §Wyet§!.";
+            string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Anight§! or §Wyet§!.";
 
             IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
             List<string> token = new List<string>();
             List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
             Assert.AreEqual(3, colorCodes.Count);
+            Assert.AreEqual("§H", colorCodes[0]);
+            Assert.AreEqual("§A", colorCodes[1]);
+            Assert.AreEqual("§W", colorCodes[2]);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Extract NestingStrings: 2 --> 2")]
+        public void ExtractNestingStrings_001()
+        {
+            string ABILITY_TOOLTIP_DETAILED_COST = "    - Grundkosten: $VALUE|H2$ (jeweils für $UNITS|H0$ Bataillone)";
+
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserNestingStrings();
+            List<string> token = new List<string>();
+            List<string> nestingStrings = stringParser.GetToken(ABILITY_TOOLTIP_DETAILED_COST, token);
+            Assert.AreEqual(2, nestingStrings.Count);
+            Assert.AreEqual("VALUE|H2", nestingStrings[0]);
+            Assert.AreEqual("UNITS|H0", nestingStrings[1]);
         }
     }
 }

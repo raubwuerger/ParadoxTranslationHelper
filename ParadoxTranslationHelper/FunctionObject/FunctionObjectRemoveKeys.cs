@@ -25,19 +25,19 @@ namespace ParadoxTranslationHelper
         {
             if (true == string.IsNullOrEmpty(_localizationFileNameKeysToDelete))
             {
-                Log.Debug("Member <LocalizationFileNameKeysToDelete> must not be null!");
+                Log.Verbose("Member <LocalizationFileNameKeysToDelete> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
             {
-                Log.Debug("Member <LocalizationFilePathGerman> must not be null!");
+                Log.Verbose("Member <LocalizationFilePathGerman> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
             {
-                Log.Debug("Member <LocalizationFilePathAnalyze> must not be null!");
+                Log.Verbose("Member <LocalizationFilePathAnalyze> must not be null!");
                 return false;
             }
 
@@ -59,7 +59,7 @@ namespace ParadoxTranslationHelper
         {
             if( string.IsNullOrWhiteSpace( fileNamekeysToDelete ) ) 
             {
-                Log.Debug("Parameter <fileNamekeysToDelete> must not be null or empty!");
+                Log.Verbose("Parameter <fileNamekeysToDelete> must not be null or empty!");
                 return null; 
             }
 
@@ -118,7 +118,7 @@ namespace ParadoxTranslationHelper
                 TranslationFile originalFile = FindFileByNameWithoutLocalosation(translationFile.FileNameWithoutLocalisation);
                 if( originalFile == null ) 
                 {
-                    Log.Debug("Original file not found: " + translationFile.FileNameWithoutLocalisation);
+                    Log.Verbose("Original file not found: " + translationFile.FileNameWithoutLocalisation);
                     continue;
                 }
 
@@ -138,19 +138,19 @@ namespace ParadoxTranslationHelper
         {
             if (null == original)
             {
-                Log.Debug("Parameter <original> must not be null!");
+                Log.Verbose("Parameter <original> must not be null!");
                 return null;
             }
 
             if (null == keysToRemove)
             {
-                Log.Debug("Parameter <keysToRemove> must not be null!");
+                Log.Verbose("Parameter <keysToRemove> must not be null!");
                 return null;
             }
 
             if (keysToRemove.Count == 0)
             {
-                Log.Debug("Parameter <keysToRemove> must not be empty!");
+                Log.Verbose("Parameter <keysToRemove> must not be empty!");
                 return null;
             }
 

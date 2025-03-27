@@ -25,19 +25,19 @@ namespace ParadoxTranslationHelper
         {
             if( true == string.IsNullOrEmpty(_pathEnglish) )
             {
-                Log.Debug("Member <PathEnglish> must not be null or empty!");
+                Log.Verbose("Member <PathEnglish> must not be null or empty!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_pathGerman))
             {
-                Log.Debug("Member <PathGerman> must not be null or empty!");
+                Log.Verbose("Member <PathGerman> must not be null or empty!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_pathSteam))
             {
-                Log.Debug("Member <PathSteam> must not be null or empty!");
+                Log.Verbose("Member <PathSteam> must not be null or empty!");
                 return false;
             }
 
@@ -59,11 +59,11 @@ namespace ParadoxTranslationHelper
         {
             if (false == LocalisationFilesSteam.Any() || false == LocalisationFilesGerman.Any())
             {
-                Log.Debug("No translation files found!");
+                Log.Verbose("No translation files found!");
                 return;
             }
 
-            Log.Debug("Following transtlation files are no more existant in update: " + Path.GetFullPath(LocalisationFilesSteam[0].FileName) + Environment.NewLine);
+            Log.Verbose("Following transtlation files are no more existant in update: " + Path.GetFullPath(LocalisationFilesSteam[0].FileName) + Environment.NewLine);
             List<string> localisationFileNamesEnglish = LocalisationFilesGerman.ConvertAll(s => s.FileNameWithoutLocalisation);
             List<string> localisationFileNamesEnglishUpdated = LocalisationFilesSteam.ConvertAll(s => s.FileNameWithoutLocalisation);
             List<string> missingTranslationFiles = localisationFileNamesEnglish.Except(localisationFileNamesEnglishUpdated).ToList<string>();
@@ -72,7 +72,7 @@ namespace ParadoxTranslationHelper
             {
                 foreach (string translationFile in missingTranslationFiles)
                 {
-                    Log.Debug(translationFile + Environment.NewLine);
+                    Log.Verbose(translationFile + Environment.NewLine);
                 }
             }
         }
@@ -81,18 +81,18 @@ namespace ParadoxTranslationHelper
         {
             if (false == LocalisationFilesSteam.Any() || false == LocalisationFilesGerman.Any())
             {
-                Log.Debug("No translation files found!");
+                Log.Verbose("No translation files found!");
                 return;
             }
 
-            Log.Debug("Following transtlation files are new in update: " + Path.GetFullPath(LocalisationFilesSteam[0].FileName) + Environment.NewLine);
+            Log.Verbose("Following transtlation files are new in update: " + Path.GetFullPath(LocalisationFilesSteam[0].FileName) + Environment.NewLine);
             List<string> localisationFileNamesEnglish = LocalisationFilesGerman.ConvertAll(s => s.FileNameWithoutLocalisation);
             List<string> localisationFileNamesEnglishUpdated = LocalisationFilesSteam.ConvertAll(s => s.FileNameWithoutLocalisation);
             List<string> translationFilesToDelete = localisationFileNamesEnglishUpdated.Except(localisationFileNamesEnglish).ToList<string>();
 
             foreach (string translationFile in translationFilesToDelete)
             {
-                Log.Debug(translationFile + Environment.NewLine);
+                Log.Verbose(translationFile + Environment.NewLine);
             }
         }
 
