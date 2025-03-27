@@ -1,11 +1,8 @@
 ﻿using ParadoxTranslationHelper.Utilities;
-using System;
+using Serilog;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace ParadoxTranslationHelper
 {
@@ -67,7 +64,7 @@ namespace ParadoxTranslationHelper
             SubstituteLinesColorCodeEnd(lineObjects);
 
             FileUtility.WriteLines(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
-            Console.WriteLine("Finished ...");
+            Log.Information("Finished ...");
         }
 
         private void SubstituteLinesColorCodeEnd(List<LineObject> lineObjects)
@@ -79,7 +76,7 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
-                Console.WriteLine("Replacing item: " + FileSubstitutionConstants.COLOR_CODE_END);
+                Log.Information("Replacing item: " + FileSubstitutionConstants.COLOR_CODE_END);
                 lineObject.OriginalLine = lineObject.OriginalLine.Replace(FileSubstitutionConstants.COLOR_CODE_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
             }
         }
@@ -95,9 +92,9 @@ namespace ParadoxTranslationHelper
                     {
                         continue;
                     }
-                    Console.WriteLine("Replacing item: " + keyToFind +" --> " +item.Value );
+                    Log.Information("Replacing item: " + keyToFind +" --> " +item.Value );
                     lineObject.OriginalLine = lineObject.OriginalLine.Replace( keyToFind, item.Value );
-                    Console.WriteLine("Replaced OriginalLine: " + lineObject.OriginalLine);
+                    Log.Information("Replaced OriginalLine: " + lineObject.OriginalLine);
 
                     string keyToFindShortend = keyToFind.Substring(0, keyToFind.Length - 1);
                     if (false == lineObject.OriginalLine.Contains(keyToFindShortend))
@@ -105,9 +102,9 @@ namespace ParadoxTranslationHelper
                         continue;
                     }
 
-                    Console.WriteLine("Replacing item deformed: " + keyToFindShortend + " --> " + item.Value);
+                    Log.Information("Replacing item deformed: " + keyToFindShortend + " --> " + item.Value);
                     lineObject.OriginalLine = lineObject.OriginalLine.Replace(keyToFindShortend, item.Value);
-                    Console.WriteLine("Replaced OriginalLine: " + lineObject.OriginalLine);
+                    Log.Information("Replaced OriginalLine: " + lineObject.OriginalLine);
                 }
             }
         }
@@ -115,7 +112,7 @@ namespace ParadoxTranslationHelper
         //TODO: 2025-01-14 - JHA - Extract in separate class SubstitutionFileValidator
         private void ValidateAgaintsSubstitutionDataFiles()
         {
-            Console.WriteLine("Validating file: " + _translationFileSetSubstitution.SubstitutedFile.FileName);
+            Log.Information("Validating file: " + _translationFileSetSubstitution.SubstitutedFile.FileName);
             string allText = File.ReadAllText(_translationFileSetSubstitution.SubstitutedFile.FileName);
             int fileOriginal = GetItemCount();
 
@@ -123,8 +120,7 @@ namespace ParadoxTranslationHelper
             _namespaceReSubstitute = Validate(allText, _namespaceReSubstitute);
             _iconReSubstitute = Validate(allText, _iconReSubstitute);
 
-            Console.WriteLine("Overall items missing: " + (fileOriginal - GetItemCount()));
-            Console.WriteLine();
+            Log.Information("Overall items missing: " + (fileOriginal - GetItemCount()));
         }
 
         private int GetItemCount()
@@ -143,9 +139,9 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
-                Console.WriteLine("Substitution item not found: " + keyValuePair.Key + ";" + keyValuePair.Value);
+                Log.Information("Substitution item not found: " + keyValuePair.Key + ";" + keyValuePair.Value);
             }
-            Console.WriteLine("Items missing: " + (substitutionSubSet.Count - validItems.Count).ToString());
+            Log.Information("Items missing: " + (substitutionSubSet.Count - validItems.Count).ToString());
 
             return validItems;
         }

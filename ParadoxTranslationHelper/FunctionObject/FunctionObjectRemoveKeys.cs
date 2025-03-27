@@ -3,8 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Serilog;
 
 namespace ParadoxTranslationHelper
 {
@@ -26,19 +25,19 @@ namespace ParadoxTranslationHelper
         {
             if (true == string.IsNullOrEmpty(_localizationFileNameKeysToDelete))
             {
-                Console.WriteLine("Member <LocalizationFileNameKeysToDelete> must not be null!");
+                Log.Debug("Member <LocalizationFileNameKeysToDelete> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
             {
-                Console.WriteLine("Member <LocalizationFilePathGerman> must not be null!");
+                Log.Debug("Member <LocalizationFilePathGerman> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
             {
-                Console.WriteLine("Member <LocalizationFilePathAnalyze> must not be null!");
+                Log.Debug("Member <LocalizationFilePathAnalyze> must not be null!");
                 return false;
             }
 
@@ -60,7 +59,7 @@ namespace ParadoxTranslationHelper
         {
             if( string.IsNullOrWhiteSpace( fileNamekeysToDelete ) ) 
             {
-                Console.WriteLine("Parameter <fileNamekeysToDelete> must not be null or empty!");
+                Log.Debug("Parameter <fileNamekeysToDelete> must not be null or empty!");
                 return null; 
             }
 
@@ -119,7 +118,7 @@ namespace ParadoxTranslationHelper
                 TranslationFile originalFile = FindFileByNameWithoutLocalosation(translationFile.FileNameWithoutLocalisation);
                 if( originalFile == null ) 
                 {
-                    Console.WriteLine("Original file not found: " + translationFile.FileNameWithoutLocalisation);
+                    Log.Debug("Original file not found: " + translationFile.FileNameWithoutLocalisation);
                     continue;
                 }
 
@@ -139,19 +138,19 @@ namespace ParadoxTranslationHelper
         {
             if (null == original)
             {
-                Console.WriteLine("Parameter <original> must not be null!");
+                Log.Debug("Parameter <original> must not be null!");
                 return null;
             }
 
             if (null == keysToRemove)
             {
-                Console.WriteLine("Parameter <keysToRemove> must not be null!");
+                Log.Debug("Parameter <keysToRemove> must not be null!");
                 return null;
             }
 
             if (keysToRemove.Count == 0)
             {
-                Console.WriteLine("Parameter <keysToRemove> must not be empty!");
+                Log.Debug("Parameter <keysToRemove> must not be empty!");
                 return null;
             }
 
@@ -166,7 +165,7 @@ namespace ParadoxTranslationHelper
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Key not found! " + line.Value.Key);
+                    Log.Fatal("Key not found! " + line.Value.Key);
                     continue;
                 }
                 originalWithRemovedKeys.Lines.Remove(found.Key);

@@ -1,10 +1,7 @@
 ﻿using ParadoxTranslationHelper.Utilities;
 using System;
-using System.Collections.Generic;
-using System.IO;
+using Serilog;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper
 {
@@ -26,7 +23,7 @@ namespace ParadoxTranslationHelper
         {
             if( _pathToSubstitute == null)
             {
-                Console.WriteLine("Member <PathToSubstitute> not set!");
+                Log.Debug("Member <PathToSubstitute> not set!");
                 return false;
             }
 
@@ -38,10 +35,10 @@ namespace ParadoxTranslationHelper
                 FileSubstitutor fileSubstitutor = new FileSubstitutor();
                 if( true == fileSubstitutor.Substitute(translationFile) )
                 {
-                    Console.WriteLine("Substitution successfully!");
+                    Log.Debug("Substitution successfully!");
                     if( false == FileUtility.WriteEmptyFileUTF8_BOM( SubstitutionHelper.CreateFileNameResub(translationFile.FileName) ) )
                     {
-                        Console.WriteLine("Unable to create file: " + SubstitutionHelper.CreateFileNameResub(translationFile.FileName) );
+                        Log.Warning("Unable to create file: " + SubstitutionHelper.CreateFileNameResub(translationFile.FileName) );
                     }
                 }
             }
@@ -63,7 +60,7 @@ namespace ParadoxTranslationHelper
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Log.Fatal(ex.ToString());
                 return;
             }
 

@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Serilog;
 
 namespace ParadoxTranslationHelper
 {
@@ -16,7 +12,7 @@ namespace ParadoxTranslationHelper
         {
             if (string.IsNullOrEmpty(completeFileName))
             {
-                Console.WriteLine("Parameter <completeFileName> must not be null or empty!");
+                Log.Debug("Parameter <completeFileName> must not be null or empty!");
                 return null;
             }
 
@@ -41,7 +37,7 @@ namespace ParadoxTranslationHelper
         {
             if( string.IsNullOrEmpty(completeFileName))
             {
-                Console.WriteLine("Parameter <completeFileName> must not be null or empty!");
+                Log.Debug("Parameter <completeFileName> must not be null or empty!");
                 return null;
             }
 
@@ -55,13 +51,13 @@ namespace ParadoxTranslationHelper
         {
             if( lines == null ) 
             {
-                Console.WriteLine("Parameter <lines> must not be null!");
+                Log.Debug("Parameter <lines> must not be null!");
                 return null;
             }
 
             if (lines.Count == 0)
             {
-                Console.WriteLine("Parameter <lines> must not be empty!");
+                Log.Debug("Parameter <lines> must not be empty!");
                 return null;
             }
 
@@ -70,7 +66,7 @@ namespace ParadoxTranslationHelper
 
             if (string.IsNullOrEmpty(fileName) ) 
             {
-                Console.WriteLine("Parameter <lines>: First entry must contain valid file name!");
+                Log.Debug("Parameter <lines>: First entry must contain valid file name!");
                 return null;
             }
 

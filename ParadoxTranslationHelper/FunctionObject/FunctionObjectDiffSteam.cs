@@ -1,11 +1,9 @@
-﻿using ParadoxTranslationHelper.Helper;
-using ParadoxTranslationHelper.Utilities;
+﻿using ParadoxTranslationHelper.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Serilog;
 
 namespace ParadoxTranslationHelper.FunctionObject
 {
@@ -30,38 +28,38 @@ namespace ParadoxTranslationHelper.FunctionObject
         {
             if (true == string.IsNullOrEmpty(_pathGerman))
             {
-                Console.WriteLine("Member <PathGerman> must not be null or empty!");
+                Log.Debug("Member <PathGerman> must not be null or empty!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_pathSteam))
             {
-                Console.WriteLine("Member <PathSteam> must not be null or empty!");
+                Log.Debug("Member <PathSteam> must not be null or empty!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_fileNameMissingKeys))
             {
-                Console.WriteLine("Member <FileNameMissingKeys> must not be null or empty!");
+                Log.Debug("Member <FileNameMissingKeys> must not be null or empty!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_fileNameKeysToDelete))
             {
-                Console.WriteLine("Member <FileNameKeysToDelete> must not be null or empty!");
+                Log.Debug("Member <FileNameKeysToDelete> must not be null or empty!");
                 return false;
             }
 
             LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_pathSteam);
             if (null == LocalisationFilesSteam)
             {
-                Console.WriteLine("Steam path not set!");
+                Log.Debug("Steam path not set!");
                 return false;
             }
 
             if( LocalisationFilesSteam.Count == 0 )
             {
-                Console.WriteLine("Steam path containes no files: " + _pathSteam);
+                Log.Debug("Steam path containes no files: " + _pathSteam);
                 return false;
             }
 
@@ -101,7 +99,7 @@ namespace ParadoxTranslationHelper.FunctionObject
             string directory = FileUtility.CreateDirectoryAnalysis();
             if (null == directory)
             {
-                Console.WriteLine("Unable to create directory! " + directory);
+                Log.Warning("Unable to create directory! " + directory);
                 return false;
             }
 
@@ -127,7 +125,7 @@ namespace ParadoxTranslationHelper.FunctionObject
             }
             catch (Exception ex) 
             {
-                Console.WriteLine(ex.Message);
+                Log.Fatal(ex.Message);
                 return null;
             }
         }
@@ -162,7 +160,7 @@ namespace ParadoxTranslationHelper.FunctionObject
             }
             catch(Exception ex) 
             {
-                Console.WriteLine(ex.Message);
+                Log.Fatal(ex.Message);
                 return null;    
             }
         }
@@ -180,14 +178,14 @@ namespace ParadoxTranslationHelper.FunctionObject
                 TranslationFile translationCreated = TranslationFileCreator.CreateEmpy(Utility.CreateFileNameGerman(translationFile, PathGerman));
                 if( translationCreated == null )
                 {
-                    Console.WriteLine("Unable to create TranslationFile!");
+                    Log.Warning("Unable to create TranslationFile!");
                     continue;
                 }
                 
                 LineObject lineObject = LineObjectCreator.CreateLineObjectLanguageIdentifierGerman();
                 if( lineObject == null )
                 {
-                    Console.WriteLine("Unable to create LineObject!");
+                    Log.Warning("Unable to create LineObject!");
                     continue;
                 }
 
@@ -195,7 +193,7 @@ namespace ParadoxTranslationHelper.FunctionObject
 
                 if( false == FileUtility.Write(translationCreated) )
                 {
-                    Console.WriteLine("Unable to create file:" +translationCreated.FileName);
+                    Log.Warning("Unable to create file:" +translationCreated.FileName);
                 }
 
             }

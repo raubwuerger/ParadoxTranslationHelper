@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Serilog;
 
 namespace ParadoxTranslationHelper
 {
@@ -25,20 +26,20 @@ namespace ParadoxTranslationHelper
         {
             if( true == string.IsNullOrEmpty(_pathGerman ) )
             {
-                Console.WriteLine("Member <PathGerman> must not be null or empty!");
+                Log.Debug("Member <PathGerman> must not be null or empty!");
                 return false;
             }
 
             if(true == string.IsNullOrEmpty(_pathAnalyze) ) 
             {
-                Console.WriteLine("Member <PathAnalyze> must not be null or empty!");
+                Log.Debug("Member <PathAnalyze> must not be null or empty!");
                 return false;
             }
 
             List<TranslationFile> translationFiles = FileUtility.CreateTranslationFilesFromDirectory(PathGerman);
             if( null == translationFiles )
             {
-                Console.WriteLine("No translation files found at path! " +PathGerman);
+                Log.Warning("No translation files found at path! " +PathGerman);
                 return false;
             }
 
@@ -75,13 +76,13 @@ namespace ParadoxTranslationHelper
         {
             if (translationFiles == null)
             {
-                Console.WriteLine("Parameter <translationFiles> must not be null!");
+                Log.Debug("Parameter <translationFiles> must not be null!");
                 return null;
             }
 
             if (translationFiles.Count == 0)
             {
-                Console.WriteLine("Parameter <translationFiles> contains no translation files!");
+                Log.Debug("Parameter <translationFiles> contains no translation files!");
                 return null;
             }
 
@@ -118,7 +119,7 @@ namespace ParadoxTranslationHelper
         {
             if ( doubleKeyFiles == null ) 
             {
-                Console.WriteLine("Parameter <doubleKeyFiles> must not be null!");
+                Log.Debug("Parameter <doubleKeyFiles> must not be null!");
             }
 
             DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);
@@ -132,13 +133,13 @@ namespace ParadoxTranslationHelper
         {
             if (doubleKeyFiles == null)
             {
-                Console.WriteLine("Parameter <doubleKeyFiles> must not be null!");
+                Log.Debug("Parameter <doubleKeyFiles> must not be null!");
                 return null;
             }
 
             if (originalFiles == null)
             {
-                Console.WriteLine("Parameter <originalFiles> must not be null!");
+                Log.Debug("Parameter <originalFiles> must not be null!");
                 return null;
             }
 
@@ -149,7 +150,7 @@ namespace ParadoxTranslationHelper
                 TranslationFile translationFile = originalFiles.Find(x => x.FileName.Equals(last.TranslationFile.FileName));
                 if (translationFile == null)
                 {
-                    Console.WriteLine("Unable to find translation file: " + last.TranslationFile.FileName);
+                    Log.Warning("Unable to find translation file: " + last.TranslationFile.FileName);
                     continue;
                 }
 

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Serilog;
 
 namespace ParadoxTranslationHelper.FunctionObject
 {
@@ -30,13 +28,13 @@ namespace ParadoxTranslationHelper.FunctionObject
         {
             if( null == functionObject)
             {
-                Console.WriteLine("Parameter <functionObject> is null!");
+                Log.Debug("Parameter <functionObject> is null!");
                 return false;
             }
 
             if( string.IsNullOrEmpty(functionObject.Name) ) 
             {
-                Console.WriteLine("FunctionObject should be neither zero nor empty!");
+                Log.Debug("FunctionObject should be neither zero nor empty!");
                 return false;
             }
 
@@ -44,7 +42,7 @@ namespace ParadoxTranslationHelper.FunctionObject
             {
                 if ( true == functions.ContainsKey(functionObject.Name) )
                 {
-                    Console.WriteLine("Function already registered: " +functionObject.Name);
+                    Log.Debug("Function already registered: " +functionObject.Name);
                     return false;
                 }
 
@@ -52,7 +50,7 @@ namespace ParadoxTranslationHelper.FunctionObject
             }
             catch (Exception ex) 
             {
-                Console.WriteLine("Exception occurred: " + ex.Message);
+                Log.Fatal("Exception occurred: " + ex.Message);
                 return false;
             }
 
@@ -68,17 +66,17 @@ namespace ParadoxTranslationHelper.FunctionObject
         {
             if( true == string.IsNullOrEmpty(name) )
             {
-                Console.WriteLine("Name should be neither zero nor empty!");
+                Log.Debug("Name should be neither zero nor empty!");
                 return null; 
             }
 
             if( false == functions.ContainsKey(name) ) 
             {
-                Console.WriteLine("FunctionObject not registered! [name] = " + name);
+                Log.Debug("FunctionObject not registered! [name] = " + name);
                 return null; 
             }
 
-            Console.WriteLine("FunctionObject found! [name] = " + name);
+            Log.Debug("FunctionObject found! [name] = " + name);
             return functions[name];
         }
 
@@ -91,7 +89,7 @@ namespace ParadoxTranslationHelper.FunctionObject
         {
             if (true == string.IsNullOrEmpty(name))
             {
-                Console.WriteLine("Name should be neither zero nor empty!");
+                Log.Debug("Name should be neither zero nor empty!");
                 return null;
             }
 

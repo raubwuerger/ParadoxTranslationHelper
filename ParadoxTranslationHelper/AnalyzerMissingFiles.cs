@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Serilog;
 
 namespace ParadoxTranslationHelper
 {
@@ -12,13 +13,13 @@ namespace ParadoxTranslationHelper
         {
             if(filesGerman == null )
             {
-                Console.WriteLine("Parameter <filesGerman> must not be null!");
+                Log.Debug("Parameter <filesGerman> must not be null!");
                 return null;
             }
 
             if(filesEnglish == null)
             {
-                Console.WriteLine("Parameter <filesEnglish> must not be null!");
+                Log.Debug("Parameter <filesEnglish> must not be null!");
                 return null;
             }
 

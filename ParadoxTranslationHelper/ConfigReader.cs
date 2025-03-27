@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Serilog;
 using System.Xml;
 
 namespace ParadoxTranslationHelper
@@ -30,7 +27,7 @@ namespace ParadoxTranslationHelper
             XmlDocument config = XMLFileUtility.Load(Constants.CONFIG);
             if (null == config)
             {
-                Console.WriteLine("Unable to load config: " + Constants.CONFIG + Environment.NewLine);
+                Log.Warning("Unable to load config: " + Constants.CONFIG + Environment.NewLine);
                 return false;
             }
 

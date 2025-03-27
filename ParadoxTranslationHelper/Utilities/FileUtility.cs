@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Serilog;
 
 namespace ParadoxTranslationHelper.Utilities
 {
@@ -13,20 +13,20 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if ( true == string.IsNullOrEmpty(directory) )
             {
-                Console.WriteLine("Parameter <Directory> must not be null!");
+                Log.Debug("Parameter <Directory> must not be null!");
                 return null;
             }
 
             if (false == Directory.Exists(directory))
             {
-                Console.WriteLine("Directory doesn't exist: " + directory);
+                Log.Debug("Directory doesn't exist: " + directory);
                 return null;
             }
 
             string[] files = Directory.GetFiles(directory, filePattern, SearchOption.AllDirectories);
             if (files.Length <= 0)
             {
-                Console.WriteLine("Directory contains no files: " + directory);
+                Log.Debug("Directory contains no files: " + directory);
                 return null;
             }
 
@@ -44,7 +44,7 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if( false == File.Exists(fileName) )
             {
-                Console.WriteLine("File not found! " + fileName);
+                Log.Debug("File not found! " + fileName);
                 return null;
             }
 
@@ -56,18 +56,18 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if( null == lineObjects )
             {
-                Console.WriteLine("Parameter <lineObjects> must not be null!");
+                Log.Debug("Parameter <lineObjects> must not be null!");
                 return;
             }
 
             if( true == string.IsNullOrEmpty(fileName) )
             {
-                Console.WriteLine("Parameter <fileName> must not be null!");
+                Log.Debug("Parameter <fileName> must not be null!");
                 return;
             }
 
 
-            Console.WriteLine("Writing file: " + fileName);
+            Log.Debug("Writing file: " + fileName);
             try
             {
                 ClearFileContent(fileName);
@@ -88,7 +88,7 @@ namespace ParadoxTranslationHelper.Utilities
             }
             catch(Exception ex) 
             {
-                Console.WriteLine(ex.ToString());
+                Log.Fatal(ex.ToString());
             }
         }
 
@@ -96,17 +96,17 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if (null == lineObjects)
             {
-                Console.WriteLine("Parameter <lineObjects> must not be null!");
+                Log.Debug("Parameter <lineObjects> must not be null!");
                 return;
             }
 
             if (true == string.IsNullOrEmpty(fileName))
             {
-                Console.WriteLine("Parameter <fileName> must not be null!");
+                Log.Debug("Parameter <fileName> must not be null!");
                 return;
             }
 
-            Console.WriteLine("Writing file: " + fileName);
+            Log.Debug("Writing file: " + fileName);
             try
             {
                 ClearFileContent(fileName);
@@ -121,7 +121,7 @@ namespace ParadoxTranslationHelper.Utilities
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Log.Fatal(ex.ToString());
             }
         }
 
@@ -129,7 +129,7 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if (translationFile == null)
             {
-                Console.WriteLine("Parameter <translationFile> must not be null!");
+                Log.Debug("Parameter <translationFile> must not be null!");
                 return false;
             }
 
@@ -140,20 +140,20 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if (translationFile == null)
             {
-                Console.WriteLine("Parameter <translationFile> must not be null!");
+                Log.Debug("Parameter <translationFile> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(fileName))
             {
-                Console.WriteLine("Parameter <fileName> must not be null!");
+                Log.Debug("Parameter <fileName> must not be null!");
                 return false;
             }
 
             Dictionary<int, LineObject> _lines = translationFile.Lines;
             List<LineObject> lineObjects = _lines.Values.ToList();
 
-            Console.WriteLine("Writing file: " + fileName);
+            Log.Debug("Writing file: " + fileName);
             try
             {
                 ClearFileContent(fileName);
@@ -169,7 +169,7 @@ namespace ParadoxTranslationHelper.Utilities
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Log.Fatal(ex.ToString());
                 return false;
             }
         }
@@ -194,7 +194,7 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                Console.WriteLine("Parameter <filename> must not be null or empty!");
+                Log.Debug("Parameter <filename> must not be null or empty!");
                 return false;
             }
 
@@ -209,7 +209,7 @@ namespace ParadoxTranslationHelper.Utilities
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception occurred: " + e.ToString());
+                Log.Fatal("Exception occurred: " + e.ToString());
                 return false;
             }
         }
@@ -218,13 +218,13 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if (doubleKeyFiles == null)
             {
-                Console.WriteLine("Parameter <doubleKeyFiles> must not be null or empty!");
+                Log.Debug("Parameter <doubleKeyFiles> must not be null or empty!");
                 return false;
             }
 
             if (doubleKeyFiles.Count == 0)
             {
-                Console.WriteLine("Parameter <doubleKeyFiles> must not be empty!");
+                Log.Debug("Parameter <doubleKeyFiles> must not be empty!");
                 return false;
             }
 
@@ -245,7 +245,7 @@ namespace ParadoxTranslationHelper.Utilities
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Exception occurred: " + e.ToString());
+                    Log.Fatal("Exception occurred: " + e.ToString());
                     continue;
                 }
             }
@@ -257,13 +257,13 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if (doubleKeyFiles == null)
             {
-                Console.WriteLine("Parameter <doubleKeyFiles> must not be null or empty!");
+                Log.Debug("Parameter <doubleKeyFiles> must not be null or empty!");
                 return false;
             }
 
             if (doubleKeyFiles.Count == 0)
             {
-                Console.WriteLine("Parameter <doubleKeyFiles> must not be empty!");
+                Log.Debug("Parameter <doubleKeyFiles> must not be empty!");
                 return false;
             }
 
@@ -281,7 +281,7 @@ namespace ParadoxTranslationHelper.Utilities
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception occurred: " + e.ToString());
+                Log.Fatal("Exception occurred: " + e.ToString());
                 return false;
             }
 

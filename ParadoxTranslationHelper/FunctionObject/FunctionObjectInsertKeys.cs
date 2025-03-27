@@ -1,5 +1,5 @@
 ﻿using ParadoxTranslationHelper.Utilities;
-using System;
+using Serilog;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,25 +26,25 @@ namespace ParadoxTranslationHelper
         {
             if (true == string.IsNullOrEmpty(_localizationFileNameKeysToCreate))
             {
-                Console.WriteLine("Member <LocalizationFileNameKeysToCreate> must not be null!");
+                Log.Debug("Member <LocalizationFileNameKeysToCreate> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
             {
-                Console.WriteLine("Member <LocalizationFilePathGerman> must not be null!");
+                Log.Debug("Member <LocalizationFilePathGerman> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
             {
-                Console.WriteLine("Member <LocalizationFilePathAnalyze> must not be null!");
+                Log.Debug("Member <LocalizationFilePathAnalyze> must not be null!");
                 return false;
             }
 
             if( false == File.Exists(_localizationFilePathGerman)) 
             {
-                Console.WriteLine("File doesn't exist: " + _localizationFilePathGerman);
+                Log.Warning("File doesn't exist: " + _localizationFilePathGerman);
                 return false;
             }
 
@@ -56,7 +56,7 @@ namespace ParadoxTranslationHelper
 
             if( keysToInsert.Count == 0 )
             { 
-                Console.WriteLine("File doesn't contain keys to insert: " + _localizationFileNameKeysToCreate);
+                Log.Warning("File doesn't contain keys to insert: " + _localizationFileNameKeysToCreate);
                 return false; 
             }   
 
@@ -68,7 +68,7 @@ namespace ParadoxTranslationHelper
 
             if( LocalisationFilesGerman.Count == 0 )
             {
-                Console.WriteLine("Path contains no files:" + _localizationFilePathGerman);
+                Log.Warning("Path contains no files:" + _localizationFilePathGerman);
                 return false;
             }
 
@@ -95,13 +95,13 @@ namespace ParadoxTranslationHelper
 
             if(missing.Lines == null ) 
             {
-                Console.WriteLine("Dictionary toInsert is null!");
+                Log.Warning("Dictionary toInsert is null!");
                 return null;
             }
 
             if(original.Lines == null ) 
             {
-                Console.WriteLine("Dictionary original is null!");
+                Log.Warning("Dictionary original is null!");
                 return null;
             }
 
@@ -132,7 +132,7 @@ namespace ParadoxTranslationHelper
                 TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
                 if (translationKeysToInsert == null)
                 {
-                    Console.WriteLine("File to insert not found! " + translationFile.FileName);
+                    Log.Warning("File to insert not found! " + translationFile.FileName);
                 }
                 updatedFiles.Add(InsertInto(translationKeysToInsert, translationFile));
             }
@@ -163,7 +163,7 @@ namespace ParadoxTranslationHelper
         {
             if(lines == null )
             {
-                Console.WriteLine("Parameter <lines> must not be null!");
+                Log.Debug("Parameter <lines> must not be null!");
                 return false;
             }
 

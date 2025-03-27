@@ -1,10 +1,8 @@
 ﻿using ParadoxTranslationHelper.Utilities;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Serilog;
 
 namespace ParadoxTranslationHelper
 {
@@ -23,12 +21,12 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            Console.WriteLine("Substituting file: " + translationFile.FileName);
+            Log.Information("Substituting file: " + translationFile.FileName);
             Substitute(translationFile.Lines.Values.ToList());
-            Console.WriteLine("Substituted nesting strings : " + _nestingStringsSubstitute.Count);
-            Console.WriteLine("Substituted color codes : " + _colorCodeSubstitute.Count);
-            Console.WriteLine("Substituted name spaces : " + _namespaceSubstitute.Count);
-            Console.WriteLine("Substituted icons : " + _iconSubstitute.Count);
+            Log.Information("Substituted nesting strings : " + _nestingStringsSubstitute.Count);
+            Log.Information("Substituted color codes : " + _colorCodeSubstitute.Count);
+            Log.Information("Substituted name spaces : " + _namespaceSubstitute.Count);
+            Log.Information("Substituted icons : " + _iconSubstitute.Count);
 
             WriteSubstitionFiles(translationFile);
             return true;
@@ -54,7 +52,7 @@ namespace ParadoxTranslationHelper
             fileWriterSubstitutionItem.FileSuffix = "." + FileSubstitutionConstants.ICON_SUFFIX;
             WriteSubstitionFile(_iconSubstitute);
 
-            Console.WriteLine("Overall items substituted: " + (_nestingStringsSubstitute.Count + _colorCodeSubstitute.Count + _namespaceSubstitute.Count + _iconSubstitute.Count));
+            Log.Information("Overall items substituted: " + (_nestingStringsSubstitute.Count + _colorCodeSubstitute.Count + _namespaceSubstitute.Count + _iconSubstitute.Count));
 
 
 

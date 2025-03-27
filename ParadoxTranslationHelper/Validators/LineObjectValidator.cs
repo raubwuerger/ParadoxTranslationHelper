@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Serilog;
 
 namespace ParadoxTranslationHelper.Validators
 {
@@ -12,7 +8,7 @@ namespace ParadoxTranslationHelper.Validators
         {
             if (lineObject == null)
             {
-                Console.WriteLine("Parameter <lineObject> must not be null!");
+                Log.Debug("Parameter <lineObject> must not be null!");
                 return false;
             }
 

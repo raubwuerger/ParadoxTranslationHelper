@@ -1,4 +1,7 @@
 ﻿using ParadoxTranslationHelper.FunctionObject;
+using Serilog;
+using Serilog.Events;
+using Serilog.Formatting.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +18,7 @@ namespace ParadoxTranslationHelper
     {
         static void Main(string[] args)
         {
+            InitLogger();
             ReadConfig();
 
             if (args.Length < 2)
@@ -42,28 +46,28 @@ namespace ParadoxTranslationHelper
 
         private static void LogInfosMods(string text)
         {
-            Console.WriteLine(text + Environment.NewLine);
-            Console.WriteLine("args[0] == mod name");
-            Console.WriteLine("args[1] == function");
-            Console.WriteLine(Environment.NewLine);
-            Console.WriteLine("Registered functions");
-            Console.WriteLine(FunctionTypes.SteamDiff);
-            Console.WriteLine(FunctionTypes.SteamRemove);
-            Console.WriteLine(FunctionTypes.SteamSub);
-            Console.WriteLine(FunctionTypes.SteamResub);
-            Console.WriteLine(FunctionTypes.SteamInsert);
-            Console.WriteLine(FunctionTypes.CheckForDoubleKeys);
-            Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFiles);
-            Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFilesFix);
-            Console.WriteLine("");
+            Log.Information(text + Environment.NewLine);
+            Log.Information("args[0] == mod name");
+            Log.Information("args[1] == function");
+            Log.Information(Environment.NewLine);
+            Log.Information("Registered functions");
+            Log.Information(FunctionTypes.SteamDiff);
+            Log.Information(FunctionTypes.SteamRemove);
+            Log.Information(FunctionTypes.SteamSub);
+            Log.Information(FunctionTypes.SteamResub);
+            Log.Information(FunctionTypes.SteamInsert);
+            Log.Information(FunctionTypes.CheckForDoubleKeys);
+            Log.Information(FunctionTypes.CheckForDoubleKeysAllFiles);
+            Log.Information(FunctionTypes.CheckForDoubleKeysAllFilesFix);
+            Log.Information("");
 
-            Console.WriteLine(Environment.NewLine);
-            Console.WriteLine("Known mods (ParadoxTranslationHelper.xml): ");
+            Log.Information(Environment.NewLine);
+            Log.Information("Known mods (ParadoxTranslationHelper.xml): ");
             foreach (DataSetMod dataSetMod in ModSelector.ModList)
             {
-                Console.WriteLine( dataSetMod.Name);
+                Log.Information( dataSetMod.Name);
             }
-            Console.WriteLine(Environment.NewLine);
+            Log.Information(Environment.NewLine);
         }
 
         private static bool ReadConfig()
@@ -86,6 +90,24 @@ namespace ParadoxTranslationHelper
             }
 
             return true;
+        }
+
+        private static void InitLogger()
+        {
+            Log.Logger = new LoggerConfiguration()
+                            // add console as logging target
+                            .WriteTo.Console()
+                            // add a logging target for warnings and higher severity  logs
+                            // structured in JSON format
+                            .WriteTo.File(new JsonFormatter(),
+                                          "important.json",
+                                          restrictedToMinimumLevel: LogEventLevel.Warning)
+                            // add a rolling file for all logs
+                            .WriteTo.File("all-.logs",
+                                          rollingInterval: RollingInterval.Year)
+                            // set default minimum level
+                            .MinimumLevel.Debug()
+                            .CreateLogger();
         }
 
     }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Serilog;
 
 namespace ParadoxTranslationHelper
 {
@@ -17,17 +15,17 @@ namespace ParadoxTranslationHelper
         {
             if( _modList.Any() == false )
             {
-                Console.WriteLine("ModSelector not initialized");
+                Log.Warning("ModSelector not initialized");
                 return false;
             }
 
             DataSetMod found = _modList.Find( i => i.Name == modName );
             if( found == null ) 
             {
-                Console.WriteLine("Mod not found: " + modName);
+                Log.Information("Mod not found: " + modName);
                 return false;
             }
-            Console.WriteLine("Mod found: " + modName);
+            Log.Information("Mod found: " + modName);
 
             ParadoxTranslationHelperConfig.PathEnglish = Path.Combine(found.PathBase, found.PathEnglish);
             ParadoxTranslationHelperConfig.PathGerman = Path.Combine(found.PathBase, found.PathGerman);

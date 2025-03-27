@@ -1,6 +1,5 @@
 ﻿using ParadoxTranslationHelper.Utilities;
-using System;
-using System.Collections.Generic;
+using Serilog;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -28,32 +27,32 @@ namespace ParadoxTranslationHelper
         {
             if (_pathToReSubstitute == null) 
             {
-                Console.WriteLine("Member <PathToReSubstitute> must not be null!");
+                Log.Debug("Member <PathToReSubstitute> must not be null!");
                 return false;
             }
 
             if (_translationFileNameDiff == null)
             {
-                Console.WriteLine("Member <TranslationFileNameSteamDiff> must not be null!");
+                Log.Debug("Member <TranslationFileNameSteamDiff> must not be null!");
                 return false;
             }
 
             if (_translationFileNameResub == null)
             {
-                Console.WriteLine("Member <TranslationFileNameResub> must not be null!");
+                Log.Debug("Member <TranslationFileNameResub> must not be null!");
                 return false;
             }
 
             if (_translationFileNameSub == null)
             {
-                Console.WriteLine("Member <TranslationFileNameSub> must not be null!");
+                Log.Debug("Member <TranslationFileNameSub> must not be null!");
                 return false;
             }
 
             TranslationFile translationFile = FileUtility.CreateTranslationFileFromFile(_translationFileNameSub);
             if(translationFile == null) 
             {
-                Console.WriteLine("Translation file zu resub not found! " + _translationFileNameSub);
+                Log.Warning("Translation file resub not found! " + _translationFileNameSub);
                 return false;
             }
 

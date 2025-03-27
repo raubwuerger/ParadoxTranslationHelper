@@ -1,4 +1,5 @@
 ﻿using ParadoxTranslationHelper.Utilities;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,19 +26,19 @@ namespace ParadoxTranslationHelper
         {
             if( true == string.IsNullOrEmpty(_pathGerman ) )
             {
-                Console.WriteLine("Member <PathGerman> must not be null or empty!");
+                Log.Debug("Member <PathGerman> must not be null or empty!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_resultFileNameAppendix))
             {
-                Console.WriteLine("Member <ResultFileNameAppendix> must not be null or empty!");
+                Log.Debug("Member <ResultFileNameAppendix> must not be null or empty!");
                 return false;
             }
 
             if(true == string.IsNullOrEmpty(_pathAnalyze) ) 
             {
-                Console.WriteLine("Member <PathAnalyze> must not be null or empty!");
+                Log.Debug("Member <PathAnalyze> must not be null or empty!");
                 return false;
             }
 
@@ -50,13 +51,13 @@ namespace ParadoxTranslationHelper
         {
             if (translationFiles == null)
             {
-                Console.WriteLine("Parameter <translationFiles> must not be null!", translationFiles);
+                Log.Debug("Parameter <translationFiles> must not be null!", translationFiles);
                 return null;
             }
 
             if (translationFiles.Count == 0)
             {
-                Console.WriteLine("Parameter <translationFiles> contains no translation files!", translationFiles);
+                Log.Debug("Parameter <translationFiles> contains no translation files!", translationFiles);
                 return null;
             }
 
@@ -92,14 +93,14 @@ namespace ParadoxTranslationHelper
         {
             if (translationFile == null)
             {
-                Console.WriteLine("Parameter <translationFile> must not be null!");
+                Log.Debug("Parameter <translationFile> must not be null!");
                 return null;
             }
 
             List<string> doubleKeys = new List<string>();
             if (translationFile.Lines.Count == 0)
             {
-                Console.WriteLine("Parameter <translationFile> must not be null!");
+                Log.Debug("Parameter <translationFile> must not be null!");
                 return doubleKeys;
             }
 
@@ -133,7 +134,7 @@ namespace ParadoxTranslationHelper
         {
             if ( doubleKeyFiles == null ) 
             {
-                Console.WriteLine("Parameter <doubleKeyFiles> must not be null!");
+                Log.Debug("Parameter <doubleKeyFiles> must not be null!");
             }
 
             DirectoryInfo directoryInfo = Directory.CreateDirectory(PathAnalyze);

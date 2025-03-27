@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml;
+using Serilog;
 
 namespace ParadoxTranslationHelper
 {
@@ -111,7 +109,7 @@ namespace ParadoxTranslationHelper
         {
             if (null == translationFile)
             {
-                Console.WriteLine("Parameter <translationFile> must not be null!");
+                Log.Debug("Parameter <translationFile> must not be null!");
                 return null;
             }
 
@@ -127,7 +125,7 @@ namespace ParadoxTranslationHelper
         {
             if ( true == string.IsNullOrEmpty(localisation) )
             {
-                Console.WriteLine("Parameter <localisation> must not be null nor empty!");
+                Log.Debug("Parameter <localisation> must not be null nor empty!");
                 return null;
             }
 
@@ -150,7 +148,7 @@ namespace ParadoxTranslationHelper
         {
             if (null == translationFile)
             {
-                Console.WriteLine("Parameter <translationFile> must not be null!");
+                Log.Debug("Parameter <translationFile> must not be null!");
                 return null;
             }
 
@@ -172,7 +170,7 @@ namespace ParadoxTranslationHelper
         { 
             if( string.IsNullOrEmpty(fileName) )
             {
-                Console.WriteLine("Parameter <fileNam> must not be null or empty!");
+                Log.Debug("Parameter <fileNam> must not be null or empty!");
                 return null;
             }
 
@@ -189,7 +187,7 @@ namespace ParadoxTranslationHelper
         {
             if (lines.Length == 0)
             {
-                Console.WriteLine("Parameter <lines> must not be null!");
+                Log.Debug("Parameter <lines> must not be null!");
                 return null;
             }
 
@@ -200,7 +198,7 @@ namespace ParadoxTranslationHelper
         {
             if (null == translationFile)
             {
-                Console.WriteLine("Parameter <translationFile> must not be null!");
+                Log.Debug("Parameter <translationFile> must not be null!");
                 return null;
             }
             return translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL + Constants.LOCALISATION_EXTENSION;
@@ -216,13 +214,13 @@ namespace ParadoxTranslationHelper
         {
             if (null == translationFile)
             {
-                Console.WriteLine("Parameter <translationFile> must not be null!");
+                Log.Debug("Parameter <translationFile> must not be null!");
                 return null;
             }
 
             if( string.IsNullOrEmpty(basePath) ) 
             {
-                Console.WriteLine("Parameter <basePath> must not be null or empty!");
+                Log.Debug("Parameter <basePath> must not be null or empty!");
                 return null;
             }
 
@@ -233,13 +231,13 @@ namespace ParadoxTranslationHelper
         {
             if (null == translationFiles)
             {
-                Console.WriteLine("Parameter <translationFiles> must not be null!");
+                Log.Debug("Parameter <translationFiles> must not be null!");
                 return null;
             }
 
             if (false == translationFiles.Any())
             {
-                Console.WriteLine("Parameter <translationFiles> must not be empty!");
+                Log.Debug("Parameter <translationFiles> must not be empty!");
                 return null;
             }
 

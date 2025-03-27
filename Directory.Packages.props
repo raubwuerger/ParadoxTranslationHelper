@@ -9,5 +9,8 @@
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
     <PackageVersion Include="MSTest.TestAdapter" Version="2.2.3" />
     <PackageVersion Include="MSTest.TestFramework" Version="2.2.3" />
+    <PackageVersion Include="Serilog" Version="4.2.0" />
+    <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageVersion Include="Serilog.Sinks.File" Version="6.0.0" />
   </ItemGroup>
 </Project>

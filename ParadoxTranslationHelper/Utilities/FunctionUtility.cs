@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Serilog;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,7 +39,7 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if (string.IsNullOrWhiteSpace(pathKeys))
             {
-                Console.WriteLine("Parameter <pathKeys> must not be null or empty!");
+                Log.Debug("Parameter <pathKeys> must not be null or empty!");
                 return null;
             }
 
@@ -115,7 +116,7 @@ namespace ParadoxTranslationHelper.Utilities
             int indexFileNameStart = containsFileName.IndexOf(Constants.TRANSLATION_FILE_IDENTIFIER);
             if (indexFileNameStart == -1)
             {
-                Console.WriteLine("_translationFileIdentifier not found!");
+                Log.Debug("_translationFileIdentifier not found!");
                 return null;
             }
 
@@ -124,7 +125,7 @@ namespace ParadoxTranslationHelper.Utilities
 
             if (startFileExtension == -1)
             {
-                Console.WriteLine("Not a valid localization file: LOCALISATION_EXTENSION not found!");
+                Log.Debug("Not a valid localization file: LOCALISATION_EXTENSION not found!");
                 return null;
             }
 
@@ -136,7 +137,7 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if (translationFileMissing == null)
             {
-                Console.WriteLine("Parameter <translationFileMissing> must not be null!");
+                Log.Debug("Parameter <translationFileMissing> must not be null!");
                 return null;
             }
 
@@ -150,19 +151,19 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if( null == translationFiles)
             {
-                Console.WriteLine("Parameter <translationFiles> must not be null!");
+                Log.Debug("Parameter <translationFiles> must not be null!");
                 return null;
             }
 
             if( translationFiles.Count() == 0 )
             {
-                Console.WriteLine("Parameter <translationFiles> contains no data!");
+                Log.Debug("Parameter <translationFiles> contains no data!");
                 return null;
             }
 
             if (null == toFind)
             {
-                Console.WriteLine("Parameter <toFind> must not be null!");
+                Log.Debug("Parameter <toFind> must not be null!");
                 return null;
             }
 
@@ -172,7 +173,7 @@ namespace ParadoxTranslationHelper.Utilities
             }
             catch (Exception ex) 
             { 
-                Console.WriteLine(ex.ToString());
+                Log.Fatal(ex.ToString());
                 return null;
             }
         }
@@ -181,25 +182,25 @@ namespace ParadoxTranslationHelper.Utilities
         {
             if (null == lineObjects)
             {
-                Console.WriteLine("Parameter <lineObjects> must not be null!");
+                Log.Debug("Parameter <lineObjects> must not be null!");
                 return null;
             }
 
             if (lineObjects.Count() == 0)
             {
-                Console.WriteLine("Parameter <lineObjects> contains no data!");
+                Log.Debug("Parameter <lineObjects> contains no data!");
                 return null;
             }
 
             if (null == toFind)
             {
-                Console.WriteLine("Parameter <toFind> must not be null!");
+                Log.Debug("Parameter <toFind> must not be null!");
                 return null;
             }
 
             if( false == toFind.HasKey() )
             {
-                Console.WriteLine("Parameter <toFind> is not a valid key!");
+                Log.Debug("Parameter <toFind> is not a valid key!");
                 return null;    
             }
 
@@ -208,7 +209,7 @@ namespace ParadoxTranslationHelper.Utilities
                 LineObject found = lineObjects.Find(x => x.Key.Equals(toFind.Key));
                 if( found == null)
                 {
-                    Console.WriteLine("LineObject with Key not found: " +toFind.Key);
+                    Log.Debug("LineObject with Key not found: " +toFind.Key);
                     return null;
                 }
 
@@ -216,7 +217,7 @@ namespace ParadoxTranslationHelper.Utilities
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Log.Fatal(ex.ToString());
                 return null;
             }
 

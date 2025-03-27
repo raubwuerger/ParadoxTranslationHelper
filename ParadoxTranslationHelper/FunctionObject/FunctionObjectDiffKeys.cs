@@ -1,10 +1,8 @@
 ﻿using ParadoxTranslationHelper.Utilities;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using Serilog;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper
 {
@@ -26,19 +24,19 @@ namespace ParadoxTranslationHelper
         {
             if (true == string.IsNullOrEmpty(_localizationFilePathSteam))
             {
-                Console.WriteLine("Member <LocalizationFilePathSteam> must not be null!");
+                Log.Debug("Member <LocalizationFilePathSteam> must not be null!");
                 return false;
             }
 
             if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
             {
-                Console.WriteLine("Member <LocalizationFilePathGerman> must not be null!");
+                Log.Debug("Member <LocalizationFilePathGerman> must not be null!");
                 return false;
             }
 
 /*            if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
             {
-                Console.WriteLine("Member <LocalizationFilePathAnalyze> must not be null!");
+                Log.Debug("Member <LocalizationFilePathAnalyze> must not be null!");
                 return false;
             }
 */
@@ -50,7 +48,7 @@ namespace ParadoxTranslationHelper
 
             if( LocalisationFilesGerman.Count == 0 )
             {
-                Console.WriteLine("Path contains no files:" + _localizationFilePathGerman);
+                Log.Debug("Path contains no files:" + _localizationFilePathGerman);
                 return false;
             }
 
@@ -62,7 +60,7 @@ namespace ParadoxTranslationHelper
 
             if (LocalisationFilesSteam.Count == 0)
             {
-                Console.WriteLine("Path contains no files:" + _localizationFilePathSteam);
+                Log.Debug("Path contains no files:" + _localizationFilePathSteam);
                 return false;
             }
 
@@ -83,13 +81,13 @@ namespace ParadoxTranslationHelper
         {
             if( org == null ) 
             {
-                Console.WriteLine("Parameter <org> must not be null!");
+                Log.Debug("Parameter <org> must not be null!");
                 return;
             }
 
             if (org == null)
             {
-                Console.WriteLine("Parameter <toVerify> must not be null!");
+                Log.Debug("Parameter <toVerify> must not be null!");
                 return;
             }
 
@@ -97,7 +95,7 @@ namespace ParadoxTranslationHelper
             {
                 if( false == DiffKeys(line, FunctionUtility.FindCorrespondingLineObject(toVerify.Lines.Values.ToList(), line)) )
                 {
-                    Console.WriteLine("Key not found: " + line.Key);
+                    Log.Information("Key not found: " + line.Key);
                 }
             }
         }
@@ -106,13 +104,13 @@ namespace ParadoxTranslationHelper
         {
             if (org == null)
             {
-                Console.WriteLine("Parameter <org> must not be null!");
+                Log.Debug("Parameter <org> must not be null!");
                 return false;
             }
 
             if (toVerify == null)
             {
-                Console.WriteLine("Parameter <toVerify> must not be null!");
+                Log.Debug("Parameter <toVerify> must not be null!");
                 return false;
             }
 
@@ -129,8 +127,8 @@ namespace ParadoxTranslationHelper
                 toVerifyCopy.Remove(item);
             }
 
-            Console.WriteLine("ColorCodes not found in toVerify: " +orgCopy.ToArray().ToString() );
-            Console.WriteLine("ColorCodes wrong in toVerify: " + toVerifyCopy.ToArray().ToString());
+            Log.Information("ColorCodes not found in toVerify: " +orgCopy.ToArray().ToString() );
+            Log.Information("ColorCodes wrong in toVerify: " + toVerifyCopy.ToArray().ToString());
 
             return true;
         }
