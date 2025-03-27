@@ -15,13 +15,13 @@ namespace ParadoxTranslationHelper
         public int SubStringCount { get => _subStringCount; set => _subStringCount = value; }
 
         private int _startIndexShift = 0;
+        public int StartIndexShift { get => _startIndexShift; set => _startIndexShift = value; }
 
         private List<string> _endTags = new List<string>() { };
         public List<string> EndTags { get => _endTags; set => _endTags = value; }
 
         private List<string> _lineIgnores = new List<string>() { };
         public List<string> LineIgnores { get => _lineIgnores; set => _lineIgnores = value; }
-        public int StartIndexShift { get => _startIndexShift; set => _startIndexShift = value; }
 
         abstract public List<string> GetToken(string source, List<string> tokens);
 

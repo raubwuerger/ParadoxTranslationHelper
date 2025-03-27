@@ -25,29 +25,30 @@ namespace ParadoxTranslationHelper
                 return tokens;
             }
 
-            int startPos = source.IndexOf(StartTag, 0) + StartTag.Length;
+            int startIndex = source.IndexOf(StartTag, 0) + StartTag.Length;
             foreach (string endTag in EndTags)
             {
-                string subString = source.Substring(startPos, source.Length - startPos);
+                string subString = source.Substring(startIndex, source.Length - startIndex);
 
                 if (false == subString.Contains(endTag))
                 {
                     continue;
                 }
-                int endPos = source.IndexOf(endTag, startPos);
+                int endPos = source.IndexOf(endTag, startIndex);
 
-                int startPosCalculated = startPos + StartIndexShift;
+                int startPosCalculated = startIndex + StartIndexShift;
                 if (startPosCalculated < 0 || startPosCalculated >= subString.Length)
                 {
-                    startPosCalculated = startPos;
+                    startPosCalculated = startIndex;
                 }
 
                 if (SubStringCount == 0)
                 {
-                    tokens.Add(source.Substring(startPosCalculated, endPos - startPos));
+                    tokens.Add(source.Substring(startPosCalculated, endPos - startIndex));
                 }
                 else
                 {
+                    //TODO: 2025-03-27 - JHA - Do bounding check
                     tokens.Add(source.Substring(startPosCalculated, SubStringCount));
                 }
 
