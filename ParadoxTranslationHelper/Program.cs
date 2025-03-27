@@ -46,28 +46,29 @@ namespace ParadoxTranslationHelper
 
         private static void LogInfosMods(string text)
         {
-            Log.Information(text + Environment.NewLine);
-            Log.Information("args[0] == mod name");
-            Log.Information("args[1] == function");
-            Log.Information(Environment.NewLine);
-            Log.Information("Registered functions");
-            Log.Information(FunctionTypes.SteamDiff);
-            Log.Information(FunctionTypes.SteamRemove);
-            Log.Information(FunctionTypes.SteamSub);
-            Log.Information(FunctionTypes.SteamResub);
-            Log.Information(FunctionTypes.SteamInsert);
-            Log.Information(FunctionTypes.CheckForDoubleKeys);
-            Log.Information(FunctionTypes.CheckForDoubleKeysAllFiles);
-            Log.Information(FunctionTypes.CheckForDoubleKeysAllFilesFix);
-            Log.Information("");
+            Console.WriteLine(text + Environment.NewLine);
+            Console.WriteLine("args[0] == mod name");
+            Console.WriteLine("args[1] == function");
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Registered functions");
+            Console.WriteLine(FunctionTypes.SteamDiff);
+            Console.WriteLine(FunctionTypes.SteamRemove);
+            Console.WriteLine(FunctionTypes.SteamSub);
+            Console.WriteLine(FunctionTypes.SteamResub);
+            Console.WriteLine(FunctionTypes.SteamInsert);
+            Console.WriteLine(FunctionTypes.KeysDiff);
+            Console.WriteLine(FunctionTypes.CheckForDoubleKeys);
+            Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFiles);
+            Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFilesFix);
+            Console.WriteLine("");
 
-            Log.Information(Environment.NewLine);
-            Log.Information("Known mods (ParadoxTranslationHelper.xml): ");
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Known mods (ParadoxTranslationHelper.xml): ");
             foreach (DataSetMod dataSetMod in ModSelector.ModList)
             {
-                Log.Information( dataSetMod.Name);
+                Console.WriteLine( dataSetMod.Name);
             }
-            Log.Information(Environment.NewLine);
+            Console.WriteLine(Environment.NewLine);
         }
 
         private static bool ReadConfig()
