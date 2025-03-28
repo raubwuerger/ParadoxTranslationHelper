@@ -7,15 +7,15 @@ using Serilog;
 
 namespace ParadoxTranslationHelper.FunctionObject
 {
-    public class FunctionObjectDiffSteam : FunctionObjectBase
+    public class FunctionObjectDiffFiles : FunctionObjectBase
     {
         string _pathSteam;
         string _pathGerman;
         string _fileNameMissingKeys;
-        string _fileNameNoMissingKeysFound = "SteamDiff_NoMissingKeysFound.txt";
+        string _fileNameNoMissingKeysFound = "Diff_NoMissingKeysFound.txt";
         string _fileNameKeysToDelete;
-        string _fileNameNoKeysToDeleteFound = "SteamDiff_NoKeysToDeleteFound.txt";
-        public FunctionObjectDiffSteam(string name) : base(name)
+        string _fileNameNoKeysToDeleteFound = "Diff_NoKeysToDeleteFound.txt";
+        public FunctionObjectDiffFiles(string name) : base(name)
         {
         }
 
