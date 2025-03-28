@@ -74,10 +74,10 @@ namespace ParadoxTranslationHelper.FunctionObject
                 return false;
             }
 
-            return AnalyzeKeys();
+            return DiffFiles();
         }
 
-        protected bool AnalyzeKeys()
+        protected bool DiffFiles()
         {
             RemoveFilesNoLongerInSteamExisting(CreateFilesNoLongerInSteamExistent());
 
@@ -174,8 +174,7 @@ namespace ParadoxTranslationHelper.FunctionObject
 
             foreach(TranslationFile translationFile in translationFiles )
             {
-                TranslationFile fileNameGerman = Utility.ConvertToGerman(translationFile);
-                TranslationFile translationCreated = TranslationFileCreator.CreateEmpy(Utility.ConvertToGerman(translationFile).FileName);
+                TranslationFile translationCreated = TranslationFileCreator.CreateEmpy(Utility.ReplacePathWithGermanDirectory(translationFile));
                 if( translationCreated == null )
                 {
                     Log.Warning("Unable to create TranslationFile!");

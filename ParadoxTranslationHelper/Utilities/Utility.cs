@@ -105,6 +105,16 @@ namespace ParadoxTranslationHelper
             return Path.Combine(analysePath, Path.GetFileName(translationFile.FileName));
         }
 
+        public static string? ReplacePathWithGermanDirectory(TranslationFile translationFile)
+        {
+            if( translationFile == null )
+            {
+                return null;
+            }
+
+            return translationFile.FileName.Replace(Constants.LOCALISATION_ENGLISH, Constants.LOCALISATION_GERMAN);
+        }
+
         public static TranslationFile ConvertToGerman(TranslationFile translationFile)
         {
             if (null == translationFile)
@@ -227,9 +237,8 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            ConvertToGerman
 
-            return Path.Combine(basePath, translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL +Constants.LOCALISATION_EXTENSION);
+            return Path.Combine(translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL +Constants.LOCALISATION_EXTENSION);
         }
 
         public static Dictionary<string, LineObject> ExtractKeys(List<TranslationFile> translationFiles)
