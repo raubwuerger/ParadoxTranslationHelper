@@ -12,17 +12,23 @@
       <german>german</german>
       <steam>D:\Spiele\SteamLibrary\steamapps\workshop\content\394360\1137372539\localisation\english</steam>
     </Mod>
-    <Mod name="BlackICE_UnitTest">
-      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\diffKeys</basePath>
-      <english>english</english>
-      <german>german</german>
-      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\diffKeys\english</steam>
-    </Mod>
     <Mod name="Stellaris-STNC">
       <basePath>C:\Projects\Stellaris-StarTrek-NewCivilizations\1886496498</basePath>
       <english>english</english>
       <german>german</german>
       <steam>D:\Spiele\SteamLibrary\steamapps\workshop\content\281990\1886496498\localisation\english</steam>
+    </Mod>
+    <Mod name="DIFF_FILES">
+      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\DiffFiles</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\DiffFiles\english</steam>
+    </Mod>
+    <Mod name="DIFF_KEYS">
+      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\diffKeys</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\diffKeys\english</steam>
     </Mod>
   </Mods>
   <Global>

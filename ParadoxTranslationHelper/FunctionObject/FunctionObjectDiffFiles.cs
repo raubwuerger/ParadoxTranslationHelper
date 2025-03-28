@@ -174,8 +174,8 @@ namespace ParadoxTranslationHelper.FunctionObject
 
             foreach(TranslationFile translationFile in translationFiles )
             {
-
-                TranslationFile translationCreated = TranslationFileCreator.CreateEmpy(Utility.CreateFileNameGerman(translationFile, PathGerman));
+                TranslationFile fileNameGerman = Utility.ConvertToGerman(translationFile);
+                TranslationFile translationCreated = TranslationFileCreator.CreateEmpy(Utility.ConvertToGerman(translationFile).FileName);
                 if( translationCreated == null )
                 {
                     Log.Warning("Unable to create TranslationFile!");

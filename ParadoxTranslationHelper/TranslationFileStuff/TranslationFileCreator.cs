@@ -27,6 +27,8 @@ namespace ParadoxTranslationHelper
         public TranslationFile CopyExceptFileName( string filename, TranslationFile other )
         {
             TranslationFile translationFile = new TranslationFile(filename);
+            translationFile.BasePath = other.BasePath;
+//            translationFile.SubDirectory = other.SubDirectory;
             translationFile.FileNameWithoutLocalisation = Utility.CreateFileNameWithoutLocalisation(filename);
             translationFile.Lines = other.Lines;
 
@@ -72,6 +74,7 @@ namespace ParadoxTranslationHelper
 
             TranslationFile translationFile = new TranslationFile(fileName);
             translationFile.BasePath = GetBasePath(fileName);
+//            translationFile.SubDirectory = GetSubDirectory(fileName);
             translationFile.FileNameWithoutLocalisation = Utility.CreateFileNameWithoutLocalisation(fileName);
 
             _lineObjectCreator.TranslationFile = translationFile;
@@ -209,6 +212,7 @@ namespace ParadoxTranslationHelper
 
             TranslationFile translationFile = new TranslationFile(fileName);
             translationFile.BasePath = GetBasePath(fileNameComplete);
+//            translationFile.SubDirectory = GetSubDirectory(fileNameComplete);
             translationFile.FileNameWithoutLocalisation = Utility.CreateFileNameWithoutLocalisation(fileNameComplete);
 
             return translationFile;
@@ -222,6 +226,19 @@ namespace ParadoxTranslationHelper
             }
 
             return Path.GetDirectoryName(fileNameComplete);
+        }
+
+        private static string GetSubDirectory(string fileNameComplete)
+        {
+            if (true == string.IsNullOrEmpty(fileNameComplete))
+            {
+                return null;
+            }
+
+            string fileName = Path.GetFileName(fileNameComplete);
+            string subDirectory = Path.GetDirectoryName(fileNameComplete);
+
+            return fileNameComplete.Replace(Path.GetFileName(fileNameComplete), "").Replace(Path.GetDirectoryName(fileNameComplete), "");
         }
     }
 }

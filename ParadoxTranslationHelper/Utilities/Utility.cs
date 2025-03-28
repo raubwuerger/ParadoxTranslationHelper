@@ -219,7 +219,7 @@ namespace ParadoxTranslationHelper
          * 
          * 
          */
-        public static string? CreateFileNameGerman(TranslationFile translationFile, string basePath)
+        public static string? CreateFileNameGerman(TranslationFile translationFile)
         {
             if (null == translationFile)
             {
@@ -227,11 +227,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            if( string.IsNullOrEmpty(basePath) ) 
-            {
-                Log.Verbose("Parameter <basePath> must not be null or empty!");
-                return null;
-            }
+            ConvertToGerman
 
             return Path.Combine(basePath, translationFile.FileNameWithoutLocalisation + Constants.LOCALISATION_GERMAN_FULL +Constants.LOCALISATION_EXTENSION);
         }
