@@ -52,7 +52,7 @@ namespace ParadoxTranslationHelper
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Registered functions");
             Console.WriteLine(FunctionTypes.DiffFiles);
-            Console.WriteLine(FunctionTypes.Remove);
+            Console.WriteLine(FunctionTypes.RemoveKeys);
             Console.WriteLine(FunctionTypes.Sub);
             Console.WriteLine(FunctionTypes.Resub);
             Console.WriteLine(FunctionTypes.Insert);

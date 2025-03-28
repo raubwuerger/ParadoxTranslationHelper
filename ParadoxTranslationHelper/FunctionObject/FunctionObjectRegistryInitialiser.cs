@@ -10,7 +10,7 @@ namespace ParadoxTranslationHelper.FunctionObject
     {
         static public void Init()
         {
-            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSteamDiff());
+            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateDiffFiles());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSteamSubstitute());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateSteamResubstitute());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateInsertKeys());

@@ -1,15 +1,15 @@
 ﻿Ablauf Differenzübersetzung gegen Steamordner:
- - STEAM_DIFF:		->	Erstellt Datei _SteamKeysToCreate.yml und _SteamKeysToDelete.yml im Verzeichnis analyse
+ - DIFF_FILES:		->	Erstellt Datei _SteamKeysToCreate.yml und _SteamKeysToDelete.yml im Verzeichnis analyse
 					Diese Datei auf korrekte strings prüfen ("" am Dateiende, ...)
- - STEAM_REMOVE:	->	Entfernt alle im Steam-Ordner nicht mehr vorhandenen Schlüeesl _SteamKeysToDelete.yml.sub
- - STEAM_SUB:		->	Erstellt Datei _SteamKeysToCreate.yml.sub (Datei mit Substitutionen)
+ - REMOVE:	->	Entfernt alle im Steam-Ordner nicht mehr vorhandenen Schlüeesl _SteamKeysToDelete.yml.sub
+ - SUB:		->	Erstellt Datei _SteamKeysToCreate.yml.sub (Datei mit Substitutionen)
 					->	_SteamKeysToCreate.yml.CC -> ColoCode-Datei (aktuell leer da nur die ColorCode-EndeTags übersetzt werden)
 					->	_SteamKeysToCreate.yml.IC -> Datei mit den Icon-Substitutionen (___IC1___;£decision_icon_small;NZL_reward_decision_tt:;513)
 					->	_SteamKeysToCreate.yml.NE -> Datei mit den NestedString-Substitutionen (___NE1___;$excavation3$;PER_resource_industry_incompetence_desc:;32)
 					->	_SteamKeysToCreate.yml.NS -> Datei mit den NameSpace-Substitutionen (___NS1___;[AUS.GetNameDefCap];AUS_integrated_military_desc:0;4)
  - Die Datei _SteamKeysToCreate.yml.sub in Excel einfügen, Die Übersetzung in der Datei _SteamKeysToCreate.yml.sub.german abspeichern
- - STEAM_RESUB:		->	In die Datei _SteamKeysToCreate.yml.sub.german werden die Substitutionen wieder zurückübersetzt. Es wird eine Datei _SteamKeysToCreate.yml.sub.german.resub erstellt
- - STEAM_INSERT:	->	Fügt die übersetzten Strings in die jeweiligen Dateien ein, legt von den Originaldateien eine Kopie an. Nicht vorhandene Datei werden neu erstellt. (Codierung UTF-8 BOM)
+ - RESUB:		->	In die Datei _SteamKeysToCreate.yml.sub.german werden die Substitutionen wieder zurückübersetzt. Es wird eine Datei _SteamKeysToCreate.yml.sub.german.resub erstellt
+ - INSERT:	->	Fügt die übersetzten Strings in die jeweiligen Dateien ein, legt von den Originaldateien eine Kopie an. Nicht vorhandene Datei werden neu erstellt. (Codierung UTF-8 BOM)
 
 ToDo:
 	In der Datei _SteamKeysToCreate.yml.sub die Zeichen '#' maskieren/entfernen. Excel verschiebt sonst die Ende Anführungszeichen nach hinten.

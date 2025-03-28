@@ -10,7 +10,7 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectFactory
     {
-        public static IFunctionObject? CreateSteamDiff()
+        public static IFunctionObject? CreateDiffFiles()
         {
             FunctionObjectDiffFiles functionObject = new FunctionObjectDiffFiles(FunctionTypes.DiffFiles);
             functionObject.Description = "write missing keys to file against steam path";
@@ -22,24 +22,23 @@ namespace ParadoxTranslationHelper
 
             return functionObject;
         }
+        public static IFunctionObject? CreateRemoveKeys()
+        {
+            FunctionObjectRemoveKeys functionObject = new FunctionObjectRemoveKeys(FunctionTypes.RemoveKeys);
+            functionObject.Description = "Deletes keys no longer available";
+
+            functionObject.LocalizationFileNameKeysToDelete = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_TO_DELETE_KEYS);
+            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
+
+            return functionObject;
+        }
         public static IFunctionObject? CreateInsertKeys()
         {
             FunctionObjectInsertKeys functionObject = new FunctionObjectInsertKeys(FunctionTypes.Insert);
             functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
             functionObject.LocalizationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman());
-            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
-            functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
-
-            return functionObject;
-        }
-
-        public static IFunctionObject? CreateRemoveKeys()
-        {
-            FunctionObjectRemoveKeys functionObject = new FunctionObjectRemoveKeys(FunctionTypes.Remove);
-            functionObject.Description = "Deletes keys no longer available";
-
-            functionObject.LocalizationFileNameKeysToDelete = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_TO_DELETE_KEYS);
             functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 
