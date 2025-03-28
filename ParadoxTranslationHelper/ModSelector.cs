@@ -25,7 +25,7 @@ namespace ParadoxTranslationHelper
                 Log.Information("Mod not found: " + modName);
                 return false;
             }
-            Log.Information("Mod found: " + modName);
+            Log.Information("Analyzing Mod: " + modName);
 
             ParadoxTranslationHelperConfig.PathEnglish = Path.Combine(found.PathBase, found.PathEnglish);
             ParadoxTranslationHelperConfig.PathGerman = Path.Combine(found.PathBase, found.PathGerman);

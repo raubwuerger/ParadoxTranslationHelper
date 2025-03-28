@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,7 +25,13 @@ namespace ParadoxTranslationHelper
         { 
             _name = name;
         }
+        public bool Work()
+        {
+            Log.Information(">>>>> {functionName} started <<<<<", _name );
+            bool returnValue = DoWork();
+            Log.Information(">>>>> {functionName} stopped <<<<<", _name);
+            return returnValue;
+        }
         public abstract bool DoWork();
-
     }
 }

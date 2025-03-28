@@ -206,7 +206,7 @@ namespace ParadoxTranslationHelper.Utilities
 
             try
             {
-                LineObject found = lineObjects.Find(x => x.Key.Equals(toFind.Key));
+                LineObject found = lineObjects.Find(x => x.Key.Trim().Equals(toFind.Key.Trim()));
                 if( found == null)
                 {
                     Log.Verbose("LineObject with Key not found: " +toFind.Key);

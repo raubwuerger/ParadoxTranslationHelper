@@ -26,7 +26,6 @@ namespace ParadoxTranslationHelper
                 return tokens;
             }
 
-//            int startIndex = source.IndexOf(StartTag, 0) + StartTag.Length;
             int startIndex = source.IndexOf(StartTag, 0);
             foreach (string endTag in EndTags)
             {

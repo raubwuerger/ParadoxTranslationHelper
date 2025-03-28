@@ -8,6 +8,7 @@ namespace ParadoxTranslationHelper
 {
     public static class FunctionTypes
     {
+        public static readonly string Analyse = "ANALYSE";
         public static readonly string SteamDiff = "STEAM_DIFF";
         public static readonly string SteamSub = "STEAM_SUB";
         public static readonly string SteamResub = "STEAM_RESUB";

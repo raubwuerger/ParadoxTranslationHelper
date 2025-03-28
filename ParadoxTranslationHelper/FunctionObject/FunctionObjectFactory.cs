@@ -118,6 +118,17 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
+        public static IFunctionObject? CreateAnalyse()
+        {
+            FunctionObjectAnalyse functionObject = new FunctionObjectAnalyse(FunctionTypes.Analyse);
+            functionObject.Description = "Diff steam directory against local german directory";
+
+            functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
+
+            return functionObject;
+        }
+
         private static string CreateFileNameDiffResubGerman()
         {
             return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED;

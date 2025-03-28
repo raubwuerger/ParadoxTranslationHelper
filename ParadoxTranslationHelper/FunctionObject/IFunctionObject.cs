@@ -11,6 +11,6 @@ namespace ParadoxTranslationHelper
         string Name { get; }
 
         string Description { get; set; }
-        bool DoWork();
+        bool Work();
     }
 }

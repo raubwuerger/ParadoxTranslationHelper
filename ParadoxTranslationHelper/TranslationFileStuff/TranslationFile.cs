@@ -44,7 +44,11 @@ namespace ParadoxTranslationHelper
         { 
             get => Path.Combine(_basePath, _fileName); 
         }
-        public string FileNameWithoutLocalisation { get => _fileNameWithoutLocalisation; set => _fileNameWithoutLocalisation = value; }
+        public string FileNameWithoutLocalisation 
+        { 
+            get => _fileNameWithoutLocalisation; 
+            set => _fileNameWithoutLocalisation = value; 
+        }
         internal Dictionary<int, LineObject> Lines { get => _lines; set => _lines = value; }
         public string BasePath 
         { 

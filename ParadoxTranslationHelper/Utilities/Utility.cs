@@ -183,6 +183,15 @@ namespace ParadoxTranslationHelper
             return RemoveAllFileExtensions(fileNameWithoutExtension);
         }
 
+        public static string CreateFileNameWithoutLocalisation(string fileName)
+        {
+            string fileNameOnly = Path.GetFileNameWithoutExtension(fileName);
+            fileNameOnly = fileNameOnly.Replace(Constants.LOCALISATION_GERMAN_FULL,"");
+            fileNameOnly = fileNameOnly.Replace(Constants.LOCALISATION_ENGLISH_FULL, "");
+            return fileNameOnly;
+        }
+
+
         public static List<string>? ConvertToList(string[] lines)
         {
             if (lines.Length == 0)

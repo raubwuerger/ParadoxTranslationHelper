@@ -27,7 +27,7 @@ namespace ParadoxTranslationHelper
         public TranslationFile CopyExceptFileName( string filename, TranslationFile other )
         {
             TranslationFile translationFile = new TranslationFile(filename);
-            translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(filename);
+            translationFile.FileNameWithoutLocalisation = Utility.CreateFileNameWithoutLocalisation(filename);
             translationFile.Lines = other.Lines;
 
             return translationFile;
@@ -72,26 +72,12 @@ namespace ParadoxTranslationHelper
 
             TranslationFile translationFile = new TranslationFile(fileName);
             translationFile.BasePath = GetBasePath(fileName);
-            translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(fileName);
+            translationFile.FileNameWithoutLocalisation = Utility.CreateFileNameWithoutLocalisation(fileName);
 
             _lineObjectCreator.TranslationFile = translationFile;
             translationFile.Lines = CreateLineObjects(lines.ToArray());
 
             return translationFile;
-        }
-
-        private static string CreateFileNameWithoutLocalisation(string fileName)
-        {
-            string fileNameOnly = Path.GetFileNameWithoutExtension(fileName);
-            int indexOf_LocalisationStartString = fileNameOnly.IndexOf(Constants.LOCALISATION_START_STRING, StringComparison.OrdinalIgnoreCase);
-            if (indexOf_LocalisationStartString != -1)
-            {
-                return fileNameOnly.Substring(0, indexOf_LocalisationStartString);
-            }
-            else
-            {
-                return fileNameOnly;
-            }
         }
 
         private Dictionary<int,LineObject> CreateLineObjects(string[] lines)
@@ -223,7 +209,7 @@ namespace ParadoxTranslationHelper
 
             TranslationFile translationFile = new TranslationFile(fileName);
             translationFile.BasePath = GetBasePath(fileNameComplete);
-            translationFile.FileNameWithoutLocalisation = CreateFileNameWithoutLocalisation(fileNameComplete);
+            translationFile.FileNameWithoutLocalisation = Utility.CreateFileNameWithoutLocalisation(fileNameComplete);
 
             return translationFile;
         }
