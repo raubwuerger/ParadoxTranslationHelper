@@ -45,6 +45,7 @@ namespace ParadoxTranslationHelper
             stringParser.StartTag = NAMESPACE_START;
             stringParser.EndTags.Clear();
             stringParser.EndTags.Add(NAMESPACE_END);
+            stringParser.StartIndexShift = 1;
             IgnoreCommentLines(stringParser);
             return stringParser;
         }
@@ -67,7 +68,6 @@ namespace ParadoxTranslationHelper
             StringParser stringParser = new StringParser();
             stringParser.StartTag = NESTING_STRINGS_START;
             stringParser.EndTags.Add(NESTING_STRINGS_END);
-//            stringParser.SubStringCount = 1;
             stringParser.StartIndexShift = 1;
             IgnoreCommentLines(stringParser);
             return stringParser;

@@ -253,5 +253,55 @@ namespace ParadoxTranslationHelper_Test
             Assert.AreEqual("VALUE|H2", nestingStrings[0]);
             Assert.AreEqual("UNITS|H0", nestingStrings[1]);
         }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Extract NameSpaces: 0 --> 0")]
+        public void ExtractNameSpaces_001()
+        {
+            string AFG_the_getyear_general_elections = "AFG_the_getyear_general_elections:0 \"The GetYear General Elections\"";
+
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
+            List<string> token = new List<string>();
+            List<string> namespaces = stringParser.GetToken(AFG_the_getyear_general_elections, token);
+            Assert.AreEqual(0, namespaces.Count);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Extract NameSpaces: (AFG.GetAdjective) 1 --> 1")]
+        public void ExtractNameSpaces_002()
+        {
+            string AFG_the_getyear_general_elections = "AFG_communist_influence_r56:0\"[AFG.GetAdjective] Communist Influence\"";
+
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
+            List<string> token = new List<string>();
+            List<string> namespaces = stringParser.GetToken(AFG_the_getyear_general_elections, token);
+            Assert.AreEqual(1, namespaces.Count);
+            Assert.AreEqual("AFG.GetAdjective", namespaces[0]);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Extract NameSpaces: (GetYear) 1 --> 1")]
+        public void ExtractNameSpaces_003()
+        {
+            string AFG_the_getyear_general_elections = "[GetYear]";
+
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
+            List<string> token = new List<string>();
+            List<string> namespaces = stringParser.GetToken(AFG_the_getyear_general_elections, token);
+            Assert.AreEqual(1, namespaces.Count);
+            Assert.AreEqual("GetYear", namespaces[0]);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Extract NameSpaces: (GetYear) 1 --> 0")]
+        public void ExtractNameSpaces_004()
+        {
+            string AFG_the_getyear_general_elections = "AFG_the_getyear_general_elections:0 \"The[GetYear] General Elections\"";
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
+            List<string> token = new List<string>();
+            List<string> namespaces = stringParser.GetToken(AFG_the_getyear_general_elections, token);
+            Assert.AreEqual(1, namespaces.Count);
+            Assert.AreEqual("GetYear", namespaces[0]);
+        }
     }
 }

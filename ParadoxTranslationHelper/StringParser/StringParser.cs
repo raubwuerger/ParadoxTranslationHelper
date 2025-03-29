@@ -40,7 +40,7 @@ namespace ParadoxTranslationHelper
                     int endPos = source.IndexOf(endTag, startIndex + StartTag.Length);
 
                     int startPosCalculated = startIndex + StartIndexShift;
-                    if (startPosCalculated < 0 || startPosCalculated >= subString.Length)
+                    if (startPosCalculated < 0 )
                     {
                         startPosCalculated = startIndex;
                     }
