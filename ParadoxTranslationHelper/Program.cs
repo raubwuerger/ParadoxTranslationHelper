@@ -42,6 +42,7 @@ namespace ParadoxTranslationHelper
                 return;
             }
             functionObject.Work();
+            Log.CloseAndFlush();
         }
 
         private static void LogInfosMods(string text)
@@ -98,7 +99,11 @@ namespace ParadoxTranslationHelper
         {
             Log.Logger = new LoggerConfiguration()
                             .WriteTo.Console()
-                            .WriteTo.File("ParadoxTranslationHelper.log", rollingInterval: RollingInterval.Day, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level}] {Message}{NewLine}{Exception}")
+                            .WriteTo.File("./logs/ParadoxTranslationHelper.log", rollingInterval: RollingInterval.Day, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level}] {Message}{NewLine}{Exception}")
+//                            .WriteTo.Map("KeysWrongLocation", 
+//                                        "Other", 
+//                                        (KeysWrongLocation, wt) => wt.File($"./logs/KeysWrongLocation.log"), 
+//                                        sinkMapCountLimit: 10)
                             .MinimumLevel.Debug()
                             .CreateLogger();
         }

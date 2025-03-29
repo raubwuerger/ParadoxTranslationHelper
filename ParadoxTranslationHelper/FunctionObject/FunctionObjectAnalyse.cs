@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Serilog;
+using Serilog.Core;
 
 namespace ParadoxTranslationHelper
 {
@@ -132,7 +133,7 @@ namespace ParadoxTranslationHelper
             }
 
             LineObject keyInGerman = keysGerman.Values.ToList().Find(z => z.Key.Equals(x.Key));
-            Log.Information("Key {key} not in correct file: {is} --> {should}", x.Value.Key, keyInGerman.TranslationFile.FileNameWithoutLocalisation, x.Value.TranslationFile.FileNameWithoutLocalisation);
+            Log.Information("Key {KeysWrongLocation} is not in correct file: [is][should] [{is}][{should}]", x.Value.Key, keyInGerman.TranslationFile.FileNameWithoutLocalisation, x.Value.TranslationFile.FileNameWithoutLocalisation);
         }
 
         private void LogMissingNamespaces(Dictionary<string, LineObject> dictionaryEnglish, Dictionary<string, LineObject> dictionaryGerman)
