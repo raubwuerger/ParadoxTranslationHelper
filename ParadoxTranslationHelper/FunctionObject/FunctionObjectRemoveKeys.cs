@@ -41,9 +41,14 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
             List<TranslationFile> translationFilesKeysToDelete = CreateTranslationFilesKeysToDelete(_localizationFileNameKeysToDelete);
+            if( null == translationFilesKeysToDelete )
+            {
+                Log.Information("No keys to remove!");
+                return true;
+            }
 
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
 
             List<TranslationFile> updatedFiles = CreateUpdateFiles(translationFilesKeysToDelete);
             foreach (TranslationFile file in updatedFiles) 
@@ -67,6 +72,11 @@ namespace ParadoxTranslationHelper
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
 
             List<string> lines = Utility.ConvertToList(File.ReadAllLines(fileNamekeysToDelete));
+            if( null ==  lines ) 
+            {
+                Log.Verbose("No keys to delete!");
+                return null;
+            }
             List<string> foundFile = new List<string>();
             foreach ( string line in lines ) 
             {
@@ -110,8 +120,13 @@ namespace ParadoxTranslationHelper
             return translationFilesKeysToDelete;
         }
 
-        private List<TranslationFile> CreateUpdateFiles( List<TranslationFile> translationFilesKeysToDelete)
+        private List<TranslationFile>? CreateUpdateFiles( List<TranslationFile> translationFilesKeysToDelete)
         {
+            if( null == translationFilesKeysToDelete )
+            {
+                return null;
+            }
+
             List<TranslationFile> updatedFiles = new List<TranslationFile>();
             foreach (TranslationFile translationFile in translationFilesKeysToDelete)
             {

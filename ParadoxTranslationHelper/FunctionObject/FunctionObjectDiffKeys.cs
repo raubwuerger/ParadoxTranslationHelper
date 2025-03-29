@@ -79,7 +79,7 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
-            if (org == null)
+            if (toVerify == null)
             {
                 Log.Verbose("Parameter <toVerify> must not be null!");
                 return;
