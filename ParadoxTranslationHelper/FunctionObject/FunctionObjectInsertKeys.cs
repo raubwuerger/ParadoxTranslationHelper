@@ -42,7 +42,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            if( false == File.Exists(_localizationFilePathGerman)) 
+            if( false == Directory.Exists(_localizationFilePathGerman)) 
             {
                 Log.Warning("File doesn't exist: " + _localizationFilePathGerman);
                 return false;
