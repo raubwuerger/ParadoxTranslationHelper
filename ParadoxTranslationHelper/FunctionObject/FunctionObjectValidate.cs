@@ -153,14 +153,14 @@ namespace ParadoxTranslationHelper
 
         private void LogMultipleKeys(List<LineObject> keysMultiple)
         {
-            Log.Verbose("##### Keys existing multiple times" + Environment.NewLine);
+            Log.Verbose(">>>>> Keys existing multiple times <<<<<");
             keysMultiple.ForEach(key => { Log.Verbose(key.TranslationFile + ": " + key.Key + ":" + key.LineNumber); });
             Log.Verbose(Environment.NewLine);
         }
 
         private void LogMissingKeys(Dictionary<string, LineObject> keysBase, Dictionary<string, LineObject> keysShould)
         {
-            Log.Verbose("##### Missing keys #####" + Environment.NewLine);
+            Log.Verbose(">>>>> Missing keys <<<<<");
             List<LineObject> missingKeys = new List<LineObject>();
             keysBase.ToList().ForEach
             (
@@ -179,7 +179,7 @@ namespace ParadoxTranslationHelper
 
         private void LogMissingNamespaces(Dictionary<string, LineObject> dictionaryEnglish, Dictionary<string, LineObject> dictionaryGerman)
         {
-            Log.Verbose("##### Missing namespaces [] #####" + Environment.NewLine);
+            Log.Verbose(">>>>> Missing namespaces [] <<<<<");
             List<LineObject> missingNamespacesGerman = new List<LineObject>();
             List<LineObject> missingNamespacesEnglish = new List<LineObject>();
 
@@ -210,7 +210,7 @@ namespace ParadoxTranslationHelper
             );
 
             string translationFileName = "";
-            Log.Verbose("##### Missing Namespaces [] german #####");
+            Log.Verbose(">>>>> Missing Namespaces [] german <<<<<");
             missingNamespacesGerman.ForEach
             (
                 item =>
@@ -224,7 +224,7 @@ namespace ParadoxTranslationHelper
                 }
             );
 
-            Log.Verbose("##### Missing Namespaces [] english #####");
+            Log.Verbose(">>>>> Missing Namespaces [] english <<<<<");
             missingNamespacesEnglish.ForEach
             (
                 item =>
@@ -241,7 +241,7 @@ namespace ParadoxTranslationHelper
 
         private void LogMissingNestingStrings(Dictionary<string, LineObject> dictionaryEnglish, Dictionary<string, LineObject> dictionaryGerman)
         {
-            Log.Verbose("##### Missing NestingStrings $$ #####" + Environment.NewLine);
+            Log.Verbose(">>>>> Missing NestingStrings $$ <<<<<");
             List<LineObject> missingNestingStringsGerman = new List<LineObject>();
             List<LineObject> missingNestingStringsEnglish = new List<LineObject>();
 
@@ -272,7 +272,7 @@ namespace ParadoxTranslationHelper
             );
 
             string translationFileName = "";
-            Log.Verbose("##### Missing NestingStrings $$ german #####");
+            Log.Verbose(">>>>> Missing NestingStrings $$ german <<<<<");
             missingNestingStringsGerman.ForEach
             (
                 item =>
@@ -286,7 +286,7 @@ namespace ParadoxTranslationHelper
                 }
             );
 
-            Log.Verbose("##### Missing NestingStrings $$ english #####");
+            Log.Verbose(">>>>> Missing NestingStrings $$ english <<<<<");
             missingNestingStringsEnglish.ForEach
             (
                 item =>

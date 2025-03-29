@@ -34,12 +34,6 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-/*            if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
-            {
-                Log.Verbose("Member <LocalizationFilePathAnalyze> must not be null!");
-                return false;
-            }
-*/
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
             if( LocalisationFilesGerman == null )
             {
@@ -98,14 +92,14 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
-                if( false == DiffKeys(line, FunctionUtility.FindCorrespondingLineObject(toVerify.Lines.Values.ToList(), line)) )
+                if( false == DiffColorCodes(line, FunctionUtility.FindCorrespondingLineObject(toVerify.Lines.Values.ToList(), line)) )
                 {
                     Log.Information("Key not found: " + line.Key);
                 }
             }
         }
 
-        private bool DiffKeys( LineObject org, LineObject toVerify )
+        private bool DiffColorCodes( LineObject org, LineObject toVerify )
         {
             if (org == null)
             {
@@ -134,12 +128,12 @@ namespace ParadoxTranslationHelper
 
             if( orgCopy.Count > 0 ) 
             {
-                Log.Warning("ColorCodes not found in toVerify: " + org.Key + ": " + string.Join(",", orgCopy));
+                Log.Information("ColorCodes not found in toVerify: " + org.Key + ": " + string.Join(",", orgCopy));
             }
 
             if( toVerifyCopy.Count > 0 ) 
             {
-                Log.Warning("ColorCodes wrong in toVerify: " + toVerify.Key + ": " + string.Join(",", toVerifyCopy));
+                Log.Information("ColorCodes wrong in toVerify: " + toVerify.Key + ": " + string.Join(",", toVerifyCopy));
             }
 
             return true;

@@ -51,12 +51,13 @@ namespace ParadoxTranslationHelper
             Console.WriteLine("args[1] == function");
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Registered functions");
+            Console.WriteLine(FunctionTypes.Analyse);
             Console.WriteLine(FunctionTypes.DiffFiles);
+            Console.WriteLine(FunctionTypes.DiffKeys);
             Console.WriteLine(FunctionTypes.RemoveKeys);
             Console.WriteLine(FunctionTypes.Sub);
             Console.WriteLine(FunctionTypes.Resub);
             Console.WriteLine(FunctionTypes.Insert);
-            Console.WriteLine(FunctionTypes.DiffKeys);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeys);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFiles);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFilesFix);

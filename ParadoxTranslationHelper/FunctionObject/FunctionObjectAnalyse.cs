@@ -39,61 +39,11 @@ namespace ParadoxTranslationHelper
             LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_pathSteam);
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
 
-            CheckTranslationFilesMissingLocal();
-            CheckTranslationFilesDeletedUpdate();
-
             CheckMissingKeys();
-//            EvaluateMissingKeysFileByFile(_dataSetLineObjectCompareSteam.keysUnique, LocalisationFilesGerman);
-//            CheckWrongLocatedKeys();
 
             return false;
         }
 
-        private void CheckTranslationFilesMissingLocal()
-        {
-            if (false == LocalisationFilesSteam.Any() || false == LocalisationFilesGerman.Any())
-            {
-                Log.Verbose("No translation files found!");
-                return;
-            }
-
-            List<string> localisationFileNamesGerman = LocalisationFilesGerman.ConvertAll(s => s.FileNameWithoutLocalisation);
-            List<string> localisationFileNamesSteam = LocalisationFilesSteam.ConvertAll(s => s.FileNameWithoutLocalisation);
-            List<string> missingTranslationFiles = localisationFileNamesGerman.Except(localisationFileNamesSteam).ToList<string>();
-
-            if (missingTranslationFiles.Count > 0)
-            {
-                Log.Warning(">>>> Translation files missing local START <<<<<");
-                foreach (string translationFile in missingTranslationFiles)
-                {
-                    Log.Warning(translationFile);
-                }
-                Log.Warning(">>>> Translation files missing local STOP  <<<<<");
-            }
-        }
-
-        private void CheckTranslationFilesDeletedUpdate()
-        {
-            if (false == LocalisationFilesSteam.Any() || false == LocalisationFilesGerman.Any())
-            {
-                Log.Verbose("No translation files found!");
-                return;
-            }
-
-            List<string> localisationFileNamesEnglish = LocalisationFilesGerman.ConvertAll(s => s.FileNameWithoutLocalisation);
-            List<string> localisationFileNamesEnglishUpdated = LocalisationFilesSteam.ConvertAll(s => s.FileNameWithoutLocalisation);
-            List<string> translationFilesToDelete = localisationFileNamesEnglishUpdated.Except(localisationFileNamesEnglish).ToList<string>();
-
-            if(translationFilesToDelete.Count > 0) 
-            {
-                Log.Warning(">>>> Translation files to delete local START <<<<<");
-                foreach (string translationFile in translationFilesToDelete)
-                {
-                    Log.Warning(translationFile);
-                }
-                Log.Warning(">>>> Translation files to delete local STOP <<<<<");
-            }
-        }
 
         private void CheckMissingKeys()
         {
@@ -101,8 +51,6 @@ namespace ParadoxTranslationHelper
             _dataSetLineObjectCompareGerman = CreateDataSetLineObjectMultipleKeys(LocalisationFilesGerman);
 
             EvaluateMissingKeysGlobal(_dataSetLineObjectCompareSteam.keysUnique, _dataSetLineObjectCompareGerman.keysUnique);
-            //            LogMissingNamespaces(_dataSetLineObjectCompareSteam.keysUnique, _dataSetLineObjectCompareGerman.keysUnique);
-            //            LogMissingNestingStrings(_dataSetLineObjectCompareSteam.keysUnique, _dataSetLineObjectCompareGerman.keysUnique);
 
             LogMultipleKeys(_dataSetLineObjectCompareSteam.keysMultiple);
             LogMultipleKeys(_dataSetLineObjectCompareGerman.keysMultiple);
@@ -136,13 +84,13 @@ namespace ParadoxTranslationHelper
 
         private void LogMultipleKeys(List<LineObject> keysMultiple)
         {
-            Log.Warning("##### Keys existing multiple times");
+            Log.Information(">>>>> Keys existing multiple times <<<<<");
             keysMultiple.ForEach(key => { Log.Information(key.TranslationFile + ": " + key.Key + ":" + key.LineNumber); });
         }
 
         private void EvaluateMissingKeysGlobal(Dictionary<string, LineObject> keysSteam, Dictionary<string, LineObject> keysGerman)
         {
-            Log.Warning("##### Missing keys global started #####");
+            Log.Information(">>>>> Missing keys global started <<<<<");
             List<LineObject> missingKeys = new List<LineObject>();
             keysSteam.ToList().ForEach
             (
@@ -154,36 +102,42 @@ namespace ParadoxTranslationHelper
                     }
                     else
                     {
-                        TranslationFile translationFile = FunctionUtility.FindCorrespondingTranslationFile(LocalisationFilesGerman, x.Value.TranslationFile);
-                        if (translationFile != null) 
-                        {
-                            List<LineObject> lineObjects = translationFile.Lines.Values.ToList();
-                            if( lineObjects.Count > 0) 
-                            {
-                                LineObject lineObject = lineObjects.Find(y => y.Key.Equals(x.Value.Key));
-                                if (lineObject == null)
-                                {
-                                    LineObject keyInGerman = keysGerman.Values.ToList().Find(z => z.Key.Equals(x.Key));
-                                    Log.Warning("Key {key} not in correct file: {is} --> {should}", x.Value.Key, keyInGerman.TranslationFile.FileNameWithoutLocalisation, x.Value.TranslationFile.FileNameWithoutLocalisation);
-                                    int notInCorrectFile = 0;
-                                }
-                                else
-                                {
-                                    int inCorrectFile = 0;
-                                }
-                            }
-                        }
+                        LogKeysNotInCorrectFile(ref keysGerman, x);
                     }
                 }
             );
 
-            missingKeys.ForEach(keys => Log.Information(keys.Key));
-            Log.Warning("##### Missing keys global stopped #####");
+            missingKeys.ForEach(keys => Log.Information("Missing key: {key} in file {file}", keys.Key, keys.TranslationFile));
+            Log.Information(">>>>> Missing keys global stopped <<<<<");
+        }
+
+        private void LogKeysNotInCorrectFile(ref Dictionary<string, LineObject> keysGerman, KeyValuePair<string, LineObject> x)
+        {
+            TranslationFile translationFile = FunctionUtility.FindCorrespondingTranslationFile(LocalisationFilesGerman, x.Value.TranslationFile);
+            if (translationFile == null)
+            {
+                return;
+            }
+
+            List<LineObject> lineObjects = translationFile.Lines.Values.ToList();
+            if (lineObjects.Count <= 0)
+            {
+                return;
+            }
+
+            LineObject lineObject = lineObjects.Find(y => y.Key.Equals(x.Value.Key));
+            if (lineObject != null)
+            {
+                return;
+            }
+
+            LineObject keyInGerman = keysGerman.Values.ToList().Find(z => z.Key.Equals(x.Key));
+            Log.Information("Key {key} not in correct file: {is} --> {should}", x.Value.Key, keyInGerman.TranslationFile.FileNameWithoutLocalisation, x.Value.TranslationFile.FileNameWithoutLocalisation);
         }
 
         private void LogMissingNamespaces(Dictionary<string, LineObject> dictionaryEnglish, Dictionary<string, LineObject> dictionaryGerman)
         {
-            Log.Warning("##### Missing namespaces [] #####");
+            Log.Information(">>>>> Missing namespaces [] <<<<<");
             List<LineObject> missingNamespacesGerman = new List<LineObject>();
             List<LineObject> missingNamespacesEnglish = new List<LineObject>();
 
@@ -214,7 +168,7 @@ namespace ParadoxTranslationHelper
             );
 
             string translationFileName = "";
-            Log.Information("##### Missing Namespaces [] german #####");
+            Log.Information(">>>>> Missing Namespaces [] german <<<<<");
             missingNamespacesGerman.ForEach
             (
                 item =>
@@ -228,7 +182,7 @@ namespace ParadoxTranslationHelper
                 }
             );
 
-            Log.Information("##### Missing Namespaces [] english #####");
+            Log.Information(">>>>> Missing Namespaces [] english <<<<<");
             missingNamespacesEnglish.ForEach
             (
                 item =>
@@ -245,7 +199,7 @@ namespace ParadoxTranslationHelper
 
         private void LogMissingNestingStrings(Dictionary<string, LineObject> dictionaryEnglish, Dictionary<string, LineObject> dictionaryGerman)
         {
-            Log.Information("##### Missing NestingStrings $$ #####" + Environment.NewLine);
+            Log.Information(">>>>> Missing NestingStrings $$ <<<<<");
             List<LineObject> missingNestingStringsGerman = new List<LineObject>();
             List<LineObject> missingNestingStringsEnglish = new List<LineObject>();
 
@@ -276,7 +230,7 @@ namespace ParadoxTranslationHelper
             );
 
             string translationFileName = "";
-            Log.Information("##### Missing NestingStrings $$ german #####");
+            Log.Information(">>>>> Missing NestingStrings $$ german <<<<<");
             missingNestingStringsGerman.ForEach
             (
                 item =>
@@ -290,7 +244,7 @@ namespace ParadoxTranslationHelper
                 }
             );
 
-            Log.Information("##### Missing NestingStrings $$ english #####");
+            Log.Information(">>>>> Missing NestingStrings $$ english <<<<<");
             missingNestingStringsEnglish.ForEach
             (
                 item =>

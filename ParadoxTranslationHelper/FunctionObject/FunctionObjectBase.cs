@@ -27,9 +27,9 @@ namespace ParadoxTranslationHelper
         }
         public bool Work()
         {
-            Log.Information(">>>>> {functionName} started <<<<<", _name );
+            Log.Information("##### Function {functionName} started #####", _name );
             bool returnValue = DoWork();
-            Log.Information(">>>>> {functionName} stopped <<<<<", _name);
+            Log.Information("##### Function {functionName} stopped #####", _name);
             return returnValue;
         }
         public abstract bool DoWork();

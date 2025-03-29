@@ -1,8 +1,10 @@
 ﻿Ablauf Differenzübersetzung gegen Steamordner:
+ - ANALYSE:			->	Vergleicht Keys aus dem Steamordner mit Keys aus dem lokalen Ordner
+ - DIFF_KEYS:		->	Vergleicht Keys aus dem Steamordner mit Keys aus dem lokalen Ordner Datei für Datei
  - DIFF_FILES:		->	Erstellt Datei _SteamKeysToCreate.yml und _SteamKeysToDelete.yml im Verzeichnis analyse
-					Diese Datei auf korrekte strings prüfen ("" am Dateiende, ...)
- - REMOVE:	->	Entfernt alle im Steam-Ordner nicht mehr vorhandenen Schlüeesl _SteamKeysToDelete.yml.sub
- - SUB:		->	Erstellt Datei _SteamKeysToCreate.yml.sub (Datei mit Substitutionen)
+						Diese Datei auf korrekte strings prüfen ("" am Dateiende, ...)
+ - REMOVE:			->	Entfernt alle im Steam-Ordner nicht mehr vorhandenen Schlüeesl _SteamKeysToDelete.yml.sub
+ - SUB:				->	Erstellt Datei _SteamKeysToCreate.yml.sub (Datei mit Substitutionen)
 					->	_SteamKeysToCreate.yml.CC -> ColoCode-Datei (aktuell leer da nur die ColorCode-EndeTags übersetzt werden)
 					->	_SteamKeysToCreate.yml.IC -> Datei mit den Icon-Substitutionen (___IC1___;£decision_icon_small;NZL_reward_decision_tt:;513)
 					->	_SteamKeysToCreate.yml.NE -> Datei mit den NestedString-Substitutionen (___NE1___;$excavation3$;PER_resource_industry_incompetence_desc:;32)
@@ -13,17 +15,18 @@
 
 ToDo:
 	In der Datei _SteamKeysToCreate.yml.sub die Zeichen '#' maskieren/entfernen. Excel verschiebt sonst die Ende Anführungszeichen nach hinten.
-	Nach dem Einfügen (STEAM_INSERT) die Originaldatei sortieren ...
+	Nach dem Einfügen (INSERT) die Originaldatei sortieren ...
+	Prüfen ob Keys in Dateien welche nicht mehr in Steam sind (also gelöscht werden sollen) in anderen Dateien vorhanden sind.
 
 Functions:
-        public static readonly string SteamDiff = "STEAM_DIFF";     // public static string FUNCTION_DIFF_STEAM = "diff_steam";
-        public static readonly string SteamSub = "STEAM_SUB";       // public static string FUNCTION_SUB_ANALYSE = "sub_analyse";
-        public static readonly string SteamResub = "STEAM_RESUB";   // public static string FUNCTION_RESUB_ANALYSE = "resub_analyse";
-        public static readonly string SteamInsert = "STEAM_INSERT"; // public static string FUNCTION_INSERT = "insert";
-        public static readonly string Diff = "DIFF";                // public static string FUNCTION_DIFF = "diff";
-        public static readonly string Sub = "SUB";                  // public static string FUNCTION_SUB = "sub";
-        public static readonly string Resub = "RESUB";              // public static string FUNCTION_RESUB = "resub";
-        public static readonly string Analyse = "ANALYSE";          // public static string FUNCTION_ANALYSIS = "analyse";
+        public static readonly string DiffFiles = "DIFF_FILES";
+        public static readonly string RemoveKeys = "REMOVE_KEYS";
+        public static readonly string Sub = "SUB";
+        public static readonly string Resub = "RESUB";
+        public static readonly string Insert = "INSERT";
+        public static readonly string DiffKeys = "DIFF_KEYS";
+        public static readonly string Analyse = "ANALYSE";
+        public static readonly string Validate = "VALIDATE";
         public static readonly string CheckForDoubleKeys = "CHECK_FOR_DOUBLE_KEYS";
         public static readonly string CheckForDoubleKeysAllFiles = "CHECK_FOR_DOUBLE_KEYS_ALL_FILES";
         public static readonly string CheckForDoubleKeysAllFilesFix = "CHECK_FOR_DOUBLE_KEYS_ALL_FILES_FIX";
