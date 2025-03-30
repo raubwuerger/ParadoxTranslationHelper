@@ -40,21 +40,31 @@ namespace ParadoxTranslationHelper
             LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_pathSteam);
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
 
-            CheckMissingKeys();
-
-            return false;
+            return CheckMissingKeys();
         }
 
 
-        private void CheckMissingKeys()
+        private bool CheckMissingKeys()
         {
-            _dataSetLineObjectCompareSteam = CreateDataSetLineObjectMultipleKeys(LocalisationFilesSteam);
-            _dataSetLineObjectCompareGerman = CreateDataSetLineObjectMultipleKeys(LocalisationFilesGerman);
+            try
+            {
+                _dataSetLineObjectCompareSteam = CreateDataSetLineObjectMultipleKeys(LocalisationFilesSteam);
+                _dataSetLineObjectCompareGerman = CreateDataSetLineObjectMultipleKeys(LocalisationFilesGerman);
 
-            EvaluateMissingKeysGlobal(_dataSetLineObjectCompareSteam.keysUnique, _dataSetLineObjectCompareGerman.keysUnique);
+                EvaluateKeysInWrongFileGlobal(_dataSetLineObjectCompareSteam.keysUnique, _dataSetLineObjectCompareGerman.keysUnique);
+                EvaluateKeysToDeleteGlobal(_dataSetLineObjectCompareGerman.keysUnique, _dataSetLineObjectCompareSteam.keysUnique);
+                EvaluateKeysMissingGlobal(_dataSetLineObjectCompareSteam.keysUnique, _dataSetLineObjectCompareGerman.keysUnique);
 
-            LogMultipleKeys(_dataSetLineObjectCompareSteam.keysMultiple);
-            LogMultipleKeys(_dataSetLineObjectCompareGerman.keysMultiple);
+                LogMultipleKeys(_dataSetLineObjectCompareSteam.keysMultiple);
+                LogMultipleKeys(_dataSetLineObjectCompareGerman.keysMultiple);
+
+                return true;
+            }
+            catch(Exception ex) 
+            {
+                Log.Fatal("Exception occurred! " + ex.Message);
+                return false;
+            }
         }
 
         private DataSetLineObjectCompare CreateDataSetLineObjectMultipleKeys(List<TranslationFile> localisation)
@@ -89,51 +99,101 @@ namespace ParadoxTranslationHelper
             keysMultiple.ForEach(key => { Log.Information(key.TranslationFile + ": " + key.Key + ":" + key.LineNumber); });
         }
 
-        private void EvaluateMissingKeysGlobal(Dictionary<string, LineObject> keysSteam, Dictionary<string, LineObject> keysGerman)
+        private void EvaluateKeysMissingGlobal(Dictionary<string, LineObject> keysSteam, Dictionary<string, LineObject> keysGerman)
         {
-            Log.Information(">>>>> Missing keys global started <<<<<");
-            List<LineObject> missingKeys = new List<LineObject>();
+            Log.Information(">>>>> EvaluateKeysMissingGlobal started <<<<<");
+            List<LineObject> keysMissing = new List<LineObject>();
+            List<LineObject> keysInWrongFile = new List<LineObject>();
             keysSteam.ToList().ForEach
             (
                 x =>
                 {
                     if (false == keysGerman.ContainsKey(x.Key))
                     {
-                        missingKeys.Add(x.Value);
+                        keysMissing.Add(x.Value);
                     }
                     else
                     {
-                        LogKeysNotInCorrectFile(ref keysGerman, x);
+                        if( true == IsKeyInWrongFile(ref keysGerman, x) )
+                        {
+                            keysInWrongFile.Add(x.Value);
+                        }
                     }
                 }
             );
 
-            missingKeys.ForEach(keys => Log.Information("Missing key: {key} in file {file}", keys.Key, keys.TranslationFile));
-            Log.Information(">>>>> Missing keys global stopped <<<<<");
+            keysMissing.ForEach(keys => Log.Information(LoggerConstants.MAP_KEYS_TO_CREATE + " in file {file}", keys.Key, keys.TranslationFile));
+            Log.Information(">>>>> EvaluateKeysMissingGlobal stopped <<<<<");
+
         }
 
-        private void LogKeysNotInCorrectFile(ref Dictionary<string, LineObject> keysGerman, KeyValuePair<string, LineObject> x)
+        private void EvaluateKeysInWrongFileGlobal(Dictionary<string, LineObject> keysSteam, Dictionary<string, LineObject> keysGerman)
+        {
+            Log.Information(">>>>> EvaluateKeysInWrongFileGlobal started <<<<<");
+            List<LineObject> keysInWrongFile = new List<LineObject>();
+            keysSteam.ToList().ForEach
+            (
+                x =>
+                {
+                    if (true == keysGerman.ContainsKey(x.Key))
+                    {
+                        if( true == IsKeyInWrongFile(ref keysGerman, x) )
+                        {
+                            Log.Information(LoggerConstants.MAP_KEYS_IN_WRONG_FILE + " [is][should] [{is}][{should}]", x.Value.Key, keysGerman[x.Key].TranslationFile.FileNameWithoutLocalisation, x.Value.TranslationFile.FileNameWithoutLocalisation);
+                        }
+                    }
+                }
+            );
+
+            Log.Information(">>>>> EvaluateKeysInWrongFileGlobal stopped <<<<<");
+        }
+
+        private void EvaluateKeysToDeleteGlobal(Dictionary<string, LineObject> keysGerman, Dictionary<string, LineObject> keysSteam)
+        {
+            Log.Information(">>>>> EvaluateKeysToDeleteGlobal started <<<<<");
+            List<LineObject> toDelete = new List<LineObject>();
+            keysGerman.ToList().ForEach
+            (
+                x =>
+                {
+                    if (false == keysSteam.ContainsKey(x.Key))
+                    {
+                        toDelete.Add(x.Value);
+                    }
+                }
+            );
+
+            toDelete.ForEach(keys => Log.Information(LoggerConstants.MAP_KEYS_TO_DELETE + " in file {file}", keys.Key, keys.TranslationFile));
+            Log.Information(">>>>> EvaluateKeysToDeleteGlobal stopped <<<<<");
+        }
+
+        private bool IsKeyInWrongFile(ref Dictionary<string, LineObject> keysGerman, KeyValuePair<string, LineObject> x)
         {
             TranslationFile translationFile = FunctionUtility.FindCorrespondingTranslationFile(LocalisationFilesGerman, x.Value.TranslationFile);
             if (translationFile == null)
             {
-                return;
+                return false;
             }
 
             List<LineObject> lineObjects = translationFile.Lines.Values.ToList();
             if (lineObjects.Count <= 0)
             {
-                return;
+                return false;
             }
 
             LineObject lineObject = lineObjects.Find(y => y.Key.Equals(x.Value.Key));
             if (lineObject != null)
             {
-                return;
+                return false;
             }
 
             LineObject keyInGerman = keysGerman.Values.ToList().Find(z => z.Key.Equals(x.Key));
-            Log.Information("Key {KeysWrongLocation} is not in correct file: [is][should] [{is}][{should}]", x.Value.Key, keyInGerman.TranslationFile.FileNameWithoutLocalisation, x.Value.TranslationFile.FileNameWithoutLocalisation);
+            if( keyInGerman == null)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void LogMissingNamespaces(Dictionary<string, LineObject> dictionaryEnglish, Dictionary<string, LineObject> dictionaryGerman)

@@ -100,10 +100,15 @@ namespace ParadoxTranslationHelper
             Log.Logger = new LoggerConfiguration()
                             .WriteTo.Console()
                             .WriteTo.File("./logs/ParadoxTranslationHelper.log", rollingInterval: RollingInterval.Day, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level}] {Message}{NewLine}{Exception}")
-//                            .WriteTo.Map("KeysWrongLocation", 
-//                                        "Other", 
-//                                        (KeysWrongLocation, wt) => wt.File($"./logs/KeysWrongLocation.log"), 
-//                                        sinkMapCountLimit: 10)
+                            .WriteTo.Map("KeysToDelete",
+                                (name, wt) => wt.File($"./logs/KeysToDelete.log"),
+                                sinkMapCountLimit: 10)
+                            .WriteTo.Map("KeysToCreate",
+                                (name, wt) => wt.File($"./logs/KeysToCreate.log"),
+                                sinkMapCountLimit: 10)
+                            .WriteTo.Map("KeysInWrongFile",
+                                (name, wt) => wt.File($"./logs/KeysInWrongFile.log"),
+                                sinkMapCountLimit: 10)
                             .MinimumLevel.Debug()
                             .CreateLogger();
         }
