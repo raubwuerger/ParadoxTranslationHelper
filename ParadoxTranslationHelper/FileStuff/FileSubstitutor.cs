@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,8 +14,22 @@ namespace ParadoxTranslationHelper
         {
             if (translationFileSetSubstitution == null)
             {
+                Log.Information("Parameter <TranslationFileSetSubstitution> must not be null!");
                 return;
             }
+
+            if( null == translationFileSetSubstitution.SubstitutedFile.Lines )
+            {
+                Log.Information("Parameter <TranslationFileSetSubstitution.SubstitutedFile.Lines> must not be null!");
+                return;
+            }
+
+            if (null == translationFileSetSubstitution.SubstitutedFile.Lines.Count <= 0)
+            {
+                Log.Information("Parameter <TranslationFileSetSubstitution.SubstitutedFile.Lines> must have at least on LineObject!");
+                return;
+            }
+
             ReSubstitutor reSubstitutor = new ReSubstitutor();
             reSubstitutor.TranslationFileSetSubstitution = translationFileSetSubstitution;
             reSubstitutor.ReSubstitute();

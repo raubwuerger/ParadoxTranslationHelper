@@ -128,12 +128,12 @@ namespace ParadoxTranslationHelper
 
             if( orgCopy.Count > 0 ) 
             {
-                Log.Information("ColorCodes not found in toVerify: " + org.Key + ": " + string.Join(",", orgCopy));
+                Log.Information(LoggerConstants.MAP_DIFF_COLOR_CODES +" ColorCodes not found in toVerify: " + org.Key + ": " + string.Join(",", orgCopy));
             }
 
             if( toVerifyCopy.Count > 0 ) 
             {
-                Log.Information("ColorCodes wrong in toVerify: " + toVerify.Key + ": " + string.Join(",", toVerifyCopy));
+                Log.Information(LoggerConstants.MAP_DIFF_COLOR_CODES + " ColorCodes wrong in toVerify: " + toVerify.Key + ": " + string.Join(",", toVerifyCopy));
             }
 
             return true;

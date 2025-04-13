@@ -22,6 +22,7 @@ namespace ParadoxTranslationHelper
         {
             if (_translationFileSetSubstitution == null)
             {
+                Log.Information("Parameter <TranslationFileSetSubstitution> must not be null!");
                 return;
             }
 
