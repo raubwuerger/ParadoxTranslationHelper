@@ -223,5 +223,28 @@ namespace ParadoxTranslationHelper.Utilities
 
         }
 
+        public static LineObject? FindLineObjectByKey(string key, List<LineObject> lines)
+        {
+            if( true == string.IsNullOrEmpty(key) )
+            {
+                Log.Warning("Parameter <string::key> must not be null or empty!");
+                return null;
+            }
+
+            if( null == lines )
+            {
+                Log.Warning("Parameter <List<LineObject>::lines> must not be null!");
+                return null;
+            }
+
+            if (false == lines.Any() )
+            {
+                Log.Warning("Parameter <List<LineObject>::lines> must not be empty!");
+                return null;
+            }
+
+            return lines.Find( x => x.Key == key );
+        }
+
     }
 }

@@ -85,6 +85,8 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
+            DiffNestingStrings(org, toVerify);
+
             foreach( LineObject line in org.Lines.Values.ToList() ) 
             {
                 if (false == line.HasKey())
@@ -139,5 +141,47 @@ namespace ParadoxTranslationHelper
             return true;
         }
 
+        private bool DiffNestingStrings( TranslationFile org, TranslationFile toVerify )
+        {
+            if( org ==  null )
+            {
+                Log.Verbose("Parameter <org> must not be null!");
+                return false;
+            }
+
+            Log.Information("Analyzing file: " + org.FileName);
+
+            if (org.Lines.Count() == 0 )
+            {
+                Log.Verbose("Parameter <org> contains no Line-Objects!");
+                return false;
+            }
+
+            if ( toVerify == null ) 
+            {
+                Log.Verbose("Parameter <toVerify> must not be null!");
+                return false;
+            }
+
+            if (toVerify.Lines.Count() == 0)
+            {
+                Log.Verbose("Parameter <toVerify> contains no Line-Objects!");
+                return false;
+            }
+
+            foreach( LineObject line in org.Lines.Values ) 
+            {
+//                FindLineObjectByKey(line.Key, toVerify.Lines.Values );
+            }
+
+            return false;
+        }
+
+        /*        private LineObject? FindLineObjectByKey( string key, List<LineObject> lines ) 
+                {
+                    var lineValues = lines.Values;
+        //            LineObject found = lineValues. .Find( x => x.Key == key );
+                    return null;
+                }*/
     }
 }
