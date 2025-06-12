@@ -225,6 +225,7 @@ namespace ParadoxTranslationHelper.Utilities
 
         public static LineObject? FindLineObjectByKey(string key, List<LineObject> lines)
         {
+            //TODO: 2025-06-12 - JHA - What happens if lines contains multiple keys which are equal?
             if( true == string.IsNullOrEmpty(key) )
             {
                 Log.Warning("Parameter <string::key> must not be null or empty!");
@@ -246,5 +247,78 @@ namespace ParadoxTranslationHelper.Utilities
             return lines.Find( x => x.Key == key );
         }
 
+        public static bool DiffNestingStringsTranslationFile(TranslationFile org, TranslationFile toVerify)
+        {
+            if (org == null)
+            {
+                Log.Verbose("Parameter <org> must not be null!");
+                return false;
+            }
+
+            Log.Information("Analyzing file: " + org.FileName);
+
+            if (org.Lines.Count() == 0)
+            {
+                Log.Verbose("Parameter <org> contains no Line-Objects!");
+                return false;
+            }
+
+            if (toVerify == null)
+            {
+                Log.Verbose("Parameter <toVerify> must not be null!");
+                return false;
+            }
+
+            if (toVerify.Lines.Count() == 0)
+            {
+                Log.Verbose("Parameter <toVerify> contains no Line-Objects!");
+                return false;
+            }
+
+            List<LineObject> allLines = toVerify.Lines.Values.ToList<LineObject>();
+            foreach (LineObject line in org.Lines.Values)
+            {
+                LineObject lineToDiff = FindLineObjectByKey(line.Key, allLines);
+                if (lineToDiff == null)
+                {
+                    continue;
+                }
+
+//                lineToDiff
+            }
+
+            return true;
+        }
+
+        public static bool DiffNestingStrings( List<string> org, List<string> toVerify )
+        {
+            if (org == null)
+            {
+                Log.Verbose("Parameter <List<string>::org> must not be null!");
+                return false;
+            }
+
+            if (toVerify == null)
+            {
+                Log.Verbose("Parameter <List<string>::toVerify> must not be null!");
+                return false;
+            }
+
+            if ( org.Count() == 0 && toVerify.Count() == 0 )
+            {
+                return true;
+            }
+
+            if (toVerify.Count() == 0)
+            {
+                Log.Verbose("Parameter <List<string>::toVerify> must not be empty!");
+                return false;
+            }
+
+            List<string> onlyInToVerify = toVerify.Except(org).ToList<string>();
+            List<string> onlyInOrg = org.Except(toVerify).ToList<string>();
+
+            return true;
+        }
     }
 }
