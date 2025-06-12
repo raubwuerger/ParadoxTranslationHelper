@@ -223,7 +223,7 @@ namespace ParadoxTranslationHelper
             }
 
             //TODO: 2025-06-12 - JHA - In separate Funktion auslagern
-            //TODO: 2025-06-12 - JHA - Fehler: Wenn mehrere nestringStrings in der falschen Reihenfolge vorhanden sind wird das nicht erkannt.
+            //TODO: 2025-06-12 - JHA - Fehler: Wenn mehrere nestringStrings in der falschen Reihenfolge vorhanden sind wird das nicht erkannt. Kann nicht immer korrigiert werden. Andere Satzstruktur im englischen!
             int indexOfWring = lineObject.NestingStrings.IndexOf(nestingStringWrong);
             if( indexOfWring == -1 )
             {
