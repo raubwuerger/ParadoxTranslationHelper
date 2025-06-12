@@ -11,7 +11,7 @@ using ParadoxTranslationHelper.Utilities;
 namespace ParadoxTranslationHelper_Test
 {
     [TestClass]
-    public class FunctionUtility_Test
+    public class FunctionUtilityFindLineObjectByKey_Test
     {
         static string validKey1 = "validKey1";
         static string validKey2 = "validKey2";
