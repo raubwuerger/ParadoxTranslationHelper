@@ -59,7 +59,7 @@ namespace ParadoxTranslationHelper.FunctionObject
 
             if( LocalisationFilesSteam.Count == 0 )
             {
-                Log.Verbose("Steam path containes no files: " + _pathSteam);
+                Log.Verbose("Steam path contains no files: " + _pathSteam);
                 return false;
             }
 
@@ -174,7 +174,7 @@ namespace ParadoxTranslationHelper.FunctionObject
 
             foreach(TranslationFile translationFile in translationFiles )
             {
-                TranslationFile translationCreated = TranslationFileCreator.CreateEmpy(Utility.ReplacePathWithGermanDirectory(translationFile));
+                TranslationFile translationCreated = TranslationFileCreator.CreateEmpty(Utility.ReplacePathWithGermanDirectory(translationFile));
                 if( translationCreated == null )
                 {
                     Log.Warning("Unable to create TranslationFile!");

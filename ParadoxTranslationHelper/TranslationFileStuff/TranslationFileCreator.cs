@@ -35,7 +35,7 @@ namespace ParadoxTranslationHelper
             return translationFile;
         }
 
-        public static TranslationFile? CreateEmpy( string completeFileName)
+        public static TranslationFile? CreateEmpty( string completeFileName)
         {
             if( string.IsNullOrEmpty(completeFileName))
             {

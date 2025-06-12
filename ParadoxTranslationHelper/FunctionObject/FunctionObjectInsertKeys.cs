@@ -1,9 +1,9 @@
 ﻿using ParadoxTranslationHelper.Utilities;
 using Serilog;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -130,10 +130,15 @@ namespace ParadoxTranslationHelper
             List<TranslationFile> updatedFiles = new List<TranslationFile>();
             foreach (TranslationFile translationFile in missingKeysToInsert)
             {
-                TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation, StringComparison.CurrentCultureIgnoreCase));
+                TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
                 if (translationKeysToInsert == null)
                 {
                     Log.Warning("File to insert not found! " + translationFile.FileName);
+                    translationKeysToInsert = CreateMissingTranslationFile(translationFile);
+                    if (null == translationKeysToInsert)
+                    {
+                        continue;
+                    }
                 }
                 updatedFiles.Add(InsertInto(translationKeysToInsert, translationFile));
             }
@@ -143,21 +148,17 @@ namespace ParadoxTranslationHelper
 
         private TranslationFile CreateMissingTranslationFile( TranslationFile missing )
         {
-            Dictionary<int, LineObject> includingLanguageIdentifier = new Dictionary<int, LineObject>
+            string fileNameOnly = Path.GetFileName(missing.FileName);
+            string filePath = Path.Combine(_localizationFilePathGerman, fileNameOnly.Replace(Constants.LOCALISATION_ENGLISH_FULL, Constants.LOCALISATION_GERMAN_FULL));
+            TranslationFile toCreate = TranslationFileCreator.CreateEmpty(filePath);
+            toCreate.Lines.Add( 0, LineObjectCreator.CreateLineObjectLanguageIdentifierGerman());
+            if( false == FileUtility.Write(toCreate) )
             {
-                { 1, FunctionUtility.CreateLineObjectLanguageIdentifier(missing) }
-            };
-
-            foreach ( KeyValuePair<int, LineObject> keyValuePair in missing.Lines )
-            {
-                int newLineNumber = includingLanguageIdentifier.Count + 1;
-                includingLanguageIdentifier.Add( newLineNumber, new LineObject( newLineNumber, keyValuePair.Value ) );
+                Log.Warning("Unable to create file! " + toCreate.FileName);
+                return null;
             }
-
-            missing.Lines = includingLanguageIdentifier;
-
-            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
-            return translationFileCreator.CopyExceptFileName( Path.Combine(_localizationFilePathGerman, Utility.ConvertLocalisationToGerman(missing.FileName)), missing );
+            Log.Information("Created file: " + toCreate.FileName);
+            return toCreate;
         }
 
         private bool RemoveTranslationFileIdentifier(Dictionary<int, LineObject> lines ) 
