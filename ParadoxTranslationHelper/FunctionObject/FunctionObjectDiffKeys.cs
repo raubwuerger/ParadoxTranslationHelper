@@ -176,6 +176,7 @@ namespace ParadoxTranslationHelper
                     if (onlyInToVerify.Count == 1 && onlyInOrg.Count == 1)
                     {
                         Log.Information("Change NestingString from " + onlyInToVerify[0] + " --> " + onlyInOrg[0] + ": Key: " + lineObject.Key);
+                        ChangeNestingString(correspondingLineObject, onlyInOrg[0]);
                         continue;
                     }
 
@@ -192,6 +193,31 @@ namespace ParadoxTranslationHelper
                     }
                 }
             }
+        }
+
+        private void ChangeNestingString( LineObject lineObject, string nestingStringToChange )
+        {
+            if( null == lineObject )
+            {
+                Log.Verbose("Parameter <LineObject::lineObject> must not be null!");
+                return;
+            }
+
+            if( false == lineObject.NestingStrings.Any() )
+            {
+                Log.Verbose("Parameter <LineObject::lineObject> has no nesting strings!");
+                return;
+            }
+
+            if ( true == string.IsNullOrEmpty(nestingStringToChange) ) 
+            {
+                Log.Verbose("Parameter <string::nestingStringToChange> must not be null or empty!");
+                return;
+            }
+
+            string nestingStringWrong = lineObject.NestingStrings[0];
+            lineObject.NestingStrings[0] = nestingStringToChange;
+            lineObject.OriginalLine = lineObject.OriginalLine.Replace(nestingStringWrong, nestingStringToChange);
         }
     }
 }

@@ -256,7 +256,8 @@ namespace ParadoxTranslationHelper.Utilities
             return lines.Find( x => x.Key == key );
         }
 
-        public static bool DiffNestingStringsTranslationFile(TranslationFile org, TranslationFile toVerify)
+        //TODO: 2025-06-12 - JHA - Wird anscheinend nicht mehr benötigt
+        private static bool DiffNestingStringsTranslationFile(TranslationFile org, TranslationFile toVerify)
         {
             if (org == null)
             {
