@@ -61,7 +61,6 @@ namespace ParadoxTranslationHelper
             }
 
             DiffNestingStrings(LocalisationFilesSteam, LocalisationFilesGerman);
-
 //            DiffKeys();
 
             return true;
@@ -176,7 +175,7 @@ namespace ParadoxTranslationHelper
                     if (onlyInToVerify.Count == 1 && onlyInOrg.Count == 1)
                     {
                         Log.Information("Change NestingString from " + onlyInToVerify[0] + " --> " + onlyInOrg[0] + ": Key: " + lineObject.Key);
-                        ChangeNestingString(correspondingLineObject, onlyInOrg[0]);
+                        ChangeNestingString(onlyInToVerify[0], correspondingLineObject, onlyInOrg[0]);
                         continue;
                     }
 
@@ -192,10 +191,12 @@ namespace ParadoxTranslationHelper
                         continue;
                     }
                 }
+
+                FileUtility.Write(correspondingTranslationFile);
             }
         }
 
-        private void ChangeNestingString( LineObject lineObject, string nestingStringToChange )
+        private void ChangeNestingString( string nestingStringWrong, LineObject lineObject, string nestingStringToChange )
         {
             if( null == lineObject )
             {
@@ -215,9 +216,23 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
-            string nestingStringWrong = lineObject.NestingStrings[0];
-            lineObject.NestingStrings[0] = nestingStringToChange;
-            lineObject.OriginalLine = lineObject.OriginalLine.Replace(nestingStringWrong, nestingStringToChange);
+            if (true == string.IsNullOrEmpty(nestingStringWrong))
+            {
+                Log.Verbose("Parameter <string::nestingStringWrong> must not be null or empty!");
+                return;
+            }
+
+            //TODO: 2025-06-12 - JHA - In separate Funktion auslagern
+            //TODO: 2025-06-12 - JHA - Fehler: Wenn mehrere nestringStrings in der falschen Reihenfolge vorhanden sind wird das nicht erkannt.
+            int indexOfWring = lineObject.NestingStrings.IndexOf(nestingStringWrong);
+            if( indexOfWring == -1 )
+            {
+                Log.Verbose("Parameter <string::nestingStringWrong> not found in NestingString: " +string.Join(", ", lineObject.NestingStrings));
+                return;
+            }
+            lineObject.NestingStrings[indexOfWring] = nestingStringToChange;
+            lineObject.OriginalLine = lineObject.OriginalLine.Replace(StringParserFactory.NESTING_STRINGS_START +nestingStringWrong + StringParserFactory.NESTING_STRINGS_END, StringParserFactory.NESTING_STRINGS_START +nestingStringToChange + StringParserFactory.NESTING_STRINGS_END);
+            Log.Information("Changed nesting string from " + nestingStringWrong + " to " + nestingStringToChange);
         }
     }
 }
