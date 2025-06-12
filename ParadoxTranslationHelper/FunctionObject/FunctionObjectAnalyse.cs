@@ -181,13 +181,13 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            LineObject lineObject = lineObjects.Find(y => y.Key.Equals(x.Value.Key));
+            LineObject lineObject = lineObjects.Find(y => y.Key.Equals(x.Value.Key, StringComparison.CurrentCultureIgnoreCase));
             if (lineObject != null)
             {
                 return false;
             }
 
-            LineObject keyInGerman = keysGerman.Values.ToList().Find(z => z.Key.Equals(x.Key));
+            LineObject keyInGerman = keysGerman.Values.ToList().Find(z => z.Key.Equals(x.Key, StringComparison.CurrentCultureIgnoreCase));
             if( keyInGerman == null)
             {
                 return false;
@@ -234,7 +234,7 @@ namespace ParadoxTranslationHelper
             (
                 item =>
                 {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName))
+                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
                     {
                         translationFileName = item.TranslationFile.FileName;
                         Log.Information(translationFileName);
@@ -248,7 +248,7 @@ namespace ParadoxTranslationHelper
             (
                 item =>
                 {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName))
+                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
                     {
                         translationFileName = item.TranslationFile.FileName;
                         Log.Information(translationFileName);
@@ -296,7 +296,7 @@ namespace ParadoxTranslationHelper
             (
                 item =>
                 {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName))
+                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
                     {
                         translationFileName = item.TranslationFile.FileName;
                         Log.Information(translationFileName);
@@ -310,7 +310,7 @@ namespace ParadoxTranslationHelper
             (
                 item =>
                 {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName))
+                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
                     {
                         translationFileName = item.TranslationFile.FileName;
                         Log.Information(translationFileName);

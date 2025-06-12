@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using Serilog;
 using System.Linq;
+using ParadoxTranslationHelper.Comparator;
+using System.IO;
 
 namespace ParadoxTranslationHelper
 {
@@ -35,12 +37,12 @@ namespace ParadoxTranslationHelper
             }
 
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
-            if( LocalisationFilesGerman == null )
+            if (LocalisationFilesGerman == null)
             {
                 return false;
             }
 
-            if( LocalisationFilesGerman.Count == 0 )
+            if (LocalisationFilesGerman.Count == 0)
             {
                 Log.Verbose("Path contains no files:" + _localizationFilePathGerman);
                 return false;
@@ -58,22 +60,24 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            DiffKeys();
+            DiffNestingStrings(LocalisationFilesSteam, LocalisationFilesGerman);
+
+//            DiffKeys();
 
             return true;
         }
 
-        private void DiffKeys() 
+        private void DiffKeys()
         {
-           foreach( TranslationFile translationFile in LocalisationFilesSteam ) 
-           {
+            foreach (TranslationFile translationFile in LocalisationFilesSteam)
+            {
                 DiffKeys(translationFile, FunctionUtility.FindCorrespondingTranslationFile(LocalisationFilesGerman, translationFile));
-           }
+            }
         }
 
-        private void DiffKeys( TranslationFile org, TranslationFile toVerify )
+        private void DiffKeys(TranslationFile org, TranslationFile toVerify)
         {
-            if( org == null ) 
+            if (org == null)
             {
                 Log.Verbose("Parameter <org> must not be null!");
                 return;
@@ -85,23 +89,21 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
-            DiffNestingStrings(org, toVerify);
-
-            foreach( LineObject line in org.Lines.Values.ToList() ) 
+            foreach (LineObject line in org.Lines.Values.ToList())
             {
                 if (false == line.HasKey())
                 {
                     continue;
                 }
 
-                if( false == DiffColorCodes(line, FunctionUtility.FindCorrespondingLineObject(toVerify.Lines.Values.ToList(), line)) )
+                if (false == DiffColorCodes(line, FunctionUtility.FindCorrespondingLineObject(toVerify.Lines.Values.ToList(), line)))
                 {
                     Log.Information("Key not found: " + line.Key);
                 }
             }
         }
 
-        private bool DiffColorCodes( LineObject org, LineObject toVerify )
+        private bool DiffColorCodes(LineObject org, LineObject toVerify)
         {
             if (org == null)
             {
@@ -115,12 +117,12 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            List<string> orgCopy = org.ColorCodes.ConvertAll( x => String.Copy(x) );
-            List<string> toVerifyCopy = toVerify.ColorCodes.ConvertAll( x => String.Copy(x) );
+            List<string> orgCopy = org.ColorCodes.ConvertAll(x => String.Copy(x));
+            List<string> toVerifyCopy = toVerify.ColorCodes.ConvertAll(x => String.Copy(x));
 
             foreach (string item in toVerify.ColorCodes)
             {
-                if( false == orgCopy.Contains(item) )
+                if (false == orgCopy.Contains(item))
                 {
                     continue;
                 }
@@ -128,12 +130,12 @@ namespace ParadoxTranslationHelper
                 toVerifyCopy.Remove(item);
             }
 
-            if( orgCopy.Count > 0 ) 
+            if (orgCopy.Count > 0)
             {
-                Log.Information(LoggerConstants.MAP_DIFF_COLOR_CODES +" ColorCodes not found in toVerify: " + org.Key + ": " + string.Join(",", orgCopy));
+                Log.Information(LoggerConstants.MAP_DIFF_COLOR_CODES + " ColorCodes not found in toVerify: " + org.Key + ": " + string.Join(",", orgCopy));
             }
 
-            if( toVerifyCopy.Count > 0 ) 
+            if (toVerifyCopy.Count > 0)
             {
                 Log.Information(LoggerConstants.MAP_DIFF_COLOR_CODES + " ColorCodes wrong in toVerify: " + toVerify.Key + ": " + string.Join(",", toVerifyCopy));
             }
@@ -141,47 +143,55 @@ namespace ParadoxTranslationHelper
             return true;
         }
 
-        private bool DiffNestingStrings( TranslationFile org, TranslationFile toVerify )
+        private void DiffNestingStrings(List<TranslationFile> org, List<TranslationFile> toVerify)
         {
-            if( org ==  null )
+            ComparatorNestedString comparatorNestedString = new ComparatorNestedString();
+            foreach (TranslationFile file in org)
             {
-                Log.Verbose("Parameter <org> must not be null!");
-                return false;
-            }
-
-            Log.Information("Analyzing file: " + org.FileName);
-
-            if (org.Lines.Count() == 0 )
-            {
-                Log.Verbose("Parameter <org> contains no Line-Objects!");
-                return false;
-            }
-
-            if ( toVerify == null ) 
-            {
-                Log.Verbose("Parameter <toVerify> must not be null!");
-                return false;
-            }
-
-            if (toVerify.Lines.Count() == 0)
-            {
-                Log.Verbose("Parameter <toVerify> contains no Line-Objects!");
-                return false;
-            }
-
-            foreach( LineObject line in org.Lines.Values ) 
-            {
-//                FindLineObjectByKey(line.Key, toVerify.Lines.Values );
-            }
-
-            return false;
-        }
-
-        /*        private LineObject? FindLineObjectByKey( string key, List<LineObject> lines ) 
+                TranslationFile correspondingTranslationFile = FunctionUtility.FindCorrespondingTranslationFile(toVerify, file);
+                if (correspondingTranslationFile == null)
                 {
-                    var lineValues = lines.Values;
-        //            LineObject found = lineValues. .Find( x => x.Key == key );
-                    return null;
-                }*/
+                    Log.Warning("### Corresponding translation file not found!");
+                    continue;
+                }
+
+                List<LineObject> lineObjects = file.Lines.Values.ToList<LineObject>();
+                foreach (LineObject lineObject in lineObjects)
+                {
+                    LineObject correspondingLineObject = FunctionUtility.FindCorrespondingLineObject(correspondingTranslationFile.Lines.Values.ToList<LineObject>(), lineObject);
+                    if (correspondingLineObject == null)
+                    {
+                        Log.Verbose("Corresponding LineObject not found! " + lineObject.ToString());
+                        continue;
+                    }
+                    comparatorNestedString.Compare(lineObject.NestingStrings, correspondingLineObject.NestingStrings);
+                    if (true == comparatorNestedString.Ok())
+                    {
+                        continue;
+                    }
+
+                    List<string> onlyInToVerify = comparatorNestedString.OnlyInToVerify;
+                    List<string> onlyInOrg = comparatorNestedString.OnlyInOrg;
+
+                    if (onlyInToVerify.Count == 1 && onlyInOrg.Count == 1)
+                    {
+                        Log.Information("Change NestingString from " + onlyInToVerify[0] + " --> " + onlyInOrg[0] + ": Key: " + lineObject.Key);
+                        continue;
+                    }
+
+                    if( onlyInOrg.Count > onlyInToVerify.Count )
+                    {
+                        Log.Information("Missing in translation: " + string.Join(", ", onlyInOrg) +": Key: " + lineObject.Key);
+                        continue;
+                    }
+
+                    if (onlyInOrg.Count < onlyInToVerify.Count)
+                    {
+                        Log.Information("Unnecessary (to delete): " + string.Join(", ", onlyInOrg) + ": Key: " + lineObject.Key);
+                        continue;
+                    }
+                }
+            }
+        }
     }
 }

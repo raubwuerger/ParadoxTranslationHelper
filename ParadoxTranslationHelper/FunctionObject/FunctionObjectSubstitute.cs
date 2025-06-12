@@ -56,7 +56,7 @@ namespace ParadoxTranslationHelper
             TranslationFile toRemove;
             try
             {
-                toRemove = LocalisationFilesGerman.First(x => x.FileNameWithoutLocalisation.Equals(_translationFileToIgnore));
+                toRemove = LocalisationFilesGerman.First(x => x.FileNameWithoutLocalisation.Equals(_translationFileToIgnore, StringComparison.CurrentCultureIgnoreCase));
             }
             catch (Exception ex)
             {

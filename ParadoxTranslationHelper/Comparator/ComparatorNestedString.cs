@@ -20,6 +20,13 @@ namespace ParadoxTranslationHelper.Comparator
         {
             get { return _onlyInToVerify; }
         }
+
+        private void InitLists(List<string> org, List<string> toVerify)
+        {
+            _onlyInOrg = org;
+            _onlyInToVerify = toVerify;
+        }
+
         public void Compare(List<string> org, List<string> toVerify)
         {
             _onlyInOrg = null;
@@ -39,19 +46,20 @@ namespace ParadoxTranslationHelper.Comparator
 
             if (org.Count() == 0 && toVerify.Count() == 0)
             {
-                _onlyInOrg = org;
-                _onlyInToVerify = toVerify;
+                InitLists(org, toVerify);
                 return;
             }
 
             if (toVerify.Count() == 0)
             {
+                InitLists(org, toVerify);
                 Log.Verbose("Parameter <List<string>::toVerify> must not be empty!");
                 return;
             }
 
             if (org.Count() == 0)
             {
+                InitLists(org, toVerify);
                 Log.Verbose("Parameter <List<string>::org> must not be empty!");
                 return;
             }
@@ -84,7 +92,7 @@ namespace ParadoxTranslationHelper.Comparator
                 return true;
             }
 
-            //TODO: 2025-06-12 - JHA - Is this realy neccessary?
+            //TODO: 2025-06-12 - JHA - Is it really necessary?
             return Enumerable.SequenceEqual(_onlyInOrg, _onlyInToVerify);
         }
     }

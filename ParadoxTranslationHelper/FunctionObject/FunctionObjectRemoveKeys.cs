@@ -176,7 +176,7 @@ namespace ParadoxTranslationHelper
                 KeyValuePair<int, LineObject> found;
                 try
                 {
-                    found = originalWithRemovedKeys.Lines.First(KeyValuePair => KeyValuePair.Value.Key.Equals(line.Value.Key));
+                    found = originalWithRemovedKeys.Lines.First(KeyValuePair => KeyValuePair.Value.Key.Equals(line.Value.Key, StringComparison.CurrentCultureIgnoreCase));
                 }
                 catch (Exception ex)
                 {
@@ -191,7 +191,7 @@ namespace ParadoxTranslationHelper
 
         private TranslationFile FindFileByNameWithoutLocalosation(string fileNameWithoutLocalisation)
         {
-            return LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(fileNameWithoutLocalisation));
+            return LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(fileNameWithoutLocalisation, StringComparison.CurrentCultureIgnoreCase));
         }
 
         private void WriteOriginalWithoutKeysToDelete(TranslationFile translationFile)

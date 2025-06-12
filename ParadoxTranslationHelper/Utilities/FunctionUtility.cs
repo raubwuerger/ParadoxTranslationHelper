@@ -169,7 +169,16 @@ namespace ParadoxTranslationHelper.Utilities
 
             try
             {
-                return translationFiles.Find(x => x.FileNameWithoutLocalisation.Equals(toFind.FileNameWithoutLocalisation));
+                TranslationFile translationFile = translationFiles.Find(x => x.FileNameWithoutLocalisation.Equals(toFind.FileNameWithoutLocalisation,StringComparison.CurrentCultureIgnoreCase));
+                if ( null == translationFile)
+                {
+                    Log.Warning("### Corresponding translation file not found: " + toFind.FileName);
+                }
+                else 
+                {
+                    Log.Information("### Corresponding translation file found: " + toFind.FileName +" --> " + translationFile.FileName);
+                }
+                return translationFile;
             }
             catch (Exception ex) 
             { 

@@ -1,5 +1,6 @@
 ﻿using ParadoxTranslationHelper.Utilities;
 using Serilog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -129,7 +130,7 @@ namespace ParadoxTranslationHelper
             List<TranslationFile> updatedFiles = new List<TranslationFile>();
             foreach (TranslationFile translationFile in missingKeysToInsert)
             {
-                TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
+                TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation, StringComparison.CurrentCultureIgnoreCase));
                 if (translationKeysToInsert == null)
                 {
                     Log.Warning("File to insert not found! " + translationFile.FileName);
