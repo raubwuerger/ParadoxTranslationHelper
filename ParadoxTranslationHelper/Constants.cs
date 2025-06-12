@@ -11,10 +11,12 @@ namespace ParadoxTranslationHelper
         public const string CONFIG = @".\ParadoxTranslationHelper.xml";
 
         public const string LOCALISATION_ENGLISH_FULL = "_l_english";
+        public const string LOCALISATION_ENGLISH_FULL_I = "_i_english";
         public const string LOCALISATION_ENGLISH_FILE_IDENTIFIER = "l_english:";
         public const string LOCALISATION_ENGLISH = "english";
 
         public const string LOCALISATION_GERMAN_FULL = "_l_german";
+        public const string LOCALISATION_GERMAN_FULL_I = "_i_german";
         public const string LOCALISATION_GERMAN_FILE_IDENTIFIER = "l_german:";
         public const string LOCALISATION_GERMAN = "german";
 

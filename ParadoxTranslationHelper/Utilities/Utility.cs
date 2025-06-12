@@ -185,7 +185,7 @@ namespace ParadoxTranslationHelper
             }
 
             string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
-            if( fileName.Equals(Path.GetFileNameWithoutExtension(fileName)) )
+            if( fileName.Equals(Path.GetFileNameWithoutExtension(fileName), StringComparison.CurrentCultureIgnoreCase) )
             {
                 return fileNameWithoutExtension;
             }
@@ -196,8 +196,10 @@ namespace ParadoxTranslationHelper
         public static string CreateFileNameWithoutLocalisation(string fileName)
         {
             string fileNameOnly = Path.GetFileNameWithoutExtension(fileName);
-            fileNameOnly = fileNameOnly.Replace(Constants.LOCALISATION_GERMAN_FULL,"");
-            fileNameOnly = fileNameOnly.Replace(Constants.LOCALISATION_ENGLISH_FULL, "");
+            fileNameOnly = fileNameOnly.Replace(Constants.LOCALISATION_GERMAN_FULL,"", StringComparison.OrdinalIgnoreCase);
+            fileNameOnly = fileNameOnly.Replace(Constants.LOCALISATION_GERMAN_FULL_I, "", StringComparison.OrdinalIgnoreCase);
+            fileNameOnly = fileNameOnly.Replace(Constants.LOCALISATION_ENGLISH_FULL, "", StringComparison.OrdinalIgnoreCase);
+            fileNameOnly = fileNameOnly.Replace(Constants.LOCALISATION_ENGLISH_FULL_I, "", StringComparison.OrdinalIgnoreCase);
             return fileNameOnly;
         }
 
