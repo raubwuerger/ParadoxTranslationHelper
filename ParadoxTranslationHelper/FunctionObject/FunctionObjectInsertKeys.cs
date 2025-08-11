@@ -139,6 +139,7 @@ namespace ParadoxTranslationHelper
                     {
                         continue;
                     }
+                    AddMissingTranslationKeys(translationKeysToInsert, translationFile.Lines);
                 }
                 updatedFiles.Add(InsertInto(translationKeysToInsert, translationFile));
             }
@@ -152,7 +153,7 @@ namespace ParadoxTranslationHelper
             string filePath = Path.Combine(_localizationFilePathGerman, fileNameOnly.Replace(Constants.LOCALISATION_ENGLISH_FULL, Constants.LOCALISATION_GERMAN_FULL));
             TranslationFile toCreate = TranslationFileCreator.CreateEmpty(filePath);
             toCreate.Lines.Add( 0, LineObjectCreator.CreateLineObjectLanguageIdentifierGerman());
-            if( false == FileUtility.Write(toCreate) )
+            if ( false == FileUtility.Write(toCreate) )
             {
                 Log.Warning("Unable to create file! " + toCreate.FileName);
                 return null;
@@ -161,6 +162,23 @@ namespace ParadoxTranslationHelper
             return toCreate;
         }
 
+        private void AddMissingTranslationKeys(TranslationFile translationKeysToInsert, Dictionary<int, LineObject> lines )
+        {
+            if( null == translationKeysToInsert )
+            {
+                return;
+            }
+            
+            if( lines == null )
+            {
+                return;
+            }
+
+            foreach( KeyValuePair<int,LineObject> keyValuePair in lines )
+            {
+                translationKeysToInsert.Lines.Add(keyValuePair.Key, new LineObject(keyValuePair.Value.LineNumber + 1, keyValuePair.Value));
+            }
+        }
         private bool RemoveTranslationFileIdentifier(Dictionary<int, LineObject> lines ) 
         {
             if(lines == null )

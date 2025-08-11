@@ -118,9 +118,11 @@ namespace ParadoxTranslationHelper.Utilities
                         outputFile.WriteLine(Utility.GetSubstitutedLineTabbed(line));
                     }
                 }
+                Log.Verbose("Writing file: " + fileName + " successful.");
             }
             catch (Exception ex)
             {
+                Log.Warning("Writing file: " + fileName + " failed!");
                 Log.Fatal(ex.ToString());
             }
         }
