@@ -53,23 +53,19 @@ namespace ParadoxTranslationHelper.FunctionObject
             LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_pathSteam);
             if (null == LocalisationFilesSteam)
             {
-                Log.Verbose("Steam path not set!");
+                Log.Warning("Steam path not set! " + _pathSteam);
                 return false;
             }
 
-            if( LocalisationFilesSteam.Count == 0 )
+            Log.Information("Parsing directory: " + _pathSteam);
+            if ( LocalisationFilesSteam.Count == 0 )
             {
-                Log.Verbose("Steam path contains no files: " + _pathSteam);
+                Log.Warning("Steam path contains no files: " + _pathSteam);
                 return false;
             }
 
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
             if( null == LocalisationFilesGerman )
-            {
-                return false;
-            }
-
-            if (LocalisationFilesGerman.Count == 0)
             {
                 return false;
             }

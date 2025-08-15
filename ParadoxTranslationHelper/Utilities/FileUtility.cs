@@ -27,9 +27,10 @@ namespace ParadoxTranslationHelper.Utilities
             if (files.Length <= 0)
             {
                 Log.Verbose("Directory contains no files: " + directory);
-                return null;
+                return new List<TranslationFile>();
             }
 
+            Log.Verbose("Parsing directory: " + directory);
             List<TranslationFile> translationFiles = new List<TranslationFile>();
 
             foreach (string file in files)

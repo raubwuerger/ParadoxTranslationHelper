@@ -248,13 +248,13 @@ namespace ParadoxTranslationHelper
             if (null == translationFiles)
             {
                 Log.Verbose("Parameter <translationFiles> must not be null!");
-                return null;
+                return new Dictionary<string, LineObject>();
             }
 
             if (false == translationFiles.Any())
             {
                 Log.Verbose("Parameter <translationFiles> must not be empty!");
-                return null;
+                return new Dictionary<string, LineObject>();
             }
 
             Dictionary<string, LineObject> keys = new Dictionary<string, LineObject>();
