@@ -18,6 +18,12 @@
       <german>german</german>
       <steam>D:\Spiele\SteamLibrary\steamapps\workshop\content\281990\1886496498\localisation\english</steam>
     </Mod>
+    <Mod name="HoI4_RoadTo56-Expanded">
+      <basePath>C:\Projects\Hearts-of-Iron-IV_RoadTo56_Expanded\000000000\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>D:\Spiele\SteamLibrary\steamapps\workshop\content\394360\3506850939\localisation\english</steam>
+    </Mod>
     <Mod name="DIFF_FILES">
       <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\DiffFiles</basePath>
       <english>english</english>
