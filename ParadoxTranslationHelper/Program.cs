@@ -50,26 +50,29 @@ namespace ParadoxTranslationHelper
             Console.WriteLine(text + Environment.NewLine);
             Console.WriteLine("args[0] == mod name");
             Console.WriteLine("args[1] == function");
-            Console.WriteLine(Environment.NewLine);
-            Console.WriteLine("Registered functions");
-            Console.WriteLine(FunctionTypes.Analyse);
-            Console.WriteLine(FunctionTypes.DiffFiles);
-            Console.WriteLine(FunctionTypes.DiffKeys);
-            Console.WriteLine(FunctionTypes.RemoveKeys);
-            Console.WriteLine(FunctionTypes.Sub);
-            Console.WriteLine(FunctionTypes.Resub);
-            Console.WriteLine(FunctionTypes.Insert);
-            Console.WriteLine(FunctionTypes.CheckForDoubleKeys);
-            Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFiles);
-            Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFilesFix);
-            Console.WriteLine("");
 
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Known mods (ParadoxTranslationHelper.xml): ");
             foreach (DataSetMod dataSetMod in ModSelector.ModList)
             {
-                Console.WriteLine( dataSetMod.Name);
+                Console.WriteLine(dataSetMod.Name);
             }
+
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Registered functions");
+            Console.WriteLine("----- RECOMMENDED STEPS -----");
+            Console.WriteLine(FunctionTypes.DiffFiles);
+            Console.WriteLine(FunctionTypes.RemoveKeys);
+            Console.WriteLine(FunctionTypes.Sub);
+            Console.WriteLine(FunctionTypes.Resub);
+            Console.WriteLine(FunctionTypes.Insert);
+            Console.WriteLine("----- ADDITIONAL STEPS ------");
+            Console.WriteLine(FunctionTypes.Analyse);
+            Console.WriteLine(FunctionTypes.DiffKeys);
+            Console.WriteLine(FunctionTypes.CheckForDoubleKeys);
+            Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFiles);
+            Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFilesFix);
+
             Console.WriteLine(Environment.NewLine);
         }
 
