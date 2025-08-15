@@ -78,6 +78,11 @@ namespace ParadoxTranslationHelper
                 return lineObject.OriginalLineSubstituted;
             }
 
+            if ( true == lineObject.OriginalLineSubstituted.Contains(Constants.SIGN_TAB) )
+            {
+                return lineObject.OriginalLineSubstituted;
+            }
+
             int indexOfKay = lineObject.OriginalLineSubstituted.IndexOf(lineObject.Key);
             int endOfKey = indexOfKay +lineObject.Key.Length;
 
@@ -89,7 +94,7 @@ namespace ParadoxTranslationHelper
 
             StringBuilder sb = new StringBuilder();
             sb.Append(lineObject.Key);
-            sb.Append("\t");
+            sb.Append(Constants.SIGN_TAB);
             sb.Append(lineObject.OriginalLineSubstituted.Substring(endOfKey));
             lineObject.OriginalLineSubstituted = sb.ToString();
 
