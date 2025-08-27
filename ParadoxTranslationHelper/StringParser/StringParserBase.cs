@@ -23,6 +23,12 @@ namespace ParadoxTranslationHelper
         private List<string> _lineIgnores = new List<string>() { };
         public List<string> LineIgnores { get => _lineIgnores; set => _lineIgnores = value; }
 
+        private bool _endOfLineIsEndTag = false;
+        public bool EndOfLineIsEndTag
+        {
+            get { return _endOfLineIsEndTag; }
+            set { _endOfLineIsEndTag = value; }
+        }
         abstract public List<string> GetToken(string source, List<string> tokens);
 
         protected bool IsValid()

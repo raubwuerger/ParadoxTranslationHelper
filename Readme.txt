@@ -9,7 +9,7 @@
 					->	_SteamKeysToCreate.yml.IC -> Datei mit den Icon-Substitutionen (___IC1___;£decision_icon_small;NZL_reward_decision_tt:;513)
 					->	_SteamKeysToCreate.yml.NE -> Datei mit den NestedString-Substitutionen (___NE1___;$excavation3$;PER_resource_industry_incompetence_desc:;32)
 					->	_SteamKeysToCreate.yml.NS -> Datei mit den NameSpace-Substitutionen (___NS1___;[AUS.GetNameDefCap];AUS_integrated_military_desc:0;4)
-						Die Datei _SteamKeysToCreate.yml.sub in Excel einfügen, Die Übersetzung in der Datei _SteamKeysToCreate.yml.sub.german abspeichern
+						Die Datei _SteamKeysToCreate.yml.sub in Excel einfügen, Die Übersetzung (Spalte D) in der Datei _SteamKeysToCreate.yml.sub.german abspeichern
  - RESUB:			->	In die Datei _SteamKeysToCreate.yml.sub.german werden die Substitutionen wieder zurückübersetzt. Es wird eine Datei _SteamKeysToCreate.yml.sub.german.resub erstellt
  - INSERT:			->	Fügt die übersetzten Strings in die jeweiligen Dateien ein, legt von den Originaldateien eine Kopie an. Nicht vorhandene Datei werden neu erstellt. (Codierung UTF-8 BOM)
 
