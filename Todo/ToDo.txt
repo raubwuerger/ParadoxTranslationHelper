@@ -1,2 +1,4 @@
-2025-08-27 - JHA - Insert prüft nicht ob der einzufügende Key bereits vorhanden ist -> Mehrfache INSERT -> mehrfache Keys
+2025-08-27 - JHA - INSERT prüft nicht ob der einzufügende Key bereits vorhanden ist -> Mehrfache INSERT -> mehrfache Keys
+2025-08-27 - JHA - Jede Datei auf Duplikate prüfen. CHECK_DUPLICATES_FILE
+2025-08-27 - JHA - Die ganzen Üübersetzungsdateien auf Duplikate prüfen
 2025-08-27 - JHA - Da das Symbol für Icon (£) kein Ende-Tag hat, werden Symbole die eine Linie abschließen nicht als solche erkannt. -> Hack hinter jedes Icon, welches am Ende einer Linie ist ein Leerzeichen einfügen
