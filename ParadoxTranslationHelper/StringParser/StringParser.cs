@@ -35,6 +35,11 @@ namespace ParadoxTranslationHelper
 
                     if (false == subString.Contains(endTag))
                     {
+                        /**                        if( false == IsEndOfLine( string, ) )
+                                                {
+                                                    continue;
+                                                }
+*/
                         continue;
                     }
                     int endPos = source.IndexOf(endTag, startIndex + StartTag.Length);
@@ -61,7 +66,7 @@ namespace ParadoxTranslationHelper
                 }
                 catch( Exception ex) 
                 {
-                    Log.Error(ex.Message, ex);
+                    Log.Error( source +" -> " +ex.Message, ex);
                     return new List<string>();
                 }
             }

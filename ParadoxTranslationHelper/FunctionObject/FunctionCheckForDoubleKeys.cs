@@ -117,7 +117,7 @@ namespace ParadoxTranslationHelper
 
                 if (keyLines.ContainsKey(line.Value.Key))
                 {
-                    doubleKeys.Add(line.Value.Key + ";" + line.Value.LineNumber);
+                    doubleKeys.Add(line.Value.Key + ";" + line.Value.LineNumber + ";" +line.Value.OriginalLine);
                     continue;
                 }
 

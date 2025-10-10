@@ -1,0 +1,5 @@
+2025-08-27 - JHA - INSERT prüft nicht ob der einzufügende Key bereits vorhanden ist -> Mehrfache INSERT -> mehrfache Keys
+2025-08-27 - JHA - Jede Datei auf Duplikate prüfen. REMOVE_DUPLICATES_FILE -> Wird über die Funktion CHECK_FOR_DOUBLE_KEYS abgebildet. Speichert die doppelten Keys (.txt) und die Korrigierten (.yaml) im Ordner analyse ab.
+2025-08-27 - JHA - Die ganzen Übersetzungsdateien auf Duplikate prüfen
+2025-08-27 - JHA - Da das Symbol für Icon (£) kein Ende-Tag hat, werden Symbole die eine Linie abschließen nicht als solche erkannt. -> Hack hinter jedes Icon, welches am Ende einer Linie ist ein Leerzeichen einfügen
+2025-08-28 - JHA - Funktion CHECK_FOR_DOUBLE_KEYS erzeugt keine Unterordner. /replace/equipment_l_german.yml wird jedesmal wieder analysiert.
