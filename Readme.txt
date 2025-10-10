@@ -1,6 +1,4 @@
 ﻿Ablauf Differenzübersetzung gegen Steamordner:
- - ANALYSE:			->	Vergleicht Keys aus dem Steamordner mit Keys aus dem lokalen Ordner
- - DIFF_KEYS:		->	Vergleicht Keys aus dem Steamordner mit Keys aus dem lokalen Ordner Datei für Datei
  - DIFF_FILES:		->	Erstellt Datei _SteamKeysToCreate.yml und _SteamKeysToDelete.yml im Verzeichnis analyse
 						Diese Datei auf korrekte strings prüfen ("" am Dateiende, ...)
  - REMOVE_KEYS:		->	Entfernt alle im Steam-Ordner nicht mehr vorhandenen Schlüeesl _SteamKeysToDelete.yml.sub
@@ -12,6 +10,10 @@
 						Die Datei _SteamKeysToCreate.yml.sub in Excel einfügen, Die Übersetzung in der Datei _SteamKeysToCreate.yml.sub.german abspeichern
  - RESUB:			->	In die Datei _SteamKeysToCreate.yml.sub.german werden die Substitutionen wieder zurückübersetzt. Es wird eine Datei _SteamKeysToCreate.yml.sub.german.resub erstellt
  - INSERT:			->	Fügt die übersetzten Strings in die jeweiligen Dateien ein, legt von den Originaldateien eine Kopie an. Nicht vorhandene Datei werden neu erstellt. (Codierung UTF-8 BOM)
+
+=========================================================================================================================================
+ - ANALYSE:			->	Vergleicht Keys aus dem Steamordner mit Keys aus dem lokalen Ordner
+ - DIFF_KEYS:		->	Vergleicht Keys aus dem Steamordner mit Keys aus dem lokalen Ordner Datei für Datei
 
 ToDo:
 	In der Datei _SteamKeysToCreate.yml.sub die Zeichen '#' maskieren/entfernen. Excel verschiebt sonst die Ende Anführungszeichen nach hinten.
