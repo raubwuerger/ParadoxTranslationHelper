@@ -1,0 +1,13 @@
+﻿l_english: 
+ #STNC_federation_story.2272.desc: "[Root.GetCaptainTitle] [Root.Leader.GetName] gives an open and honest explanation of their presence, including the importance of their unusual cargo. \n\nCaptain Ndoye is at first sceptical but is eventually persuaded, and a detailed scan of the [Root.GetFleetName] provides ample evidence that the story is true. \n\nShe states that the current year is 3188. The [Root.GetFleetName] has massively overshot their targetted temporal destination. \n\nBoth agree that the Temporal Prime Directive applies, and Ndoye cannot hinder [Root.GetCaptainTitle] [Root.Leader.GetName] since the risk of damage to the timeline would be too great. \n\nFrom this [Root.Leader.GetName] surmises that the [Root.GetFleetName] must ultimately succeed in its mission and, with confidence, the crew prepares to execute one last temporal slingshot manoeuvre."
+ accession_country_opinion_poor: "§HEmpire Opinion§! §R--§!"
+ accession_country_opinion_terrible: "§HEmpire Opinion§! §R-----§!" # Text to be truncated
+ STNC_galactic_features.3512.desc.kelvin_enterprise_deal: "    §YInformation of interest for 2,000 £latinum£§! \n"
+ STNC_galactic_features.3512.desc.kurlan_naiskos_deal: "    §Y$kurlan_naiskos$ for $@specimen_cost_epic|#0$ £latinum£§! \n"
+ STNC_galactic_features.3512.desc.le_troska_deal: "    §YInformation of archaeological interest for 1,200 £latinum£§! \n"
+ STNC_galactic_features.3512.desc.menthar_outpost_deal: "    §YInformation of archaeological interest for 1,000 £latinum£§! \n"
+ STNC_galactic_features.3512.desc.merculite_tech_deal: "    §YMerculite Missile weapon schematics for 1,000 £latinum£§! \n"
+ STNC_galactic_features.3512.desc.transtemporal_nullifier_deal: "    §YAntichroniton Artefact for 5,000 £latinum£§! \n"
+ STNC_galactic_features.3512.desc.varon_t_disruptor_deal: "    §Y$varon_t_disruptor$ for $@specimen_cost_epic|#0$ £latinum£§! \n"
+ STNC_galactic_features.3512.desc.varon_tech_deal: "    §YVaron Disruptor weapon schematics for 1,500 £latinum£§! \n"
+ STNC_galactic_features.3512.desc.veltan_lust_idol_deal: "    §Y$velta_lust_idol$ for $@specimen_cost_rare|#0$ £latinum£§! \n"

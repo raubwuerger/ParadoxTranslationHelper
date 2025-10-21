@@ -6,8 +6,8 @@
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup>
-	<AssemblyVersion>1.0.1.178</AssemblyVersion>
-	<FileVersion>1.0.1.178</FileVersion>
+	<AssemblyVersion>1.0.1.185</AssemblyVersion>
+	<FileVersion>1.0.1.185</FileVersion>
 </PropertyGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="ParadoxTranslationHelper_Test" />
