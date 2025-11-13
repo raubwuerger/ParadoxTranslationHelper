@@ -271,6 +271,38 @@ namespace ParadoxTranslationHelper
             return keys;
         }
 
+        public static string TruncateOriginalLine(LineObject lineObject, string line)
+        {
+            if (lineObject == null)
+            {
+                return line;
+            }
+
+            if (false == lineObject.HasKey())
+            {
+                return line;
+            }
+
+            return CheckForHASH_TAGatLineEnd(line);
+        }
+
+        private static string CheckForHASH_TAGatLineEnd( string line )
+        {
+            int lastIndex = line.LastIndexOf(Constants.SIGN_HASH_TAG);
+            if( lastIndex < 0 )
+            {
+                return line;
+            }
+
+            string substring = line.Substring(lastIndex);
+            if (substring.Contains(Constants.QUOTATION_MARKS))
+            {
+                return line;
+            }
+
+            return line.Substring(0, lastIndex);
+        }
+
     }
 
 }
