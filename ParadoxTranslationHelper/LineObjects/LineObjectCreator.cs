@@ -12,6 +12,8 @@ namespace ParadoxTranslationHelper
         public TranslationFile TranslationFile { get => _translationFile; set => _translationFile = value; }
         string _key = "";
         public string Key { get => _key; set => _key = value; }
+        string _keySubstituted = "";
+        public string KeySubstituted { get => _keySubstituted; set => _keySubstituted = value; }
         List<string> _nameSpace = new List<string>();
         public List<string> NameSpace { get => _nameSpace; set => _nameSpace = value; }
         List<string> _nestingStrings = new List<string>();
@@ -30,6 +32,7 @@ namespace ParadoxTranslationHelper
             LineObject lineObject = new LineObject(lineNumber);
             lineObject.TranslationFile = _translationFile;
             lineObject.Key = _key;
+            lineObject.KeySubstituted = _keySubstituted;
             lineObject.NameSpaces = _nameSpace;
             lineObject.NestingStrings = _nestingStrings;
             lineObject.ColorCodes = _colorCodes;
@@ -44,6 +47,7 @@ namespace ParadoxTranslationHelper
         private void CleanUp()
         {
             _key = "";
+            _keySubstituted = "";
             _nameSpace = new List<string>();
             _nestingStrings = new List<string>();
             _colorCodes = new List<string>();

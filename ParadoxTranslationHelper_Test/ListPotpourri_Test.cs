@@ -113,5 +113,22 @@ namespace ParadoxTranslationHelper_Test
             List<string> inSecondOnly = listItemsAB.Except(listItemsA).ToList<string>();
             Assert.AreEqual(list_A_except_AB, inSecondOnly);
         }
+
+        [TestMethod]
+        public void TestIndexOf()
+        {
+            {
+                string toTest = "sdsdsd";
+                int index = toTest.IndexOf('x');
+                Assert.AreEqual(-1, index);
+            }
+
+            {
+                string toTestReal = @" ETH_recall_balco_safo_decision:0 ""Recall $ETH_balcho_safo$ from retirement""";
+                int index = toTestReal.IndexOf('"');
+                string key = toTestReal.Substring(0, index);
+                Assert.IsTrue(index != -1);
+            }
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace ParadoxTranslationHelper
         int _lineNumber;
         TranslationFile _translationFile;
         string _key;
+        string _keySubstituted;
         string _originalLine;
         string _originalLineSubstituted;
         List<string> _nameSpaces = new List<string>();
@@ -29,6 +30,7 @@ namespace ParadoxTranslationHelper
             this._lineNumber = lineObject.LineNumber;
             this._translationFile = lineObject.TranslationFile;
             this._key = lineObject.Key;
+            this._keySubstituted = lineObject._keySubstituted;
             this._originalLine = lineObject.OriginalLine;
             this._originalLineSubstituted = lineObject.OriginalLineSubstituted;
             this._nameSpaces = new List<string>(lineObject.NameSpaces);
@@ -49,11 +51,13 @@ namespace ParadoxTranslationHelper
             CopyEverythingExceptLineNumber(lineObject);
         }
 
+        //TODO: 2025-11-14 - JHA - Extract Method anwenden
         private void CopyEverythingExceptLineNumber(LineObject lineObject)
         {
             if (lineObject == null) 
             {
                 Key = null;
+                KeySubstituted = null;
                 TranslationFile = null;
                 NameSpaces = null;
                 NestingStrings = null;
@@ -66,6 +70,7 @@ namespace ParadoxTranslationHelper
             else 
             {
                 Key = lineObject.Key;
+                KeySubstituted = lineObject._keySubstituted;
                 TranslationFile = lineObject.TranslationFile;
                 NameSpaces = lineObject.NameSpaces;
                 NestingStrings = lineObject.NestingStrings;
@@ -81,6 +86,7 @@ namespace ParadoxTranslationHelper
 
         public int LineNumber { get => _lineNumber; }
         public string Key { get => _key; set => _key = value; }
+        public string KeySubstituted { get => _keySubstituted; set => _keySubstituted = value; }
         public TranslationFile TranslationFile { get => _translationFile; set => _translationFile = value; }
         public List<string> NameSpaces { get => _nameSpaces; set => _nameSpaces = value; }
         public List<string> NestingStrings { get => _nestingStrings; set => _nestingStrings = value; }

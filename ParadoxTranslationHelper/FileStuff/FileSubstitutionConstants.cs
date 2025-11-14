@@ -32,6 +32,8 @@ namespace ParadoxTranslationHelper
         public static string NEW_LINE_SIGN_START = StringParserFactory.NEW_LINE_START;
         public static string NEW_LINE_SIGN_END = StringParserFactory.NEW_LINE_END;
 
+        public static string KEY_SUFFIX = "KEY";
+
         public static string FILE_SUFFIX_SUBSTITUTED = ".sub";
         public static string FILE_SUFFIX_RESUBSTITUTED = ".resub";
 

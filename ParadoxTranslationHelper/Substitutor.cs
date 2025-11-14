@@ -3,15 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Serilog;
+using System.Diagnostics;
 
 namespace ParadoxTranslationHelper
 {
     internal class Substitutor
     {
-        private Dictionary<string, string> _nestingStringsSubstitute = new Dictionary<string, string>(); //ulong substitute number, string original text
-        private Dictionary<string, string> _colorCodeSubstitute = new Dictionary<string, string>(); //ulong substitute number, string original text
-        private Dictionary<string, string> _namespaceSubstitute = new Dictionary<string, string>(); //ulong substitute number, string original text
-        private Dictionary<string, string> _iconSubstitute = new Dictionary<string, string>(); //ulong substitute number, string original text
+        private Dictionary<string, string> _keySubstitute = new Dictionary<string, string>();
+        private Dictionary<string, string> _nestingStringsSubstitute = new Dictionary<string, string>();
+        private Dictionary<string, string> _colorCodeSubstitute = new Dictionary<string, string>();
+        private Dictionary<string, string> _namespaceSubstitute = new Dictionary<string, string>();
+        private Dictionary<string, string> _iconSubstitute = new Dictionary<string, string>();
         FileWriterSubstitutionItem fileWriterSubstitutionItem = new FileWriterSubstitutionItem();
 
         public bool Substitute(TranslationFile translationFile)
@@ -23,10 +25,11 @@ namespace ParadoxTranslationHelper
 
             Log.Information("Substituting file: " + translationFile.FileName);
             Substitute(translationFile.Lines.Values.ToList());
-            Log.Information("Substituted nesting strings : " + _nestingStringsSubstitute.Count);
-            Log.Information("Substituted color codes : " + _colorCodeSubstitute.Count);
-            Log.Information("Substituted name spaces : " + _namespaceSubstitute.Count);
-            Log.Information("Substituted icons : " + _iconSubstitute.Count);
+            Log.Information($"Substituted keys: {_keySubstitute.Count}");
+            Log.Information($"Substituted nesting strings: {_nestingStringsSubstitute.Count}");
+            Log.Information($"Substituted color codes: {_colorCodeSubstitute.Count}");
+            Log.Information($"Substituted name spaces: {_namespaceSubstitute.Count}");
+            Log.Information($"Substituted icons: {_iconSubstitute.Count}");
 
             WriteSubstitionFiles(translationFile);
             return true;
@@ -40,6 +43,9 @@ namespace ParadoxTranslationHelper
             fileWriterSubstitutionItem.FileSuffix = "";
             WriteSubstitionFile(translationFile, replacedPath + FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED);
 
+            fileWriterSubstitutionItem.FileSuffix = "." + FileSubstitutionConstants.KEY_SUFFIX;
+            WriteSubstitionFile(_keySubstitute);
+
             fileWriterSubstitutionItem.FileSuffix = "." + FileSubstitutionConstants.NESTING_STRING_SUFFIX;
             WriteSubstitionFile(_nestingStringsSubstitute);
 
@@ -52,7 +58,7 @@ namespace ParadoxTranslationHelper
             fileWriterSubstitutionItem.FileSuffix = "." + FileSubstitutionConstants.ICON_SUFFIX;
             WriteSubstitionFile(_iconSubstitute);
 
-            Log.Information("Overall items substituted: " + (_nestingStringsSubstitute.Count + _colorCodeSubstitute.Count + _namespaceSubstitute.Count + _iconSubstitute.Count));
+            Log.Information($"Overall items substituted: {(_keySubstitute.Count + _nestingStringsSubstitute.Count + _colorCodeSubstitute.Count + _namespaceSubstitute.Count + _iconSubstitute.Count)}");
 
 
 
@@ -75,6 +81,7 @@ namespace ParadoxTranslationHelper
 
             foreach (var lineObject in lineObjects)
             {
+                SubstituteKey(lineObject);
                 SubstituteNestingString(lineObject);
                 SubstituteNamespace(lineObject);
                 SubstituteIcon(lineObject);
@@ -82,6 +89,18 @@ namespace ParadoxTranslationHelper
             }
         }
 
+        private void SubstituteKey(LineObject lineObject)
+        {
+            int index = lineObject.OriginalLine.IndexOf('"');
+            if(index == -1)
+            {
+                return;
+            }
+
+            string key = lineObject.OriginalLine.Substring(0, index);
+            string subString = $"{FileSubstitutionConstants.SUBSTITUTION_START}{FileSubstitutionConstants.KEY_SUFFIX + _keySubstitute.Count}{FileSubstitutionConstants.SUBSTITUTION_END}";
+            _keySubstitute.Add(subString, CreateSubKeyLineTripel(key,lineObject));
+        }
         private void SubstituteNestingString(LineObject lineObject)
         {
             List<string> token = lineObject.NestingStrings;

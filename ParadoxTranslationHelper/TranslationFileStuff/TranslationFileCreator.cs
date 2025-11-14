@@ -141,6 +141,7 @@ namespace ParadoxTranslationHelper
             }
         }
 
+      
         private void SetNamespaces(string line)
         {
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
