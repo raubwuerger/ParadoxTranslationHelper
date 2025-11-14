@@ -28,11 +28,15 @@ namespace ParadoxTranslationHelper
         public static string ICON_START_SIGN_START = StringParserFactory.ICON_START;
         public static string ICON_START_SIGN_END = StringParserFactory.ICON_END;
 
-        public static string NEW_LINE_SUFFIX = "NL";
-        public static string NEW_LINE_SIGN_START = StringParserFactory.NEW_LINE_START;
-        public static string NEW_LINE_SIGN_END = StringParserFactory.NEW_LINE_END;
+//        public static string NEW_LINE_SUFFIX = "NL";
+//        public static string NEW_LINE_SIGN_START = StringParserFactory.NEW_LINE_START;
+//        public static string NEW_LINE_SIGN_END = StringParserFactory.NEW_LINE_END;
 
         public static string KEY_SUFFIX = "KEY";
+        public static string KEY_END_SIGN = "\"";
+
+        public static string NEW_LINE_SUFFIX = "NL";
+        public static string NEW_LINE = "\\n";
 
         public static string FILE_SUFFIX_SUBSTITUTED = ".sub";
         public static string FILE_SUFFIX_RESUBSTITUTED = ".resub";

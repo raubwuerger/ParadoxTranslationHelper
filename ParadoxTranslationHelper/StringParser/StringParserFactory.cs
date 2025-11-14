@@ -35,7 +35,7 @@ namespace ParadoxTranslationHelper
         public static string ICON_START = "£";
         public static string ICON_END = "£";
 
-        public static string NEW_LINE_START = "\\";
+        public static string NEW_LINE_START = "\\n";
         public static string NEW_LINE_END = "n";
 
 

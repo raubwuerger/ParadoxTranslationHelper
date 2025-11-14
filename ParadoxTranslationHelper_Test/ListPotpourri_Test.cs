@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ParadoxTranslationHelper;
 
 
 namespace ParadoxTranslationHelper_Test
@@ -120,6 +121,25 @@ namespace ParadoxTranslationHelper_Test
             {
                 string toTest = "sdsdsd";
                 int index = toTest.IndexOf('x');
+                Assert.AreEqual(-1, index);
+            }
+
+            {
+                string toTestReal = @" ETH_recall_balco_safo_decision:0 ""Recall $ETH_balcho_safo$ from retirement""";
+                int index = toTestReal.IndexOf('"');
+                int indexString = toTestReal.IndexOf(FileSubstitutionConstants.KEY_END_SIGN);
+                string key = toTestReal.Substring(0, index);
+                Assert.IsTrue(index != -1);
+            }
+        }
+
+        [TestMethod]
+        public void TestDetectLF()
+        {
+            {
+                string toTest = @"sdsdsd\nydsd";
+                int index = toTest.IndexOf("\\n");
+                int indexY = toTest.IndexOf("y");
                 Assert.AreEqual(-1, index);
             }
 
