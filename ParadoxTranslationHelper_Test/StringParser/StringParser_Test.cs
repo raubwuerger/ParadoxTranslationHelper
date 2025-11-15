@@ -303,5 +303,65 @@ namespace ParadoxTranslationHelper_Test
             Assert.AreEqual(1, namespaces.Count);
             Assert.AreEqual("GetYear", namespaces[0]);
         }
+
+        [TestMethod]
+        [DataRow(DisplayName = "ReplaceFirst null, null, null: --> null")]
+        public void ReplaceFirst_001()
+        {
+            string invalid = null;
+            Assert.IsNull(invalid.ReplaceFirst(null, null));
+        }
+        
+        [TestMethod]
+        [DataRow(DisplayName = "ReplaceFirst empty, null, null: --> null")]
+        public void ReplaceFirst_002()
+        {
+            string valid = "";
+            Assert.IsNull(valid.ReplaceFirst(null, null));
+        }
+
+
+        [TestMethod]
+        [DataRow(DisplayName = "ReplaceFirst empty, empty, null: --> null")]
+        public void ReplaceFirst_003()
+        {
+            string valid = "";
+            Assert.IsNull(valid.ReplaceFirst("", null));
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "ReplaceFirst empty, empty, empty: --> not null")]
+        public void ReplaceFirst_004()
+        {
+            string valid = "";
+            Assert.IsNotNull(valid.ReplaceFirst("", ""));
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "ReplaceFirst valid, noMatch, toInsert: --> not null")]
+        public void ReplaceFirst_010()
+        {
+            string valid = "valid";
+            string result = valid.ReplaceFirst("noMatch", "_toInsert_");
+            Assert.AreEqual(valid,result);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "ReplaceFirst valid, noMatch, toInsert: --> not null")]
+        public void ReplaceFirst_011()
+        {
+            string valid = "valid";
+            string result = valid.ReplaceFirst("ali", "_toInsert_");
+            Assert.AreEqual(result, "v_toInsert_d");
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "ReplaceFirst valid, noMatch, toInsert: --> not null")]
+        public void ReplaceFirst_012()
+        {
+            string valid = "valid";
+            string result = valid.ReplaceFirst("valid", "_toInsert_");
+            Assert.AreEqual(result, "_toInsert_");
+        }
     }
 }

@@ -8,8 +8,23 @@ namespace ParadoxTranslationHelper
 {
     public static class StringExtensionMethods
     {
-        public static string ReplaceFirst(this string text, string search, string replace)
+        public static string? ReplaceFirst(this string text, string search, string replace)
         {
+            if( null == text )
+            {
+                return null;
+            }
+
+            if( null == search )
+            {
+                return null;
+            }
+
+            if( null == replace )
+            {
+                return null;
+            }
+
             int pos = text.IndexOf(search);
             if (pos < 0)
             {

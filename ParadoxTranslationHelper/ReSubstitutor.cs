@@ -31,10 +31,42 @@ namespace ParadoxTranslationHelper
 
             ReadSubstitutionFiles();
 
-            ValidateAgaintsSubstitutionDataFiles();
+//            ValidateAgaintsSubstitutionDataFiles();
 
-            ReSubstitute(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList());
+            string resubstitute = ResubstituteAll();
+            File.WriteAllText(Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED, resubstitute);
+//            FileUtility.WriteLines(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
+            Log.Information("Resubstitution finished ...");
+
+            //            ReSubstitute(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList());
         }
+
+        private string ResubstituteAll()
+        {
+            Log.Information($"Validating file: {_translationFileSetSubstitution.SubstitutedFile.FileName}");
+            string allText = File.ReadAllText(_translationFileSetSubstitution.SubstitutedFile.FileName);
+            Log.Debug($"Text size: {allText.Length}");
+
+            //            List<>
+            string allTextTemp = allText;
+            int overallIndex = 0;
+            int count = 0;
+            foreach( KeyValuePair<string,string> keyValue in _keyReSubstitute )
+            {
+                int index = allTextTemp.IndexOf(keyValue.Key);
+                allTextTemp = allTextTemp.Substring(index);
+                allTextTemp.ReplaceFirst(keyValue.Key, keyValue.Value);
+                count++;
+                if( count % 100 == 0 )
+                {
+                    Log.Debug($"Processed {count} items ...");
+                }
+            }
+
+            Log.Debug($"Resubstituted {_keyReSubstitute.Count} keys");
+            return allTextTemp;
+        }
+
 
         private bool ReadSubstitutionFiles()
         {
@@ -122,8 +154,10 @@ namespace ParadoxTranslationHelper
         {
             Log.Information($"Validating file: {_translationFileSetSubstitution.SubstitutedFile.FileName}");
             string allText = File.ReadAllText(_translationFileSetSubstitution.SubstitutedFile.FileName);
+            Log.Debug($"Text size: {allText.Length}");
             int fileOriginal = GetItemCount();
 
+            _keyReSubstitute = Validate(allText, _keyReSubstitute);
             _nestingStringsReSubstitute = Validate(allText, _nestingStringsReSubstitute);
             _namespaceReSubstitute = Validate(allText, _namespaceReSubstitute);
             _iconReSubstitute = Validate(allText, _iconReSubstitute);
