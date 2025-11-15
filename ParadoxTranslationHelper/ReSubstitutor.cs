@@ -27,6 +27,8 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
+            Log.Information("Resubstitution started ...");
+
             ReadSubstitutionFiles();
 
             ValidateAgaintsSubstitutionDataFiles();
@@ -70,7 +72,7 @@ namespace ParadoxTranslationHelper
             SubstituteLinesColorCodeEnd(lineObjects);
 
             FileUtility.WriteLines(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
-            Log.Information("Finished ...");
+            Log.Information("Resubstitution finished ...");
         }
 
         private void SubstituteLinesColorCodeEnd(List<LineObject> lineObjects)
@@ -98,9 +100,9 @@ namespace ParadoxTranslationHelper
                     {
                         continue;
                     }
-                    Log.Information($"Replacing item: {keyToFind} --> {item.Value}" );
+                    Log.Debug($"Replacing item: {keyToFind} --> {item.Value}" );
                     lineObject.OriginalLine = lineObject.OriginalLine.Replace( keyToFind, item.Value );
-                    Log.Information($"Replaced OriginalLine: {lineObject.OriginalLine}");
+                    Log.Debug($"Replaced OriginalLine: {lineObject.OriginalLine}");
 
                     string keyToFindShortend = keyToFind.Substring(0, keyToFind.Length - 1);
                     if (false == lineObject.OriginalLine.Contains(keyToFindShortend))
@@ -108,9 +110,9 @@ namespace ParadoxTranslationHelper
                         continue;
                     }
 
-                    Log.Information($"Replacing item deformed: {keyToFindShortend} --> {item.Value}");
+                    Log.Debug($"Replacing item deformed: {keyToFindShortend} --> {item.Value}");
                     lineObject.OriginalLine = lineObject.OriginalLine.Replace(keyToFindShortend, item.Value);
-                    Log.Information($"Replaced OriginalLine:  {lineObject.OriginalLine}");
+                    Log.Debug($"Replaced OriginalLine:  {lineObject.OriginalLine}");
                 }
             }
         }

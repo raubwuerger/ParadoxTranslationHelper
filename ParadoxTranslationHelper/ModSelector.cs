@@ -15,17 +15,17 @@ namespace ParadoxTranslationHelper
         {
             if( _modList.Any() == false )
             {
-                Log.Warning("ModSelector not initialized");
+                Log.Warning($"ModSelector not initialized");
                 return false;
             }
 
             DataSetMod found = _modList.Find( i => i.Name == modName );
             if( found == null ) 
             {
-                Log.Information("Mod not found: " + modName);
+                Log.Information($"Mod not found: {modName}");
                 return false;
             }
-            Log.Information("Analyzing Mod: " + modName);
+            Log.Information($"Analyzing Mod: {modName}");
 
             ParadoxTranslationHelperConfig.PathEnglish = Path.Combine(found.PathBase, found.PathEnglish);
             ParadoxTranslationHelperConfig.PathGerman = Path.Combine(found.PathBase, found.PathGerman);
