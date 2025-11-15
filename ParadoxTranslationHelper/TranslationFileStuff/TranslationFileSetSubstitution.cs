@@ -9,6 +9,7 @@ namespace ParadoxTranslationHelper
     internal class TranslationFileSetSubstitution
     {
         public TranslationFile SubstitutedFile;
+        public string PathKeyFile;
         public string PathNamespaceFile;
         public string PathIconFile;
         public string PathNestingStringsFile;

@@ -8,6 +8,7 @@ namespace ParadoxTranslationHelper
 {
     internal class ReSubstitutor
     {
+        private Dictionary<string, string> _keyReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _nestingStringsReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _namespaceReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _iconReSubstitute = new Dictionary<string, string>();
@@ -22,7 +23,7 @@ namespace ParadoxTranslationHelper
         {
             if (_translationFileSetSubstitution == null)
             {
-                Log.Information("Parameter <TranslationFileSetSubstitution> must not be null!");
+                Log.Information($"Parameter <TranslationFileSetSubstitution> must not be null!");
                 return;
             }
 
@@ -35,6 +36,9 @@ namespace ParadoxTranslationHelper
 
         private bool ReadSubstitutionFiles()
         {
+            _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathKeyFile;
+            _keyReSubstitute = _fileReaderSubstitutionItem.Read();
+
             _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathNestingStringsFile;
             _nestingStringsReSubstitute = _fileReaderSubstitutionItem.Read();
 
@@ -59,9 +63,10 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
-            SubstituteLines(lineObjects, _nestingStringsReSubstitute);
-            SubstituteLines(lineObjects, _namespaceReSubstitute);
-            SubstituteLines(lineObjects, _iconReSubstitute);
+            ReSubstituteLines(lineObjects, _keyReSubstitute);
+            ReSubstituteLines(lineObjects, _nestingStringsReSubstitute);
+            ReSubstituteLines(lineObjects, _namespaceReSubstitute);
+            ReSubstituteLines(lineObjects, _iconReSubstitute);
             SubstituteLinesColorCodeEnd(lineObjects);
 
             FileUtility.WriteLines(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
@@ -77,12 +82,12 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
-                Log.Information("Replacing item: " + FileSubstitutionConstants.COLOR_CODE_END);
+                Log.Information($"Replacing item: {FileSubstitutionConstants.COLOR_CODE_END}");
                 lineObject.OriginalLine = lineObject.OriginalLine.Replace(FileSubstitutionConstants.COLOR_CODE_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
             }
         }
 
-        private void SubstituteLines(List<LineObject> lineObjects, Dictionary<string, string> substituteTokens )
+        private void ReSubstituteLines(List<LineObject> lineObjects, Dictionary<string, string> substituteTokens )
         {
             foreach ( KeyValuePair<string,string> item in substituteTokens) 
             { 
@@ -93,9 +98,9 @@ namespace ParadoxTranslationHelper
                     {
                         continue;
                     }
-                    Log.Information("Replacing item: " + keyToFind +" --> " +item.Value );
+                    Log.Information($"Replacing item: {keyToFind} --> {item.Value}" );
                     lineObject.OriginalLine = lineObject.OriginalLine.Replace( keyToFind, item.Value );
-                    Log.Information("Replaced OriginalLine: " + lineObject.OriginalLine);
+                    Log.Information($"Replaced OriginalLine: {lineObject.OriginalLine}");
 
                     string keyToFindShortend = keyToFind.Substring(0, keyToFind.Length - 1);
                     if (false == lineObject.OriginalLine.Contains(keyToFindShortend))
@@ -103,9 +108,9 @@ namespace ParadoxTranslationHelper
                         continue;
                     }
 
-                    Log.Information("Replacing item deformed: " + keyToFindShortend + " --> " + item.Value);
+                    Log.Information($"Replacing item deformed: {keyToFindShortend} --> {item.Value}");
                     lineObject.OriginalLine = lineObject.OriginalLine.Replace(keyToFindShortend, item.Value);
-                    Log.Information("Replaced OriginalLine: " + lineObject.OriginalLine);
+                    Log.Information($"Replaced OriginalLine:  {lineObject.OriginalLine}");
                 }
             }
         }
@@ -113,7 +118,7 @@ namespace ParadoxTranslationHelper
         //TODO: 2025-01-14 - JHA - Extract in separate class SubstitutionFileValidator
         private void ValidateAgaintsSubstitutionDataFiles()
         {
-            Log.Information("Validating file: " + _translationFileSetSubstitution.SubstitutedFile.FileName);
+            Log.Information($"Validating file: {_translationFileSetSubstitution.SubstitutedFile.FileName}");
             string allText = File.ReadAllText(_translationFileSetSubstitution.SubstitutedFile.FileName);
             int fileOriginal = GetItemCount();
 
@@ -121,7 +126,7 @@ namespace ParadoxTranslationHelper
             _namespaceReSubstitute = Validate(allText, _namespaceReSubstitute);
             _iconReSubstitute = Validate(allText, _iconReSubstitute);
 
-            Log.Information("Overall items missing: " + (fileOriginal - GetItemCount()));
+            Log.Information($"Overall items missing: {(fileOriginal - GetItemCount())}");
         }
 
         private int GetItemCount()
@@ -140,9 +145,10 @@ namespace ParadoxTranslationHelper
                     continue;
                 }
 
-                Log.Information("Substitution item not found: " + keyValuePair.Key + ";" + keyValuePair.Value);
+                //TODO: 2025-11-15 - JHA - Jede Zeile wird auf alle Substitutionsitems geprüft. Umso mehr Zeilen umso mehr Substitutionsitems
+                Log.Debug($"Substitution item not found: {keyValuePair.Key}; {keyValuePair.Value}");
             }
-            Log.Information("Items missing: " + (substitutionSubSet.Count - validItems.Count).ToString());
+            Log.Information($"Items missing: {(substitutionSubSet.Count - validItems.Count).ToString()}");
 
             return validItems;
         }

@@ -68,6 +68,7 @@ namespace ParadoxTranslationHelper
             TranslationFileSetSubstitution translationFileSetSubstitution = new TranslationFileSetSubstitution();
 
             translationFileSetSubstitution.SubstitutedFile = substitutedFile;
+            translationFileSetSubstitution.PathKeyFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.KEY_SUFFIX;
             translationFileSetSubstitution.PathNestingStringsFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.NESTING_STRING_SUFFIX;
             translationFileSetSubstitution.PathNamespaceFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.NAMESPACE_SUFFIX;
             translationFileSetSubstitution.PathIconFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.ICON_SUFFIX;
