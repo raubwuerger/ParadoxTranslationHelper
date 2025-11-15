@@ -53,9 +53,18 @@ namespace ParadoxTranslationHelper
             int count = 0;
             foreach( KeyValuePair<string,string> keyValue in _keyReSubstitute )
             {
-                int index = allTextTemp.IndexOf(keyValue.Key);
-                allTextTemp = allTextTemp.Substring(index);
-                allTextTemp.ReplaceFirst(keyValue.Key, keyValue.Value);
+                int index = allTextTemp.IndexOf(keyValue.Key, overallIndex);
+                if( index == -1 )
+                {
+                    Log.Debug($"Item {keyValue.Key} not found!");
+                    continue;
+                }
+
+                overallIndex += index;
+                overallIndex--;
+                Log.Debug($"Found item {keyValue.Key} at position {index}, Starting search at index {overallIndex}");
+                allTextTemp.ReplaceFirst(keyValue.Key, keyValue.Value, overallIndex);
+
                 count++;
                 if( count % 100 == 0 )
                 {
@@ -67,6 +76,7 @@ namespace ParadoxTranslationHelper
             return allTextTemp;
         }
 
+//        private IEnumerable 
 
         private bool ReadSubstitutionFiles()
         {
