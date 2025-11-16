@@ -189,7 +189,9 @@ namespace ParadoxTranslationHelper
 
         private string GenerateCompleteIconToken(string subs)
         {
-            return FileSubstitutionConstants.ICON_START_SIGN_START + subs;
+            //TODO: 2025-11-16 - JHA - Im STNC Mod steht das Icon-Zeichen (£) sowohl am Anfang, wie auch am ende
+            //            return FileSubstitutionConstants.ICON_START_SIGN_START + subs;
+            return subs;
         }
 
         private string GenerateIconSubstitute(string sub, LineObject lineObject)
