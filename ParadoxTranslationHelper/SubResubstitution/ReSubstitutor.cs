@@ -1,4 +1,5 @@
-﻿using ParadoxTranslationHelper.Utilities;
+﻿using ParadoxTranslationHelper.SubResubstitution;
+using ParadoxTranslationHelper.Utilities;
 using Serilog;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +13,7 @@ namespace ParadoxTranslationHelper
         private Dictionary<string, string> _nestingStringsReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _namespaceReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _iconReSubstitute = new Dictionary<string, string>();
+        IResubstitutorFuction resubstitutonFuction = null;
 
         FileReaderSubstitutionItem _fileReaderSubstitutionItem = new FileReaderSubstitutionItem();
 
@@ -31,11 +33,8 @@ namespace ParadoxTranslationHelper
 
             ReadSubstitutionFiles();
 
-//            ValidateAgaintsSubstitutionDataFiles();
-
             string resubstitute = ResubstituteAll();
             File.WriteAllText(Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED, resubstitute);
-//            FileUtility.WriteLines(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
             Log.Information("Resubstitution finished ...");
 
             //            ReSubstitute(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList());
@@ -47,24 +46,30 @@ namespace ParadoxTranslationHelper
             string allText = File.ReadAllText(_translationFileSetSubstitution.SubstitutedFile.FileName);
             Log.Debug($"Text size: {allText.Length}");
 
-            //            List<>
-            string allTextTemp = allText;
-            int overallIndex = 0;
+            string resubText = ResubstitutePart(allText, _keyReSubstitute);
+            resubText = ResubstitutePart(allText, _nestingStringsReSubstitute);
+            resubText = ResubstitutePart(allText, _namespaceReSubstitute);
+            resubText = ResubstitutePart(allText, _iconReSubstitute);
+
+            return resubText;
+        }
+
+        private string ResubstitutePart( string text, Dictionary<string,string> keyValuePairs )
+        {
+            string allTextTemp = text;
+            int lastIndex = 0;
             int count = 0;
-            foreach( KeyValuePair<string,string> keyValue in _keyReSubstitute )
+            foreach( KeyValuePair<string,string> keyValue in keyValuePairs)
             {
-                int index = allTextTemp.IndexOf(keyValue.Key, overallIndex);
+                int index = allTextTemp.IndexOf(keyValue.Key, lastIndex);
                 if( index == -1 )
                 {
                     Log.Debug($"Item {keyValue.Key} not found!");
                     continue;
                 }
 
-                overallIndex += index;
-                overallIndex--;
-                Log.Debug($"Found item {keyValue.Key} at position {index}, Starting search at index {overallIndex}");
-                allTextTemp.ReplaceFirst(keyValue.Key, keyValue.Value, overallIndex);
-
+                allTextTemp = allTextTemp.ReplaceFirst(keyValue.Key, keyValue.Value, lastIndex);
+                lastIndex = index;
                 count++;
                 if( count % 100 == 0 )
                 {
@@ -72,7 +77,7 @@ namespace ParadoxTranslationHelper
                 }
             }
 
-            Log.Debug($"Resubstituted {_keyReSubstitute.Count} keys");
+            Log.Debug($"Resubstituted {keyValuePairs.Count} keys");
             return allTextTemp;
         }
 
