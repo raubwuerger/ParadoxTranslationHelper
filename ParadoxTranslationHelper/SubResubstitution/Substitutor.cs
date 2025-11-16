@@ -137,9 +137,9 @@ namespace ParadoxTranslationHelper
         private string GenerateNestingStringSubstitute(string sub, LineObject lineObject)
         {
             int count = _nestingStringsSubstitute.Count();
-            count++;
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NESTING_STRING_SUFFIX + count.ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
             _nestingStringsSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
+            count++;
             return subString;
         }
 
@@ -169,9 +169,9 @@ namespace ParadoxTranslationHelper
         private string GenerateNamespaceSubstitute(string sub, LineObject lineObject)
         {
             int count = _namespaceSubstitute.Count();
-            count++;
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NAMESPACE_SUFFIX + count.ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
             _namespaceSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
+            count++;
             return subString;
         }
         private void SubstituteIcon(LineObject lineObject)
@@ -195,9 +195,9 @@ namespace ParadoxTranslationHelper
         private string GenerateIconSubstitute(string sub, LineObject lineObject)
         {
             int count = _iconSubstitute.Count();
-            count++;
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.ICON_SUFFIX + count.ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
             _iconSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
+            count++;
             return subString;
         }
 

@@ -46,9 +46,16 @@ namespace ParadoxTranslationHelper
             string allText = File.ReadAllText(_translationFileSetSubstitution.SubstitutedFile.FileName);
             Log.Debug($"Text size: {allText.Length}");
 
+            Log.Information($"Resubstituting keys (count={_keyReSubstitute.Count})");
             string resubText = ResubstitutePart(allText, _keyReSubstitute);
+
+            Log.Information($"Resubstituting nesting strings (count={_nestingStringsReSubstitute.Count})");
             resubText = ResubstitutePart(allText, _nestingStringsReSubstitute);
+
+            Log.Information($"Resubstituting namespaces (count={_namespaceReSubstitute.Count})");
             resubText = ResubstitutePart(allText, _namespaceReSubstitute);
+
+            Log.Information($"Resubstituting icons (count={_iconReSubstitute.Count})");
             resubText = ResubstitutePart(allText, _iconReSubstitute);
 
             return resubText;
