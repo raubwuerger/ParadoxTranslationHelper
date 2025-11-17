@@ -1,9 +1,10 @@
 ﻿using ParadoxTranslationHelper.Utilities;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Serilog;
+using System.Transactions;
 
 namespace ParadoxTranslationHelper.FunctionObject
 {
@@ -170,8 +171,9 @@ namespace ParadoxTranslationHelper.FunctionObject
 
             foreach(TranslationFile translationFile in translationFiles )
             {
-                TranslationFile translationCreated = TranslationFileCreator.CreateEmpty(Utility.ReplacePathWithGermanDirectory(translationFile));
-                if( translationCreated == null )
+                TranslationFile translationCreated = TranslationFileCreator.CreateEmpty(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, $"{ translationFile.FileNameWithoutLocalisation}{Constants.LOCALISATION_GERMAN_FULL}.{Constants.LOCALISATION_EXTENSION}" ));
+
+                if ( translationCreated == null )
                 {
                     Log.Warning("Unable to create TranslationFile!");
                     continue;
