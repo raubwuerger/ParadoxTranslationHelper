@@ -49,29 +49,38 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            TranslationFile translationFile = FileUtility.CreateTranslationFileFromFile(_translationFileNameSub);
-            if(translationFile == null) 
-            {
-                Log.Warning("Translation file resub not found! " + _translationFileNameSub);
-                return false;
-            }
 
-            FileSubstitutor fileSubstitutor = new FileSubstitutor();
-            translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
-            fileSubstitutor.ReSubstitute(CreateTranslationFileSetSubstitution(translationFile, Path.Combine(_pathToReSubstitute, _translationFileNameDiff)));
+            for( int part=1;part<=4;part++)
+            {
+                Log.Information($"Prozessing part {part}");
+                string partSuffixSubstitutedFile = $"_{part}";
+
+                TranslationFile translationFile = FileUtility.CreateTranslationFileFromFile(_translationFileNameSub.Insert(_translationFileNameSub.IndexOf(".german"), partSuffixSubstitutedFile));
+                if (translationFile == null)
+                {
+                    Log.Warning("Translation file resub not found! " + _translationFileNameSub);
+                    return false;
+                }
+
+                FileSubstitutor fileSubstitutor = new FileSubstitutor();
+                translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
+
+                fileSubstitutor.ReSubstitute(CreateTranslationFileSetSubstitution(translationFile, Path.Combine(_pathToReSubstitute, _translationFileNameDiff), part));
+            }
 
             return true;
         }
 
-        private TranslationFileSetSubstitution CreateTranslationFileSetSubstitution(TranslationFile substitutedFile, string pathToSubstitedFileParts)
+        private TranslationFileSetSubstitution CreateTranslationFileSetSubstitution(TranslationFile substitutedFile, string pathToSubstitedFileParts, int part)
         {
             TranslationFileSetSubstitution translationFileSetSubstitution = new TranslationFileSetSubstitution();
 
+            string partSuffix = $"_{part}.";
             translationFileSetSubstitution.SubstitutedFile = substitutedFile;
-            translationFileSetSubstitution.PathKeyFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.KEY_SUFFIX;
-            translationFileSetSubstitution.PathNestingStringsFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.NESTING_STRING_SUFFIX;
-            translationFileSetSubstitution.PathNamespaceFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.NAMESPACE_SUFFIX;
-            translationFileSetSubstitution.PathIconFile = pathToSubstitedFileParts + "." + FileSubstitutionConstants.ICON_SUFFIX;
+            translationFileSetSubstitution.PathKeyFile = $"{pathToSubstitedFileParts}{partSuffix}{FileSubstitutionConstants.KEY_SUFFIX}";
+            translationFileSetSubstitution.PathNestingStringsFile = $"{pathToSubstitedFileParts}{partSuffix}{FileSubstitutionConstants.NESTING_STRING_SUFFIX}";
+            translationFileSetSubstitution.PathNamespaceFile = $"{pathToSubstitedFileParts}{partSuffix}{FileSubstitutionConstants.NAMESPACE_SUFFIX}";
+            translationFileSetSubstitution.PathIconFile = $"{pathToSubstitedFileParts}{partSuffix}{FileSubstitutionConstants.ICON_SUFFIX}";
 
             return translationFileSetSubstitution;
         }

@@ -34,11 +34,14 @@ namespace ParadoxTranslationHelper
             ReadSubstitutionFiles();
 
             string resubstitute = ResubstituteAll();
+            string fileName = Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED;
+            Log.Debug($"Writing text file: {fileName}");
             File.WriteAllText(Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED, resubstitute);
             Log.Information("Resubstitution finished ...");
 
             //            ReSubstitute(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList());
         }
+
 
         private string ResubstituteAll()
         {
@@ -50,13 +53,13 @@ namespace ParadoxTranslationHelper
             string resubText = ResubstitutePart(allText, _keyReSubstitute);
 
             Log.Information($"Resubstituting nesting strings (count={_nestingStringsReSubstitute.Count})");
-            resubText = ResubstitutePart(allText, _nestingStringsReSubstitute);
+            resubText = ResubstitutePart(resubText, _nestingStringsReSubstitute);
 
             Log.Information($"Resubstituting namespaces (count={_namespaceReSubstitute.Count})");
-            resubText = ResubstitutePart(allText, _namespaceReSubstitute);
+            resubText = ResubstitutePart(resubText, _namespaceReSubstitute);
 
             Log.Information($"Resubstituting icons (count={_iconReSubstitute.Count})");
-            resubText = ResubstitutePart(allText, _iconReSubstitute);
+            resubText = ResubstitutePart(resubText, _iconReSubstitute);
 
             return resubText;
         }
@@ -71,24 +74,22 @@ namespace ParadoxTranslationHelper
                 int index = allTextTemp.IndexOf(keyValue.Key, lastIndex);
                 if( index == -1 )
                 {
-                    Log.Debug($"Item {keyValue.Key} not found!");
+                    Log.Warning($"Item not found: {keyValue.Key}");
                     continue;
                 }
 
                 allTextTemp = allTextTemp.ReplaceFirst(keyValue.Key, keyValue.Value, lastIndex);
                 lastIndex = index;
                 count++;
-                if( count % 100 == 0 )
+                if( count % 1000 == 0 )
                 {
-                    Log.Debug($"Processed {count} items ...");
+                    Log.Debug($"Processed items: {count}");
                 }
             }
 
             Log.Debug($"Resubstituted {keyValuePairs.Count} keys");
             return allTextTemp;
         }
-
-//        private IEnumerable 
 
         private bool ReadSubstitutionFiles()
         {
