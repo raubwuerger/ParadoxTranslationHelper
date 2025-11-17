@@ -110,7 +110,7 @@ namespace ParadoxTranslationHelper
             return Path.Combine(analysePath, Path.GetFileName(translationFile.FileName));
         }
 
-        public static string? ReplacePathWithGermanDirectory(TranslationFile translationFile)
+        public static string? ReplacePathWithGermanFilename(TranslationFile translationFile)
         {
             if( translationFile == null )
             {
