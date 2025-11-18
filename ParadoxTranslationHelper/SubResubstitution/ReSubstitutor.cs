@@ -57,6 +57,9 @@ namespace ParadoxTranslationHelper
             Log.Information($"Resubstituting icons (count={_iconReSubstitute.Count})");
             resubText = ResubstitutePart(resubText, _iconReSubstitute);
 
+            Log.Information($"Resubstituting colorCodes (count={_iconReSubstitute.Count})");
+            resubText = resubText.Replace(FileSubstitutionConstants.COLOR_CODE_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+
             return resubText;
         }
 
