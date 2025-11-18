@@ -1,5 +1,6 @@
 ﻿using ParadoxTranslationHelper.Utilities;
 using Serilog;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -49,25 +50,39 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
+            Task task = Task.Run(() => DoResubstitution());
+            task.Wait();
+            return true;
+        }
 
-            for( int part=1;part<=4;part++)
+        private async Task DoResubstitution()
+        {
+            List<Task> allTasks = new List<Task>();
+            int part = 1;
+            for (int i = 0; i < 4; i++)
             {
-                Log.Information($"Prozessing part {part}");
-                string partSuffixSubstitutedFile = $"_{part}";
-
-                TranslationFile translationFile = FileUtility.CreateTranslationFileFromFile(_translationFileNameSub.Insert(_translationFileNameSub.IndexOf(".german"), partSuffixSubstitutedFile));
-                if (translationFile == null)
-                {
-                    Log.Warning("Translation file resub not found! " + _translationFileNameSub);
-                    return false;
-                }
-
-                FileSubstitutor fileSubstitutor = new FileSubstitutor();
-                translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
-
-                fileSubstitutor.ReSubstitute(CreateTranslationFileSetSubstitution(translationFile, Path.Combine(_pathToReSubstitute, _translationFileNameDiff), part));
+                allTasks.Add(Task.Run(() => ResubstitutePart(part++)));
             }
 
+            await Task.WhenAll(allTasks);
+        }
+
+        private async Task<bool> ResubstitutePart(int part)
+        {
+            Log.Information($"Prozessing part {part}");
+            string partSuffixSubstitutedFile = $"_{part}";
+
+            TranslationFile translationFile = FileUtility.CreateTranslationFileFromFile(_translationFileNameSub.Insert(_translationFileNameSub.IndexOf(".german"), partSuffixSubstitutedFile));
+            if (translationFile == null)
+            {
+                Log.Warning("Translation file resub not found! " + _translationFileNameSub);
+                return false;
+            }
+
+            FileSubstitutor fileSubstitutor = new FileSubstitutor();
+            translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
+
+            fileSubstitutor.ReSubstitute(CreateTranslationFileSetSubstitution(translationFile, Path.Combine(_pathToReSubstitute, _translationFileNameDiff), part));
             return true;
         }
 

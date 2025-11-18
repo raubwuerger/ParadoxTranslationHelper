@@ -38,10 +38,7 @@ namespace ParadoxTranslationHelper
             Log.Debug($"Writing text file: {fileName}");
             File.WriteAllText(Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED, resubstitute);
             Log.Information("Resubstitution finished ...");
-
-            //            ReSubstitute(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList());
         }
-
 
         private string ResubstituteAll()
         {
@@ -51,7 +48,6 @@ namespace ParadoxTranslationHelper
 
             Log.Information($"Resubstituting keys (count={_keyReSubstitute.Count})");
             string resubText = ResubstitutePart(allText, _keyReSubstitute);
-
             Log.Information($"Resubstituting nesting strings (count={_nestingStringsReSubstitute.Count})");
             resubText = ResubstitutePart(resubText, _nestingStringsReSubstitute);
 
@@ -81,7 +77,7 @@ namespace ParadoxTranslationHelper
                 allTextTemp = allTextTemp.ReplaceFirst(keyValue.Key, keyValue.Value, lastIndex);
                 lastIndex = index;
                 count++;
-                if( count % 1000 == 0 )
+                if( count % 100 == 0 )
                 {
                     Log.Debug($"Processed items: {count}");
                 }
