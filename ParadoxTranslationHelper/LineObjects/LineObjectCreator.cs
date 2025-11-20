@@ -22,9 +22,11 @@ namespace ParadoxTranslationHelper
         public List<string> ColorCodes { get => _colorCodes; set => _colorCodes = value; }
         List<string> _icons = new List<string>();
         public List<string> Icons { get => _icons; set => _icons = value; }
+        List<string> _newLines = new List<string>();
         public List<string> NewLines { get => _newLines; set => _newLines = value; }
 
-        List<string> _newLines = new List<string>();
+        private List<string> _tabulators = new List<string>();
+        public List<string> Tabulators { get => _tabulators; set => _tabulators = value; }
 
 
         public LineObject Create(int lineNumber)
@@ -38,6 +40,7 @@ namespace ParadoxTranslationHelper
             lineObject.ColorCodes = _colorCodes;
             lineObject.Icons = _icons;
             lineObject.NewLines = _newLines;
+            lineObject.Tabulators = _tabulators;
 
             CleanUp();
 
@@ -53,6 +56,7 @@ namespace ParadoxTranslationHelper
             _colorCodes = new List<string>();
             _icons = new List<string>();
             _newLines = new List<string>();
+            _tabulators = new List<string>();
         }
 
         public static LineObject CreateLineObjectLanguageIdentifierGerman()

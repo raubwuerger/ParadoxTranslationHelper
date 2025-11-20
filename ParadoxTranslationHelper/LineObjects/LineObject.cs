@@ -19,7 +19,8 @@ namespace ParadoxTranslationHelper
         List<string> _colorCodes = new List<string>();
         List<string> _icons = new List<string>();
         List<string> _newLines = new List<string>();
-        
+        List<string> _tabulators = new List<string>();
+
         public LineObject(LineObject lineObject)
         {
             if (lineObject == null)
@@ -38,6 +39,7 @@ namespace ParadoxTranslationHelper
             this._colorCodes = new List<string>(lineObject._colorCodes);
             this._icons = new List<string>(lineObject._icons);
             this._newLines = new List<string>(lineObject._newLines);
+            this._tabulators = new List<string>(lineObject._tabulators);
         }
 
         public LineObject(int lineNumber)
@@ -66,6 +68,7 @@ namespace ParadoxTranslationHelper
                 OriginalLine = null;
                 OriginalLineSubstituted = null;
                 NewLines = null;
+                Tabulators = null;
             }
             else 
             {
@@ -79,6 +82,7 @@ namespace ParadoxTranslationHelper
                 OriginalLine = lineObject.OriginalLine;
                 OriginalLineSubstituted = lineObject.OriginalLineSubstituted;
                 NewLines = lineObject.NewLines;
+                Tabulators = lineObject.Tabulators;
             }
         }
 
@@ -99,6 +103,7 @@ namespace ParadoxTranslationHelper
         public string OriginalLine { get => _originalLine; set => _originalLine = value; }
         public string OriginalLineSubstituted { get => _originalLineSubstituted; set => _originalLineSubstituted = value; }
         public List<string> NewLines { get => _newLines; set => _newLines = value; }
+        public List<string> Tabulators { get => _tabulators; set => _tabulators = value; }
 
         public bool HasKey() { return false == string.IsNullOrEmpty(_key); }
     }

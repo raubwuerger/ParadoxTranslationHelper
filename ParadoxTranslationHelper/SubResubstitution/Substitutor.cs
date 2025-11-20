@@ -15,6 +15,7 @@ namespace ParadoxTranslationHelper
         private Dictionary<string, string> _namespaceSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _iconSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _newLineSubstitute = new Dictionary<string, string>();
+        private Dictionary<string, string> _tabulatorSubstitute = new Dictionary<string, string>();
         FileWriterSubstitutionItem fileWriterSubstitutionItem = new FileWriterSubstitutionItem();
 
         public bool Substitute(TranslationFile translationFile)
@@ -32,6 +33,7 @@ namespace ParadoxTranslationHelper
             Log.Information($"Substituted name spaces: {_namespaceSubstitute.Count}");
             Log.Information($"Substituted icons: {_iconSubstitute.Count}");
             Log.Information($"Substituted new lines: {_newLineSubstitute.Count}");
+            Log.Information($"Substituted tabulator: {_tabulatorSubstitute.Count}");
 
             WriteSubstitionFiles(translationFile);
             return true;
@@ -93,6 +95,7 @@ namespace ParadoxTranslationHelper
                 SubstituteIcon(lineObject);
                 SubstituteColorCode(lineObject);
                 SubstituteNewLine(lineObject);
+                SubstituteTabulator(lineObject);
             }
         }
 
@@ -233,6 +236,34 @@ namespace ParadoxTranslationHelper
             count++;
             return subString;
         }
+
+        private void SubstituteTabulator(LineObject lineObject)
+        {
+            List<string> token = lineObject.Tabulators;
+
+            string substitute = lineObject.OriginalLineSubstituted;
+            foreach (string sub in token)
+            {
+                substitute = StringExtensionMethods.ReplaceFirst(substitute, GenerateCompleteTabulatorStringToken(sub), GenerateTabulatorSubsitute(GenerateCompleteTabulatorStringToken(sub), lineObject));
+            }
+
+            lineObject.OriginalLineSubstituted = substitute;
+        }
+
+        private string GenerateCompleteTabulatorStringToken(string sub)
+        {
+            return sub;
+        }
+
+        private string GenerateTabulatorSubsitute(string sub, LineObject lineObject)
+        {
+            int count = _tabulatorSubstitute.Count();
+            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END;
+            _tabulatorSubstitute.Add(subString + count.ToString(), CreateSubKeyLineTripel(sub, lineObject));
+            count++;
+            return subString;
+        }
+
 
         private string CreateSubKeyLineTripel(string sub, LineObject lineObject)
         {

@@ -36,6 +36,7 @@ namespace ParadoxTranslationHelper
         public static string KEY_END_SIGN = "\"";
 
         public static string NEW_LINE_SUFFIX = "NL";
+        public static string TABULATOR_SUFFIX = "TAB";
         public static string NEW_LINE = "\\n";
 
         public static string FILE_SUFFIX_SUBSTITUTED = ".sub";

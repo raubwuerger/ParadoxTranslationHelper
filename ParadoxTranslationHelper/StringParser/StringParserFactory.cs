@@ -35,11 +35,11 @@ namespace ParadoxTranslationHelper
         public static string ICON_START = "£";
         public static string ICON_END = "£";
 
-//        public static string NEW_LINE_START = '\n'.ToString();
-//        public static string NEW_LINE_END = '\n'.ToString();
-
         public static string NEW_LINE_START = "\\n";
         public static string NEW_LINE_END = "\\n";
+
+        public static string TABULATOR_START = "\\t";
+        public static string TABULATOR_END = "\\t";
 
         public IStringParser CreateParserNamespaces()
         {
@@ -90,6 +90,16 @@ namespace ParadoxTranslationHelper
             StringParser stringParser = new StringParser();
             stringParser.StartTag = NEW_LINE_START;
             stringParser.EndTags.Add(NEW_LINE_END);
+            stringParser.HasEndTag = false;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
+        public IStringParser CreateParserTabulator()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = TABULATOR_START;
+            stringParser.EndTags.Add(TABULATOR_END);
             stringParser.HasEndTag = false;
             IgnoreCommentLines(stringParser);
             return stringParser;

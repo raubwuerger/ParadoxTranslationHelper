@@ -100,9 +100,9 @@ namespace ParadoxTranslationHelper
                     SetNamespaces(line);
                     SetNestingStrings(line);
                     SetIcons(line);
-//TODO: 2025-11-14 - JHA - Prüfen warum das nicht mehr funktioniert!
                     SetNewLine(line);
                     SetColorCodes(line);
+                    SetTabulator(line);
                 }
 
                 lineNumber++;
@@ -174,6 +174,13 @@ namespace ParadoxTranslationHelper
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
             List<string> token = new List<string>();
             _lineObjectCreator.NewLines = stringParser.GetToken(line, token);
+        }
+
+        private void SetTabulator(string line)
+        {
+            IStringParser stringParser = StringParserFactory.Instance.CreateParserTabulator();
+            List<string> token = new List<string>();
+            _lineObjectCreator.Tabulators = stringParser.GetToken(line, token);
         }
 
         private static TranslationFile FileNameSetter(string fileNameComplete)
