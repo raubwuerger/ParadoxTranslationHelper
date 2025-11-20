@@ -93,7 +93,7 @@ namespace ParadoxTranslationHelper
                 SubstituteNestingString(lineObject);
                 SubstituteNamespace(lineObject);
                 SubstituteIcon(lineObject);
-                SubstituteColorCode(lineObject);
+                SubstituteColorCodeEnd(lineObject);
                 SubstituteNewLine(lineObject);
                 SubstituteTabulator(lineObject);
             }
@@ -177,7 +177,7 @@ namespace ParadoxTranslationHelper
             return subString;
         }
 
-        private void SubstituteColorCode(LineObject lineObject)
+        private void SubstituteColorCodeEnd(LineObject lineObject)
         {
             lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_END, FileSubstitutionConstants.COLOR_CODE_END);
         }
