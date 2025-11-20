@@ -14,6 +14,7 @@ namespace ParadoxTranslationHelper
         private Dictionary<string, string> _colorCodeSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _namespaceSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _iconSubstitute = new Dictionary<string, string>();
+        private Dictionary<string, string> _newLineSubstitute = new Dictionary<string, string>();
         FileWriterSubstitutionItem fileWriterSubstitutionItem = new FileWriterSubstitutionItem();
 
         public bool Substitute(TranslationFile translationFile)
@@ -30,6 +31,7 @@ namespace ParadoxTranslationHelper
             Log.Information($"Substituted color codes: {_colorCodeSubstitute.Count}");
             Log.Information($"Substituted name spaces: {_namespaceSubstitute.Count}");
             Log.Information($"Substituted icons: {_iconSubstitute.Count}");
+            Log.Information($"Substituted new lines: {_newLineSubstitute.Count}");
 
             WriteSubstitionFiles(translationFile);
             return true;
@@ -58,7 +60,7 @@ namespace ParadoxTranslationHelper
             fileWriterSubstitutionItem.FileSuffix = "." + FileSubstitutionConstants.ICON_SUFFIX;
             WriteSubstitionFile(_iconSubstitute);
 
-            Log.Information($"Overall items substituted: {(_keySubstitute.Count + _nestingStringsSubstitute.Count + _colorCodeSubstitute.Count + _namespaceSubstitute.Count + _iconSubstitute.Count)}");
+            Log.Information($"Overall items substituted: {(_keySubstitute.Count + _nestingStringsSubstitute.Count + _colorCodeSubstitute.Count + _namespaceSubstitute.Count + _iconSubstitute.Count + _newLineSubstitute.Count)}");
 
             //TODO: 2025-01-14 - JHA - Check if all files have been successfully written
             return true;
@@ -79,49 +81,51 @@ namespace ParadoxTranslationHelper
 
             foreach (var lineObject in lineObjects)
             {
+                if( true == IgnoreLine(lineObject) )
+                {
+                    continue;
+                }
+                lineObject.OriginalLineSubstituted = lineObject.OriginalLine;
+
+                SubstituteKey(lineObject);
                 SubstituteNestingString(lineObject);
                 SubstituteNamespace(lineObject);
                 SubstituteIcon(lineObject);
                 SubstituteColorCode(lineObject);
-                SubstituteKey(lineObject);
+                SubstituteNewLine(lineObject);
             }
         }
 
+        private bool IgnoreLine(LineObject lineObject)
+        {
+            if( true == string.IsNullOrWhiteSpace(lineObject.OriginalLine) )
+            {
+                return true;
+            }
+
+            return lineObject.OriginalLine.Contains(Constants.TRANSLATION_FILE_IDENTIFIER);
+        }
         private void SubstituteKey(LineObject lineObject)
         {
-            int index = lineObject.OriginalLine.IndexOf(FileSubstitutionConstants.KEY_END_SIGN);
-            if(index == -1)
-            {
-                return;
-            }
-
-            string key = lineObject.OriginalLine.Substring(0, index);
-            string subString = $"{FileSubstitutionConstants.SUBSTITUTION_START}{FileSubstitutionConstants.KEY_SUFFIX + _keySubstitute.Count}{FileSubstitutionConstants.SUBSTITUTION_END}";
-            _keySubstitute.Add(subString, CreateSubKeyLineTripel(key,lineObject));
-            lineObject.KeySubstituted = subString;
-
-            string substitute = lineObject.OriginalLineSubstituted;
-            lineObject.OriginalLineSubstituted = StringExtensionMethods.ReplaceFirst(substitute, key, subString);
-        }
-        private void SubstituteNewLine(LineObject lineObject)
-        {
-            int index = lineObject.OriginalLine.IndexOf(FileSubstitutionConstants.NEW_LINE);
+            int index = lineObject.OriginalLineSubstituted.IndexOf(FileSubstitutionConstants.KEY_END_SIGN);
             if (index == -1)
             {
                 return;
             }
 
-
-            string key = lineObject.OriginalLine.Substring(0, index);
+            string key = lineObject.OriginalLineSubstituted.Substring(0, index);
             string subString = $"{FileSubstitutionConstants.SUBSTITUTION_START}{FileSubstitutionConstants.KEY_SUFFIX + _keySubstitute.Count}{FileSubstitutionConstants.SUBSTITUTION_END}";
             _keySubstitute.Add(subString, CreateSubKeyLineTripel(key, lineObject));
-        }
+            lineObject.KeySubstituted = subString;
 
+            string substitute = lineObject.OriginalLineSubstituted;
+            lineObject.OriginalLineSubstituted = StringExtensionMethods.ReplaceFirst(substitute, key, subString);
+        }
         private void SubstituteNestingString(LineObject lineObject)
         {
             List<string> token = lineObject.NestingStrings;
 
-            string substitute = lineObject.OriginalLine;
+            string substitute = lineObject.OriginalLineSubstituted;
             foreach (string subs in token)
             {
                 substitute = StringExtensionMethods.ReplaceFirst(substitute, GenerateCompleteNestingStringToken(subs), GenerateNestingStringSubstitute(GenerateCompleteNestingStringToken(subs), lineObject));
@@ -139,6 +143,33 @@ namespace ParadoxTranslationHelper
             int count = _nestingStringsSubstitute.Count();
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NESTING_STRING_SUFFIX + count.ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
             _nestingStringsSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
+            count++;
+            return subString;
+        }
+
+        private void SubstituteNewLine(LineObject lineObject)
+        {
+            List<string> token = lineObject.NewLines;         
+            
+            string substitute = lineObject.OriginalLineSubstituted;
+            foreach (string sub in token)
+            {
+                substitute = StringExtensionMethods.ReplaceFirst(substitute, GenerateCompleteNewLineStringToken(sub), GenerateNewLineSubsitute(GenerateCompleteNewLineStringToken(sub), lineObject));
+            }
+
+            lineObject.OriginalLineSubstituted = substitute;
+        }
+
+        private string GenerateCompleteNewLineStringToken(string sub)
+        {
+            return sub;
+        }
+
+        private string GenerateNewLineSubsitute(string sub, LineObject lineObject)
+        {
+            int count = _newLineSubstitute.Count();
+            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX +FileSubstitutionConstants.SUBSTITUTION_END;
+            _newLineSubstitute.Add(subString +count.ToString(), CreateSubKeyLineTripel(sub, lineObject));
             count++;
             return subString;
         }

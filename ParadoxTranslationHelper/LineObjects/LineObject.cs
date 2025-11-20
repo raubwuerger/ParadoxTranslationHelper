@@ -88,7 +88,11 @@ namespace ParadoxTranslationHelper
         public string Key { get => _key; set => _key = value; }
         public string KeySubstituted { get => _keySubstituted; set => _keySubstituted = value; }
         public TranslationFile TranslationFile { get => _translationFile; set => _translationFile = value; }
-        public List<string> NameSpaces { get => _nameSpaces; set => _nameSpaces = value; }
+        public List<string> NameSpaces 
+        { 
+            get => _nameSpaces; 
+            set => _nameSpaces = value; 
+        }
         public List<string> NestingStrings { get => _nestingStrings; set => _nestingStrings = value; }
         public List<string> ColorCodes { get => _colorCodes; set => _colorCodes = value; }
         public List<string> Icons { get => _icons; set => _icons = value; }

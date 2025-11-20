@@ -101,7 +101,7 @@ namespace ParadoxTranslationHelper
                     SetNestingStrings(line);
                     SetIcons(line);
 //TODO: 2025-11-14 - JHA - Prüfen warum das nicht mehr funktioniert!
-//                    SetNewLine(line);
+                    SetNewLine(line);
                     SetColorCodes(line);
                 }
 

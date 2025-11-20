@@ -9,7 +9,11 @@ namespace ParadoxTranslationHelper
     public abstract class StringParserBase : IStringParser
     {
         private string _startTag;
-        public string StartTag { get => _startTag; set => _startTag = value; }
+        public string StartTag
+        { 
+            get => _startTag; 
+            set => _startTag = value; 
+        }
 
         private int _subStringCount = 0;
         public int SubStringCount { get => _subStringCount; set => _subStringCount = value; }
@@ -29,6 +33,10 @@ namespace ParadoxTranslationHelper
             get { return _endOfLineIsEndTag; }
             set { _endOfLineIsEndTag = value; }
         }
+
+        private bool _hasEndTag = true;
+        public bool HasEndTag { get => _hasEndTag; set => _hasEndTag = value; }
+
         abstract public List<string> GetToken(string source, List<string> tokens);
 
         protected bool IsValid()

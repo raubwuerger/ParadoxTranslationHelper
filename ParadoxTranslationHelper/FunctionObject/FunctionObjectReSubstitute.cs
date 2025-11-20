@@ -57,6 +57,8 @@ namespace ParadoxTranslationHelper
 
         private async Task DoResubstitution()
         {
+            //TODO: 2025-11-18 - JHA - Verfahren zum Aufteilen Daten
+            //Aufteilen in 8 Teile, wenn die Anzahl an Keys größer als 8000?! ist. -> Parametrierbar machen
             List<Task> allTasks = new List<Task>();
             int part = 1;
             for (int i = 0; i < 4; i++)

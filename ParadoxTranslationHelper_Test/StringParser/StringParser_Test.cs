@@ -363,5 +363,53 @@ namespace ParadoxTranslationHelper_Test
             string result = valid.ReplaceFirst("valid", "_toInsert_");
             Assert.AreEqual(result, "_toInsert_");
         }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Contains no NewLine: --> count == 0")]
+        public void FindNewLine_000()
+        {
+            string newLine = " accession_country_integration_in_progress: \"§HIntegrating New Member Worlds§! §R--§!:\"";
+            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+
+            List<string> tokens = new List<string>();
+            List<string> found = stringParserNewLine.GetToken(newLine, tokens);
+            Assert.AreEqual(0, found.Count);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Contains NewLine at the end: --> count == 1")]
+        public void FindNewLine_001()
+        {
+            string newLine = " accession_country_integration_in_progress: \"§HIntegrating New Member Worlds§! §R--§!:\\n\"";
+            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+
+            List<string> tokens = new List<string>();
+            List<string> found = stringParserNewLine.GetToken(newLine, tokens);
+            Assert.AreEqual(1, found.Count);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Contains two NewLines: --> count == 2")]
+        public void FindNewLine_002()
+        {
+            string newLine = " accession_country_integration_in_progress: \"§HIntegrating New Member Worlds§!\\n §R--§!:\\n\"";
+            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+
+            List<string> tokens = new List<string>();
+            List<string> found = stringParserNewLine.GetToken(newLine, tokens);
+            Assert.AreEqual(2, found.Count);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Contains five NewLines: --> count == 5")]
+        public void FindNewLine_003()
+        {
+            string newLine = " accession_country_integration_in_progress: \"§H\\n\\nIntegrating \\nNew Member Worlds§!\\n §R--§!:\\n\"";
+            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+
+            List<string> tokens = new List<string>();
+            List<string> found = stringParserNewLine.GetToken(newLine, tokens);
+            Assert.AreEqual(5, found.Count);
+        }
     }
 }

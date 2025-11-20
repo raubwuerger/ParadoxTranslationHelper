@@ -35,19 +35,19 @@ namespace ParadoxTranslationHelper
 
                     if (false == subString.Contains(endTag))
                     {
-                        /**                        if( false == IsEndOfLine( string, ) )
-                                                {
-                                                    continue;
-                                                }
-*/
                         continue;
                     }
-                    int endPos = source.IndexOf(endTag, startIndex + StartTag.Length);
 
                     int startPosCalculated = startIndex + StartIndexShift;
-                    if (startPosCalculated < 0 )
+                    if (startPosCalculated < 0)
                     {
                         startPosCalculated = startIndex;
+                    }
+
+                    int endPos = source.IndexOf(endTag, HasEndTag ? startIndex + StartTag.Length : startPosCalculated + subString.Length);
+                    if( endPos == -1 )
+                    {
+                        endPos = startPosCalculated + StartTag.Length;
                     }
 
                     if (SubStringCount == 0)
