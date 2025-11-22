@@ -48,6 +48,7 @@ namespace ParadoxTranslationHelper
 
             Log.Information($"Resubstituting keys (count={_keyReSubstitute.Count})");
             string resubText = ResubstitutePart(allText, _keyReSubstitute);
+
             Log.Information($"Resubstituting nesting strings (count={_nestingStringsReSubstitute.Count})");
             resubText = ResubstitutePart(resubText, _nestingStringsReSubstitute);
 
@@ -58,7 +59,14 @@ namespace ParadoxTranslationHelper
             resubText = ResubstitutePart(resubText, _iconReSubstitute);
 
             Log.Information($"Resubstituting colorCodes (count={_iconReSubstitute.Count})");
-            resubText = resubText.Replace(FileSubstitutionConstants.COLOR_CODE_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+            resubText = resubText.Replace(FileSubstitutionConstants.COLOR_CODE_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+
+            Log.Information($"Resubstituting new lines");
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
+
+            Log.Information($"Resubstituting tabulators");
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
+
 
             return resubText;
         }
@@ -70,7 +78,7 @@ namespace ParadoxTranslationHelper
             int count = 0;
             foreach( KeyValuePair<string,string> keyValue in keyValuePairs)
             {
-                int index = allTextTemp.IndexOf(keyValue.Key, lastIndex);
+                int index = allTextTemp.IndexOf(keyValue.Key.Trim(), lastIndex);
                 if( index == -1 )
                 {
                     Log.Warning($"Item not found: {keyValue.Key}");
@@ -78,6 +86,9 @@ namespace ParadoxTranslationHelper
                 }
 
                 allTextTemp = allTextTemp.ReplaceFirst(keyValue.Key, keyValue.Value, lastIndex);
+                allTextTemp = allTextTemp.ReplaceFirst(keyValue.Key.Trim(), keyValue.Value, lastIndex);
+                allTextTemp = allTextTemp.ReplaceFirst(keyValue.Key.TrimStart(), keyValue.Value, lastIndex);
+                allTextTemp = allTextTemp.ReplaceFirst(keyValue.Key.TrimEnd(), keyValue.Value, lastIndex);
                 lastIndex = index;
                 count++;
                 if( count % 100 == 0 )

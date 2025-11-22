@@ -411,5 +411,18 @@ namespace ParadoxTranslationHelper_Test
             List<string> found = stringParserNewLine.GetToken(newLine, tokens);
             Assert.AreEqual(5, found.Count);
         }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Contains color code at line start: --> count == 1")]
+        public void FindColorCode_001()
+        {
+            string newLine = " accession_country_integration_in_progress: \"§H\\n\\nIntegrating \\nNew Member Worlds§!\\n §R--§!:\\n\"";
+            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+
+            List<string> tokens = new List<string>();
+            List<string> found = stringParserNewLine.GetToken(newLine, tokens);
+            Assert.AreEqual(5, found.Count);
+        }
     }
 }
+//___KY8___ "§YWenn wir den Code knacken, hat das folgende Auswirkungen: ___CC___ ___NL___ "

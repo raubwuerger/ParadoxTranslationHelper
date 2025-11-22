@@ -43,6 +43,12 @@ namespace ParadoxTranslationHelper.Utilities
                 return null;
             }
 
+            if( false == File.Exists(pathKeys) )
+            {
+                Log.Warning($"File doesn't exist: {pathKeys}");
+                return null;
+            }
+
             List<TranslationFile> keys = new List<TranslationFile>();
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
 
