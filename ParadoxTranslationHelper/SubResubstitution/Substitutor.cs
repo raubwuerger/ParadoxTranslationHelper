@@ -94,6 +94,7 @@ namespace ParadoxTranslationHelper
                 SubstituteNamespace(lineObject);
                 SubstituteIcon(lineObject);
                 SubstituteColorCodeEnd(lineObject);
+                SubstituteColorCodes(lineObject);
                 SubstituteNewLine(lineObject);
                 SubstituteTabulator(lineObject);
             }
@@ -180,6 +181,32 @@ namespace ParadoxTranslationHelper
         private void SubstituteColorCodeEnd(LineObject lineObject)
         {
             lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_END, FileSubstitutionConstants.COLOR_CODE_END);
+        }
+
+        //INFO: 2025-11-20 - JHA - Funktioniert eigentlich nur wenn vorher schon ColorCodeEnd substituiert wurde.
+        private void SubstituteColorCodes(LineObject lineObject)
+        {
+            int index = lineObject.OriginalLineSubstituted.IndexOf(FileSubstitutionConstants.COLOR_CODE_SIGN_START);
+            if (index == -1)
+            {
+                return;
+            }
+
+            if (index + 1 >= lineObject.OriginalLineSubstituted.Length)
+            {
+                return;
+            }
+
+            char indexSecond = lineObject.OriginalLineSubstituted[index + 1];
+            if (indexSecond == '!')
+            {
+                return;
+            }
+
+            string colorCode = FileSubstitutionConstants.COLOR_CODE_SIGN_START + indexSecond.ToString();
+            string colorCodeSubstitute = FileSubstitutionConstants.SUBSTITUTION_START + colorCode + FileSubstitutionConstants.SUBSTITUTION_END;
+
+            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_START + indexSecond.ToString(), colorCodeSubstitute);
         }
 
         private void SubstituteNamespace(LineObject lineObject)

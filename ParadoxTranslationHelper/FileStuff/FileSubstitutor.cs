@@ -24,7 +24,7 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
-            if (null == translationFileSetSubstitution.SubstitutedFile.Lines.Count <= 0)
+            if (true == translationFileSetSubstitution.SubstitutedFile.Lines.Count <= 0)
             {
                 Log.Information("Parameter <TranslationFileSetSubstitution.SubstitutedFile.Lines> must have at least on LineObject!");
                 return;
