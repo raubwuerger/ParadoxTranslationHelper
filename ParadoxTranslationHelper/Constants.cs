@@ -38,7 +38,7 @@ namespace ParadoxTranslationHelper
         public const string SIGN_HASH_TAG = "#";
         public const string QUOTATION_MARKS = "\"";
 
-        public const string SIGN_TAB = "\t";
+        public const string SIGN_TABULATOR = "\t";
         public const string SIGN_NEW_LINE = "\n";
     }
 }

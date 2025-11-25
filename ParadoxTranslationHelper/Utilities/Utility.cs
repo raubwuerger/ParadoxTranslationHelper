@@ -78,7 +78,7 @@ namespace ParadoxTranslationHelper
                 return lineObject.OriginalLineSubstituted;
             }
 
-            if ( true == lineObject.OriginalLineSubstituted.Contains(Constants.SIGN_TAB) )
+            if ( true == lineObject.OriginalLineSubstituted.Contains(Constants.SIGN_TABULATOR) )
             {
                 return lineObject.OriginalLineSubstituted;
             }
@@ -94,7 +94,7 @@ namespace ParadoxTranslationHelper
 
             StringBuilder sb = new StringBuilder();
             sb.Append(lineObject.Key);
-            sb.Append(Constants.SIGN_TAB);
+            sb.Append(Constants.SIGN_TABULATOR);
             sb.Append(lineObject.OriginalLineSubstituted.Substring(endOfKey));
             lineObject.OriginalLineSubstituted = sb.ToString();
 

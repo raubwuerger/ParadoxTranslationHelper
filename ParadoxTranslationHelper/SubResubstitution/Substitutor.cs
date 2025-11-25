@@ -206,7 +206,7 @@ namespace ParadoxTranslationHelper
             string colorCode = FileSubstitutionConstants.COLOR_CODE_SIGN_START + indexSecond.ToString();
             string colorCodeSubstitute = FileSubstitutionConstants.SUBSTITUTION_START + colorCode + FileSubstitutionConstants.SUBSTITUTION_END;
 
-            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_START + indexSecond.ToString(), colorCodeSubstitute);
+            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(colorCode, colorCodeSubstitute);
         }
 
         private void SubstituteNamespace(LineObject lineObject)

@@ -58,13 +58,22 @@ namespace ParadoxTranslationHelper
             Log.Information($"Resubstituting icons (count={_iconReSubstitute.Count})");
             resubText = ResubstitutePart(resubText, _iconReSubstitute);
 
-            Log.Information($"Resubstituting colorCodes (count={_iconReSubstitute.Count})");
+            Log.Information($"Resubstituting colorCodes End (count={_iconReSubstitute.Count})");
             resubText = resubText.Replace(FileSubstitutionConstants.COLOR_CODE_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
 
+            Log.Information($"Resubstituting colorCodes (count={_iconReSubstitute.Count})");
+//            resubText = resubText.Replace(FileSubstitutionConstants.COLOR_CODE_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+
             Log.Information($"Resubstituting new lines");
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
 
             Log.Information($"Resubstituting tabulators");
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
 
 
