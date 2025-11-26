@@ -24,11 +24,41 @@
       <german>german</german>
       <steam>D:\Spiele\SteamLibrary\steamapps\workshop\content\394360\3506850939\localisation\english</steam>
     </Mod>
-    <Mod name="Test">
-      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\localisation</basePath>
+    <Mod name="Test_DIFF_FILES">
+      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation</basePath>
       <english>english</english>
       <german>german</german>
-      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\localisation\steam</steam>
+      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation\steam</steam>
+    </Mod>
+    <Mod name="Test_REMOVE_KEYS">
+      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\REMOVE_KEYS\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\REMOVE_KEYS\localisation\steam</steam>
+    </Mod>
+    <Mod name="Test_SUB">
+      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\SUB\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\SUB\localisation\steam</steam>
+    </Mod>
+    <Mod name="Test_RESUB">
+      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\RESUB\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\RESUB\localisation\steam</steam>
+    </Mod>
+    <Mod name="Test_INSERT">
+      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\INSERT\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\INSERT\localisation\steam</steam>
+    </Mod>
+    <Mod name="Test_CLEAN">
+      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\CLEAN\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\CLEAN\localisation\steam</steam>
     </Mod>
   </Mods>
   <Global>
