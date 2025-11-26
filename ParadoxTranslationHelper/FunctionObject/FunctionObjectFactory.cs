@@ -27,9 +27,9 @@ namespace ParadoxTranslationHelper
             FunctionObjectRemoveKeys functionObject = new FunctionObjectRemoveKeys(FunctionTypes.RemoveKeys);
             functionObject.Description = "Deletes keys no longer available";
 
-            functionObject.LocalizationFileNameKeysToDelete = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_TO_DELETE_KEYS);
-            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
-            functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
+            functionObject.LocalisationFileNameKeysToDelete = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_TO_DELETE_KEYS);
+            functionObject.LocalisationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.LocalisationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 
             return functionObject;
         }
@@ -38,9 +38,9 @@ namespace ParadoxTranslationHelper
             FunctionObjectInsertKeys functionObject = new FunctionObjectInsertKeys(FunctionTypes.Insert);
             functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
-            functionObject.LocalizationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman());
-            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
-            functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
+            functionObject.LocalisationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman());
+            functionObject.LocalisationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.LocalisationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 
             return functionObject;
         }
@@ -111,8 +111,8 @@ namespace ParadoxTranslationHelper
             FunctionObjectDiffKeys functionObject = new FunctionObjectDiffKeys(FunctionTypes.DiffKeys);
             functionObject.Description = "Diffs keys content (colors, icons, nested strings, namespaces ) file by file";
 
-            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
-            functionObject.LocalizationFilePathSteam = ParadoxTranslationHelperConfig.PathSteam;
+            functionObject.LocalisationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.LocalisationFilePathSteam = ParadoxTranslationHelperConfig.PathSteam;
 
             return functionObject;
         }

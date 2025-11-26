@@ -9,13 +9,13 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectRemoveKeys : FunctionObjectBase
     {
-        private string _localizationFileNameKeysToDelete;
-        private string _localizationFilePathGerman;
-        private string _localizationFilePathAnalyze;
+        private string _localisationFileNameKeysToDelete;
+        private string _localisationFilePathGerman;
+        private string _localisationFilePathAnalyze;
 
-        public string LocalizationFileNameKeysToDelete { get => _localizationFileNameKeysToDelete; set => _localizationFileNameKeysToDelete = value; }
-        public string LocalizationFilePathGerman { get => _localizationFilePathGerman; set => _localizationFilePathGerman = value; }
-        public string LocalizationFilePathAnalyze { get => _localizationFilePathAnalyze; set => _localizationFilePathAnalyze = value; }
+        public string LocalisationFileNameKeysToDelete { get => _localisationFileNameKeysToDelete; set => _localisationFileNameKeysToDelete = value; }
+        public string LocalisationFilePathGerman { get => _localisationFilePathGerman; set => _localisationFilePathGerman = value; }
+        public string LocalisationFilePathAnalyze { get => _localisationFilePathAnalyze; set => _localisationFilePathAnalyze = value; }
 
         public FunctionObjectRemoveKeys(string name) : base(name)
         {
@@ -23,32 +23,32 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
-            if (true == string.IsNullOrEmpty(_localizationFileNameKeysToDelete))
+            if (true == string.IsNullOrEmpty(_localisationFileNameKeysToDelete))
             {
-                Log.Verbose("Member <LocalizationFileNameKeysToDelete> must not be null!");
+                Log.Verbose("Member <LocalisationFileNameKeysToDelete> must not be null!");
                 return false;
             }
 
-            if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
+            if (true == string.IsNullOrEmpty(_localisationFilePathGerman))
             {
-                Log.Verbose("Member <LocalizationFilePathGerman> must not be null!");
+                Log.Verbose("Member <LocalisationFilePathGerman> must not be null!");
                 return false;
             }
 
-            if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
+            if (true == string.IsNullOrEmpty(_localisationFilePathAnalyze))
             {
-                Log.Verbose("Member <LocalizationFilePathAnalyze> must not be null!");
+                Log.Verbose("Member <LocalisationFilePathAnalyze> must not be null!");
                 return false;
             }
 
-            List<TranslationFile> translationFilesKeysToDelete = CreateTranslationFilesKeysToDelete(_localizationFileNameKeysToDelete);
+            List<TranslationFile> translationFilesKeysToDelete = CreateTranslationFilesKeysToDelete(_localisationFileNameKeysToDelete);
             if( null == translationFilesKeysToDelete )
             {
                 Log.Information("No keys to remove!");
                 return true;
             }
 
-            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathGerman);
 
             List<TranslationFile> updatedFiles = CreateUpdateFiles(translationFilesKeysToDelete);
             foreach (TranslationFile file in updatedFiles) 

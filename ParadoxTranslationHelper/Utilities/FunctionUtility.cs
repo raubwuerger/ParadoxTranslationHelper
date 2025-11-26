@@ -131,7 +131,7 @@ namespace ParadoxTranslationHelper.Utilities
 
             if (startFileExtension == -1)
             {
-                Log.Verbose("Not a valid localization file: LOCALISATION_EXTENSION not found!");
+                Log.Verbose("Not a valid localisation file: LOCALISATION_EXTENSION not found!");
                 return null;
             }
 

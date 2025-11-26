@@ -10,13 +10,13 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectDiffKeys : FunctionObjectBase
     {
-        private string _localizationFilePathSteam;
-        private string _localizationFilePathGerman;
-        private string _localizationFilePathAnalyze;
+        private string _localisationFilePathSteam;
+        private string _localisationFilePathGerman;
+        private string _localisationFilePathAnalyze;
 
-        public string LocalizationFilePathGerman { get => _localizationFilePathGerman; set => _localizationFilePathGerman = value; }
-        public string LocalizationFilePathAnalyze { get => _localizationFilePathAnalyze; set => _localizationFilePathAnalyze = value; }
-        public string LocalizationFilePathSteam { get => _localizationFilePathSteam; set => _localizationFilePathSteam = value; }
+        public string LocalisationFilePathGerman { get => _localisationFilePathGerman; set => _localisationFilePathGerman = value; }
+        public string LocalisationFilePathAnalyze { get => _localisationFilePathAnalyze; set => _localisationFilePathAnalyze = value; }
+        public string LocalisationFilePathSteam { get => _localisationFilePathSteam; set => _localisationFilePathSteam = value; }
 
         public FunctionObjectDiffKeys(string name) : base(name)
         {
@@ -24,19 +24,19 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
-            if (true == string.IsNullOrEmpty(_localizationFilePathSteam))
+            if (true == string.IsNullOrEmpty(_localisationFilePathSteam))
             {
-                Log.Verbose("Member <LocalizationFilePathSteam> must not be null!");
+                Log.Verbose("Member <LocalisationFilePathSteam> must not be null!");
                 return false;
             }
 
-            if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
+            if (true == string.IsNullOrEmpty(_localisationFilePathGerman))
             {
-                Log.Verbose("Member <LocalizationFilePathGerman> must not be null!");
+                Log.Verbose("Member <LocalisationFilePathGerman> must not be null!");
                 return false;
             }
 
-            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathGerman);
             if (LocalisationFilesGerman == null)
             {
                 return false;
@@ -44,11 +44,11 @@ namespace ParadoxTranslationHelper
 
             if (LocalisationFilesGerman.Count == 0)
             {
-                Log.Verbose("Path contains no files:" + _localizationFilePathGerman);
+                Log.Verbose("Path contains no files:" + _localisationFilePathGerman);
                 return false;
             }
 
-            LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathSteam);
+            LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathSteam);
             if (LocalisationFilesSteam == null)
             {
                 return false;
@@ -56,7 +56,7 @@ namespace ParadoxTranslationHelper
 
             if (LocalisationFilesSteam.Count == 0)
             {
-                Log.Verbose("Path contains no files:" + _localizationFilePathSteam);
+                Log.Verbose("Path contains no files:" + _localisationFilePathSteam);
                 return false;
             }
 

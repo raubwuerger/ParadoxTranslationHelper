@@ -24,17 +24,11 @@
       <german>german</german>
       <steam>D:\Spiele\SteamLibrary\steamapps\workshop\content\394360\3506850939\localisation\english</steam>
     </Mod>
-    <Mod name="DIFF_FILES">
-      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\DiffFiles</basePath>
+    <Mod name="Test">
+      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\localisation</basePath>
       <english>english</english>
       <german>german</german>
-      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\DiffFiles\english</steam>
-    </Mod>
-    <Mod name="DIFF_KEYS">
-      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\diffKeys</basePath>
-      <english>english</english>
-      <german>german</german>
-      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\diffKeys\english</steam>
+      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\localisation\steam</steam>
     </Mod>
   </Mods>
   <Global>

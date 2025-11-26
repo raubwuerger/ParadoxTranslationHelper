@@ -33,10 +33,16 @@ namespace ParadoxTranslationHelper
 
             ReadSubstitutionFiles();
 
-            string resubstitute = ResubstituteAll();
-            string fileName = Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED;
-            Log.Debug($"Writing text file: {fileName}");
-            File.WriteAllText(Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED, resubstitute);
+            ReSubstitute(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList());
+
+            FileUtility.WriteLines(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList(), Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
+            Log.Information("Resubstitution finished ...");
+
+
+            //            string resubstitute = ResubstituteAll();
+            //            string fileName = Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED;
+            //            Log.Debug($"Writing text file: {fileName}");
+            //            File.WriteAllText(Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED, resubstitute);
             Log.Information("Resubstitution finished ...");
         }
 
@@ -62,7 +68,7 @@ namespace ParadoxTranslationHelper
             resubText = resubText.Replace(FileSubstitutionConstants.COLOR_CODE_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
 
             Log.Information($"Resubstituting colorCodes (count={_iconReSubstitute.Count})");
-//            resubText = resubText.Replace(FileSubstitutionConstants.COLOR_CODE_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+            resubText = resubText.Replace(FileSubstitutionConstants.COLOR_CODE_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
 
             Log.Information($"Resubstituting new lines");
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
@@ -139,27 +145,20 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
+            CopyOriginalLineToOrigialLineSubstituted(lineObjects);
             ReSubstituteLines(lineObjects, _keyReSubstitute);
             ReSubstituteLines(lineObjects, _nestingStringsReSubstitute);
             ReSubstituteLines(lineObjects, _namespaceReSubstitute);
             ReSubstituteLines(lineObjects, _iconReSubstitute);
-            SubstituteLinesColorCodeEnd(lineObjects);
-
-            FileUtility.WriteLines(lineObjects, Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
-            Log.Information("Resubstitution finished ...");
+            ReSubstituteColorCodes(lineObjects);
+            ReSubstituteTabulators(lineObjects);
         }
 
-        private void SubstituteLinesColorCodeEnd(List<LineObject> lineObjects)
+        private void CopyOriginalLineToOrigialLineSubstituted(List<LineObject> lineObjects)
         {
             foreach (LineObject lineObject in lineObjects)
             {
-                if (false == lineObject.OriginalLine.Contains(FileSubstitutionConstants.COLOR_CODE_END))
-                {
-                    continue;
-                }
-
-                Log.Information($"Replacing item: {FileSubstitutionConstants.COLOR_CODE_END}");
-                lineObject.OriginalLine = lineObject.OriginalLine.Replace(FileSubstitutionConstants.COLOR_CODE_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+                lineObject.OriginalLineSubstituted = lineObject.OriginalLine;
             }
         }
 
@@ -170,26 +169,63 @@ namespace ParadoxTranslationHelper
                 string keyToFind = item.Key;
                 foreach ( LineObject lineObject in lineObjects ) 
                 { 
-                    if( false == lineObject.OriginalLine.Contains( keyToFind ) )
+                    //TODO: 2025-11-26 - JHA - Der Key muss auf jeden Fall vorhanden sein- Contains wäre nicht nötig.
+                    if( false == lineObject.OriginalLineSubstituted.Contains( keyToFind ) )
                     {
                         continue;
                     }
                     Log.Debug($"Replacing item: {keyToFind} --> {item.Value}" );
-                    lineObject.OriginalLine = lineObject.OriginalLine.Replace( keyToFind, item.Value );
-                    Log.Debug($"Replaced OriginalLine: {lineObject.OriginalLine}");
+                    lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace( keyToFind, item.Value );
 
+                    //TODO: 2025-11-26 - JHA - Prüfen ob auch alle substituierten Variablen gefunden werden
+/*
                     string keyToFindShortend = keyToFind.Substring(0, keyToFind.Length - 1);
-                    if (false == lineObject.OriginalLine.Contains(keyToFindShortend))
+                    if (false == lineObject.OriginalLineSubstituted.Contains(keyToFindShortend))
                     {
                         continue;
                     }
 
                     Log.Debug($"Replacing item deformed: {keyToFindShortend} --> {item.Value}");
-                    lineObject.OriginalLine = lineObject.OriginalLine.Replace(keyToFindShortend, item.Value);
-                    Log.Debug($"Replaced OriginalLine:  {lineObject.OriginalLine}");
+                    lineObject.OriginalLineSubstituted = lineObject.OriginalLine.Replace(keyToFindShortend, item.Value);
+*/
                 }
             }
         }
+
+        private void ReSubstituteColorCodes(List<LineObject> lineObjects)
+        {
+            foreach (LineObject lineObject in lineObjects)
+            {
+                if (false == lineObject.OriginalLineSubstituted.Contains(FileSubstitutionConstants.COLOR_CODE_END))
+                {
+                    continue;
+                }
+
+                Log.Information($"Replacing item: {FileSubstitutionConstants.COLOR_CODE_END}");
+                lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+
+                //INFO: 2025-11-26 - JHA - Wenn ein COLOR_CODE_SIGN_END gefunden wurde muss es auch einen COLOR_CODE_SIGN_START vorhanden sein
+
+                lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_START, "" );
+                lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_END, "");
+                Log.Information($"Replacing item: {FileSubstitutionConstants.COLOR_CODE_SIGN_START}");
+            }
+        }
+
+        private void ReSubstituteTabulators(List<LineObject> lineObjects)
+        {
+            foreach (LineObject lineObject in lineObjects)
+            {
+                if (false == lineObject.OriginalLineSubstituted.Contains(FileSubstitutionConstants.TABULATOR))
+                {
+                    continue;
+                }
+
+                Log.Information($"Replacing item: {FileSubstitutionConstants.TABULATOR}");
+                lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END , FileSubstitutionConstants.TABULATOR);
+            }
+        }
+
 
         //TODO: 2025-01-14 - JHA - Extract in separate class SubstitutionFileValidator
         private void ValidateAgaintsSubstitutionDataFiles()
