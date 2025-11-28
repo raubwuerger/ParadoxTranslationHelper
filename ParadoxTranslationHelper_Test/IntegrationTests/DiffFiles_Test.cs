@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper_Test
@@ -50,8 +51,8 @@ namespace ParadoxTranslationHelper_Test
 
 
         [TestMethod]
-        [DataRow(DisplayName = "DiffFiles --> null")]
-        public void TestMethod001()
+        [DataRow(DisplayName = "DIFF_FILES")]
+        public void TestMethod_DIFF_FILES()
         {
             const string MOD_NAME = "Test_DIFF_FILES";
             const string MOD_FUNCTION = "DIFF_FILES";
@@ -67,6 +68,46 @@ namespace ParadoxTranslationHelper_Test
             Assert.IsFalse(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, "file_no_more_in_steam.yml")));
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, "file_no_more_in_steam.yml.toRemove")));
             Assert.IsTrue(Directory.Exists(ParadoxTranslationHelperConfig.PathGerman + @"//replace"));
+
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "SUB")]
+        public void TestMethod_SUB()
+        {
+            const string MOD_NAME = "Test_SUB";
+            const string MOD_FUNCTION = "SUB";
+
+            Assert.IsTrue(ReadConfig());
+            Assert.IsTrue(SetActiveMod(MOD_NAME));
+
+            FunctionObjectRegistryInitialiser.Init();
+
+            IFunctionObject function = FunctionObjectRegistry.Instance.GetFunctionObject(MOD_FUNCTION);
+            Assert.IsNotNull(function);
+            Assert.IsTrue(function.Work());
+            Assert.IsTrue(Directory.Exists(ParadoxTranslationHelperConfig.PathResult));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.CC")));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.IC")));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.KY")));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.NE")));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.NS")));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.sub")));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.sub.german")));
+
+            Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.KY"), CountOccurences("_SteamKeysToCreate.yml.sub", "___KY"));
+            Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.NS"), CountOccurences("_SteamKeysToCreate.yml.sub", "___NS"));
+        }
+
+        private int GetLineCount( string fileName )
+        {
+            return File.ReadLines(Path.Combine(ParadoxTranslationHelperConfig.PathResult, fileName)).ToList<string>().Count;
+        }
+
+        private int CountOccurences(string fileName, string toCount )
+        {
+            string subContent = File.ReadAllText(Path.Combine(ParadoxTranslationHelperConfig.PathResult, fileName));
+            return Regex.Matches(subContent, toCount).Count;
         }
     }
 }
