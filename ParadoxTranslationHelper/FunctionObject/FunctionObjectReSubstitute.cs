@@ -50,12 +50,42 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            Task task = Task.Run(() => DoResubstitution());
+            Task task = Task.Run(() => DoResubstitutionPart());
+//            Task task = Task.Run(() => Resubstitute());
             task.Wait();
             return true;
         }
 
-        private async Task DoResubstitution()
+        private async Task<bool> Resubstitute()
+        {
+            TranslationFile translationFile = FileUtility.CreateTranslationFileFromFile(_translationFileNameSub);
+            if (translationFile == null)
+            {
+                Log.Warning("Translation file resub not found! " + _translationFileNameSub);
+                return false;
+            }
+
+            FileSubstitutor fileSubstitutor = new FileSubstitutor();
+            translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
+
+            fileSubstitutor.ReSubstitute(CreateTranslationFileSetSubstitution(translationFile, Path.Combine(_pathToReSubstitute, _translationFileNameDiff)));
+            return true;
+        }
+        private TranslationFileSetSubstitution CreateTranslationFileSetSubstitution(TranslationFile substitutedFile, string pathToSubstitedFileParts)
+        {
+            TranslationFileSetSubstitution translationFileSetSubstitution = new TranslationFileSetSubstitution();
+
+            translationFileSetSubstitution.SubstitutedFile = substitutedFile;
+            translationFileSetSubstitution.PathKeyFile = $"{pathToSubstitedFileParts}{FileSubstitutionConstants.KEY_SUFFIX}";
+            translationFileSetSubstitution.PathNestingStringsFile = $"{pathToSubstitedFileParts}{FileSubstitutionConstants.NESTING_STRING_SUFFIX}";
+            translationFileSetSubstitution.PathNamespaceFile = $"{pathToSubstitedFileParts}{FileSubstitutionConstants.NAMESPACE_SUFFIX}";
+            translationFileSetSubstitution.PathIconFile = $"{pathToSubstitedFileParts}{FileSubstitutionConstants.ICON_SUFFIX}";
+
+            return translationFileSetSubstitution;
+        }
+
+
+        private async Task DoResubstitutionPart()
         {
             //TODO: 2025-11-18 - JHA - Verfahren zum Aufteilen Daten
             //Aufteilen in 8 Teile, wenn die Anzahl an Keys größer als 8000?! ist. -> Parametrierbar machen
@@ -68,7 +98,6 @@ namespace ParadoxTranslationHelper
 
             await Task.WhenAll(allTasks);
         }
-
         private async Task<bool> ResubstitutePart(int part)
         {
             Log.Information($"Prozessing part {part}");
@@ -87,7 +116,6 @@ namespace ParadoxTranslationHelper
             fileSubstitutor.ReSubstitute(CreateTranslationFileSetSubstitution(translationFile, Path.Combine(_pathToReSubstitute, _translationFileNameDiff), part));
             return true;
         }
-
         private TranslationFileSetSubstitution CreateTranslationFileSetSubstitution(TranslationFile substitutedFile, string pathToSubstitedFileParts, int part)
         {
             TranslationFileSetSubstitution translationFileSetSubstitution = new TranslationFileSetSubstitution();

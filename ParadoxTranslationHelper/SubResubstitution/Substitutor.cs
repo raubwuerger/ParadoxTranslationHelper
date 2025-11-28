@@ -180,7 +180,7 @@ namespace ParadoxTranslationHelper
 
         private void SubstituteColorCodeEnd(LineObject lineObject)
         {
-            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_END, FileSubstitutionConstants.COLOR_CODE_END);
+            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SIGN_END + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
         }
 
         //INFO: 2025-11-20 - JHA - Funktioniert eigentlich nur wenn vorher schon ColorCodeEnd substituiert wurde.

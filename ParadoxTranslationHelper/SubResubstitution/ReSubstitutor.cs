@@ -64,12 +64,6 @@ namespace ParadoxTranslationHelper
             Log.Information($"Resubstituting icons (count={_iconReSubstitute.Count})");
             resubText = ResubstitutePart(resubText, _iconReSubstitute);
 
-            Log.Information($"Resubstituting colorCodes End (count={_iconReSubstitute.Count})");
-            resubText = resubText.Replace(FileSubstitutionConstants.COLOR_CODE_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
-
-            Log.Information($"Resubstituting colorCodes (count={_iconReSubstitute.Count})");
-            resubText = resubText.Replace(FileSubstitutionConstants.COLOR_CODE_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
-
             Log.Information($"Resubstituting new lines");
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
@@ -77,12 +71,21 @@ namespace ParadoxTranslationHelper
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
 
             Log.Information($"Resubstituting tabulators");
-            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
 
+            /*
+            Log.Information($"Resubstituting colorCodes End (count={_iconReSubstitute.Count})");
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
 
+            Log.Information($"Resubstituting colorCodes (count={_iconReSubstitute.Count})");
+//            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX, FileSubstitutionConstants.COLOR_CODE_SIGN_START);
+            */
             return resubText;
         }
 
@@ -150,8 +153,8 @@ namespace ParadoxTranslationHelper
             ReSubstituteLines(lineObjects, _nestingStringsReSubstitute);
             ReSubstituteLines(lineObjects, _namespaceReSubstitute);
             ReSubstituteLines(lineObjects, _iconReSubstitute);
-            ReSubstituteColorCodes(lineObjects);
             ReSubstituteTabulators(lineObjects);
+            ReSubstituteColorCodes(lineObjects);
         }
 
         private void CopyOriginalLineToOrigialLineSubstituted(List<LineObject> lineObjects)
@@ -164,45 +167,50 @@ namespace ParadoxTranslationHelper
 
         private void ReSubstituteLines(List<LineObject> lineObjects, Dictionary<string, string> substituteTokens )
         {
-            foreach ( KeyValuePair<string,string> item in substituteTokens) 
-            { 
-                string keyToFind = item.Key;
-                foreach ( LineObject lineObject in lineObjects ) 
-                { 
-                    //TODO: 2025-11-26 - JHA - Der Key muss auf jeden Fall vorhanden sein- Contains wäre nicht nötig.
-                    if( false == lineObject.OriginalLineSubstituted.Contains( keyToFind ) )
+            foreach (LineObject lineObject in lineObjects)
+            {
+                if( lineObject.OriginalLine.StartsWith(">") )
+                {
+                    continue;
+                }
+
+                foreach (KeyValuePair<string, string> item in substituteTokens.ToList() )
+                {
+                    if( false == lineObject.OriginalLineSubstituted.Contains(item.Key) )
                     {
                         continue;
                     }
-                    Log.Debug($"Replacing item: {keyToFind} --> {item.Value}" );
-                    lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace( keyToFind, item.Value );
-
-                    //TODO: 2025-11-26 - JHA - Prüfen ob auch alle substituierten Variablen gefunden werden
-/*
-                    string keyToFindShortend = keyToFind.Substring(0, keyToFind.Length - 1);
-                    if (false == lineObject.OriginalLineSubstituted.Contains(keyToFindShortend))
-                    {
-                        continue;
-                    }
-
-                    Log.Debug($"Replacing item deformed: {keyToFindShortend} --> {item.Value}");
-                    lineObject.OriginalLineSubstituted = lineObject.OriginalLine.Replace(keyToFindShortend, item.Value);
-*/
+                    lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(item.Key, item.Value);
+                    Log.Debug($"Replaced item: {item.Key} --> {item.Value}");
+                    substituteTokens.Remove(item.Key);
+                    break;
                 }
             }
+        }
+
+        private string? GetSubstitutedKey( LineObject lineObject, KeyValuePair<string, string> keyValuePair )
+        {
+            if (false == lineObject.OriginalLineSubstituted.Contains(keyValuePair.Key))
+            {
+                return null;
+            }
+
+            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(keyValuePair.Key, keyValuePair.Value);
+            Log.Debug($"Replaced item: {keyValuePair.Key} --> {keyValuePair.Value}");
+            return keyValuePair.Key;
         }
 
         private void ReSubstituteColorCodes(List<LineObject> lineObjects)
         {
             foreach (LineObject lineObject in lineObjects)
             {
-                if (false == lineObject.OriginalLineSubstituted.Contains(FileSubstitutionConstants.COLOR_CODE_END))
+                if (false == lineObject.OriginalLineSubstituted.Contains(FileSubstitutionConstants.COLOR_CODE_SUFFIX))
                 {
                     continue;
                 }
 
-                Log.Information($"Replacing item: {FileSubstitutionConstants.COLOR_CODE_END}");
-                lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+                Log.Information($"Replacing item: {FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END}");
+                lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
 
                 //INFO: 2025-11-26 - JHA - Wenn ein COLOR_CODE_SIGN_END gefunden wurde muss es auch einen COLOR_CODE_SIGN_START vorhanden sein
 

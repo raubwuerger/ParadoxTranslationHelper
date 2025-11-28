@@ -1,355 +1,355 @@
- ___KY0___ ;GRE_civil_war_imminent_desc:0	;GRE_civil_war_imminent_desc:0;2
- ___KY1___ ;GRE_civil_war_imminent_1:0	;GRE_civil_war_imminent_1:0;3
- ___KY2___ ;GRE_civil_war_imminent_1_desc:0	;GRE_civil_war_imminent_1_desc:0;4
- ___KY3___ ;GRE_civil_war_imminent_2:0	;GRE_civil_war_imminent_2:0;5
- ___KY4___ ;form_country_southern_yugoslavia_required_states_tt:0	;form_country_southern_yugoslavia_required_states_tt:0;6
- ___KY5___ ;form_country_southern_central_asia_required_states_tt:0	;form_country_southern_central_asia_required_states_tt:0;7
- ___KY6___ ;form_country_british_levant_required_states_tt:0	;form_country_british_levant_required_states_tt:0;8
- ___KY7___ ;form_country_punjab_required_states_tt:0	;form_country_punjab_required_states_tt:0;9
- ___KY8___ ;BUL_negotiate_claims_in_the_balkans:0	;BUL_negotiate_claims_in_the_balkans:0;10
- ___KY9___ ;BUL_negotiate_claims_in_the_balkans_desc:0	;BUL_negotiate_claims_in_the_balkans_desc:0;11
- ___KY10___ ;synthetic_refinery_amount:0	;synthetic_refinery_amount:0;13
- ___KY11___ ;synthetic_refinery_resource:0	;synthetic_refinery_resource:0;14
- ___KY12___ ;infrastructure:0	;infrastructure:0;15
- ___KY13___ ;infrastructure_plural:0	;infrastructure_plural:0;16
- ___KY14___ ;infrastructure_desc:0	;infrastructure_desc:0;17
- ___KY15___ ;infrastructure_effect:0	;infrastructure_effect:0;18
- ___KY16___ ;arms_factory:0	;arms_factory:0;19
- ___KY17___ ;arms_factory_plural:0	;arms_factory_plural:0;20
- ___KY18___ ;arms_factory_desc:0	;arms_factory_desc:0;21
- ___KY19___ ;arms_factory_effect:0	;arms_factory_effect:0;22
- ___KY20___ ;dockyard:0	;dockyard:0;23
- ___KY21___ ;dockyard_plural:0	;dockyard_plural:0;24
- ___KY22___ ;dockyard_desc:0	;dockyard_desc:0;25
- ___KY23___ ;dockyard_effect:0	;dockyard_effect:0;26
- ___KY24___ ;shipyard:0	;shipyard:0;27
- ___KY25___ ;shipyard_plural:0	;shipyard_plural:0;28
- ___KY26___ ;shipyard_desc:0	;shipyard_desc:0;29
- ___KY27___ ;shipyard_desc_short:0	;shipyard_desc_short:0;30
- ___KY28___ ;shipyard_effect:0	;shipyard_effect:0;31
- ___KY29___ ;subyard:0	;subyard:0;32
- ___KY30___ ;subyard_plural:0	;subyard_plural:0;33
- ___KY31___ ;subyard_desc:1	;subyard_desc:1;34
- ___KY32___ ;subyard_desc_short:1	;subyard_desc_short:1;35
- ___KY33___ ;subyard_effect:0	;subyard_effect:0;36
- ___KY34___ ;tank_assembly:0	;tank_assembly:0;37
- ___KY35___ ;tank_assembly_plural:0	;tank_assembly_plural:0;38
- ___KY36___ ;tank_assembly_desc:0	;tank_assembly_desc:0;39
- ___KY37___ ;tank_assembly_effect:0	;tank_assembly_effect:0;40
- ___KY38___ ;air_assembly:0	;air_assembly:0;41
- ___KY39___ ;air_assembly_plural:0	;air_assembly_plural:0;42
- ___KY40___ ;air_assembly_desc:0	;air_assembly_desc:0;43
- ___KY41___ ;air_assembly_effect:0	;air_assembly_effect:0;44
- ___KY42___ ;engine_assembly:0	;engine_assembly:0;45
- ___KY43___ ;engine_assembly_plural:0	;engine_assembly_plural:0;46
- ___KY44___ ;engine_assembly_desc:0	;engine_assembly_desc:0;47
- ___KY45___ ;engine_assembly_effect:0	;engine_assembly_effect:0;48
- ___KY46___ ;artillery_assembly:0	;artillery_assembly:0;49
- ___KY47___ ;artillery_assembly_plural:0	;artillery_assembly_plural:0;50
- ___KY48___ ;artillery_assembly_desc:0	;artillery_assembly_desc:0;51
- ___KY49___ ;artillery_assembly_effect:0	;artillery_assembly_effect:0;52
- ___KY50___ ;shipyard_capital_building:0	;shipyard_capital_building:0;53
- ___KY51___ ;shipyard_capital_building_plural:0	;shipyard_capital_building_plural:0;54
- ___KY52___ ;shipyard_capital_building_desc:0	;shipyard_capital_building_desc:0;55
- ___KY53___ ;shipyard_capital_building_effect:0	;shipyard_capital_building_effect:0;56
- ___KY54___ ;shipyard_capital_building_overlay:0	;shipyard_capital_building_overlay:0;57
- ___KY55___ ;research_centre:0	;research_centre:0;58
- ___KY56___ ;research_centre_desc:0	;research_centre_desc:0;59
- ___KY57___ ;research_centre_overlay:0	;research_centre_overlay:0;60
- ___KY58___ ;industrial_complex:0	;industrial_complex:0;61
- ___KY59___ ;industrial_complex_plural:0	;industrial_complex_plural:0;62
- ___KY60___ ;industrial_complex_desc:0	;industrial_complex_desc:0;63
- ___KY61___ ;industrial_complex_effect:0	;industrial_complex_effect:0;64
- ___KY62___ ;air_base:0	;air_base:0;65
- ___KY63___ ;air_base_plural:0	;air_base_plural:0;66
- ___KY64___ ;air_base_desc:0	;air_base_desc:0;67
- ___KY65___ ;air_base_effect:0	;air_base_effect:0;68
- ___KY66___ ;naval_base:0	;naval_base:0;69
- ___KY67___ ;naval_base_plural:0	;naval_base_plural:0;70
- ___KY68___ ;naval_base_desc:1	;naval_base_desc:1;71
- ___KY69___ ;naval_base_effect:0	;naval_base_effect:0;72
- ___KY70___ ;bunker:0	;bunker:0;73
- ___KY71___ ;bunker_plural:0	;bunker_plural:0;74
- ___KY72___ ;bunker_desc:0	;bunker_desc:0;75
- ___KY73___ ;bunker_effect:0	;bunker_effect:0;76
- ___KY74___ ;coastal_bunker:0	;coastal_bunker:0;77
- ___KY75___ ;coastal_bunker_plural:0	;coastal_bunker_plural:0;78
- ___KY76___ ;coastal_bunker_desc:0	;coastal_bunker_desc:0;79
- ___KY77___ ;coastal_bunker_effect:0	;coastal_bunker_effect:0;80
- ___KY78___ ;anti_air_building:0	;anti_air_building:0;81
- ___KY79___ ;anti_air_building_plural:0	;anti_air_building_plural:0;82
- ___KY80___ ;anti_air_building_desc:0	;anti_air_building_desc:0;83
- ___KY81___ ;anti_air_building_effect:0	;anti_air_building_effect:0;84
- ___KY82___ ;synthetic_refinery:0	;synthetic_refinery:0;85
- ___KY83___ ;synthetic_refinery_plural:0	;synthetic_refinery_plural:0;86
- ___KY84___ ;synthetic_refinery_desc:0	;synthetic_refinery_desc:0;87
- ___KY85___ ;radar_station:0	;radar_station:0;88
- ___KY86___ ;radar_station_plural:0	;radar_station_plural:0;89
- ___KY87___ ;radar_station_desc:3	;radar_station_desc:3;90
- ___KY88___ ;radar_station_effect:0	;radar_station_effect:0;91
- ___KY89___ ;rocket_site:0	;rocket_site:0;92
- ___KY90___ ;rocket_site_plural:0	;rocket_site_plural:0;93
- ___KY91___ ;rocket_site_desc:0	;rocket_site_desc:0;94
- ___KY92___ ;rocket_site_effect:0	;rocket_site_effect:0;95
- ___KY93___ ;nuclear_reactor:0	;nuclear_reactor:0;96
- ___KY94___ ;nuclear_reactor_plural:0	;nuclear_reactor_plural:0;97
- ___KY95___ ;nuclear_reactor_desc:0	;nuclear_reactor_desc:0;98
- ___KY96___ ;nuclear_reactor_effect:0	;nuclear_reactor_effect:0;99
- ___KY97___ ;nuclear_reactor_heavy_water:0	;nuclear_reactor_heavy_water:0;100
- ___KY98___ ;nuclear_reactor_heavy_water_plural:0	;nuclear_reactor_heavy_water_plural:0;101
- ___KY99___ ;nuclear_reactor_heavy_water_desc:0	;nuclear_reactor_heavy_water_desc:0;102
- ___KY100___ ;nuclear_reactor_heavy_water_effect:0	;nuclear_reactor_heavy_water_effect:0;103
- ___KY101___ ;fuel_silo:0	;fuel_silo:0;104
- ___KY102___ ;fuel_silo_plural:0	;fuel_silo_plural:0;105
- ___KY103___ ;fuel_silo_desc:0	;fuel_silo_desc:0;106
- ___KY104___ ;fuel_silo_effect:0	;fuel_silo_effect:0;107
- ___KY105___ ;supply_node:1	;supply_node:1;108
- ___KY106___ ;supply_node_desc:2	;supply_node_desc:2;109
- ___KY107___ ;supply_node_effect:0	;supply_node_effect:0;110
- ___KY108___ ;rail_way:0	;rail_way:0;111
- ___KY109___ ;rail_way_desc:2	;rail_way_desc:2;112
- ___KY110___ ;rail_way_effect:0	;rail_way_effect:0;113
- ___KY111___ ;pillbox:0	;pillbox:0;114
- ___KY112___ ;pillbox_plural:0	;pillbox_plural:0;115
- ___KY113___ ;pillbox_desc:0	;pillbox_desc:0;116
- ___KY114___ ;pillbox_effect:0	;pillbox_effect:0;117
- ___KY115___ ;canal_kiel:0	;canal_kiel:0;118
- ___KY116___ ;canal_kiel_plural:0	;canal_kiel_plural:0;119
- ___KY117___ ;canal_kiel_desc:0	;canal_kiel_desc:0;120
- ___KY118___ ;canal_panama:0	;canal_panama:0;121
- ___KY119___ ;canal_panama_plural:0	;canal_panama_plural:0;122
- ___KY120___ ;canal_panama_desc:0	;canal_panama_desc:0;123
- ___KY121___ ;nuclear_facility:0	;nuclear_facility:0;124
- ___KY122___ ;nuclear_facility_plural:0	;nuclear_facility_plural:0;125
- ___KY123___ ;nuclear_facility_desc:0	;nuclear_facility_desc:0;126
- ___KY124___ ;electronics_facility:0	;electronics_facility:0;127
- ___KY125___ ;electronics_facility_plural:0	;electronics_facility_plural:0;128
- ___KY126___ ;electronics_facility_desc:0	;electronics_facility_desc:0;129
- ___KY127___ ;air_facility:0	;air_facility:0;130
- ___KY128___ ;air_facility_plural:0	;air_facility_plural:0;131
- ___KY129___ ;air_facility_desc:0	;air_facility_desc:0;132
- ___KY130___ ;naval_facility:0	;naval_facility:0;133
- ___KY131___ ;naval_facility_plural:0	;naval_facility_plural:0;134
- ___KY132___ ;naval_facility_desc:0	;naval_facility_desc:0;135
- ___KY133___ ;land_facility:0	;land_facility:0;136
- ___KY134___ ;land_facility_plural:0	;land_facility_plural:0;137
- ___KY135___ ;land_facility_desc:0	;land_facility_desc:0;138
- ___KY136___ ;mega_gun_emplacement:0	;mega_gun_emplacement:0;139
- ___KY137___ ;mega_gun_emplacement_plural:0	;mega_gun_emplacement_plural:0;140
- ___KY138___ ;mega_gun_emplacement_desc:0	;mega_gun_emplacement_desc:0;141
- ___KY139___ ;stronghold_network:0	;stronghold_network:0;142
- ___KY140___ ;stronghold_network_plural:0	;stronghold_network_plural:0;143
- ___KY141___ ;stronghold_network_desc:0	;stronghold_network_desc:0;144
- ___KY142___ ;BUILDING_BOMBED:0	;BUILDING_BOMBED:0;145
- ___KY143___ ;BUILDING_SABOTAGED:0	;BUILDING_SABOTAGED:0;146
- ___KY144___ ;BUILDING_REPAIRED:0	;BUILDING_REPAIRED:0;147
- ___KY145___ ;BUILDING_DAMAGE_REASON_COLLATERAL:0	;BUILDING_DAMAGE_REASON_COLLATERAL:0;148
- ___KY146___ ;BUILDING_SCORCHED:0	;BUILDING_SCORCHED:0;149
- ___KY147___ ;NUKE_DROPPED:0	;NUKE_DROPPED:0;150
- ___KY148___ ;BUILDING_DAMAGED:0	;BUILDING_DAMAGED:0;151
- ___KY149___ ;CAPACITY:0	;CAPACITY:0;152
- ___KY150___ ;CAPACITY_PLUS:0	;CAPACITY_PLUS:0;153
- ___KY151___ ;AIR_BASE_LEVEL:1	;AIR_BASE_LEVEL:1;154
- ___KY152___ ;ROCKET_SITE_LEVEL:0	;ROCKET_SITE_LEVEL:0;155
- ___KY153___ ;AIR_BASE_LEVEL_UNKNOWN:1	;AIR_BASE_LEVEL_UNKNOWN:1;156
- ___KY154___ ;ROCKET_SITE_LEVEL_UNKNOWN:0	;ROCKET_SITE_LEVEL_UNKNOWN:0;157
- ___KY155___ ;GUN_EMPLACEMENT_LEVEL_UNKNOWN:0	;GUN_EMPLACEMENT_LEVEL_UNKNOWN:0;158
- ___KY156___ ;ROCKET_SITE_CAPACITY:0	;ROCKET_SITE_CAPACITY:0;159
- ___KY157___ ;NAVAL_BASE_LEVEL_UNKNOWN:0	;NAVAL_BASE_LEVEL_UNKNOWN:0;160
- ___KY158___ ;NAVAL_BASE_LEVEL:0	;NAVAL_BASE_LEVEL:0;161
- ___KY159___ ;NAVAL_BASE_SUPPLY_LIMIT:0	;NAVAL_BASE_SUPPLY_LIMIT:0;162
- ___KY160___ ;NAVAL_BASE_CAPACITY:0	;NAVAL_BASE_CAPACITY:0;163
- ___KY161___ ;NAVAL_BASE_CAPACITY_OVER:0	;NAVAL_BASE_CAPACITY_OVER:0;164
- ___KY162___ ;NAVAL_BASE_CAPACITY_PENALTY:0	;NAVAL_BASE_CAPACITY_PENALTY:0;165
- ___KY163___ ;BUILDING_LEVEL:1	;BUILDING_LEVEL:1;166
- ___KY164___ ;BUILDING_CURRENT_MAX_LEVEL_CAPPED:0	;BUILDING_CURRENT_MAX_LEVEL_CAPPED:0;167
- ___KY165___ ;BUILDING_CURRENT_MAX_LEVEL_NONCAPPED:0	;BUILDING_CURRENT_MAX_LEVEL_NONCAPPED:0;168
- ___KY166___ ;BUILDING_CURRENT_MAX_LEVEL_CAPPED_MANPOWER:0	;BUILDING_CURRENT_MAX_LEVEL_CAPPED_MANPOWER:0;169
- ___KY167___ ;BUILDING_CURRENT_MAX_LEVEL_CAPPED_POP_PER_LEVEL:0	;BUILDING_CURRENT_MAX_LEVEL_CAPPED_POP_PER_LEVEL:0;170
- ___KY168___ ;BUILDING_CURRENT_MAX_LEVEL_CAPPED_BUILDING_MAX_FACTOR:0	;BUILDING_CURRENT_MAX_LEVEL_CAPPED_BUILDING_MAX_FACTOR:0;171
- ___KY169___ ;BUILDING_CURRENT_MAX_LEVEL_CAPPED_MIN_MAXLEVEL:0	;BUILDING_CURRENT_MAX_LEVEL_CAPPED_MIN_MAXLEVEL:0;172
- ___KY170___ ;BUILDING_SLOT_REMOVE_BUILDING_LEVEL:0	;BUILDING_SLOT_REMOVE_BUILDING_LEVEL:0;173
- ___KY171___ ;BUILDING_SLOT_REMOVE_CONSTRUCTION_LEVEL:0	;BUILDING_SLOT_REMOVE_CONSTRUCTION_LEVEL:0;174
- ___KY172___ ;BUILDING_SLOT_REMOVE_CONVERSION_LEVEL:0	;BUILDING_SLOT_REMOVE_CONVERSION_LEVEL:0;175
- ___KY173___ ;BUILDING_SLOT_REMOVE_COOLDOWN:0	;BUILDING_SLOT_REMOVE_COOLDOWN:0;176
- ___KY174___ ;CLICK_TO_CONVERT:1	;CLICK_TO_CONVERT:1;177
- ___KY175___ ;INSERT_CONVERSION:0	;INSERT_CONVERSION:0;178
- ___KY176___ ;INSERT_CONSTRUCTION:0	;INSERT_CONSTRUCTION:0;179
- ___KY177___ ;BUILDING_CURRENT_MAX_LEVEL:0	;BUILDING_CURRENT_MAX_LEVEL:0;180
- ___KY178___ ;BUILDING_CURRENT_MAX_LEVEL_SHARED_SLOTS:0	;BUILDING_CURRENT_MAX_LEVEL_SHARED_SLOTS:0;181
- ___KY179___ ;BUILDING_TERRAIN_MAX_LEVEL:0	;BUILDING_TERRAIN_MAX_LEVEL:0;182
- ___KY180___ ;BUILDING_TERRAIN_BASE_MAX_LEVEL:0	;BUILDING_TERRAIN_BASE_MAX_LEVEL:0;183
- ___KY181___ ;BUILDING_LEVEL_HEALTH:0	;BUILDING_LEVEL_HEALTH:0;184
- ___KY182___ ;AIR_DEFENSE_IN_STATE:1	;AIR_DEFENSE_IN_STATE:1;185
- ___KY183___ ;RADAR_ONMAP_TOOLTIP:0	;RADAR_ONMAP_TOOLTIP:0;186
- ___KY184___ ;RADAR_ONMAP_DAMAGED_TOOLTIP:0	;RADAR_ONMAP_DAMAGED_TOOLTIP:0;187
- ___KY185___ ;RADAR_ONMAP_TOOLTIP_COVERAGE:0	;RADAR_ONMAP_TOOLTIP_COVERAGE:0;188
- ___KY186___ ;RADAR_ONMAP_TOOLTIP_COVERAGE_ENTRY:0	;RADAR_ONMAP_TOOLTIP_COVERAGE_ENTRY:0;189
- ___KY187___ ;RADAR_ONMAP_TOOLTIP_SUPPRESS:0	;RADAR_ONMAP_TOOLTIP_SUPPRESS:0;190
- ___KY188___ ;BUILDING_SPEED_FACTOR:0	;BUILDING_SPEED_FACTOR:0;191
- ___KY189___ ;BUILDING_SPEED_FACTOR_WITH_TRIGGER:0	;BUILDING_SPEED_FACTOR_WITH_TRIGGER:0;192
- ___KY190___ ;BUILDING_NEED_SUPPLIES:0	;BUILDING_NEED_SUPPLIES:0;193
- ___KY191___ ;CANNOT_BUILD_FACILITY_WITHOUT_AVAILABLE_PROJECT:0	;CANNOT_BUILD_FACILITY_WITHOUT_AVAILABLE_PROJECT:0;194
- ___KY192___ ;GUN_EMPLACEMENT_BUILDING:0	;GUN_EMPLACEMENT_BUILDING:0;195
- ___KY193___ ;BUILDING_STATE_MODIFIER_FORMATTER_HEADING:0	;BUILDING_STATE_MODIFIER_FORMATTER_HEADING:0;196
- ___KY194___ ;SPECIAL_FACILITY_BUILDING:0	;SPECIAL_FACILITY_BUILDING:0;197
- ___KY195___ ;lar_portugal_purchase_ships.2.t:0	;lar_portugal_purchase_ships.2.t:0;199
- ___KY196___ ;lar_portugal_purchase_ships.2.desc:0	;lar_portugal_purchase_ships.2.desc:0;200
- ___KY197___ ;lar_portugal_spanish_civil_war.3.t:0	;lar_portugal_spanish_civil_war.3.t:0;201
- ___KY198___ ;lar_portugal_spanish_civil_war.3.desc:0	;lar_portugal_spanish_civil_war.3.desc:0;202
- ___KY199___ ;lar_portugal_spanish_civil_war.3.a:0	;lar_portugal_spanish_civil_war.3.a:0;203
- ___KY200___ ;lar_portugal_spanish_civil_war.3_tt:0	;lar_portugal_spanish_civil_war.3_tt:0;204
- ___KY201___ ;lar_portugal_overseas_provinces.2.t:0	;lar_portugal_overseas_provinces.2.t:0;205
- ___KY202___ ;lar_portugal_overseas_provinces.2.desc:0	;lar_portugal_overseas_provinces.2.desc:0;206
- ___KY203___ ;lar_portugal_overseas_provinces.2.a:0	;lar_portugal_overseas_provinces.2.a:0;207
- ___KY204___ ;lar_news.8.a:0	;lar_news.8.a:0;208
- ___KY205___ ;lar_news.8.b:0	;lar_news.8.b:0;209
- ___KY206___ ;lar_news.8.c:0	;lar_news.8.c:0;210
- ___KY207___ ;lar_news.8.d:0	;lar_news.8.d:0;211
- ___KY208___ ;lar_news.8.e:0	;lar_news.8.e:0;212
- ___KY209___ ;lar_news.281.t:0	;lar_news.281.t:0;213
- ___KY210___ ;lar_news.281.desc:0	;lar_news.281.desc:0;214
- ___KY211___ ;lar_news.281.a:0	;lar_news.281.a:0;215
- ___KY212___ ;lar_news.281.b:0	;lar_news.281.b:0;216
- ___KY213___ ;POL_infantry_uniforms_0:9	;POL_infantry_uniforms_0:9;218
- ___KY214___ ;POL_infantry_uniforms_0_short:9	;POL_infantry_uniforms_0_short:9;219
- ___KY215___ ;POL_infantry_uniforms_1:9	;POL_infantry_uniforms_1:9;220
- ___KY216___ ;POL_infantry_uniforms_1_short:9	;POL_infantry_uniforms_1_short:9;221
- ___KY217___ ;POL_infantry_uniforms_2:9	;POL_infantry_uniforms_2:9;222
- ___KY218___ ;POL_infantry_uniforms_2_short:9	;POL_infantry_uniforms_2_short:9;223
- ___KY219___ ;POL_infantry_uniforms_3:9	;POL_infantry_uniforms_3:9;224
- ___KY220___ ;POL_infantry_uniforms_3_short:9	;POL_infantry_uniforms_3_short:9;225
- ___KY221___ ;POL_infantry_equipment_0:9	;POL_infantry_equipment_0:9;226
- ___KY222___ ;POL_infantry_equipment_0_short:9	;POL_infantry_equipment_0_short:9;227
- ___KY223___ ;POL_infantry_equipment_1:9	;POL_infantry_equipment_1:9;228
- ___KY224___ ;POL_infantry_equipment_1_short:9	;POL_infantry_equipment_1_short:9;229
- ___KY225___ ;POL_infantry_equipment_2:9	;POL_infantry_equipment_2:9;230
- ___KY226___ ;POL_infantry_equipment_2_short:9	;POL_infantry_equipment_2_short:9;231
- ___KY227___ ;POL_infantry_equipment_3:9	;POL_infantry_equipment_3:9;232
- ___KY228___ ;POL_infantry_equipment_3_short:9	;POL_infantry_equipment_3_short:9;233
- ___KY229___ ;POL_handheld_at_equipment_0:9	;POL_handheld_at_equipment_0:9;234
- ___KY230___ ;POL_handheld_at_equipment_0_short:9	;POL_handheld_at_equipment_0_short:9;235
- ___KY231___ ;POL_SMG_equipment_0:9	;POL_SMG_equipment_0:9;236
- ___KY232___ ;POL_SMG_equipment_0_short:9	;POL_SMG_equipment_0_short:9;237
- ___KY233___ ;POL_SMG_equipment_0_desc:9	;POL_SMG_equipment_0_desc:9;238
- ___KY234___ ;POL_SMG_equipment_1:9	;POL_SMG_equipment_1:9;239
- ___KY235___ ;POL_SMG_equipment_1_short:9	;POL_SMG_equipment_1_short:9;240
- ___KY236___ ;POL_SMG_equipment_1_desc:9	;POL_SMG_equipment_1_desc:9;241
- ___KY237___ ;POL_SMG_equipment_2:9	;POL_SMG_equipment_2:9;242
- ___KY238___ ;POL_SMG_equipment_2_short:9	;POL_SMG_equipment_2_short:9;243
- ___KY239___ ;POL_SMG_equipment_2_desc:9	;POL_SMG_equipment_2_desc:9;244
- ___KY240___ ;POL_SMG_equipment_3:9	;POL_SMG_equipment_3:9;245
- ___KY241___ ;POL_SMG_equipment_3_short:9	;POL_SMG_equipment_3_short:9;246
- ___KY242___ ;POL_SMG_equipment_3_desc:9	;POL_SMG_equipment_3_desc:9;247
- ___KY243___ ;POL_assault_rifle_equipment_0:9	;POL_assault_rifle_equipment_0:9;248
- ___KY244___ ;POL_assault_rifle_equipment_0_short:9	;POL_assault_rifle_equipment_0_short:9;249
- ___KY245___ ;POL_assault_rifle_equipment_0_desc:9	;POL_assault_rifle_equipment_0_desc:9;250
- ___KY246___ ;POL_HMG_equipment_0:9	;POL_HMG_equipment_0:9;251
- ___KY247___ ;POL_HMG_equipment_0_short:9	;POL_HMG_equipment_0_short:9;252
- ___KY248___ ;POL_HMG_equipment_1:9	;POL_HMG_equipment_1:9;253
- ___KY249___ ;POL_HMG_equipment_1_short:9	;POL_HMG_equipment_1_short:9;254
- ___KY250___ ;POL_HMG_equipment_2:9	;POL_HMG_equipment_2:9;255
- ___KY251___ ;POL_HMG_equipment_2_short:9	;POL_HMG_equipment_2_short:9;256
- ___KY252___ ;POL_mortar_equipment_0_short:9	;POL_mortar_equipment_0_short:9;257
- ___KY253___ ;POL_mortar_equipment_1_short:9	;POL_mortar_equipment_1_short:9;258
- ___KY254___ ;POL_mortar_equipment_2_short:9	;POL_mortar_equipment_2_short:9;259
- ___KY255___ ;POL_infantrygun_equipment_0_short:9	;POL_infantrygun_equipment_0_short:9;260
- ___KY256___ ;POL_motorized_equipment_2:9	;POL_motorized_equipment_2:9;261
- ___KY257___ ;POL_motorized_equipment_2_short:9	;POL_motorized_equipment_2_short:9;262
- ___KY258___ ;POL_motorized_equipment_2_desc:9	;POL_motorized_equipment_2_desc:9;263
- ___KY259___ ;POL_motorized_equipment_1:9	;POL_motorized_equipment_1:9;264
- ___KY260___ ;POL_motorized_equipment_1_short:9	;POL_motorized_equipment_1_short:9;265
- ___KY261___ ;POL_motorized_equipment_1_desc:9	;POL_motorized_equipment_1_desc:9;266
- ___KY262___ ;POL_mechanized_equipment_1:9	;POL_mechanized_equipment_1:9;267
- ___KY263___ ;POL_mechanized_equipment_1_short:9	;POL_mechanized_equipment_1_short:9;268
- ___KY264___ ;POL_mechanized_equipment_2:9	;POL_mechanized_equipment_2:9;269
- ___KY265___ ;POL_mechanized_equipment_2_short:9	;POL_mechanized_equipment_2_short:9;270
- ___KY266___ ;POL_mechanized_equipment_3:9	;POL_mechanized_equipment_3:9;271
- ___KY267___ ;POL_mechanized_equipment_3_short:9	;POL_mechanized_equipment_3_short:9;272
- ___KY268___ ;POL_mechanized_hmg_0:9	;POL_mechanized_hmg_0:9;273
- ___KY269___ ;POL_mechanized_hmg_0_short:9	;POL_mechanized_hmg_0_short:9;274
- ___KY270___ ;POL_mechanized_mortar_0:9	;POL_mechanized_mortar_0:9;275
- ___KY271___ ;POL_mechanized_mortar_0_short:9	;POL_mechanized_mortar_0_short:9;276
- ___KY272___ ;POL_mechanized_at_0:9	;POL_mechanized_at_0:9;277
- ___KY273___ ;POL_mechanized_at_0_short:9	;POL_mechanized_at_0_short:9;278
- ___KY274___ ;POL_mechanized_aa_0:9	;POL_mechanized_aa_0:9;279
- ___KY275___ ;POL_mechanized_aa_0_short:9	;POL_mechanized_aa_0_short:9;280
- ___KY276___ ;POL_recon_mot_equipment_0:9	;POL_recon_mot_equipment_0:9;281
- ___KY277___ ;POL_recon_mot_equipment_0_short:9	;POL_recon_mot_equipment_0_short:9;282
- ___KY278___ ;POL_artytractor_equipment_0:9	;POL_artytractor_equipment_0:9;283
- ___KY279___ ;POL_artytractor_equipment_0_short:9	;POL_artytractor_equipment_0_short:9;284
- ___KY280___ ;POL_artytractor_equipment_0_desc:9	;POL_artytractor_equipment_0_desc:9;285
- ___KY281___ ;POL_artytruck_equipment_0:9	;POL_artytruck_equipment_0:9;286
- ___KY282___ ;POL_artytruck_equipment_0_short:9	;POL_artytruck_equipment_0_short:9;287
- ___KY283___ ;POL_artillery_equipment_0:9	;POL_artillery_equipment_0:9;288
- ___KY284___ ;POL_artillery_equipment_0_short:9	;POL_artillery_equipment_0_short:9;289
- ___KY285___ ;POL_artillery_equipment_1:9	;POL_artillery_equipment_1:9;290
- ___KY286___ ;POL_artillery_equipment_1_short:9	;POL_artillery_equipment_1_short:9;291
- ___KY287___ ;POL_medartillery_equipment_0:9	;POL_medartillery_equipment_0:9;292
- ___KY288___ ;POL_medartillery_equipment_0_short:9	;POL_medartillery_equipment_0_short:9;293
- ___KY289___ ;POL_Hvartillery_equipment_0:9	;POL_Hvartillery_equipment_0:9;294
- ___KY290___ ;POL_Hvartillery_equipment_0_short:9	;POL_Hvartillery_equipment_0_short:9;295
- ___KY291___ ;POL_Hvartillery_equipment_1:9	;POL_Hvartillery_equipment_1:9;296
- ___KY292___ ;POL_Hvartillery_equipment_1_short:9	;POL_Hvartillery_equipment_1_short:9;297
- ___KY293___ ;POL_artillery_coastal:9	;POL_artillery_coastal:9;298
- ___KY294___ ;POL_artillery_coastal_short:9	;POL_artillery_coastal_short:9;299
- ___KY295___ ;POL_anti_tank_equipment_1:9	;POL_anti_tank_equipment_1:9;300
- ___KY296___ ;POL_anti_tank_equipment_1_short:9	;POL_anti_tank_equipment_1_short:9;301
- ___KY297___ ;POL_anti_tank_equipment_2:9	;POL_anti_tank_equipment_2:9;302
- ___KY298___ ;POL_anti_tank_equipment_2_short:9	;POL_anti_tank_equipment_2_short:9;303
- ___KY299___ ;POL_anti_air_equipment_1:9	;POL_anti_air_equipment_1:9;304
- ___KY300___ ;POL_anti_air_equipment_1_short:9	;POL_anti_air_equipment_1_short:9;305
- ___KY301___ ;POL_anti_air_equipment_3:9	;POL_anti_air_equipment_3:9;306
- ___KY302___ ;POL_anti_air_equipment_3_short:9	;POL_anti_air_equipment_3_short:9;307
- ___KY303___ ;POL_HVanti_air_equipment_2:9	;POL_HVanti_air_equipment_2:9;308
- ___KY304___ ;POL_HVanti_air_equipment_2_short:9	;POL_HVanti_air_equipment_2_short:9;309
- ___KY305___ ;POL_spotter_planes_equipment_0:9	;POL_spotter_planes_equipment_0:9;310
- ___KY306___ ;POL_spotter_planes_equipment_0_short:9	;POL_spotter_planes_equipment_0_short:9;311
- ___KY307___ ;POL_tankette_equipment_0:9	;POL_tankette_equipment_0:9;312
- ___KY308___ ;POL_tankette_equipment_0_short:9	;POL_tankette_equipment_0_short:9;313
- ___KY309___ ;POL_tankette_equipment_1:9	;POL_tankette_equipment_1:9;314
- ___KY310___ ;POL_tankette_equipment_1_short:9	;POL_tankette_equipment_1_short:9;315
- ___KY311___ ;POL_tankette_equipment_2:9	;POL_tankette_equipment_2:9;316
- ___KY312___ ;POL_tankette_equipment_2_short:9	;POL_tankette_equipment_2_short:9;317
- ___KY313___ ;POL_tankette_equipment_3:9	;POL_tankette_equipment_3:9;318
- ___KY314___ ;POL_tankette_equipment_3_short:9	;POL_tankette_equipment_3_short:9;319
- ___KY315___ ;POL_motorized_AC_equipment_06:9	;POL_motorized_AC_equipment_06:9;320
- ___KY316___ ;POL_motorized_AC_equipment_06_short:9	;POL_motorized_AC_equipment_06_short:9;321
- ___KY317___ ;POL_motorized_AC_equipment_07:9	;POL_motorized_AC_equipment_07:9;322
- ___KY318___ ;POL_motorized_AC_equipment_07_short:9	;POL_motorized_AC_equipment_07_short:9;323
- ___KY319___ ;POL_motorized_AC_equipment_08:9	;POL_motorized_AC_equipment_08:9;324
- ___KY320___ ;POL_motorized_AC_equipment_08_short:9	;POL_motorized_AC_equipment_08_short:9;325
- ___KY321___ ;POL_motorized_AC_equipment_09:9	;POL_motorized_AC_equipment_09:9;326
- ___KY322___ ;POL_motorized_AC_equipment_09_short:9	;POL_motorized_AC_equipment_09_short:9;327
- ___KY323___ ;POL_motorized_AC_equipment_099:9	;POL_motorized_AC_equipment_099:9;328
- ___KY324___ ;POL_motorized_AC_equipment_099_short:9	;POL_motorized_AC_equipment_099_short:9;329
- ___KY325___ ;POL_motorized_lia_equipment_01:9	;POL_motorized_lia_equipment_01:9;330
- ___KY326___ ;POL_motorized_lia_equipment_01_short:9	;POL_motorized_lia_equipment_01_short:9;331
- ___KY327___ ;POL_motorized_lia_equipment_02:9	;POL_motorized_lia_equipment_02:9;332
- ___KY328___ ;POL_motorized_lia_equipment_02_short:9	;POL_motorized_lia_equipment_02_short:9;333
- ___KY329___ ;POL_light_tank_equipment_1:9	;POL_light_tank_equipment_1:9;334
- ___KY330___ ;POL_light_tank_equipment_1_short:9	;POL_light_tank_equipment_1_short:9;335
- ___KY331___ ;POL_light_tank_equipment_2:9	;POL_light_tank_equipment_2:9;336
- ___KY332___ ;POL_light_tank_equipment_2_short:9	;POL_light_tank_equipment_2_short:9;337
- ___KY333___ ;POL_light_tank_equipment_3:9	;POL_light_tank_equipment_3:9;338
- ___KY334___ ;POL_light_tank_equipment_3_short:9	;POL_light_tank_equipment_3_short:9;339
- ___KY335___ ;POL_light_tank_equipment_4:9	;POL_light_tank_equipment_4:9;340
- ___KY336___ ;POL_light_tank_equipment_4_short:9	;POL_light_tank_equipment_4_short:9;341
- ___KY337___ ;POL_cavalry_tank_equipment_0:9	;POL_cavalry_tank_equipment_0:9;342
- ___KY338___ ;POL_cavalry_tank_equipment_0_short:9	;POL_cavalry_tank_equipment_0_short:9;343
- ___KY339___ ;POL_cavalry_tank_equipment_1:9	;POL_cavalry_tank_equipment_1:9;344
- ___KY340___ ;POL_cavalry_tank_equipment_1_short:9	;POL_cavalry_tank_equipment_1_short:9;345
- ___KY341___ ;POL_cavalry_tank_equipment_2:9	;POL_cavalry_tank_equipment_2:9;346
- ___KY342___ ;POL_cavalry_tank_equipment_2_short:9	;POL_cavalry_tank_equipment_2_short:9;347
- ___KY343___ ;POL_medium_tank_equipment_1:9	;POL_medium_tank_equipment_1:9;348
- ___KY344___ ;POL_medium_tank_equipment_1_short:9	;POL_medium_tank_equipment_1_short:9;349
- ___KY345___ ;POL_medium_tank_equipment_2:9	;POL_medium_tank_equipment_2:9;350
- ___KY346___ ;POL_medium_tank_equipment_2_short:9	;POL_medium_tank_equipment_2_short:9;351
- ___KY347___ ;POL_medium_tank_equipment_3:9	;POL_medium_tank_equipment_3:9;352
- ___KY348___ ;POL_medium_tank_equipment_3_short:9	;POL_medium_tank_equipment_3_short:9;353
- ___KY349___ ;POL_medium_tank_equipment_4_short:9	;POL_medium_tank_equipment_4_short:9;354
- ___KY350___ ;POL_medium_tank_equipment_4:9	;POL_medium_tank_equipment_4:9;355
- ___KY351___ ;POL_infantry_tank_equipment_0:9	;POL_infantry_tank_equipment_0:9;356
- ___KY352___ ;POL_infantry_tank_equipment_0_short:9	;POL_infantry_tank_equipment_0_short:9;357
- ___KY353___ ;POL_infantry_tank_equipment_1:9	;POL_infantry_tank_equipment_1:9;358
- ___KY354___ ;POL_infantry_tank_equipment_1_short:9	;POL_infantry_tank_equipment_1_short:9;359
+|___KY0___|;GRE_civil_war_imminent_desc:0	;GRE_civil_war_imminent_desc:0;2
+|___KY1___|;GRE_civil_war_imminent_1:0	;GRE_civil_war_imminent_1:0;3
+|___KY2___|;GRE_civil_war_imminent_1_desc:0	;GRE_civil_war_imminent_1_desc:0;4
+|___KY3___|;GRE_civil_war_imminent_2:0	;GRE_civil_war_imminent_2:0;5
+|___KY4___|;form_country_southern_yugoslavia_required_states_tt:0	;form_country_southern_yugoslavia_required_states_tt:0;6
+|___KY5___|;form_country_southern_central_asia_required_states_tt:0	;form_country_southern_central_asia_required_states_tt:0;7
+|___KY6___|;form_country_british_levant_required_states_tt:0	;form_country_british_levant_required_states_tt:0;8
+|___KY7___|;form_country_punjab_required_states_tt:0	;form_country_punjab_required_states_tt:0;9
+|___KY8___|;BUL_negotiate_claims_in_the_balkans:0	;BUL_negotiate_claims_in_the_balkans:0;10
+|___KY9___|;BUL_negotiate_claims_in_the_balkans_desc:0	;BUL_negotiate_claims_in_the_balkans_desc:0;11
+|___KY10___|;synthetic_refinery_amount:0	;synthetic_refinery_amount:0;13
+|___KY11___|;synthetic_refinery_resource:0	;synthetic_refinery_resource:0;14
+|___KY12___|;infrastructure:0	;infrastructure:0;15
+|___KY13___|;infrastructure_plural:0	;infrastructure_plural:0;16
+|___KY14___|;infrastructure_desc:0	;infrastructure_desc:0;17
+|___KY15___|;infrastructure_effect:0	;infrastructure_effect:0;18
+|___KY16___|;arms_factory:0	;arms_factory:0;19
+|___KY17___|;arms_factory_plural:0	;arms_factory_plural:0;20
+|___KY18___|;arms_factory_desc:0	;arms_factory_desc:0;21
+|___KY19___|;arms_factory_effect:0	;arms_factory_effect:0;22
+|___KY20___|;dockyard:0	;dockyard:0;23
+|___KY21___|;dockyard_plural:0	;dockyard_plural:0;24
+|___KY22___|;dockyard_desc:0	;dockyard_desc:0;25
+|___KY23___|;dockyard_effect:0	;dockyard_effect:0;26
+|___KY24___|;shipyard:0	;shipyard:0;27
+|___KY25___|;shipyard_plural:0	;shipyard_plural:0;28
+|___KY26___|;shipyard_desc:0	;shipyard_desc:0;29
+|___KY27___|;shipyard_desc_short:0	;shipyard_desc_short:0;30
+|___KY28___|;shipyard_effect:0	;shipyard_effect:0;31
+|___KY29___|;subyard:0	;subyard:0;32
+|___KY30___|;subyard_plural:0	;subyard_plural:0;33
+|___KY31___|;subyard_desc:1	;subyard_desc:1;34
+|___KY32___|;subyard_desc_short:1	;subyard_desc_short:1;35
+|___KY33___|;subyard_effect:0	;subyard_effect:0;36
+|___KY34___|;tank_assembly:0	;tank_assembly:0;37
+|___KY35___|;tank_assembly_plural:0	;tank_assembly_plural:0;38
+|___KY36___|;tank_assembly_desc:0	;tank_assembly_desc:0;39
+|___KY37___|;tank_assembly_effect:0	;tank_assembly_effect:0;40
+|___KY38___|;air_assembly:0	;air_assembly:0;41
+|___KY39___|;air_assembly_plural:0	;air_assembly_plural:0;42
+|___KY40___|;air_assembly_desc:0	;air_assembly_desc:0;43
+|___KY41___|;air_assembly_effect:0	;air_assembly_effect:0;44
+|___KY42___|;engine_assembly:0	;engine_assembly:0;45
+|___KY43___|;engine_assembly_plural:0	;engine_assembly_plural:0;46
+|___KY44___|;engine_assembly_desc:0	;engine_assembly_desc:0;47
+|___KY45___|;engine_assembly_effect:0	;engine_assembly_effect:0;48
+|___KY46___|;artillery_assembly:0	;artillery_assembly:0;49
+|___KY47___|;artillery_assembly_plural:0	;artillery_assembly_plural:0;50
+|___KY48___|;artillery_assembly_desc:0	;artillery_assembly_desc:0;51
+|___KY49___|;artillery_assembly_effect:0	;artillery_assembly_effect:0;52
+|___KY50___|;shipyard_capital_building:0	;shipyard_capital_building:0;53
+|___KY51___|;shipyard_capital_building_plural:0	;shipyard_capital_building_plural:0;54
+|___KY52___|;shipyard_capital_building_desc:0	;shipyard_capital_building_desc:0;55
+|___KY53___|;shipyard_capital_building_effect:0	;shipyard_capital_building_effect:0;56
+|___KY54___|;shipyard_capital_building_overlay:0	;shipyard_capital_building_overlay:0;57
+|___KY55___|;research_centre:0	;research_centre:0;58
+|___KY56___|;research_centre_desc:0	;research_centre_desc:0;59
+|___KY57___|;research_centre_overlay:0	;research_centre_overlay:0;60
+|___KY58___|;industrial_complex:0	;industrial_complex:0;61
+|___KY59___|;industrial_complex_plural:0	;industrial_complex_plural:0;62
+|___KY60___|;industrial_complex_desc:0	;industrial_complex_desc:0;63
+|___KY61___|;industrial_complex_effect:0	;industrial_complex_effect:0;64
+|___KY62___|;air_base:0	;air_base:0;65
+|___KY63___|;air_base_plural:0	;air_base_plural:0;66
+|___KY64___|;air_base_desc:0	;air_base_desc:0;67
+|___KY65___|;air_base_effect:0	;air_base_effect:0;68
+|___KY66___|;naval_base:0	;naval_base:0;69
+|___KY67___|;naval_base_plural:0	;naval_base_plural:0;70
+|___KY68___|;naval_base_desc:1	;naval_base_desc:1;71
+|___KY69___|;naval_base_effect:0	;naval_base_effect:0;72
+|___KY70___|;bunker:0	;bunker:0;73
+|___KY71___|;bunker_plural:0	;bunker_plural:0;74
+|___KY72___|;bunker_desc:0	;bunker_desc:0;75
+|___KY73___|;bunker_effect:0	;bunker_effect:0;76
+|___KY74___|;coastal_bunker:0	;coastal_bunker:0;77
+|___KY75___|;coastal_bunker_plural:0	;coastal_bunker_plural:0;78
+|___KY76___|;coastal_bunker_desc:0	;coastal_bunker_desc:0;79
+|___KY77___|;coastal_bunker_effect:0	;coastal_bunker_effect:0;80
+|___KY78___|;anti_air_building:0	;anti_air_building:0;81
+|___KY79___|;anti_air_building_plural:0	;anti_air_building_plural:0;82
+|___KY80___|;anti_air_building_desc:0	;anti_air_building_desc:0;83
+|___KY81___|;anti_air_building_effect:0	;anti_air_building_effect:0;84
+|___KY82___|;synthetic_refinery:0	;synthetic_refinery:0;85
+|___KY83___|;synthetic_refinery_plural:0	;synthetic_refinery_plural:0;86
+|___KY84___|;synthetic_refinery_desc:0	;synthetic_refinery_desc:0;87
+|___KY85___|;radar_station:0	;radar_station:0;88
+|___KY86___|;radar_station_plural:0	;radar_station_plural:0;89
+|___KY87___|;radar_station_desc:3	;radar_station_desc:3;90
+|___KY88___|;radar_station_effect:0	;radar_station_effect:0;91
+|___KY89___|;rocket_site:0	;rocket_site:0;92
+|___KY90___|;rocket_site_plural:0	;rocket_site_plural:0;93
+|___KY91___|;rocket_site_desc:0	;rocket_site_desc:0;94
+|___KY92___|;rocket_site_effect:0	;rocket_site_effect:0;95
+|___KY93___|;nuclear_reactor:0	;nuclear_reactor:0;96
+|___KY94___|;nuclear_reactor_plural:0	;nuclear_reactor_plural:0;97
+|___KY95___|;nuclear_reactor_desc:0	;nuclear_reactor_desc:0;98
+|___KY96___|;nuclear_reactor_effect:0	;nuclear_reactor_effect:0;99
+|___KY97___|;nuclear_reactor_heavy_water:0	;nuclear_reactor_heavy_water:0;100
+|___KY98___|;nuclear_reactor_heavy_water_plural:0	;nuclear_reactor_heavy_water_plural:0;101
+|___KY99___|;nuclear_reactor_heavy_water_desc:0	;nuclear_reactor_heavy_water_desc:0;102
+|___KY100___|;nuclear_reactor_heavy_water_effect:0	;nuclear_reactor_heavy_water_effect:0;103
+|___KY101___|;fuel_silo:0	;fuel_silo:0;104
+|___KY102___|;fuel_silo_plural:0	;fuel_silo_plural:0;105
+|___KY103___|;fuel_silo_desc:0	;fuel_silo_desc:0;106
+|___KY104___|;fuel_silo_effect:0	;fuel_silo_effect:0;107
+|___KY105___|;supply_node:1	;supply_node:1;108
+|___KY106___|;supply_node_desc:2	;supply_node_desc:2;109
+|___KY107___|;supply_node_effect:0	;supply_node_effect:0;110
+|___KY108___|;rail_way:0	;rail_way:0;111
+|___KY109___|;rail_way_desc:2	;rail_way_desc:2;112
+|___KY110___|;rail_way_effect:0	;rail_way_effect:0;113
+|___KY111___|;pillbox:0	;pillbox:0;114
+|___KY112___|;pillbox_plural:0	;pillbox_plural:0;115
+|___KY113___|;pillbox_desc:0	;pillbox_desc:0;116
+|___KY114___|;pillbox_effect:0	;pillbox_effect:0;117
+|___KY115___|;canal_kiel:0	;canal_kiel:0;118
+|___KY116___|;canal_kiel_plural:0	;canal_kiel_plural:0;119
+|___KY117___|;canal_kiel_desc:0	;canal_kiel_desc:0;120
+|___KY118___|;canal_panama:0	;canal_panama:0;121
+|___KY119___|;canal_panama_plural:0	;canal_panama_plural:0;122
+|___KY120___|;canal_panama_desc:0	;canal_panama_desc:0;123
+|___KY121___|;nuclear_facility:0	;nuclear_facility:0;124
+|___KY122___|;nuclear_facility_plural:0	;nuclear_facility_plural:0;125
+|___KY123___|;nuclear_facility_desc:0	;nuclear_facility_desc:0;126
+|___KY124___|;electronics_facility:0	;electronics_facility:0;127
+|___KY125___|;electronics_facility_plural:0	;electronics_facility_plural:0;128
+|___KY126___|;electronics_facility_desc:0	;electronics_facility_desc:0;129
+|___KY127___|;air_facility:0	;air_facility:0;130
+|___KY128___|;air_facility_plural:0	;air_facility_plural:0;131
+|___KY129___|;air_facility_desc:0	;air_facility_desc:0;132
+|___KY130___|;naval_facility:0	;naval_facility:0;133
+|___KY131___|;naval_facility_plural:0	;naval_facility_plural:0;134
+|___KY132___|;naval_facility_desc:0	;naval_facility_desc:0;135
+|___KY133___|;land_facility:0	;land_facility:0;136
+|___KY134___|;land_facility_plural:0	;land_facility_plural:0;137
+|___KY135___|;land_facility_desc:0	;land_facility_desc:0;138
+|___KY136___|;mega_gun_emplacement:0	;mega_gun_emplacement:0;139
+|___KY137___|;mega_gun_emplacement_plural:0	;mega_gun_emplacement_plural:0;140
+|___KY138___|;mega_gun_emplacement_desc:0	;mega_gun_emplacement_desc:0;141
+|___KY139___|;stronghold_network:0	;stronghold_network:0;142
+|___KY140___|;stronghold_network_plural:0	;stronghold_network_plural:0;143
+|___KY141___|;stronghold_network_desc:0	;stronghold_network_desc:0;144
+|___KY142___|;BUILDING_BOMBED:0	;BUILDING_BOMBED:0;145
+|___KY143___|;BUILDING_SABOTAGED:0	;BUILDING_SABOTAGED:0;146
+|___KY144___|;BUILDING_REPAIRED:0	;BUILDING_REPAIRED:0;147
+|___KY145___|;BUILDING_DAMAGE_REASON_COLLATERAL:0	;BUILDING_DAMAGE_REASON_COLLATERAL:0;148
+|___KY146___|;BUILDING_SCORCHED:0	;BUILDING_SCORCHED:0;149
+|___KY147___|;NUKE_DROPPED:0	;NUKE_DROPPED:0;150
+|___KY148___|;BUILDING_DAMAGED:0	;BUILDING_DAMAGED:0;151
+|___KY149___|;CAPACITY:0	;CAPACITY:0;152
+|___KY150___|;CAPACITY_PLUS:0	;CAPACITY_PLUS:0;153
+|___KY151___|;AIR_BASE_LEVEL:1	;AIR_BASE_LEVEL:1;154
+|___KY152___|;ROCKET_SITE_LEVEL:0	;ROCKET_SITE_LEVEL:0;155
+|___KY153___|;AIR_BASE_LEVEL_UNKNOWN:1	;AIR_BASE_LEVEL_UNKNOWN:1;156
+|___KY154___|;ROCKET_SITE_LEVEL_UNKNOWN:0	;ROCKET_SITE_LEVEL_UNKNOWN:0;157
+|___KY155___|;GUN_EMPLACEMENT_LEVEL_UNKNOWN:0	;GUN_EMPLACEMENT_LEVEL_UNKNOWN:0;158
+|___KY156___|;ROCKET_SITE_CAPACITY:0	;ROCKET_SITE_CAPACITY:0;159
+|___KY157___|;NAVAL_BASE_LEVEL_UNKNOWN:0	;NAVAL_BASE_LEVEL_UNKNOWN:0;160
+|___KY158___|;NAVAL_BASE_LEVEL:0	;NAVAL_BASE_LEVEL:0;161
+|___KY159___|;NAVAL_BASE_SUPPLY_LIMIT:0	;NAVAL_BASE_SUPPLY_LIMIT:0;162
+|___KY160___|;NAVAL_BASE_CAPACITY:0	;NAVAL_BASE_CAPACITY:0;163
+|___KY161___|;NAVAL_BASE_CAPACITY_OVER:0	;NAVAL_BASE_CAPACITY_OVER:0;164
+|___KY162___|;NAVAL_BASE_CAPACITY_PENALTY:0	;NAVAL_BASE_CAPACITY_PENALTY:0;165
+|___KY163___|;BUILDING_LEVEL:1	;BUILDING_LEVEL:1;166
+|___KY164___|;BUILDING_CURRENT_MAX_LEVEL_CAPPED:0	;BUILDING_CURRENT_MAX_LEVEL_CAPPED:0;167
+|___KY165___|;BUILDING_CURRENT_MAX_LEVEL_NONCAPPED:0	;BUILDING_CURRENT_MAX_LEVEL_NONCAPPED:0;168
+|___KY166___|;BUILDING_CURRENT_MAX_LEVEL_CAPPED_MANPOWER:0	;BUILDING_CURRENT_MAX_LEVEL_CAPPED_MANPOWER:0;169
+|___KY167___|;BUILDING_CURRENT_MAX_LEVEL_CAPPED_POP_PER_LEVEL:0	;BUILDING_CURRENT_MAX_LEVEL_CAPPED_POP_PER_LEVEL:0;170
+|___KY168___|;BUILDING_CURRENT_MAX_LEVEL_CAPPED_BUILDING_MAX_FACTOR:0	;BUILDING_CURRENT_MAX_LEVEL_CAPPED_BUILDING_MAX_FACTOR:0;171
+|___KY169___|;BUILDING_CURRENT_MAX_LEVEL_CAPPED_MIN_MAXLEVEL:0	;BUILDING_CURRENT_MAX_LEVEL_CAPPED_MIN_MAXLEVEL:0;172
+|___KY170___|;BUILDING_SLOT_REMOVE_BUILDING_LEVEL:0	;BUILDING_SLOT_REMOVE_BUILDING_LEVEL:0;173
+|___KY171___|;BUILDING_SLOT_REMOVE_CONSTRUCTION_LEVEL:0	;BUILDING_SLOT_REMOVE_CONSTRUCTION_LEVEL:0;174
+|___KY172___|;BUILDING_SLOT_REMOVE_CONVERSION_LEVEL:0	;BUILDING_SLOT_REMOVE_CONVERSION_LEVEL:0;175
+|___KY173___|;BUILDING_SLOT_REMOVE_COOLDOWN:0	;BUILDING_SLOT_REMOVE_COOLDOWN:0;176
+|___KY174___|;CLICK_TO_CONVERT:1	;CLICK_TO_CONVERT:1;177
+|___KY175___|;INSERT_CONVERSION:0	;INSERT_CONVERSION:0;178
+|___KY176___|;INSERT_CONSTRUCTION:0	;INSERT_CONSTRUCTION:0;179
+|___KY177___|;BUILDING_CURRENT_MAX_LEVEL:0	;BUILDING_CURRENT_MAX_LEVEL:0;180
+|___KY178___|;BUILDING_CURRENT_MAX_LEVEL_SHARED_SLOTS:0	;BUILDING_CURRENT_MAX_LEVEL_SHARED_SLOTS:0;181
+|___KY179___|;BUILDING_TERRAIN_MAX_LEVEL:0	;BUILDING_TERRAIN_MAX_LEVEL:0;182
+|___KY180___|;BUILDING_TERRAIN_BASE_MAX_LEVEL:0	;BUILDING_TERRAIN_BASE_MAX_LEVEL:0;183
+|___KY181___|;BUILDING_LEVEL_HEALTH:0	;BUILDING_LEVEL_HEALTH:0;184
+|___KY182___|;AIR_DEFENSE_IN_STATE:1	;AIR_DEFENSE_IN_STATE:1;185
+|___KY183___|;RADAR_ONMAP_TOOLTIP:0	;RADAR_ONMAP_TOOLTIP:0;186
+|___KY184___|;RADAR_ONMAP_DAMAGED_TOOLTIP:0	;RADAR_ONMAP_DAMAGED_TOOLTIP:0;187
+|___KY185___|;RADAR_ONMAP_TOOLTIP_COVERAGE:0	;RADAR_ONMAP_TOOLTIP_COVERAGE:0;188
+|___KY186___|;RADAR_ONMAP_TOOLTIP_COVERAGE_ENTRY:0	;RADAR_ONMAP_TOOLTIP_COVERAGE_ENTRY:0;189
+|___KY187___|;RADAR_ONMAP_TOOLTIP_SUPPRESS:0	;RADAR_ONMAP_TOOLTIP_SUPPRESS:0;190
+|___KY188___|;BUILDING_SPEED_FACTOR:0	;BUILDING_SPEED_FACTOR:0;191
+|___KY189___|;BUILDING_SPEED_FACTOR_WITH_TRIGGER:0	;BUILDING_SPEED_FACTOR_WITH_TRIGGER:0;192
+|___KY190___|;BUILDING_NEED_SUPPLIES:0	;BUILDING_NEED_SUPPLIES:0;193
+|___KY191___|;CANNOT_BUILD_FACILITY_WITHOUT_AVAILABLE_PROJECT:0	;CANNOT_BUILD_FACILITY_WITHOUT_AVAILABLE_PROJECT:0;194
+|___KY192___|;GUN_EMPLACEMENT_BUILDING:0	;GUN_EMPLACEMENT_BUILDING:0;195
+|___KY193___|;BUILDING_STATE_MODIFIER_FORMATTER_HEADING:0	;BUILDING_STATE_MODIFIER_FORMATTER_HEADING:0;196
+|___KY194___|;SPECIAL_FACILITY_BUILDING:0	;SPECIAL_FACILITY_BUILDING:0;197
+|___KY195___|;lar_portugal_purchase_ships.2.t:0	;lar_portugal_purchase_ships.2.t:0;199
+|___KY196___|;lar_portugal_purchase_ships.2.desc:0	;lar_portugal_purchase_ships.2.desc:0;200
+|___KY197___|;lar_portugal_spanish_civil_war.3.t:0	;lar_portugal_spanish_civil_war.3.t:0;201
+|___KY198___|;lar_portugal_spanish_civil_war.3.desc:0	;lar_portugal_spanish_civil_war.3.desc:0;202
+|___KY199___|;lar_portugal_spanish_civil_war.3.a:0	;lar_portugal_spanish_civil_war.3.a:0;203
+|___KY200___|;lar_portugal_spanish_civil_war.3_tt:0	;lar_portugal_spanish_civil_war.3_tt:0;204
+|___KY201___|;lar_portugal_overseas_provinces.2.t:0	;lar_portugal_overseas_provinces.2.t:0;205
+|___KY202___|;lar_portugal_overseas_provinces.2.desc:0	;lar_portugal_overseas_provinces.2.desc:0;206
+|___KY203___|;lar_portugal_overseas_provinces.2.a:0	;lar_portugal_overseas_provinces.2.a:0;207
+|___KY204___|;lar_news.8.a:0	;lar_news.8.a:0;208
+|___KY205___|;lar_news.8.b:0	;lar_news.8.b:0;209
+|___KY206___|;lar_news.8.c:0	;lar_news.8.c:0;210
+|___KY207___|;lar_news.8.d:0	;lar_news.8.d:0;211
+|___KY208___|;lar_news.8.e:0	;lar_news.8.e:0;212
+|___KY209___|;lar_news.281.t:0	;lar_news.281.t:0;213
+|___KY210___|;lar_news.281.desc:0	;lar_news.281.desc:0;214
+|___KY211___|;lar_news.281.a:0	;lar_news.281.a:0;215
+|___KY212___|;lar_news.281.b:0	;lar_news.281.b:0;216
+|___KY213___|;POL_infantry_uniforms_0:9	;POL_infantry_uniforms_0:9;218
+|___KY214___|;POL_infantry_uniforms_0_short:9	;POL_infantry_uniforms_0_short:9;219
+|___KY215___|;POL_infantry_uniforms_1:9	;POL_infantry_uniforms_1:9;220
+|___KY216___|;POL_infantry_uniforms_1_short:9	;POL_infantry_uniforms_1_short:9;221
+|___KY217___|;POL_infantry_uniforms_2:9	;POL_infantry_uniforms_2:9;222
+|___KY218___|;POL_infantry_uniforms_2_short:9	;POL_infantry_uniforms_2_short:9;223
+|___KY219___|;POL_infantry_uniforms_3:9	;POL_infantry_uniforms_3:9;224
+|___KY220___|;POL_infantry_uniforms_3_short:9	;POL_infantry_uniforms_3_short:9;225
+|___KY221___|;POL_infantry_equipment_0:9	;POL_infantry_equipment_0:9;226
+|___KY222___|;POL_infantry_equipment_0_short:9	;POL_infantry_equipment_0_short:9;227
+|___KY223___|;POL_infantry_equipment_1:9	;POL_infantry_equipment_1:9;228
+|___KY224___|;POL_infantry_equipment_1_short:9	;POL_infantry_equipment_1_short:9;229
+|___KY225___|;POL_infantry_equipment_2:9	;POL_infantry_equipment_2:9;230
+|___KY226___|;POL_infantry_equipment_2_short:9	;POL_infantry_equipment_2_short:9;231
+|___KY227___|;POL_infantry_equipment_3:9	;POL_infantry_equipment_3:9;232
+|___KY228___|;POL_infantry_equipment_3_short:9	;POL_infantry_equipment_3_short:9;233
+|___KY229___|;POL_handheld_at_equipment_0:9	;POL_handheld_at_equipment_0:9;234
+|___KY230___|;POL_handheld_at_equipment_0_short:9	;POL_handheld_at_equipment_0_short:9;235
+|___KY231___|;POL_SMG_equipment_0:9	;POL_SMG_equipment_0:9;236
+|___KY232___|;POL_SMG_equipment_0_short:9	;POL_SMG_equipment_0_short:9;237
+|___KY233___|;POL_SMG_equipment_0_desc:9	;POL_SMG_equipment_0_desc:9;238
+|___KY234___|;POL_SMG_equipment_1:9	;POL_SMG_equipment_1:9;239
+|___KY235___|;POL_SMG_equipment_1_short:9	;POL_SMG_equipment_1_short:9;240
+|___KY236___|;POL_SMG_equipment_1_desc:9	;POL_SMG_equipment_1_desc:9;241
+|___KY237___|;POL_SMG_equipment_2:9	;POL_SMG_equipment_2:9;242
+|___KY238___|;POL_SMG_equipment_2_short:9	;POL_SMG_equipment_2_short:9;243
+|___KY239___|;POL_SMG_equipment_2_desc:9	;POL_SMG_equipment_2_desc:9;244
+|___KY240___|;POL_SMG_equipment_3:9	;POL_SMG_equipment_3:9;245
+|___KY241___|;POL_SMG_equipment_3_short:9	;POL_SMG_equipment_3_short:9;246
+|___KY242___|;POL_SMG_equipment_3_desc:9	;POL_SMG_equipment_3_desc:9;247
+|___KY243___|;POL_assault_rifle_equipment_0:9	;POL_assault_rifle_equipment_0:9;248
+|___KY244___|;POL_assault_rifle_equipment_0_short:9	;POL_assault_rifle_equipment_0_short:9;249
+|___KY245___|;POL_assault_rifle_equipment_0_desc:9	;POL_assault_rifle_equipment_0_desc:9;250
+|___KY246___|;POL_HMG_equipment_0:9	;POL_HMG_equipment_0:9;251
+|___KY247___|;POL_HMG_equipment_0_short:9	;POL_HMG_equipment_0_short:9;252
+|___KY248___|;POL_HMG_equipment_1:9	;POL_HMG_equipment_1:9;253
+|___KY249___|;POL_HMG_equipment_1_short:9	;POL_HMG_equipment_1_short:9;254
+|___KY250___|;POL_HMG_equipment_2:9	;POL_HMG_equipment_2:9;255
+|___KY251___|;POL_HMG_equipment_2_short:9	;POL_HMG_equipment_2_short:9;256
+|___KY252___|;POL_mortar_equipment_0_short:9	;POL_mortar_equipment_0_short:9;257
+|___KY253___|;POL_mortar_equipment_1_short:9	;POL_mortar_equipment_1_short:9;258
+|___KY254___|;POL_mortar_equipment_2_short:9	;POL_mortar_equipment_2_short:9;259
+|___KY255___|;POL_infantrygun_equipment_0_short:9	;POL_infantrygun_equipment_0_short:9;260
+|___KY256___|;POL_motorized_equipment_2:9	;POL_motorized_equipment_2:9;261
+|___KY257___|;POL_motorized_equipment_2_short:9	;POL_motorized_equipment_2_short:9;262
+|___KY258___|;POL_motorized_equipment_2_desc:9	;POL_motorized_equipment_2_desc:9;263
+|___KY259___|;POL_motorized_equipment_1:9	;POL_motorized_equipment_1:9;264
+|___KY260___|;POL_motorized_equipment_1_short:9	;POL_motorized_equipment_1_short:9;265
+|___KY261___|;POL_motorized_equipment_1_desc:9	;POL_motorized_equipment_1_desc:9;266
+|___KY262___|;POL_mechanized_equipment_1:9	;POL_mechanized_equipment_1:9;267
+|___KY263___|;POL_mechanized_equipment_1_short:9	;POL_mechanized_equipment_1_short:9;268
+|___KY264___|;POL_mechanized_equipment_2:9	;POL_mechanized_equipment_2:9;269
+|___KY265___|;POL_mechanized_equipment_2_short:9	;POL_mechanized_equipment_2_short:9;270
+|___KY266___|;POL_mechanized_equipment_3:9	;POL_mechanized_equipment_3:9;271
+|___KY267___|;POL_mechanized_equipment_3_short:9	;POL_mechanized_equipment_3_short:9;272
+|___KY268___|;POL_mechanized_hmg_0:9	;POL_mechanized_hmg_0:9;273
+|___KY269___|;POL_mechanized_hmg_0_short:9	;POL_mechanized_hmg_0_short:9;274
+|___KY270___|;POL_mechanized_mortar_0:9	;POL_mechanized_mortar_0:9;275
+|___KY271___|;POL_mechanized_mortar_0_short:9	;POL_mechanized_mortar_0_short:9;276
+|___KY272___|;POL_mechanized_at_0:9	;POL_mechanized_at_0:9;277
+|___KY273___|;POL_mechanized_at_0_short:9	;POL_mechanized_at_0_short:9;278
+|___KY274___|;POL_mechanized_aa_0:9	;POL_mechanized_aa_0:9;279
+|___KY275___|;POL_mechanized_aa_0_short:9	;POL_mechanized_aa_0_short:9;280
+|___KY276___|;POL_recon_mot_equipment_0:9	;POL_recon_mot_equipment_0:9;281
+|___KY277___|;POL_recon_mot_equipment_0_short:9	;POL_recon_mot_equipment_0_short:9;282
+|___KY278___|;POL_artytractor_equipment_0:9	;POL_artytractor_equipment_0:9;283
+|___KY279___|;POL_artytractor_equipment_0_short:9	;POL_artytractor_equipment_0_short:9;284
+|___KY280___|;POL_artytractor_equipment_0_desc:9	;POL_artytractor_equipment_0_desc:9;285
+|___KY281___|;POL_artytruck_equipment_0:9	;POL_artytruck_equipment_0:9;286
+|___KY282___|;POL_artytruck_equipment_0_short:9	;POL_artytruck_equipment_0_short:9;287
+|___KY283___|;POL_artillery_equipment_0:9	;POL_artillery_equipment_0:9;288
+|___KY284___|;POL_artillery_equipment_0_short:9	;POL_artillery_equipment_0_short:9;289
+|___KY285___|;POL_artillery_equipment_1:9	;POL_artillery_equipment_1:9;290
+|___KY286___|;POL_artillery_equipment_1_short:9	;POL_artillery_equipment_1_short:9;291
+|___KY287___|;POL_medartillery_equipment_0:9	;POL_medartillery_equipment_0:9;292
+|___KY288___|;POL_medartillery_equipment_0_short:9	;POL_medartillery_equipment_0_short:9;293
+|___KY289___|;POL_Hvartillery_equipment_0:9	;POL_Hvartillery_equipment_0:9;294
+|___KY290___|;POL_Hvartillery_equipment_0_short:9	;POL_Hvartillery_equipment_0_short:9;295
+|___KY291___|;POL_Hvartillery_equipment_1:9	;POL_Hvartillery_equipment_1:9;296
+|___KY292___|;POL_Hvartillery_equipment_1_short:9	;POL_Hvartillery_equipment_1_short:9;297
+|___KY293___|;POL_artillery_coastal:9	;POL_artillery_coastal:9;298
+|___KY294___|;POL_artillery_coastal_short:9	;POL_artillery_coastal_short:9;299
+|___KY295___|;POL_anti_tank_equipment_1:9	;POL_anti_tank_equipment_1:9;300
+|___KY296___|;POL_anti_tank_equipment_1_short:9	;POL_anti_tank_equipment_1_short:9;301
+|___KY297___|;POL_anti_tank_equipment_2:9	;POL_anti_tank_equipment_2:9;302
+|___KY298___|;POL_anti_tank_equipment_2_short:9	;POL_anti_tank_equipment_2_short:9;303
+|___KY299___|;POL_anti_air_equipment_1:9	;POL_anti_air_equipment_1:9;304
+|___KY300___|;POL_anti_air_equipment_1_short:9	;POL_anti_air_equipment_1_short:9;305
+|___KY301___|;POL_anti_air_equipment_3:9	;POL_anti_air_equipment_3:9;306
+|___KY302___|;POL_anti_air_equipment_3_short:9	;POL_anti_air_equipment_3_short:9;307
+|___KY303___|;POL_HVanti_air_equipment_2:9	;POL_HVanti_air_equipment_2:9;308
+|___KY304___|;POL_HVanti_air_equipment_2_short:9	;POL_HVanti_air_equipment_2_short:9;309
+|___KY305___|;POL_spotter_planes_equipment_0:9	;POL_spotter_planes_equipment_0:9;310
+|___KY306___|;POL_spotter_planes_equipment_0_short:9	;POL_spotter_planes_equipment_0_short:9;311
+|___KY307___|;POL_tankette_equipment_0:9	;POL_tankette_equipment_0:9;312
+|___KY308___|;POL_tankette_equipment_0_short:9	;POL_tankette_equipment_0_short:9;313
+|___KY309___|;POL_tankette_equipment_1:9	;POL_tankette_equipment_1:9;314
+|___KY310___|;POL_tankette_equipment_1_short:9	;POL_tankette_equipment_1_short:9;315
+|___KY311___|;POL_tankette_equipment_2:9	;POL_tankette_equipment_2:9;316
+|___KY312___|;POL_tankette_equipment_2_short:9	;POL_tankette_equipment_2_short:9;317
+|___KY313___|;POL_tankette_equipment_3:9	;POL_tankette_equipment_3:9;318
+|___KY314___|;POL_tankette_equipment_3_short:9	;POL_tankette_equipment_3_short:9;319
+|___KY315___|;POL_motorized_AC_equipment_06:9	;POL_motorized_AC_equipment_06:9;320
+|___KY316___|;POL_motorized_AC_equipment_06_short:9	;POL_motorized_AC_equipment_06_short:9;321
+|___KY317___|;POL_motorized_AC_equipment_07:9	;POL_motorized_AC_equipment_07:9;322
+|___KY318___|;POL_motorized_AC_equipment_07_short:9	;POL_motorized_AC_equipment_07_short:9;323
+|___KY319___|;POL_motorized_AC_equipment_08:9	;POL_motorized_AC_equipment_08:9;324
+|___KY320___|;POL_motorized_AC_equipment_08_short:9	;POL_motorized_AC_equipment_08_short:9;325
+|___KY321___|;POL_motorized_AC_equipment_09:9	;POL_motorized_AC_equipment_09:9;326
+|___KY322___|;POL_motorized_AC_equipment_09_short:9	;POL_motorized_AC_equipment_09_short:9;327
+|___KY323___|;POL_motorized_AC_equipment_099:9	;POL_motorized_AC_equipment_099:9;328
+|___KY324___|;POL_motorized_AC_equipment_099_short:9	;POL_motorized_AC_equipment_099_short:9;329
+|___KY325___|;POL_motorized_lia_equipment_01:9	;POL_motorized_lia_equipment_01:9;330
+|___KY326___|;POL_motorized_lia_equipment_01_short:9	;POL_motorized_lia_equipment_01_short:9;331
+|___KY327___|;POL_motorized_lia_equipment_02:9	;POL_motorized_lia_equipment_02:9;332
+|___KY328___|;POL_motorized_lia_equipment_02_short:9	;POL_motorized_lia_equipment_02_short:9;333
+|___KY329___|;POL_light_tank_equipment_1:9	;POL_light_tank_equipment_1:9;334
+|___KY330___|;POL_light_tank_equipment_1_short:9	;POL_light_tank_equipment_1_short:9;335
+|___KY331___|;POL_light_tank_equipment_2:9	;POL_light_tank_equipment_2:9;336
+|___KY332___|;POL_light_tank_equipment_2_short:9	;POL_light_tank_equipment_2_short:9;337
+|___KY333___|;POL_light_tank_equipment_3:9	;POL_light_tank_equipment_3:9;338
+|___KY334___|;POL_light_tank_equipment_3_short:9	;POL_light_tank_equipment_3_short:9;339
+|___KY335___|;POL_light_tank_equipment_4:9	;POL_light_tank_equipment_4:9;340
+|___KY336___|;POL_light_tank_equipment_4_short:9	;POL_light_tank_equipment_4_short:9;341
+|___KY337___|;POL_cavalry_tank_equipment_0:9	;POL_cavalry_tank_equipment_0:9;342
+|___KY338___|;POL_cavalry_tank_equipment_0_short:9	;POL_cavalry_tank_equipment_0_short:9;343
+|___KY339___|;POL_cavalry_tank_equipment_1:9	;POL_cavalry_tank_equipment_1:9;344
+|___KY340___|;POL_cavalry_tank_equipment_1_short:9	;POL_cavalry_tank_equipment_1_short:9;345
+|___KY341___|;POL_cavalry_tank_equipment_2:9	;POL_cavalry_tank_equipment_2:9;346
+|___KY342___|;POL_cavalry_tank_equipment_2_short:9	;POL_cavalry_tank_equipment_2_short:9;347
+|___KY343___|;POL_medium_tank_equipment_1:9	;POL_medium_tank_equipment_1:9;348
+|___KY344___|;POL_medium_tank_equipment_1_short:9	;POL_medium_tank_equipment_1_short:9;349
+|___KY345___|;POL_medium_tank_equipment_2:9	;POL_medium_tank_equipment_2:9;350
+|___KY346___|;POL_medium_tank_equipment_2_short:9	;POL_medium_tank_equipment_2_short:9;351
+|___KY347___|;POL_medium_tank_equipment_3:9	;POL_medium_tank_equipment_3:9;352
+|___KY348___|;POL_medium_tank_equipment_3_short:9	;POL_medium_tank_equipment_3_short:9;353
+|___KY349___|;POL_medium_tank_equipment_4_short:9	;POL_medium_tank_equipment_4_short:9;354
+|___KY350___|;POL_medium_tank_equipment_4:9	;POL_medium_tank_equipment_4:9;355
+|___KY351___|;POL_infantry_tank_equipment_0:9	;POL_infantry_tank_equipment_0:9;356
+|___KY352___|;POL_infantry_tank_equipment_0_short:9	;POL_infantry_tank_equipment_0_short:9;357
+|___KY353___|;POL_infantry_tank_equipment_1:9	;POL_infantry_tank_equipment_1:9;358
+|___KY354___|;POL_infantry_tank_equipment_1_short:9	;POL_infantry_tank_equipment_1_short:9;359

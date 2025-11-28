@@ -48,7 +48,24 @@ namespace ParadoxTranslationHelper_Test
 
             return true;
         }
+        private int GetLineCount(string fileName)
+        {
+            return File.ReadLines(Path.Combine(ParadoxTranslationHelperConfig.PathResult, fileName)).ToList<string>().Count;
+        }
 
+        private int CountOccurences(string fileName, string toCount)
+        {
+            string subContent = File.ReadAllText(Path.Combine(ParadoxTranslationHelperConfig.PathResult, fileName));
+            MatchCollection matchCollection = Regex.Matches(subContent, toCount);
+            
+            List<Match> matches = matchCollection.ToList();
+            foreach( Match match in matches )
+            {
+                string value = match.Value;
+            }
+
+            return matchCollection.Count;
+        }
 
         [TestMethod]
         [DataRow(DisplayName = "DIFF_FILES")]
@@ -97,17 +114,41 @@ namespace ParadoxTranslationHelper_Test
 
             Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.KY"), CountOccurences("_SteamKeysToCreate.yml.sub", "___KY"));
             Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.NS"), CountOccurences("_SteamKeysToCreate.yml.sub", "___NS"));
+            Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.NE"), CountOccurences("_SteamKeysToCreate.yml.sub", "___NE"));
         }
 
-        private int GetLineCount( string fileName )
+        [TestMethod]
+        [DataRow(DisplayName = "RESUB")]
+        public void TestMethod_RESUB()
         {
-            return File.ReadLines(Path.Combine(ParadoxTranslationHelperConfig.PathResult, fileName)).ToList<string>().Count;
+            const string MOD_NAME = "Test_RESUB";
+            const string MOD_FUNCTION = "RESUB";
+
+            Assert.IsTrue(ReadConfig());
+            Assert.IsTrue(SetActiveMod(MOD_NAME));
+
+            //INFO: 2025-11-28 - JHA - Check if translated files are correct
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.sub.german")));
+
+//            Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.KY"), CountOccurences("_SteamKeysToCreate.yml.sub.german", "___KY"));
+//            Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.NS"), CountOccurences("_SteamKeysToCreate.yml.sub.german", "___NS"));
+//            Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.NE"), CountOccurences("_SteamKeysToCreate.yml.sub.german", "___NE"));
+
+            //INFO: 2025-11-28 - JHA - Do resubstitutiuon
+            FunctionObjectRegistryInitialiser.Init();
+
+            IFunctionObject function = FunctionObjectRegistry.Instance.GetFunctionObject(MOD_FUNCTION);
+            Assert.IsNotNull(function);
+            Assert.IsTrue(function.Work());
+
+
+            //INFO: 2025-11-28 - JHA - Check if translated files are correct
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.sub.german.resub")));
+
+            Assert.AreEqual(0, CountOccurences("_SteamKeysToCreate.yml.sub_1.german.resub", "___KY"));
+            Assert.AreEqual(0, CountOccurences("_SteamKeysToCreate.yml.sub_1.german.resub", "___NS"));
+            Assert.AreEqual(0, CountOccurences("_SteamKeysToCreate.yml.sub_1.german.resub", "___NE"));
         }
 
-        private int CountOccurences(string fileName, string toCount )
-        {
-            string subContent = File.ReadAllText(Path.Combine(ParadoxTranslationHelperConfig.PathResult, fileName));
-            return Regex.Matches(subContent, toCount).Count;
-        }
     }
 }

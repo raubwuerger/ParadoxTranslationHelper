@@ -1,7 +1,7 @@
- ___IC0___ ;£resources_strip|$FRAME$;synthetic_refinery_resource:0;14
- ___IC1___ ;£tech_mod;research_centre_desc:0;59
- ___IC2___ ;£tech_mod;research_centre_desc:0;59
- ___IC3___ ;£trigger_no;research_centre_desc:0;59
- ___IC4___ ;£tech_mod;research_centre_overlay:0;60
- ___IC5___ ;£tech_mod;research_centre_overlay:0;60
- ___IC6___ ;£trigger_no;research_centre_overlay:0;60
+|___IC0___|;£resources_strip|$FRAME$;synthetic_refinery_resource:0;14
+|___IC1___|;£tech_mod;research_centre_desc:0;59
+|___IC2___|;£tech_mod;research_centre_desc:0;59
+|___IC3___|;£trigger_no;research_centre_desc:0;59
+|___IC4___|;£tech_mod;research_centre_overlay:0;60
+|___IC5___|;£tech_mod;research_centre_overlay:0;60
+|___IC6___|;£trigger_no;research_centre_overlay:0;60
