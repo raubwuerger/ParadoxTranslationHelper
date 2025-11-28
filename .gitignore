@@ -68,3 +68,5 @@ crashlytics-build.properties
 /ParadoxTranslationHelper_Test/obj/Debug/net8.0
 /ParadoxTranslationHelper_Test/obj
 /ParadoxTranslationHelper_Test/testData/DiffFiles/analysis
+/ParadoxTranslationHelper_Test/testData/DiffFiles/german/*.toRemove
+/ParadoxTranslationHelper_Test/testData/DiffFiles/german/replace/*.toRemove

@@ -156,10 +156,11 @@ namespace ParadoxTranslationHelper.Utilities
             Dictionary<int, LineObject> _lines = translationFile.Lines;
             List<LineObject> lineObjects = _lines.Values.ToList();
 
-            Log.Verbose("Writing file: " + fileName);
+            Log.Verbose($"Writing file: {fileName}");
             try
             {
                 ClearFileContent(fileName);
+                CreateDirectoryNotExists(fileName);
                 using (Stream stream = File.OpenWrite(fileName))
                 using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
@@ -172,7 +173,7 @@ namespace ParadoxTranslationHelper.Utilities
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex.ToString());
+                Log.Fatal($"Exception occured: {ex.ToString()}");
                 return false;
             }
         }
@@ -191,6 +192,17 @@ namespace ParadoxTranslationHelper.Utilities
                     fs.SetLength(0);
                 }
             }
+        }
+
+        public static void CreateDirectoryNotExists( string fileName )
+        {
+            if (true == File.Exists(fileName))
+            {
+                return;
+            }
+
+            DirectoryInfo directoryInfo = Directory.CreateDirectory(Path.GetDirectoryName(fileName));
+            Log.Debug($"Created directory: {directoryInfo}");
         }
 
         public static bool WriteEmptyFileUTF8_BOM(string fileName)

@@ -169,9 +169,9 @@ namespace ParadoxTranslationHelper.FunctionObject
                 return;
             }
 
-            foreach(TranslationFile translationFile in translationFiles )
+            foreach (TranslationFile translationFile in translationFiles )
             {
-                TranslationFile translationCreated = TranslationFileCreator.CreateEmpty(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, $"{ translationFile.FileNameWithoutLocalisation}{Constants.LOCALISATION_GERMAN_FULL}.{Constants.LOCALISATION_EXTENSION}" ));
+                TranslationFile translationCreated = TranslationFileCreator.CreateEmpty(CreateFilePath(translationFile));
 
                 if ( translationCreated == null )
                 {
@@ -188,11 +188,23 @@ namespace ParadoxTranslationHelper.FunctionObject
 
                 translationCreated.Lines.Add(lineObject.LineNumber, lineObject);
 
-                if( false == FileUtility.Write(translationCreated) )
+                if ( false == FileUtility.Write(translationCreated) )
                 {
                     Log.Warning("Unable to create file:" +translationCreated.FileName);
                 }
+            }
+        }
 
+        private string CreateFilePath(TranslationFile translationFile)
+        {
+            string subPathRelative = Path.GetRelativePath(ParadoxTranslationHelperConfig.PathSteam, translationFile.BasePath);
+            if( true == subPathRelative.Equals(".") )
+            {
+                return Path.Combine(ParadoxTranslationHelperConfig.PathGerman, $"{translationFile.FileNameWithoutLocalisation}{Constants.LOCALISATION_GERMAN_FULL}{Constants.LOCALISATION_EXTENSION}");
+            }
+            else
+            {
+                return Path.Combine(ParadoxTranslationHelperConfig.PathGerman, subPathRelative, $"{translationFile.FileNameWithoutLocalisation}{Constants.LOCALISATION_GERMAN_FULL}{Constants.LOCALISATION_EXTENSION}");
             }
         }
     }
