@@ -6,21 +6,17 @@ namespace ParadoxTranslationHelper
 {
     public class ConfigReader
     {
-        public const string CONFIG_NODE_PATH_ENGLISH = "english";
-        //public const string CONFIG_NODE_PATH_ENGLISH_UPDATED = "english_updated";
-        public const string CONFIG_NODE_PATH_GERMAN = "german";
-        public const string CONFIG_NODE_PATH_BASE = "basePath";
-        public const string CONFIG_NODE_PATH_STEAM = "steam";
-
         public const string CONFIG_MODS = "/ParadoxTranslationHelper/Mods";
         public const string CONFIG_MOD = "/Mod";
         public const string CONFIG_MOD_NAME_ATTRIBUTE = "name";
 
+        public const string CONFIG_NODE_PATH_BASE = "basePath";
+        public const string CONFIG_NODE_PATH_ENGLISH = "english";
+        public const string CONFIG_NODE_PATH_GERMAN = "german";
+        public const string CONFIG_NODE_PATH_STEAM = "steam";
+
         public const string CONFIG_GLOBAL = "/ParadoxTranslationHelper/Global";
         public const string CONFIG_GLOBAL_RESULT_PATH = "ResultPath";
-
-        public const string CONFIG_FUNCTION = "/ParadoxTranslationHelper/Function";
-
 
         public bool Read()
         {

@@ -64,7 +64,4 @@
   <Global>
     <ResultPath>analysis</ResultPath>
   </Global>
-  <Function>
-    <SubFile>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper\bin\Release\net8.0\publish\updateMissingKeys.txt</SubFile>
-  </Function>
 </ParadoxTranslationHelper>
