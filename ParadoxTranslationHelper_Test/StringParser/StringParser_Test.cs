@@ -131,6 +131,14 @@ namespace ParadoxTranslationHelper_Test
         }
 
         [TestMethod]
+        public void IconTest2()
+        {
+            Assert.IsTrue("synthetic_refinery_resource:0\t\"£resources_strip|$FRAME$\"".Contains(StringParserFactory.ICON_START));
+            Assert.IsTrue("synthetic_refinery_resource:0\t\"£resources_strip|$FRAME$\"".Contains(icon));
+            Assert.AreEqual(icon, StringParserFactory.ICON_START);
+        }
+
+        [TestMethod]
         public void NewLineNull()
         {
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
@@ -422,6 +430,30 @@ namespace ParadoxTranslationHelper_Test
             List<string> tokens = new List<string>();
             List<string> found = stringParserNewLine.GetToken(newLine, tokens);
             Assert.AreEqual(5, found.Count);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Contains icon with dircted attached other sign: --> count == 1")]
+        public void FindIcon_001()
+        {
+            string newLine = "synthetic_refinery_resource:0\t\"£resources_strip|$FRAME$\"";
+            StringParser stringParserIcon = StringParserFactory.Instance.CreateParserIcons();
+
+            List<string> tokens = new List<string>();
+            List<string> found = stringParserIcon.GetToken(newLine, tokens);
+            Assert.AreEqual(1, found.Count);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Contains icon with attached : --> count == 1")]
+        public void FindIcon_002()
+        {
+            string newLine = "synthetic_refinery_resource:0\t\"£resources_strip|$FRAME$ another icon £resources_strip\"";
+            StringParser stringParserIcon = StringParserFactory.Instance.CreateParserIcons();
+
+            List<string> tokens = new List<string>();
+            List<string> found = stringParserIcon.GetToken(newLine, tokens);
+            Assert.AreEqual(2, found.Count);
         }
     }
 }

@@ -11,15 +11,14 @@ namespace ParadoxTranslationHelper
 {
     public class TranslationFile
     {
-        private string _fileName;
-        private string _basePath;
-//        private string _subDirectory;
-        private string _fileNameWithoutLocalisation;
+        private string _fileName = "";
+        private string _basePath = "";
+        private string _fileNameWithoutLocalisation = "";
         private Dictionary<int, LineObject> _lines = new Dictionary<int, LineObject>();
 
+        //TODO: 2025-11-29 - JHA - Der get-Operator sollte anders gelöst werden! Performance
         public string FileName { get => Path.Combine(_basePath, _fileName); }
         public string BasePath { get => _basePath; set => _basePath = value; }
-//        public string SubDirectory { get => _subDirectory; set => _subDirectory = value; }
         public string FileNameWithoutLocalisation { get => _fileNameWithoutLocalisation; set => _fileNameWithoutLocalisation = value; }
         internal Dictionary<int, LineObject> Lines { get => _lines; set => _lines = value; }
 
@@ -38,7 +37,6 @@ namespace ParadoxTranslationHelper
 
             this._fileName = translationFile._fileName;
             this._basePath = translationFile._basePath;
-//            this._subDirectory = translationFile._subDirectory;
             this._fileNameWithoutLocalisation = translationFile._fileNameWithoutLocalisation;
             foreach( KeyValuePair<int,LineObject> keyValuePair in translationFile._lines )
             {

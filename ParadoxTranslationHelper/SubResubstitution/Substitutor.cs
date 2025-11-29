@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Serilog;
 using System.Diagnostics;
+using ParadoxTranslationHelper.Repositories;
 
 namespace ParadoxTranslationHelper
 {
@@ -25,6 +26,8 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
+            InitColorCodeSubstitutes();
+
             Log.Information("Substituting file: " + translationFile.FileName);
             Substitute(translationFile.Lines.Values.ToList());
             Log.Information($"Substituted keys: {_keySubstitute.Count}");
@@ -37,6 +40,16 @@ namespace ParadoxTranslationHelper
 
             WriteSubstitionFiles(translationFile);
             return true;
+        }
+
+        private void InitColorCodeSubstitutes()
+        {
+            ColorRepository.Instance.Init();
+
+            foreach( KeyValuePair<string,string> keyValuePair in ColorRepository.Instance.ColorsKeySuffix )
+            {
+                _colorCodeSubstitute.Add(FileSubstitutionConstants.SUBSTITUTION_START + keyValuePair.Key + FileSubstitutionConstants.SUBSTITUTION_END, keyValuePair.Value);
+            }
         }
 
         private bool WriteSubstitionFiles(TranslationFile translationFile)
@@ -180,7 +193,12 @@ namespace ParadoxTranslationHelper
 
         private void SubstituteColorCodeEnd(LineObject lineObject)
         {
-            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_END, FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END);
+            if( false == lineObject.OriginalLineSubstituted.Contains(FileSubstitutionConstants.COLOR_CODE_SIGN_END) )
+            {
+                return;
+            }
+
+            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_END, _colorCodeSubstitute.FirstOrDefault(x => x.Value == FileSubstitutionConstants.COLOR_CODE_SIGN_END).Key);
         }
 
         //INFO: 2025-11-20 - JHA - Funktioniert eigentlich nur wenn vorher schon ColorCodeEnd substituiert wurde.
@@ -204,9 +222,8 @@ namespace ParadoxTranslationHelper
             }
 
             string colorCode = FileSubstitutionConstants.COLOR_CODE_SIGN_START + indexSecond.ToString();
-            string colorCodeSubstitute = FileSubstitutionConstants.SUBSTITUTION_START + colorCode + FileSubstitutionConstants.SUBSTITUTION_END;
 
-            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(colorCode, colorCodeSubstitute);
+            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(colorCode, _colorCodeSubstitute.FirstOrDefault(x => x.Value == colorCode).Key);
         }
 
         private void SubstituteNamespace(LineObject lineObject)

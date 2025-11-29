@@ -1,4 +1,5 @@
-﻿using ParadoxTranslationHelper.SubResubstitution;
+﻿using ParadoxTranslationHelper.Helper;
+using ParadoxTranslationHelper.SubResubstitution;
 using ParadoxTranslationHelper.Utilities;
 using Serilog;
 using System.Collections.Generic;
@@ -148,13 +149,20 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
+            ResubstitutionHelper resubstitutionHelper = new ResubstitutionHelper();
+
+
             CopyOriginalLineToOrigialLineSubstituted(lineObjects);
-            ReSubstituteLines(lineObjects, _keyReSubstitute);
-            ReSubstituteLines(lineObjects, _nestingStringsReSubstitute);
-            ReSubstituteLines(lineObjects, _namespaceReSubstitute);
-            ReSubstituteLines(lineObjects, _iconReSubstitute);
+            List<KeyValuePair<string, string>> keyReSubstitute = resubstitutionHelper.ReSubstituteLines(lineObjects, ref _keyReSubstitute);
+            List<KeyValuePair<string, string>> nestingStringsReSubstitute = resubstitutionHelper.ReSubstituteLines(lineObjects, ref _nestingStringsReSubstitute);
+            List<KeyValuePair<string, string>> namespaceReSubstitute = resubstitutionHelper.ReSubstituteLines(lineObjects, ref _namespaceReSubstitute);
+            List<KeyValuePair<string, string>> iconReSubstitute = resubstitutionHelper.ReSubstituteLines(lineObjects, ref _iconReSubstitute);
             ReSubstituteTabulators(lineObjects);
             ReSubstituteColorCodes(lineObjects);
+            ReSubstituteNewLines(lineObjects);
+
+            //TODO: 2025-11-29 - JHA - Schreibe Dateien mit nicht gefundenen Token -> _SteamKeysToCreate.yml.notFound.IC
+
         }
 
         private void CopyOriginalLineToOrigialLineSubstituted(List<LineObject> lineObjects)
@@ -164,7 +172,7 @@ namespace ParadoxTranslationHelper
                 lineObject.OriginalLineSubstituted = lineObject.OriginalLine;
             }
         }
-
+/*
         private void ReSubstituteLines(List<LineObject> lineObjects, Dictionary<string, string> substituteTokens )
         {
             foreach (LineObject lineObject in lineObjects)
@@ -187,7 +195,7 @@ namespace ParadoxTranslationHelper
                 }
             }
         }
-
+*/
         private string? GetSubstitutedKey( LineObject lineObject, KeyValuePair<string, string> keyValuePair )
         {
             if (false == lineObject.OriginalLineSubstituted.Contains(keyValuePair.Key))
@@ -204,7 +212,8 @@ namespace ParadoxTranslationHelper
         {
             foreach (LineObject lineObject in lineObjects)
             {
-                if (false == lineObject.OriginalLineSubstituted.Contains(FileSubstitutionConstants.COLOR_CODE_SUFFIX))
+                //INFO: 2025-11-29 - JHA - ColorCodeEnd (|___CC___|) finden ...
+                if (false == lineObject.OriginalLineSubstituted.Contains(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END))
                 {
                     continue;
                 }
@@ -213,6 +222,11 @@ namespace ParadoxTranslationHelper
                 lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
 
                 //INFO: 2025-11-26 - JHA - Wenn ein COLOR_CODE_SIGN_END gefunden wurde muss es auch einen COLOR_CODE_SIGN_START vorhanden sein
+                if (false == lineObject.OriginalLineSubstituted.Contains(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SIGN_START))
+                {
+                    Log.Warning($"No matching color code found for color code end! {LogStringCreator.Create(lineObject)}");
+                    continue;
+                }
 
                 lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_START, "" );
                 lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_END, "");
@@ -234,6 +248,20 @@ namespace ParadoxTranslationHelper
             }
         }
 
+        private void ReSubstituteNewLines(List<LineObject> lineObjects)
+        {
+            string newLineToken = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END;
+            foreach (LineObject lineObject in lineObjects)
+            {
+                if (false == lineObject.OriginalLineSubstituted.Contains(newLineToken))
+                {
+                    continue;
+                }
+
+                Log.Information($"Replacing item: {newLineToken}");
+                lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(newLineToken, FileSubstitutionConstants.NEW_LINE);
+            }
+        }
 
         //TODO: 2025-01-14 - JHA - Extract in separate class SubstitutionFileValidator
         private void ValidateAgaintsSubstitutionDataFiles()
@@ -274,5 +302,6 @@ namespace ParadoxTranslationHelper
 
             return validItems;
         }
+
     }
 }

@@ -37,6 +37,11 @@ namespace ParadoxTranslationHelper
 
         private bool _hasEndTag = true;
         public bool HasEndTag { get => _hasEndTag; set => _hasEndTag = value; }
+        public List<string> SubStringBreakCharacters { get => _subStringBreakCharacters; set => _subStringBreakCharacters = value; }
+
+        private List<string> _subStringBreakCharacters = new List<string>();
+
+        public bool HasSubStringBreakCharacters { get => _subStringBreakCharacters.Any(); }
 
         abstract public List<string> GetToken(string source, List<string> tokens);
 
