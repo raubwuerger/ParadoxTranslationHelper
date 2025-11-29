@@ -13,5 +13,6 @@ namespace ParadoxTranslationHelper
         public string PathNamespaceFile;
         public string PathIconFile;
         public string PathNestingStringsFile;
+        public string PathColorFile;
     }
 }

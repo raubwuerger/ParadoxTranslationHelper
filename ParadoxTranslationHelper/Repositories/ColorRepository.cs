@@ -52,6 +52,7 @@ namespace ParadoxTranslationHelper.Repositories
                 return;
             }
 
+            colorsKeySuffix.Add(FileSubstitutionConstants.COLOR_CODE_SUFFIX_END, "§!");
             colorsKeySuffix.Add(FileSubstitutionConstants.COLOR_CODE_SUFFIX_A, "§A");
             colorsKeySuffix.Add(FileSubstitutionConstants.COLOR_CODE_SUFFIX_B, "§B");
             colorsKeySuffix.Add(FileSubstitutionConstants.COLOR_CODE_SUFFIX_C, "§C");
@@ -78,7 +79,6 @@ namespace ParadoxTranslationHelper.Repositories
             colorsKeySuffix.Add(FileSubstitutionConstants.COLOR_CODE_SUFFIX_X, "§X");
             colorsKeySuffix.Add(FileSubstitutionConstants.COLOR_CODE_SUFFIX_Y, "§Y");
             colorsKeySuffix.Add(FileSubstitutionConstants.COLOR_CODE_SUFFIX_Z, "§Z");
-            colorsKeySuffix.Add(FileSubstitutionConstants.COLOR_CODE_SUFFIX_END, "§!");
         }
 
         private void InitInternalSign()
@@ -88,6 +88,7 @@ namespace ParadoxTranslationHelper.Repositories
                 return;
             }
 
+            colorsKeySign.Add("§!", FileSubstitutionConstants.COLOR_CODE_SUFFIX_END);
             colorsKeySign.Add("§A", FileSubstitutionConstants.COLOR_CODE_SUFFIX_A);
             colorsKeySign.Add("§B", FileSubstitutionConstants.COLOR_CODE_SUFFIX_B);
             colorsKeySign.Add("§C", FileSubstitutionConstants.COLOR_CODE_SUFFIX_C);
@@ -114,7 +115,6 @@ namespace ParadoxTranslationHelper.Repositories
             colorsKeySign.Add("§X", FileSubstitutionConstants.COLOR_CODE_SUFFIX_X);
             colorsKeySign.Add("§Y", FileSubstitutionConstants.COLOR_CODE_SUFFIX_Y);
             colorsKeySign.Add("§Z", FileSubstitutionConstants.COLOR_CODE_SUFFIX_Z);
-            colorsKeySign.Add("§!", FileSubstitutionConstants.COLOR_CODE_SUFFIX_END);
         }
 
         public string? GetValueSigns( string key )

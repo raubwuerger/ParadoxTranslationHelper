@@ -27,6 +27,15 @@ namespace ParadoxTranslationHelper_Test
     [TestClass]
     public class DiffFiles_Test
     {
+        void InitLogger()
+        {
+            Log.Logger = new LoggerConfiguration()
+                            .WriteTo.Console()
+                            .WriteTo.File("./logs/ParadoxTranslationHelper.log", rollingInterval: RollingInterval.Day, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level}] {Message}{NewLine}{Exception}")
+                            .MinimumLevel.Debug()
+                            .CreateLogger();
+        }
+
         bool ReadConfig()
         {
             ConfigReader configReader = new ConfigReader();
@@ -74,6 +83,7 @@ namespace ParadoxTranslationHelper_Test
             const string MOD_NAME = "Test_DIFF_FILES";
             const string MOD_FUNCTION = "DIFF_FILES";
 
+            InitLogger();
             Assert.IsTrue(ReadConfig());
             Assert.IsTrue(SetActiveMod(MOD_NAME));
 
@@ -95,6 +105,7 @@ namespace ParadoxTranslationHelper_Test
             const string MOD_NAME = "Test_SUB";
             const string MOD_FUNCTION = "SUB";
 
+            InitLogger();
             Assert.IsTrue(ReadConfig());
             Assert.IsTrue(SetActiveMod(MOD_NAME));
 
@@ -124,6 +135,7 @@ namespace ParadoxTranslationHelper_Test
             const string MOD_NAME = "Test_RESUB";
             const string MOD_FUNCTION = "RESUB";
 
+            InitLogger();
             Assert.IsTrue(ReadConfig());
             Assert.IsTrue(SetActiveMod(MOD_NAME));
 
