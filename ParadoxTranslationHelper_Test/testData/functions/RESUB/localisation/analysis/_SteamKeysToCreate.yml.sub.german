@@ -1,146 +1,146 @@
-﻿>>>>> C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation\steam\bftb_decisions_l_english.yml
-|___KY0___|„Die Spannungen zwischen den Republikanern und den Monarchisten spitzen sich zu, und ein Bürgerkrieg scheint leider unvermeidlich zu sein ... „
-|___KY1___|“Bürgerkrieg steht bevor!„
-|___KY2___|“Die Spannungen zwischen Republikanern und Monarchisten spitzen sich zu, und ein Bürgerkrieg scheint leider unvermeidlich zu sein...„
-|___KY3___|“Bürgerkrieg steht bevor!„
-|___KY4___|“Kontrolliert alle |___§ Y___|bulgarischen|___CC___| und |___§Y___|albanischen|___CC___| Staaten sowie alle |___§Y___|jugoslawischen|___CC___| Staaten südlich von |___§Y___|Serbien|___CC___|.“
-|___KY5___|„Kontrolliert |___§ Y___||___NS0___||___CC___|, |___§Y___||___NS1___||___CC___| und |___§Y___||___NS2___||___CC___|."
-|___KY6___|„Kontrolliert |___§Y___||___NS3___||___CC___|, |___§Y___||___NS4___||___CC___| und |___§Y___||___NS5___||___CC___|“
-|___KY7___|„Kontrolliert alle |___§Y___|pakistanischen|___CC___| Staaten.“
+﻿C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation\steam\bftb_decisions_l_english.yml
+|___KY0___|„Die Spannungen zwischen den Republikanern und den Monarchisten spitzen sich zu, und ein Bürgerkrieg scheint leider unvermeidlich zu sein ...“
+|___KY1___|„Bürgerkrieg steht bevor!“
+|___KY2___|„Die Spannungen zwischen den Republikanern und den Monarchisten spitzen sich zu, und ein Bürgerkrieg scheint leider unvermeidlich zu sein ...“
+|___KY3___|„Bürgerkrieg steht bevor!“
+|___KY4___|„Kontrolliert alle |___CY___|bulgarischen|___XX___| und |___CY___|albanischen|___XX___| Staaten sowie alle |___CY___|jugoslawischen|___XX___| Staaten südlich von |___CY___|Serbien|___XX___|.“
+|___KY5___|„Kontrolliert |___CY___||___NS0___||___XX___|, |___CY___||___NS1___||___XX___| und |___CY___||___NS2___||___XX___|.„
+|___KY6___|“ Kontrolliert |___CY___||___NS3___||___XX___|, |___CY___||___NS4___||___XX___| und |___CY___||___NS5___||___XX___|."
+|___KY7___|„Kontrolliert alle |___CY___|pakistanischen|___XX___| Staaten.“
 |___KY8___|„Verhandeln Sie unsere Ansprüche auf dem Balkan“
 |___KY9___|„Bevor wir uns einer Großmacht anschließen, müssen wir unsere territorialen Forderungen mit Deutschland verhandeln. Die internationalen Spannungen nehmen zu, und Bulgarien wird nur die Nation unterstützen, die das beste territoriale Angebot macht.“
 >>>>> C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation\steam\buildings_l_english.yml
-|___KY10___|„|___NE0___|“
+|___KY10___|" |___NE0___|„
 |___KY11___|„|___IC0___|||___NE1___|“
 |___KY12___|„Infrastruktur“
 |___KY13___|„Infrastruktur“
 |___KY14___|„Dieses Gebäude verbessert die Infrastruktur des Staates. Es erhöht Ihre Versorgungsleistung in strategischen Regionen und steigert die Geschwindigkeit Ihrer Divisionen.“|___NE2___|„
-|___KY15___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|10|___CC___||___NL___|Gebäudezustand: |___§Y___|10|___CC___||___NL___|Schaden durch Bombardierung: §G-50 %|___CC___|“
+|___KY15___|„|___NL___||___NL___|Maximale Stufe: |___CY___|10|___XX___||___NL___|Gebäudezustand: |___CY___|10|___XX___||___NL___|Schaden durch Bombardierung: §G-50 %|___XX___|“
 |___KY16___|„Militärfabrik“
 |___KY17___|„Militärfabriken“
-|___KY18___|„Dieses Gebäude versorgt den Staat mit Industrie zur Produktion neuer militärischer Ausrüstung. Kann bei Bedarf in zivile Industrie umgewandelt werden.|___NE3___|“
-|___KY19___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|20|___CC___||___NL___|Gebäudezustand: |___§Y___|9|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|„
-|___KY20___|„Marinewerft“
-|___KY21___|„Marinewerften“
-|___KY22___|„Dieses Gebäude versorgt den Staat mit Industrie für den Bau neuer Schiffe.|___NE4___|“
-|___KY23___|„|___NL___||___NL___|Maximale Stufe: |___§ Y___|20|___CC___||___NL___|Gebäudezustand: |___§Y___|6|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|„
-|___KY24___|„Werft”
+|___KY18___|„Dieses Gebäude versorgt den Staat mit Industrie zur Herstellung neuer militärischer Ausrüstung. Kann bei Bedarf in zivile Industrie umgewandelt werden.|___NE3___|“
+|___KY19___|„|___NL___||___NL___|Maximale Stufe: |___CY___|20|___XX___||___NL___|Gebäudezustand: |___CY___|9|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|„
+|___KY20___|‚Marinewerft‘
+|___KY21___|“Marinewerften"
+|___KY22___|„Dieses Gebäude versorgt den Staat mit Industriekapazitäten für den Bau neuer Schiffe.“|___NE4___|„
+|___KY23___|„|___NL___||___NL___|Maximale Stufe: |___CY___|20|___XX___||___NL___|Gebäudezustand: |___CY___|6|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|„
+|___KY24___|„Werft“
 |___KY25___|„Werften“
-|___KY26___|„Jede Werft senkt die Produktionskosten für: §YMilitärische Überwasserschiffe|___CC___| und §YKonvois|___CC___|.“|___NE5___|„
-|___KY27___|„Jede Werft senkt die Produktionskosten für: §YMilitärische Überwasserschiffe|___CC___| und §YKonvois|___CC___|.“
-|___KY28___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|4|___CC___||___NL___|Gebäudezustand: |___§Y___|2|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|“
-|___KY29___|„U-Boot-Werft“
-|___KY30___|„U-Boot-Werften“
-|___KY31___|„Jede U-Boot-Werft |___§G___|senkt die Produktionskosten|___CC___| für: §YU-Boote|___CC___|.|___NE6___|“
-|___KY32___|„Jede U-Boot-Werft |___§G___|senkt die Produktionskosten|___CC___| für: §YU-Boote|___CC___|. „
-|___KY33___|“|___NL___||___NL___|Maximale Stufe: |___§Y___|4|___CC___||___NL___|Gebäudezustand: |___§Y___|2|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|“
+|___KY26___|„Jede Werft senkt die Produktionskosten für: §YMilitärische Überwasserschiffe|___XX___| und §YKonvois|___XX___|.“ |___NE5___| "
+|___KY27___|„Jede Werft senkt |___CG___|die Produktionskosten|___XX___| für: §YMilitärische Überwasserschiffe|___XX___| und §YKonvois|___XX___|.“
+|___KY28___|„|___NL___||___NL___|Maximale Stufe: |___CY___|4|___XX___||___NL___|Gebäudezustand: |___CY___|2|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|„
+|___KY29___|“U-Boot-Werft„
+ 
+|___KY30___|“U-Boot-Werften"
+|___KY31___|„Jede U-Boot-Werft |___CG___|senkt die Produktionskosten|___XX___| für: §YU-Boote|___XX___|.|___NE6___|“
+|___KY32___|„Jede U-Boot-Werft senkt die Produktionskosten für: §YU-Boote|___XX___|.“
+|___KY33___|„|___NL___||___NL___|Maximale Stufe:
+ |___CY___|4|___XX___||___NL___|Gebäudezustand: |___CY___|2|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|„
 |___KY34___|„Panzerfabrik“
 |___KY35___|„Panzerfabriken“
-|___KY36___|„Panzerfabriken bieten |___§Y___|Panzerproduktionskapazität|___CC___|, die für den Bau von |___§Y___|Panzern|___CC___|, |___§ Y___|gepanzerter Fahrzeuge|___CC___| und |___§Y___|mechanisierter|___CC___||___NE7___|„
-|___KY37___|“|___NL___||___NL___|Maximale Stufe: |___§ Y___|10|___CC___||___NL___|Gebäudezustand: |___§Y___|10|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|„
-|___KY38___|‚Luftfahrzeugmontagewerk‘
-|___KY39___|“Luftfahrzeugmontagewerke"
-|___KY40___|„Flugzeugmontagewerke bieten |___§Y___|Flugzeugproduktionskapazität|___CC___|, die für den Bau von |___§Y___|Flugzeugen|___CC___||___NE8___|“
-|___KY41___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|10|___CC___||___NL___|Gebäudezustand: |___§Y___|10|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|„
-|___KY42___|‚Motorenfabrik‘
-|___KY43___|“Motorenfabriken"
-|___KY44___|„Motorenfabriken bieten |___§Y___|Motorenproduktionskapazität|___CC___|, die für den Bau von |___§Y___|Lkw|___CC___|, |___§Y___|mechanisierten|___CC___|, |___§Y___|Panzerwagen|___CC___|, |___§Y___|Panzern|___CC___| und |___§Y___|Flugzeugen|___CC___||___NE9___|"
-|___KY45___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|10|___CC___||___NL___|Gebäudezustand: |___§Y___|10|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|“
-|___KY46___|„Artilleriegießerei“
+|___KY36___|„ Panzerfabriken bieten |___CY___|Panzerproduktionskapazität|___XX___|, die für den Bau von |___CY___|Panzern|___XX___|, |___CY___|Panzerwagen|___XX___| und |___CY___|Mechanisierten Einheiten|___XX___||___NE7___|"
+|__ _KY37___|„|___NL___||___NL___|Maximale Stufe: |___CY___|10|___XX___||___NL___|Gebäudezustand: |___CY___|10|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|“
+|___KY38___|„Flugzeugmontagewerk”
+|___KY39___|„Flugzeugmontagewerke”
+|___KY40___|„Flugzeugmontagewerke bieten |___CY___|Flugzeugproduktionskapazität|___XX___|, die für den Bau von |___CY___|Flugzeugen|___XX___||___NE8___|“
+|___KY41___|„|___NL___||___NL___|Maximale Stufe: |___CY___|10|___XX___||___NL___|Gebäudezustand: |___CY___|10|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|„
+|___KY42___|„Motorenfabrik“
+|___KY43___|„Motorenfabriken“
+|___KY44___|„Motorenfabriken bieten |___CY___|Motorenproduktionskapazität|___XX___|, die für den Bau von |___CY___|Lastwagen|___XX___|, |___CY___|Mechanisierten|___XX___|, |___CY___|Panzerwagen|___XX___|, |___CY___|Panzer|___XX___| und |___CY___|Flugzeuge|___XX___||___NE9___|"
+|___KY45___|„|___NL___||___NL___|Maximale Stufe: |___CY___|10|___XX___||___NL___|Gebäudezustand: |___CY___|10|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|“
+|___KY46___ |„Artilleriegießerei“
 |___KY47___|„Artilleriegießereien“
-|___KY48___|„ Artilleriegießereien bieten |___§Y___|Artillerie-Produktionskapazität|___CC___|, die für den Bau von |___§Y___|Artillerie|___CC___|, |___§Y___|Panzerabwehrkanonen|___CC___| und |___§Y___|Panzern|___CC___| erforderlich ist||___NE10___|"
-|___KY49___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|10|___CC___||___NL___|Gebäudezustand: |___§Y___|10|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|“
+|___KY48___|„Artilleriegießereien bieten |___CY___|Artillerie-Produktionskapazität|___XX___|, die für den Bau von |___CY___|Artillerie|___XX___| erforderlich ist, |___CY___|Panzerabwehrkanonen|___XX___| und |___CY___|Panzer|___XX___||___NE10___|"
+|___KY49___|„|___NL___||___NL___|Maximale Stufe: |___CY___|10|___XX___||___NL___|Gebäude-Gesundheit: |___CY___|10|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|“
 |___KY50___|„Hauptwerft“
-|___KY51___|„ Hauptwerften„
-|___KY52___|“Hauptwerften bieten |___§Y___|Hauptwerftkapazität|___CC___|, die für den Bau von |___§Y___|Hauptschiffen|___CC___| und |___§Y___|Trägern|___CC___| erforderlich ist||___NE11___|"
-|___KY53___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|10|___CC___||___NL___|Gebäudezustand: |___§Y___|10|___CC___|“
-|___KY54___|"|___§Y___|Großschiffwerft|___CC___||___NL___|Großschiffwerft bietet |___§ Y___|Hauptwerftkapazität|___CC___|, die für den Bau von |___§Y___|Hauptschiffen|___CC___| und |___§Y___|Flugzeugträgern|___CC___||___NL___||___NL___|Maximale Stufe: |___§Y___|10|___CC___||___NL___|Gebäudezustand: |___§Y___|10|___CC___||___NL___|„
-|___KY55___|“Forschungszentrum"
-|___KY56___|„Forschungszentren versorgen Ihre Nation mit |___IC1___| |___§Y___|Forschungsslots|___CC___|. Diese können durch |___§Y___|Schwerpunkte|___CC___| und |___§Y___|Ereignisse|___CC___| erworben werden. Der Verlust eines Staates mit einem |___§Y___|Forschungszentrum|___CC___| führt zum Verlust eines |___IC2___| |___§Y___|Forschungsplatzes|___CC___|. |___NL___||___NL___||___IC3___| Dieses Gebäude ist §nicht baubar.|___CC___|"
- 
-|___KY57___|"|___§Y___|Forschungszentrum|___CC___||___NL___||___NL___|Forschungszentren versorgen Ihre Nation mit |___IC4___| |___§Y___|Forschungsplätzen|___CC___|. Diese können durch |___§Y___|Schwerpunkte|___CC___| und |___§Y___|Ereignisse|___CC___| erworben werden. Der Verlust eines Staates mit einem |___§Y___|Forschungszentrum|___CC___| führt zum Verlust eines |___IC5___| |___§ Y___|Forschungsplatz|___CC___|. |___NL___||___NL___||___IC6___| Dieses Gebäude ist §Runbuildable.|___CC___|„
+|___KY51___|„Hauptwerften“
+|___KY52___|„Hauptwerft bietet |___CY___|Hauptwerftkapazität|___XX___|, die für den Bau von |___CY___|Hauptschiffen|___XX___| und |___CY___|Trägern|___XX___||___NE11___|“
+|___KY53___|„|___NL___||___NL___|Maximale Stufe: |___CY___|10|___XX___||___NL___|Gebäudezustand: |___CY___|10|___XX___|“
+|___KY54___|" |___CY___|Großschiffwerft|___XX___||___NL___|Die Großschiffwerft bietet |___CY___|Großschiffwerftkapazität|___XX___|, die für den Bau von |___CY___|Großschiffen|___XX___| und |___CY___|Trägern|___XX___||___NL__ _||___NL___|Maximale Stufe: |___CY___|10|___XX___||___NL___|Gebäudezustand: |___CY___|10|___XX___||___NL___|"
+|___KY55___|„Forschungszentrum“
+|___KY56___|„Forschungszentren bieten Ihrer Nation |___IC1___| |___CY___|Forschungsplätze|___XX___|. Diese können durch |___CY___|Fokusse|___XX___| und |___CY___|Ereignisse|___XX___| erworben werden. Der Verlust eines Staates mit einem |___CY___|Forschungszentrum|___XX___| führt zum Verlust eines |___IC2___| |___CY___|Forschungsplatzes|___XX___|. |___ NL___||___NL___||___IC3___| Dieses Gebäude ist §nicht baubar.|___XX___| „ 
+|___KY57___|“|___CY___|Forschungszentrum|___XX___||___NL___||___NL___|Forschungszentren versorgen Ihre Nation mit |___IC4___| |___CY___|Forschungsslots|___XX___|. Sie können durch |___CY___|Fokus|___XX___| und |__ _CY___|Veranstaltungen|___XX___|. Der Verlust eines Staates mit einem |___CY___|Forschungszentrum|___XX___| führt zum Verlust eines |___IC5___| |___CY___|Forschungsplatzes|___XX___|. |___NL___||___NL___||___IC6___| Dieses Gebäude ist §Runbuildable. |___XX___|„
 |___KY58___|“Zivile Fabrik„
-|___KY59___|“Zivile Fabriken"
-|___KY60___|„Dieses Gebäude versorgt den Staat mit Industrie zur Produktion ziviler Güter oder zum Bau neuer Gebäude. Kann bei Bedarf in Militärindustrie umgewandelt werden.|___NE12___|“
-|___KY61___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|20|___CC___||___NL___|Gebäudezustand: |___§Y___|12|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|“
+|___KY59___|“Zivile Fabriken„
+|___KY60___|“Dieses Gebäude versorgt den Staat mit Industrie zur Produktion ziviler Güter oder zum Bau neuer Gebäude. Kann bei Bedarf in Militärindustrie umgewandelt werden.|___NE12___| „
+|___KY61___|“|___NL___||___NL___|Maximale Stufe: |___CY___|20|___XX___||___NL___|Gebäudezustand: |___CY___|12|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|"
 |___KY62___|„Luftwaffenstützpunkt“
 |___KY63___|„Luftwaffenstützpunkte“
-|___KY64___|„Dieses Gebäude ermöglicht dem Staat den Einsatz seiner Luftstreitkräfte.“|___NE13___|„
-|___KY65___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|15|___CC___||___NL___|Gebäudezustand: |___§Y___|3|___CC___||___NL___|Schaden durch Bombardierung: §G-70 %|___CC___||___NL___||___NL___|Kapazität des Luftwaffenstützpunkts: §G100|___CC___|"
-|___KY66___|„Marinestützpunkt“
-|___KY67___|„Marinestützpunkte“
-|___KY68___|„Erweitert die Reichweite Ihrer Flotte und bietet Reparaturdienste für diese an. Ermöglicht die Versorgung aus Übersee und den Export von Ressourcen. Höhere Stufen erhöhen den Versorgungsdurchsatz.|___NE14___|„
-|___KY69___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|10|___CC___||___NL___|Gebäudezustand: |___§Y___|4|___CC___||___NL___|Schaden durch Bombardierung: §G-50 %|___CC___|„
-|___KY70___|„Landfestung“
-|___KY71___|„Landfestungen“
-|___KY72___|„Dieses Gebäude verursacht im Kampf für jede Festungsstufe einen Angriffsmalus von |___NE15___| für den Angreifer. Angriffe aus mehreren Richtungen verringern die Wirkung der Festungen.|___NE16___|“
-|___KY73___|„ |___NL___||___NL___|Maximale Stufe: |___§Y___|12|___CC___||___NL___|Gebäude-Gesundheit: |___§Y___|4|___CC___||___NL___|Schaden durch Bombardierung: §G-90 %|___CC___|„
-|___KY74___|„Küstenfestung”
+|___KY64___|„Dieses Gebäude ermöglicht dem Staat den Einsatz Ihrer Luftstreitkräfte.|___NE13___|“
+|___KY65___|„|___NL___||___NL___|Maximale Stufe: |___CY___|15|___XX___||___NL___|Gebäudezustand: |___CY___|3|___XX___||___NL___|Schaden durch Bombardierung: §G-70 %|___XX___||___NL___||___NL___|Kapazität des Luftwaffenstützpunkts: §G100|___XX___|„
+|___KY66___|“Marinestützpunkt„
+|___KY67___|‚Marinestützpunkte‘
+|___KY68___|“Erweitert die Reichweite Ihrer Flotte und bietet Reparaturdienste für diese an. Ermöglicht die Versorgung aus Übersee und den Export von Ressourcen. Höhere Stufen erhöhen den Versorgungsdurchsatz.|___NE14___|"
+|___KY69___|"|___NL___||___NL___|Maximale Stufe: |___CY___|10|___XX___||___NL___|Gebäudezustand: |___CY___|4|___XX___||___NL___|Schaden durch Bombardierung: §G-50 % |___XX___|„
+|___KY70___|“Landfestung„
+|___KY71___|‚Landfestungen‘
+|___KY72___|“Dieses Gebäude verursacht im Kampf für jede Festungsstufe einen Angriffsmalus von |___NE15___| für den Angreifer. Angriffe aus mehreren Richtungen verringern die Wirkung der Festungen.|___NE16___|"
+|___KY73___|„|___NL___||___NL___|Maximale Stufe: |___CY___|12|___XX___||___NL___|Gebäude-Gesundheit: |___CY___|4|___XX___||___NL___|Schaden durch Bombardierung: §G-90 %|___XX___|„
+|___KY74___|„Küstenfestung“
 |___KY75___|„Küstenfestungen“
-|___KY76___|„Dieses Gebäude verursacht im Seekampf für jede Festungsstufe einen Angriffsmalus von |___NE17___| für den Angreifer.|___NE18___| „
-|___KY77___|“|___NL___||___NL___|Maximale Stufe: |___§Y___|10|___CC___||___NL___|Gebäude-Gesundheit: |___§Y___|4|___CC___||___NL___|Schaden durch Bombardierung: §G-80 %|___CC___|“
+|___KY76___|„Dieses Gebäude verursacht im Seekampf einen Angriffsmalus von |___NE17___| für jede Festungsstufe des Angreifers.“|___NE18___|„
+|___KY77___|„ |___NL___||___NL___|Maximale Stufe: |___CY___|10|___XX___||___NL___|Gebäude-Gesundheit: |___CY___|4|___XX___||___NL___|Schaden durch Bombardierung: §G-80 %|___XX___|"
 |___KY78___|„Flugabwehr“
 |___KY79___|„Flugabwehr“
 |___KY80___|„Dieses Gebäude schützt den Staat vor feindlichen Bombern und ermöglicht das Beschießen angreifender Flugzeuge.|___NE19___|“
-|___KY81___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|6|___CC___||___NL___|Gebäudezustand: |___§Y___|2|___CC___||___NL___|Schaden durch Bombardierung: §G-90 %|___CC___|„
+|___KY81___|„|___NL___||___NL___|Maximale Stufe: |___CY___|6|___XX___||___NL___|Gebäudezustand: |___CY___|2|___XX___||___NL___|Schaden durch Bombardierung: §G-90 %|___XX___|„
 |___KY82___|„Synthetische Raffinerie“
 |___KY83___|„Synthetische Raffinerien“
-|___KY84___|„Dieses Gebäude versorgt den Staat mit Kraftstoff. |___NL___||___NL___|Maximale Stufe: |___§Y___|4|___CC___||___NL___|Gebäudezustand: |___§Y___|6|___CC___||___NL___|Auswirkung auf die Infrastruktur: §GJa|___CC___|„
-|___KY85___|„Radarstation”
+|___KY84___|„Dieses Gebäude versorgt den Staat mit Kraftstoff.“|___NL___||___NL___|Maximale Stufe: |___CY___|4|___XX___||___NL___|Gebäudezustand: |___CY___|6|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|„
+|___KY85___|„Radarstation“
 |___KY86___|„Radarstationen“
-|___KY87___|„ Mit Radar können Sie Informationen über feindliche Truppen in benachbarten Staaten sammeln.|___NL___|Ein höherer Radarlevel in einem Staat erhöht die effektive Reichweite des Radars.|___NL___|Radar ermöglicht dem Staat außerdem eine bessere Erkennung feindlicher Luftstreitkräfte, wodurch Ihre Flugzeuge eine bessere Chance haben, diese anzugreifen.|___NL___|Darüber hinaus erhöht Radar die Erkennung feindlicher Flotten auf See. |___NE20___|„
-|___KY88___|“|___NL___||___NL___|Maximale Stufe: |___§Y___|6|___CC___||___NL___|Gebäudezustand: |___§Y___|4|___CC___||___NL___|Schaden durch Bombardierung: §G-50 %|___CC___|"
-|___KY89___|„Raketenbasis”
-|___KY90___|„Raketenbasen”
-|___KY91___|„Dieses Gebäude ermöglicht dem Staat den Einsatz produzierter Raketen.”|___NE21___|„
-|___KY92___|„ |___NL___||___NL___|Maximale Stufe: |___§Y___|5|___CC___||___NL___|Gebäudezustand: |___§Y___|2|___CC___||___NL___|Raketenabschusskapazität: §G100|___CC___||___NL___|Raketenproduktion: §G5|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|„
+|___KY87___|„Mit Radar können Sie Informationen über feindliche Truppen in benachbarten Staaten sammeln.|___NL___|Ein höherer Radarniveau in einem Staat erhöht die effektive Reichweite des Radars. |___NL___|Radar ermöglicht dem Staat außerdem eine bessere Erkennung feindlicher Luftstreitkräfte, wodurch Ihre Flugzeuge bessere Chancen haben, diese anzugreifen.|___NL___|Darüber hinaus verbessert Radar die Erkennung feindlicher Flotten auf See.|___NE20___|"
+|___KY88___|„|___NL___||___NL___|Maximale Stufe: |___CY___|6|___XX___||___NL___|Gebäudezustand: |___CY___|4|___XX___||___NL___|Schaden durch Bombardierung: §G-50 %|___XX___|„
+|___KY89___|„Raketenbasis“
+|___KY90___|„Raketenbasen“
+|___KY91___|„Dieses Gebäude ermöglicht dem Staat den Einsatz produzierter Raketen.“|___NE21___|„
+|___KY92___|„|___NL___||___NL___|Maximale Stufe: |___CY___|5|___XX___||___NL___|Gebäudezustand: |___CY___|2|___XX___||___NL___|Raketenstartkapazität: §G100|___XX___||___NL___|Raketenproduktion: §G5|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|"
 |___KY93___|„Kernreaktor”
 |___KY94___|„Kernreaktoren”
-|___KY95___|„Dieses Gebäude versorgt den Staat mit angereichertem Uran für den Einsatz in Kernwaffen.“|___NE22___|„
-|___KY96___|„ |___NL___||___NL___|Maximale Stufe: |___§Y___|2|___CC___||___NL___|Gebäudezustand: |___§Y___|6|___CC___||___NL___|Kernenergieproduktion: §G1|___CC___||___NL___|Infrastruktureffekt: §GYes|___CC___|„
- 
-|___KY97___|„Schwerwasser-Kernreaktor“
+|___KY95___|„Dieses Gebäude versorgt den Staat mit angereichertem Uran für den Einsatz in Kernwaffen. |___NE22___|„
+|___KY96___|“|___NL___||___NL___|Maximale Stufe: |___CY___|2|___XX___||___NL___|Gebäudezustand: |___CY___|6|___XX___||___NL___|Kernenergieproduktion: §G1|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|" 
+|___KY97___|„Schwerwasser-Kernreaktor”
 |___KY98___|„Schwerwasser-Kernreaktoren“
-|___KY99___|„Dieses Gebäude versorgt den Staat mit angereichertem Uran für den Einsatz in Kernwaffen.“|___NL___|Kernreaktoren, die Schwerwasser verwenden, sind etwas kostengünstiger zu bauen als Graphitreaktoren, produzieren jedoch weniger Material, das zur Herstellung von Kernwaffen verwendet werden kann.|___NE23___|„
-|___KY100___|„ |___NL___||___NL___|Maximale Stufe: |___§Y___|2|___CC___||___NL___|Gebäudezustand: |___§Y___|6|___CC___||___NL___|Kernenergieproduktion: §G1|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|„
+|___KY99___|„Dieses Gebäude versorgt den Staat mit angereichertem Uran für den Einsatz in Kernwaffen.|___NL___|Kernreaktoren, die Schwerwasser verwenden, sind etwas kostengünstiger zu bauen als Graphitreaktoren, produzieren jedoch weniger Material, das zur Herstellung von Kernwaffen verwendet werden kann.|___NE23___|„
+|___KY100___|„|___NL___||___NL___|Maximale Stufe: |___CY___|2|___XX___||___NL___|Gebäudezustand: |___CY___|6|___XX___||___NL___|Kernenergieproduktion: §G1|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|„
 |___KY101___|„Brennstoffsilo“
 |___KY102___|„Brennstoffsilos“
-|___KY103___|„Dieses Gebäude bietet Ihrer Nation mehr Platz für die Lagerung von |___§H___|Brennstoff|___CC___|.|___NE24___|„
-|___KY104___|„|___NL___||___NL___|Maximale Stufe: |___§ Y___|5|___CC___||___NL___|Gebäudezustand: |___§Y___|5|___CC___||___NL___|Infrastruktureffekt: §GJa|___CC___|„
-|___KY105___|„Versorgungszentrum”
+|___KY103___|„Dieses Gebäude bietet Ihrer Nation mehr Platz für die Lagerung von |___CH___|Brennstoff|___XX___|.|___NE24___|“
+|___KY104___|„|___NL___||___NL___|Maximale Stufe: |___CY___|5|___XX___||___NL___|Gebäudezustand: |___CY___|5|___XX___||___NL___|Infrastruktureffekt: §GJa|___XX___|„
+|___KY105___|„Versorgungszentrum“
 |___KY106___|„Ein Versorgungszentrum ist ein Punkt entlang einer Eisenbahnstrecke außerhalb bestehender Städte, an dem Vorräte entnommen werden können.|___NE25___|“
-|___KY107___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|1|___CC___||___NL___|Gebäudezustand: |___§Y___|10|___CC___||___NL___|Schaden durch Bombardierung: §G-90 %|___CC___|„
-|___KY108___|„Eisenbahnstrecken“
-|___KY109___|„Eisenbahnstrecken dienen dazu, Versorgungszentren miteinander zu verbinden, um die Beschaffung von Vorräten weit entfernt von Ihrer Hauptstadt zu ermöglichen.“|___NE26___|„
-|___KY110___|„|___NL___||___NL___|Maximale Stufe: |___§Y___|5|___CC___||___NL___|Gebäudezustand: |___§Y___|3|___CC___||___NL___|Schaden durch Bombardierung: §G-75 %|___CC___|„
-|___KY111___|„Bunkerverteidigung“
-|___KY112___|„Bunkerverteidigung“
-|___KY113___|„Dieses Gebäude verursacht für jeden Bunker im Kampf einen Angriffsmalus von |___NE27___| für den Angreifer. Angriffe aus mehreren Richtungen verringern den Bunker-Effekt. Es ist nur 1 Bunker-Level verfügbar.|___NE28___|"
-|___KY114___|"|___NL___||___NL___|Maximale Stufe: |___§Y___|1|___CC___||___NL___|Gebäude-Gesundheit: |___§Y___|4|___CC___||___NL___|Schaden durch Bombardierung: §G-80 %|___CC___|„
-|___KY115___|“Kieler Kanalschleusen„
-|___KY116___|“|___NE29___|„
-|___KY117___|“Die Kieler Kanalschleusen sind für den vollen Betrieb des Kanals erforderlich. Ihre Zerstörung würde den Schiffsverkehr und die Mobilität für lange Zeit behindern."
+|___KY107___|„|___NL___||___NL___|Maximale Stufe: |___CY___|1|___XX___||___NL___|Gebäudezustand: |___CY___|10|___XX___||___NL___|Schaden durch Bombardierung: §G-90 %|___XX___|“
+|___KY108___|„Eisenbahnen“
+|___KY109___|„Eisenbahnen werden verwendet, um Versorgungszentren miteinander zu verbinden, damit Vorräte auch weit entfernt von Ihrer Hauptstadt entnommen werden können.“|___NE26___|„
+|___KY110___|„|___NL___||___NL___|Maximale Stufe: |___CY___|5|___XX___||___NL___|Gebäudezustand: |___CY___|3|___XX___||___NL___|Schaden durch Bombardierung: §G-75 %|___XX___|„
+|___KY111___|“Bunkerverschanzungen"
+|___KY112___|„Pillbox-Verteidigung“
+|___KY113___|„Dieses Gebäude verursacht für jede Pillbox im Kampf einen Angriffsmalus von |___NE27___| für den Angreifer. Angriffe aus mehreren Richtungen verringern den Pillbox-Effekt. Es ist nur 1 Stufe der Pillbox verfügbar. |___NE28___|„
+|___KY114___|“|___NL___||___NL___|Maximale Stufe: |___CY___|1|___XX___||___NL___|Gebäude-Gesundheit: |___CY___|4|___XX___||___NL___|Schaden durch Bombardierung: §G-80 %|___XX___|„
+|___KY115___|„Kieler Schleusen”
+|___KY116___|„|___NE29___|“
+|___KY117___|„Die Kieler Kanalsperren sind für den vollen Betrieb des Kanals erforderlich, und ihre Zerstörung würde den Schiffsverkehr und die Mobilität für lange Zeit behindern.“
 |___KY118___|„Panamakanal-Schleusen”
 |___KY119___|„|___NE30___|”
-|___KY120___|„Die Panamakanal-Schleusen sind für den Vollbetrieb des Kanals unerlässlich, und ihre Zerstörung würde den Schiffsverkehr und den Transport für lange Zeit behindern.”
+|___KY120___|„Die Panamakanal-Schleusen sind für den vollen Betrieb des Kanals erforderlich, und ihre Zerstörung würde den Schiffsverkehr und den Transport für lange Zeit behindern.”
 |___KY121___|„Kernforschungsanlage“
 |___KY122___|„Kernforschungsanlagen“
 |___KY123___|„Experimentelle Einrichtungen für die Kernforschung ermöglichen es Ihnen, Forschungsprojekte im Zusammenhang mit der Nutzung der Kernenergie zu starten.“
 |___KY124___|„Forschungseinrichtung für Elektronik und Informatik“
 |___KY125___|„Forschungseinrichtungen für Elektronik und Informatik“
-|___KY126___|„Mit Versuchseinrichtungen für Elektronik und Informatik können Sie Forschungsprojekte im Zusammenhang mit Informatik, Verschlüsselung und fortschrittlicher Elektronik starten.“
+|___KY126___|„Mit Versuchseinrichtungen für Elektronik und Informatik können Sie Forschungsprojekte im Zusammenhang mit Informatik, Verschlüsselung und fortgeschrittener Elektronik starten.“
 |___KY127___|„Einrichtung für Aerodynamik und Raketentechnik“
 |___KY128___|„Einrichtungen für Aerodynamik und Raketentechnik“
 |___KY129___|„Mit den Versuchseinrichtungen für Aerodynamik und Raketentechnik können Sie Forschungsprojekte für Flugzeuge und Raketen starten.“
 |___KY130___|„Einrichtung für Schiffsbau“
 |___KY131___|„Einrichtungen für Schiffsbau“
-|___KY132___|„Mit den Versuchseinrichtungen für Schiffsbau können Sie Forschungsprojekte im Bereich Überwasserschiffe und U-Boote starten.|___NL___|Eine Einrichtung für Schiffsbau kann nur in einer Küstenprovinz errichtet werden.“
+|___KY132___|„Mit den Versuchseinrichtungen für Schiffsbau können Sie Forschungsprojekte im Zusammenhang mit Überwasserschiffen und U-Booten starten.|___NL___|Eine Einrichtung für Schiffsbau kann nur in einer Küstenprovinz errichtet werden.“
 |___KY133___|„Landkriegsführungseinrichtung“
 |___KY134___|„Landkriegsführungseinrichtungen“
 |___KY135___|„Mit Versuchseinrichtungen für Landkriegsführung können Sie Forschungsprojekte zu verschiedenen Aspekten der Landkriegsführung starten, z. B. zu Spezialpanzern oder Artillerie.“
-|___KY136___|„Mehrfachladungs-Großkalibergeschützstellung“
-|___KY137___|„Mehrfachladungs-Großkalibergeschützstellungen“
-|___KY138___|„ Diese großkalibrige Kanone funktioniert nach dem Prinzip des Mehrfachantriebs und wurde entwickelt, um eine beispiellose Reichweite bei Beschuss zu erzielen. Mithilfe einer Reihe von unterirdischen Tunneln beschleunigt sie Granaten auf Überschallgeschwindigkeit, bevor sie auf weit entfernte Ziele abgefeuert werden.
+|___KY136___|„Mehrfachladungs-Großkalibergeschützstellung”
+|___KY137___|„Mehrfachladungs-Großkalibergeschützstellungen”
+|___KY138___|„Dieses Großkalibergeschütz arbeitet nach dem Prinzip des Mehrfachantriebs und wurde entwickelt, um eine beispiellose Reichweite bei Bombardements zu erzielen. Mithilfe einer Reihe von unterirdischen Tunneln beschleunigt sie Granaten auf Überschallgeschwindigkeit, bevor sie auf weit entfernte Ziele abgefeuert werden.“
 |___KY139___|„Festungsnetzwerk“
 |___KY140___|„Festungsnetzwerke“
 |___KY141___|„Ein umfangreiches Verteidigungssystem aus massiven Bunkern und stark befestigten Stellungen, das dazu dient, feindliche Vorstöße abzuwehren und wichtige strategische Gebiete zu sichern.“
@@ -148,78 +148,76 @@
 |___KY143___|„|___NE32___| sabotiert!“
 |___KY144___|„|___NE33___| repariert!“
 |___KY145___|„|___NE34___| erlitt Kollateralschäden!“
-|___KY146___|„|___NE35___| versengt!“
+|___KY146___|„|___NE35___| verbrannt!“
 |___KY147___|„Atombombe abgeworfen!“
 |___KY148___|„Beschädigte Ebenen: |___NE36___|/|___NE37___|“
 |___KY149___|„|___NE38___|/|___NE39___|“
-|___KY150___|„ |___NE40___|+|___NE41___|/|___NE42___|„
-|___KY151___|“|___§H___|Luftwaffenstützpunkt|___CC___| in |___NE43___|, Stufe |___NE44___|"
-|___KY152___|„|___§H___|Raketenbasis|___CC___| in |___NE45___|, Ebene |___NE46___|“
-|___KY153___|„|___§H___|Luftwaffenstützpunkt|___CC___| in |___NE47___|“
-|___KY154___|„|___§H___|Raketenbasis|___CC___| in |___NE48___|“
-|___KY155___|„|___§H___||___NE49___||___CC___| in |___NE50___|“
-|___KY156___|"Kapazität: |___NE51___|/ 
-|___NE52___|„
-|___KY157___|“|___§Y___|Marinestützpunkt|___CC___|„
-|___KY158___|“|___§Y___|Marinestützpunkt|___CC___|: |___NE53___|"
-|___KY159___|„Durchsatzgrenze für Lieferungen: |___NE54___|“
+|___KY150___|„|___NE40___|+|___NE41___|/|___NE42___|“
+|___KY151___|" |___CH___|Luftwaffenstützpunkt|___XX___| in |___NE43___|, Ebene |___NE44___|„
+|___KY152___|“|___CH___|Raketenbasis|___XX___| in |___NE45___|, Ebene |___NE46___|"
+|___KY153___|„|___CH___|Luftwaffenstützpunkt|___XX___| in |___NE47___|“
+|___KY154___|„|___CH___|Raketenbasis|___XX___| in |___NE48___|“
+|___KY155___|„|___CH___||___NE49___||___XX___| in |___NE50___|“
+|___KY156___|"Kapazität: |___NE51___|/|___NE52___|„
+|___KY157___|“|___CY___|Marinestützpunkt|___XX___|„
+|___KY158___|“|___CY___|Marinestützpunkt|___XX___|: |___NE53___|"
+|___KY159___|„Begrenzung des Versorgungsdurchsatzes: |___NE54___|“
 |___KY160___|„Kapazität: |___NE55___|/|___NE56___|“
 |___KY161___|„Kapazität: |___NE57___|/|___NE58___|“
-|___KY162___|„Leistungskraftverlust bei Reparaturen: |___NE59___|“
-|___KY163___|„|___§T___|Staatliche Ebene: |___NE60___||___CC___|“
+|___KY162___|„Leistungskapazitätsmalus bei Reparaturen: |___NE59___|“
+|___KY163___|„|___CT___|Staatliche Ebene: |___NE60___||___XX___|“
 |___KY164___|„Aktuelle maximale Gebäudeebene begrenzt durch:“
 |___KY165___|„Aktuelle maximale Gebäudeebene ist nicht begrenzt.“
 |___KY166___|„Bevölkerung des Bundesstaates: |___NE61___|“
 |___KY167___|„Bevölkerung pro Gebäudeebene: |___NE62___|“
 |___KY168___|„Maximaler Faktor des Bundesstaates: |___NE63___|“
-|___KY169___|„Minimale maximale Stufe aufgrund der Bevölkerung: 
-|___NE64___|„
-|___KY170___|“Entfernen Sie das Gebäude."
-|___KY171___|„Entfernen Sie eine Konstruktionsebene des Gebäudes.“
+|___KY169___|„Minimale Höchststufe aufgrund der Bevölkerung: |___NE64___|“
+|___KY170___|„Entfernen Sie das Gebäude.“
+|___KY171___|„Entfernen Sie eine Konstruktionsstufe des Gebäudes.“
 |___KY172___|„Machen Sie die Gebäudeumwandlung rückgängig.“
 |___KY173___|„In Kriegszeiten ist es nur möglich, Gebäude alle |___NE65___| Tage zu entfernen. Die nächste Entfernung kann am |___NE66___| erfolgen.“
-|___KY174___|„|___§G___|Klicken Sie auf|___CC___|, um zu konvertieren |___NE67___|“
-|___KY175___|„|___§G___|Strg+Klick|___CC___|, um umzuwandeln und an den Anfang der Warteschlange zu setzen.|___NL___||___§G___|Alt+Klick|___CC___|, um umzuwandeln und an das Ende der Warteschlange zu setzen. „
-|___KY176___|“|___§G___|Strg+Klick|___CC___| zum Erstellen und Platzieren am Anfang der Warteschlange.|___NL___||___§G___|Alt+Klick|___CC___| zum Erstellen und Platzieren am Ende der Warteschlange."
+|___KY174___|"|___CG___|Klicken Sie auf|___XX___|, um zu konvertieren und an den Anfang der Warteschlange zu setzen.|___NE67___| „
+|___KY175___|“|___CG___|Strg+Klick|___XX___|, um umzuwandeln und an den Anfang der Warteschlange zu setzen.|___NL___||___CG___|Alt+Klick|___XX___|, um umzuwandeln und an das Ende der Warteschlange zu setzen.“
+|___KY176___|„|___CG___|Strg+Klick|___XX___|, um zu erstellen und an den Anfang der Warteschlange zu setzen.|___NL___||___CG___|Alt+Klick|___XX___|, um zu erstellen und an das Ende der Warteschlange zu setzen.“
 |___KY177___|„Mögliches maximales Level für |___NE68___|: |___NE69___|“
-|___KY178___|„ Maximal |___NE70___| in einem Zustand: |___NE71___|„
-|___KY179___|“Aktuelles maximales Level in |___NE72___|: |___NE73___|„
-|___KY180___|“Basis: |___NE74___|"
-|___KY181___|„Gesundheitsstufe: |___NE75___|“
-|___KY182___|" |___NL___||___§H___|Reduzierung von Bombenschäden in der Industrie:|___CC___| |___NE76___||___NL___||___§H___|Reduzierung anderer Bombenschäden:|___CC___| |___NE77___||___NL___|Flugabwehr: |___NE78___||___NL___|"
-|___KY183___|„|___§H___|Radarstation|___CC___| Stufe: |___NE79___|/|___NE80___||___NL___|Gehört zu: |___NE81___|„
-|___KY184___|„|___§H___|Radarstation|___CC___| Stufe: |___NE82___|/|___NE83___||___NL___|Gehört zu: |___NE84___|“
-|___KY185___|„|___NL___||___§H___|Abgedeckte Regionen:|___CC___|„
+|___KY178___|„Max. |___NE70___| in einem Zustand: |___NE71___|“
+|___KY179___|„Aktuelles maximales Level in |___NE72___|: |___NE73___|“
+|___KY180___|„Basis: |___NE74___|“
+|___KY181___|„Level Gesundheit: |___NE75___|„
+|___KY182___|“|___NL___||___CH___|Reduzierung von Bombenschäden in der Industrie:|___XX___| |___NE76___||___NL___||___CH___|Sonstige Reduzierung von Bombenschäden:|___XX___| |___NE77___||___NL___|Flugabwehr: |___NE78___||___NL___|„
+|___KY183___|“|___CH___|Radarstation|___XX___| Stufe: |___NE79___|/|___NE80___||___NL___|Gehört zu: |___NE81___|"
+|___KY184___|„|___CH___|Radarstation|___XX___| Stufe: |___NE82___|/|___NE83___||___NL___|Gehört zu: |___NE84___|“
+|___KY185___|„|___NL___||___CH___|Abgedeckte Regionen:|___XX___|„
 |___KY186___|„|___NL___|  |___NE85___| in |___NE86___|„
-|___KY187___|„ |___NL___|Halten Sie |___§G___|Strg|___CC___| gedrückt, um §Rsuppress|___CC___| diesen Tooltip zu unterdrücken.„
-|___KY188___|“|___§Y___|Bedingter Konstruktionsgeschwindigkeitsfaktor:|___CC___| |___NE87___|"
-|___KY189___|„|___NE88___||___NL___||___§0___|Nur wenn:|___CC___|“
+|___KY187___|„|___NL___|Halten Sie |___CG___|Strg|___XX___| gedrückt, um §Rsuppress|___XX___| diesen Tooltip zu unterdrücken.“
+|___KY188___|„|___CY___|Bedingter Konstruktionsgeschwindigkeitsfaktor:|___XX___| |___NE87___|“
+|___KY189___|„|___NE88___||___NL___|Nur wenn:|___XX___|“
 |___KY190___|„|___NE89___| über Vorräte verfügt.“
 |___KY191___|„Erfordert mindestens 1 verfügbares Sonderprojekt, um gebaut werden zu können.“
-|___KY192___|„|___§Y___|Mehrfachladbare Großkaliber-Geschützstellung|___CC___|“
+|___KY192___|„|___CY___|Mehrfachladbare Großkaliber-Geschützstellung|___XX___|“
 |___KY193___|„|___NE90___| Zustandsmodifikatoren:“
 |___KY194___|„|___NE91___|“
 >>>>> C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation\steam\lar_events_l_english.yml
 |___KY195___|„|___NS6___| Stimmt dem Bau unserer Schiffe zu“
 |___KY196___|„Die |___NS7___| Regierung hat zugestimmt, Schiffe für die |___NS8___| Marine zu bauen. Sie hat uns drei verschiedene Angebote zur Auswahl vorgelegt.“
-|___KY197___|„|___NS9___| sympathisiert mit den spanischen Carlisten“
-|___KY198___|„Die |___NS10___| Regierung hat heute ihre Unterstützung für die spanischen Carlisten angekündigt und erklärt, dass |___NS11___| erwägt, strenge Maßnahmen im spanischen Bürgerkrieg zu ergreifen. In seiner Rede erklärte |___NS12___| erklärt, dass die Monarchie der einzige Weg sei, um Stabilität und Wohlstand auf die politisch stark polarisierte Iberische Halbinsel zu bringen, und dass es die Pflicht von |___NS13___| sei, die spanischen Royalisten in ihrem Kampf um die Wiederherstellung der Monarchie zu unterstützen.
-|___KY199___| „Sie sollten sich nicht in diese Angelegenheiten einmischen ...“
-|___KY200___|„|___§R___||___NS14___| wird sich |___NS15___||___NS16___| im spanischen Bürgerkrieg anschließen und gegen uns kämpfen können!|___CC___|“
+|___KY197___|„|___NS9___| sympathisiert mit den spanischen Karlisten“
+|___KY198___|„Die |___NS10___| Regierung hat heute ihre Unterstützung für die spanischen Karlisten angekündigt und erklärt, dass |___NS11___| erwägt, strenge Maßnahmen im spanischen Bürgerkrieg zu ergreifen. In seiner Rede erklärte |___NS12___|, dass die Monarchie der einzige Weg sei, um Stabilität und Wohlstand auf der Iberischen Halbinsel zu erreichen, die durch ihre Politik zu stark polarisiert sei, und dass es die Pflicht von |___NS13___| sei, die spanischen Royalisten in ihrem Kampf um die Wiederherstellung der Monarchie zu unterstützen.“
+|___KY199___|„Sie sollten sich nicht in diese Angelegenheiten einmischen ...“
+|___KY200___|„|___CR___||___NS14___| wird sich |___NS15___||___NS16___| im spanischen Bürgerkrieg anschließen und gegen uns kämpfen können!|___XX___|“
 |___KY201___|„Mosambikanisches Territorium integriert“
-|___KY202___|„Unsere ehemalige Kolonie Mosambik wurde endlich in unsere Nation integriert. Die lokale mosambikanische Bevölkerung hat die portugiesische Staatsbürgerschaft erhalten und hat nun die gleichen Rechte und Pflichten wie alle anderen portugiesischen Bürger, einschließlich der Wehrpflicht. Dies wird zu einer neuen Quelle von Arbeitskräften führen, die unsere Armee stärken werden.“
+|___KY202___|„Unsere ehemalige Kolonie Mosambik wurde endlich in unsere Nation integriert. Die lokale mosambikanische Bevölkerung hat die portugiesische Staatsbürgerschaft erhalten und hat nun die gleichen Rechte und Pflichten wie alle anderen portugiesischen Bürger, einschließlich der Wehrpflicht. Dies wird zu einer neuen Quelle an Arbeitskräften führen, um unsere Armee zu stärken.“
 |___KY203___|„Dies geschieht zum Wohle Portugals.“
 |___KY204___|„Eine weitere Nation kehrt zur natürlichen Ordnung der Dinge zurück.“
 |___KY205___|„Sie werden bald eine weitere Revolution erleben.“
 |___KY206___|„Eine Rückkehr zu längst vergangenen Tagen.“
 |___KY207___|„Lang lebe |___NS17___|!“
 |___KY208___|„Das ist die falsche Art von absolutem Herrscher!“
-|___KY209___|„Andalusien ist wiederhergestellt!“
-|___KY210___|„Vor Jahrhunderten wurden die Mauren im Zuge der Reconquista aus Iberien vertrieben. Nun sind die Truppen von |___NS18___| tief in den Süden Iberiens vorgedrungen und haben begonnen, zum ersten Mal seit Jahrhunderten wieder maurische Siedlungen in der Region zu errichten. |___NS19___| wurde daher zu einer neuen Nation umgestaltet, die als „|___NS20___|“ umbenannt und knüpft damit an das Erbe des alten Sultanats an, das einst ganz Iberien beherrschte.|___NL___||___NL___|Das alte Umayyaden-Kalifat beherrschte fast die gesamte islamische Welt, von Iberien im Westen bis Persien im Osten. Möglicherweise strebt |___NS21___| danach, diesem alten Reich nachzueifern und die unterschiedlichen Völker des Nahen Ostens, Nordafrikas und Europas wieder zu vereinen.
+|___KY209___|„Andalusien wiederhergestellt!“
+|___KY210___|„Vor Jahrhunderten wurden die Mauren im Zuge der Reconquista aus Iberien vertrieben. Nun sind die Streitkräfte von |___NS18___| tief in den Süden Iberiens vorgedrungen und haben begonnen, zum ersten Mal seit Jahrhunderten wieder maurische Siedlungen in der Region zu errichten. |___NS19___| wurde daher zu einer neuen Nation namens „|___NS20___|“ umgestaltet, die das Erbe des alten Sultanats, das einst ganz Iberien beherrschte, wieder aufnimmt.|___NL___||___NL___|Das alte Umayyaden-Kalifat beherrschte fast die gesamte islamische Welt, von Iberien im Westen bis Persien im Osten. Möglicherweise strebt |___NS21___| danach, diesem alten Reich nachzueifern und die unterschiedlichen Völker des Nahen Ostens, Nordafrikas und Europas wieder zu vereinen.
 |___KY211___|„Ein glorreicher Tag!”
 |___KY212___|„Was bedeutet das für Spanien?”
 >>>>> C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation\steam\replace\equipment_l_english.yml
-|___KY213___|„Mundur wz. 19”
+|___KY213___|„Mundur wz. 19"
 |___KY214___|„Mundur wz. 19”
 |___KY215___|„Mundur wz. 36”
 |___KY216___|„Mundur wz. 36”
@@ -239,44 +237,44 @@
 |___KY230___|„Kb ppanc wz. 35”
 |___KY231___|„Thompson wz. 28”
 |___KY232___|„Thompson wz. 28”
-|___KY233___|„SMG-ausgerüstete Infanterieeinheiten mit Schwerpunkt Nahkampf und Geländetraining. Diese Einheiten verzichten zugunsten der Feuerkraft im Nahbereich auf schwere Waffen.”
-|___KY234___|„Pistolet maszynowy wz. 39 \„Mors\“"
-|___KY235___|„Pm wz. 39”
-|___KY236___|„Mit Maschinenpistolen ausgerüstete Infanterieeinheiten mit Schwerpunkt Nahkampf und Training für unwegsames Gelände. Diese Einheiten verzichten zugunsten der Feuerkraft auf kurze Distanz auf schwere Waffen.”
+|___KY233___|„SMG-ausgerüstete Infanterieeinheiten mit Schwerpunkt Nahkampf und Ausbildung für unwegsames Gelände. Diese Einheiten verzichten zugunsten der Feuerkraft auf kurze Distanz auf schwere Waffen. „
+|___KY234___|“Pistolet maszynowy wz. 39 \„Mors\‚‘
+|___KY235___|“Pm wz. 39„
+|___KY236___|“Mit SMG ausgerüstete Infanterieeinheiten mit Schwerpunkt Nahkampf und Training für unwegsames Gelände. Diese Einheiten verzichten zugunsten der Feuerkraft auf kurze Distanz auf schwere Waffen."
 |___KY237___|„Pistolet maszynowy \„STEN\“"
-|___KY238___|„Pm STEN”
-|___KY239___|„Mit SMG ausgerüstete Infanterieeinheiten mit Schwerpunkt Nahkampf und Training für unwegsames Gelände. Diese Einheiten verzichten zugunsten der Feuerkraft auf kurze Distanz auf schwere Waffen.”
+|___KY238___|„Pm STEN“
+|___KY239___|„Mit SMG ausgerüstete Infanterieeinheiten mit Schwerpunkt Nahkampf und Training für unwegsames Gelände. Diese Einheiten verzichten zugunsten der Feuerkraft auf kurze Distanz auf schwere Waffen.“
 |___KY240___|„Maschinenpistole „Błyskawica””
 |___KY241___|„Pm Błyskawica”
-|___KY242___|„Mit SMG ausgerüstete Infanterieeinheiten mit Schwerpunkt Nahkampf und Ausbildung für unwegsames Gelände. Diese Einheiten verzichten zugunsten der Feuerkraft auf kurze Distanz auf schwere Waffen.” „
-|___KY243___|“Błyskawica II Sturmgewehr„
-|___KY244___|“Błyskawica II„
-|___KY245___|‚‘
-|___KY246___|“Reczny karabin maszynowy wz. 28„
-|___KY247___|“ Rkm wz. 28„
-|___KY248___|“Ciezki karabin maszynowy wz. 30a„
-|___KY249___|“Ckm wz. 30a„
+|___KY242___|„Mit SMG ausgerüstete Infanterieeinheiten mit Schwerpunkt Nahkampf und Training für unwegsames Gelände. Diese Einheiten verzichten zugunsten der Feuerkraft auf kurze Distanz auf schwere Waffen.“
+|___KY243___|„Błyskawica II Sturmgewehr“
+|___KY244___|„Błyskawica II“
+|___KY245___|„“
+|___KY246___|„Reczny karabin maszynowy wz. 28”
+|___KY247___|„Rkm wz. 28”
+|___KY248___|„Ciezki karabin maszynowy wz. 30a”
+|___KY249___|„ Ckm wz. 30a„
 |___KY250___|“Ciezki karabin maszynowy Typ C„
-|___KY251___|“Ckm Typ C"
-|___KY252___|„Moździerz 81 mm wz. 31”
-|___KY253___|„Granatnik 47 mm wz. 36”
-|___KY254___|„Moździerz 120 mm wz. 40”
-|___KY255___|„Armata 75 mm wz. 1902/26"
-|___KY256___|„Polski-Fiat 621 Infanterie-Lkw”
+|___KY251___|“Ckm Typ C„
+|___KY252___|“Moździerz 81mm wz. 31„
+|___KY253___|“Granatnik 47mm wz. 36„
+|___KY254___|“Moździerz 120 mm wz. 40„
+|___KY255___|“Armata 75 mm wz. 1902/26„
+|___KY256___|“Polski-Fiat 621 Infanterie-Lkw"
 |___KY257___|„Polski-Fiat 621”
-|___KY258___|„Die Motorisierung der Infanterie ist der zweite Schritt zur Mechanisierung einer Armee. Zivile Lastwagen lassen sich leicht für militärische Zwecke wie den Transport von Soldaten, das Ziehen von Geschützen und den Transport von Ausrüstung und Vorräten umrüsten. Dies erhöht die strategische Mobilität von Infanterieeinheiten, die sonst auf Marschieren angewiesen wären, erheblich."
-|___KY259___|„Ursus 303 Infanterielastwagen”
+|___KY258___|„Die Motorisierung der Infanterie ist der zweite Schritt zur Mechanisierung einer Armee. Zivile Lastwagen lassen sich leicht für militärische Zwecke wie den Transport von Soldaten, das Ziehen von Geschützen und den Transport von Ausrüstung und Vorräten umrüsten. Dies erhöht die strategische Mobilität von Infanterieeinheiten, die sonst auf Marschieren angewiesen wären, erheblich.”
+|___KY259___|„Ursus 303 Infanterie-Lkw”
 |___KY260___|„Ursus 303”
-|___KY261___|„Die Motorisierung der Infanterie ist der zweite Schritt zur Mechanisierung einer Armee. Zivile Lastwagen lassen sich leicht für militärische Zwecke wie den Transport von Soldaten, das Ziehen von Geschützen und den Transport von Ausrüstung und Vorräten umrüsten. Dies erhöht die strategische Mobilität von Infanterieeinheiten, die sonst auf Marschieren angewiesen wären, erheblich.“
+|___KY261___|„Die Motorisierung der Infanterie ist der zweite Schritt zur Mechanisierung einer Armee. Zivile Lastwagen lassen sich leicht für militärische Zwecke wie den Transport von Soldaten, das Ziehen von Geschützen und den Transport von Ausrüstung und Vorräten umrüsten. Dies erhöht die strategische Mobilität von Infanterieeinheiten, die sonst auf Marschieren angewiesen wären, erheblich.
 |___KY262___|„PZInż 222 Mechanisierte Ausrüstung”
 |___KY263___|„PZInż 222”
 |___KY264___|„PZInż 342 Mechanisierte Ausrüstung”
 |___KY265___|„PZInż 342”
-|___KY266___|„Sochaczewski-Transporter Mechanisierte Ausrüstung“
+|___KY266___|„Sochaczewski-Transporter Mechanisierte Ausrüstung”
 |___KY267___|„Sochaczewski-Transporter“
 |___KY268___|„PZInż 222 z ckm wz. 30a Mech-MG“
-|___KY269___|„PZInż 222 mit ckm wz. 30a”
-|___KY270___|„PZInż 222 mit moździerzem 81mm wz. 31 Mech-Mörser”
+|___KY269___|„PZInż 222 z ckm wz. 30a“
+|___KY270___|„PZInż 222 mit Mörser 81 mm wz. 31 Mech-Mortar”
 |___KY271___|„PZInż 222 mit Mörser 81 mm wz. 31”
 |___KY272___|„PZInż 222 mit Panzerabwehrkanone wz. 36 Mech-AT”
 |___KY273___|„PZInż 222 mit Panzerabwehrkanone wz. 36”
@@ -286,7 +284,7 @@
 |___KY277___|„Sokól 600”
 |___KY278___|„C7P Artillerie-Traktor”
 |___KY279___|„C7P”
-|___KY280___|„Große Traktoren und Kettenfahrzeuge zum Transportieren von sehr schwerem Gerät wie schwerer Artillerie”
+|___KY280___|„Große Traktoren und Kettenfahrzeuge zum Transport von sehr schwerem Gerät wie schwerer Artillerie”
 |___KY281___|„C2P Traktortransport”
 |___KY282___|„C2P”
 |___KY283___|„75 mm Armata wz. 1897”
@@ -297,7 +295,7 @@
 |___KY288___|„105 mm armata polowa wz. 29“
 |___KY289___|„155 mm Haubitze wz. 1917”
 |___KY290___|„155 mm Haubitze wz. 1917”
-|___KY291___|„155 mm Fernkampfkanone wz. 40”
+|___KY291___|„155 mm Fernkampf-Kanone wz. 40”
 |___KY292___|„155 mm Armata wz. 40”
 |___KY293___|„152 mm Armata wz. 30”
 |___KY294___|„152 mm Armata wz. 30”
@@ -305,19 +303,19 @@
 |___KY296___|„37-mm-Panzerabwehrkanone wz. 36”
 |___KY297___|„47-mm-Panzerabwehrkanone wz. 39”
 |___KY298___|„47-mm-Panzerabwehrkanone wz. 39”
-|___KY299___| „Schwerstes Maschinengewehr wz.30”
-|___KY300___|„Nkm wz. 30”
+|___KY299___|„Schwerstes Maschinengewehr wz.30”
+|___KY300___|„ Nkm wz. 30"
 |___KY301___|„40-mm-Flugabwehrkanone wz. 36”
 |___KY302___|„40-mm-Flugabwehrkanone wz. 36”
 |___KY303___|„75-mm-Flugabwehrkanone wz. 39”
 |___KY304___|„75-mm-Flugabwehrkanone wz. 39”
-|___KY305___|„LWS-3 Mewa Artillerie-Beobachter”
+|___KY305___|„LWS-3 Mewa Artilleriebeobachter”
 |___KY306___|„LWS-3 Mewa”
 |___KY307___|„TK2 Tankette”
 |___KY308___|„TK2”
-|___KY309___|„TKF Tankette”
+|___KY309___|„TKF-Panzerwagen”
 |___KY310___|„TKF”
-|___KY311___|„TK3 Tankette”
+|___KY311___|„TK3-Panzerwagen”
 |___KY312___|„TK3”
 |___KY313___|„TKS-Panzerkampfwagen”
 |___KY314___|„TKS”
@@ -335,20 +333,20 @@
 |___KY326___|„Fiat 508 Lazik”
 |___KY327___|„PZInz 303”
 |___KY328___|„PZInz 303”
-|___KY329___|„4TP Leichter Panzer”
+|___KY329___|„4TP-Leichtpanzer”
 |___KY330___|„4TP”
-|___KY331___|„R35 Leichter Panzer”
+|___KY331___|„R35-Leichtpanzer”
 |___KY332___|„R35”
 |___KY333___|„7TP-Leichtpanzer”
 |___KY334___|„7TP”
 |___KY335___|„9TP-Leichtpanzer”
 |___KY336___|„9TP”
 |___KY337___|„10TP-Kreuzerpanzer”
-|___KY338___|„10TP“
-|___KY339___|„14TP-Kreuzerpanzer“
-|___KY340___|„14TP“
-|___KY341___|„T-39-Kreuzerpanzer“
-|___KY342___|„T-39“
+|___KY338___|„10TP”
+|___KY339___|„14TP-Kreuzerpanzer”
+|___KY340___|„14TP”
+|___KY341___|„T-39-Kreuzerpanzer”
+|___KY342___|„T-39”
 |___KY343___|„22TP”
 |___KY344___|„22TP”
 |___KY345___|„23TP”
