@@ -180,7 +180,7 @@ namespace ParadoxTranslationHelper
 
         private void SubstituteColorCodeEnd(LineObject lineObject)
         {
-            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SIGN_END + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
+            lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.COLOR_CODE_SIGN_END, FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END);
         }
 
         //INFO: 2025-11-20 - JHA - Funktioniert eigentlich nur wenn vorher schon ColorCodeEnd substituiert wurde.
@@ -252,6 +252,8 @@ namespace ParadoxTranslationHelper
         {
             //TODO: 2025-11-16 - JHA - Im STNC Mod steht das Icon-Zeichen (£) sowohl am Anfang, wie auch am ende
             //            return FileSubstitutionConstants.ICON_START_SIGN_START + subs;
+            //TODO: 2025-11-28 - JHA - Problem mit folgendem String " synthetic_refinery_resource:0 "£resources_strip|$FRAME$""
+            
             return subs;
         }
 
