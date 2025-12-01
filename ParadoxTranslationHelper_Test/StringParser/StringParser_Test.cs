@@ -168,7 +168,7 @@ namespace ParadoxTranslationHelper_Test
         [TestMethod]
         public void ReadFileWithDifferentKeys()
         {
-            const string testFileName = @"C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\stringParser\TestStrings.yml";
+            const string testFileName = @"..\..\..\testData\stringParser\TestStrings.yml";
             IStringParser stringParser = StringParserFactory.Instance.CreateParserKey();
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
             TranslationFile translationFile = translationFileCreator.Create(testFileName);

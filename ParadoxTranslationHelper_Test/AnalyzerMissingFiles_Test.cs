@@ -17,8 +17,8 @@ namespace ParadoxTranslationHelper_Test
         [DataRow(DisplayName = "GenerateMissingGermanTranslationFiles: null,null --> null")]
         public void TestMethod001()
         {
-            List<TranslationFile> english = FileUtility.CreateTranslationFilesFromDirectory(@"C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\localisation\missingFiles\GermanThree_EnglishThree_different_OneIdentical\english");
-            List<TranslationFile> german = FileUtility.CreateTranslationFilesFromDirectory(@"C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\localisation\missingFiles\GermanThree_EnglishThree_different_OneIdentical\german");
+            List<TranslationFile> english = FileUtility.CreateTranslationFilesFromDirectory(@"..\..\..\testData\localisation\missingFiles\GermanThree_EnglishThree_different_OneIdentical\english");
+            List<TranslationFile> german = FileUtility.CreateTranslationFilesFromDirectory(@"..\..\..\testData\localisation\missingFiles\GermanThree_EnglishThree_different_OneIdentical\german");
 
             AnalyzerMissingFiles.GenerateMissingGermanTranslationFiles(german, english);
             Assert.IsNull( AnalyzerMissingFiles.GenerateMissingGermanTranslationFiles(null,null) );
