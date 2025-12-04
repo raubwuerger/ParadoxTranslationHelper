@@ -80,6 +80,14 @@ namespace ParadoxTranslationHelper_Test
         [DataRow(DisplayName = "DIFF_FILES")]
         public void TestMethod_DIFF_FILES()
         {
+
+            string file_no_more_in_steam_yml_toRemove = "file_no_more_in_steam.yml.toRemove";
+            //TODO: 2025-01-12 - JHA - Vor Teststart Testdaten initialisieren
+            //file_no_more_in_steam.yml erstellen
+            //replace/equipment_l_german.yml löschen
+            //aat_focus_l_german.yml löschen
+            //buildings_l_german.yml löschen
+            //file_no_more_in_steam.yml.toRemove löschen
             const string MOD_NAME = "Test_DIFF_FILES";
             const string MOD_FUNCTION = "DIFF_FILES";
 
@@ -87,15 +95,18 @@ namespace ParadoxTranslationHelper_Test
             Assert.IsTrue(ReadConfig());
             Assert.IsTrue(SetActiveMod(MOD_NAME));
 
+            File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml_toRemove));
+
             FunctionObjectRegistryInitialiser.Init();
 
             IFunctionObject function = FunctionObjectRegistry.Instance.GetFunctionObject(MOD_FUNCTION);
             Assert.IsNotNull(function);
             Assert.IsTrue(function.Work());
             Assert.IsFalse(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, "file_no_more_in_steam.yml")));
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, "file_no_more_in_steam.yml.toRemove")));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml_toRemove)));
             Assert.IsTrue(Directory.Exists(ParadoxTranslationHelperConfig.PathGerman + @"//replace"));
-
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml")));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToDelete.yml")));
         }
 
         [TestMethod]

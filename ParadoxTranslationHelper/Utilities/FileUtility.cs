@@ -305,16 +305,15 @@ namespace ParadoxTranslationHelper.Utilities
 
         public static string? CreateDirectoryAnalysis()
         {
-            string pathAnalyze = Path.Combine(ParadoxTranslationHelperConfig.PathBase, ParadoxTranslationHelperConfig.PathResult);
-            if (false == Directory.Exists(pathAnalyze))
+            if (false == Directory.Exists(ParadoxTranslationHelperConfig.PathResult))
             {
-                DirectoryInfo directoryInfo = Directory.CreateDirectory(pathAnalyze);
+                DirectoryInfo directoryInfo = Directory.CreateDirectory(ParadoxTranslationHelperConfig.PathResult);
                 if (null == directoryInfo)
                 {
                     return null;
                 }
             }
-            return pathAnalyze;
+            return ParadoxTranslationHelperConfig.PathResult;
         }
 
 

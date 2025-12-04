@@ -86,7 +86,16 @@ namespace ParadoxTranslationHelper
             if (lines == null || lines.Length == 0)
             {  
                 return null;
-            }   
+            }
+
+            IStringParser stringParserKey = StringParserFactory.Instance.CreateParserKey();
+            IStringParser stringParserNamespaces = StringParserFactory.Instance.CreateParserNamespaces();
+            IStringParser stringParserNestingStrings = StringParserFactory.Instance.CreateParserNestingStrings();
+            IStringParser stringParserIcons = StringParserFactory.Instance.CreateParserIcons();
+            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+            IStringParser stringParserColorCodes = StringParserFactory.Instance.CreateParserColorCodes();
+            IStringParser stringParserTabulator = StringParserFactory.Instance.CreateParserTabulator();
+
 
             Dictionary<int, LineObject> lineObjects = new Dictionary<int, LineObject>();
             List<LineTextTupel> lineTextTupels = new List<LineTextTupel>();
@@ -96,6 +105,19 @@ namespace ParadoxTranslationHelper
             {
                 if( false == IgnoreLine(line) )
                 {
+                    List<string> keys = FindToken(line, stringParserKey);
+                    if (keys == null)
+                    {
+                        continue;
+                    }
+
+                    if (keys.Count == 0)
+                    {
+                        continue;
+                    }
+
+                    _lineObjectCreator.Key = keys[0];
+/*
                     SetKey(line);
                     SetNamespaces(line);
                     SetNestingStrings(line);
@@ -103,6 +125,7 @@ namespace ParadoxTranslationHelper
                     SetNewLine(line);
                     SetColorCodes(line);
                     SetTabulator(line);
+*/
                 }
 
                 lineNumber++;
@@ -116,17 +139,29 @@ namespace ParadoxTranslationHelper
 
         private bool IgnoreLine(string line) 
         {
-            if( true == string.IsNullOrEmpty(line) )
+            if( true == string.IsNullOrWhiteSpace(line) )
             {
                 return true;
             }
+
             string lineTrimmed = line.Trim();
             if (lineTrimmed.StartsWith(Constants.SIGN_HASH_TAG) )
             {
                 return true;
             }
 
+            if (lineTrimmed.StartsWith(Constants.TRANSLATION_FILE_IDENTIFIER))
+            {
+                return true;
+            }
+
             return false;
+        }
+
+        private List<string> FindToken(string line, IStringParser parser )
+        {
+            List<string> token = new List<string>();
+            return parser.GetToken(line, token);
         }
 
         private void SetKey(string line)
