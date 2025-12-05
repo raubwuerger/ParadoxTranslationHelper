@@ -101,13 +101,13 @@ namespace ParadoxTranslationHelper
             return lineObject.OriginalLineSubstituted;
         }
 
-        public static string ReplaceWithAnalyseDirectory(TranslationFile translationFile )
+        public static string GetPathReplacedWithAnalysePath(TranslationFile translationFile )
         {
             string fullPath = Path.GetDirectoryName(translationFile.FileNameWithBasePath);
             DirectoryInfo directoryInfo = Directory.GetParent(fullPath);
             string analysePath = Path.Combine(directoryInfo.FullName, ParadoxTranslationHelperConfig.PathResult);
 
-            return Path.Combine(analysePath, Path.GetFileName(translationFile.FileNameWithBasePath));
+            return Path.Combine(analysePath, Path.GetFileName(translationFile.FileName));
         }
 
         public static string? ReplacePathWithGermanFilename(TranslationFile translationFile)

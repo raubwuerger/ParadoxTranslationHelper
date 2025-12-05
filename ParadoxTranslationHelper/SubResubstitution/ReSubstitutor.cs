@@ -37,7 +37,7 @@ namespace ParadoxTranslationHelper
 
             ReSubstitute(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList());
 
-            FileUtility.WriteLines(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList(), Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
+            FileUtility.WriteLines(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList(), Utility.GetPathReplacedWithAnalysePath(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
             Log.Information("Resubstitution finished ...");
 
 

@@ -34,17 +34,14 @@ namespace ParadoxTranslationHelper
             Log.Information($"Substituted new lines: {_newLineSubstitute.Count}");
             Log.Information($"Substituted tabulator: {_tabulatorSubstitute.Count}");
 
-            WriteSubstitionFiles(translationFile);
-            return true;
+            return WriteSubstitionFiles(translationFile);
         }
 
         private bool WriteSubstitionFiles(TranslationFile translationFile)
         {
-            string replacedPath = Utility.ReplaceWithAnalyseDirectory(translationFile);
-
-            fileWriterSubstitutionItem.FileName = replacedPath;
+            fileWriterSubstitutionItem.FileName = translationFile.FileNameWithBasePath;
             fileWriterSubstitutionItem.FileSuffix = "";
-            WriteSubstitionFile(translationFile, replacedPath + FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED);
+            WriteSubstitionFile(translationFile, translationFile.FileNameWithBasePath + FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED);
 
             fileWriterSubstitutionItem.FileSuffix = "." + FileSubstitutionConstants.KEY_SUFFIX;
             WriteSubstitionFile(_keySubstitute);
@@ -65,7 +62,6 @@ namespace ParadoxTranslationHelper
 
             //TODO: 2025-01-14 - JHA - Check if all files have been successfully written
             return true;
-
         }
 
         private void Substitute(List<LineObject> lineObjects)
