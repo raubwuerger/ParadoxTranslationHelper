@@ -23,11 +23,16 @@ namespace ParadoxTranslationHelper
         {
             if( _pathToSubstitute == null)
             {
-                Log.Verbose("Member <PathToSubstitute> not set!");
+                Log.Warning("Member <PathToSubstitute> must not be null!");
                 return false;
             }
 
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathToSubstitute);
+            if( null == LocalisationFilesGerman )
+            {
+                Log.Warning($"No files found in path {_pathToSubstitute}");
+                return false;
+            }
             RemoveFileOnIgnoreList();
 
             foreach (TranslationFile translationFile in LocalisationFilesGerman)
@@ -49,6 +54,11 @@ namespace ParadoxTranslationHelper
         private void RemoveFileOnIgnoreList()
         {
             if( null == _translationFileToIgnore )
+            {
+                return;
+            }
+
+            if( null == LocalisationFilesGerman )
             {
                 return;
             }

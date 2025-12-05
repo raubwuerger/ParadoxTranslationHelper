@@ -30,4 +30,7 @@
       <PackageReference Include="Serilog.Sinks.File" />
       <PackageReference Include="Serilog.Sinks.Map" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Repositories\" />
+    </ItemGroup>
 </Project>
