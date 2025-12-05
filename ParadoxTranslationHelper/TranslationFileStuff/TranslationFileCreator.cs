@@ -116,13 +116,13 @@ namespace ParadoxTranslationHelper
                         continue;
                     }
   
-                    SetKey(line);
-                    SetNamespaces(line);
-                    SetNestingStrings(line);
-                    SetIcons(line);
-                    SetNewLine(line);
-                    SetColorCodes(line);
-                    SetTabulator(line);
+                    SetKey(line, stringParserKey);
+                    SetNamespaces(line, stringParserNamespaces);
+                    SetNestingStrings(line, stringParserNestingStrings);
+                    SetIcons(line, stringParserIcons);
+                    SetNewLine(line, stringParserNewLine);
+                    SetColorCodes(line, stringParserColorCodes);
+                    SetTabulator(line, stringParserTabulator);
                 }
 
                 lineNumber++;
@@ -161,9 +161,8 @@ namespace ParadoxTranslationHelper
             return parser.GetToken(line, token);
         }
 
-        private void SetKey(string line)
+        private void SetKey(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserKey();
             List<string> token = new List<string>();
             token = stringParser.GetToken(line, token);
             if (token.Count > 0)
@@ -173,44 +172,38 @@ namespace ParadoxTranslationHelper
         }
 
       
-        private void SetNamespaces(string line)
+        private void SetNamespaces(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
             List<string> token = new List<string>();
             _lineObjectCreator.NameSpace = stringParser.GetToken(line, token);
         }
 
-        private void SetNestingStrings(string line)
+        private void SetNestingStrings(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNestingStrings();
             List<string> token = new List<string>();
             _lineObjectCreator.NestingStrings = stringParser.GetToken(line, token);
         }
 
-        private void SetColorCodes(string line)
+        private void SetColorCodes(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes(); 
             List<string> token = new List<string>();
             _lineObjectCreator.ColorCodes = stringParser.GetToken(line, token);
         }
 
-        private void SetIcons(string line) 
+        private void SetIcons(string line, IStringParser stringParser) 
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserIcons();
             List<string> token = new List<string>();
             _lineObjectCreator.Icons = stringParser.GetToken(line, token);
         }
 
-        private void SetNewLine(string line)
+        private void SetNewLine(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
             List<string> token = new List<string>();
             _lineObjectCreator.NewLines = stringParser.GetToken(line, token);
         }
 
-        private void SetTabulator(string line)
+        private void SetTabulator(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserTabulator();
             List<string> token = new List<string>();
             _lineObjectCreator.Tabulators = stringParser.GetToken(line, token);
         }
