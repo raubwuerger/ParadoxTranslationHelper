@@ -201,7 +201,7 @@ namespace ParadoxTranslationHelper
         
         private void BackupOriginalFile(TranslationFile translationFile)
         {
-            FileUtility.Write(translationFile, translationFile.FileName + Constants.FILE_BACKUP_EXTENSION);
+            FileUtility.Write(translationFile, translationFile.FileNameWithBasePath + Constants.FILE_BACKUP_EXTENSION);
         }
 
 

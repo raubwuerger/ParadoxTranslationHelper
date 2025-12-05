@@ -63,7 +63,7 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
-            Log.Verbose("Following transtlation files are no more existant in update: " + Path.GetFullPath(LocalisationFilesSteam[0].FileName) + Environment.NewLine);
+            Log.Verbose("Following transtlation files are no more existant in update: " + Path.GetFullPath(LocalisationFilesSteam[0].FileNameWithBasePath) + Environment.NewLine);
             List<string> localisationFileNamesEnglish = LocalisationFilesGerman.ConvertAll(s => s.FileNameWithoutLocalisation);
             List<string> localisationFileNamesEnglishUpdated = LocalisationFilesSteam.ConvertAll(s => s.FileNameWithoutLocalisation);
             List<string> missingTranslationFiles = localisationFileNamesEnglish.Except(localisationFileNamesEnglishUpdated).ToList<string>();
@@ -85,7 +85,7 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
-            Log.Verbose("Following transtlation files are new in update: " + Path.GetFullPath(LocalisationFilesSteam[0].FileName) + Environment.NewLine);
+            Log.Verbose("Following transtlation files are new in update: " + Path.GetFullPath(LocalisationFilesSteam[0].FileNameWithBasePath) + Environment.NewLine);
             List<string> localisationFileNamesEnglish = LocalisationFilesGerman.ConvertAll(s => s.FileNameWithoutLocalisation);
             List<string> localisationFileNamesEnglishUpdated = LocalisationFilesSteam.ConvertAll(s => s.FileNameWithoutLocalisation);
             List<string> translationFilesToDelete = localisationFileNamesEnglishUpdated.Except(localisationFileNamesEnglish).ToList<string>();
@@ -215,9 +215,9 @@ namespace ParadoxTranslationHelper
             (
                 item =>
                 {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
+                    if (false == translationFileName.Equals(item.TranslationFile.FileNameWithBasePath, StringComparison.CurrentCultureIgnoreCase))
                     {
-                        translationFileName = item.TranslationFile.FileName;
+                        translationFileName = item.TranslationFile.FileNameWithBasePath;
                         Log.Verbose(translationFileName);
                     }
                     Log.Verbose(item.Key + " (" + item.LineNumber + "): " + string.Join(", ", item.NameSpaces));
@@ -229,9 +229,9 @@ namespace ParadoxTranslationHelper
             (
                 item =>
                 {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
+                    if (false == translationFileName.Equals(item.TranslationFile.FileNameWithBasePath, StringComparison.CurrentCultureIgnoreCase))
                     {
-                        translationFileName = item.TranslationFile.FileName;
+                        translationFileName = item.TranslationFile.FileNameWithBasePath;
                         Log.Verbose(translationFileName);
                     }
                     Log.Verbose(item.Key + " (" + item.LineNumber + "): " + string.Join(", ", item.NameSpaces));
@@ -277,9 +277,9 @@ namespace ParadoxTranslationHelper
             (
                 item =>
                 {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
+                    if (false == translationFileName.Equals(item.TranslationFile.FileNameWithBasePath, StringComparison.CurrentCultureIgnoreCase))
                     {
-                        translationFileName = item.TranslationFile.FileName;
+                        translationFileName = item.TranslationFile.FileNameWithBasePath;
                         Log.Verbose(translationFileName);
                     }
                     Log.Verbose(item.Key + " (" + item.LineNumber + "): " + string.Join(", ", item.NestingStrings));
@@ -291,9 +291,9 @@ namespace ParadoxTranslationHelper
             (
                 item =>
                 {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
+                    if (false == translationFileName.Equals(item.TranslationFile.FileNameWithBasePath, StringComparison.CurrentCultureIgnoreCase))
                     {
-                        translationFileName = item.TranslationFile.FileName;
+                        translationFileName = item.TranslationFile.FileNameWithBasePath;
                         Log.Verbose(translationFileName);
                     }
                     Log.Verbose(item.Key + " (" + item.LineNumber + "): " + string.Join(", ", item.NestingStrings));

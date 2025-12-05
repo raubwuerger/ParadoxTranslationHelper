@@ -15,7 +15,7 @@ namespace ParadoxTranslationHelper.Utilities
                 return null;
             }
 
-            return $"key={lineObject.Key}, lineNumber={lineObject.LineNumber}, fileName={lineObject.TranslationFile.FileName}";
+            return $"key={lineObject.Key}, lineNumber={lineObject.LineNumber}, fileName={lineObject.TranslationFile.FileNameWithBasePath}";
         }
     }
 }

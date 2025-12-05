@@ -71,7 +71,7 @@ namespace ParadoxTranslationHelper
             List<TranslationFile> updatedFiles = CreateUpdateFiles(keysToInsert);
             foreach (TranslationFile file in updatedFiles) 
             {
-                FileUtility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName);
+                FileUtility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileNameWithBasePath);
             }
 
             return true;
@@ -101,7 +101,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            string fileName = missing.FileName;
+            string fileName = missing.FileNameWithBasePath;
 
             FileUtility.Write(original, Path.Combine(LocalisationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
 
@@ -128,7 +128,7 @@ namespace ParadoxTranslationHelper
                 TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
                 if (translationKeysToInsert == null)
                 {
-                    Log.Warning("File to insert not found! " + translationFile.FileName);
+                    Log.Warning("File to insert not found! " + translationFile.FileNameWithBasePath);
                     translationKeysToInsert = CreateMissingTranslationFile(translationFile);
                     if (null == translationKeysToInsert)
                     {
@@ -144,16 +144,16 @@ namespace ParadoxTranslationHelper
 
         private TranslationFile CreateMissingTranslationFile( TranslationFile missing )
         {
-            string fileNameOnly = Path.GetFileName(missing.FileName);
+            string fileNameOnly = Path.GetFileName(missing.FileNameWithBasePath);
             string filePath = Path.Combine(_localisationFilePathGerman, fileNameOnly.Replace(Constants.LOCALISATION_ENGLISH_FULL, Constants.LOCALISATION_GERMAN_FULL));
             TranslationFile toCreate = TranslationFileCreator.CreateEmpty(filePath);
             toCreate.Lines.Add( 0, LineObjectCreator.CreateLineObjectLanguageIdentifierGerman());
             if ( false == FileUtility.Write(toCreate) )
             {
-                Log.Warning("Unable to create file! " + toCreate.FileName);
+                Log.Warning("Unable to create file! " + toCreate.FileNameWithBasePath);
                 return null;
             }
-            Log.Information("Created file: " + toCreate.FileName);
+            Log.Information("Created file: " + toCreate.FileNameWithBasePath);
             return toCreate;
         }
 

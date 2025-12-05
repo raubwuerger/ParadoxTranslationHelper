@@ -78,9 +78,9 @@ namespace ParadoxTranslationHelper.Utilities
                     string missingKeyFile = "";
                     foreach (LineObject line in lineObjects)
                     {
-                        if (false == missingKeyFile.Equals(line.TranslationFile.FileName))
+                        if (false == missingKeyFile.Equals(line.TranslationFile.FileNameWithBasePath))
                         {
-                            missingKeyFile = line.TranslationFile.FileName;
+                            missingKeyFile = line.TranslationFile.FileNameWithBasePath;
                             outputFile.WriteLine(Constants.TRANSLATION_FILE_IDENTIFIER + missingKeyFile);
                         }
                         outputFile.WriteLine(Utility.GetSubstitutedLineTabbed(line));
@@ -136,7 +136,7 @@ namespace ParadoxTranslationHelper.Utilities
                 return false;
             }
 
-            return Write(translationFile, translationFile.FileName);
+            return Write(translationFile, translationFile.FileNameWithBasePath);
         }
 
         public static bool Write(TranslationFile translationFile, string fileName)

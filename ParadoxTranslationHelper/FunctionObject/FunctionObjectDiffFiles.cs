@@ -137,12 +137,12 @@ namespace ParadoxTranslationHelper.FunctionObject
 
             foreach(TranslationFile file in filesToRemove ) 
             {
-                string fileNameToRemove = file.FileName + fileToRemove;
+                string fileNameToRemove = file.FileNameWithBasePath + fileToRemove;
                 if ( File.Exists(fileNameToRemove) )
                 {
                     File.Delete(fileNameToRemove);
                 }
-                File.Move(file.FileName, fileNameToRemove);
+                File.Move(file.FileNameWithBasePath, fileNameToRemove);
             }
         }
 
@@ -190,7 +190,7 @@ namespace ParadoxTranslationHelper.FunctionObject
 
                 if ( false == FileUtility.Write(translationCreated) )
                 {
-                    Log.Warning("Unable to create file:" +translationCreated.FileName);
+                    Log.Warning("Unable to create file:" +translationCreated.FileNameWithBasePath);
                 }
             }
         }

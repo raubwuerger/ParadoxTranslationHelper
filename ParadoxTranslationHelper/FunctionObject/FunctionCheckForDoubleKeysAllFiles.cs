@@ -147,10 +147,10 @@ namespace ParadoxTranslationHelper
             foreach (KeyValuePair<string, List<LineObject>> doubleKey in doubleKeyFiles)
             {
                 LineObject last = doubleKey.Value.Last();
-                TranslationFile translationFile = originalFiles.Find(x => x.FileName.Equals(last.TranslationFile.FileName,StringComparison.CurrentCultureIgnoreCase));
+                TranslationFile translationFile = originalFiles.Find(x => x.FileNameWithBasePath.Equals(last.TranslationFile.FileNameWithBasePath,StringComparison.CurrentCultureIgnoreCase));
                 if (translationFile == null)
                 {
-                    Log.Warning("Unable to find translation file: " + last.TranslationFile.FileName);
+                    Log.Warning("Unable to find translation file: " + last.TranslationFile.FileNameWithBasePath);
                     continue;
                 }
 

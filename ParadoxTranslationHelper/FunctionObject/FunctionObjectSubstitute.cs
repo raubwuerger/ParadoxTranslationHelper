@@ -41,9 +41,9 @@ namespace ParadoxTranslationHelper
                 if( true == fileSubstitutor.Substitute(translationFile) )
                 {
                     Log.Verbose("Substitution successfully!");
-                    if( false == FileUtility.WriteEmptyFileUTF8_BOM( SubstitutionHelper.CreateFileNameResub(translationFile.FileName) ) )
+                    if( false == FileUtility.WriteEmptyFileUTF8_BOM( SubstitutionHelper.CreateFileNameResub(translationFile.FileNameWithBasePath) ) )
                     {
-                        Log.Warning("Unable to create file: " + SubstitutionHelper.CreateFileNameResub(translationFile.FileName) );
+                        Log.Warning("Unable to create file: " + SubstitutionHelper.CreateFileNameResub(translationFile.FileNameWithBasePath) );
                     }
                 }
             }

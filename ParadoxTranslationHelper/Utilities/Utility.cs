@@ -103,11 +103,11 @@ namespace ParadoxTranslationHelper
 
         public static string ReplaceWithAnalyseDirectory(TranslationFile translationFile )
         {
-            string fullPath = Path.GetDirectoryName(translationFile.FileName);
+            string fullPath = Path.GetDirectoryName(translationFile.FileNameWithBasePath);
             DirectoryInfo directoryInfo = Directory.GetParent(fullPath);
             string analysePath = Path.Combine(directoryInfo.FullName, ParadoxTranslationHelperConfig.PathResult);
 
-            return Path.Combine(analysePath, Path.GetFileName(translationFile.FileName));
+            return Path.Combine(analysePath, Path.GetFileName(translationFile.FileNameWithBasePath));
         }
 
         public static string? ReplacePathWithGermanFilename(TranslationFile translationFile)
@@ -117,7 +117,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            return translationFile.FileName.Replace(Constants.LOCALISATION_ENGLISH, Constants.LOCALISATION_GERMAN);
+            return translationFile.FileNameWithBasePath.Replace(Constants.LOCALISATION_ENGLISH, Constants.LOCALISATION_GERMAN);
         }
 
         public static TranslationFile ConvertToGerman(TranslationFile translationFile)
@@ -130,7 +130,7 @@ namespace ParadoxTranslationHelper
 
             TranslationFileCreator translationFileCreator = new();
 
-            TranslationFile translationConverted = translationFileCreator.CopyExceptFileName(ConvertLocalisationToGerman(translationFile.FileName), translationFile);
+            TranslationFile translationConverted = translationFileCreator.CopyExceptFileName(ConvertLocalisationToGerman(translationFile.FileNameWithBasePath), translationFile);
             translationConverted = ConvertFileContentIdentifierToGerman(translationConverted);
 
             return translationConverted;

@@ -12,7 +12,7 @@ namespace ParadoxTranslationHelper.Validators
                 return false;
             }
 
-            if( true == string.IsNullOrEmpty( translationFile.FileName) )
+            if( true == string.IsNullOrEmpty( translationFile.FileNameWithBasePath) )
             {
                 Log.Verbose("Member <FileName> must not be null or empty!");
                 return false;

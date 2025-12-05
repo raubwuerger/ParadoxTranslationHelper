@@ -24,7 +24,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            Log.Information("Substituting file: " + translationFile.FileName);
+            Log.Information("Substituting file: " + translationFile.FileNameWithBasePath);
             Substitute(translationFile.Lines.Values.ToList());
             Log.Information($"Substituted keys: {_keySubstitute.Count}");
             Log.Information($"Substituted nesting strings: {_nestingStringsSubstitute.Count}");

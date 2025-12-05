@@ -50,8 +50,8 @@ namespace ParadoxTranslationHelper
 
         private string ResubstituteAll()
         {
-            Log.Information($"Validating file: {_translationFileSetSubstitution.SubstitutedFile.FileName}");
-            string allText = File.ReadAllText(_translationFileSetSubstitution.SubstitutedFile.FileName);
+            Log.Information($"Validating file: {_translationFileSetSubstitution.SubstitutedFile.FileNameWithBasePath}");
+            string allText = File.ReadAllText(_translationFileSetSubstitution.SubstitutedFile.FileNameWithBasePath);
             Log.Debug($"Text size: {allText.Length}");
 
             Log.Information($"Resubstituting keys (count={_keyReSubstitute.Count})");
@@ -319,8 +319,8 @@ namespace ParadoxTranslationHelper
         //TODO: 2025-01-14 - JHA - Extract in separate class SubstitutionFileValidator
         private void ValidateAgaintsSubstitutionDataFiles()
         {
-            Log.Information($"Validating file: {_translationFileSetSubstitution.SubstitutedFile.FileName}");
-            string allText = File.ReadAllText(_translationFileSetSubstitution.SubstitutedFile.FileName);
+            Log.Information($"Validating file: {_translationFileSetSubstitution.SubstitutedFile.FileNameWithBasePath}");
+            string allText = File.ReadAllText(_translationFileSetSubstitution.SubstitutedFile.FileNameWithBasePath);
             Log.Debug($"Text size: {allText.Length}");
             int fileOriginal = GetItemCount();
 

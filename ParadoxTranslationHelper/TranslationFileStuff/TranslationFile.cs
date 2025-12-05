@@ -17,7 +17,8 @@ namespace ParadoxTranslationHelper
         private Dictionary<int, LineObject> _lines = new Dictionary<int, LineObject>();
 
         //TODO: 2025-11-29 - JHA - Der get-Operator sollte anders gelöst werden! Performance
-        public string FileName { get => Path.Combine(_basePath, _fileName); }
+        public string FileNameWithBasePath { get => Path.Combine(_basePath, _fileName); }
+        public string FileName { get => _fileName; }
         public string BasePath { get => _basePath; set => _basePath = value; }
         public string FileNameWithoutLocalisation { get => _fileNameWithoutLocalisation; set => _fileNameWithoutLocalisation = value; }
         internal Dictionary<int, LineObject> Lines { get => _lines; set => _lines = value; }
