@@ -215,13 +215,7 @@ namespace ParadoxTranslationHelper
                 return;
             }
 
-            char indexSecond = lineObject.OriginalLineSubstituted[index + 1];
-            if (indexSecond == '!')
-            {
-                return;
-            }
-
-            string colorCode = FileSubstitutionConstants.COLOR_CODE_SIGN_START + indexSecond.ToString();
+            string colorCode = FileSubstitutionConstants.COLOR_CODE_SIGN_START + lineObject.OriginalLineSubstituted[index + 1].ToString();
 
             lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(colorCode, _colorCodeSubstitute.FirstOrDefault(x => x.Value == colorCode).Key);
         }

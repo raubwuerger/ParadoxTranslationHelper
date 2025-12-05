@@ -26,51 +26,64 @@ namespace ParadoxTranslationHelper
                 return tokens;
             }
 
-            int startIndex = source.IndexOf(StartTag, 0);
-            foreach (string endTag in EndTags)
+            if (EndTags.Any() == false)
             {
-                try
+                string subString = source;
+                while (subString.Contains(StartTag))
                 {
-                    string subString = source.Substring(startIndex + SubStringCount + StartIndexShift, source.Length - (startIndex + SubStringCount + StartIndexShift));
-
-                    if (false == subString.Contains(endTag))
-                    {
-                        continue;
-                    }
-
-                    int startPosCalculated = startIndex + StartIndexShift;
-                    if (startPosCalculated < 0)
-                    {
-                        startPosCalculated = startIndex;
-                    }
-
-                    int endPos = source.IndexOf(endTag, HasEndTag ? startIndex + StartTag.Length : startPosCalculated + subString.Length);
-                    if( endPos == -1 )
-                    {
-                        endPos = startPosCalculated + StartTag.Length;
-                    }
-
-                    if (SubStringCount == 0)
-                    {
-                        tokens.Add(source.Substring(startPosCalculated, endPos - (startIndex + StartIndexShift)));
-                    }
-                    else
-                    {
-                        //TODO: 2025-03-27 - JHA - Do bounding check
-                        tokens.Add(source.Substring(startPosCalculated, SubStringCount));
-                    }
-
-                    string remainingContent = source.Substring(endPos + SubStringCount + StartIndexShift);
-
-                    return GetToken(remainingContent, tokens);
+                    int startIndex = subString.IndexOf(StartTag, 0);
+                    tokens.Add(subString.Substring(startIndex, SubStringCount));
+                    subString = subString.Substring(startIndex + SubStringCount + StartIndexShift, subString.Length - (startIndex + SubStringCount + StartIndexShift));
                 }
-                catch( Exception ex) 
+                return tokens;
+            }
+            else
+            {
+                int startIndex = source.IndexOf(StartTag, 0);
+                foreach (string endTag in EndTags)
                 {
-                    Log.Error( source +" -> " +ex.Message, ex);
-                    return new List<string>();
+                    try
+                    {
+                        string subString = source.Substring(startIndex + SubStringCount + StartIndexShift, source.Length - (startIndex + SubStringCount + StartIndexShift));
+
+                        if (false == subString.Contains(endTag))
+                        {
+                            continue;
+                        }
+
+                        int startPosCalculated = startIndex + StartIndexShift;
+                        if (startPosCalculated < 0)
+                        {
+                            startPosCalculated = startIndex;
+                        }
+
+                        int endPos = source.IndexOf(endTag, HasEndTag ? startIndex + StartTag.Length : startPosCalculated + subString.Length);
+                        if (endPos == -1)
+                        {
+                            endPos = startPosCalculated + StartTag.Length;
+                        }
+
+                        if (SubStringCount == 0)
+                        {
+                            tokens.Add(source.Substring(startPosCalculated, endPos - (startIndex + StartIndexShift)));
+                        }
+                        else
+                        {
+                            //TODO: 2025-03-27 - JHA - Do bounding check
+                            tokens.Add(source.Substring(startPosCalculated, SubStringCount));
+                        }
+
+                        string remainingContent = source.Substring(endPos + SubStringCount + StartIndexShift);
+
+                        return GetToken(remainingContent, tokens);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(source + " -> " + ex.Message, ex);
+                        return new List<string>();
+                    }
                 }
             }
-
             return tokens;
         }
     }

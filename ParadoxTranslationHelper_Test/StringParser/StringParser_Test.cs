@@ -207,7 +207,7 @@ namespace ParadoxTranslationHelper_Test
         }
 
         [TestMethod]
-        [DataRow(DisplayName = "Extract ColorCode: 1 --> 1")]
+        [DataRow(DisplayName = "Extract ColorCode: 1 --> 2")]
         public void ExtractColorCodes_001()
         {
             string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and night.";
@@ -215,12 +215,13 @@ namespace ParadoxTranslationHelper_Test
             IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
             List<string> token = new List<string>();
             List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
-            Assert.AreEqual(1, colorCodes.Count);
+            Assert.AreEqual(2, colorCodes.Count);
             Assert.AreEqual("§H",colorCodes[0]);
+            Assert.AreEqual("§!", colorCodes[1]);
         }
 
         [TestMethod]
-        [DataRow(DisplayName = "Extract ColorCode: 2 --> 2")]
+        [DataRow(DisplayName = "Extract ColorCode: 2 --> 4")]
         public void ExtractColorCodes_002()
         {
             string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Anight§!.";
@@ -228,13 +229,15 @@ namespace ParadoxTranslationHelper_Test
             IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
             List<string> token = new List<string>();
             List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
-            Assert.AreEqual(2,colorCodes.Count);
+            Assert.AreEqual(4,colorCodes.Count);
             Assert.AreEqual("§H", colorCodes[0]);
-            Assert.AreEqual("§A", colorCodes[1]);
+            Assert.AreEqual("§!", colorCodes[1]);
+            Assert.AreEqual("§A", colorCodes[2]);
+            Assert.AreEqual("§!", colorCodes[3]);
         }
 
         [TestMethod]
-        [DataRow(DisplayName = "Extract ColorCode: 3 --> 3")]
+        [DataRow(DisplayName = "Extract ColorCode: 3 --> 6")]
         public void ExtractColorCodes_003()
         {
             string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Anight§! or §Wyet§!.";
@@ -242,10 +245,13 @@ namespace ParadoxTranslationHelper_Test
             IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
             List<string> token = new List<string>();
             List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
-            Assert.AreEqual(3, colorCodes.Count);
+            Assert.AreEqual(6, colorCodes.Count);
             Assert.AreEqual("§H", colorCodes[0]);
-            Assert.AreEqual("§A", colorCodes[1]);
-            Assert.AreEqual("§W", colorCodes[2]);
+            Assert.AreEqual("§!", colorCodes[1]);
+            Assert.AreEqual("§A", colorCodes[2]);
+            Assert.AreEqual("§!", colorCodes[3]);
+            Assert.AreEqual("§W", colorCodes[4]);
+            Assert.AreEqual("§!", colorCodes[5]);
         }
 
         [TestMethod]

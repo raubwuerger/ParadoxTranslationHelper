@@ -115,9 +115,7 @@ namespace ParadoxTranslationHelper
                     {
                         continue;
                     }
-
-                    _lineObjectCreator.Key = keys[0];
-/*
+  
                     SetKey(line);
                     SetNamespaces(line);
                     SetNestingStrings(line);
@@ -125,7 +123,6 @@ namespace ParadoxTranslationHelper
                     SetNewLine(line);
                     SetColorCodes(line);
                     SetTabulator(line);
-*/
                 }
 
                 lineNumber++;
