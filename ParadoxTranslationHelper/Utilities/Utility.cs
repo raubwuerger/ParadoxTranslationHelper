@@ -87,13 +87,18 @@ namespace ParadoxTranslationHelper
                 return lineObject.OriginalLineSubstituted;
             }
 
-            int indexOfKay = lineObject.OriginalLineSubstituted.IndexOf(lineObject.Key);
-            int endOfKey = indexOfKay +lineObject.Key.Length;
-
-            //Remove space after key.
-            if( lineObject.OriginalLineSubstituted[endOfKey] == ' ' )
+            int indexOfKey = lineObject.OriginalLineSubstituted.IndexOf(lineObject.Key);
+            int endOfKey = indexOfKey +lineObject.Key.Length;
+            if( endOfKey >= lineObject.OriginalLineSubstituted.Length )
             {
-                endOfKey++;
+                endOfKey = lineObject.OriginalLineSubstituted.Length - 1;
+            }
+            else
+            {
+                if (lineObject.OriginalLineSubstituted[endOfKey] == ' ')
+                {
+                    endOfKey++;
+                }
             }
 
             StringBuilder sb = new StringBuilder();
@@ -305,6 +310,34 @@ namespace ParadoxTranslationHelper
             }
 
             return line.Substring(0, lastIndex);
+        }
+
+        public static int CountStringOccurrences(string text, string pattern)
+        {
+            if( true == string.IsNullOrEmpty(text) )
+            {
+                return -1;
+            }
+
+            if (true == string.IsNullOrEmpty(pattern))
+            {
+                return -1;
+            }
+
+            if( pattern.Length > text.Length )
+            {
+                return -1;
+            }
+
+            int count = 0;
+            int i = 0;
+            while ((i = text.IndexOf(pattern, i)) != -1)
+            {
+                i += pattern.Length;
+                count++;
+            }
+
+            return count;
         }
 
     }
