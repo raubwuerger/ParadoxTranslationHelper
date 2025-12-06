@@ -27,17 +27,21 @@ namespace ParadoxTranslationHelper
         {
             if (_translationFileSetSubstitution == null)
             {
-                Log.Information($"Parameter <TranslationFileSetSubstitution> must not be null!");
+                Log.Warning($"Parameter <TranslationFileSetSubstitution> must not be null!");
                 return;
             }
 
             Log.Information("Resubstitution started ...");
 
-            ReadSubstitutionFiles();
+            if( false == ReadSubstitutionFiles() )
+            {
+                Log.Warning($"Function ReadSubstitutionFiles() failed!");
+                return;
+            }
 
             ReSubstitute(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList());
 
-            FileUtility.WriteLines(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList(), Utility.GetPathReplacedWithAnalysePath(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
+            FileUtility.WriteLines(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList(), _translationFileSetSubstitution.SubstitutedFile.FileNameWithBasePath + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
             Log.Information("Resubstitution finished ...");
 
 
@@ -128,18 +132,39 @@ namespace ParadoxTranslationHelper
         {
             _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathKeyFile;
             _keyReSubstitute = _fileReaderSubstitutionItem.Read();
+            if( false == _keyReSubstitute.Any() )
+            {
+                Log.Warning($"File contains no data: {_fileReaderSubstitutionItem.FileName}");
+                return false;
+            }
 
             _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathNestingStringsFile;
             _nestingStringsReSubstitute = _fileReaderSubstitutionItem.Read();
+            if (false == _nestingStringsReSubstitute.Any())
+            {
+                Log.Warning($"File contains no data: {_fileReaderSubstitutionItem.FileName}");
+            }
 
             _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathNamespaceFile;
             _namespaceReSubstitute = _fileReaderSubstitutionItem.Read();
+            if (false == _namespaceReSubstitute.Any())
+            {
+                Log.Warning($"File contains no data: {_fileReaderSubstitutionItem.FileName}");
+            }
 
             _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathIconFile; 
             _iconReSubstitute = _fileReaderSubstitutionItem.Read();
+            if (false == _iconReSubstitute.Any())
+            {
+                Log.Warning($"File contains no data: {_fileReaderSubstitutionItem.FileName}");
+            }
 
             _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathColorFile;
             _colorReSubstitute = _fileReaderSubstitutionItem.Read();
+            if (false == _colorReSubstitute.Any())
+            {
+                Log.Warning($"File contains no data: {_fileReaderSubstitutionItem.FileName}");
+            }
 
             return true;
         }
@@ -163,13 +188,8 @@ namespace ParadoxTranslationHelper
             ReSubstituteLinesRemove(lineObjects, _nestingStringsReSubstitute);
             ReSubstituteLinesRemove(lineObjects, _namespaceReSubstitute);
             ReSubstituteLinesRemove(lineObjects, _iconReSubstitute);
-            ReSubstituteLines(lineObjects, _colorReSubstitute);
-            /*            List<KeyValuePair<string, string>> keyReSubstitute = resubstitutionHelper.ReSubstituteLines(lineObjects, ref _keyReSubstitute);
-                        List<KeyValuePair<string, string>> nestingStringsReSubstitute = resubstitutionHelper.ReSubstituteLines(lineObjects, ref _nestingStringsReSubstitute);
-                        List<KeyValuePair<string, string>> namespaceReSubstitute = resubstitutionHelper.ReSubstituteLines(lineObjects, ref _namespaceReSubstitute);
-                        List<KeyValuePair<string, string>> iconReSubstitute = resubstitutionHelper.ReSubstituteLines(lineObjects, ref _iconReSubstitute);*/
+            ReSubstituteLinesRemove(lineObjects, _colorReSubstitute);
             ReSubstituteTabulators(lineObjects);
-//            ReSubstituteColorCodes(lineObjects);
             ReSubstituteNewLines(lineObjects);
 
             //TODO: 2025-11-29 - JHA - Schreibe Dateien mit nicht gefundenen Token -> _SteamKeysToCreate.yml.notFound.IC
@@ -209,7 +229,10 @@ namespace ParadoxTranslationHelper
                     lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(item.Key, item.Value);
                     Log.Debug($"Item replaced: {item.Key} --> {item.Value}");
                     substituteTokens.Remove(item.Key);
-                    break;
+                    if( false == lineObject.OriginalLineSubstituted.Contains(item.Key.Substring(0,6)) )
+                    {
+                        break;
+                    }
                 }
 
                 Log.Debug($"##### substituteTokens count: {substituteTokens.Count}");
