@@ -111,11 +111,11 @@ namespace ParadoxTranslationHelper_Test
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub)));
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german)));
 
-            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult,file_SteamKeysToCreate_yml_KY)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_KY), "___KY"));
-            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult,file_SteamKeysToCreate_yml_CC)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_CC), "___CC"));
-            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult,file_SteamKeysToCreate_yml_IC)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_IC), "___IC"));
-            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult,file_SteamKeysToCreate_yml_NE)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NE), "___NE"));
-            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult,file_SteamKeysToCreate_yml_NS)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NS), "___NS"));
+            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult,file_SteamKeysToCreate_yml_KY)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub), "___KY"));
+            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult,file_SteamKeysToCreate_yml_CC)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub), "___CC"));
+            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult,file_SteamKeysToCreate_yml_IC)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub), "___IC"));
+            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult,file_SteamKeysToCreate_yml_NE)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub), "___NE"));
+            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult,file_SteamKeysToCreate_yml_NS)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub), "___NS"));
         }
 
         void PrepareTest_SUB()
