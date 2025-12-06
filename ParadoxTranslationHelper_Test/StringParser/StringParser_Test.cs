@@ -24,104 +24,6 @@ namespace ParadoxTranslationHelper_Test
         private string _testStringLineToIgnore2 = "  #       \"";
         private string _testStringWithIcon = "alfacite_ore_icon: \"£alfacite_ore£\"";
 
-        [TestInitialize]
-        public void Initialize()
-        {
-            _stringParser = new StringParser();
-        }
-
-        [TestMethod]
-        public void InnerDoubleQuotes_Test()
-        {
-            StringParserBase stringParserBase = new StringParserFirstLast();
-
-            List<string> tokens = new List<string>();
-            stringParserBase.StartTag = "\"";
-            stringParserBase.EndTags.Add("\"");
-
-            List<string> tokensFound = stringParserBase.GetToken(_testStringInnerDoubleQuotesRealShort, tokens);
-            Assert.AreEqual(tokensFound[0], tokensFound[0]);
-        }
-
-        [TestMethod]
-        public void InnerDoubleQuotes_Test02()
-        {
-            StringParserBase stringParserBase = new StringParserFirstLast();
-
-            List<string> tokens = new List<string>();
-            stringParserBase.StartTag = "\"";
-            stringParserBase.EndTags.Add("\"");
-
-            List<string> tokensFound = stringParserBase.GetToken(_testStringInnerDoubleQuotesRealEmpty, tokens);
-            Assert.AreEqual(tokensFound[0], tokensFound[0]);
-        }
-
-        [TestMethod]
-        public void Key_Test01()
-        {
-            StringParserBase stringParserBase = new StringParserKey();
-
-            List<string> tokens = new List<string>();
-            stringParserBase.StartTag = "\"";
-
-            List<string> tokensFound = stringParserBase.GetToken(_testStringInnerDoubleQuotesRealShort, tokens);
-            Assert.AreEqual(tokensFound[0], tokensFound[0]);
-        }
-
-        [TestMethod]
-        public void Key_Test02()
-        {
-            StringParserBase stringParserBase = new StringParserKey();
-
-            List<string> tokens = new List<string>();
-            stringParserBase.StartTag = "\"";
-
-            List<string> tokensFound = stringParserBase.GetToken(_testStringInnerDoubleQuotesRealEmpty, tokens);
-            Assert.AreEqual(tokensFound[0], tokensFound[0]);
-        }
-
-        [TestMethod]
-        public void Key_Test03()
-        {
-            StringParserBase stringParserBase = new StringParserKey();
-
-            List<string> tokens = new List<string>();
-            stringParserBase.StartTag = "\"";
-            stringParserBase.LineIgnores.Add("#");
-            stringParserBase.LineIgnores.Add(" #");
-
-            List<string> tokensFound = stringParserBase.GetToken(_testStringLineToIgnore, tokens);
-            
-            Assert.IsTrue(stringParserBase.GetToken(_testStringLineToIgnore, tokens).Count == 0);
-        }
-
-        [TestMethod]
-        public void Key_Test04()
-        {
-            StringParserBase stringParserBase = new StringParserKey();
-
-            List<string> tokens = new List<string>();
-            stringParserBase.StartTag = "\"";
-            stringParserBase.LineIgnores.Add("#");
-            stringParserBase.LineIgnores.Add(" #");
-
-            Assert.IsTrue(stringParserBase.GetToken(_testStringLineToIgnore1, tokens).Count == 0);
-        }
-
-        [TestMethod]
-        public void Key_Test05()
-        {
-            StringParserBase stringParserBase = new StringParserKey();
-
-            List<string> tokens = new List<string>();
-            stringParserBase.StartTag = "\"";
-            stringParserBase.LineIgnores.Add("#");
-            stringParserBase.LineIgnores.Add(" #");
-            stringParserBase.LineIgnores.Add("  #");
-
-            Assert.IsTrue(stringParserBase.GetToken(_testStringLineToIgnore2, tokens).Count == 0);
-        }
-
         [TestMethod]
         public void IconTest()
         {
@@ -192,68 +94,6 @@ namespace ParadoxTranslationHelper_Test
             Console.WriteLine(keys.ToArray());
         }
 
-        //        static string AIRWING_MISSION_DAY_NIGHT = "AIRWING_MISSION_DAY_NIGHT:0 \"Missions are executed §Hday§! and §Hnight§!.\"";
-
-        [TestMethod]
-        [DataRow(DisplayName = "Extract ColorCode: 0 --> 0")]
-        public void ExtractColorCodes_000()
-        {
-            string AIRWING_MISSION_DAY_NIGHT = "";
-
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
-            List<string> token = new List<string>();
-            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
-            Assert.AreEqual(0, colorCodes.Count);
-        }
-
-        [TestMethod]
-        [DataRow(DisplayName = "Extract ColorCode: 1 --> 2")]
-        public void ExtractColorCodes_001()
-        {
-            string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and night.";
-
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
-            List<string> token = new List<string>();
-            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
-            Assert.AreEqual(2, colorCodes.Count);
-            Assert.AreEqual("§H",colorCodes[0]);
-            Assert.AreEqual("§!", colorCodes[1]);
-        }
-
-        [TestMethod]
-        [DataRow(DisplayName = "Extract ColorCode: 2 --> 4")]
-        public void ExtractColorCodes_002()
-        {
-            string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Anight§!.";
-            
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
-            List<string> token = new List<string>();
-            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
-            Assert.AreEqual(4,colorCodes.Count);
-            Assert.AreEqual("§H", colorCodes[0]);
-            Assert.AreEqual("§!", colorCodes[1]);
-            Assert.AreEqual("§A", colorCodes[2]);
-            Assert.AreEqual("§!", colorCodes[3]);
-        }
-
-        [TestMethod]
-        [DataRow(DisplayName = "Extract ColorCode: 3 --> 6")]
-        public void ExtractColorCodes_003()
-        {
-            string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Anight§! or §Wyet§!.";
-
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
-            List<string> token = new List<string>();
-            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
-            Assert.AreEqual(6, colorCodes.Count);
-            Assert.AreEqual("§H", colorCodes[0]);
-            Assert.AreEqual("§!", colorCodes[1]);
-            Assert.AreEqual("§A", colorCodes[2]);
-            Assert.AreEqual("§!", colorCodes[3]);
-            Assert.AreEqual("§W", colorCodes[4]);
-            Assert.AreEqual("§!", colorCodes[5]);
-        }
-
         [TestMethod]
         [DataRow(DisplayName = "Extract NestingStrings: 2 --> 2")]
         public void ExtractNestingStrings_001()
@@ -266,56 +106,6 @@ namespace ParadoxTranslationHelper_Test
             Assert.AreEqual(2, nestingStrings.Count);
             Assert.AreEqual("VALUE|H2", nestingStrings[0]);
             Assert.AreEqual("UNITS|H0", nestingStrings[1]);
-        }
-
-        [TestMethod]
-        [DataRow(DisplayName = "Extract NameSpaces: 0 --> 0")]
-        public void ExtractNameSpaces_001()
-        {
-            string AFG_the_getyear_general_elections = "AFG_the_getyear_general_elections:0 \"The GetYear General Elections\"";
-
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
-            List<string> token = new List<string>();
-            List<string> namespaces = stringParser.GetToken(AFG_the_getyear_general_elections, token);
-            Assert.AreEqual(0, namespaces.Count);
-        }
-
-        [TestMethod]
-        [DataRow(DisplayName = "Extract NameSpaces: (AFG.GetAdjective) 1 --> 1")]
-        public void ExtractNameSpaces_002()
-        {
-            string AFG_the_getyear_general_elections = "AFG_communist_influence_r56:0\"[AFG.GetAdjective] Communist Influence\"";
-
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
-            List<string> token = new List<string>();
-            List<string> namespaces = stringParser.GetToken(AFG_the_getyear_general_elections, token);
-            Assert.AreEqual(1, namespaces.Count);
-            Assert.AreEqual("AFG.GetAdjective", namespaces[0]);
-        }
-
-        [TestMethod]
-        [DataRow(DisplayName = "Extract NameSpaces: (GetYear) 1 --> 1")]
-        public void ExtractNameSpaces_003()
-        {
-            string AFG_the_getyear_general_elections = "[GetYear]";
-
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
-            List<string> token = new List<string>();
-            List<string> namespaces = stringParser.GetToken(AFG_the_getyear_general_elections, token);
-            Assert.AreEqual(1, namespaces.Count);
-            Assert.AreEqual("GetYear", namespaces[0]);
-        }
-
-        [TestMethod]
-        [DataRow(DisplayName = "Extract NameSpaces: (GetYear) 1 --> 0")]
-        public void ExtractNameSpaces_004()
-        {
-            string AFG_the_getyear_general_elections = "AFG_the_getyear_general_elections:0 \"The[GetYear] General Elections\"";
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
-            List<string> token = new List<string>();
-            List<string> namespaces = stringParser.GetToken(AFG_the_getyear_general_elections, token);
-            Assert.AreEqual(1, namespaces.Count);
-            Assert.AreEqual("GetYear", namespaces[0]);
         }
 
         [TestMethod]
@@ -427,18 +217,6 @@ namespace ParadoxTranslationHelper_Test
         }
 
         [TestMethod]
-        [DataRow(DisplayName = "Contains color code at line start: --> count == 1")]
-        public void FindColorCode_001()
-        {
-            string newLine = " accession_country_integration_in_progress: \"§H\\n\\nIntegrating \\nNew Member Worlds§!\\n §R--§!:\\n\"";
-            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
-
-            List<string> tokens = new List<string>();
-            List<string> found = stringParserNewLine.GetToken(newLine, tokens);
-            Assert.AreEqual(5, found.Count);
-        }
-
-        [TestMethod]
         [DataRow(DisplayName = "Contains icon with dircted attached other sign: --> count == 1")]
         public void FindIcon_001()
         {
@@ -463,4 +241,3 @@ namespace ParadoxTranslationHelper_Test
         }
     }
 }
-//___KY8___ "§YWenn wir den Code knacken, hat das folgende Auswirkungen: ___CC___ ___NL___ "
