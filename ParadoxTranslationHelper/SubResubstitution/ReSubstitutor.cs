@@ -17,7 +17,6 @@ namespace ParadoxTranslationHelper
         private Dictionary<string, string> _colorReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _newLineReSubstitute = new Dictionary<string, string>();
 
-
         IResubstitutorFuction resubstitutonFuction = null;
 
         FileReaderSubstitutionItem _fileReaderSubstitutionItem = new FileReaderSubstitutionItem();
@@ -186,6 +185,7 @@ namespace ParadoxTranslationHelper
             ResubstitutionHelper resubstitutionHelper = new ResubstitutionHelper();
 
             CorrectWrongCharacters(lineObjects);
+            CorrectDoubleKeys(lineObjects);
             CopyOriginalLineToOrigialLineSubstituted(lineObjects);
             ReSubstituteLinesRemove(lineObjects, _keyReSubstitute);
             ReSubstituteLinesRemove(lineObjects, _nestingStringsReSubstitute);
@@ -234,7 +234,28 @@ namespace ParadoxTranslationHelper
             }
         }
 
-        static List<char> wrongCharacters = new List<char> { '“', '„', '”', '‚', '‘', '`', '´' };
+        private void CorrectDoubleKeys(List<LineObject> lineObjects)
+        {
+            Dictionary<string, LineObject> keys = new Dictionary<string, LineObject>();
+            Dictionary<string, LineObject> doubleKeys = new Dictionary<string, LineObject>();
+            foreach (LineObject lineObject in lineObjects)
+            {
+                if( true == string.IsNullOrWhiteSpace(lineObject.Key) )
+                {
+                    continue;
+                }
+
+                if( false == keys.ContainsKey(lineObject.Key) )
+                {
+                    keys.Add(lineObject.Key, lineObject);
+                }
+                else
+                {
+                    doubleKeys.Add(lineObject.Key, lineObject);
+                }
+            }
+        }
+            static List<char> wrongCharacters = new List<char> { '“', '„', '”', '‚', '‘', '`', '´' };
         private void CorrectWrongCharacters(List<LineObject> lineObjects)
         {
             foreach (LineObject lineObject in lineObjects)

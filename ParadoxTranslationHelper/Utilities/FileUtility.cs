@@ -50,6 +50,33 @@ namespace ParadoxTranslationHelper.Utilities
             }
 
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
+            translationFileCreator.StringParserKey = StringParserFactory.Instance.CreateParserKey();
+            translationFileCreator.StringParserNamespaces = StringParserFactory.Instance.CreateParserNamespaces();
+            translationFileCreator.StringParserNestingStrings = StringParserFactory.Instance.CreateParserNestingStrings();
+            translationFileCreator.StringParserIcons = StringParserFactory.Instance.CreateParserIcons();
+            translationFileCreator.StringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+            translationFileCreator.StringParserColorCodes = StringParserFactory.Instance.CreateParserColorCodes();
+            translationFileCreator.StringParserTabulator = StringParserFactory.Instance.CreateParserTabulator();
+
+            return translationFileCreator.Create(fileName);
+        }
+
+        public static TranslationFile CreateTranslationFileFromFileResub(string fileName)
+        {
+            if (false == File.Exists(fileName))
+            {
+                Log.Verbose("File not found! " + fileName);
+                return null;
+            }
+
+            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
+            translationFileCreator.StringParserKey = StringParserFactory.Instance.CreateParserKeyResub();
+            translationFileCreator.StringParserNamespaces = StringParserFactory.Instance.CreateParserNamespacesResub();
+            translationFileCreator.StringParserNestingStrings = StringParserFactory.Instance.CreateParserNestingStringsResub();
+            translationFileCreator.StringParserIcons = StringParserFactory.Instance.CreateParserIconsResub();
+            translationFileCreator.StringParserNewLine = StringParserFactory.Instance.CreateParserNewLineResub();
+            translationFileCreator.StringParserColorCodes = StringParserFactory.Instance.CreateParserColorCodesResub();
+            translationFileCreator.StringParserTabulator = StringParserFactory.Instance.CreateParserTabulatorResub();
             return translationFileCreator.Create(fileName);
         }
 

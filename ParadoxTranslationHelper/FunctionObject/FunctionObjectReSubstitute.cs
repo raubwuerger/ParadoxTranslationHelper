@@ -58,7 +58,7 @@ namespace ParadoxTranslationHelper
 
         private async Task<bool> Resubstitute()
         {
-            TranslationFile translationFile = FileUtility.CreateTranslationFileFromFile(_translationFileNameSub);
+            TranslationFile translationFile = FileUtility.CreateTranslationFileFromFileResub(_translationFileNameSub);
             if (translationFile == null)
             {
                 Log.Warning("Translation file resub not found! " + _translationFileNameSub);

@@ -51,6 +51,14 @@ namespace ParadoxTranslationHelper
             IgnoreCommentLines(stringParser);
             return stringParser;
         }
+        public IStringParser CreateParserNamespacesResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NAMESPACE_SUFFIX;
+            stringParser.StartIndexShift = 16;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
 
         public StringParser CreateParserIcons()
         {
@@ -65,6 +73,15 @@ namespace ParadoxTranslationHelper
             return stringParser;
         }
 
+        public StringParser CreateParserIconsResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.ICON_SUFFIX;
+            stringParser.SubStringCount = 16;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
         public IStringParser CreateParserNestingStrings()
         {
             StringParser stringParser = new StringParser();
@@ -75,11 +92,28 @@ namespace ParadoxTranslationHelper
             return stringParser;
         }
 
+        public IStringParser CreateParserNestingStringsResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NESTING_STRING_SUFFIX;
+            stringParser.SubStringCount = 16;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
         public IStringParser CreateParserColorCodes()
         {
             StringParser stringParser = new StringParser();
             stringParser.StartTag = COLOR_CODE_START;
             stringParser.SubStringCount = 2;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
+        public IStringParser CreateParserColorCodesResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX;
+            stringParser.SubStringCount = 16;
             IgnoreCommentLines(stringParser);
             return stringParser;
         }
@@ -94,12 +128,30 @@ namespace ParadoxTranslationHelper
             return stringParser;
         }
 
+        public IStringParser CreateParserNewLineResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX;
+            stringParser.SubStringCount = 16;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
         public IStringParser CreateParserTabulator()
         {
             StringParser stringParser = new StringParser();
             stringParser.StartTag = TABULATOR_START;
             stringParser.EndTags.Add(TABULATOR_END);
             stringParser.HasEndTag = false;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
+        public IStringParser CreateParserTabulatorResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.TABULATOR_SUFFIX;
+            stringParser.SubStringCount = 16;
             IgnoreCommentLines(stringParser);
             return stringParser;
         }
@@ -116,6 +168,15 @@ namespace ParadoxTranslationHelper
         {
             StringParserKey stringParser = new StringParserKey();
             stringParser.StartTag = "\"";
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
+        public IStringParser CreateParserKeyResub()
+        {
+            StringParserKey stringParser = new StringParserKey();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.KEY_SUFFIX;
+            stringParser.SubStringCount = 16;
             IgnoreCommentLines(stringParser);
             return stringParser;
         }

@@ -51,6 +51,10 @@ namespace ParadoxTranslationHelper
             return toString;
         }
 
+        public static string PadLeft_6_0( int value )
+        {
+            return value.ToString("000000");
+        }
         public static string GetSubstitutedLineTabbed(LineObject lineObject)
         {
             if (lineObject.OriginalLineSubstituted == null)

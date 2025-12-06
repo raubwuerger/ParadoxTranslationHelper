@@ -7,7 +7,24 @@ namespace ParadoxTranslationHelper
 {
     internal class TranslationFileCreator
     {
+        IStringParser stringParserKey = null;
+        IStringParser stringParserNamespaces = null;
+        IStringParser stringParserNestingStrings = null;
+        IStringParser stringParserIcons = null;
+        IStringParser stringParserNewLine = null;
+        IStringParser stringParserColorCodes = null;
+        IStringParser stringParserTabulator = null;
+
         LineObjectCreator _lineObjectCreator = new LineObjectCreator();
+
+        public IStringParser StringParserKey { get => stringParserKey; set => stringParserKey = value; }
+        public IStringParser StringParserNamespaces { get => stringParserNamespaces; set => stringParserNamespaces = value; }
+        public IStringParser StringParserNestingStrings { get => stringParserNestingStrings; set => stringParserNestingStrings = value; }
+        public IStringParser StringParserIcons { get => stringParserIcons; set => stringParserIcons = value; }
+        public IStringParser StringParserNewLine { get => stringParserNewLine; set => stringParserNewLine = value; }
+        public IStringParser StringParserColorCodes { get => stringParserColorCodes; set => stringParserColorCodes = value; }
+        public IStringParser StringParserTabulator { get => stringParserTabulator; set => stringParserTabulator = value; }
+
         public TranslationFile? Create(string completeFileName)
         {
             if (string.IsNullOrEmpty(completeFileName))
@@ -88,14 +105,11 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            IStringParser stringParserKey = StringParserFactory.Instance.CreateParserKey();
-            IStringParser stringParserNamespaces = StringParserFactory.Instance.CreateParserNamespaces();
-            IStringParser stringParserNestingStrings = StringParserFactory.Instance.CreateParserNestingStrings();
-            IStringParser stringParserIcons = StringParserFactory.Instance.CreateParserIcons();
-            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
-            IStringParser stringParserColorCodes = StringParserFactory.Instance.CreateParserColorCodes();
-            IStringParser stringParserTabulator = StringParserFactory.Instance.CreateParserTabulator();
-
+            if( null == stringParserKey )
+            {
+                Log.Debug($"Member <StringParserKey> must not be null!");
+                return null;
+            }
 
             Dictionary<int, LineObject> lineObjects = new Dictionary<int, LineObject>();
             List<LineTextTupel> lineTextTupels = new List<LineTextTupel>();
@@ -105,6 +119,7 @@ namespace ParadoxTranslationHelper
             {
                 if( false == IgnoreLine(line) )
                 {
+                    //TODO: 2025-12-06 - JHA - Macht bei Substituierter Datei keinen Sinn!
                     SetKey(line, stringParserKey);
                     SetNamespaces(line, stringParserNamespaces);
                     SetNestingStrings(line, stringParserNestingStrings);
@@ -158,7 +173,6 @@ namespace ParadoxTranslationHelper
             }
         }
 
-      
         private void SetNamespaces(string line, IStringParser stringParser)
         {
             _lineObjectCreator.NameSpace = stringParser.GetToken(line);

@@ -60,8 +60,7 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            DiffNestingStrings(LocalisationFilesSteam, LocalisationFilesGerman);
-//            DiffKeys();
+            DiffKeys();
 
             return true;
         }

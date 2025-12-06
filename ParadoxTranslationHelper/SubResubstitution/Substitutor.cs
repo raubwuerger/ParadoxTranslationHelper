@@ -115,7 +115,7 @@ namespace ParadoxTranslationHelper
             }
 
             string key = lineObject.OriginalLineSubstituted.Substring(0, index);
-            string subString = $"{FileSubstitutionConstants.SUBSTITUTION_START}{FileSubstitutionConstants.KEY_SUFFIX + _keySubstitute.Count}{FileSubstitutionConstants.SUBSTITUTION_END}";
+            string subString = $"{FileSubstitutionConstants.SUBSTITUTION_START}{FileSubstitutionConstants.KEY_SUFFIX + Utility.PadLeft_6_0(_keySubstitute.Count)}{FileSubstitutionConstants.SUBSTITUTION_END}";
             _keySubstitute.Add(subString, CreateSubKeyLineTripel(key, lineObject));
             lineObject.KeySubstituted = subString;
 
@@ -141,7 +141,7 @@ namespace ParadoxTranslationHelper
 
         private string GenerateNestingStringSubstitute(string sub, LineObject lineObject)
         {
-            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NESTING_STRING_SUFFIX + _nestingStringsSubstitute.Count().ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
+            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NESTING_STRING_SUFFIX + Utility.PadLeft_6_0(_nestingStringsSubstitute.Count()) + FileSubstitutionConstants.SUBSTITUTION_END;
             _nestingStringsSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
@@ -166,7 +166,7 @@ namespace ParadoxTranslationHelper
 
         private string GenerateNewLineSubsitute(string sub, LineObject lineObject)
         {
-            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + _newLineSubstitute.Count().ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
+            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + Utility.PadLeft_6_0(_newLineSubstitute.Count()) + FileSubstitutionConstants.SUBSTITUTION_END;
             _newLineSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
@@ -190,7 +190,7 @@ namespace ParadoxTranslationHelper
         }
         private string GenerateColorCodeSubstitute(string sub, LineObject lineObject)
         {
-            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + _colorCodeSubstitute.Count().ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
+            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + Utility.PadLeft_6_0(_colorCodeSubstitute.Count()) + FileSubstitutionConstants.SUBSTITUTION_END;
             _colorCodeSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
@@ -216,7 +216,7 @@ namespace ParadoxTranslationHelper
 
         private string GenerateNamespaceSubstitute(string sub, LineObject lineObject)
         {
-            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NAMESPACE_SUFFIX + _namespaceSubstitute.Count().ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
+            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NAMESPACE_SUFFIX + Utility.PadLeft_6_0(_namespaceSubstitute.Count()) + FileSubstitutionConstants.SUBSTITUTION_END;
             _namespaceSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
@@ -244,7 +244,7 @@ namespace ParadoxTranslationHelper
 
         private string GenerateIconSubstitute(string sub, LineObject lineObject)
         {
-            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.ICON_SUFFIX + _iconSubstitute.Count().ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
+            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.ICON_SUFFIX + Utility.PadLeft_6_0(_iconSubstitute.Count()) + FileSubstitutionConstants.SUBSTITUTION_END;
             _iconSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
@@ -270,7 +270,7 @@ namespace ParadoxTranslationHelper
         private string GenerateTabulatorSubsitute(string sub, LineObject lineObject)
         {
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END;
-            _tabulatorSubstitute.Add(subString + _tabulatorSubstitute.Count().ToString(), CreateSubKeyLineTripel(sub, lineObject));
+            _tabulatorSubstitute.Add(subString + Utility.PadLeft_6_0(_tabulatorSubstitute.Count()), CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
 
