@@ -70,3 +70,7 @@ crashlytics-build.properties
 /ParadoxTranslationHelper_Test/testData/DiffFiles/analysis
 /ParadoxTranslationHelper_Test/testData/DiffFiles/german/*.toRemove
 /ParadoxTranslationHelper_Test/testData/DiffFiles/german/replace/*.toRemove
+/ParadoxTranslationHelper_Test/testData/functions/SUB/localisation/analysis
+/ParadoxTranslationHelper_Test/testData/testData/functions/DIFF_FILES/localisation/analysis/_SteamKeysToCreate.yml
+/ParadoxTranslationHelper_Test/testData/testData/functions/DIFF_FILES/localisation/analysis
+/ParadoxTranslationHelper_Test/testData/testData/functions/SUB/localisation/analysis

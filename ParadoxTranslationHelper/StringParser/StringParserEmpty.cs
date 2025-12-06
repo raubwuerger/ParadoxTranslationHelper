@@ -8,9 +8,15 @@ namespace ParadoxTranslationHelper
 {
     public class StringParserEmpty : StringParserBase
     {
-        public override List<string> GetToken(string source, List<string> tokens)
+        public override List<string> GetToken(string source)
         {
             return new List<string>();
         }
+
+        protected override List<string> GetToken(string source, List<string> tokens)
+        {
+            return new List<string>();
+        }
+
     }
 }

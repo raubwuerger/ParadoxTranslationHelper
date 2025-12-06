@@ -43,7 +43,8 @@ namespace ParadoxTranslationHelper
 
         public bool HasSubStringBreakCharacters { get => _subStringBreakCharacters.Any(); }
 
-        abstract public List<string> GetToken(string source, List<string> tokens);
+        abstract public List<string> GetToken(string source);
+        abstract protected List<string> GetToken(string source, List<string> tokens);
 
         protected bool IsValid()
         {

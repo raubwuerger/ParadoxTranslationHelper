@@ -8,7 +8,7 @@ namespace ParadoxTranslationHelper
 {
     public interface IStringParser
     {
-        public List<string> GetToken(string source, List<string> tokens);
+        public List<string> GetToken(string source);
 
     }
 }

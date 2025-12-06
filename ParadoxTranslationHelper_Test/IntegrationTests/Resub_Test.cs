@@ -83,6 +83,8 @@ namespace ParadoxTranslationHelper_Test
         string file_SteamKeysToCreate_yml_NS = "_SteamKeysToCreate.yml.NS";
         string file_SteamKeysToCreate_yml_sub = "_SteamKeysToCreate.yml.sub";
         string file_SteamKeysToCreate_yml_sub_german = "_SteamKeysToCreate.yml.sub.german";
+        string file_SteamKeysToCreate_yml_sub_german_resub = "_SteamKeysToCreate.yml.sub.german.resub";
+
 
         [TestMethod]
         [DataRow(DisplayName = "RESUB")]
@@ -96,11 +98,20 @@ namespace ParadoxTranslationHelper_Test
             Assert.IsTrue(SetActiveMod(MOD_NAME));
 
             //INFO: 2025-11-28 - JHA - Check if translated files are correct
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.sub.german")));
+            Assert.IsTrue(Directory.Exists(ParadoxTranslationHelperConfig.PathResult));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_KY)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_CC)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_IC)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NE)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NS)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german)));
 
-//            Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.KY"), CountOccurences("_SteamKeysToCreate.yml.sub.german", "___KY"));
-//            Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.NS"), CountOccurences("_SteamKeysToCreate.yml.sub.german", "___NS"));
-//            Assert.AreEqual(GetLineCount("_SteamKeysToCreate.yml.NE"), CountOccurences("_SteamKeysToCreate.yml.sub.german", "___NE"));
+            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_KY)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub), "___KY"));
+            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_CC)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub), "___CC"));
+            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_IC)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub), "___IC"));
+            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NE)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub), "___NE"));
+            Assert.AreEqual(GetLineCount(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NS)), CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub), "___NS"));
 
             //INFO: 2025-11-28 - JHA - Do resubstitutiuon
             FunctionObjectRegistryInitialiser.Init();
@@ -111,7 +122,7 @@ namespace ParadoxTranslationHelper_Test
 
 
             //INFO: 2025-11-28 - JHA - Check if translated files are correct
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, "_SteamKeysToCreate.yml.sub.german.resub")));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub)));
 
             Assert.AreEqual(0, CountOccurences("_SteamKeysToCreate.yml.sub_1.german.resub", "___KY"));
             Assert.AreEqual(0, CountOccurences("_SteamKeysToCreate.yml.sub_1.german.resub", "___NS"));

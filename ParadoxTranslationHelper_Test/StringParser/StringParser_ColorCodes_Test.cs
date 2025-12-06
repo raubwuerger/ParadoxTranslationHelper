@@ -17,8 +17,7 @@ namespace ParadoxTranslationHelper_Test
             string AIRWING_MISSION_DAY_NIGHT = "";
 
             IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
-            List<string> token = new List<string>();
-            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
+            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT);
             Assert.AreEqual(0, colorCodes.Count);
         }
 
@@ -29,8 +28,7 @@ namespace ParadoxTranslationHelper_Test
             string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and night.";
 
             IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
-            List<string> token = new List<string>();
-            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
+            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT);
             Assert.AreEqual(2, colorCodes.Count);
             Assert.AreEqual("§H",colorCodes[0]);
             Assert.AreEqual("§!", colorCodes[1]);
@@ -43,8 +41,7 @@ namespace ParadoxTranslationHelper_Test
             string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Anight§!.";
             
             IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
-            List<string> token = new List<string>();
-            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
+            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT);
             Assert.AreEqual(4,colorCodes.Count);
             Assert.AreEqual("§H", colorCodes[0]);
             Assert.AreEqual("§!", colorCodes[1]);
@@ -59,8 +56,7 @@ namespace ParadoxTranslationHelper_Test
             string AIRWING_MISSION_DAY_NIGHT = "§Hday§! and §Anight§! or §Wyet§!.";
 
             IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes();
-            List<string> token = new List<string>();
-            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT, token);
+            List<string> colorCodes = stringParser.GetToken(AIRWING_MISSION_DAY_NIGHT);
             Assert.AreEqual(6, colorCodes.Count);
             Assert.AreEqual("§H", colorCodes[0]);
             Assert.AreEqual("§!", colorCodes[1]);

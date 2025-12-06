@@ -44,16 +44,14 @@ namespace ParadoxTranslationHelper_Test
         public void NewLineNull()
         {
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
-            List<string> tokens = new List<string>();
-            Assert.AreEqual(0,stringParser.GetToken(null, tokens).Count);
+            Assert.AreEqual(0,stringParser.GetToken(null).Count);
         }
 
         [TestMethod]
         public void NewLineEmpty()
         {
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
-            List<string> tokens = new List<string>();
-            Assert.AreEqual(0, stringParser.GetToken("", tokens).Count);
+            Assert.AreEqual(0, stringParser.GetToken("").Count);
         }
 
         [TestMethod]
@@ -61,8 +59,7 @@ namespace ParadoxTranslationHelper_Test
         {
             string noToken = "no Token";
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
-            List<string> tokens = new List<string>();
-            Assert.AreEqual(0, stringParser.GetToken(noToken, tokens).Count);
+            Assert.AreEqual(0, stringParser.GetToken(noToken).Count);
         }
 
 
@@ -83,8 +80,7 @@ namespace ParadoxTranslationHelper_Test
             List<string> keys = new List<string>();
             foreach (string line in lines) 
             {
-                List<string> token = new List<string>();
-                token = stringParser.GetToken(line, token);
+                List<string> token = stringParser.GetToken(line);
                 if (token.Count > 0)
                 {
                     keys.Add(token[0]);
@@ -101,8 +97,7 @@ namespace ParadoxTranslationHelper_Test
             string ABILITY_TOOLTIP_DETAILED_COST = "    - Grundkosten: $VALUE|H2$ (jeweils für $UNITS|H0$ Bataillone)";
 
             IStringParser stringParser = StringParserFactory.Instance.CreateParserNestingStrings();
-            List<string> token = new List<string>();
-            List<string> nestingStrings = stringParser.GetToken(ABILITY_TOOLTIP_DETAILED_COST, token);
+            List<string> nestingStrings = stringParser.GetToken(ABILITY_TOOLTIP_DETAILED_COST);
             Assert.AreEqual(2, nestingStrings.Count);
             Assert.AreEqual("VALUE|H2", nestingStrings[0]);
             Assert.AreEqual("UNITS|H0", nestingStrings[1]);
@@ -175,8 +170,7 @@ namespace ParadoxTranslationHelper_Test
             string newLine = " accession_country_integration_in_progress: \"§HIntegrating New Member Worlds§! §R--§!:\"";
             IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
 
-            List<string> tokens = new List<string>();
-            List<string> found = stringParserNewLine.GetToken(newLine, tokens);
+            List<string> found = stringParserNewLine.GetToken(newLine);
             Assert.AreEqual(0, found.Count);
         }
 
@@ -185,10 +179,10 @@ namespace ParadoxTranslationHelper_Test
         public void FindNewLine_001()
         {
             string newLine = " accession_country_integration_in_progress: \"§HIntegrating New Member Worlds§! §R--§!:\\n\"";
-            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
 
-            List<string> tokens = new List<string>();
-            List<string> found = stringParserNewLine.GetToken(newLine, tokens);
+            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+            List<string> found = stringParserNewLine.GetToken(newLine);
+
             Assert.AreEqual(1, found.Count);
         }
 
@@ -197,10 +191,10 @@ namespace ParadoxTranslationHelper_Test
         public void FindNewLine_002()
         {
             string newLine = " accession_country_integration_in_progress: \"§HIntegrating New Member Worlds§!\\n §R--§!:\\n\"";
-            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
 
-            List<string> tokens = new List<string>();
-            List<string> found = stringParserNewLine.GetToken(newLine, tokens);
+            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+            List<string> found = stringParserNewLine.GetToken(newLine);
+
             Assert.AreEqual(2, found.Count);
         }
 
@@ -209,10 +203,10 @@ namespace ParadoxTranslationHelper_Test
         public void FindNewLine_003()
         {
             string newLine = " accession_country_integration_in_progress: \"§H\\n\\nIntegrating \\nNew Member Worlds§!\\n §R--§!:\\n\"";
-            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
 
-            List<string> tokens = new List<string>();
-            List<string> found = stringParserNewLine.GetToken(newLine, tokens);
+            IStringParser stringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+            List<string> found = stringParserNewLine.GetToken(newLine);
+
             Assert.AreEqual(5, found.Count);
         }
 
@@ -221,10 +215,9 @@ namespace ParadoxTranslationHelper_Test
         public void FindIcon_001()
         {
             string newLine = "synthetic_refinery_resource:0\t\"£resources_strip|$FRAME$\"";
-            StringParser stringParserIcon = StringParserFactory.Instance.CreateParserIcons();
+            IStringParser stringParserIcon = StringParserFactory.Instance.CreateParserIcons();
 
-            List<string> tokens = new List<string>();
-            List<string> found = stringParserIcon.GetToken(newLine, tokens);
+            List<string> found = stringParserIcon.GetToken(newLine);
             Assert.AreEqual(1, found.Count);
         }
 
@@ -233,10 +226,9 @@ namespace ParadoxTranslationHelper_Test
         public void FindIcon_002()
         {
             string newLine = "synthetic_refinery_resource:0\t\"£resources_strip|$FRAME$ another icon £resources_strip\"";
-            StringParser stringParserIcon = StringParserFactory.Instance.CreateParserIcons();
+            IStringParser stringParserIcon = StringParserFactory.Instance.CreateParserIcons();
 
-            List<string> tokens = new List<string>();
-            List<string> found = stringParserIcon.GetToken(newLine, tokens);
+            List<string> found = stringParserIcon.GetToken(newLine);
             Assert.AreEqual(2, found.Count);
         }
     }

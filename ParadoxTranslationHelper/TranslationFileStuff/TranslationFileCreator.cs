@@ -157,14 +157,12 @@ namespace ParadoxTranslationHelper
 
         private List<string> FindToken(string line, IStringParser parser )
         {
-            List<string> token = new List<string>();
-            return parser.GetToken(line, token);
+            return parser.GetToken(line);
         }
 
         private void SetKey(string line, IStringParser stringParser)
         {
-            List<string> token = new List<string>();
-            token = stringParser.GetToken(line, token);
+            List<string> token = stringParser.GetToken(line);
             if (token.Count > 0)
             {
                 _lineObjectCreator.Key = token[0];
@@ -174,38 +172,32 @@ namespace ParadoxTranslationHelper
       
         private void SetNamespaces(string line, IStringParser stringParser)
         {
-            List<string> token = new List<string>();
-            _lineObjectCreator.NameSpace = stringParser.GetToken(line, token);
+            _lineObjectCreator.NameSpace = stringParser.GetToken(line);
         }
 
         private void SetNestingStrings(string line, IStringParser stringParser)
         {
-            List<string> token = new List<string>();
-            _lineObjectCreator.NestingStrings = stringParser.GetToken(line, token);
+            _lineObjectCreator.NestingStrings = stringParser.GetToken(line);
         }
 
         private void SetColorCodes(string line, IStringParser stringParser)
         {
-            List<string> token = new List<string>();
-            _lineObjectCreator.ColorCodes = stringParser.GetToken(line, token);
+            _lineObjectCreator.ColorCodes = stringParser.GetToken(line);
         }
 
         private void SetIcons(string line, IStringParser stringParser) 
         {
-            List<string> token = new List<string>();
-            _lineObjectCreator.Icons = stringParser.GetToken(line, token);
+            _lineObjectCreator.Icons = stringParser.GetToken(line);
         }
 
         private void SetNewLine(string line, IStringParser stringParser)
         {
-            List<string> token = new List<string>();
-            _lineObjectCreator.NewLines = stringParser.GetToken(line, token);
+            _lineObjectCreator.NewLines = stringParser.GetToken(line);
         }
 
         private void SetTabulator(string line, IStringParser stringParser)
         {
-            List<string> token = new List<string>();
-            _lineObjectCreator.Tabulators = stringParser.GetToken(line, token);
+            _lineObjectCreator.Tabulators = stringParser.GetToken(line);
         }
 
         private static TranslationFile FileNameSetter(string fileNameComplete)

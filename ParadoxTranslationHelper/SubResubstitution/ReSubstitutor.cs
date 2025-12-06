@@ -66,6 +66,9 @@ namespace ParadoxTranslationHelper
             Log.Information($"Resubstituting icons (count={_iconReSubstitute.Count})");
             resubText = ResubstitutePart(resubText, _iconReSubstitute);
 
+            Log.Information($"Resubstituting color codes (count={_colorReSubstitute.Count})");
+            resubText = ResubstitutePart(resubText, _colorReSubstitute);
+
             Log.Information($"Resubstituting new lines");
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
