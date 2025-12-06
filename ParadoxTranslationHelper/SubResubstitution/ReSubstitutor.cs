@@ -195,8 +195,43 @@ namespace ParadoxTranslationHelper
             ReSubstituteLinesRemove(lineObjects, _newLineReSubstitute);
             ReSubstituteTabulators(lineObjects);
 
+            WriteNotResubstitutedItems();
+
             //TODO: 2025-11-29 - JHA - Schreibe Dateien mit nicht gefundenen Token -> _SteamKeysToCreate.yml.notFound.IC
 
+        }
+
+        private void WriteNotResubstitutedItems()
+        {
+            if ( true == _keyReSubstitute.Any() )
+            {
+                FileUtility.WriteLines(_keyReSubstitute, _translationFileSetSubstitution.PathKeyFile + FileSubstitutionConstants.NOT_FOUND);
+            }
+
+            if (true == _nestingStringsReSubstitute.Any())
+            {
+                FileUtility.WriteLines(_nestingStringsReSubstitute, _translationFileSetSubstitution.PathNestingStringsFile + FileSubstitutionConstants.NOT_FOUND);
+            }
+
+            if (true == _namespaceReSubstitute.Any())
+            {
+                FileUtility.WriteLines(_namespaceReSubstitute, _translationFileSetSubstitution.PathNamespaceFile+ FileSubstitutionConstants.NOT_FOUND);
+            }
+
+            if (true == _iconReSubstitute.Any())
+            {
+                FileUtility.WriteLines(_iconReSubstitute, _translationFileSetSubstitution.PathIconFile + FileSubstitutionConstants.NOT_FOUND);
+            }
+
+            if (true == _colorReSubstitute.Any())
+            {
+                FileUtility.WriteLines(_colorReSubstitute, _translationFileSetSubstitution.PathColorFile + FileSubstitutionConstants.NOT_FOUND);
+            }
+
+            if (true == _newLineReSubstitute.Any())
+            {
+                FileUtility.WriteLines(_newLineReSubstitute, _translationFileSetSubstitution.PathNewLineFile + FileSubstitutionConstants.NOT_FOUND);
+            }
         }
 
         static List<char> wrongCharacters = new List<char> { '“', '„', '”', '‚', '‘', '`', '´' };

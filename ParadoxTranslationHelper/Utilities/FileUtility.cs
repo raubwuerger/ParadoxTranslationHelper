@@ -128,6 +128,40 @@ namespace ParadoxTranslationHelper.Utilities
             }
         }
 
+        public static void WriteLines(Dictionary<string, string> strings, string fileName)
+        {
+            if (null == strings)
+            {
+                Log.Verbose("Parameter <lineObjects> must not be null!");
+                return;
+            }
+
+            if (true == string.IsNullOrEmpty(fileName))
+            {
+                Log.Verbose("Parameter <fileName> must not be null!");
+                return;
+            }
+
+            Log.Verbose("Writing file: " + fileName);
+            try
+            {
+                ClearFileContent(fileName);
+                using (Stream stream = File.OpenWrite(fileName))
+                using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+                {
+                    foreach (KeyValuePair<string,string> line in strings)
+                    {
+                        outputFile.WriteLine(line);
+                    }
+                }
+                Log.Verbose("Writing file: " + fileName + " successful.");
+            }
+            catch (Exception ex)
+            {
+                Log.Warning("Writing file: " + fileName + " failed!");
+                Log.Fatal(ex.ToString());
+            }
+        }
         public static bool Write(TranslationFile translationFile)
         {
             if (translationFile == null)

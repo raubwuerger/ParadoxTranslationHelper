@@ -19,34 +19,6 @@ namespace ParadoxTranslationHelper
         public static string COLOR_CODE_SIGN_START = StringParserFactory.COLOR_CODE_START;
         public static string COLOR_CODE_SIGN_END = StringParserFactory.COLOR_CODE_END;
 
-        public static string COLOR_CODE_SUFFIX_END = "XX";
-        public static string COLOR_CODE_SUFFIX_A = "CA";
-        public static string COLOR_CODE_SUFFIX_B = "CB";
-        public static string COLOR_CODE_SUFFIX_C = "CC";
-        public static string COLOR_CODE_SUFFIX_D = "CD";
-        public static string COLOR_CODE_SUFFIX_E = "CE";
-        public static string COLOR_CODE_SUFFIX_F = "CF";
-        public static string COLOR_CODE_SUFFIX_G = "CG";
-        public static string COLOR_CODE_SUFFIX_H = "CH";
-        public static string COLOR_CODE_SUFFIX_I = "CI";
-        public static string COLOR_CODE_SUFFIX_J = "CJ";
-        public static string COLOR_CODE_SUFFIX_K = "CK";
-        public static string COLOR_CODE_SUFFIX_L = "CL";
-        public static string COLOR_CODE_SUFFIX_M = "CM";
-        public static string COLOR_CODE_SUFFIX_N = "CN";
-        public static string COLOR_CODE_SUFFIX_O = "CO";
-        public static string COLOR_CODE_SUFFIX_P = "CP";
-        public static string COLOR_CODE_SUFFIX_Q = "CQ";
-        public static string COLOR_CODE_SUFFIX_R = "CR";
-        public static string COLOR_CODE_SUFFIX_S = "CS";
-        public static string COLOR_CODE_SUFFIX_T = "CT";
-        public static string COLOR_CODE_SUFFIX_U = "CU";
-        public static string COLOR_CODE_SUFFIX_V = "CV";
-        public static string COLOR_CODE_SUFFIX_W = "CW";
-        public static string COLOR_CODE_SUFFIX_X = "CX";
-        public static string COLOR_CODE_SUFFIX_Y = "CY";
-        public static string COLOR_CODE_SUFFIX_Z = "CZ";
-
         public static string NAMESPACE_SUFFIX = "NS";
         public static string NAMESPACE_START_SIGN_START = StringParserFactory.NAMESPACE_START;
         public static string NAMESPACE_START_SIGN_END = StringParserFactory.NAMESPACE_END;
@@ -68,6 +40,8 @@ namespace ParadoxTranslationHelper
         public static string FILE_SUFFIX_RESUBSTITUTED = ".resub";
 
         public static string FILE_SUFFIX_GERMAN = ".german";
+
+        public static string NOT_FOUND = ".notFound";
 
     }
 }
