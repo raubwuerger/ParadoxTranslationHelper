@@ -81,6 +81,7 @@ namespace ParadoxTranslationHelper
             translationFileSetSubstitution.PathNamespaceFile = $"{pathToSubstitedFileParts}.{FileSubstitutionConstants.NAMESPACE_SUFFIX}";
             translationFileSetSubstitution.PathIconFile = $"{pathToSubstitedFileParts}.{FileSubstitutionConstants.ICON_SUFFIX}";
             translationFileSetSubstitution.PathColorFile = $"{pathToSubstitedFileParts}.{FileSubstitutionConstants.COLOR_CODE_SUFFIX}";
+            translationFileSetSubstitution.PathNewLineFile = $"{pathToSubstitedFileParts}.{FileSubstitutionConstants.NEW_LINE_SUFFIX}";
 
             return translationFileSetSubstitution;
         }
@@ -123,11 +124,12 @@ namespace ParadoxTranslationHelper
 
             string partSuffix = $"_{part}.";
             translationFileSetSubstitution.SubstitutedFile = substitutedFile;
-            translationFileSetSubstitution.PathKeyFile = $"{pathToSubstitedFileParts}{partSuffix}{FileSubstitutionConstants.KEY_SUFFIX}";
-            translationFileSetSubstitution.PathNestingStringsFile = $"{pathToSubstitedFileParts}{partSuffix}{FileSubstitutionConstants.NESTING_STRING_SUFFIX}";
-            translationFileSetSubstitution.PathNamespaceFile = $"{pathToSubstitedFileParts}{partSuffix}{FileSubstitutionConstants.NAMESPACE_SUFFIX}";
-            translationFileSetSubstitution.PathIconFile = $"{pathToSubstitedFileParts}{partSuffix}{FileSubstitutionConstants.ICON_SUFFIX}";
-            translationFileSetSubstitution.PathColorFile = $"{pathToSubstitedFileParts}{partSuffix}{FileSubstitutionConstants.COLOR_CODE_SUFFIX}";
+            translationFileSetSubstitution.PathKeyFile = $"{pathToSubstitedFileParts}{partSuffix}.{FileSubstitutionConstants.KEY_SUFFIX}";
+            translationFileSetSubstitution.PathNestingStringsFile = $"{pathToSubstitedFileParts}{partSuffix}.{FileSubstitutionConstants.NESTING_STRING_SUFFIX}";
+            translationFileSetSubstitution.PathNamespaceFile = $"{pathToSubstitedFileParts}{partSuffix}.{FileSubstitutionConstants.NAMESPACE_SUFFIX}";
+            translationFileSetSubstitution.PathIconFile = $"{pathToSubstitedFileParts}{partSuffix}.{FileSubstitutionConstants.ICON_SUFFIX}";
+            translationFileSetSubstitution.PathColorFile = $"{pathToSubstitedFileParts}{partSuffix}.{FileSubstitutionConstants.COLOR_CODE_SUFFIX}";
+            translationFileSetSubstitution.PathNewLineFile = $"{pathToSubstitedFileParts}{partSuffix}.{FileSubstitutionConstants.NEW_LINE_SUFFIX}";
 
             return translationFileSetSubstitution;
         }

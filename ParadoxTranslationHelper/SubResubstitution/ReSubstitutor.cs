@@ -15,6 +15,9 @@ namespace ParadoxTranslationHelper
         private Dictionary<string, string> _namespaceReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _iconReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _colorReSubstitute = new Dictionary<string, string>();
+        private Dictionary<string, string> _newLineReSubstitute = new Dictionary<string, string>();
+
+
         IResubstitutorFuction resubstitutonFuction = null;
 
         FileReaderSubstitutionItem _fileReaderSubstitutionItem = new FileReaderSubstitutionItem();
@@ -73,6 +76,8 @@ namespace ParadoxTranslationHelper
             Log.Information($"Resubstituting color codes (count={_colorReSubstitute.Count})");
             resubText = ResubstitutePart(resubText, _colorReSubstitute);
 
+
+
             Log.Information($"Resubstituting new lines");
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.NEW_LINE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.NEW_LINE);
@@ -85,16 +90,6 @@ namespace ParadoxTranslationHelper
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
             resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.NEW_LINE);
 
-            /*
-            Log.Information($"Resubstituting colorCodes End (count={_iconReSubstitute.Count})");
-            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
-            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
-            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
-            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START.Trim() + FileSubstitutionConstants.COLOR_CODE_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END.Trim(), FileSubstitutionConstants.COLOR_CODE_SIGN_END);
-
-            Log.Information($"Resubstituting colorCodes (count={_iconReSubstitute.Count})");
-//            resubText = resubText.Replace(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX, FileSubstitutionConstants.COLOR_CODE_SIGN_START);
-            */
             return resubText;
         }
 
@@ -166,6 +161,13 @@ namespace ParadoxTranslationHelper
                 Log.Warning($"File contains no data: {_fileReaderSubstitutionItem.FileName}");
             }
 
+            _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathNewLineFile;
+            _newLineReSubstitute = _fileReaderSubstitutionItem.Read();
+            if (false == _newLineReSubstitute.Any())
+            {
+                Log.Warning($"File contains no data: {_fileReaderSubstitutionItem.FileName}");
+            }
+
             return true;
         }
 
@@ -190,8 +192,8 @@ namespace ParadoxTranslationHelper
             ReSubstituteLinesRemove(lineObjects, _namespaceReSubstitute);
             ReSubstituteLinesRemove(lineObjects, _iconReSubstitute);
             ReSubstituteLinesRemove(lineObjects, _colorReSubstitute);
+            ReSubstituteLinesRemove(lineObjects, _newLineReSubstitute);
             ReSubstituteTabulators(lineObjects);
-            ReSubstituteNewLines(lineObjects);
 
             //TODO: 2025-11-29 - JHA - Schreibe Dateien mit nicht gefundenen Token -> _SteamKeysToCreate.yml.notFound.IC
 

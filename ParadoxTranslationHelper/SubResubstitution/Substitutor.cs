@@ -58,6 +58,9 @@ namespace ParadoxTranslationHelper
             fileWriterSubstitutionItem.FileSuffix = "." + FileSubstitutionConstants.ICON_SUFFIX;
             WriteSubstitionFile(_iconSubstitute);
 
+            fileWriterSubstitutionItem.FileSuffix = "." + FileSubstitutionConstants.NEW_LINE_SUFFIX;
+            WriteSubstitionFile(_newLineSubstitute);
+
             Log.Information($"Overall items substituted: {(_keySubstitute.Count + _nestingStringsSubstitute.Count + _colorCodeSubstitute.Count + _namespaceSubstitute.Count + _iconSubstitute.Count + _newLineSubstitute.Count)}");
 
             //TODO: 2025-01-14 - JHA - Check if all files have been successfully written
@@ -163,8 +166,8 @@ namespace ParadoxTranslationHelper
 
         private string GenerateNewLineSubsitute(string sub, LineObject lineObject)
         {
-            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX +FileSubstitutionConstants.SUBSTITUTION_END;
-            _newLineSubstitute.Add(subString + _newLineSubstitute.Count().ToString(), CreateSubKeyLineTripel(sub, lineObject));
+            string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + _newLineSubstitute.Count().ToString() + FileSubstitutionConstants.SUBSTITUTION_END;
+            _newLineSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
 
