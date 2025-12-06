@@ -105,17 +105,6 @@ namespace ParadoxTranslationHelper
             {
                 if( false == IgnoreLine(line) )
                 {
-                    List<string> keys = FindToken(line, stringParserKey);
-                    if (keys == null)
-                    {
-                        continue;
-                    }
-
-                    if (keys.Count == 0)
-                    {
-                        continue;
-                    }
-  
                     SetKey(line, stringParserKey);
                     SetNamespaces(line, stringParserNamespaces);
                     SetNestingStrings(line, stringParserNestingStrings);

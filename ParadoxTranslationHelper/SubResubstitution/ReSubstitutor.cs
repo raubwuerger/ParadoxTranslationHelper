@@ -183,6 +183,7 @@ namespace ParadoxTranslationHelper
 
             ResubstitutionHelper resubstitutionHelper = new ResubstitutionHelper();
 
+            CorrectWrongCharacters(lineObjects);
             CopyOriginalLineToOrigialLineSubstituted(lineObjects);
             ReSubstituteLinesRemove(lineObjects, _keyReSubstitute);
             ReSubstituteLinesRemove(lineObjects, _nestingStringsReSubstitute);
@@ -194,6 +195,18 @@ namespace ParadoxTranslationHelper
 
             //TODO: 2025-11-29 - JHA - Schreibe Dateien mit nicht gefundenen Token -> _SteamKeysToCreate.yml.notFound.IC
 
+        }
+
+        static List<char> wrongCharacters = new List<char> { '“', '„', '”', '‚', '‘', '`', '´' };
+        private void CorrectWrongCharacters(List<LineObject> lineObjects)
+        {
+            foreach (LineObject lineObject in lineObjects)
+            {
+                foreach (char wrongCharacter in wrongCharacters)
+                {
+                    lineObject.OriginalLine = lineObject.OriginalLine.Replace(wrongCharacter, '"');
+                }
+            }
         }
 
         private void CopyOriginalLineToOrigialLineSubstituted(List<LineObject> lineObjects)
