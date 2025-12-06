@@ -1,4 +1,4 @@
-﻿>>>>> C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation\steam\bftb_decisions_l_english.yml
+﻿>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\bftb_decisions_l_english.yml
 GRE_civil_war_imminent_desc:0	"Tensions between the republicans and the monarchists are coming to a head, and civil war seems to be an unfortunate inevitability..."
 GRE_civil_war_imminent_1:0	"Civil War Imminent!"
 GRE_civil_war_imminent_1_desc:0	"Tensions between the republicans and the monarchists are coming to a head, and civil war seems to be an unfortunate inevitability..."
@@ -9,7 +9,7 @@ form_country_british_levant_required_states_tt:0	"Controls §Y[454.GetName]§!, 
 form_country_punjab_required_states_tt:0	"Controls all §YPakistani§! states."
 BUL_negotiate_claims_in_the_balkans:0	"Negotiate our Claims in the Balkans"
 BUL_negotiate_claims_in_the_balkans_desc:0	"Before aligning ourselves with any major power, we must negotiate our territorial demands with Germany. International tension is mounting, and Bulgaria will only support the nation offering the best territorial deal."
->>>>> C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation\steam\buildings_l_english.yml
+>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\buildings_l_english.yml
 synthetic_refinery_amount:0	"$VALUE|Y0=$"
 synthetic_refinery_resource:0	"£resources_strip|$FRAME$"
 infrastructure:0	"Infrastructure"
@@ -195,7 +195,7 @@ CANNOT_BUILD_FACILITY_WITHOUT_AVAILABLE_PROJECT:0	"Requires at least 1 available
 GUN_EMPLACEMENT_BUILDING:0	"§YMulti-Charge Large Caliber Gun Emplacement§!"
 BUILDING_STATE_MODIFIER_FORMATTER_HEADING:0	"$BUILDING|H$ state modifiers:"
 SPECIAL_FACILITY_BUILDING:0	"$NAME|Y$"
->>>>> C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation\steam\lar_events_l_english.yml
+>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\lar_events_l_english.yml
 lar_portugal_purchase_ships.2.t:0	"[From.GetNameDefCap] Accepts to Build our Ships"
 lar_portugal_purchase_ships.2.desc:0	"The [From.GetAdjective] government has agreed to build ships for the [Root.GetAdjective] Navy. They have submitted three different offers for us to choose from."
 lar_portugal_spanish_civil_war.3.t:0	"[POR.GetNameDefCap] sympathizes with the Spanish Carlists"
@@ -214,7 +214,7 @@ lar_news.281.t:0	"Andalusia Restored!"
 lar_news.281.desc:0	"Centuries ago, the Moors were driven out of Iberia in the reconquista. Now, [From.GetOldAdjective] forces have advanced deep into southern Iberia and have begun establishing Moorish settlements in the region for the first time in centuries. [From.GetOldNameDefCap] has as such been reorganised into a new nation known as “[From.GetNameDefCap]”, reclaiming the legacy of the ancient Sultanate which once ruled all of Iberia.\n\nThe ancient Umayyad Caliphate governed almost the entirety of the Islamic world; from Iberia in the West to Persia in the East. Perhaps [From.GetLeader] desires to emulate this old Empire and reunite the disparate peoples of the Middle-East, North Africa, and Europe."
 lar_news.281.a:0	"A glorious day!"
 lar_news.281.b:0	"What will this mean for Spain?"
->>>>> C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\functions\DIFF_FILES\localisation\steam\replace\equipment_l_english.yml
+>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\replace\equipment_l_english.yml
 POL_infantry_uniforms_0:9	"Mundur wz. 19"
 POL_infantry_uniforms_0_short:9	"Mundur wz. 19"
 POL_infantry_uniforms_1:9	"Mundur wz. 36"
