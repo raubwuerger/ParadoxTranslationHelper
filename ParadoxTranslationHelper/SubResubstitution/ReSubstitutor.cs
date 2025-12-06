@@ -331,38 +331,6 @@ namespace ParadoxTranslationHelper
             Log.Debug($"Replaced item: {keyValuePair.Key} --> {keyValuePair.Value}");
             return keyValuePair.Key;
         }
-
-        private void ReSubstituteColorCodes(List<LineObject> lineObjects)
-        {
-            string colorSignEnd = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX_END + FileSubstitutionConstants.SUBSTITUTION_END;
-            foreach (LineObject lineObject in lineObjects)
-            {
-                //INFO: 2025-11-29 - JHA - ColorCodeEnd (|___CC___|) finden ...
-                if (false == lineObject.OriginalLineSubstituted.Contains(colorSignEnd))
-                {
-                    continue;
-                }
-
-                Log.Information($"Replacing item: {colorSignEnd}");
-                lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(colorSignEnd, FileSubstitutionConstants.COLOR_CODE_SIGN_END);
-
-                //INFO: 2025-11-26 - JHA - Wenn ein COLOR_CODE_SIGN_END gefunden wurde muss es auch einen COLOR_CODE_SIGN_START vorhanden sein
-                int colorSignStartIndex = lineObject.OriginalLineSubstituted.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START + "C");
-                if (colorSignStartIndex == - 1)
-                {
-                    Log.Warning($"No matching color code found for color code end! {LogStringCreator.Create(lineObject)}");
-                    continue;
-                }
-
-                string colorType = lineObject.OriginalLineSubstituted[colorSignStartIndex + 5].ToString();
-
-
-                lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_START, "" );
-                lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(FileSubstitutionConstants.SUBSTITUTION_END, "");
-                Log.Information($"Replacing item: {FileSubstitutionConstants.COLOR_CODE_SIGN_START}");
-            }
-        }
-
         private void ReSubstituteTabulators(List<LineObject> lineObjects)
         {
             foreach (LineObject lineObject in lineObjects)
