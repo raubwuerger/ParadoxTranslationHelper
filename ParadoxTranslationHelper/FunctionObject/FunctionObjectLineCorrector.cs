@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper
 {
-    public class FunctionObjectCorrectAnalyse : FunctionObjectBase
+    public class FunctionObjectLineCorrector : FunctionObjectBase
     {
         string _pathToReSubstitute;
         string _translationFileNameDiff;
@@ -20,7 +20,7 @@ namespace ParadoxTranslationHelper
         public string TranslationFileNameResub { get => _translationFileNameResub; set => _translationFileNameResub = value; }
         public string TranslationFileNameSub { get => _translationFileNameSub; set => _translationFileNameSub = value; }
 
-        public FunctionObjectCorrectAnalyse(string name) : base(name)
+        public FunctionObjectLineCorrector(string name) : base(name)
         {
         }
 
