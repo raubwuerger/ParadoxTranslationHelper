@@ -5,6 +5,7 @@ using Serilog;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace ParadoxTranslationHelper
 {
@@ -12,7 +13,7 @@ namespace ParadoxTranslationHelper
     {
         private Dictionary<string, string> _keyReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _nestingStringsReSubstitute = new Dictionary<string, string>();
-        private Dictionary<string, string> _namespaceReSubstitute = new Dictionary<string, string>();
+        private Dictionary<string, string> _nameSpaceReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _iconReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _colorReSubstitute = new Dictionary<string, string>();
         private Dictionary<string, string> _newLineReSubstitute = new Dictionary<string, string>();
@@ -66,8 +67,8 @@ namespace ParadoxTranslationHelper
             Log.Information($"Resubstituting nesting strings (count={_nestingStringsReSubstitute.Count})");
             resubText = ResubstitutePart(resubText, _nestingStringsReSubstitute);
 
-            Log.Information($"Resubstituting namespaces (count={_namespaceReSubstitute.Count})");
-            resubText = ResubstitutePart(resubText, _namespaceReSubstitute);
+            Log.Information($"Resubstituting namespaces (count={_nameSpaceReSubstitute.Count})");
+            resubText = ResubstitutePart(resubText, _nameSpaceReSubstitute);
 
             Log.Information($"Resubstituting icons (count={_iconReSubstitute.Count})");
             resubText = ResubstitutePart(resubText, _iconReSubstitute);
@@ -140,8 +141,8 @@ namespace ParadoxTranslationHelper
             }
 
             _fileReaderSubstitutionItem.FileName = _translationFileSetSubstitution.PathNamespaceFile;
-            _namespaceReSubstitute = _fileReaderSubstitutionItem.Read();
-            if (false == _namespaceReSubstitute.Any())
+            _nameSpaceReSubstitute = _fileReaderSubstitutionItem.Read();
+            if (false == _nameSpaceReSubstitute.Any())
             {
                 Log.Warning($"File contains no data: {_fileReaderSubstitutionItem.FileName}");
             }
@@ -185,11 +186,17 @@ namespace ParadoxTranslationHelper
             ResubstitutionHelper resubstitutionHelper = new ResubstitutionHelper();
 
             CorrectWrongCharacters(lineObjects);
+            lineObjects = AnalyseAndCorrectLines(lineObjects);
+            FileUtility.WriteLines(lineObjects, _translationFileSetSubstitution.SubstitutedFile.FileNameWithBasePath + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED +".fixed");
+
+            //TODO: 2025-12-29 - JHA - In neue Klasse CorrectAnalyse auslagern
             CorrectDoubleKeys(lineObjects);
+
             CopyOriginalLineToOrigialLineSubstituted(lineObjects);
+
             ReSubstituteLinesRemove(lineObjects, _keyReSubstitute);
             ReSubstituteLinesRemove(lineObjects, _nestingStringsReSubstitute);
-            ReSubstituteLinesRemove(lineObjects, _namespaceReSubstitute);
+            ReSubstituteLinesRemove(lineObjects, _nameSpaceReSubstitute);
             ReSubstituteLinesRemove(lineObjects, _iconReSubstitute);
             ReSubstituteLinesRemove(lineObjects, _colorReSubstitute);
             ReSubstituteLinesRemove(lineObjects, _newLineReSubstitute);
@@ -213,9 +220,9 @@ namespace ParadoxTranslationHelper
                 FileUtility.WriteLines(_nestingStringsReSubstitute, _translationFileSetSubstitution.PathNestingStringsFile + FileSubstitutionConstants.NOT_FOUND);
             }
 
-            if (true == _namespaceReSubstitute.Any())
+            if (true == _nameSpaceReSubstitute.Any())
             {
-                FileUtility.WriteLines(_namespaceReSubstitute, _translationFileSetSubstitution.PathNamespaceFile+ FileSubstitutionConstants.NOT_FOUND);
+                FileUtility.WriteLines(_nameSpaceReSubstitute, _translationFileSetSubstitution.PathNamespaceFile+ FileSubstitutionConstants.NOT_FOUND);
             }
 
             if (true == _iconReSubstitute.Any())
@@ -234,28 +241,7 @@ namespace ParadoxTranslationHelper
             }
         }
 
-        private void CorrectDoubleKeys(List<LineObject> lineObjects)
-        {
-            Dictionary<string, LineObject> keys = new Dictionary<string, LineObject>();
-            Dictionary<string, LineObject> doubleKeys = new Dictionary<string, LineObject>();
-            foreach (LineObject lineObject in lineObjects)
-            {
-                if( true == string.IsNullOrWhiteSpace(lineObject.Key) )
-                {
-                    continue;
-                }
-
-                if( false == keys.ContainsKey(lineObject.Key) )
-                {
-                    keys.Add(lineObject.Key, lineObject);
-                }
-                else
-                {
-                    doubleKeys.Add(lineObject.Key, lineObject);
-                }
-            }
-        }
-            static List<char> wrongCharacters = new List<char> { '“', '„', '”', '‚', '‘', '`', '´' };
+        static List<char> wrongCharacters = new List<char> { '“', '„', '”', '‚', '‘', '`', '´' };
         private void CorrectWrongCharacters(List<LineObject> lineObjects)
         {
             foreach (LineObject lineObject in lineObjects)
@@ -263,6 +249,69 @@ namespace ParadoxTranslationHelper
                 foreach (char wrongCharacter in wrongCharacters)
                 {
                     lineObject.OriginalLine = lineObject.OriginalLine.Replace(wrongCharacter, '"');
+                }
+            }
+        }
+
+        private List<LineObject> AnalyseAndCorrectLines(List<LineObject> lineObjects)
+        {
+            List<LineObject> correctLineObjects = new List<LineObject>();
+            foreach (LineObject lineObject in lineObjects)
+            {
+                if( true == lineObject.OriginalLine.Contains(">>>>>") )
+                {
+                    correctLineObjects.Add(lineObject);
+                    continue;
+                }
+
+                if( true == string.IsNullOrWhiteSpace(lineObject.OriginalLine) )
+                {
+                    Log.Debug($"IsNullOrWhiteSpace: {LogStringCreator.Create(lineObject)}");
+                    continue;
+                }
+
+                if( true == lineObject.OriginalLine.Length < 16 )
+                {
+                    Log.Debug($"Length is less then 16: {LogStringCreator.Create(lineObject)}");
+                    continue;
+                }
+
+                if( false == lineObject.OriginalLine.Contains(FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.KEY_SUFFIX) )
+                {
+                    Log.Debug($"Contains no valid key: {LogStringCreator.Create(lineObject)}");
+                    continue;
+                }
+
+                int count = Utility.CountStringOccurrences(lineObject.OriginalLine, FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.KEY_SUFFIX);
+                if( count > 1 )
+                {
+                    Log.Debug($"Contains to many ({count}) valid keys: {LogStringCreator.Create(lineObject)}");
+                    continue;
+                }
+
+                correctLineObjects.Add(lineObject);
+            }
+
+            return correctLineObjects;
+        }
+        private void CorrectDoubleKeys(List<LineObject> lineObjects)
+        {
+            Dictionary<string, LineObject> keys = new Dictionary<string, LineObject>();
+            Dictionary<string, LineObject> doubleKeys = new Dictionary<string, LineObject>();
+            foreach (LineObject lineObject in lineObjects)
+            {
+                if (true == string.IsNullOrWhiteSpace(lineObject.Key))
+                {
+                    continue;
+                }
+
+                if (false == keys.ContainsKey(lineObject.Key))
+                {
+                    keys.Add(lineObject.Key, lineObject);
+                }
+                else
+                {
+                    doubleKeys.Add(lineObject.Key, lineObject);
                 }
             }
         }
@@ -279,7 +328,7 @@ namespace ParadoxTranslationHelper
         {
             foreach (LineObject lineObject in lineObjects)
             {
-                if( lineObject.OriginalLine.StartsWith(">") )
+                if( lineObject.OriginalLine.Trim().StartsWith(">") )
                 {
                     continue;
                 }
@@ -297,6 +346,7 @@ namespace ParadoxTranslationHelper
                         Log.Debug($"Item to replaced not found: {item.Key}, {LogStringCreator.Create(lineObject)}");
                         continue;
                     }
+
                     lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(item.Key, item.Value);
                     Log.Debug($"Item replaced: {item.Key} --> {item.Value}");
                     substituteTokens.Remove(item.Key);
@@ -305,8 +355,6 @@ namespace ParadoxTranslationHelper
                         break;
                     }
                 }
-
-                Log.Debug($"##### substituteTokens count: {substituteTokens.Count}");
             }
         }
 
@@ -335,8 +383,6 @@ namespace ParadoxTranslationHelper
                     lineObject.OriginalLineSubstituted = lineObject.OriginalLineSubstituted.Replace(item.Key, item.Value);
                     Log.Debug($"Item replaced: {item.Key} --> {item.Value}");
                 }
-
-                Log.Debug($"##### substituteTokens count: {substituteTokens.Count}");
             }
         }
 
@@ -391,7 +437,7 @@ namespace ParadoxTranslationHelper
 
             _keyReSubstitute = Validate(allText, _keyReSubstitute);
             _nestingStringsReSubstitute = Validate(allText, _nestingStringsReSubstitute);
-            _namespaceReSubstitute = Validate(allText, _namespaceReSubstitute);
+            _nameSpaceReSubstitute = Validate(allText, _nameSpaceReSubstitute);
             _iconReSubstitute = Validate(allText, _iconReSubstitute);
 
             Log.Information($"Overall items missing: {(fileOriginal - GetItemCount())}");
@@ -399,7 +445,7 @@ namespace ParadoxTranslationHelper
 
         private int GetItemCount()
         {
-            return _nestingStringsReSubstitute.Count + _namespaceReSubstitute.Count + _iconReSubstitute.Count;
+            return _nestingStringsReSubstitute.Count + _nameSpaceReSubstitute.Count + _iconReSubstitute.Count;
         }
 
         private Dictionary<string, string> Validate( string text, Dictionary<string, string> substitutionSubSet )
