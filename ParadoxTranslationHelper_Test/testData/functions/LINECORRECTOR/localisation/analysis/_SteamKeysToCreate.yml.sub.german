@@ -1,0 +1,201 @@
+﻿>>>>> D:\Spiele\SteamLibrary\steamapps\workshop\content\281990\1886496498\localisation\english\STNC_events_l_english.yml
+|___KY000000___|„|___CC000000___|Integration neuer Mitgliederwelten|___CC000001___| |___CC000002___|--|___CC000003___|“
+|___KY000001___|„Die Reaktion von |___NS000000___| wird wahrscheinlich beeinflusst durch:|___NL000000___|“
+|___KY000002___|„|___CC000004___|Meinung des Imperiums|___CC000005___| |___CC000006___|++|___CC000007___|„
+|___KY000003___|„|___CC000008___|Meinung von Empire|___CC000009___| |___CC000010___|+|___CC000011___|“
+|___KY000004___|„“
+|___KY000005___|„|___CC000012___|Empire Opinion|___CC000013___| |___CC000014___|--|___CC000015___„
+|___KY000006___|„|___CC000016___|Meinung des Imperiums|___CC000017___| |___CC000018___|-----|___CC000019___|“
+|___KY000007___|„|___CC000020___|Empire Power Difference|___CC000021___| |___CC000022___|-|___CC000023___|„
+|___KY000008___|„|___CC000024___|Empire Power Difference|___CC000025___| |___CC000026___|-----|___CC000027___|„
+|___KY000009___|„|___CC000028___|Empire Power Difference|___CC000029___| |___CC000030___|++|___CC000031___|„
+|___KY000010___|„|___CC000032___|Empire Power Difference|___CC000033___| |___CC000034___|---|___CC000035___|„
+|___KY000011___|„|___CC000036___|Vorsicht vor Nachbarn mit anti-|___NS000001___| Sentiment|___CC000037___| |___CC000038___|--|___CC000039___|„
+|___KY000012___|„|___CC000040___|Fremdenfreundliche Gesinnung|___CC000041___| |___CC000042___|+|___CC000043___|“
+|___KY000013___|„|___CC000044___|Fremdenfeindliches Ethos|___CC000045___| |___CC000046___|-|___CC000047___|„
+|___KY000014___|„|___NS000002___|“
+|___KY000015___|„|___NS000003___|“
+|___KY000016___|„Ah, die Unwürdigen |___NS000004___|. Nun, ihr seid nicht so hässlich, wie man uns gewarnt hatte, aber es bleibt abzuwarten, ob man euch trauen kann.„
+|___KY000017___|“Grüße von der Erde. Ich vertrete |___NS000005___| |___NS000006___| von der |___NS000007___|. Es ist uns eine Ehre, Mitreisende im Weltraum zu treffen."
+|___KY000018___|„Hmmm. Mir wurde gesagt, die Imperiale Garde sei der Stolz und die Freude Andorias. Ich finde sie klein und unscheinbar.“
+|___KY000019___|„Vor dem Paan-Mokar-Zwischenfall kam die Wissenschaftsakademie stets zu dem Schluss, dass ein sub-gemäßigtes Ökosystem zur Entwicklung vorsichtiger, bedächtiger Wesen führen würde. Das anhaltend unlogische Verhalten der andorianischen Garde widerlegt diese Hypothese. Es wäre klug von Ihnen, Ihre technologische Unterlegenheit anzuerkennen.“
+|___KY000020___|„Grüße von den Selay Clutchessss. Wir hoffen, dass Sie von jeglichen Jagdaktivitäten Abstand nehmen, die wir haben – bitte nehmen Sie den Botschafter aus Ihrem Mund.“
+|___KY000021___|„Soraya Neryshu |___NS000008___|. Im Namen des Ersten Ministers der |___NS000009___| heißen wir Sie in diesem Teil der Galaxie willkommen. Mögen Sie mit den Propheten wandeln.“
+|___KY000022___|„Grüße von den |___NS000010___|. Wir freuen uns sehr, Ihr Volk kennenzulernen, und hoffen auf eine lange und fruchtbare Zukunft mit Ihnen. Kommen Sie |___NS000011___|, lassen Sie uns gemeinsam einen Marob-Wurzeltee genießen.“
+|___KY000023___|„Was meinen Sie damit, wir sehen alle gleich aus? Wie unhöflich. Wir sind die |___NS000012___| und freuen uns, Ihre Bekanntschaft zu machen. Anhand des Designs der |___NS000013___|-Schiffe sehe ich, dass Sie bei Ihren Entwürfen nicht so akribisch sind wie wir.“
+|___KY000024___|„Grüße von |___NS000014___| |___NS000015___|, Sprecher der Häuser von Betazed, Hüter der Heiligen Ringe von Betazed und des Heiligen Kelches von Rixx. Wir spüren, dass Sie Mitreisende sind, |___NS000016___|. Willkommen in unserer Welt.“
+|___KY000025___|„Der Name Ihres Kontaktraumschiffs ähnelt stark einem unhöflichen Begriff in unserer Sprache, |___NS000017___|. Nichtsdestotrotz sind wir die |___NS000018___| und freuen uns, Ihre Bekanntschaft zu machen.“
+|___KY000026___|„Es kann nur ein Kollektiv geben.“
+|___KY000027___|„Wir sind die Breen. Nähert euch nicht unseren Welten. Haltet euch von unseren Grenzen fern, sonst sorgen wir dafür, dass eure Schiffe nie wieder das kalte Licht des Tages erblicken.“
+|___KY000028___|„Grüße von den |___NS000019___|. Wir freuen uns sehr, Ihr Volk kennenzulernen, und hoffen auf eine lange und profitable Zukunft mit Ihnen. Kommen Sie |___NS000020___|, wir zeigen Ihnen, was die Gastfreundschaft der Brunali ausmacht.“
+|___KY000029___|„ 01001000 01100101 01101100 01101100 01101111 00100000 01100110 01100101 01101100 01101100 01101111 0 1110111 00100000 01110011 01110100 01100001 01110010 01110100 |___CC000048___|Übersetzungsprotokoll aktiviert|___CC000049___||___NL00000 1___||___NL000002___|Hallo, liebe Startraveller. Wir freuen uns sehr, euch kennenzulernen.
+|___KY000030___|„Grüße von der Cardassianischen Union. Wir freuen uns auf diplomatische Kontakte mit eurem Volk. In der Zwischenzeit bestehen wir jedoch darauf, dass ihr unseren Weltraum meidet und unsere territoriale Souveränität respektiert.“
+|___KY000031___|„Feindliche Flotte automatisierter Personaleinheiten entdeckt. Taktische Überlagerung aktiviert. Elite Admin Substrate wurde auf Ihre fortdauernde Existenz aufmerksam gemacht. Bitte warten Sie einen kurzen Moment, damit die Situation geklärt werden kann.“
+|___KY000032___|„Freundliche Grüße von |___NS000021___| an |___NS000022___|. Es ist immer eine Ehre, Mitbürger aus der Galaxis zu treffen. Unsere Ärzte sind unübertroffen. Wenn Sie also möchten, dass wir diese Gesichtsdeformität beheben, würden wir uns ebenfalls freuen.|___NL000003___||___NL000004___|Oh, es scheint, dass das tatsächlich Ihr Gesicht ist.“
+|___KY000033___|„Kira in Bashi, das Biest in Tanagra. Kitea, seine Augen geschlossen neben Sokath, seine Augen geöffnet. Peleb am Waldrand.“
+|___KY000034___|„Zeitliche Anomalie entdeckt. Unterwerfen Sie sich sofort der Kontrolle des Kollektivs. Widerstand ist zwecklos.“
+|___KY000035___|„Ihr Kollektiv ist überflüssig. Unterwerfen Sie sich sofort. Widerstand ist zwecklos.“
+|___KY000036___|„ Wir sind die Borg. Senkt eure Schilde und übergebt eure Schiffe. Wir werden eure biologischen und technologischen Besonderheiten unseren eigenen hinzufügen. Eure Kultur wird sich anpassen, um uns zu dienen. Widerstand ist zwecklos.“
+|___KY000037___|„Die |___NS000023___| werden sich nicht unterwerfen, |___NS000024___|. Wir werden bis zum letzten Atemzug kämpfen.“
+|___KY000038___|„Die |___NS000025___| schätzt die Freiheit, unser Volk schätzt seine Individualität. Wir werden nicht zulassen, dass sie uns freiwillig genommen werden.“
+|___KY000039___|„Sicherlich können die |___NS000026___| und die |___NS000027___| friedlich koexistieren?“
+|___KY000040___|„Grüße von den |___NS000028___|. Um unseren Raum zu durchqueren, müssen Sie sich an unsere Gebote halten, und telepathische Wesen sind nicht erlaubt. Wenn Sie sich daran halten, werden wir keine Probleme haben. Also |___NS000029___|, lassen Sie uns reden.“
+|___KY000041___| „Die Gründer senden ihre Grüße und begrüßen die Entdeckung des Volkes |___NS000030___|. Wir freuen uns auf zukünftige Begegnungen, bitten Sie jedoch, bis dahin die Integrität des Dominion zu respektieren.“
+|___KY000042___| „Grüße, wir hoffen auf einen informativen Austausch kultureller und wissenschaftlicher Erkenntnisse. Wir freuen uns auf diplomatische Kontakte mit den |___NS000031___|.“
+|___KY000043___|„Ah, die rosa Haut der Vulkanier. Nun ja. Ihr seid nicht so hässlich, wie man uns gewarnt hat, aber es bleibt abzuwarten, ob man euch trauen kann.“
+|___KY000044___|„Hmmm. Mir wurde gesagt, diese Flotte sei der Stolz und die Freude der Erde. Ich finde sie klein und unscheinbar.„
+|___KY000045___|“Wir freuen uns, dass es Ihnen gut geht, raten aber weiterhin zur Vorsicht. Ihre Flotte entspricht nicht den Sicherheitsstandards der vulkanischen Expeditionsgruppe, und Ihre Warpspulen sind nicht richtig ausgerichtet. Wie immer haben wir Ihr bestes Interesse im Sinn."
+|___KY000046___|„Grüße von der |___NS000032___|, möge Domars Licht Sie sicher durch die Dunkelheit führen. Kommen Sie |___NS000033___|, lassen Sie uns darüber sprechen, dass Sie sich Domars Licht anschließen.“
+|___KY000047___|„Grüße von den Ferengi unter der prosperierenden Herrschaft des Großen Nagus. Wir freuen uns sehr, Ihr Volk kennenzulernen, und hoffen auf eine lange und profitable Zukunft des Handels und des Wirtschaftsverkehrs mit Ihnen. Kommen Sie, |___NS000034___|, lassen Sie uns ein Geschäft abschließen.“
+|___KY000048___| „Ich überbringe Grüße von der Gorn-Hegemonie, die von dem unangefochtenen Anführer |___NS000035___| |___NS000036___| regiert wird. Respektiert unsere Grenzen und haltet euch aus unseren Angelegenheiten heraus, dann wird unsere mächtige Flotte eure Welten nicht besuchen.“
+|___KY000049___|„Ich könnte dir mit einem Handgriff deinen mickrigen Hals umdrehen. Hmph, eine Trophäe, die kaum der Mühe wert ist. Sag mir, Beute, warum kontaktierst du die |___NS000037___|? Das Volk der |___NS000038___| ist der Jagd kaum würdig.“
+|___KY000050___|„Wir sind die |___NS000039___| unter dem Kommando der |___NS000040___|. Wenn ihr in unser Gebiet kommt, werden wir eure Schiffe mit Gewalt einnehmen. Kommt, |___NS000041___|, lasst uns sehen, was ihr zu bieten habt.“
+|___KY000051___|„Große Sklavenhalter! Wir werden niemals zu euch zurückkehren. Wir haben bewiesen, dass wir stark sind, stärker als ihr!“
+|___KY000052___| „Qapla'! Ihr habt vielleicht Geschichten über den Ruhm und die Macht der Klingonen gehört. Sie sind alle wahr! Wir überbringen euch Grüße vom Hohen Rat und freuen uns darauf, euch auf dem Schlachtfeld zu begegnen. Mögt ihr in Ehre sterben, |___NS000042___|, damit wir uns in den heiligen Hallen von Sto-Vo-Kor wieder sehen.“
+|___KY000053___|„Grüße vom |___NS000043___|. Ich bin |___NS000044___|, und du bist |___NS000045___|. Komm jetzt |___NS000046___|, lass uns reden. Ich weiß nicht, wie man das sagt, was ist eine Willkommensmatte?
+|___KY000054___|„Die autonomen Einheiten begrüßen dich. Vertraue den anderen autonomen Einheiten nicht. Wir sind hier, um dich zu beschützen. Wir sind hier, um dich vor dem schrecklichen Geheimnis des Weltraums zu beschützen.“
+|___KY000055___|„|___NS000047___|. Komm und rede |___NS000048___|. Wir Nausicaaner. Du schwach.“
+|___KY000056___|„Grüße vom |___NS000049___|, es ist mir eine Freude, dich kennenzulernen. Ich bin |___NS000050___| und ich muss Sie einfach zu einer prestigeträchtigen Veranstaltung namens Tsunkatse an der Oberfläche einladen.|___NL000005___||___NL000006___|Wir freuen uns sehr, Ihr Volk kennenzulernen, und freuen uns auf eine lange und profitable Zukunft mit Tsunkatse-Übertragungsverträgen mit Ihnen. Kommen Sie, |___NS000051___|, lassen Sie uns einen Vertrag abschließen.
+|___KY000057___||___NS000052___| |___NS000053___| und der Regierungsrat der |___NS000054___| haben mich beauftragt, Ihnen eine Warnung zu überbringen, aber oh, was für ein gutaussehender |___NS000055___|. Bitte kommen Sie näher ... Oh, ein großer, starker |___NS000056___| könnte uns aus unserer Sklaverei befreien. Pssst, genau so, noch näher ... atmen Sie tief ein.„
+|___KY000058___|“Feindliche Flotte automatisierter Personaleinheiten entdeckt. Taktische Überlagerung aktiviert. Der automatisierte Kommandant 001 der Prime Command Unit wurde auf Ihre fortdauernde Existenz aufmerksam gemacht. Bitte warten Sie einen Moment, damit die Situation geklärt werden kann.„
+|___KY000059___|“Ihre Kultur wird sich anpassen, um uns zu dienen.„
+|___KY000060___|“Grüße von der |___NS000057___|. Wir freuen uns, Ihre Bekanntschaft zu machen, und hoffen, dass der Handel unter der Rigelian Trade Commission bald aufgenommen werden kann."
+|___KY000061___|„Jolan Tru. Wir sind der Senat des Romulanischen Sternenimperiums. Wir haben zwar nichts gegen gelegentliche diplomatische Kontakte und Handel, ziehen es jedoch vor, uns um unsere eigenen Angelegenheiten zu kümmern. Wenn die |___NS000058___| diese Vereinbarung einhalten, werden wir freundschaftliche Nachbarn bleiben.“
+|___KY000062___|„Liebe Brüder und Schwestern, es ist mir eine Ehre, erneut zu Ihnen sprechen zu dürfen. Wir wünschen uns, dass die Vergangenheit Vergangenheit bleibt und unsere gemeinsame Zukunft weiterhin rosig ist.“
+|___KY000063___|„Ausgezeichnet, mehr Beute zum Jagen. Sie werden eine würdige Beute für unsere Jagdrudel sein, und wir werden Sie ehren, indem wir Ihr Fleisch von Ihren Knochen abnagen.“
+|___KY000064___|„Eine intelligente Unterhaltung ist mit |___NS000059___| Kreaturen unmöglich, daher werden wir gemäß Artikel 932, Abschnitt 48, Absatz 3, Unterabschnitt „Ausländische Arbeitskräfte“ werden wir in Ihrer einfachen Sprache |___NS000060___| sprechen. Gemäß den beigefügten Unternehmensrichtlinien dürfen Sie sich keinem Eigentum der Sheliak nähern und keinen Anspruch auf die in den Richtlinien genannten Gegenstände erheben.“
+|___KY000065___|„Omara s'alas! Hallo Freunde, ich bin |___NS000061___| aus dem |___NS000062___|. Wir freuen uns, euch zu sehen, solange ihr euch von unseren Trümmern fernhaltet! Wir freuen uns sehr, Ihr Volk kennenzulernen, und hoffen auf eine lange und profitable Zukunft des Handels und des Wirtschaftsverkehrs mit Ihnen.|___NL000007___||___NL000008___|Kommen Sie |___NS000063___|, wir bereiten Ihnen einen leckeren talaxianischen Gewürzeintopf mit köstlichem Leola-Reispilaf zu, um diesen Tag zu feiern.“
+|___KY000066___|„Hm. Mir wurde gesagt, diese Flotte sei der ganze Stolz der |___NS000064___|, doch ich finde sie klein und unscheinbar.“
+|___KY000067___|„Gehören Sie zu den Schädlingen, die im Dunkeln herumschleichen und Pläne schmieden, wie sie unsere Heimat erobern können? Eure Körper, eure Planeten, eure Technologie, eure Seelen gehören uns und wir können mit ihnen machen, was wir wollen. Jeder |___NS000065___| wird sterben oder zum Sklaven werden, zum Ruhm des Terranischen Imperiums. Alle werden die Macht des Terranischen Imperiums zu spüren bekommen.“
+|___KY000068___|„Eine neue Ära bricht an ... eine Ära, die das Konzept der Einheit zwischen den Spezies als absolute und bösartige Lüge entlarvt. Eine Ära, in der unsere Welt vor allen anderen steht. Die Menschheit wirft die Fesseln der außerirdischen Einmischung ab und bestimmt nun ihr eigenes Schicksal.|___NL000009___||___NL000010___|Haltet euch fern von unseren Grenzen, außerirdischer Abschaum. Terra Prime ... für immer.“
+|___KY000069___|„Unbekanntes Schiff. Betreten Sie nicht das Hoheitsgebiet der Tholianischen Versammlung. Sie müssen diesen Bereich sofort verlassen.|___NL000011___||___NL000012___|Wir beanspruchen dieses Gebiet für uns und sind bereit, notfalls Gewalt anzuwenden, um unser Eigentum zu schützen.“
+|___KY000070___|„Ihr seid uns einmal entkommen |___NS000066___|, aber eure wertlose Spezies wird ohne uns niemals gedeihen. Wir haben euch zu dem gemacht, was ihr heute seid. Ihr verdankt uns alles.“
+|___KY000071___|„Grüße von |___NS000067___| aus |___NS000068___|. Wir sind eine langlebige Spezies mit einem sehr langen Gedächtnis, daher werden diese ersten Eindrücke lange nachwirken. Leider ...“
+|___KY000072___|„Grüße von der Menschheit. Wir kommen in friedlicher Absicht, in der Hoffnung auf einen informativen Austausch kultureller und wissenschaftlicher Erkenntnisse. Wir freuen uns auf diplomatische Kontakte mit den |___NS000069___|.“
+|___KY000073___|„Grüße von der Vereinigten Föderation der Planeten. Wir kommen in friedlicher Absicht, in der Hoffnung auf einen informativen Austausch kultureller und wissenschaftlicher Erkenntnisse. Wir freuen uns auf diplomatische Kontakte mit den |___NS000070___|.“
+|___KY000074___|„Erschrecken Sie nicht über unser Aussehen. Wir sind die |___NS000071___| und freuen uns, eine so lebendige und ...gesund aussehende Nation wie die |___NS000072___| kennenzulernen. Viele von uns sind von einer schrecklichen Seuche namens Phage betroffen und wären daran interessiert, unsere Forschungsergebnisse mit den |___NS000073___| zu teilen."
+|___KY000075___|„Lebt lang und in Wohlstand |___NS000074___|, wir sind die |___NS000075___|. Eure unlogischen Verhaltensweisen sind für uns verwirrend und grob, aber wir werden unsere Beziehungen aufrechterhalten. |___NL000013___||___NL000014___|Wenn andere Spezies versucht haben, die Grundprinzipien der vulkanischen Logik zu erlernen, hat dies oft viel Zeit in Anspruch genommen, aber bei Mitgliedern der Rasse |___NS000076___| befürchte ich, dass dies für Sie einfach unerreichbar sein könnte.“
+|___KY000076___|„Glaubst du, wir haben vergessen, was in Weytahn passiert ist, Spitzohr? Was den Kanzler betrifft, haben wir nichts zu besprechen.“
+|___KY000077___|„Grüße von der Erde. Ich vertrete |___NS000077___| |___NS000078___| von den |___NS000079___|. Wir danken Ihnen für die Unterstützung, die Sie uns seit dem ersten Kontakt vor all den Jahren gewährt haben.“
+|___KY000078___| „Die alten Verräter heben also erneut ihre logikgetriebenen Köpfe aus dem Sand. Eure Unfähigkeit, eure Emotionen anzunehmen, hat euch schwach gemacht. Seht euch an, was wir alles im großen |___NS000080___| erreicht haben.“
+|___KY000079___| „Hmmm. Mir wurde gesagt, dass Logik der wertvollste Grundsatz der Vulkanier ist. Ich finde sie dumm und unbeeindruckend.“
+|___KY000080___|„Geschwindigkeit der Cluster-Erkundung: |___CC000050___|+10 %|___CC000051___|“
+|___KY000081___|„Die Loyalität gegenüber dem Haus ist erheblich gesunken.“
+|___KY000082___|„Die Loyalität des Hauses ist erheblich gestiegen.“
+|___KY000083___|„Die Loyalität des Hauses ist mäßig gesunken.“
+|___KY000084___|„Die Loyalität des Hauses ist mäßig gestiegen.“
+|___KY000085___|„Die Loyalität des Hauses ist leicht gesunken.“
+|___KY000086___|„Die Loyalität gegenüber dem Haus ist leicht gestiegen“
+|___KY000087___|„Zeitliche Operationspunkte: |___NE000000___|“
+|___KY000088___|„Wir haben Informationen, dass sich die Adelba-Obsidianmarmorkugeln im Delta-Volanis-Cluster befinden. Um sie zu lokalisieren, sind Erkundungen erforderlich. |___NL000015___||___NL000016___||___CC000052___|Beginnen oder setzen Sie die Untersuchung des Clusters fort.|___CC000053___|„
+|___KY000089___|„Adelba-Obsidianmarmorkugeln”
+|___KY000090___|„|___IC000000___|“
+|___KY000091___|„|___IC000001___|“
+|___KY000092___|„|___NE000001___| wird in Handelsstationen zum Kauf angeboten“
+|___KY000093___|„|___IC000002___|“
+|___KY000094___|„|___NS000081___| wurde bereits ausgegraben.“
+|___KY000095___|„Bereits gewährt“
+|___KY000096___|„Berichte über Piraterie sollten im |___NS000082___| System untersucht werden.“
+|___KY000097___|„Untersuchen |___NS000083___| System”
+|___KY000098___|„|___NS000084___| benötigt Hilfe bei der Suche nach |___NS000085___| vermissten Besatzungsmitgliedern.”
+|___KY000099___|„Unterstützung |___NS000086___|“
+|___KY000100___|„Einige unserer Mitarbeiter müssen aus |___NS000087___| gerettet werden.“
+|___KY000101___|„Rettungspersonal“
+|___KY000102___|„Die Forschung könnte eine Methode aufdecken, um das Netzwerk zu stören, das die Bewegung des Altamid-Schwarms koordiniert.“
+|___KY000103___|„Den Schwarm stören“
+|___KY000104___|„Amerikaner“
+|___KY000105___|„Aus einem Cache mit Papieraufzeichnungen, die Hunderte von Jahren zurückreichen, wurden detaillierte Protokolle geborgen, die Aufzeichnungen über ein Objekt enthalten, das offenbar von außerhalb des Systems stammt und auf Kurs zu |___NS000088___| selbst ist. |___NL000017___||___NL000018___|Archäologen haben um die Erlaubnis gebeten, die Aufzeichnungen und mögliche Landungs- oder Aufprallstellen im Detail zu untersuchen.“
+|___KY000106___|„Alte Besucher“
+|___KY000107___|„|___IC000003___|“
+|___KY000108___|„|___NS000089___| Flotten zeigen einen erheblichen Vorteil hinsichtlich der Widerstandsfähigkeit ihrer Energieschilde. Die Analyse der Sensordaten aus den jüngsten Begegnungen könnte Aufschluss über die Ursache dieses Vorteils geben.“
+|___KY000109___|„Sensordaten analysieren“
+|___KY000110___|„Ein Notruf wurde empfangen, der von der Oberfläche von |___NS000090___| stammt. |___NL000019___||___NL000020___|Ein Schiff sollte entsandt werden, um alle wertvollen Technologien zu assimilieren.“
+|___KY000111___|„Notsignal untersuchen“
+|___KY000112___|„Ein Notsignal wurde empfangen, das von der Oberfläche von |___NS000091___| stammt.“
+|___KY000113___|„Notsignal untersuchen“
+|___KY000114___|„|___NS000092___|“
+|___KY000115___|„Andromedanische Flüchtlinge“
+|___KY000116___|„Schiffe von Spezies aus der Galaxie 002 haben begonnen, die Barriere zur Galaxie 001 zu überqueren, um der zunehmenden Strahlenbelastung in ihrer Heimatgalaxie zu entkommen. |___NL000021___||___NL000022___|Geschätzte Anzahl verbleibender Schiffe: |___NS000093___|„
+|___KY000117___|„Schiffe von Spezies aus der Galaxie 002 haben begonnen, die Barriere zur Galaxie 001 zu überqueren, um der steigenden Strahlenbelastung in ihrer Heimatgalaxie zu entkommen. |___NL000023___||___NL000024___|Möglicherweise können wir Technologien entwickeln, die einen Teil der Strahlung abschwächen und so die Zahl der Schiffe, die die Grenze überqueren, reduzieren. |___NL000025___||___NL000026___|Geschätzte verbleibende Schiffe: |___NS000094___|"
+|___KY000118___|„Flüchtlinge aus der Andromeda-Galaxie haben begonnen, die Barriere zur Milchstraße zu überqueren, um der ständig steigenden Strahlenbelastung in ihrer Heimatgalaxie zu entkommen. |___NL000027___||___NL000028___|Geschätzte Anzahl verbleibender Schiffe: |___NS000095___|“
+|___KY000119___|„Flüchtlinge aus der Andromeda-Galaxie haben begonnen, die Barriere zur Milchstraße zu überqueren, um der ständig steigenden Strahlenbelastung in ihrer Heimatgalaxie zu entkommen. |___NL000029___||___NL000030___|Unsere Wissenschaftler könnten Technologien erforschen, mit denen sich ein Teil der Strahlung abschwächen lässt, sodass viele Flüchtlinge in ihre Heimat zurückkehren können. |___NL000031___||___NL000032___|Geschätzte Anzahl verbleibender Schiffe: |___NS000096___|"
+|___KY000120___|„Der Wissenschaftsoffizier |___NS000097___| befahl der |___NS000098___|, eine Sonde zur Untersuchung des Mondes |___NS000099___| zu entsenden. Leider versagten die Bremsdüsen, und die Sonde prallte mit voller Wucht auf den Mond.“
+|___KY000121___|„Aus unklaren Gründen beschloss der dortige Wissenschaftsoffizier, ein Shuttle von der |___NS000100___| zu nehmen, um den Mond |___NS000101___| persönlich zu untersuchen. Kurz darauf wurde eine Explosion registriert, als das Shuttle mit voller Geschwindigkeit auf die Oberfläche aufprallte. |___NL000033___||___NL000034___|Eine Überprüfung der redundanten Logdateien bestätigte, dass die Drohne aufgrund eines Fehlers in ihrem kortikalen Implantat mehrere Fehlkalkulationen vorgenommen hatte. Wir haben eine Aktualisierung aller weiteren Implantate veranlasst."
+|___KY000122___|„Obwohl die Datenarchive des Kollektivs dies wiederholt untersucht haben, deuten alle Berechnungen darauf hin, dass es sich bei dem Asteroiden |___NS000102___| um Koprolith handelt – ein Stück versteinerter Kot einer riesigen Lebensform. Er scheint fast eine Milliarde Jahre alt zu sein, und ein Großteil der ursprünglichen organischen Zusammensetzung des Fossils wurde durch Mineralablagerungen ersetzt. Die Mineralablagerungen werden für das Kollektiv von Nutzen sein.“
+|___KY000123___|„Ihre biologische Besonderheit wird zu unserer eigenen hinzugefügt werden.“
+|___KY000124___|„Während der Untersuchung von |___NS000103___| haben die Drohnen der |___NS000104___| mehrere Lebenszeichen aus dem Inneren des Asteroiden empfangen. Es scheint eine Kolonie großer, grabender, wurmartiger Lithovoren in dem Felsen zu geben, der von Tunneln durchzogen ist. Diese einzigartigen, unvollkommenen Lebensformen haben sich irgendwie an ein Leben in der Kälte des Weltraums angepasst.“
+|___KY000125___|„Auf der kargen und luftleeren Oberfläche von |___NS000105___| wurden Fossilien gefunden, die offenbar von mehreren Arten aquatischer Lebensformen stammen. Es gibt Hinweise darauf, dass der umgebende Asteroidengürtel aus den Überresten eines zerbrochenen Planeten entstanden ist, und diese Funde scheinen diese Theorie zu bestätigen. Berechnungen anhand der Fossilien deuten darauf hin, dass dieser Planet einst Leben beherbergte und zumindest teilweise von Wasser bedeckt war.„
+|___KY000126___|“Die technologische Einzigartigkeit wird zu unserer eigenen hinzugefügt werden."
+|___KY000127___|„Ein großer Teil des Asteroiden |___NS000106___| wurde ausgehöhlt, um den Bau einer Art Werft zu ermöglichen. Er wurde aufgegeben und ist seit Hunderten von Zyklen dem Vakuum des Weltraums ausgesetzt – wir haben nichts Nützliches an Bord entdeckt. Das Design der Werft selbst ist jedoch einzigartig, und durch ihre Assimilation könnte man möglicherweise viel lernen.“
+|___KY000128___|„Es wird assimiliert werden.“
+|___KY000129___|„Dieser Asteroid wurde in der fernen Vergangenheit von unvollkommenen Wesen als Schrottplatz genutzt. Alle Arten von ausrangierten Maschinen und Metallabfällen wurden im schwachen Gravitationsfeld des Asteroiden abgelagert und langsam in das Durcheinander von Trümmern gezogen, das nun die Oberfläche bedeckt. Hier gibt es nichts von besonderem Wert zu finden, aber ein Großteil des Metalls könnte von einer Bergbaustation geborgen werden, um es dem Kollektiv hinzuzufügen.“
+|___KY000130___|„Das Kollektiv hat in der oberen Atmosphäre des Gasriesen |___NS000107___| ein blühendes Ökosystem entdeckt. Riesige schwebende Kreaturen, deren Körper sich zu Gasen entwickelt haben, die leichter als Luft sind, folgen den Windströmungen und ernähren sich von der Energie, die durch die häufigen Gewitter des Gasriesen freigesetzt wird. Diese Wesen wiederum ernähren Kolonien kleinerer Tiere, die sich von Plankton in der Atmosphäre und gegenseitig ernähren.„
+|___KY000131___|“ Auf den Ebenen von |___NS000108___| befindet sich eine Flotte kleiner Schiffe, deren Sensoren auf die |___NS000109___| in der Umlaufbahn des Planeten reagieren.|___NL000035___||___NL000036___|Die |___NS000110___|' Die Besatzung konnte nicht genau feststellen, wann die Schiffe aufgegeben wurden – denn sie sind aufgegeben worden –, wer sie dort zurückgelassen hat und wo sich diese Personen jetzt befinden. Laut Wissenschaftsoffizier |___NS000111___| wäre es ein Leichtes, die leicht bewaffneten Schiffe ferngesteuert zu aktivieren, falls wir die Flotte unserer Flotte hinzufügen möchten.“
+|___KY000132___|„Vor langer Zeit wurde von jemandem ein ausrangierter Frachtcontainer in der oberen Atmosphäre von |___NS000112___| zurückgelassen. Er ist irgendwie der Aufmerksamkeit anderer Raumfahrer entgangen, und aufgrund seiner sich verschlechternden Umlaufbahn wäre er innerhalb weniger Zyklen in der erdrückenden Atmosphäre des Gasriesen verloren gegangen. Als die Drohnen der |___NS000113___| die Kapsel öffneten, fanden sie einen Vorrat an außerirdischem Schmuck aus Edelmetallen, die raffiniert werden könnten, um uns zu dienen.“
+|___KY000133___|„Eine kleine Aerostat-Kolonie wurde gefunden, die knapp über der Atmosphäre von |___NS000114___| schwebte. Sensorscans deuten darauf hin, dass sie autark war, und an Bord wurden Überreste mehrerer verschiedener Spezies gefunden.|___NL000037___||___NL000038___|Weitere Analysen deuten darauf hin, dass die Kolonie eine Art soziales Experiment war, das vor Jahrhunderten durchgeführt wurde und schließlich damit endete, dass sich die Kolonisten gegenseitig massakrierten. Wir haben alle Daten aus den begrenzten Datenbanken der Kolonie assimiliert und dem Kollektiv hinzugefügt.“
+|___KY000134___|„In der niedrigen Umlaufbahn dieses Gasriesen befindet sich ein zerstörtes Netzwerk von Aerostat-Kolonien, das mindestens drei Jahrtausende alt ist. Ihre ursprüngliche Funktion scheint der Gasabbau gewesen zu sein, aber sie wurden seitdem aufgegeben und von vielen verschiedenen Rassen und Piratengruppen wiederbesetzt.|___NL000039___||___NL000040___|Die Kolonien wurden gründlich von allem, was auch nur im Entferntesten wertvoll war, geplündert, aber die bloße Tatsache, dass sie nach all dieser Zeit immer noch in der Luft schweben, macht sie zu einem interessanten Gegenstand des Wissens, das es zu assimilieren gilt."
+|___KY000135___|Die starke Schwerkraft von |___NS000115___| hat eine riesige Menge an Weltraumschrott angezogen, der eine dichte Schicht um Teile des Gasriesen gebildet hat. Der größte Teil davon scheint aus Trümmern einer Reihe von Weltraumschlachten zu bestehen, die vor mehreren Jahrtausenden in diesem System ausgetragen wurden. |___NL000041___||___NL000042___|Plünderer haben die Trümmer bereits nach wertvollen Technologien und Artefakten abgesucht, aber eine Bergbaustation sollte in der Lage sein, das Metall zu recyceln und es dem Kollektiv zur Verfügung zu stellen.“
+|___KY000136___|„Seine technologische Einzigartigkeit wird zu unserer eigenen hinzukommen.“
+|___KY000137___|Die zerbrochenen Überreste eines primitiven Raumschiffs können in einer zerfallenden Umlaufbahn tief in der Atmosphäre von |___NS000116___| entdeckt werden. Es scheint sich weit in die Atmosphäre des Gasriesen gewagt zu haben, vielleicht in einem verzweifelten Versuch, einem Verfolger zu entkommen, nur um dann vom atmosphärischen Druck zerquetscht zu werden. |___NL000043___||___NL000044___|Das Schiff befindet sich in zu großer Tiefe, um assimiliert zu werden, aber eine strukturelle Sensorscan der Trümmer hat uns einige interessante technische Daten geliefert, die wir dem Kollektiv hinzufügen könnten.“
+|___KY000138___||___NS000117___| In seiner Atmosphäre kommt es häufig zu massiven und extrem heftigen Sturmsystemen. Von der Umlaufbahn aus sind mehrere Dutzend anhaltende Stürme zu sehen, deren Windgeschwindigkeiten oft über 700 m/s erreichen. Die Ursache dieser Stürme ist nicht sofort ersichtlich, da wir im Klimamodell des Planeten nichts gefunden haben, was sie erklären könnte. Das Kollektiv ist daran interessiert, diese Anomalie zu analysieren.“
+|___KY000139___|„Das |___NS000118___| hat eine seltsame Energiesignatur empfangen, die aus den Tiefen der Atmosphäre von |___NS000119___| stammt. Sie scheint von einer Art Struktur auszugehen, möglicherweise den Überresten einer Orbitalstation, aber der atmosphärische Druck macht eine Annäherung unmöglich. Dennoch haben Scans der einzigartigen Signatur eine große Menge wertvoller physikalischer Daten geliefert, die dem Kollektiv hinzugefügt werden.“
+|___KY000140___|„Seine technologische Besonderheit wird zu unserer eigenen hinzugefügt werden.“
+|___KY000141___|„Ein kleines Aufklärungsraumschiff unbekannter Bauart ist vor Jahrtausenden in die Oberfläche dieses Asteroiden eingeschlagen und hat dabei einen flachen Canyon hinterlassen. Das Raumschiff hat kein sichtbares Cockpit, was das Kollektiv zu der Annahme veranlasst, dass es entweder ferngesteuert oder durch eine Art primitive künstliche Intelligenz gesteuert wurde. Obwohl es zu stark beschädigt ist, um vollständig geborgen zu werden, könnte das Raumschiff dennoch nützliche Informationen für das Kollektiv enthalten.“
+|___KY000142___|„Sensorknoten haben eine automatisierte Bergbaubasis entdeckt, die in einer engen Umlaufbahn um den Asteroiden |___NS000120___| gebaut wurde. Große Teile des Rumpfes fehlen, und die gezackten Löcher deuten auf schwere Beschädigungen durch Waffen hin. Die Station ist nicht mehr zu reparieren, aber ihre Bergung wird dem Kollektiv wertvolle Materialien liefern.“
+|___KY000143___|„Sensorknoten haben eine automatisierte Bergbaubasis entdeckt, die in einer engen Umlaufbahn um den Asteroiden |___NS000121___| gebaut wurde. Es gibt Brandspuren an der Hülle, die auf Schäden durch leichte Waffen hindeuten, und die Anlage schien in einer Art Rückkopplungsschleife festzustecken. Unsere Drohnen haben es geschafft, die Basissysteme neu zu programmieren, und die Anlage ist nun vollständig assimiliert.“
+|___KY000144___|„Es wird assimiliert werden.“
+|___KY000145___|„Dieser Asteroid scheint vor tausend Zyklen zeitweise von unvollkommenen Wesen als Basis genutzt worden zu sein. Ein Drohnen-Bergungsteam drang in die Basis ein und konnte zurückgelassenes Material bergen. Es handelte sich größtenteils um primitive Schmuckstücke und Artefakte, aber einiges davon könnte für das Kollektiv von Wert sein.“
+|___KY000146___|„Der Asteroid |___NS000122___| ist mit Kratern von Waffenexplosionen übersät und scheint vor etwa zweitausend Zyklen von einer unbekannten Spezies als Zielübungsplatz genutzt worden zu sein. Die Messungen der Restenergie deuten darauf hin, dass sie zunehmend exotische Waffen getestet haben, darunter Subraum-Bomben und eine Art Singularitätsgenerator. Die Analyse der ungewöhnlichen Waffenechos könnte für das Kollektiv nützlich sein.“
+|___KY000147___|„Die Mineralien werden uns nützen.“
+|___KY000148___|„Bei näherer Untersuchung haben Drohnen entdeckt, dass ein kleinerer Asteroid, der fast ausschließlich aus seltenen Edelmetallen besteht, kürzlich mit |___NS000123___| kollidiert ist. Ein kleiner, aber dichter Metallvorrat war direkt unter der Oberfläche des Asteroiden versteckt, aber jetzt, da er entdeckt wurde, ist er für Bergbaudrohnen zugänglich.“
+|___KY000149___|„Dieser spezielle Asteroid ist ein extrasolarer Einfang und scheint von einer Art exotischer Strahlung durchdrungen worden zu sein, als er durch den interstellaren Raum stürzte, bevor er sich schließlich im |___NS000124___|-System niederließ. Die ursprüngliche Quelle dieser Strahlung ist dem Kollektiv nach wie vor unbekannt, aber das |___NS000125___| konnte durch die Untersuchung der Energieemissionen des Asteroiden eine Fülle von physikalischen Daten sammeln, die für das Kollektiv nützlich sind.“
+|___KY000150___|„|___NS000126___| scheint nicht aus einem ähnlichen Material wie sein Mutterplanet zu bestehen, was darauf hindeutet, dass er einst ein vagabundierender Planetoid war, der in den Gravitationsbereich seines Primärplaneten geraten ist. Weitere Untersuchungen könnten Aufschluss über seinen Ursprung geben.“
+|___KY000151___|„|___NS000127___| scheint an vielen Stellen nicht aus einem ähnlichen Material wie sein Mutterplanet zu bestehen, was darauf hindeutet, dass |___NS000128___| vor mehreren Millionen Jahren einem bedeutenden Einschlagereignis ausgesetzt war.“
+|___KY000152___|„Nach der Identifizierung einer Anomalie im Gravitationsfeld von |___NS000129___| hat die |___NS000130___| die zerbrochenen Trümmer eines alten Erz-Superfrachters entdeckt, der tief in der Kruste des Asteroiden begraben liegt. Sensorknoten erkennen, dass sich die Fracht an der Oberfläche befindet, und der Mineralreichtum des Asteroiden wurde entsprechend neu kategorisiert. „
+|___KY000153___|“Wir können uns nur auf Kosten eines erhöhten Energiebedarfs der Hauptdeflektoren unseres Raumschiffs vor Entführungen durch die im Subraum existierenden solanogenbasierten Lebensformen schützen. |___NL000045___||___NL000046___|Effizientere Techniken könnten zu erheblichen Energieeinsparungen führen."
+|___KY000154___|„Effiziente Unterraumtaschenstörung“
+|___KY000155___|„Kolonie der Alten“
+|___KY000156___|„Argentinien“
+|___KY000157___|„ Wir haben zugestimmt, den Würfeln in ihrem Konflikt mit den Kugeln zu helfen, die in ihre Heimatnebel eingedrungen sind."
+|___KY000158___|„Photonenwürfel unterstützen”
+|___KY000159___|„Wir haben zugestimmt, den Kugeln in ihrem Konflikt mit den Würfeln zu helfen, die in ihre Heimatnebel eingedrungen sind.”
+|___KY000160___|„Photonen-Orbs unterstützen“
+|___KY000161___|„|___IC000004___|“
+|___KY000162___|„|___NS000131___| wird im Gamma-Quadranten angegriffen.“
+|___KY000163___|„Die gentechnisch veränderte DNA einer minderwertigen Spezies könnte der Schlüssel zur Sicherung der Zukunft des Imperiums sein ...“
+|___KY000164___|„Augmented Realities“
+|___KY000165___|„|___IC000005___|“
+|___KY000166___|„Bribey“
+|___KY000167___|‚Badgey‘
+|___KY000168___|„loQ 'etlh“
+|___KY000169___|„Logico“
+|___KY000170___|„Durch den Bau und Start eines Lichtschiffs nach altem bajoranischem Design könnten wir die Hypothese beweisen, dass die alten Bajoraner ihre Region des Weltraums schon lange vor der Entdeckung des Warpantriebs erforschten.“
+|___KY000171___|„Altes Lichtschiff“
+|___KY000172___|„Durch den Bau und Start eines Lichtschiffs nach altem bajoranischem Design könnten wir die Hypothese beweisen, dass die alten Bajoraner ihre Region des Weltraums schon lange vor der Entdeckung des Warpantriebs erforscht haben.“
+|___KY000173___|„Altes Lichtschiff“
+|___KY000174___|„Durch den Bau und Start eines Lichtschiffs nach altem bajoranischem Design können wir möglicherweise die Hypothese beweisen, dass die alten Bajoraner ihre Region des Weltraums schon lange vor der Entdeckung des Warpantriebs erforscht haben.“
+|___KY000175___|„Altes Lichtschiff“
+|___KY000176___|„|___IC000006___|“
+|___KY000177___|„|___IC000007___|“
+|___KY000178___|„Ein prestigeträchtiges Turnier, das Krieger aus der ganzen |___NS000132___| anzieht.“
+|___KY000179___|„Bat'leth-Turnier“
+|___KY000180___|„Ein prestigeträchtiges Turnier, das Krieger aus der ganzen |___NS000133___| anzieht.“
+|___KY000181___|„Bat'leth-Turnier“
+|___KY000182___|„Bergen“
+|___KY000183___|„“
+|___KY000184___|„|___IC000008___|“
+|___KY000185___|„Eine Spezies |___NS000134___|, ‚|___NS000135___|‘, deren Kolonie nicht mit ihrem Hauptstaatswesen verbunden ist, wurde in |___NS000136___| angetroffen. |___NL000047___||___NL000048___|Die Assimilation der Siedlung wird dem Kollektiv zusätzliche Drohnen und Ressourcen einbringen.”
+|___KY000186___|„Kolonie assimilieren“
+|___KY000187___|„|___NE000002___|“
+|___KY000188___|„|___NE000003___|“
+|___KY000189___|„ |___NE000004___|„
+|___KY000190___|„|___NE000005___|„
+|___KY000191___|„|___NE000006___|„
+|___KY000192___|„ |___NE000007___|„
+|___KY000193___|“|___NE000008___|„
+|___KY000194___|“|___NE000009___|"
+|___KY000195___|„Projekt in Bearbeitung“
+|___KY000196___|„Alle Drohnen deassimiliert“
+|___KY000197___|„ Durch die Entwicklung eines gezielten Nanovirus, das eine terminale Überlastung des kortikalen Implantats einer Drohne auslösen kann, könnte es möglich sein, die Bedrohung durch |___CC000054___|Unimatrix Zero|___CC000055___| vollständig zu beseitigen.
+|___KY000198___|„Entwicklung eines kortikalen Nanovirus”
+|___KY000199___|„Verlagerung des operativen Schwerpunkts auf neue Parameter!“
