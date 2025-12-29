@@ -1,4 +1,5 @@
-﻿using ParadoxTranslationHelper.Utilities;
+﻿using ParadoxTranslationHelper.LineCorrector;
+using ParadoxTranslationHelper.Utilities;
 using Serilog;
 using System.Collections.Generic;
 using System.IO;
@@ -10,14 +11,10 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectLineCorrector : FunctionObjectBase
     {
-        string _pathToReSubstitute;
-        string _translationFileNameDiff;
+        string _pathToAnalysis;
         string _translationFileNameSub;
-        string _translationFileNameResub;
 
-        public string PathToReSubstitute { get => _pathToReSubstitute; set => _pathToReSubstitute = value; }
-        public string TranslationFileNameDiff { get => _translationFileNameDiff; set => _translationFileNameDiff = value; }
-        public string TranslationFileNameResub { get => _translationFileNameResub; set => _translationFileNameResub = value; }
+        public string PathToReSubstitute { get => _pathToAnalysis; set => _pathToAnalysis = value; }
         public string TranslationFileNameSub { get => _translationFileNameSub; set => _translationFileNameSub = value; }
 
         public FunctionObjectLineCorrector(string name) : base(name)
@@ -26,21 +23,9 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
-            if (_pathToReSubstitute == null) 
+            if (_pathToAnalysis == null) 
             {
                 Log.Verbose("Member <PathToReSubstitute> must not be null!");
-                return false;
-            }
-
-            if (_translationFileNameDiff == null)
-            {
-                Log.Verbose("Member <TranslationFileNameSteamDiff> must not be null!");
-                return false;
-            }
-
-            if (_translationFileNameResub == null)
-            {
-                Log.Verbose("Member <TranslationFileNameResub> must not be null!");
                 return false;
             }
 
@@ -50,28 +35,22 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            Task task = Task.Run(() => CorrectAnalyse());
+            Task task = Task.Run(() => CorrectAnalysis());
             task.Wait();
             return true;
         }
 
-        private async Task<bool> CorrectAnalyse()
+        private async Task<bool> CorrectAnalysis()
         {
-            TranslationFile translationFile = FileUtility.CreateTranslationFileFromFileResub(_translationFileNameSub);
-            if (translationFile == null)
-            {
-                Log.Warning("Translation file resub not found! " + _translationFileNameSub);
-                return false;
-            }
+            List<string> fileSub = File.ReadAllLines(_translationFileNameSub).ToList<string>();
 
             //TODO: 2025-12-29 - JHA - Neue Klasse CorrectAnalyse erstellen
             //- Prüft ob alle Keys vorhanden sind
             //- Versucht falsche Keys zu korriegieren |___ ___|
             //- Korrigiert falsche Textanfänge '„' und Textende '“'
-            FileSubstitutor fileSubstitutor = new FileSubstitutor();
-            translationFile.FileNameWithoutLocalisation = Utility.RemoveAllFileExtensions(translationFile.FileNameWithoutLocalisation);
 
-            fileSubstitutor.ReSubstitute(CreateTranslationFileSetSubstitution(translationFile, Path.Combine(_pathToReSubstitute, _translationFileNameDiff)));
+            LineCorrectorController lineCorrector = new LineCorrectorController();
+
             return true;
         }
         private TranslationFileSetSubstitution CreateTranslationFileSetSubstitution(TranslationFile substitutedFile, string pathToSubstitedFileParts)

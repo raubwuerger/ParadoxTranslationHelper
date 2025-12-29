@@ -8,6 +8,9 @@ namespace ParadoxTranslationHelper.LineCorrector
 {
     internal class LineCorrectorFactory
     {
-
+        public ILineCorrector CreateValidateKeys()
+        {
+            return new LineCorrectorValidateKeys();
+        }
     }
 }

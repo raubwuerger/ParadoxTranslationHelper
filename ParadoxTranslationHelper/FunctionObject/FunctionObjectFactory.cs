@@ -59,13 +59,11 @@ namespace ParadoxTranslationHelper
 
         public static IFunctionObject? CreateAnalyseCorrect()
         {
-            FunctionObjectLineCorrector functionObject = new FunctionObjectLineCorrector(FunctionTypes.Correct);
+            FunctionObjectLineCorrector functionObject = new FunctionObjectLineCorrector(FunctionTypes.CorrecLines);
             functionObject.Description = "tries to correct substitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
             functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
-            functionObject.TranslationFileNameDiff = Constants.FILE_NAME_STEAM_MISSING_KEYS;
             functionObject.TranslationFileNameSub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffSubGerman());
-            functionObject.TranslationFileNameResub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman());
 
             return functionObject;
         }

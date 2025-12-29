@@ -8,6 +8,8 @@ namespace ParadoxTranslationHelper.LineCorrector
 {
     internal class LineCorrectorController
     {
+
+
         List<ILineCorrector> _lineCorrectors = new List<ILineCorrector>();
 
         internal List<ILineCorrector> LineCorrectors { get => _lineCorrectors; set => _lineCorrectors = value; }
