@@ -60,8 +60,19 @@
       <german>german</german>
       <steam>..\..\..\testData\functions\CLEAN\localisation\steam</steam>
     </Mod>
+    <Mod name="Test_LINE_CORRECTOR">
+      <basePath>..\..\..\testData\functions\LINE_CORRECTOR\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>..\..\..\testData\functions\LINE_CORRECTOR\localisation\steam</steam>
+    </Mod>
   </Mods>
   <Global>
     <ResultPath>analysis</ResultPath>
   </Global>
+  <Functions>
+    <Function>
+      <ValidateKeys></ValidateKeys>
+    </Function>
+  </Functions>
 </ParadoxTranslationHelper>
