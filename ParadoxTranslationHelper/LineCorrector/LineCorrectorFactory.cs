@@ -10,7 +10,7 @@ namespace ParadoxTranslationHelper.LineCorrector
     {
         public ILineCorrector CreateValidateKeys()
         {
-            return new LineCorrectorValidateKeys();
+            return new LineCorrectorKeys();
         }
     }
 }

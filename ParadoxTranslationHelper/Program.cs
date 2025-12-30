@@ -77,7 +77,7 @@ namespace ParadoxTranslationHelper
             Console.WriteLine(FunctionTypes.DiffFiles);
             Console.WriteLine(FunctionTypes.RemoveKeys);
             Console.WriteLine(FunctionTypes.Sub);
-            Console.WriteLine(FunctionTypes.CorrecLines);
+            Console.WriteLine(FunctionTypes.LineCorrector);
             Console.WriteLine(FunctionTypes.Resub);
             Console.WriteLine(FunctionTypes.Insert);
             Console.WriteLine("----- ADDITIONAL STEPS ------");

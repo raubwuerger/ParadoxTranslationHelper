@@ -48,9 +48,14 @@ namespace ParadoxTranslationHelper
             //- Prüft ob alle Keys vorhanden sind
             //- Versucht falsche Keys zu korriegieren |___ ___|
             //- Korrigiert falsche Textanfänge '„' und Textende '“'
-
+            LineCorrectorFactory lineCorrectorFactory = new LineCorrectorFactory();
             LineCorrectorController lineCorrector = new LineCorrectorController();
+            lineCorrector.Lines = fileSub;
+            lineCorrector.Add(lineCorrectorFactory.CreateValidateKeys());
 
+            lineCorrector.Work();
+
+            //TODO: 2025-12-30 - JHA - Wie erkenne ich ob alle Keys korrekt waren?
             return true;
         }
         private TranslationFileSetSubstitution CreateTranslationFileSetSubstitution(TranslationFile substitutedFile, string pathToSubstitedFileParts)
