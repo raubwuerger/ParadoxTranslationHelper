@@ -7,18 +7,17 @@ using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper.LineCorrector
 {
-    internal class LineCorrectorKeys : ILineCorrector
+    internal class LineCorrectorSplitByKeys : ILineCorrector
     {
-        List<string> _possibleWrong = new List<string> { "" };
         string _correctStart = "|___KY";
         string _correctEnd = "___|";
         int _correctEndLength = 0;
         int _correctLength = 16;
-        List<string> _incorrectLines = new List<string>();
+        List<string> _splittedLines = new List<string>();
 
         public void Correct(List<string> lines)
         {
-            _incorrectLines.Clear();
+            _splittedLines.Clear();
             _correctEndLength = _correctEnd.Length;
             if ( null == lines )
             {
@@ -39,50 +38,45 @@ namespace ParadoxTranslationHelper.LineCorrector
                     continue;
                 }
 
-                if( true == IsKeyCorrect(line) )
-                {
-                    continue;
-                }
-
-                _incorrectLines.Add(line);
-
-                if ( true == TryToCorrect(line) )
-                {
-                    continue;
-                }
+                SplitByKey(line);
             }
         }
 
-        bool IsKeyCorrect( string line )
+        void SplitByKey( string line )
         {
             int indexStart = line.IndexOf(_correctStart);
             if ( indexStart == -1 )
             {
                 Log.Verbose($"Start string {_correctStart} not found!");
-                return false;
+                _splittedLines.Add(line);
+                return;
             }
 
             int indexEnd = line.IndexOf(_correctEnd);
             if( indexEnd == -1 )
             {
                 Log.Verbose($"End string {_correctEnd} not found!");
-                return false;
+                _splittedLines.Add(line);
+                return;
             }
 
             int length = (indexEnd + _correctEndLength) - indexStart;
             if( length != _correctLength )
             {
                 Log.Verbose($"Length mismatch: should={_correctLength}, is={length}");
-                return false;
+                _splittedLines.Add(line);
+                return;
             }
 
-            return true;
-        }
+            int anotherKeyStartIndex = line.IndexOf(_correctStart, length);
+            if( anotherKeyStartIndex == -1 )
+            {
+                _splittedLines.Add(line);
+                return;
+            }
 
-        bool TryToCorrect(string line)
-        {
-            //TODO: 2025-12-30 - JHA - To implement
-            return false;
+            _splittedLines.Add(line.Substring(0,anotherKeyStartIndex));
+            SplitByKey(line.Substring(anotherKeyStartIndex));
         }
 
         bool IgnoreLine(string line)
@@ -102,11 +96,11 @@ namespace ParadoxTranslationHelper.LineCorrector
 
         public List<string> GetIncorrect()
         {
-            return _incorrectLines;
+            return new List<string>();
         }
         public List<string> GetCorrected()
         {
-            return new List<string>();
+            return _splittedLines;
         }
     }
 }

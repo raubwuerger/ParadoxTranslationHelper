@@ -8,14 +8,29 @@ namespace ParadoxTranslationHelper.LineCorrector
 {
     internal class LineCorrectorFactory
     {
-        public ILineCorrector CreateValidateKeys()
+        public ILineCorrector CreateCorrectorKeys()
         {
             return new LineCorrectorKeys();
         }
 
-        public ILineCorrector CreateFirstLast()
+        public ILineCorrector CreateCorrectorSplitByKeys()
+        {
+            return new LineCorrectorSplitByKeys();
+        }
+
+        public ILineCorrector CreateCorrectorFirstLast()
         {
             return new LineCorrectorFirstLast();
+        }
+
+        public ILineCorrector CreateCorrectorQuotationMark()
+        {
+            return new LineCorrectorQuotationMark();
+        }
+
+        public ILineCorrector CreateCorrectorMissingQuotationMark()
+        {
+            return new LineCorrectorMissingQuotationMark();
         }
     }
 }

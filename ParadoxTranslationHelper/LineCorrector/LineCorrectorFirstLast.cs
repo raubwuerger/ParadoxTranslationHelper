@@ -49,7 +49,7 @@ namespace ParadoxTranslationHelper.LineCorrector
          * return value == true: nothing to correct, or corrected!
          *              == false: unable to correct!
          */
-        bool CorrectQuotationMarks( string line )
+        private bool CorrectQuotationMarks( string line )
         {
             int indexCorrectStart = line.IndexOf(Constants.QUOTATION_MARKS);
             int indexCorrectEnd = line.LastIndexOf(Constants.QUOTATION_MARKS);
@@ -152,6 +152,11 @@ namespace ParadoxTranslationHelper.LineCorrector
         public List<string> GetIncorrect()
         {
             return _incorrectLines;
+        }
+
+        public List<string> GetCorrected()
+        {
+            return new List<string>();
         }
     }
 }

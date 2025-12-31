@@ -1,0 +1,77 @@
+﻿using Serilog;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ParadoxTranslationHelper.LineCorrector
+{
+    internal class LineCorrectorQuotationMark : ILineCorrector
+    {
+        public static List<string> _wrongQuotationMarks = new List<string> { "„", "“", "”", "‘", "‚" };
+
+        List<string> _correctedLines = new List<string>();
+
+        public void Correct(List<string> lines)
+        {
+            _correctedLines.Clear();
+            if ( null == lines )
+            {
+                Log.Warning("Parameter lines must not be null!");
+                return;
+            }
+
+            if ( lines.Count() == 0 )
+            {
+                Log.Warning("Parameter lines must not be empty!");
+                return;
+            }
+
+            foreach (string line in lines)
+            {
+                if ( true == IgnoreLine(line) )
+                {
+                    _correctedLines.Add(line);
+                    continue;
+                }
+
+                if( true == CorrectQuotationMarks(line) )
+                {
+                    continue;
+                }
+            }
+        }
+
+        bool IgnoreLine(string line)
+        {
+            if (true == line.Trim().StartsWith(Constants.TRANSLATION_FILE_IDENTIFIER))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        bool CorrectQuotationMarks( string line )
+        {
+            foreach( string wrongQM in _wrongQuotationMarks )
+            {
+                line = line.Replace(wrongQM, Constants.QUOTATION_MARKS);
+            }
+            _correctedLines.Add(line);
+            return true;
+        }
+
+        public List<string> GetIncorrect()
+        {
+            return new List<string>();
+        }
+
+        public List<string> GetCorrected()
+        {
+            return _correctedLines;
+        }
+
+    }
+}

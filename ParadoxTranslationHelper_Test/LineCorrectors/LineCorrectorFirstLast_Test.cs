@@ -20,7 +20,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         public void CorrectNull()
         {
             List<string> _null = null;
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(_null);
             Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
         }
@@ -30,7 +30,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         public void CorrectEmpty()
         {
             List<string> empty = new List<string>();
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(empty);
             Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
         }
@@ -41,7 +41,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         {
             List<string> notEmpty = new List<string>();
             notEmpty.Add("no matching sign!");
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(notEmpty);
             Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
         }
@@ -52,7 +52,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         {
             List<string> notEmpty = new List<string>();
             notEmpty.Add($"matching sign! {LineCorrectorFirstLast._incorrectSign1}{LineCorrectorFirstLast._incorrectSign2}");
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(notEmpty);
             Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
         }
@@ -63,7 +63,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         {
             List<string> notEmpty = new List<string>();
             notEmpty.Add($"matching sign! {LineCorrectorFirstLast._incorrectSign2}{LineCorrectorFirstLast._incorrectSign1}");
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(notEmpty);
             Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
         }
@@ -74,7 +74,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         {
             List<string> notEmpty = new List<string>();
             notEmpty.Add($"matching signs identical! {LineCorrectorFirstLast._incorrectSign1} some text in the middle {LineCorrectorFirstLast._incorrectSign1}");
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(notEmpty);
             Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
         }
@@ -85,7 +85,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         {
             List<string> notEmpty = new List<string>();
             notEmpty.Add($"only one matching! {LineCorrectorFirstLast._incorrectSign1}");
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(notEmpty);
             Assert.AreEqual(1, lineCorrector.GetIncorrect().Count());
         }
@@ -96,7 +96,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         {
             List<string> notEmpty = new List<string>();
             notEmpty.Add($"matching signs identical! {Constants.QUOTATION_MARKS} some text in the middle {LineCorrectorFirstLast._incorrectSign1}{Constants.QUOTATION_MARKS}");
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(notEmpty);
             Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
         }
@@ -107,7 +107,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         {
             List<string> notEmpty = new List<string>();
             notEmpty.Add($"matching signs identical! {Constants.QUOTATION_MARKS} {LineCorrectorFirstLast._incorrectSign1} some text in the middle {LineCorrectorFirstLast._incorrectSign1}{Constants.QUOTATION_MARKS}");
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(notEmpty);
             Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
         }
@@ -118,7 +118,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         {
             List<string> notEmpty = new List<string>();
             notEmpty.Add($"matching signs identical! {LineCorrectorFirstLast._incorrectSign1} some text in the middle {Constants.QUOTATION_MARKS}");
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(notEmpty);
             Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
         }
@@ -129,7 +129,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
         {
             List<string> notEmpty = new List<string>();
             notEmpty.Add($"matching signs identical! {Constants.QUOTATION_MARKS} some text in the middle {LineCorrectorFirstLast._incorrectSign1}");
-            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(notEmpty);
             Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
         }

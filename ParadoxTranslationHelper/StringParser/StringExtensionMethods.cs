@@ -57,5 +57,22 @@ namespace ParadoxTranslationHelper
             }
             return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
         }
+
+        // Source - https://stackoverflow.com/a/767827
+        // Posted by Prashant Cholachagudda, modified by community. See post 'Timeline' for change history
+        // Retrieved 2025-12-31, License - CC BY-SA 2.5
+
+//        var indexs = "Prashant".MultipleIndex('a');
+
+        //Extension Method's Class
+        static int i = 0;
+        public static int[] MultipleIndex(this string StringValue, char chChar)
+        {
+            var indexs = from rgChar in StringValue
+                            where rgChar == chChar && i != StringValue.IndexOf(rgChar, i + 1)
+                            select new { Index = StringValue.IndexOf(rgChar, i + 1), Increament = (i = i + StringValue.IndexOf(rgChar)) };
+            i = 0;
+            return indexs.Select(p => p.Index).ToArray<int>();
+        }
     }
 }

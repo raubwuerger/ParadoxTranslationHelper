@@ -37,6 +37,7 @@ namespace ParadoxTranslationHelper
         public const string FILE_BACKUP_EXTENSION = ".bak";
         public const string SIGN_HASH_TAG = "#";
         public const string QUOTATION_MARKS = "\"";
+        public const char QUOTATION_MARKS_CHAR = '"';
 
         public const string SIGN_TABULATOR = "\t";
         public const string SIGN_NEW_LINE = "\n";
