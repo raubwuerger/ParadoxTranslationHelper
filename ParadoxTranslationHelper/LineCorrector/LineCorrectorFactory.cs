@@ -12,5 +12,10 @@ namespace ParadoxTranslationHelper.LineCorrector
         {
             return new LineCorrectorKeys();
         }
+
+        public ILineCorrector CreateFirstLast()
+        {
+            return new LineCorrectorFirstLast();
+        }
     }
 }

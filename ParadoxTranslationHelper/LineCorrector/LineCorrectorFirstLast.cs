@@ -1,0 +1,141 @@
+﻿using Serilog;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ParadoxTranslationHelper.LineCorrector
+{
+    internal class LineCorrectorFirstLast : ILineCorrector
+    {
+        string _correctSign = "\"";
+        public static string _incorrectSign1 = "„";
+        public static string _incorrectSign2 = "“";
+        List<string> _incorrectLines = new List<string>();
+
+        public void Correct(List<string> lines)
+        {
+            _incorrectLines.Clear();
+            if ( null == lines )
+            {
+                Log.Warning("Parameter lines must not be null!");
+                return;
+            }
+
+            if ( lines.Count() == 0 )
+            {
+                Log.Warning("Parameter lines must not be empty!");
+                return;
+            }
+
+            foreach (string line in lines)
+            {
+                if( true == IgnoreLine(line) )
+                {
+                    continue;
+                }
+
+                if( true == CorrectQuotationMarks(line) )
+                {
+                    continue;
+                }
+
+                _incorrectLines.Add(line);
+            }
+        }
+
+        /**
+         * return value == true: nothing to correct, or corrected!
+         *              == false: unable to correct!
+         */
+        bool CorrectQuotationMarks( string line )
+        {
+            int indexStart = ContainsWrongStart(line);
+            if ( indexStart == -1 )
+            {
+                return true;
+            }
+
+            if( (indexStart + 1) >= line.Length )
+            {
+                return false;
+            }
+
+            int indexEnd = ContainsWrongEnd(line.Substring(indexStart + 1));
+            if( indexEnd == -1 )
+            {
+                return false;
+            }
+
+            if( indexStart == indexEnd )
+            {
+                return false;
+            }
+
+            line = Replace(line, indexStart, 1, _correctSign);
+            line = Replace(line, indexEnd + indexStart + 1, 1, _correctSign);
+
+            return true;
+        }
+
+        /**
+         * Returns -1 if not found!
+         */
+        int ContainsWrongStart(string line)
+        {
+            int indexFirst = line.IndexOf(_incorrectSign1);
+            int indexSecond = line.IndexOf(_incorrectSign2);
+
+            if( indexFirst == -1 && indexSecond == -1 )
+            {
+                return -1;
+            }
+
+            int returnIndex = indexFirst < indexSecond ? indexFirst : indexSecond;
+
+            if( returnIndex == -1 )
+            {
+                returnIndex = indexSecond == -1 ? indexFirst : indexSecond;
+            }
+
+            return returnIndex;
+        }
+
+        int ContainsWrongEnd(string line)
+        {
+            int indexFirst = line.LastIndexOf(_incorrectSign1);
+            if( indexFirst != -1 )
+            {
+                return indexFirst;
+            }
+
+            indexFirst = line.LastIndexOf(_incorrectSign2);
+            if(indexFirst != -1)
+            {
+                return indexFirst;
+            }
+
+            return -1;
+        }
+
+        bool IgnoreLine(string line)
+        {
+            if( true == line.Trim().StartsWith(Constants.TRANSLATION_FILE_IDENTIFIER) )
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        string Replace(string text, int start, int count, string replacement)
+        {
+            return text.Substring(0, start) + replacement + text.Substring(start + count);
+        }
+        public List<string> GetIncorrect()
+        {
+            return _incorrectLines;
+        }
+    }
+}

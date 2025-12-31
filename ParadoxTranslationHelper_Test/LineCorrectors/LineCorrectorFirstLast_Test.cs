@@ -1,0 +1,92 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ParadoxTranslationHelper.Comparator;
+using ParadoxTranslationHelper.LineCorrector;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ParadoxTranslationHelper_Test.LineCorrectors
+{
+    [TestClass]
+    public class LineCorrectorFirstLast_Test
+    {
+        LineCorrectorFactory factory = new LineCorrectorFactory();
+
+        [TestMethod]
+        [DataRow(DisplayName = "Lines null: --> 0")]
+        public void CorrectNull()
+        {
+            List<string> _null = null;
+            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            lineCorrector.Correct(_null);
+            Assert.IsTrue(lineCorrector.GetIncorrect().Count() == 0);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Lines empty: --> 0")]
+        public void CorrectEmpty()
+        {
+            List<string> empty = new List<string>();
+            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            lineCorrector.Correct(empty);
+            Assert.IsTrue(lineCorrector.GetIncorrect().Count() == 0);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Lines no matching signs: --> 0")]
+        public void CorrectNoMatchinSigns()
+        {
+            List<string> notEmpty = new List<string>();
+            notEmpty.Add("no matching sign!");
+            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            lineCorrector.Correct(notEmpty);
+            Assert.IsTrue(lineCorrector.GetIncorrect().Count() == 0);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Lines matching signs: --> 0")]
+        public void CorrectMatchinSigns()
+        {
+            List<string> notEmpty = new List<string>();
+            notEmpty.Add($"matching sign! {LineCorrectorFirstLast._incorrectSign1}{LineCorrectorFirstLast._incorrectSign2}");
+            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            lineCorrector.Correct(notEmpty);
+            Assert.IsTrue(lineCorrector.GetIncorrect().Count() == 0);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Lines matching signs: --> 0")]
+        public void CorrectMatchinSigns2()
+        {
+            List<string> notEmpty = new List<string>();
+            notEmpty.Add($"matching sign! {LineCorrectorFirstLast._incorrectSign2}{LineCorrectorFirstLast._incorrectSign1}");
+            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            lineCorrector.Correct(notEmpty);
+            Assert.IsTrue(lineCorrector.GetIncorrect().Count() == 0);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Lines matching signs identical: --> 0")]
+        public void CorrectMatchinSigns3()
+        {
+            List<string> notEmpty = new List<string>();
+            notEmpty.Add($"matching signs identical! {LineCorrectorFirstLast._incorrectSign1} some text in the middle {LineCorrectorFirstLast._incorrectSign1}");
+            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            lineCorrector.Correct(notEmpty);
+            Assert.IsTrue(lineCorrector.GetIncorrect().Count() == 0);
+        }
+
+        [TestMethod]
+        [DataRow(DisplayName = "Lines only one matching: --> 1")]
+        public void CorrectOnlyOneMatchinSign()
+        {
+            List<string> notEmpty = new List<string>();
+            notEmpty.Add($"only one matching! {LineCorrectorFirstLast._incorrectSign1}");
+            ILineCorrector lineCorrector = factory.CreateFirstLast();
+            lineCorrector.Correct(notEmpty);
+            Assert.IsTrue(lineCorrector.GetIncorrect().Count() == 1);
+        }
+    }
+}

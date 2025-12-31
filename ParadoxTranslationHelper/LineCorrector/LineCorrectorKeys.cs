@@ -14,8 +14,11 @@ namespace ParadoxTranslationHelper.LineCorrector
         string _correctEnd = "___|";
         int _correctEndLength = 0;
         int _correctLength = 16;
+        List<string> _incorrectLines = new List<string>();
+
         public void Correct(List<string> lines)
         {
+            _incorrectLines.Clear();
             _correctEndLength = _correctEnd.Length;
             if ( null == lines )
             {
@@ -41,11 +44,12 @@ namespace ParadoxTranslationHelper.LineCorrector
                     continue;
                 }
 
-                if( true == TryToCorrect(line) )
+                _incorrectLines.Add(line);
+
+                if ( true == TryToCorrect(line) )
                 {
                     continue;
                 }
-
             }
         }
 
@@ -89,6 +93,11 @@ namespace ParadoxTranslationHelper.LineCorrector
             }
 
             return false;
+        }
+
+        public List<string> GetIncorrect()
+        {
+            return _incorrectLines;
         }
     }
 }

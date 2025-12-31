@@ -9,5 +9,7 @@ namespace ParadoxTranslationHelper.LineCorrector
     internal interface ILineCorrector
     {
         void Correct(List<string> lines);
+
+        List<string> GetIncorrect();
     }
 }
