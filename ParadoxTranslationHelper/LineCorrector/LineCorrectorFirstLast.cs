@@ -51,30 +51,43 @@ namespace ParadoxTranslationHelper.LineCorrector
          */
         bool CorrectQuotationMarks( string line )
         {
+            int indexCorrectStart = line.IndexOf(Constants.QUOTATION_MARKS);
+            int indexCorrectEnd = line.LastIndexOf(Constants.QUOTATION_MARKS);
+
             int indexStart = ContainsWrongStart(line);
-            if ( indexStart == -1 )
+            if ( indexStart == -1 && indexCorrectStart == -1 )
             {
                 return true;
             }
 
-            if( (indexStart + 1) >= line.Length )
+            if( indexStart == -1 )
             {
-                return false;
+                indexStart = indexCorrectStart;
             }
 
-            int indexEnd = ContainsWrongEnd(line.Substring(indexStart + 1));
+            int indexEnd = ContainsWrongEnd(line);
             if( indexEnd == -1 )
             {
+                //TODO: 2025-12-31 - JHA - Wenn das Endezeichen aber korrekt ist?
+                Log.Verbose("Only incorrect start sign detected!");
                 return false;
             }
 
-            if( indexStart == indexEnd )
+            //TODO: 2025-12-31 - JHA - Das funktioniert noch nicht ...
+            if( indexStart == indexEnd && (indexCorrectStart != indexCorrectEnd || indexCorrectStart == -1 || indexCorrectEnd == -1) )
             {
                 return false;
             }
 
-            line = Replace(line, indexStart, 1, _correctSign);
-            line = Replace(line, indexEnd + indexStart + 1, 1, _correctSign);
+            if( indexCorrectStart == -1 && indexStart != -1 )
+            {
+                line = Replace(line, indexStart, 1, _correctSign);
+            }
+
+            if( indexCorrectEnd == -1 && indexEnd != -1 )
+            {
+                line = Replace(line, indexEnd, 1, _correctSign);
+            }
 
             return true;
         }
@@ -105,18 +118,21 @@ namespace ParadoxTranslationHelper.LineCorrector
         int ContainsWrongEnd(string line)
         {
             int indexFirst = line.LastIndexOf(_incorrectSign1);
-            if( indexFirst != -1 )
+            int indexSecond = line.LastIndexOf(_incorrectSign2);
+
+            if (indexFirst == -1 && indexSecond == -1)
             {
-                return indexFirst;
+                return -1;
             }
 
-            indexFirst = line.LastIndexOf(_incorrectSign2);
-            if(indexFirst != -1)
+            int returnIndex = indexFirst > indexSecond ? indexFirst : indexSecond;
+
+            if (returnIndex == -1)
             {
-                return indexFirst;
+                returnIndex = indexSecond == -1 ? indexFirst : indexSecond;
             }
 
-            return -1;
+            return returnIndex;
         }
 
         bool IgnoreLine(string line)
