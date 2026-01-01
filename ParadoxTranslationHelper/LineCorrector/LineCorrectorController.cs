@@ -56,7 +56,7 @@ namespace ParadoxTranslationHelper.LineCorrector
                 List<string> incorrect = lineCorrector.GetIncorrect();
                 if (incorrect.Count() != 0)
                 {
-                    SaveIncorrect(lineCorrector.GetIncorrect());
+                    SaveIncorrect(lineCorrector);
                 }
 
                 List<string> corrected = lineCorrector.GetCorrected();
@@ -66,19 +66,23 @@ namespace ParadoxTranslationHelper.LineCorrector
                     _lines = corrected;
                 }
             }
-
         }
 
-        private void SaveIncorrect( List<string>? incorrect )
+        private void SaveIncorrect(ILineCorrector lineCorrector)
         {
-            if( null == incorrect )
+            if (null == lineCorrector)
             {
                 return;
             }
 
-            using (StreamWriter outputFile = new StreamWriter(_fileName + ".err"))
+            if (null == lineCorrector.GetIncorrect)
             {
-                foreach (string line in incorrect)
+                return;
+            }
+
+            using (StreamWriter outputFile = new StreamWriter(_fileName + "." + lineCorrector.GetIncorrectFileExtension() ))
+            {
+                foreach (string line in lineCorrector.GetIncorrect())
                 {
                     outputFile.WriteLine(line);
                 }

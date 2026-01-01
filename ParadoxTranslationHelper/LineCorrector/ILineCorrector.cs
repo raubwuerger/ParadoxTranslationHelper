@@ -10,7 +10,9 @@ namespace ParadoxTranslationHelper.LineCorrector
     {
         void Correct(List<string> lines);
         List<string> GetIncorrect();
+        string GetIncorrectFileExtension();
         List<string> GetCorrected();
+        string GetCorrectFileExtension();
 
     }
 }

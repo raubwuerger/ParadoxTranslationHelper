@@ -102,5 +102,15 @@ namespace ParadoxTranslationHelper.LineCorrector
         {
             return _splittedLines;
         }
+
+        public string GetIncorrectFileExtension()
+        {
+            return "SBK_incorrect";
+        }
+
+        public string GetCorrectFileExtension()
+        {
+            return "SBK_correct";
+        }
     }
 }

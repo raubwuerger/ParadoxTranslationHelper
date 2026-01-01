@@ -95,5 +95,15 @@ namespace ParadoxTranslationHelper.LineCorrector
             return _correctedLines;
         }
 
+        public string GetIncorrectFileExtension()
+        {
+            return "MQM_incorrect";
+        }
+
+        public string GetCorrectFileExtension()
+        {
+            return "MQM_correct";
+        }
+
     }
 }

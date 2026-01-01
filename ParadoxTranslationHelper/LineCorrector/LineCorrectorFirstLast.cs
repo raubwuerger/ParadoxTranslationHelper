@@ -158,5 +158,15 @@ namespace ParadoxTranslationHelper.LineCorrector
         {
             return new List<string>();
         }
+
+        public string GetIncorrectFileExtension()
+        {
+            return "FL_incorrect";
+        }
+
+        public string GetCorrectFileExtension()
+        {
+            return "FL_correct";
+        }
     }
 }

@@ -9,7 +9,8 @@ namespace ParadoxTranslationHelper.LineCorrector
 {
     internal class LineCorrectorKeys : ILineCorrector
     {
-        List<string> _possibleWrong = new List<string> { "" };
+        List<string> _doubleKeys = new List<string> { "" };
+        Dictionary<string,string> _uniqueKeys = new Dictionary<string,string>();
         string _correctStart = "|___KY";
         string _correctEnd = "___|";
         int _correctEndLength = 0;
@@ -19,7 +20,11 @@ namespace ParadoxTranslationHelper.LineCorrector
         public void Correct(List<string> lines)
         {
             _incorrectLines.Clear();
+            _doubleKeys.Clear();
+            _uniqueKeys.Clear();
+
             _correctEndLength = _correctEnd.Length;
+
             if ( null == lines )
             {
                 Log.Warning("Parameter lines must not be null!");
@@ -41,6 +46,14 @@ namespace ParadoxTranslationHelper.LineCorrector
 
                 if( true == IsKeyCorrect(line) )
                 {
+                    if(_uniqueKeys.ContainsKey(line))
+                    {
+                        _doubleKeys.Add(line);
+                    }
+                    else
+                    {
+                        _uniqueKeys.Add(line, line);
+                    }
                     continue;
                 }
 
@@ -102,11 +115,21 @@ namespace ParadoxTranslationHelper.LineCorrector
 
         public List<string> GetIncorrect()
         {
-            return _incorrectLines;
+            return _doubleKeys;
         }
         public List<string> GetCorrected()
         {
-            return new List<string>();
+            return _uniqueKeys.Keys.ToList<string>();
         }
+        public string GetIncorrectFileExtension()
+        {
+            return "dbl";
+        }
+
+        public string GetCorrectFileExtension()
+        {
+            return "Key_correct";
+        }
+
     }
 }
