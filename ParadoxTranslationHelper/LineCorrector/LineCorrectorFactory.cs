@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ParadoxTranslationHelper.Utilities;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +12,9 @@ namespace ParadoxTranslationHelper.LineCorrector
     {
         public ILineCorrector CreateCorrectorKeys()
         {
-            return new LineCorrectorKeys();
+            LineCorrectorKeys lineCorrector = new LineCorrectorKeys();
+            lineCorrector.AllOrginialKeys = FileUtility.ReadSuffixFile( Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS) +"." +FileSubstitutionConstants.KEY_SUFFIX);
+            return lineCorrector;
         }
 
         public ILineCorrector CreateCorrectorSplitByKeys()

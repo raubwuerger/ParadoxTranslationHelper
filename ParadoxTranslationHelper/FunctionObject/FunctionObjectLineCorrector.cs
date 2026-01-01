@@ -62,19 +62,5 @@ namespace ParadoxTranslationHelper
             //TODO: 2025-12-30 - JHA - Wie erkenne ich ob alle Keys korrekt waren?
             return true;
         }
-        private TranslationFileSetSubstitution CreateTranslationFileSetSubstitution(TranslationFile substitutedFile, string pathToSubstitedFileParts)
-        {
-            TranslationFileSetSubstitution translationFileSetSubstitution = new TranslationFileSetSubstitution();
-
-            translationFileSetSubstitution.SubstitutedFile = substitutedFile;
-            translationFileSetSubstitution.PathKeyFile = $"{pathToSubstitedFileParts}.{FileSubstitutionConstants.KEY_SUFFIX}";
-            translationFileSetSubstitution.PathNestingStringsFile = $"{pathToSubstitedFileParts}.{FileSubstitutionConstants.NESTING_STRING_SUFFIX}";
-            translationFileSetSubstitution.PathNamespaceFile = $"{pathToSubstitedFileParts}.{FileSubstitutionConstants.NAMESPACE_SUFFIX}";
-            translationFileSetSubstitution.PathIconFile = $"{pathToSubstitedFileParts}.{FileSubstitutionConstants.ICON_SUFFIX}";
-            translationFileSetSubstitution.PathColorFile = $"{pathToSubstitedFileParts}.{FileSubstitutionConstants.COLOR_CODE_SUFFIX}";
-            translationFileSetSubstitution.PathNewLineFile = $"{pathToSubstitedFileParts}.{FileSubstitutionConstants.NEW_LINE_SUFFIX}";
-
-            return translationFileSetSubstitution;
-        }
     }
 }

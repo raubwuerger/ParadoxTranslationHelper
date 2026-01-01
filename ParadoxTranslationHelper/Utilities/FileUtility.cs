@@ -377,6 +377,34 @@ namespace ParadoxTranslationHelper.Utilities
             return ParadoxTranslationHelperConfig.PathResult;
         }
 
+        public static Dictionary<string,string>? ReadSuffixFile(string suffixFile)
+        {
+            if( true == string.IsNullOrWhiteSpace(suffixFile) )
+            {
+                Log.Warning("Parameter <suffix> must not be null!");
+                return null;
+            }
+
+            Dictionary<string, string> suffixContent = new Dictionary<string, string>();
+
+            if( false == File.Exists(suffixFile) )
+            {
+                Log.Warning($"File {suffixFile} doesn't exists.");
+                return null;
+            }
+            var lines = File.ReadLines(suffixFile);
+            foreach (var line in lines)
+            {
+                string[] splitted = line.Split(";");
+                if( splitted.Length < 2 )
+                {
+                    continue;
+                }
+                suffixContent.Add(splitted[0], splitted[1]);
+            }
+
+            return suffixContent;
+        }
 
     }
 }

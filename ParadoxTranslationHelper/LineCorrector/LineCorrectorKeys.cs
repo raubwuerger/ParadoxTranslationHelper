@@ -15,11 +15,20 @@ namespace ParadoxTranslationHelper.LineCorrector
         string _correctEnd = "___|";
         int _correctEndLength = 0;
         int _correctLength = 16;
-        List<string> _incorrectLines = new List<string>();
+        Dictionary<string, string> _missingKeys = new Dictionary<string, string>();
+        Dictionary<string, string> _allOrginialKeys;
+
+        public Dictionary<string, string> AllOrginialKeys { get => _allOrginialKeys; set => _allOrginialKeys = value; }
 
         public void Correct(List<string> lines)
         {
-            _incorrectLines.Clear();
+            if (null == _allOrginialKeys)
+            {
+                Log.Warning("Member <AllOrginialKeys> must not be null!");
+                return;
+            }
+
+            _missingKeys.Clear();
             _doubleKeys.Clear();
             _uniqueKeys.Clear();
 
@@ -46,24 +55,20 @@ namespace ParadoxTranslationHelper.LineCorrector
 
                 if( true == IsKeyCorrect(line) )
                 {
-                    if(_uniqueKeys.ContainsKey(line))
+                    string key = line.Substring(0, _correctLength);
+                    if (_uniqueKeys.ContainsKey(key))
                     {
                         _doubleKeys.Add(line);
                     }
                     else
                     {
-                        _uniqueKeys.Add(line, line);
+                        _uniqueKeys.Add(key, line);
                     }
                     continue;
                 }
-
-                _incorrectLines.Add(line);
-
-                if ( true == TryToCorrect(line) )
-                {
-                    continue;
-                }
             }
+
+            _missingKeys = CheckMissingKeys(_allOrginialKeys, _uniqueKeys);
         }
 
         bool IsKeyCorrect( string line )
@@ -92,10 +97,33 @@ namespace ParadoxTranslationHelper.LineCorrector
             return true;
         }
 
-        bool TryToCorrect(string line)
+        Dictionary<string, string>? CheckMissingKeys(Dictionary<string, string> allOrginialKeys, Dictionary<string, string> uniqueKeys)
         {
-            //TODO: 2025-12-30 - JHA - To implement
-            return false;
+            if( allOrginialKeys == null )
+            {
+                Log.Warning("Parameter <allOrginialKeys> must not be null!");
+                return null;
+            }
+
+            if (uniqueKeys == null)
+            {
+                Log.Warning("Parameter <uniqueKeys> must not be null!");
+                return null;
+            }
+
+            Dictionary<string, string> missingKeys = new Dictionary<string, string>();
+
+            foreach( string originalKey in allOrginialKeys.Keys.ToList<string>() )
+            {
+                if( true == uniqueKeys.ContainsKey(originalKey) )
+                {
+                    continue;
+                }
+
+                missingKeys.Add(originalKey, allOrginialKeys[originalKey]);
+            }
+
+            return missingKeys;
         }
 
         bool IgnoreLine(string line)
@@ -115,7 +143,7 @@ namespace ParadoxTranslationHelper.LineCorrector
 
         public List<string> GetIncorrect()
         {
-            return _doubleKeys;
+            return _missingKeys.Keys.ToList<string>();
         }
         public List<string> GetCorrected()
         {
@@ -123,12 +151,12 @@ namespace ParadoxTranslationHelper.LineCorrector
         }
         public string GetIncorrectFileExtension()
         {
-            return "dbl";
+            return "Keys_missing";
         }
 
         public string GetCorrectFileExtension()
         {
-            return "Key_correct";
+            return "Keys_correct";
         }
 
     }
