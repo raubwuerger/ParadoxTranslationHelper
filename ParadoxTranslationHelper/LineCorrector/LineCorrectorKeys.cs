@@ -1,6 +1,8 @@
-﻿using Serilog;
+﻿using ParadoxTranslationHelper.Utilities;
+using Serilog;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +19,10 @@ namespace ParadoxTranslationHelper.LineCorrector
         int _correctLength = 16;
         Dictionary<string, string> _missingKeys = new Dictionary<string, string>();
         Dictionary<string, string> _allOrginialKeys;
+        List<string> _originalDiffFile = new List<string>();
 
         public Dictionary<string, string> AllOrginialKeys { get => _allOrginialKeys; set => _allOrginialKeys = value; }
+        public List<string> OriginalDiffFile { get => _originalDiffFile; set => _originalDiffFile = value; }
 
         public void Correct(List<string> lines)
         {
@@ -36,13 +40,25 @@ namespace ParadoxTranslationHelper.LineCorrector
 
             if ( null == lines )
             {
-                Log.Warning("Parameter lines must not be null!");
+                Log.Warning("Parameter <lines> must not be null!");
                 return;
             }
 
             if ( lines.Count() == 0 )
             {
-                Log.Warning("Parameter lines must not be empty!");
+                Log.Warning("Parameter <lines> must not be empty!");
+                return;
+            }
+
+            if( null == OriginalDiffFile )
+            {
+                Log.Warning("Parameter <OriginalDiffFile> must not be null!");
+                return;
+            }
+
+            if ( OriginalDiffFile.Count == 0 )
+            {
+                Log.Warning("Parameter <OriginalDiffFile> must not be empty!");
                 return;
             }
 
@@ -69,6 +85,9 @@ namespace ParadoxTranslationHelper.LineCorrector
             }
 
             _missingKeys = CheckMissingKeys(_allOrginialKeys, _uniqueKeys);
+            string missingTranslationFile = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS);
+            FileUtility.BackupFile(missingTranslationFile);
+            FileUtility.WriteLines(CreateLinesNotTranslated(_missingKeys, _originalDiffFile), missingTranslationFile);
         }
 
         bool IsKeyCorrect( string line )
@@ -125,6 +144,32 @@ namespace ParadoxTranslationHelper.LineCorrector
 
             return missingKeys;
         }
+
+        List<string>? CreateLinesNotTranslated(Dictionary<string, string>  missingKeys, List<string> originalDiffFile )
+        {
+            if( missingKeys.Count == 0 )
+            {
+                Log.Debug("No missing keys found!");
+                return null;
+            }
+
+            List<string> keysNotTranslated = new List<string>();
+
+            //TODO: 2026-01-02 - JHA - Suche in Liste ist langsam
+            foreach (KeyValuePair<string,string> keyValuePair in missingKeys )
+            {
+                string found = originalDiffFile.Find(x => x.Contains(keyValuePair.Value));
+                if( null == found )
+                {
+                    Log.Warning($"Key {keyValuePair.Value} not found in source file!");
+                    continue;
+                }
+                keysNotTranslated.Add(found);
+            }
+
+            return keysNotTranslated;
+        }
+
 
         bool IgnoreLine(string line)
         {

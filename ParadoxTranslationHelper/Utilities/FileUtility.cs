@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using Serilog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Serilog;
 
 namespace ParadoxTranslationHelper.Utilities
 {
@@ -151,6 +152,34 @@ namespace ParadoxTranslationHelper.Utilities
             catch (Exception ex)
             {
                 Log.Warning("Writing file: " + fileName + " failed!");
+                Log.Fatal(ex.ToString());
+            }
+        }
+
+        public static void WriteLines(List<string>? lines, string fileName)
+        {
+            if (null == lines)
+            {
+                Log.Verbose("Parameter <lineObjects> must not be null!");
+                return;
+            }
+
+            try
+            {
+                ClearFileContent(fileName);
+                using (Stream stream = File.OpenWrite(fileName))
+                using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+                {
+                    foreach (string line in lines)
+                    {
+                        outputFile.WriteLine(line);
+                    }
+                }
+                Log.Verbose($"Wrote file {fileName} successful. Line count={lines.Count}");
+            }
+            catch (Exception ex)
+            {
+                Log.Warning($"Writing file {fileName} failed!");
                 Log.Fatal(ex.ToString());
             }
         }
@@ -404,6 +433,38 @@ namespace ParadoxTranslationHelper.Utilities
             }
 
             return suffixContent;
+        }
+
+        public static List<string>? ReadFile( string fileName )
+        {
+            if( false == File.Exists(fileName) )
+            {
+                Log.Warning($"File {fileName} doesn't exist!");
+                return null;
+            }
+
+            List<string> readLines = new List<string>();
+            using (Stream stream = File.OpenRead(fileName))
+            {
+                var lines = File.ReadLines(fileName);
+                foreach (string line in lines)
+                {
+                    readLines.Add(line);
+                }
+            }
+
+            Log.Warning($"File {fileName} red! Line count={readLines.Count}");
+            return readLines;
+        }
+
+        public static void BackupFile( string fileName )
+        {
+            if( false == File.Exists(fileName) )
+            {
+                return;
+            }
+
+            File.Move(fileName, fileName + ".bak");
         }
 
     }

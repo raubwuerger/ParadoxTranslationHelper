@@ -14,6 +14,7 @@ namespace ParadoxTranslationHelper.LineCorrector
         {
             LineCorrectorKeys lineCorrector = new LineCorrectorKeys();
             lineCorrector.AllOrginialKeys = FileUtility.ReadSuffixFile( Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS) +"." +FileSubstitutionConstants.KEY_SUFFIX);
+            lineCorrector.OriginalDiffFile = FileUtility.ReadFile(Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS));
             return lineCorrector;
         }
 
