@@ -2,6 +2,7 @@
 using System;
 using Serilog;
 using System.Linq;
+using System.IO;
 
 namespace ParadoxTranslationHelper
 {
@@ -59,6 +60,11 @@ namespace ParadoxTranslationHelper
             }
 
             if( null == LocalisationFilesGerman )
+            {
+                return;
+            }
+
+            if( false == File.Exists(_translationFileToIgnore) )
             {
                 return;
             }

@@ -310,6 +310,7 @@ namespace ParadoxTranslationHelper.Utilities
                 using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
                 }
+                Log.Information($"Wrote empty file {fileName}");
                 return true;
             }
             catch (Exception e)
@@ -453,7 +454,7 @@ namespace ParadoxTranslationHelper.Utilities
                 }
             }
 
-            Log.Warning($"File {fileName} red! Line count={readLines.Count}");
+            Log.Warning($"Reading file {fileName}. Line count={readLines.Count}");
             return readLines;
         }
 

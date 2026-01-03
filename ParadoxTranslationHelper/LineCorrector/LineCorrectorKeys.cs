@@ -20,6 +20,7 @@ namespace ParadoxTranslationHelper.LineCorrector
         Dictionary<string, string> _missingKeys = new Dictionary<string, string>();
         Dictionary<string, string> _allOrginialKeys;
         List<string> _originalDiffFile = new List<string>();
+        List<string> _correctedKeys = new List<string>();
 
         public Dictionary<string, string> AllOrginialKeys { get => _allOrginialKeys; set => _allOrginialKeys = value; }
         public List<string> OriginalDiffFile { get => _originalDiffFile; set => _originalDiffFile = value; }
@@ -35,6 +36,7 @@ namespace ParadoxTranslationHelper.LineCorrector
             _missingKeys.Clear();
             _doubleKeys.Clear();
             _uniqueKeys.Clear();
+            _correctedKeys.Clear();
 
             _correctEndLength = _correctEnd.Length;
 
@@ -79,6 +81,7 @@ namespace ParadoxTranslationHelper.LineCorrector
                     else
                     {
                         _uniqueKeys.Add(key, line);
+                        _correctedKeys.Add(line);
                     }
                     continue;
                 }
@@ -86,8 +89,7 @@ namespace ParadoxTranslationHelper.LineCorrector
 
             _missingKeys = CheckMissingKeys(_allOrginialKeys, _uniqueKeys);
             string missingTranslationFile = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS);
-            FileUtility.BackupFile(missingTranslationFile);
-            FileUtility.WriteLines(CreateLinesNotTranslated(_missingKeys, _originalDiffFile), missingTranslationFile);
+            FileUtility.WriteLines(CreateLinesNotTranslated(_missingKeys, _originalDiffFile), missingTranslationFile + ".additional");
         }
 
         bool IsKeyCorrect( string line )
@@ -192,7 +194,7 @@ namespace ParadoxTranslationHelper.LineCorrector
         }
         public List<string> GetCorrected()
         {
-            return _uniqueKeys.Keys.ToList<string>();
+            return _correctedKeys;
         }
         public string GetIncorrectFileExtension()
         {
