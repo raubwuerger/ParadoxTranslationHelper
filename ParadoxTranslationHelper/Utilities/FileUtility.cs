@@ -458,14 +458,39 @@ namespace ParadoxTranslationHelper.Utilities
             return readLines;
         }
 
-        public static void BackupFile( string fileName )
+        /*
+         *  Copies given file fileName -> fileName.bak (fileName.bak will be overwritten)
+         * 
+         * parameter:
+         *  - fileName
+         *      File name to backup
+         * result:
+         *  - true
+         *      if file doesn't exist
+         *      if file was successfully moved
+         */
+        public static bool BackupFile( string fileName )
         {
             if( false == File.Exists(fileName) )
             {
-                return;
+                Log.Debug($"File {fileName} doesn't exist!");
+                return true;
             }
 
-            File.Move(fileName, fileName + ".bak");
+            string fileNameBakup = fileName + Constants.FILE_BACKUP_EXTENSION;
+            File.Copy(fileName, fileNameBakup, true);
+            
+            bool renamingSuccessful = File.Exists(fileNameBakup);
+            if( false == renamingSuccessful )
+            {
+                Log.Warning($"Renaming file from {fileName} to {fileNameBakup} failed!");
+            }
+            else
+            {
+                Log.Debug($"Renaming file from {fileName} to {fileNameBakup} succeeded!");
+            }
+
+            return renamingSuccessful;
         }
 
     }

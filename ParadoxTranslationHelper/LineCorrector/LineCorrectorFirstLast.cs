@@ -14,6 +14,8 @@ namespace ParadoxTranslationHelper.LineCorrector
         public static string _incorrectSign2 = "“";
         List<string> _incorrectLines = new List<string>();
 
+        public string Name { get => "LineCorrectorFirstLast"; }
+
         public void Correct(List<string> lines)
         {
             _incorrectLines.Clear();

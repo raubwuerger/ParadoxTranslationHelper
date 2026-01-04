@@ -14,6 +14,7 @@ namespace ParadoxTranslationHelper.LineCorrector
         int _correctEndLength = 0;
         int _correctLength = 16;
         List<string> _splittedLines = new List<string>();
+        public string Name { get => "LineCorrectorSplitByKeys"; }
 
         public void Correct(List<string> lines)
         {

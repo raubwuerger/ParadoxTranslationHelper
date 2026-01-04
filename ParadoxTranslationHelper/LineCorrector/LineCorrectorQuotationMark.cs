@@ -13,6 +13,8 @@ namespace ParadoxTranslationHelper.LineCorrector
 
         List<string> _correctedLines = new List<string>();
 
+        public string Name { get => "LineCorrectorQuotationMark"; }
+
         public void Correct(List<string> lines)
         {
             _correctedLines.Clear();

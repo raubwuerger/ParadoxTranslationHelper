@@ -8,6 +8,10 @@ namespace ParadoxTranslationHelper.LineCorrector
 {
     internal interface ILineCorrector
     {
+        string Name
+        {
+            get;
+        }
         void Correct(List<string> lines);
         List<string> GetIncorrect();
         string GetIncorrectFileExtension();

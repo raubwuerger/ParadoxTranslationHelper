@@ -11,6 +11,8 @@ namespace ParadoxTranslationHelper.LineCorrector
     {
         List<string> _correctedLines = new List<string>();
 
+        public string Name { get => "LineCorrectorMissingQuotationMark"; }
+
         public void Correct(List<string> lines)
         {
             _correctedLines.Clear();
@@ -74,8 +76,19 @@ namespace ParadoxTranslationHelper.LineCorrector
         string CorrectQuotationMarkStart(string line)
         {
             const int KEY_LENGTH = 16;
+            if( line.Length < 16 )
+            {
+                return line;
+            }
+
             string SubLine = line.Substring(KEY_LENGTH);
             SubLine = SubLine.TrimStart();
+
+            if( SubLine.Length == 0 )
+            {
+                return line;
+            }
+
             if (SubLine[0] != Constants.QUOTATION_MARKS_CHAR)
             {
                 Log.Verbose("Appended quotation mark after key.");

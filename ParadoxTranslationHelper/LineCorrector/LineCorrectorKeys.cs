@@ -1,4 +1,5 @@
-﻿using ParadoxTranslationHelper.Utilities;
+﻿using ParadoxTranslationHelper.Helper;
+using ParadoxTranslationHelper.Utilities;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -25,53 +26,60 @@ namespace ParadoxTranslationHelper.LineCorrector
         public Dictionary<string, string> AllOrginialKeys { get => _allOrginialKeys; set => _allOrginialKeys = value; }
         public List<string> OriginalDiffFile { get => _originalDiffFile; set => _originalDiffFile = value; }
 
-        public void Correct(List<string> lines)
+        public string Name { get => "LineCorrectorKeys"; }
+
+        public void Correct(List<string> linesToCorrect)
         {
-            if (null == _allOrginialKeys)
+            ClearData();
+
+            _correctEndLength = _correctEnd.Length;
+
+            if ( false == IsCorrectInitialized(linesToCorrect) )
             {
-                Log.Warning("Member <AllOrginialKeys> must not be null!");
+                Log.Warning("Not correct initialzed!");
                 return;
             }
 
+            CorrectLines(linesToCorrect);
+
+            _missingKeys = CheckMissingKeys(_allOrginialKeys, _uniqueKeys);
+            FileUtility.WriteLines(CreateLinesNotTranslated(_missingKeys, _originalDiffFile), Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS) + ".notTranslated");
+
+            KeySorter keySorter = new KeySorter();
+            keySorter.OriginalKeys = _allOrginialKeys;
+            keySorter.NotTranslatedKeys = _missingKeys;
+            keySorter.TranslatedKeys = _uniqueKeys;
+
+            if( false == keySorter.Sort() )
+            {
+                //TODO: 2026-01-04 - JHA - Speichern!?
+            }
+
+            _correctedKeys = keySorter.SortedKeys.Values.ToList<string>();
+
+            string subGerman = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS) + FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED + FileSubstitutionConstants.FILE_SUFFIX_GERMAN;
+            FileUtility.BackupFile(subGerman);
+            FileUtility.WriteLines(_correctedKeys, subGerman);
+        }
+
+        private void ClearData()
+        {
             _missingKeys.Clear();
             _doubleKeys.Clear();
             _uniqueKeys.Clear();
             _correctedKeys.Clear();
+        }
 
-            _correctEndLength = _correctEnd.Length;
-
-            if ( null == lines )
+        private void CorrectLines(List<string> linesToCorrect)
+        {
+            foreach (string line in linesToCorrect)
             {
-                Log.Warning("Parameter <lines> must not be null!");
-                return;
-            }
-
-            if ( lines.Count() == 0 )
-            {
-                Log.Warning("Parameter <lines> must not be empty!");
-                return;
-            }
-
-            if( null == OriginalDiffFile )
-            {
-                Log.Warning("Parameter <OriginalDiffFile> must not be null!");
-                return;
-            }
-
-            if ( OriginalDiffFile.Count == 0 )
-            {
-                Log.Warning("Parameter <OriginalDiffFile> must not be empty!");
-                return;
-            }
-
-            foreach (string line in lines)
-            {
-                if( true == IgnoreLine(line) )
+                if (true == IgnoreLine(line))
                 {
                     continue;
                 }
 
-                if( true == IsKeyCorrect(line) )
+                if (true == IsKeyCorrect(line))
                 {
                     string key = line.Substring(0, _correctLength);
                     if (_uniqueKeys.ContainsKey(key))
@@ -86,10 +94,6 @@ namespace ParadoxTranslationHelper.LineCorrector
                     continue;
                 }
             }
-
-            _missingKeys = CheckMissingKeys(_allOrginialKeys, _uniqueKeys);
-            string missingTranslationFile = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS);
-            FileUtility.WriteLines(CreateLinesNotTranslated(_missingKeys, _originalDiffFile), missingTranslationFile + ".additional");
         }
 
         bool IsKeyCorrect( string line )
@@ -204,6 +208,41 @@ namespace ParadoxTranslationHelper.LineCorrector
         public string GetCorrectFileExtension()
         {
             return "Keys_correct";
+        }
+
+        private bool IsCorrectInitialized(List<string> lines)
+        {
+            if (false == DictionaryHelper.IsValid(_allOrginialKeys) )
+            {
+                Log.Warning("Member <AllOrginialKeys> must not be null!");
+                return false;
+            }
+
+            if (null == lines)
+            {
+                Log.Warning("Parameter <lines> must not be null!");
+                return false;
+            }
+
+            if (lines.Count() == 0)
+            {
+                Log.Warning("Parameter <lines> must not be empty!");
+                return false;
+            }
+
+            if (null == _originalDiffFile)
+            {
+                Log.Warning("Parameter <OriginalDiffFile> must not be null!");
+                return false;
+            }
+
+            if (_originalDiffFile.Count() == 0)
+            {
+                Log.Warning("Parameter <OriginalDiffFile> must not be empty!");
+                return false;
+            }
+            
+            return true;
         }
 
     }
