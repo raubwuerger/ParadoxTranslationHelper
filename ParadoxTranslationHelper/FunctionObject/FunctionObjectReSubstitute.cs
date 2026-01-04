@@ -50,7 +50,6 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-//            Task task = Task.Run(() => DoResubstitutionPart());
             Task task = Task.Run(() => Resubstitute());
             task.Wait();
             return true;

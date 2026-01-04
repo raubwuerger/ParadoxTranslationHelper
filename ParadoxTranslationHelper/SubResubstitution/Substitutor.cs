@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Serilog;
+using ParadoxTranslationHelper.LineObjects;
 
 namespace ParadoxTranslationHelper
 {
@@ -116,7 +117,7 @@ namespace ParadoxTranslationHelper
 
             string key = lineObject.OriginalLineSubstituted.Substring(0, index);
             string subString = $"{FileSubstitutionConstants.SUBSTITUTION_START}{FileSubstitutionConstants.KEY_SUFFIX + Utility.PadLeft_6_0(_keySubstitute.Count)}{FileSubstitutionConstants.SUBSTITUTION_END}";
-            _keySubstitute.Add(subString, CreateSubKeyLineTripel(key, lineObject));
+            _keySubstitute.Add(subString, SubstituteFileHelper.CreateSubKeyLineTripel(key, lineObject));
             lineObject.KeySubstituted = subString;
 
             string substitute = lineObject.OriginalLineSubstituted;
@@ -142,7 +143,7 @@ namespace ParadoxTranslationHelper
         private string GenerateNestingStringSubstitute(string sub, LineObject lineObject)
         {
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NESTING_STRING_SUFFIX + Utility.PadLeft_6_0(_nestingStringsSubstitute.Count()) + FileSubstitutionConstants.SUBSTITUTION_END;
-            _nestingStringsSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
+            _nestingStringsSubstitute.Add(subString, SubstituteFileHelper.CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
 
@@ -167,7 +168,7 @@ namespace ParadoxTranslationHelper
         private string GenerateNewLineSubsitute(string sub, LineObject lineObject)
         {
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX + Utility.PadLeft_6_0(_newLineSubstitute.Count()) + FileSubstitutionConstants.SUBSTITUTION_END;
-            _newLineSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
+            _newLineSubstitute.Add(subString, SubstituteFileHelper.CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
 
@@ -191,7 +192,7 @@ namespace ParadoxTranslationHelper
         private string GenerateColorCodeSubstitute(string sub, LineObject lineObject)
         {
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX + Utility.PadLeft_6_0(_colorCodeSubstitute.Count()) + FileSubstitutionConstants.SUBSTITUTION_END;
-            _colorCodeSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
+            _colorCodeSubstitute.Add(subString, SubstituteFileHelper.CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
 
@@ -217,7 +218,7 @@ namespace ParadoxTranslationHelper
         private string GenerateNamespaceSubstitute(string sub, LineObject lineObject)
         {
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NAMESPACE_SUFFIX + Utility.PadLeft_6_0(_namespaceSubstitute.Count()) + FileSubstitutionConstants.SUBSTITUTION_END;
-            _namespaceSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
+            _namespaceSubstitute.Add(subString, SubstituteFileHelper.CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
         private void SubstituteIcon(LineObject lineObject)
@@ -245,7 +246,7 @@ namespace ParadoxTranslationHelper
         private string GenerateIconSubstitute(string sub, LineObject lineObject)
         {
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.ICON_SUFFIX + Utility.PadLeft_6_0(_iconSubstitute.Count()) + FileSubstitutionConstants.SUBSTITUTION_END;
-            _iconSubstitute.Add(subString, CreateSubKeyLineTripel(sub, lineObject));
+            _iconSubstitute.Add(subString, SubstituteFileHelper.CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
 
@@ -270,15 +271,10 @@ namespace ParadoxTranslationHelper
         private string GenerateTabulatorSubsitute(string sub, LineObject lineObject)
         {
             string subString = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.TABULATOR_SUFFIX + FileSubstitutionConstants.SUBSTITUTION_END;
-            _tabulatorSubstitute.Add(subString + Utility.PadLeft_6_0(_tabulatorSubstitute.Count()), CreateSubKeyLineTripel(sub, lineObject));
+            _tabulatorSubstitute.Add(subString + Utility.PadLeft_6_0(_tabulatorSubstitute.Count()), SubstituteFileHelper.CreateSubKeyLineTripel(sub, lineObject));
             return subString;
         }
 
-
-        private string CreateSubKeyLineTripel(string sub, LineObject lineObject)
-        {
-            return sub + ";" + lineObject.Key + ";" + lineObject.LineNumber;
-        }
 
         private void WriteSubstitionFile(TranslationFile translationFile, string fileName)
         {

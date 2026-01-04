@@ -40,5 +40,6 @@ namespace ParadoxTranslationHelper
 
         public const string SIGN_TABULATOR = "\t";
         public const string SIGN_NEW_LINE = "\n";
+        public const string DEFAULT_SEPARATOR = ";";
     }
 }

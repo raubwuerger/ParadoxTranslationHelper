@@ -46,13 +46,6 @@ namespace ParadoxTranslationHelper
 
             FileUtility.WriteLines(_translationFileSetSubstitution.SubstitutedFile.Lines.Values.ToList(), _translationFileSetSubstitution.SubstitutedFile.FileNameWithBasePath + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED);
             Log.Information("Resubstitution finished ...");
-
-
-            //            string resubstitute = ResubstituteAll();
-            //            string fileName = Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED;
-            //            Log.Debug($"Writing text file: {fileName}");
-            //            File.WriteAllText(Utility.ReplaceWithAnalyseDirectory(_translationFileSetSubstitution.SubstitutedFile) + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED, resubstitute);
-            Log.Information("Resubstitution finished ...");
         }
 
         private string ResubstituteAll()
@@ -185,7 +178,6 @@ namespace ParadoxTranslationHelper
 
             ResubstitutionHelper resubstitutionHelper = new ResubstitutionHelper();
 
-            CorrectWrongCharacters(lineObjects);
             lineObjects = AnalyseAndCorrectLines(lineObjects);
             FileUtility.WriteLines(lineObjects, _translationFileSetSubstitution.SubstitutedFile.FileNameWithBasePath + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED +".fixed");
 
@@ -238,18 +230,6 @@ namespace ParadoxTranslationHelper
             if (true == _newLineReSubstitute.Any())
             {
                 FileUtility.WriteLines(_newLineReSubstitute, _translationFileSetSubstitution.PathNewLineFile + FileSubstitutionConstants.NOT_FOUND);
-            }
-        }
-
-        static List<char> wrongCharacters = new List<char> { '“', '„', '”', '‚', '‘', '`', '´' };
-        private void CorrectWrongCharacters(List<LineObject> lineObjects)
-        {
-            foreach (LineObject lineObject in lineObjects)
-            {
-                foreach (char wrongCharacter in wrongCharacters)
-                {
-                    lineObject.OriginalLine = lineObject.OriginalLine.Replace(wrongCharacter, '"');
-                }
             }
         }
 
