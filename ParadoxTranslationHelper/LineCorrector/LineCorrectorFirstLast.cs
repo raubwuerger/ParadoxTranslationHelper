@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using ParadoxTranslationHelper.Helper;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace ParadoxTranslationHelper.LineCorrector
 
             foreach (string line in lines)
             {
-                if( true == IgnoreLine(line) )
+                if( true == LineHelper.IgnoreLine(line) )
                 {
                     continue;
                 }
@@ -135,16 +136,6 @@ namespace ParadoxTranslationHelper.LineCorrector
             }
 
             return returnIndex;
-        }
-
-        bool IgnoreLine(string line)
-        {
-            if( true == line.Trim().StartsWith(Constants.TRANSLATION_FILE_IDENTIFIER) )
-            {
-                return true;
-            }
-
-            return false;
         }
 
         string Replace(string text, int start, int count, string replacement)

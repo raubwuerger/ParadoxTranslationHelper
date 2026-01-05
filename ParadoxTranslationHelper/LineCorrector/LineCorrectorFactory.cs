@@ -1,4 +1,5 @@
-﻿using ParadoxTranslationHelper.Utilities;
+﻿using ParadoxTranslationHelper.SubResubstitution;
+using ParadoxTranslationHelper.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,5 +38,17 @@ namespace ParadoxTranslationHelper.LineCorrector
         {
             return new LineCorrectorMissingQuotationMark();
         }
+
+        public ILineCorrector CreateCorrectorSubstitution(string suffix)
+        {
+            SubstitutionFileReader fileReader = SubstitutionFileReaderFactory.Create(suffix);
+
+            LineCorrectorSubstitution lineCorrector = new LineCorrectorSubstitution();
+            lineCorrector.SubstitutionSuffix = suffix;
+            lineCorrector.Substitutions = fileReader.ReadFile(suffix);
+
+            return lineCorrector;
+        }
+
     }
 }

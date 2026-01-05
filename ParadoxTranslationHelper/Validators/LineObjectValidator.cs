@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using ParadoxTranslationHelper.Helper;
+using Serilog;
 
 namespace ParadoxTranslationHelper.Validators
 {
@@ -12,27 +13,12 @@ namespace ParadoxTranslationHelper.Validators
                 return false;
             }
 
-            if( true == IsIgnoreLine(lineObject.OriginalLine) ) 
+            if( true == LineHelper.IgnoreLine(lineObject.OriginalLine) ) 
             {
                 return true;
             }
 
             return true;
-        }
-
-        private static bool IsIgnoreLine( string originalLine )
-        {
-            if (true == string.IsNullOrWhiteSpace(originalLine))
-            {
-                return true;
-            }
-
-            if( true == originalLine.TrimStart().StartsWith('#') )
-            {
-                return true;
-            }
-
-            return false;
         }
 
         public static bool IsValid( LineObjectSubstitutionFile lineObject )

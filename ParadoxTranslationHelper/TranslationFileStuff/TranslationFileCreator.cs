@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using ParadoxTranslationHelper.Helper;
 using Serilog;
 
 namespace ParadoxTranslationHelper
@@ -117,7 +118,7 @@ namespace ParadoxTranslationHelper
             int lineNumber = 0;
             foreach (string line in lines)
             {
-                if( false == IgnoreLine(line) )
+                if( false == LineHelper.IgnoreLine(line) )
                 {
                     //TODO: 2025-12-06 - JHA - Macht bei Substituierter Datei keinen Sinn!
                     SetKey(line, stringParserKey);
@@ -136,27 +137,6 @@ namespace ParadoxTranslationHelper
             }
 
             return lineObjects;
-        }
-
-        private bool IgnoreLine(string line) 
-        {
-            if( true == string.IsNullOrWhiteSpace(line) )
-            {
-                return true;
-            }
-
-            string lineTrimmed = line.Trim();
-            if (lineTrimmed.StartsWith(Constants.SIGN_HASH_TAG) )
-            {
-                return true;
-            }
-
-            if (lineTrimmed.StartsWith(Constants.TRANSLATION_FILE_IDENTIFIER))
-            {
-                return true;
-            }
-
-            return false;
         }
 
         private List<string> FindToken(string line, IStringParser parser )

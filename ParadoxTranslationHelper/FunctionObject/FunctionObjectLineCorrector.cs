@@ -56,6 +56,7 @@ namespace ParadoxTranslationHelper
             lineCorrector.Add(lineCorrectorFactory.CreateCorrectorKeys());
             lineCorrector.Add(lineCorrectorFactory.CreateCorrectorQuotationMark());
             lineCorrector.Add(lineCorrectorFactory.CreateCorrectorMissingQuotationMark());
+            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution(FileSubstitutionConstants.COLOR_CODE_SUFFIX));
 
             lineCorrector.Work();
 

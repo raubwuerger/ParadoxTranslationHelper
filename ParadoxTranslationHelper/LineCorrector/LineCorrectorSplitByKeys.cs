@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using ParadoxTranslationHelper.Helper;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace ParadoxTranslationHelper.LineCorrector
 
             foreach (string line in lines)
             {
-                if( true == IgnoreLine(line) )
+                if( true == LineHelper.IgnoreLine(line) )
                 {
                     continue;
                 }
@@ -78,21 +79,6 @@ namespace ParadoxTranslationHelper.LineCorrector
 
             _splittedLines.Add(line.Substring(0,anotherKeyStartIndex));
             SplitByKey(line.Substring(anotherKeyStartIndex));
-        }
-
-        bool IgnoreLine(string line)
-        {
-            if( true == line.Trim().StartsWith(Constants.TRANSLATION_FILE_IDENTIFIER) )
-            {
-                return true;
-            }
-
-            if( true == string.IsNullOrWhiteSpace(line) )
-            {
-                return true;
-            }
-
-            return false;
         }
 
         public List<string> GetIncorrect()

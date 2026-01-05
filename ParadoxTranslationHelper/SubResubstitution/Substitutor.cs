@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Serilog;
 using ParadoxTranslationHelper.LineObjects;
+using ParadoxTranslationHelper.Helper;
 
 namespace ParadoxTranslationHelper
 {
@@ -82,7 +83,7 @@ namespace ParadoxTranslationHelper
 
             foreach (var lineObject in lineObjects)
             {
-                if( true == IgnoreLine(lineObject) )
+                if( true == LineHelper.IgnoreLine(lineObject.OriginalLine) )
                 {
                     continue;
                 }
@@ -98,15 +99,6 @@ namespace ParadoxTranslationHelper
             }
         }
 
-        private bool IgnoreLine(LineObject lineObject)
-        {
-            if( true == string.IsNullOrWhiteSpace(lineObject.OriginalLine) )
-            {
-                return true;
-            }
-
-            return lineObject.OriginalLine.Contains(Constants.TRANSLATION_FILE_IDENTIFIER);
-        }
         private void SubstituteKey(LineObject lineObject)
         {
             int index = lineObject.OriginalLineSubstituted.IndexOf(FileSubstitutionConstants.KEY_END_SIGN);

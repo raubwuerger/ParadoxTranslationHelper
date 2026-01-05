@@ -74,7 +74,7 @@ namespace ParadoxTranslationHelper.LineCorrector
         {
             foreach (string line in linesToCorrect)
             {
-                if (true == IgnoreLine(line))
+                if (true == LineHelper.IgnoreLine(line))
                 {
                     continue;
                 }
@@ -176,21 +176,6 @@ namespace ParadoxTranslationHelper.LineCorrector
             return keysNotTranslated;
         }
 
-
-        bool IgnoreLine(string line)
-        {
-            if( true == line.Trim().StartsWith(Constants.TRANSLATION_FILE_IDENTIFIER) )
-            {
-                return true;
-            }
-
-            if( true == string.IsNullOrWhiteSpace(line) )
-            {
-                return true;
-            }
-
-            return false;
-        }
 
         public List<string> GetIncorrect()
         {

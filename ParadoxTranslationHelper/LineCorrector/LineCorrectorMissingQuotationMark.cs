@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using ParadoxTranslationHelper.Helper;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace ParadoxTranslationHelper.LineCorrector
 
             foreach (string line in lines)
             {
-                if ( true == IgnoreLine(line) )
+                if ( true == LineHelper.IgnoreLine(line) )
                 {
                     _correctedLines.Add(line);
                     continue;
@@ -38,16 +39,6 @@ namespace ParadoxTranslationHelper.LineCorrector
 
                 CorrectQuotationMarks(line);
             }
-        }
-
-        bool IgnoreLine(string line)
-        {
-            if (true == line.Trim().StartsWith(Constants.TRANSLATION_FILE_IDENTIFIER))
-            {
-                return true;
-            }
-
-            return false;
         }
 
         void CorrectQuotationMarks( string line )
