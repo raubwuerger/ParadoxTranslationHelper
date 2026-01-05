@@ -29,7 +29,7 @@ namespace ParadoxTranslationHelper_Test
         [DataRow(DisplayName = "Validate: null --> false")]
         public void IsValidNull()
         {
-            Assert.IsFalse(LineObjectValidator.IsValid(null));
+            Assert.IsFalse(LineObjectValidator.IsValid((LineObject)null));
         }
 
         [TestMethod]
