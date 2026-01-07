@@ -41,11 +41,14 @@ namespace ParadoxTranslationHelper.LineCorrector
 
         public ILineCorrector CreateCorrectorSubstitution(string suffix)
         {
-            SubstitutionFileReader fileReader = SubstitutionFileReaderFactory.Create(suffix);
 
             LineCorrectorSubstitution lineCorrector = new LineCorrectorSubstitution();
             lineCorrector.SubstitutionSuffix = suffix;
-            lineCorrector.Substitutions = fileReader.ReadFile();
+
+            SubstitutionFileReader fileReaderSuffix = SubstitutionFileReaderFactory.Create(suffix);
+            lineCorrector.Substitutions = fileReaderSuffix.ReadFile();
+            SubstitutionFileReader fileReaderKey = SubstitutionFileReaderFactory.Create(FileSubstitutionConstants.KEY_SUFFIX);
+            lineCorrector.SubstitutionsKey = fileReaderKey.ReadFile();
 
             return lineCorrector;
         }

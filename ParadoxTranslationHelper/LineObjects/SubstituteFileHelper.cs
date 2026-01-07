@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using ParadoxTranslationHelper.SubResubstitution;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,15 +47,15 @@ namespace ParadoxTranslationHelper.LineObjects
                 return null;
             }
 
-            if (false == Int32.TryParse(strings[3], out int lineNumber) )
+            if (false == Int32.TryParse(strings[(int)SubstitutionEnums.LineNumber], out int lineNumber) )
             {
                 Log.Debug("Parameter <strings[3]> (line number) is not a valid number!");
                 return null;
             }
 
-            LineObjectSubstitutionFile lineObject = new LineObjectSubstitutionFile(strings[0]);
-            lineObject.SubstitutedValue = strings[1];
-            lineObject.Key = strings[2];
+            LineObjectSubstitutionFile lineObject = new LineObjectSubstitutionFile(strings[(int)SubstitutionEnums.Substitute]);
+            lineObject.SubstitutedValue = strings[(int)SubstitutionEnums.Original];
+            lineObject.Key = strings[(int)SubstitutionEnums.Key];
             lineObject.LineNumber = lineNumber;
 
             return lineObject;

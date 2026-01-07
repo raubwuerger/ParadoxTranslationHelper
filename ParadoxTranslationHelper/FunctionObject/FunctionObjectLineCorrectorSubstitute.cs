@@ -48,11 +48,11 @@ namespace ParadoxTranslationHelper
             LineCorrectorController lineCorrector = new LineCorrectorController();
             lineCorrector.Lines = fileSub;
             lineCorrector.FileName = _translationFileNameSub;
-            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution("CC"));
-            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution("IC"));
-            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution("NS"));
-            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution("NE"));
-            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution("NL"));
+            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution(FileSubstitutionConstants.COLOR_CODE_SUFFIX));
+            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution(FileSubstitutionConstants.ICON_SUFFIX));
+            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution(FileSubstitutionConstants.NAMESPACE_SUFFIX));
+            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution(FileSubstitutionConstants.NESTING_STRING_SUFFIX));
+            lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSubstitution(FileSubstitutionConstants.NEW_LINE_SUFFIX));
 
             lineCorrector.Work();
 
