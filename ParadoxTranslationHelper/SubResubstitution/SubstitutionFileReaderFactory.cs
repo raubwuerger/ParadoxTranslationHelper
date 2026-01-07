@@ -14,8 +14,8 @@ namespace ParadoxTranslationHelper.SubResubstitution
         public static SubstitutionFileReader Create( string suffix )
         {
             SubstitutionFileReader substitutionFileReader = new SubstitutionFileReader();
-            substitutionFileReader.BasePath = ParadoxTranslationHelperConfig.PathResult + Constants.FILE_NAME_STEAM_MISSING_KEYS;
-            substitutionFileReader.SubstituteFile = "." +suffix;
+            substitutionFileReader.BasePath = ParadoxTranslationHelperConfig.PathResult;
+            substitutionFileReader.SubstituteFile = $"{Constants.FILE_NAME_STEAM_MISSING_KEYS}.{suffix}";
 
             return substitutionFileReader;
         }

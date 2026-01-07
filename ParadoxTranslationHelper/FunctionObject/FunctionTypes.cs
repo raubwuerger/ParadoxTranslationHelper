@@ -12,6 +12,7 @@ namespace ParadoxTranslationHelper
         public static readonly string RemoveKeys = "REMOVE_KEYS";
         public static readonly string Sub = "SUB";
         public static readonly string LineCorrector = "LINE_CORRECTOR";
+        public static readonly string LineCorrectorSubstitute = "LINE_CORRECTOR_SUB";
         public static readonly string Resub = "RESUB";
         public static readonly string Insert = "INSERT";
         public static readonly string DiffKeys = "DIFF_KEYS";

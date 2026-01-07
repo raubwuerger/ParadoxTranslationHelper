@@ -60,7 +60,18 @@ namespace ParadoxTranslationHelper
         public static IFunctionObject? CreateLineCorrector()
         {
             FunctionObjectLineCorrector functionObject = new FunctionObjectLineCorrector(FunctionTypes.LineCorrector);
-            functionObject.Description = "tries to correct substitute translation file in folder analysis (MissingTranslationKeysSteam)";
+            functionObject.Description = "tries to correct substitute translation file in folder analysis (MissingTranslationKeysSteam) by Key and quotation marks";
+
+            functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
+            functionObject.TranslationFileNameSub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffSubGerman());
+
+            return functionObject;
+        }
+
+        public static IFunctionObject? CreateLineCorrectorSubstitute()
+        {
+            FunctionObjectLineCorrectorSubstitute functionObject = new FunctionObjectLineCorrectorSubstitute(FunctionTypes.LineCorrectorSubstitute);
+            functionObject.Description = "tries to correct substitute translation file in folder analysis (MissingTranslationKeysSteam) by substitute files IC, CC, NE, NL, NS";
 
             functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
             functionObject.TranslationFileNameSub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffSubGerman());

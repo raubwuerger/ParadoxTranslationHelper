@@ -45,7 +45,7 @@ namespace ParadoxTranslationHelper.LineCorrector
 
             LineCorrectorSubstitution lineCorrector = new LineCorrectorSubstitution();
             lineCorrector.SubstitutionSuffix = suffix;
-            lineCorrector.Substitutions = fileReader.ReadFile(suffix);
+            lineCorrector.Substitutions = fileReader.ReadFile();
 
             return lineCorrector;
         }
