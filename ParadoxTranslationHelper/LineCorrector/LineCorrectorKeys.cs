@@ -12,6 +12,7 @@ namespace ParadoxTranslationHelper.LineCorrector
 {
     internal class LineCorrectorKeys : ILineCorrector
     {
+        public const string EXTENSION = "Keys_missing";
         List<string> _doubleKeys = new List<string> { "" };
         Dictionary<string,string> _uniqueKeys = new Dictionary<string,string>();
         string _correctStart = "|___KY";
@@ -187,7 +188,7 @@ namespace ParadoxTranslationHelper.LineCorrector
         }
         public string GetIncorrectFileExtension()
         {
-            return "Keys_missing";
+            return EXTENSION;
         }
 
         public string GetCorrectFileExtension()

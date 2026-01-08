@@ -66,6 +66,12 @@
       <german>german</german>
       <steam>..\..\..\testData\functions\LINE_CORRECTOR\localisation\steam</steam>
     </Mod>
+    <Mod name="Test_LINE_CORRECTOR_SUB">
+      <basePath>..\..\..\testData\functions\LINE_CORRECTOR_SUB\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>..\..\..\testData\functions\LINE_CORRECTOR_SUB\localisation\steam</steam>
+    </Mod>
   </Mods>
   <Global>
     <ResultPath>analysis</ResultPath>
