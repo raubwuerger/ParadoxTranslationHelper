@@ -15,8 +15,8 @@ namespace ParadoxTranslationHelper.LineCorrector
         public const string EXTENSION = "Keys_missing";
         List<string> _doubleKeys = new List<string> { "" };
         Dictionary<string,string> _uniqueKeys = new Dictionary<string,string>();
-        string _correctStart = "|___KY";
-        string _correctEnd = "___|";
+        string _correctStart = FileSubstitutionConstants.SUBSTITUTION_END;
+        string _correctEnd = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.KEY_SUFFIX;
         int _correctEndLength = 0;
         int _correctLength = 16;
         Dictionary<string, string> _missingKeys = new Dictionary<string, string>();
@@ -44,6 +44,7 @@ namespace ParadoxTranslationHelper.LineCorrector
             CorrectLines(linesToCorrect);
 
             _missingKeys = CheckMissingKeys(_allOrginialKeys, _uniqueKeys);
+            //TODO: 2026-01-09 - JHA - Die Orginaldatei ermitteln!
             FileUtility.WriteLines(CreateLinesNotTranslated(_missingKeys, _originalDiffFile), Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS) + ".notTranslated");
 
             KeySorter keySorter = new KeySorter();
@@ -180,7 +181,7 @@ namespace ParadoxTranslationHelper.LineCorrector
 
         public List<string> GetIncorrect()
         {
-            return _missingKeys.Keys.ToList<string>();
+            return new List<string>();
         }
         public List<string> GetCorrected()
         {

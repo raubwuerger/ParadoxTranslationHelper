@@ -10,8 +10,8 @@ namespace ParadoxTranslationHelper.LineCorrector
 {
     internal class LineCorrectorSplitByKeys : ILineCorrector
     {
-        string _correctStart = "|___KY";
-        string _correctEnd = "___|";
+        string _correctStart = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.KEY_SUFFIX;
+        string _correctEnd = FileSubstitutionConstants.SUBSTITUTION_END;
         int _correctEndLength = 0;
         int _correctLength = 16;
         List<string> _splittedLines = new List<string>();
