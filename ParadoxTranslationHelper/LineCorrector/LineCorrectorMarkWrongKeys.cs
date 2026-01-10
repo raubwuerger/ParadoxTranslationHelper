@@ -22,7 +22,14 @@ namespace ParadoxTranslationHelper.LineCorrector
             {
                 if (false == LineHelper.HasLineCorrectKey(line))
                 {
-                    _correctedKeys.Add(LineHelper.SetLineToIgnore(line));
+                    if( false == LineHelper.IsLineFileToStoreLine(line) )
+                    {
+                        _correctedKeys.Add(LineHelper.SetLineToIgnore(line));
+                    }
+                    else
+                    {
+                        _correctedKeys.Add(line);
+                    }
                     continue;
                 }
                 _correctedKeys.Add(line);

@@ -74,5 +74,10 @@ namespace ParadoxTranslationHelper.Helper
             return line.Insert(0, Constants.IGNORE_LINE + " ");
         }
 
+        public static bool IsLineFileToStoreLine(string line)
+        {
+            return line.Contains(Constants.TRANSLATION_FILE_IDENTIFIER);
+        }
+
     }
 }
