@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,5 +35,39 @@ namespace ParadoxTranslationHelper.Helper
             return false;
 
         }
+
+        static string _correctStart = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.KEY_SUFFIX;
+        static string _correctEnd = FileSubstitutionConstants.SUBSTITUTION_END;
+        static int _correctEndLength = _correctEnd.Length;
+        static int _correctLength = 16;
+
+        public static int CorrectLength { get => _correctLength; }
+
+        public static bool HasLineCorrectKey(string line)
+        {
+            int indexStart = line.IndexOf(_correctStart);
+            if (indexStart == -1)
+            {
+                Log.Verbose($"Start string {_correctStart} not found!");
+                return false;
+            }
+
+            int indexEnd = line.IndexOf(_correctEnd);
+            if (indexEnd == -1)
+            {
+                Log.Verbose($"End string {_correctEnd} not found!");
+                return false;
+            }
+
+            int length = (indexEnd + _correctEndLength) - indexStart;
+            if (length != _correctLength)
+            {
+                Log.Verbose($"Length mismatch: should={_correctLength}, is={length}");
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

@@ -15,10 +15,6 @@ namespace ParadoxTranslationHelper.LineCorrector
         public const string EXTENSION = "Keys_missing";
         List<string> _doubleKeys = new List<string> { "" };
         Dictionary<string,string> _uniqueKeys = new Dictionary<string,string>();
-        string _correctStart = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.KEY_SUFFIX;
-        string _correctEnd = FileSubstitutionConstants.SUBSTITUTION_END;
-        int _correctEndLength = 0;
-        int _correctLength = 16;
         Dictionary<string, string> _missingKeys = new Dictionary<string, string>();
         Dictionary<string, string> _allOrginialKeys;
         List<string> _originalDiffFile = new List<string>();
@@ -33,8 +29,6 @@ namespace ParadoxTranslationHelper.LineCorrector
         {
             ClearData();
 
-            _correctEndLength = _correctEnd.Length;
-
             if ( false == IsCorrectInitialized(linesToCorrect) )
             {
                 Log.Warning("Not correct initialzed!");
@@ -44,20 +38,7 @@ namespace ParadoxTranslationHelper.LineCorrector
             CorrectLines(linesToCorrect);
 
             _missingKeys = CheckMissingKeys(_allOrginialKeys, _uniqueKeys);
-            //TODO: 2026-01-09 - JHA - Die Orginaldatei ermitteln!
             FileUtility.WriteLines(CreateLinesNotTranslated(_missingKeys, _originalDiffFile), Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS) + ".notTranslated");
-
-            KeySorter keySorter = new KeySorter();
-            keySorter.OriginalKeys = _allOrginialKeys;
-            keySorter.NotTranslatedKeys = _missingKeys;
-            keySorter.TranslatedKeys = _uniqueKeys;
-
-            if( false == keySorter.Sort() )
-            {
-                //TODO: 2026-01-04 - JHA - Speichern!?
-            }
-
-            _correctedKeys = keySorter.SortedKeys.Values.ToList<string>();
 
             string subGerman = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS) + FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED + FileSubstitutionConstants.FILE_SUFFIX_GERMAN;
             FileUtility.BackupFile(subGerman);
@@ -82,56 +63,29 @@ namespace ParadoxTranslationHelper.LineCorrector
                     continue;
                 }
 
-                if (false == IsKeyCorrect(line))
+                if (false == LineHelper.HasLineCorrectKey(line))
                 {
                     _correctedKeys.Add(InsertIgnoreAtLineStart(line));
                     continue;
                 }
 
-                string key = line.Substring(0, _correctLength);
+                string key = line.Substring(0, LineHelper.CorrectLength);
                 if (_uniqueKeys.ContainsKey(key))
                 {
                     _doubleKeys.Add(line);
                 }
                 else
                 {
-                    _uniqueKeys.Add(key, line.ReplaceFirst(key, _allOrginialKeys[key]));
-                    _correctedKeys.Add(line);
+                    string corectedUnique = line.ReplaceFirst(key, _allOrginialKeys[key]);
+                    _uniqueKeys.Add(key, corectedUnique);
+                    _correctedKeys.Add(corectedUnique);
                 }
             }
         }
-
-        bool IsKeyCorrect( string line )
-        {
-            int indexStart = line.IndexOf(_correctStart);
-            if ( indexStart == -1 )
-            {
-                Log.Verbose($"Start string {_correctStart} not found!");
-                return false;
-            }
-
-            int indexEnd = line.IndexOf(_correctEnd);
-            if( indexEnd == -1 )
-            {
-                Log.Verbose($"End string {_correctEnd} not found!");
-                return false;
-            }
-
-            int length = (indexEnd + _correctEndLength) - indexStart;
-            if( length != _correctLength )
-            {
-                Log.Verbose($"Length mismatch: should={_correctLength}, is={length}");
-                return false;
-            }
-
-            return true;
-        }
-
         private string InsertIgnoreAtLineStart(string line)
         {
             return line.Insert(0, Constants.IGNORE_LINE + " ");
         }
-
         Dictionary<string, string>? CheckMissingKeys(Dictionary<string, string> allOrginialKeys, Dictionary<string, string> uniqueKeys)
         {
             if( allOrginialKeys == null )
