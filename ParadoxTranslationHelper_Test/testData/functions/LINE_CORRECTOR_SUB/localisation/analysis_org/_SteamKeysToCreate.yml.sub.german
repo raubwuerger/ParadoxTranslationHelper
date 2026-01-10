@@ -1,4 +1,5 @@
-﻿accession_country_integration_in_progress:	"|___CC000000___|Integration neuer Mitgliederwelten|___CC000001___| |___CC000002___|--|___CC000003___|"
+﻿>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\bftb_decisions_l_english.yml
+accession_country_integration_in_progress:	"|___CC000000___|Integration neuer Mitgliederwelten|___CC000001___| |___CC000002___|--|___CC000003___|"
 accession_country_opener:	"Die Reaktion von |___NS000000___| wird wahrscheinlich beeinflusst durch:|___NL000000___|"
 accession_country_opinion_excellent:	"|___CC000004___|Meinung des Imperiums|___CC000005___| |___CC000006___|++|___CC000007___|"
 accession_country_opinion_good:	"|___CC000008___|Meinung von Empire|___CC000009___| |___CC000010___|+|___CC000011___|"
@@ -8,6 +9,7 @@ accession_country_opinion_terrible:	"|___CC000016___|Meinung des Imperiums|___CC
 accession_country_relative_equivalent:	"|___CC000020___|Empire Power Difference|___CC000021___| |___CC000022___|-|___CC000023___|"
 accession_country_relative_overwhelming:	"|___CC000024___|Empire Power Difference|___CC000025___| |___CC000026___|-----|___CC000027___|"
 accession_country_relative_pathetic:	"|___CC000028___|Empire Power Difference|___CC000029___| |___CC000030___|++|___CC000031___|"
+>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\buildings_l_english.yml
 accession_country_relative_superior:	"|___CC000032___|Empire Power Difference|___CC000033___| |___CC000034___|---|___CC000035___|"
 accession_country_war_of_hostile_neighbour:	"|___CC000036___|Vorsicht vor Nachbarn mit anti-|___NS000001___| Sentiment|___CC000037___| |___CC000038___|--|___CC000039___|"
 accession_country_xenophile:	"|___CC000040___|Fremdenfreundliche Gesinnung|___CC000041___| |___CC000042___|+|___CC000043___|"
@@ -193,6 +195,7 @@ BORG_CLUSTER_ASSIMILATION_PROJECT_4_DESC:	"|___NE000006___|"
 BORG_CLUSTER_ASSIMILATION_PROJECT_4:	" |___NE000007___|"
 BORG_CLUSTER_ASSIMILATION_PROJECT_5_DESC:	"|___NE000008___|"
 BORG_CLUSTER_ASSIMILATION_PROJECT_5:	"|___NE000009___|"
+>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\lar_events_l_english.yml
 borg_cube_busy:	"Projekt in Bearbeitung"
 borg_cube_no_drones:	"Alle Drohnen deassimiliert"
 BORG_DEVIANT_DRONES_CURE_PROJECT_DESC:	" Durch die Entwicklung eines gezielten Nanovirus, das eine terminale Überlastung des kortikalen Implantats einer Drohne auslösen kann, könnte es möglich sein, die Bedrohung durch |___CC000054___|Unimatrix Zero|___CC000055___| vollständig zu beseitigen."
@@ -211,6 +214,7 @@ BORG_REMARKABLE:	"Ergebnis für zukünftige Analyse protokolliert."
 BORG_UNDERSTOOD:	"Ergebnis protokolliert."
 BORG_UNFORTUNATE:	"Suboptimales Ergebnis bewertet."
 borg.101.name:	"Planet wurde assimiliert!"
+>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\replace\equipment_l_english.yml
 boridium_icon:	"|___IC000009___|"
 breakthrough_tech_approach_cancel_tooltip:	"Bahnbrechende Forschung wird aufgegeben."
 breakthrough_tech_approach_cancel:	"Abbrechen"

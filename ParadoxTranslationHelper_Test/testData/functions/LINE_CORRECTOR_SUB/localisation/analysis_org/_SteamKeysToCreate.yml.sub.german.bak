@@ -1,4 +1,5 @@
-﻿|___KY000000___|„|___CC000000___|Integration neuer Mitgliederwelten|___CC000001___| |___CC000002___|--|___CC000003___|“
+﻿>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\bftb_decisions_l_english.yml
+|___KY000000___|„|___CC000000___|Integration neuer Mitgliederwelten|___CC000001___| |___CC000002___|--|___CC000003___|“
 |___KY000001___|„Die Reaktion von |___NS000000___| wird wahrscheinlich beeinflusst durch:|___NL000000___|“
 |___KY000002___|„|___CC000004___|Meinung des Imperiums|___CC000005___| |___CC000006___|++|___CC000007___|„
 |___KY000003___|„|___CC000008___|Meinung von Empire|___CC000009___| |___CC000010___|+|___CC000011___|“
@@ -8,6 +9,7 @@
 |___KY000007___|„|___CC000020___|Empire Power Difference|___CC000021___| |___CC000022___|-|___CC000023___|„
 |___KY000008___|„|___CC000024___|Empire Power Difference|___CC000025___| |___CC000026___|-----|___CC000027___|„
 |___KY000009___|„|___CC000028___|Empire Power Difference|___CC000029___| |___CC000030___|++|___CC000031___|„
+>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\buildings_l_english.yml
 |___KY000010___|„|___CC000032___|Empire Power Difference|___CC000033___| |___CC000034___|---|___CC000035___|„
 |___KY000011___|„|___CC000036___|Vorsicht vor Nachbarn mit anti-|___NS000001___| Sentiment|___CC000037___| |___CC000038___|--|___CC000039___|„
 |___KY000012___|„|___CC000040___|Fremdenfreundliche Gesinnung|___CC000041___| |___CC000042___|+|___CC000043___|“
@@ -193,6 +195,7 @@
 |___KY000192___|„ |___NE000007___|„
 |___KY000193___|“|___NE000008___|„
 |___KY000194___|“|___NE000009___|"
+>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\lar_events_l_english.yml
 |___KY000195___|„Projekt in Bearbeitung“
 |___KY000196___|„Alle Drohnen deassimiliert“
 |___KY000197___|„ Durch die Entwicklung eines gezielten Nanovirus, das eine terminale Überlastung des kortikalen Implantats einer Drohne auslösen kann, könnte es möglich sein, die Bedrohung durch |___CC000054___|Unimatrix Zero|___CC000055___| vollständig zu beseitigen.
@@ -211,6 +214,7 @@
 |___KY000210___|„Ergebnis protokolliert.“
 |___KY000211___|„Suboptimales Ergebnis bewertet.“
 |___KY000212___|„Planet wurde assimiliert!“
+>>>>> ..\..\..\testData\functions\DIFF_FILES\localisation\steam\replace\equipment_l_english.yml
 |___KY000213___|„|___IC000009___|“
 |___KY000214___|„Bahnbrechende Forschung wird aufgegeben.“
 |___KY000215___|„Abbrechen“
