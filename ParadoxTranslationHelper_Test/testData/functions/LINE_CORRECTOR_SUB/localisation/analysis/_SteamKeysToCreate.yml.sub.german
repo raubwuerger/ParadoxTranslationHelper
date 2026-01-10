@@ -2111,8 +2111,8 @@ RELICS_OF_THE_SUNDERING_PROJECT_2b_DESC:	"Die Bloodwing wurde schwer beschädigt
 RELICS_OF_THE_SUNDERING_PROJECT_2b:	"Relikte der Spaltung"
 RELICS_OF_THE_SUNDERING_PROJECT_2c_DESC:	"Die Forge wurde schwer beschädigt, scheint aber intakt zu sein. Es könnte möglich sein, das Schiff zu bergen."
 RELICS_OF_THE_SUNDERING_PROJECT_2c:	"Relikte der Spaltung"
-RELICS_OF_THE_SUNDERING_PROJECT_2d_DESC:	
-RELICS_OF_THE_SUNDERING_PROJECT_2d:	
+##### RELICS_OF_THE_SUNDERING_PROJECT_2d_DESC:	
+##### RELICS_OF_THE_SUNDERING_PROJECT_2d:	
 RELICS_OF_THE_SUNDERING_PROJECT_2e_DESC:	"Die Pennon wurde schwer beschädigt, scheint aber intakt zu sein. Es könnte möglich sein, das Schiff zu bergen."
 RELICS_OF_THE_SUNDERING_PROJECT_2e:	"Relikte der Spaltung"
 relics_of_the_sundering_starcatcher:	"Starcatcher"
@@ -4396,7 +4396,7 @@ STNC_BOLOMITE_PROJECT:	"Bolomit-Gewinnung"
 STNC_borg_anomaly_failure.1.desc:	"Die Drohne |___NS001881___| koordinierte |___NS001882___|s Entsendung einer Aufklärungsaktion zum Mond |___NS001883___|. Nach einer vorübergehenden gravimetrischen Störung versagten die Bremsdüsen der Sonde und sie kollidierte mit der Oberfläche von |___NS001884___| ..."
 STNC_borg_anomaly_failure.1.name:	"Anomaler Mond"
 STNC_borg_anomaly_failure.2.desc:	"Aus unklaren Gründen traf die Drohne, die |___NS001885___| zugewiesen war, eine lokale Entscheidung , eine Gruppe von Drohnen zur Untersuchung des Mondes |___NS001886___| zu beaufsichtigen. Kurz darauf wurde eine Explosion registriert, als der physische Transportknoten versehentlich mit voller Impulskraft auf die Oberfläche aufprallte. |___NL001435___||___NL001436___|Untersuchungsalgorithmen haben seitdem festgestellt, dass vorübergehende ionische Strahlung wichtige Entscheidungswege im kortikalen Knoten der Drohne beschädigt hat."
-STNC_borg_anomaly_failure.2.name:	
+##### STNC_borg_anomaly_failure.2.name:	
 STNC_borg_anomaly_failure.3.a.tooltip:	"Leadership node |___NS001887___| ist |___CC000598___|beendet|___CC000599___|. |___NL001437___||___NL001438___|Fügt den Modifikator |___CC000600___|Säuredschungel|___CC000601___| zu |___NS001888___| hinzu:|___NL001439___||___IC000103___|  Noxious Swamp |___CC000602___|+3|___CC000603___||___NL001440___||___IC000104___|  |___CC000604___|+6|___CC000605___||___NL001441___||___ NL001442___||___CC000606___|-20|___CC000607___| |___IC000105___| um Drohnen zu ersetzen"
 STNC_borg_anomaly_failure.3.desc:	"Es scheint, dass ein Teil der Flora von |___NS001889___| durch natürliche Selektion wirksame Abwehrmechanismen entwickelt hat. Zahlreiche Bäume und Pilze scheiden Sporen aus, die auf nicht-pflanzliche Organismen wie eine starke Säure wirken. |___NL001443___||___NL001444___|Der Führungsknoten |___NS001890___| hat erfolgreich eine Gegenmaßnahme gegen die schädlicheren Stränge dieser Sporen gefunden, wodurch die Wälder des Planeten weniger korrosiv für organisches Gewebe sind, jedoch nicht bevor |___NS001891___| selbst und mehrere Drohnen irreparabel beschädigt wurden."
 STNC_borg_anomaly.1.desc_01:	"Analyseknoten an Bord |___NS001892___| deuten darauf hin, dass |___NS001893___| nach den Scans offenbar nicht aus einem ähnlichen Material wie sein Mutterplanet besteht. Dies und andere astronomische Indikatoren deuten darauf hin, dass |___NS001894___| vor etwa 12 Milliarden Zyklen ein vagabundierender Planetoide war, der seitdem im Gravitationsfeld seines Primärplaneten gefangen ist."
@@ -5001,27 +5001,27 @@ STNC_crisis_events.10202.desc:	"Zwar wurden keine weiteren Hinweise auf das Unit
 STNC_crisis_events.10202.name:	"Chodak-Ausgrabungsstätte"
 STNC_crisis_events.10210.a:	"Untersuchen |___NS002559___|."
 STNC_crisis_events.10210.desc:	"
-STNC_crisis_events.10210.name:	
-STNC_crisis_events.10211.a:	
-STNC_crisis_events.10211.desc:	
-STNC_crisis_events.10211.name:	
-STNC_crisis_events.10212.a:	
-STNC_crisis_events.10212.desc:	
-STNC_crisis_events.10212.name:	
-STNC_crisis_events.10216.a:	
-STNC_crisis_events.10216.desc:	
-STNC_crisis_events.10216.name:	
-STNC_crisis_events.10300.a:	
-STNC_crisis_events.10300.desc:	
-STNC_crisis_events.10300.name:	
-STNC_crisis_events.10301.a:	
-STNC_crisis_events.10301.desc:	
-STNC_crisis_events.10301.name:	
-STNC_crisis_events.10302.a:	
-STNC_crisis_events.10302.desc:	
-STNC_crisis_events.10302.name:	
-STNC_crisis_events.10310.a:	
-STNC_crisis_events.10310.desc:	
+##### STNC_crisis_events.10210.name:	
+##### STNC_crisis_events.10211.a:	
+##### STNC_crisis_events.10211.desc:	
+##### STNC_crisis_events.10211.name:	
+##### STNC_crisis_events.10212.a:	
+##### STNC_crisis_events.10212.desc:	
+##### STNC_crisis_events.10212.name:	
+##### STNC_crisis_events.10216.a:	
+##### STNC_crisis_events.10216.desc:	
+##### STNC_crisis_events.10216.name:	
+##### STNC_crisis_events.10300.a:	
+##### STNC_crisis_events.10300.desc:	
+##### STNC_crisis_events.10300.name:	
+##### STNC_crisis_events.10301.a:	
+##### STNC_crisis_events.10301.desc:	
+##### STNC_crisis_events.10301.name:	
+##### STNC_crisis_events.10302.a:	
+##### STNC_crisis_events.10302.desc:	
+##### STNC_crisis_events.10302.name:	
+##### STNC_crisis_events.10310.a:	
+##### STNC_crisis_events.10310.desc:	
 STNC_crisis_events.10310.name:	"Allanor-Ausgrabungsstätte"
 STNC_crisis_events.10311.a:	"Ich bin |___NS002569___| |___NS002570___| von den |___NS002571___|. "
 STNC_crisis_events.10311.a.response:	"Dann grüße ich dich, |___NS002572___| |___NS002573___| von den |___NS002574___|. Ich bin Brodnack, Verwalter dieser Einrichtung und Wächter des Chodak-Imperiums. |___NL001884___||___NL001885___|Wir empfangen nicht oft Gäste. Was führt Sie nach Allanor?"
@@ -5200,9 +5200,9 @@ STNC_crisis_events.10462.desc:	" Der |___NS002758___| |___NS002759___| hat besch
 STNC_crisis_events.10462.name:	"Das Einheit-Gerät"
 STNC_crisis_events.10463.a:	"Ausgezeichnet."
 STNC_crisis_events.10463.desc:	"|___NS002763___| |___NS002764___| hat beschlossen, zu versuchen, das Einheit-Gerät zum Wohle der |___NS002765___| zu kontrollieren. |___NL002038___||___NL002039___|Während |___NS002766___| vom metallischen Wirbel umhüllt ist, werden die beiden Chodak-Anführer |___NS002767___| zurück zu ihren Schiffen transportiert. |___NL002040___||___NL002041___||___NS002768___| kann eine neuronale Kommunikationsverbindung zum |___NS002769___| herstellen"
-STNC_crisis_events.10463.name:	
-STNC_crisis_events.10464.a:	
-STNC_crisis_events.10464.desc:	
+##### STNC_crisis_events.10463.name:	
+##### STNC_crisis_events.10464.a:	
+##### STNC_crisis_events.10464.desc:	
 STNC_crisis_events.10464.name:	"Das Unity-Gerät"
 STNC_crisis_events.10465.a:	"Verstanden."
 STNC_crisis_events.10465.desc:	" Das |___NS002778___| |___NS002779___| hat beschlossen, zu versuchen, das Unity Device zum Wohle des |___NS002780___| |___NL002044___||___NL002045___| zu kontrollieren. Da |___NS002781___| in das metallische Vor tex eingeschlossen ist, werden |___NS002782___| und der Chodak zurück zu ihren Schiffen transportiert. |___NL002046___||___NL002047___|Es vergehen angespannte Momente, doch es scheint nichts zu passieren."
@@ -8256,7 +8256,7 @@ STNC_exploration_events.1011.desc.survey_energy:	" |___NE003896___| |___NL005404
 STNC_exploration_events.1011.desc.survey_food:	" |___NE003897___| |___NL005406___||___NL005407___||___NS007741___| |___NS007742___| meldet die Entdeckung eines zerstörten |___NS007743___| Frachterkonvois im |___CC002107__ _||___NS007744___||___CC002108___| System. Die Rettungskapseln des Konvois wurden abgefeuert, doch die |___NS007745___| konnte keine Überlebenden ausfindig machen. Es scheint, dass die zivilen Schiffe große Mengen an Lebensmitteln transportierten, von denen die meisten gut erhalten geblieben sind."
 STNC_exploration_events.1011.desc.survey_minerals:	" |___NE003898___| |___NL005408___||___NL005409___||___NS007746___| |___NS007747___| meldet die Entdeckung einer alten Lagerstätte im Orbit des äußersten Planeten des |___CC002109___||___NS007 748___||___CC002110___|-Systems entdeckt. Die Lagerstätte stammt offenbar aus |___CC002111___||___NS007749___||___CC002112___| und enthält große Mengen an Mineralien, die für industrielle Zwecke geeignet sind."
 STNC_exploration_events.1011.name:	"|___NS007750___| Vermessung"
-STNC_exploration_events.1011.retrieve:	
+##### STNC_exploration_events.1011.retrieve:	
 STNC_exploration_events.1011.return:	"Befiehl |___NS007751___| |___NS007752___|, das |___NS007753___| zu verlassen."
 STNC_exploration_events.1012.desc:	"Die |___NS007754___| hat die Industriemineralien aus dem alten Lagerhaus in |___NS007755___| erfolgreich geborgen."
 STNC_exploration_events.1012.minerals:	"|___NS007756___|"
@@ -8290,14 +8290,14 @@ STNC_exploration_events.1031.ambush.tooltip:	"|___NS007793___| erleidet |___CC00
 STNC_exploration_events.1031.continue:	"|___NS007794___|"
 STNC_exploration_events.1031.desc.survey_pirate_ambush:	" Die |___CC002121___||___NS007795___||___CC002122___| ist an den Rand des |___CC002123___||___NS007796___||___CC002124___| zurückgekehrt, da |___NS007797___| |___NS 007798___| berichtet |___NS007799___| Schiff hat eine Begegnung mit Piraten in der Nähe des |___NS007800___| Systems überstanden. |___NL005422___||___NL005423___|Mit einem gestohlenen |___NS007801___| Shuttle als Köder versuchten die Piraten, das |___NS007802___| zu überfallen, als |___NS007803___| das Schiff zur Untersuchung herbeirief. |___NL005424___||___NL005425___|Obwohl sie Schäden verursachten, die das |___NS007804___| zu Reparaturen zwangen, wurden die Piraten nach einer Reihe von genialen taktischen Manövern von |___NS007805___| |___NS007806___| besiegt."
 STNC_exploration_events.1031.desc.survey_pirate_ambush.borg:	"
-STNC_exploration_events.1031.desc.survey_rescue_shuttle_crew:	
-STNC_exploration_events.1031.desc.survey_rescue_shuttle_crew.borg:	
-STNC_exploration_events.1031.desc.survey_rescue_shuttle_leader:	
-STNC_exploration_events.1031.desc.survey_salvage_shuttle:	
-STNC_exploration_events.1031.desc.survey_salvage_shuttle.borg:	
-STNC_exploration_events.1031.name:	
-STNC_exploration_events.1031.return:	
-STNC_exploration_events.1042.a:	
+##### STNC_exploration_events.1031.desc.survey_rescue_shuttle_crew:	
+##### STNC_exploration_events.1031.desc.survey_rescue_shuttle_crew.borg:	
+##### STNC_exploration_events.1031.desc.survey_rescue_shuttle_leader:	
+##### STNC_exploration_events.1031.desc.survey_salvage_shuttle:	
+##### STNC_exploration_events.1031.desc.survey_salvage_shuttle.borg:	
+##### STNC_exploration_events.1031.name:	
+##### STNC_exploration_events.1031.return:	
+##### STNC_exploration_events.1042.a:	
 STNC_exploration_events.1042.desc:	"Die |___NS007839___| ist an den Rand des |___NS007840___| zurückgekehrt, verfolgt von feindlichen Piraten. |___NL005448___||___NL005449___||___NS007841___| |___NS007842___| meldet, dass die |___NS007843___|' Untersuchung des |___NS007844___| wurde nach einer Begegnung mit einer Piratenarmada im System |___CC002129___||___NE003907___||___CC002130___| unterbrochen. |___NL005450___||___NL005451___|Obwohl mehrere Schiffe während des Ausbruchs der |___NS007845___| aus dem Cluster außer Gefecht gesetzt wurden, weigert sich das Kommandoschiff, die Verfolgung aufzugeben."
 STNC_exploration_events.1042.name:	"|___NS007846___| Untersuchung"
 STNC_exploration_events.1043.a:	"|___NS007847___|"
@@ -8834,20 +8834,20 @@ STNC_exploration_events.1920.desc:	" |___NE003963___| |___NL006188___||___NL0061
 STNC_exploration_events.1920.desc.borg:	" |___CC002401___||___NS008683___||___CC002402___| hat einen aktuellen Bericht über den Fortschritt seiner Aufgabe zur Untersuchung des |___CC002403___||___NS008684___||___CC002404___| vorgelegt. |___NL006192___||___NL006193___|Die Koordinierungseinheit |___CC002405___||___NS008685___||___CC002406___| meldet, dass sie einen automatisierten Ruf von einem Planeten im |___CC002407___||___NS008686___ ||___CC002408___| System. |___NL006194___||___NL006195___|Langstreckensensoren deuten darauf hin, dass der Planet unbewohnt ist und sein Ökosystem offenbar vor mehreren Zyklen durch Sonneneruptionen zerstört wurde."
 STNC_exploration_events.1920.name:	"|___NS008687___| Untersuchung"
 STNC_exploration_events.1921.desc:	"Der automatisierte Ruf wurde zu einem Bunker tief unter der Oberfläche des Planeten zurückverfolgt. |___NL006196___||___NL006197___|Innerhalb der Anlage wurde eine kleine Anzahl besetzter Stasis-Kapseln gefunden, die an ein offenbar nicht reagierendes Überwachungssystem angeschlossen waren."
-STNC_exploration_events.1921.desc.borg:	
-STNC_exploration_events.1921.go_in:	
-STNC_exploration_events.1921.leave:	
-STNC_exploration_events.1921.leave.borg:	
-STNC_exploration_events.1921.name:	
-STNC_exploration_events.1921.switch_off:	
-STNC_exploration_events.1921.switch_off.borg:	
-STNC_exploration_events.1921.wake:	
-STNC_exploration_events.1922.a:	
-STNC_exploration_events.1922.desc:	
-STNC_exploration_events.1922.desc.hostages:	
-STNC_exploration_events.1922.name:	
-STNC_exploration_events.1923.a:	
-STNC_exploration_events.1923.desc:	
+##### STNC_exploration_events.1921.desc.borg:	
+##### STNC_exploration_events.1921.go_in:	
+##### STNC_exploration_events.1921.leave:	
+##### STNC_exploration_events.1921.leave.borg:	
+##### STNC_exploration_events.1921.name:	
+##### STNC_exploration_events.1921.switch_off:	
+##### STNC_exploration_events.1921.switch_off.borg:	
+##### STNC_exploration_events.1921.wake:	
+##### STNC_exploration_events.1922.a:	
+##### STNC_exploration_events.1922.desc:	
+##### STNC_exploration_events.1922.desc.hostages:	
+##### STNC_exploration_events.1922.name:	
+##### STNC_exploration_events.1923.a:	
+##### STNC_exploration_events.1923.desc:	
 STNC_exploration_events.1923.desc.hostages:	" Da die neuronalen Muster der Schlafenden vom Überwachungscomputer gesteuert wurden, |___CC002419___||___NS008703___| |___NS008704___||___CC002420___| konnte die automatische Abschaltroutine nicht ausgelöst werden, sondern brachte stattdessen |___NS008705___| die Besatzung und alle drei Überlebenden sofort aus der Stasis. |___NL006224___||___NL006225___|Der Schock dieses Vorgangs reichte aus, um die Insassen der Kapseln zu töten. |___NL006226___||___NL006227___|Die Stasis-Kapseln selbst scheinen dabei irreparabel beschädigt worden zu sein, obwohl einige Komponenten noch zu retten waren."
 STNC_exploration_events.1923.name:	"Das Auftauen"
 STNC_exploration_events.1924.a:	"|___NS008706___|"
@@ -8881,24 +8881,24 @@ STNC_exploration_events.1929.name:	"Das Auftauen"
 STNC_exploration_events.1929.switch_off:	"Schalten Sie das System aus – wir lassen uns nicht von einem Computer als Geiseln nehmen."
 STNC_exploration_events.1929.wake:	"Wecken Sie die Schlafenden, ungeachtet des Risikos."
 STNC_exploration_events.1930.desc:	"Nun |___NS008739___|, Ihr |___CC002447___||___NS008740___| |___NS008741___||___CC002448___| haben mir ein Angebot gemacht, von dem ich erwarte, dass es eingehalten wird."
-STNC_exploration_events.1930.join:	
-STNC_exploration_events.1930.join.tooltip:	
-STNC_exploration_events.1930.loyalty:	
-STNC_exploration_events.1930.loyalty.response:	
-STNC_exploration_events.1930.name:	
-STNC_exploration_events.1930.stable:	
-STNC_exploration_events.1930.stable.response:	
-STNC_exploration_events.1931.a:	
-STNC_exploration_events.1931.desc:	
-STNC_exploration_events.1931.name:	
-STNC_exploration_events.1932.a:	
-STNC_exploration_events.1932.desc:	
-STNC_exploration_events.1932.name:	
-STNC_exploration_events.1933.a:	
-STNC_exploration_events.1933.desc:	
-STNC_exploration_events.1933.name:	
-STNC_exploration_events.1934.a:	
-STNC_exploration_events.1934.desc:	
+##### STNC_exploration_events.1930.join:	
+##### STNC_exploration_events.1930.join.tooltip:	
+##### STNC_exploration_events.1930.loyalty:	
+##### STNC_exploration_events.1930.loyalty.response:	
+##### STNC_exploration_events.1930.name:	
+##### STNC_exploration_events.1930.stable:	
+##### STNC_exploration_events.1930.stable.response:	
+##### STNC_exploration_events.1931.a:	
+##### STNC_exploration_events.1931.desc:	
+##### STNC_exploration_events.1931.name:	
+##### STNC_exploration_events.1932.a:	
+##### STNC_exploration_events.1932.desc:	
+##### STNC_exploration_events.1932.name:	
+##### STNC_exploration_events.1933.a:	
+##### STNC_exploration_events.1933.desc:	
+##### STNC_exploration_events.1933.name:	
+##### STNC_exploration_events.1934.a:	
+##### STNC_exploration_events.1934.desc:	
 STNC_exploration_events.1934.name:	"The Thaw"
 STNC_exploration_events.1935.desc:	"Nun, |___NS008767___|, dein |___CC002461___||___NS008768___| |___NS008769___||___CC002462___| hat mir ein Angebot gemacht, von dem ich erwarte, dass es eingehalten wird. Ich habe |___NS008770___| vertraut und |___NS008771___| vertraut dir. |___NL006286___||___NL006287___| Oh, es war alles Spaß und Spiel, solange es dauerte, aber wir beide wissen, dass die Realität ein viel reichhaltigerer Spielplatz ist. Ich weiß, was du denkst, aber du solltest mir wirklich vertrauen. Ein schöner Planet, den ich beaufsichtigen kann, scheint fair zu sein, oder?"
 STNC_exploration_events.1935.join:	"Sehr gut."
@@ -8972,7 +8972,7 @@ STNC_exploration_events.202.a:	"|___NS008852___|"
 STNC_exploration_events.202.desc:	"Unsere Bemühungen, die Grenze des |___NS008853___| zu kartografieren, sind abgeschlossen, sodass unsere Forscher in der Region nun mit der Kartografierung der Außenregionen beginnen können."
 STNC_exploration_events.202.desc.shackleton_expanse.no_warp_6:	"|___NE003982___| |___NL006370___||___NL006371___|Leider hindert uns der "Waschbrett-Effekt" daran, weiter voranzukommen, eine Situation, die wahrscheinlich so lange andauern wird, bis wir Zugang zu MK VI-Warpantrieben haben."
 STNC_exploration_events.202.name:	"|___NS008854___"
-STNC_exploration_events.2021.a.survey_clue_alien_scientist:	
+##### STNC_exploration_events.2021.a.survey_clue_alien_scientist:	
 STNC_exploration_events.2021.a.survey_clue_mercenary:	"Stellen Sie das Dilithium bereit."
 STNC_exploration_events.2021.a.survey_clue_trader:	"Stellen Sie das Latinum bereit."
 STNC_exploration_events.2021.b.survey_clue_alien_scientist:	"Die Kosten sind zu hoch."
@@ -9376,27 +9376,27 @@ STNC_exploration_events.2852.name:	"|___NS009468___| Vermessung"
 STNC_exploration_events.2853.a:	"|___NS009469___|"
 STNC_exploration_events.2853.a.tooltip:	"|___CC002943___|Zukünftige Versuche könnten erfolgreich sein|___CC002944___|"
 STNC_exploration_events.2853.desc:	"Der Kampf dauert nur wenige Minuten, aber es wird schnell klar, dass die |___NS009470___| Schiffe den |___CC002945___||___NS009471___||___CC002946___| mehr als gewachsen sind."
-STNC_exploration_events.2853.name:	
-STNC_exploration_events.2854.a:	
-STNC_exploration_events.2854.desc:	
-STNC_exploration_events.2854.name:	
-STNC_exploration_events.2855.desc:	
-STNC_exploration_events.2855.name:	
-STNC_exploration_events.2856.a:	
-STNC_exploration_events.2856.desc:	
-STNC_exploration_events.2856.name:	
-STNC_exploration_events.2857.arrest:	
-STNC_exploration_events.2857.attacks:	
-STNC_exploration_events.2857.attacks.response:	
-STNC_exploration_events.2857.desc:	
-STNC_exploration_events.2857.hire:	
-STNC_exploration_events.2857.hire.tooltip:	
-STNC_exploration_events.2857.morality:	
-STNC_exploration_events.2857.morality.response:	
-STNC_exploration_events.2857.name:	
-STNC_exploration_events.2857.work:	
-STNC_exploration_events.2857.work.response:	
-STNC_exploration_events.2861.desc:	
+##### STNC_exploration_events.2853.name:	
+##### STNC_exploration_events.2854.a:	
+##### STNC_exploration_events.2854.desc:	
+##### STNC_exploration_events.2854.name:	
+##### STNC_exploration_events.2855.desc:	
+##### STNC_exploration_events.2855.name:	
+##### STNC_exploration_events.2856.a:	
+##### STNC_exploration_events.2856.desc:	
+##### STNC_exploration_events.2856.name:	
+##### STNC_exploration_events.2857.arrest:	
+##### STNC_exploration_events.2857.attacks:	
+##### STNC_exploration_events.2857.attacks.response:	
+##### STNC_exploration_events.2857.desc:	
+##### STNC_exploration_events.2857.hire:	
+##### STNC_exploration_events.2857.hire.tooltip:	
+##### STNC_exploration_events.2857.morality:	
+##### STNC_exploration_events.2857.morality.response:	
+##### STNC_exploration_events.2857.name:	
+##### STNC_exploration_events.2857.work:	
+##### STNC_exploration_events.2857.work.response:	
+##### STNC_exploration_events.2861.desc:	
 STNC_exploration_events.2861.jurana_quit:	"Angebot zur Entlassung |___NS009507___|."
 STNC_exploration_events.2861.jurana_quit.tooltip:	"|___CC002961___||___NS009508___| |___NS009509___||___CC002962___| |___CC002963___|wird entlassen|___CC002964___"
 STNC_exploration_events.2861.leader_quit:	"Rücktritt von |___NS009510___| angenommen."
@@ -9806,18 +9806,18 @@ STNC_exploration_events.4142.diplomacy:	"Versuchen Sie, mit AGIMUS zu verhandeln
 STNC_exploration_events.4142.engineering:	"Versuchen Sie, AGIMUS aus der Ferne abzuschalten."
 STNC_exploration_events.4142.not_our_fight:	" Das geht |___NS010192___| nichts an."
 STNC_exploration_events.4143.desc:	"|___NS010193___| |___NS010194___| meldet, dass mehrere Besatzungsmitglieder durch die "Morddrohnen" von AGIMUS ums Leben gekommen sind, nachdem versucht wurde, einen Dialog mit der künstlichen Lebensform aufzunehmen."
-STNC_exploration_events.4144.a:	
-STNC_exploration_events.4144.desc:	
-STNC_exploration_events.4145.desc:	
-STNC_exploration_events.4146.a:	
-STNC_exploration_events.4146.desc:	
-STNC_exploration_events.4147.desc:	
-STNC_exploration_events.4148.a:	
-STNC_exploration_events.4148.desc:	
-STNC_exploration_events.4150.desc:	
-STNC_exploration_events.4150.hire:	
-STNC_exploration_events.4150.hire.tooltip:	
-STNC_exploration_events.4150.mobility:	
+##### STNC_exploration_events.4144.a:	
+##### STNC_exploration_events.4144.desc:	
+##### STNC_exploration_events.4145.desc:	
+##### STNC_exploration_events.4146.a:	
+##### STNC_exploration_events.4146.desc:	
+##### STNC_exploration_events.4147.desc:	
+##### STNC_exploration_events.4148.a:	
+##### STNC_exploration_events.4148.desc:	
+##### STNC_exploration_events.4150.desc:	
+##### STNC_exploration_events.4150.hire:	
+##### STNC_exploration_events.4150.hire.tooltip:	
+##### STNC_exploration_events.4150.mobility:	
 STNC_exploration_events.4150.mobility.response:	"Mein Rahmen ist derzeit nicht mobil. Meine Antigravitationsvorrichtung wurde beschädigt, als ich hier abgestürzt – äh, gelandet bin. |___NL007950___||___NL007951___|Aber ich bin mir sicher, dass es für einen Ihrer Ingenieure kein Problem sein wird, sie für mich zu reparieren. |___NL007952___||___NL007953___|Und dann werde ich mobil sein."
 STNC_exploration_events.4150.refuse:	"Ablehnen"
 STNC_exploration_events.4150.subjects_bad:	"Was wird mit der Bevölkerung geschehen?"
@@ -10736,22 +10736,22 @@ STNC_federation_flavour.9017.desc:	"Abgesehen von einem der Shuttles der Corby u
 STNC_federation_flavour.9017.name:	"SS Corby"
 STNC_federation_flavour.9018.a:	"Zugriff auf das Logbuch der |___NS011883___|."
 STNC_federation_flavour.9018.desc:	"Das Außenteam zwingt die Türen der Shuttlerampe auf und betritt den angrenzenden Korridor. Die Wände sind mit Brandspuren übersät, und beschädigte Stromkabel funkeln unter zerbrochenen, ausgebrannten Verkleidungen. |___NL008802___||___NL008803___|Auf dem Deck liegen die Leichen vieler ziviler Besatzungsmitglieder, die keine erkennbaren Verletzungen aufweisen. Die Störungen verhindern eine gründlichere Untersuchung mit Tricordern. |___NL008804___||___NL008805___|Weiter im Inneren des Schiffes werden noch mehr Leichen gefunden, alle leblos. Schließlich erreicht das Außenteam die Brücke, auf der immer noch Alarmstufe Rot herrscht. Die Hälfte der Brückencrew liegt mit Waffen in den Händen zusammengekauert in einer Ecke. Alle sind tot."
-STNC_federation_flavour.9018.name:	
-STNC_federation_flavour.9019.a:	
-STNC_federation_flavour.9019.desc:	
-STNC_federation_flavour.9019.name:	
-STNC_federation_flavour.9020.a:	
-STNC_federation_flavour.9020.b:	
-STNC_federation_flavour.9020.desc:	
-STNC_federation_flavour.9020.name:	
-STNC_federation_flavour.9021.a:	
-STNC_federation_flavour.9021.b:	
-STNC_federation_flavour.9021.desc:	
-STNC_federation_flavour.9021.name:	
-STNC_federation_flavour.9022.a:	
-STNC_federation_flavour.9022.desc:	
-STNC_federation_flavour.9022.name:	
-STNC_federation_flavour.9023.a:	
+##### STNC_federation_flavour.9018.name:	
+##### STNC_federation_flavour.9019.a:	
+##### STNC_federation_flavour.9019.desc:	
+##### STNC_federation_flavour.9019.name:	
+##### STNC_federation_flavour.9020.a:	
+##### STNC_federation_flavour.9020.b:	
+##### STNC_federation_flavour.9020.desc:	
+##### STNC_federation_flavour.9020.name:	
+##### STNC_federation_flavour.9021.a:	
+##### STNC_federation_flavour.9021.b:	
+##### STNC_federation_flavour.9021.desc:	
+##### STNC_federation_flavour.9021.name:	
+##### STNC_federation_flavour.9022.a:	
+##### STNC_federation_flavour.9022.desc:	
+##### STNC_federation_flavour.9022.name:	
+##### STNC_federation_flavour.9023.a:	
 STNC_federation_flavour.9023.b:	"Begeben Sie sich zum Shuttle."
 STNC_federation_flavour.9023.desc:	"Verfolgt von etwas, das das Außenteam nur als eine Art energiebasierte Entität erkennen kann, die gelegentlich von blinkenden Warnleuchten beleuchtet wird, schaffen sie es zum Hauptshuttlebay. Unsicher, ob dies wirksam sein wird, versiegeln sie die Eingangstür mit ihren Waffen, in der Hoffnung, Zeit für ihre Flucht zu gewinnen."
 STNC_federation_flavour.9023.name:	"SS Corby"
@@ -12251,7 +12251,7 @@ STNC_galactic_features.1011.a:	"Säubern Sie die Station und |___NS013454___|."
 STNC_galactic_features.1011.b:	"Versuchen Sie, das Phänomen einzudämmen."
 STNC_galactic_features.1011.desc_apu:	"Die Bemühungen, die Funktionsweise des D'Arsay-Arrays zu verstehen, wurden eingestellt, nachdem das |___NS013455___| eine Reihe seltsamer Phänomene zu erleben begann. |___NL010360___||___NL010361___|Mehrere Komponenten im gesamten Schiff wurden durch primitive Objekte und Werkzeuge ersetzt, wobei die Veränderungen am Schiff offenbar immer häufiger auftreten. |___NL010362___||___NL010363___|Es gibt Hinweise darauf, dass das Array selbst dafür verantwortlich ist. Schlimmer noch, mehrere automatisierte Personaleinheiten scheinen ihre neuronalen Verarbeitungseinheiten vollständig umfunktioniert zu haben und mehrere außerirdische Persönlichkeiten angenommen zu haben."
 STNC_galactic_features.1011.desc_borg:	"Die Bemühungen, die Funktionsweise des D'Arsay-Arrays zu verstehen, wurden eingestellt, nachdem die |___NS013456___| eine Reihe seltsamer Phänomene zu erleben begann. |___NL010364___||___NL010365___|Mehrere Komponenten im gesamten Schiff wurden durch primitive Objekte und Werkzeuge ersetzt, wobei die Veränderungen am Schiff offenbar immer häufiger auftreten. |___NL010366___||___NL010367___|Es gibt Hinweise darauf, dass das Array selbst dafür verantwortlich ist. Schlimmer noch, mehrere Drohnen scheinen ihre neuronalen Verarbeitungseinheiten vollständig umfunktioniert zu haben und mehrere außerirdische Persönlichkeiten angenommen zu haben."
-STNC_galactic_features.1011.desc:	
+##### STNC_galactic_features.1011.desc:	
 STNC_galactic_features.1011.name:	"D'Arsay-Array"
 STNC_galactic_features.1012.a:	"Das ist eine Katastrophe."
 STNC_galactic_features.1012.desc:	"Da es nicht möglich war, den Materieaustauschprozess zu stoppen, der das |___NS013458___| langsam in eine primitive Stadtumgebung verwandelte, wurde das Schiff mit seiner gesamten Besatzung zerstört, nachdem die Antimaterie-Sicherheitsversiegelungen in zwei Palmen umgewandelt worden waren. |___NL010372___||___NL010373___|Als letzte Trotzreaktion wurde die Abschirmung des Schiffes so ausgerichtet, dass die Explosion in Richtung des Arrays selbst fokussiert wurde, wodurch dieses zerstört und die Gefahr für andere Schiffe gebannt wurde."
@@ -13644,7 +13644,7 @@ STNC_generic_flavour.1283.desc.known_survive_with_leader:	" Nach dem Start eines
 STNC_generic_flavour.1283.desc.same_die:	" Nach dem Start eines Shuttles zur Untersuchung |___NS014633___| |___NS014634___| und einer kleinen Gruppe von |___NS014635___| stellen sie fest, dass die Besatzung der |___NS014636___| Opfer eines |___NS014637___| spezifischen Neurotoxins zum Opfer gefallen war, das wahrscheinlich als Sabotageakt an Bord gebracht worden war. |___NL011166___||___NL011167___|Nachdem die Besatzung tot war, gelang es dem Außenteam, die automatischen Reparatursysteme des Schiffes zu aktivieren, die die Energieversorgung so weit wiederherstellten, dass der Aufstieg beginnen konnte."
 STNC_generic_flavour.1283.desc.same_survive_no_leader:	" Nach dem Start eines Shuttles zur Untersuchung |___NS014638___| |___NS014639___| und einer kleinen Gruppe aus dem |___NS014640___| wurde festgestellt, dass die Besatzung der |___NS014641___| Opfer eines |___NS014642___| spezifischen Neurotoxin zum Opfer gefallen war, das wahrscheinlich als Sabotageakt an Bord gebracht worden war. |___NL011168___||___NL011169___|Während sie versuchen, die Triebwerke des Schiffes zu reparieren, um es aus dem Gravitationsfeld von |___NS014643___| zu befreien, trifft das Außenteam auf eine Handvoll Überlebender der Besatzung, die offenbar nicht von dem Neurotoxin betroffen sind. |___NL011170___||___NL011171___|Obwohl sie durch die Tortur geschwächt sind, schließen sich die verbliebenen Besatzungsmitglieder zusammen und helfen dabei, die Primärenergieversorgung des Schiffes wiederherzustellen."
 STNC_generic_flavour.1283.desc.same_survive_with_leader:	"Nach dem Start eines Shuttles zur Untersuchung |___NS014644___| |___NS014645___| und ein kleines Team der |___NS014646___| festgestellt, dass die Besatzung der |___NS014647___| Opfer eines |___NS014648___|-spezifischen Nervengifts geworden ist, das wahrscheinlich als Sabotageakt an Bord gebracht wurde. |___NL011172___||___NL011173___|Während sie versuchen, die Triebwerke des Schiffes zu reparieren, um es aus dem Gravitationsfeld von |___NS014649___| zu befreien, trifft das Außenteam auf eine Handvoll Überlebender der Besatzung, darunter |___NS014650___| |___NS014651___|,"
-STNC_generic_flavour.1283.desc.unknown_die:	
+##### STNC_generic_flavour.1283.desc.unknown_die:	
 STNC_generic_flavour.1283.desc.unknown_survive:	"Nach dem Start eines Shuttles zur Untersuchung |___NS014659___| |___NS014660___| und einer kleinen Gruppe aus dem |___NS014661___| wird festgestellt, dass die Besatzung des beschädigten Schiffes Opfer eines artspezifischen Nervengifts geworden ist, das wahrscheinlich als Sabotageakt an Bord gebracht wurde. |___NL011180___||___NL011181___|Während sie versuchen, die Triebwerke des Schiffes zu reparieren, um es aus dem Gravitationsfeld von |___NS014662___| zu befreien, trifft das Außenteam auf ein Mitglied der Besatzung, das offenbar nicht von dem Nervengift betroffen ist. |___NL011182___||___NL011183___|Obwohl sie zunächst zögern, die Hilfe des Außenteams anzunehmen, stimmen sie schließlich zu und stellen das notwendige technische Wissen zur Verfügung, um die Primärenergieversorgung des Schiffes wiederherzustellen. |___NL011184___||___NL011185___|Im Orbit nimmt der Außerirdische Kontakt zu seiner Heimatwelt |___NS014663___| auf und meldet den Vorfall."
 STNC_generic_flavour.1283.name:	"Schiff geborgen"
 STNC_generic_flavour.1284.a:	"Ein tragischer Rückschlag. Bereiten Sie ein weiteres Shuttle vor. "
@@ -14622,7 +14622,7 @@ STNC_institutions.2073.desc_01:	"Eine Reihe von Schiffen in der |___NS015470___|
 STNC_institutions.2073.name:	"Beschädigte Schiffe"
 STNC_institutions.2074.a:	"Ausgezeichnet."
 STNC_institutions.2074.desc_01:	" Der Changeling-Infiltrator, der sich als |___NS015472___| |___NS015473___| ausgibt, hat wenige Minuten vor dem Angriff der Flotte auf unsere |___NS015476___| erfolgreich mehrere Schiffe in der |___NS015474___| |___NS015475___| sabotiert."
-STNC_institutions.2074.name:	
+##### STNC_institutions.2074.name:	
 STNC_institutions.2075.a:	"Ausgezeichnet."
 STNC_institutions.2075.desc_01:	" Der Changeling-Infiltrator, der sich als |___NS015477___| |___NS015478___| ausgibt, ist in Position, um die Wirksamkeit des |___NS015479___| |___NS015480___| zu verringern, wenige Minuten bevor es unser |___NS015481___| angreift."
 STNC_institutions.2075.name:	"Fehlkoordinierung der Flotte"
@@ -15308,12 +15308,12 @@ STNC_institutions.5002.desc.cost:	"|___NL012131___|Kosten für die Instandhaltun
 STNC_institutions.5002.desc.crew_cost:	"    |___CC006471___|+|___NS016050___||___CC006472___| |___IC000532___| |___CC006473___|Besatzung|___ CC006474___||___NL012133___|"
 STNC_institutions.5002.desc.crew:	"    |___CC006475___|+|___NS016051___||___CC006476___| |___IC000533___| |___CC006477___|Besatzung|___CC006478___||___NL0 12134___|"
 STNC_institutions.5002.desc.deuterium:	"    |___CC006479___|+|___NS016052___||___CC006480___| |___IC000534___| |___CC006481___|Deuterium|___CC006482___||___NL012135___|"
-STNC_institutions.5002.desc.dilithium:	
-STNC_institutions.5002.desc.energy_cost:	
+##### STNC_institutions.5002.desc.dilithium:	
+##### STNC_institutions.5002.desc.energy_cost:	
 STNC_institutions.5002.desc.energy:	"    |___CC006491___|+|___NS016055___||___CC006492___| |___IC000537___| |___CC006493___|Energie|___CC006494___||___NL012138___|"
 STNC_institutions.5002.desc.engineering:	"    |___CC006495___|+|___NS016056___||___CC006496___| |___IC000538___| |___CC006497___|Technische Forschung|___CC006498___||___NL012139___|"
-STNC_institutions.5002.desc.food_cost:	
-STNC_institutions.5002.desc.food:	
+##### STNC_institutions.5002.desc.food_cost:	
+##### STNC_institutions.5002.desc.food:	
 STNC_institutions.5002.desc.influence_cost:	"    |___CC006507___|+|___NS016059___||___CC006508___| |___IC000541___| |___CC006509___|Einfluss|___CC006510___||___NL0 12142___|"
 STNC_institutions.5002.desc.ketracel_white:	"    |___CC006511___|+|___NS016060___||___CC006512___| |___IC000542___| |___CC006513___|Ketracel White|___CC00 6514___||___NL012143___|"
 STNC_institutions.5002.desc.latinum:	 "    |___CC006515___|+|___NS016061___||___CC006516___| |___IC000543___| |___CC006517___|Latinum|___CC006518___||___NL012144___|"
@@ -15328,7 +15328,7 @@ STNC_institutions.5002.desc.regular.not_built:	"Die |___NS016069___| wurde noch 
 STNC_institutions.5002.desc.society:	"    |___CC006539___|+|___NS016070___||___CC006540___| |___IC000549___| |___CC006541___|Gesellschaftsforschung|___CC006542___||___NL0 12151___|"
 STNC_institutions.5002.desc.theta_radiation_dump:	 "    |___CC006543___|+|___NS016071___||___CC006544___| |___NS016072___||___NL012152___|"
 STNC_institutions.5002.desc.unity:	 "    |___CC006545___|+|___NS016073___||___CC006546___| |___IC000550___| |___CC006547___|Einheit|___CC006548___||___NL012153___|"
-STNC_institutions.5002.diplo_title:	
+##### STNC_institutions.5002.diplo_title:	
 STNC_institutions.5002.name:	"|___NS016074___|"
 STNC_institutions.5002.reactivate:	"Reaktiviere den Außenposten."
 STNC_institutions.5002.recruit_photonic_leader:	"Rekrutiere Photonenführer."
@@ -15391,7 +15391,7 @@ STNC_institutions.6011.candidate_1:	"|___NS016102___| – (Stufe |___NS016103___
 STNC_institutions.6011.candidate_10:	"|___NS016105___| – (Lvl |___NS016106___| |___NS016107___|)"
 STNC_institutions.6011.candidate_2:	"|___NS016108___| - (Lvl |___NS016109___| |___NS016110___|)"
 STNC_institutions.6011.candidate_3:	"|___NS016111___| - (Lvl |___NS016112___| |___NS016113___|)"
-STNC_institutions.6011.candidate_4:	
+##### STNC_institutions.6011.candidate_4:	
 STNC_institutions.6011.candidate_5:	"|___NS016117___| - (Lvl |___NS016118___| |___NS016119___|)"
 STNC_institutions.6011.candidate_6:	"|___NS016120___| - (Lvl |___NS016121___| |___NS016122___|)"
 STNC_institutions.6011.candidate_7:	"|___NS016123___| - (Lvl |___NS016124___| |___NS016125___|)"
@@ -16188,7 +16188,7 @@ STNC_klingon_story.2051.desc:	" Beim Eintritt in das |___CC006683___||___NS01702
 STNC_klingon_story.2051.desc.republic_of_qonos:	"Beim Eintritt in das System |___CC006685___||___NS017022___||___CC006686___| zeigen Scans, dass tatsächlich eine Siedlung |___NS017023___| vorhanden ist. |___NL012733___||___NL012734___|Es scheint, als seien die Kahless verehrenden Pilger erfolgreich gewesen, obwohl glücklicherweise keine militärische Präsenz festgestellt wurde."
 STNC_klingon_story.2051.name:	"Boreth-Kloster"
 STNC_klingon_story.2052.desc:	"Die Kraft Kahless' sei mit Ihnen, |___NS017024___|. Ich bin |___NS017025___|, Hochabt des |___CC006687___||___NS017026___||___CC006688___|. |___NL012735___||___NL012736___|Lange haben wir darauf gewartet, dass die |___CC006689___||___NS017027___||___CC006690___| uns hier in dieser heiligsten aller Welten finden."
-STNC_klingon_story.2052.desc.republic_of_qonos:	
+##### STNC_klingon_story.2052.desc.republic_of_qonos:	
 STNC_klingon_story.2052.integrate:	"Integrieren |___NS017031___|."
 STNC_klingon_story.2052.name:	"Boreth-Kloster"
 STNC_klingon_story.2052.quaint:	"Wie urig."
@@ -16415,259 +16415,259 @@ STNC_leader_story_events.1501.reject:	"Das Gesetz gibt es aus gutem Grund."
 STNC_leader_story_events.1501.accept:	"Vielleicht ist es an der Zeit, umzudenken ..."
 STNC_leader_story_events.1504.desc:	"Ein dringender Notruf wurde von einem interstellaren Transportschiff im |___CC006879___||___NS017195___||___CC006880___| System empfangen. |___NL012991___||___NL012992___|Es scheint, dass das Schiff von bewaffneten Angreifern entführt wurde, die sich zunächst als normale Reisende ausgaben. |___NL012993___||___NL012994___|Sie drohen, das Schiff zu zerstören, wenn es nicht sofort umgeleitet wird und sie zum nahe gelegenen |___CC006881___||___NS017196___||___CC006882___| bringt. |___NL012995___||___NL 012996___|Zu allem Übel befand sich auch der bekannte Biologe |___CC006883___||___NS017197___||___CC006884___| an Bord, der zu einer Konferenz in |___CC006885___||___NS017198___||___CC006886___| unterwegs war und von den Entführern als Geisel genommen wurde, um die Gehorsamkeit der Schiffsbesatzung weiter zu gewährleisten."
 STNC_leader_story_events.1504.dispatch:	"Entsenden Sie ein Schiff, um die Lage zu erkunden."
-STNC_leader_story_events.1504.name:	
-STNC_leader_story_events.1504.reject:	
-STNC_leader_story_events.1505.a:	
-STNC_leader_story_events.1505.desc:	
-STNC_leader_story_events.1505.name:	
-STNC_leader_story_events.1510.a:	
-STNC_leader_story_events.1510.desc:	
-STNC_leader_story_events.1510.name:	
-STNC_leader_story_events.1511.a:	
-STNC_leader_story_events.1511.desc:	
-STNC_leader_story_events.1511.name:	
-STNC_leader_story_events.1512.a:	
-STNC_leader_story_events.1512.desc:	
-STNC_leader_story_events.1512.name:	
-STNC_leader_story_events.1513.a:	
-STNC_leader_story_events.1513.desc:	
-STNC_leader_story_events.1513.name:	
-STNC_leader_story_events.1514.desc:	
-STNC_leader_story_events.1514.end:	
-STNC_leader_story_events.1514.investigate_further:	
-STNC_leader_story_events.1514.name:	
-STNC_leader_story_events.1515.a:	
-STNC_leader_story_events.1515.desc:	
-STNC_leader_story_events.1515.name:	
-STNC_leader_story_events.1516.a:	
-STNC_leader_story_events.1516.desc:	
-STNC_leader_story_events.1516.name:	
-STNC_leader_story_events.1520.a:	
-STNC_leader_story_events.1520.desc:	
-STNC_leader_story_events.1520.name:	
-STNC_leader_story_events.1521.a:	
-STNC_leader_story_events.1521.desc:	
-STNC_leader_story_events.1521.name:	
-STNC_leader_story_events.1522.agree:	
-STNC_leader_story_events.1522.desc:	
-STNC_leader_story_events.1522.endanger:	
-STNC_leader_story_events.1522.endanger.response:	
-STNC_leader_story_events.1522.explain:	
-STNC_leader_story_events.1522.explain.response:	
-STNC_leader_story_events.1522.goal:	
-STNC_leader_story_events.1522.goal.response:	
-STNC_leader_story_events.1522.law:	
-STNC_leader_story_events.1522.name:	
-STNC_leader_story_events.1522.risk:	
-STNC_leader_story_events.1522.why:	
-STNC_leader_story_events.1522.why.response:	
-STNC_leader_story_events.1523.a:	
-STNC_leader_story_events.1523.desc:	
-STNC_leader_story_events.1523.name:	
-STNC_leader_story_events.1524.a:	
-STNC_leader_story_events.1524.a.tooltip:	
-STNC_leader_story_events.1524.desc:	
-STNC_leader_story_events.1524.name:	
-STNC_leader_story_events.1525.desc:	
-STNC_leader_story_events.1525.name:	
-STNC_leader_story_events.1526.a:	
-STNC_leader_story_events.1526.a.tooltip:	
-STNC_leader_story_events.1526.desc:	
-STNC_leader_story_events.1526.name:	
-STNC_leader_story_events.501.a:	
-STNC_leader_story_events.501.desc:	
-STNC_leader_story_events.501.name:	
-STNC_leader_story_events.502.a:	
-STNC_leader_story_events.502.desc:	
-STNC_leader_story_events.502.name:	
-STNC_lukari_story.100.desc:	
-STNC_lukari_story.100.name:	
-STNC_lukari_story.100.search:	
-STNC_lukari_story.100.suppress:	
-STNC_lukari_story.200.a:	
-STNC_lukari_story.200.desc:	
-STNC_lukari_story.200.name:	
-STNC_lukari_story.210.a:	
-STNC_lukari_story.210.desc:	
-STNC_lukari_story.210.name:	
-STNC_lukari_story.220.a:	
-STNC_lukari_story.220.desc:	
-STNC_lukari_story.220.name:	
-STNC_lukari_story.230.a:	
-STNC_lukari_story.230.a.tooltip:	
-STNC_lukari_story.230.desc:	
-STNC_lukari_story.230.name:	
-STNC_maquis_story.10.a:	
-STNC_maquis_story.10.desc:	
-STNC_maquis_story.10.name:	
-STNC_maquis_story.11.a:	
-STNC_maquis_story.11.desc:	
-STNC_maquis_story.11.name:	
-STNC_maquis_story.12.a:	
-STNC_maquis_story.12.desc:	
-STNC_maquis_story.12.name:	
-STNC_maquis_story.2.a:	
-STNC_maquis_story.2.b:	
-STNC_maquis_story.2.c:	
-STNC_maquis_story.2.d:	
-STNC_maquis_story.2.desc_01:	
-STNC_maquis_story.2.desc_02:	
-STNC_maquis_story.2.desc_03:	
-STNC_maquis_story.2.name:	
-STNC_maquis_story.20.a:	
-STNC_maquis_story.20.desc:	
-STNC_maquis_story.20.name:	
-STNC_maquis_story.21.a:	
-STNC_maquis_story.21.desc:	
-STNC_maquis_story.21.name:	
-STNC_maquis_story.22.a:	
-STNC_maquis_story.22.desc:	
-STNC_maquis_story.22.name:	
-STNC_maquis_story.3.a:	
-STNC_maquis_story.3.b:	
-STNC_maquis_story.3.c:	
-STNC_maquis_story.3.d:	
-STNC_maquis_story.3.desc_01:	
-STNC_maquis_story.3.desc_02:	
-STNC_maquis_story.3.desc_03:	
-STNC_maquis_story.3.name:	
-STNC_maquis_story.30.a:	
-STNC_maquis_story.30.b:	
-STNC_maquis_story.30.desc:	
-STNC_maquis_story.30.name:	
-STNC_maquis_story.31.a:	
-STNC_maquis_story.31.b:	
-STNC_maquis_story.31.c:	
-STNC_maquis_story.31.desc:	
-STNC_maquis_story.31.name:	
-STNC_maquis_story.32.a:	
-STNC_maquis_story.32.desc:	
-STNC_maquis_story.32.name:	
-STNC_maquis_story.33.a:	
-STNC_maquis_story.33.b:	
-STNC_maquis_story.33.desc:	
-STNC_maquis_story.33.name:	
-STNC_maquis_story.34.a:	
-STNC_maquis_story.34.b:	
-STNC_maquis_story.34.desc:	
-STNC_maquis_story.34.name:	
-STNC_megastructures.1000.close:	
-STNC_megastructures.1000.close.borg:	
-STNC_megastructures.1000.demolish:	
-STNC_megastructures.1000.demolish.borg:	
-STNC_megastructures.1000.demolish.borg.response:	
-STNC_megastructures.1000.demolish.response:	
-STNC_megastructures.1000.demolish.undine:	
-STNC_megastructures.1000.demolish.undine.response:	
-STNC_megastructures.1000.desc:	
-STNC_megastructures.1000.desc.borg:	
-STNC_megastructures.1000.desc.undine:	
-STNC_megastructures.1000.name:	
-STNC_megastructures.1010.close:	
-STNC_megastructures.1010.close.borg:	
-STNC_megastructures.1010.desc:	
-STNC_megastructures.1010.desc.borg:	
-STNC_megastructures.1010.desc.undine:	
-STNC_megastructures.1010.detail:	
-STNC_megastructures.1010.detail.borg:	
-STNC_megastructures.1010.detail.borg.response:	
-STNC_megastructures.1010.detail.response:	
-STNC_megastructures.1010.detail.undine:	
-STNC_megastructures.1010.name:	
-STNC_megastructures.1010.undine:	
-STNC_megastructures.1010.undine.response:	
-STNC_megastructures.1100.close:	
-STNC_megastructures.1100.close.borg:	
-STNC_megastructures.1100.demolish:	
-STNC_megastructures.1100.demolish.borg:	
-STNC_megastructures.1100.demolish.borg.response:	
-STNC_megastructures.1100.demolish.response:	
-STNC_megastructures.1100.demolish.undine:	
-STNC_megastructures.1100.demolish.undine.response:	
-STNC_megastructures.1100.desc:	
-STNC_megastructures.1100.desc.borg:	
-STNC_megastructures.1100.desc.undine:	
-STNC_megastructures.1100.name:	
-STNC_megastructures.1110.close:	
-STNC_megastructures.1110.close.borg:	
-STNC_megastructures.1110.desc:	
-STNC_megastructures.1110.desc.borg:	
-STNC_megastructures.1110.desc.undine:	
-STNC_megastructures.1110.detail:	
-STNC_megastructures.1110.detail.borg:	
-STNC_megastructures.1110.detail.borg.response:	
-STNC_megastructures.1110.detail.response:	
-STNC_megastructures.1110.detail.undine:	
-STNC_megastructures.1110.name:	
-STNC_megastructures.1110.undine:	
-STNC_megastructures.1110.undine.response:	
-STNC_megastructures.1200.close:	
-STNC_megastructures.1200.close.borg:	
-STNC_megastructures.1200.demolish:	
-STNC_megastructures.1200.demolish.borg:	
-STNC_megastructures.1200.demolish.borg.response:	
-STNC_megastructures.1200.demolish.response:	
-STNC_megastructures.1200.demolish.undine:	
-STNC_megastructures.1200.demolish.undine.response:	
-STNC_megastructures.1200.desc:	
-STNC_megastructures.1200.desc.borg:	
-STNC_megastructures.1200.desc.undine:	
-STNC_megastructures.1200.name:	
-STNC_megastructures.1210.close:	
-STNC_megastructures.1210.close.borg:	
-STNC_megastructures.1210.desc:	
-STNC_megastructures.1210.desc.borg:	
-STNC_megastructures.1210.desc.undine:	
-STNC_megastructures.1210.detail:	
-STNC_megastructures.1210.detail.borg:	
-STNC_megastructures.1210.detail.borg.response:	
-STNC_megastructures.1210.detail.response:	
-STNC_megastructures.1210.detail.undine:	
-STNC_megastructures.1210.name:	
-STNC_megastructures.1210.undine:	
-STNC_megastructures.1210.undine.response:	
-STNC_megastructures.1310.close:	
-STNC_megastructures.1310.close.borg:	
-STNC_megastructures.1310.desc:	
-STNC_megastructures.1310.desc.borg:	
-STNC_megastructures.1310.desc.undine:	
-STNC_megastructures.1310.detail:	
-STNC_megastructures.1310.detail.borg:	
-STNC_megastructures.1310.detail.borg.response:	
-STNC_megastructures.1310.detail.response:	
-STNC_megastructures.1310.detail.undine:	
-STNC_megastructures.1310.detail.undine.response:	
-STNC_megastructures.1310.name:	
-STNC_MEMORIAL_1_PROJECT_DESC:	
-STNC_MEMORIAL_1_PROJECT:	
-STNC_memorial_category_desc:	
-STNC_memorial_category:	
-STNC_memorial_event.1.a:	
-STNC_memorial_event.1.desc:	
-STNC_memorial_event.1.name:	
-STNC_memorial_event.10.a:	
-STNC_memorial_event.10.desc:	
-STNC_memorial_event.10.name:	
-STNC_memorial_event.100.a:	
-STNC_memorial_event.100.desc:	
-STNC_memorial_event.100.name:	
-STNC_memorial_event.2.a:	
-STNC_memorial_event.2.desc:	
-STNC_memorial_event.2.name:	
-STNC_memorial_event.20.a:	
-STNC_memorial_event.20.desc:	
-STNC_memorial_event.20.name:	
-STNC_memorial_event.21.a:	
-STNC_memorial_event.21.desc:	
-STNC_memorial_event.21.name:	
-STNC_memorial_event.50.a:	
-STNC_memorial_event.50.desc:	
-STNC_memorial_event.50.name:	
-STNC_memorial_event.60.a:	
-STNC_memorial_event.60.b:	
-STNC_memorial_event.60.c:	
-STNC_memorial_event.60.desc:	
-STNC_memorial_event.60.name:	
+##### STNC_leader_story_events.1504.name:	
+##### STNC_leader_story_events.1504.reject:	
+##### STNC_leader_story_events.1505.a:	
+##### STNC_leader_story_events.1505.desc:	
+##### STNC_leader_story_events.1505.name:	
+##### STNC_leader_story_events.1510.a:	
+##### STNC_leader_story_events.1510.desc:	
+##### STNC_leader_story_events.1510.name:	
+##### STNC_leader_story_events.1511.a:	
+##### STNC_leader_story_events.1511.desc:	
+##### STNC_leader_story_events.1511.name:	
+##### STNC_leader_story_events.1512.a:	
+##### STNC_leader_story_events.1512.desc:	
+##### STNC_leader_story_events.1512.name:	
+##### STNC_leader_story_events.1513.a:	
+##### STNC_leader_story_events.1513.desc:	
+##### STNC_leader_story_events.1513.name:	
+##### STNC_leader_story_events.1514.desc:	
+##### STNC_leader_story_events.1514.end:	
+##### STNC_leader_story_events.1514.investigate_further:	
+##### STNC_leader_story_events.1514.name:	
+##### STNC_leader_story_events.1515.a:	
+##### STNC_leader_story_events.1515.desc:	
+##### STNC_leader_story_events.1515.name:	
+##### STNC_leader_story_events.1516.a:	
+##### STNC_leader_story_events.1516.desc:	
+##### STNC_leader_story_events.1516.name:	
+##### STNC_leader_story_events.1520.a:	
+##### STNC_leader_story_events.1520.desc:	
+##### STNC_leader_story_events.1520.name:	
+##### STNC_leader_story_events.1521.a:	
+##### STNC_leader_story_events.1521.desc:	
+##### STNC_leader_story_events.1521.name:	
+##### STNC_leader_story_events.1522.agree:	
+##### STNC_leader_story_events.1522.desc:	
+##### STNC_leader_story_events.1522.endanger:	
+##### STNC_leader_story_events.1522.endanger.response:	
+##### STNC_leader_story_events.1522.explain:	
+##### STNC_leader_story_events.1522.explain.response:	
+##### STNC_leader_story_events.1522.goal:	
+##### STNC_leader_story_events.1522.goal.response:	
+##### STNC_leader_story_events.1522.law:	
+##### STNC_leader_story_events.1522.name:	
+##### STNC_leader_story_events.1522.risk:	
+##### STNC_leader_story_events.1522.why:	
+##### STNC_leader_story_events.1522.why.response:	
+##### STNC_leader_story_events.1523.a:	
+##### STNC_leader_story_events.1523.desc:	
+##### STNC_leader_story_events.1523.name:	
+##### STNC_leader_story_events.1524.a:	
+##### STNC_leader_story_events.1524.a.tooltip:	
+##### STNC_leader_story_events.1524.desc:	
+##### STNC_leader_story_events.1524.name:	
+##### STNC_leader_story_events.1525.desc:	
+##### STNC_leader_story_events.1525.name:	
+##### STNC_leader_story_events.1526.a:	
+##### STNC_leader_story_events.1526.a.tooltip:	
+##### STNC_leader_story_events.1526.desc:	
+##### STNC_leader_story_events.1526.name:	
+##### STNC_leader_story_events.501.a:	
+##### STNC_leader_story_events.501.desc:	
+##### STNC_leader_story_events.501.name:	
+##### STNC_leader_story_events.502.a:	
+##### STNC_leader_story_events.502.desc:	
+##### STNC_leader_story_events.502.name:	
+##### STNC_lukari_story.100.desc:	
+##### STNC_lukari_story.100.name:	
+##### STNC_lukari_story.100.search:	
+##### STNC_lukari_story.100.suppress:	
+##### STNC_lukari_story.200.a:	
+##### STNC_lukari_story.200.desc:	
+##### STNC_lukari_story.200.name:	
+##### STNC_lukari_story.210.a:	
+##### STNC_lukari_story.210.desc:	
+##### STNC_lukari_story.210.name:	
+##### STNC_lukari_story.220.a:	
+##### STNC_lukari_story.220.desc:	
+##### STNC_lukari_story.220.name:	
+##### STNC_lukari_story.230.a:	
+##### STNC_lukari_story.230.a.tooltip:	
+##### STNC_lukari_story.230.desc:	
+##### STNC_lukari_story.230.name:	
+##### STNC_maquis_story.10.a:	
+##### STNC_maquis_story.10.desc:	
+##### STNC_maquis_story.10.name:	
+##### STNC_maquis_story.11.a:	
+##### STNC_maquis_story.11.desc:	
+##### STNC_maquis_story.11.name:	
+##### STNC_maquis_story.12.a:	
+##### STNC_maquis_story.12.desc:	
+##### STNC_maquis_story.12.name:	
+##### STNC_maquis_story.2.a:	
+##### STNC_maquis_story.2.b:	
+##### STNC_maquis_story.2.c:	
+##### STNC_maquis_story.2.d:	
+##### STNC_maquis_story.2.desc_01:	
+##### STNC_maquis_story.2.desc_02:	
+##### STNC_maquis_story.2.desc_03:	
+##### STNC_maquis_story.2.name:	
+##### STNC_maquis_story.20.a:	
+##### STNC_maquis_story.20.desc:	
+##### STNC_maquis_story.20.name:	
+##### STNC_maquis_story.21.a:	
+##### STNC_maquis_story.21.desc:	
+##### STNC_maquis_story.21.name:	
+##### STNC_maquis_story.22.a:	
+##### STNC_maquis_story.22.desc:	
+##### STNC_maquis_story.22.name:	
+##### STNC_maquis_story.3.a:	
+##### STNC_maquis_story.3.b:	
+##### STNC_maquis_story.3.c:	
+##### STNC_maquis_story.3.d:	
+##### STNC_maquis_story.3.desc_01:	
+##### STNC_maquis_story.3.desc_02:	
+##### STNC_maquis_story.3.desc_03:	
+##### STNC_maquis_story.3.name:	
+##### STNC_maquis_story.30.a:	
+##### STNC_maquis_story.30.b:	
+##### STNC_maquis_story.30.desc:	
+##### STNC_maquis_story.30.name:	
+##### STNC_maquis_story.31.a:	
+##### STNC_maquis_story.31.b:	
+##### STNC_maquis_story.31.c:	
+##### STNC_maquis_story.31.desc:	
+##### STNC_maquis_story.31.name:	
+##### STNC_maquis_story.32.a:	
+##### STNC_maquis_story.32.desc:	
+##### STNC_maquis_story.32.name:	
+##### STNC_maquis_story.33.a:	
+##### STNC_maquis_story.33.b:	
+##### STNC_maquis_story.33.desc:	
+##### STNC_maquis_story.33.name:	
+##### STNC_maquis_story.34.a:	
+##### STNC_maquis_story.34.b:	
+##### STNC_maquis_story.34.desc:	
+##### STNC_maquis_story.34.name:	
+##### STNC_megastructures.1000.close:	
+##### STNC_megastructures.1000.close.borg:	
+##### STNC_megastructures.1000.demolish:	
+##### STNC_megastructures.1000.demolish.borg:	
+##### STNC_megastructures.1000.demolish.borg.response:	
+##### STNC_megastructures.1000.demolish.response:	
+##### STNC_megastructures.1000.demolish.undine:	
+##### STNC_megastructures.1000.demolish.undine.response:	
+##### STNC_megastructures.1000.desc:	
+##### STNC_megastructures.1000.desc.borg:	
+##### STNC_megastructures.1000.desc.undine:	
+##### STNC_megastructures.1000.name:	
+##### STNC_megastructures.1010.close:	
+##### STNC_megastructures.1010.close.borg:	
+##### STNC_megastructures.1010.desc:	
+##### STNC_megastructures.1010.desc.borg:	
+##### STNC_megastructures.1010.desc.undine:	
+##### STNC_megastructures.1010.detail:	
+##### STNC_megastructures.1010.detail.borg:	
+##### STNC_megastructures.1010.detail.borg.response:	
+##### STNC_megastructures.1010.detail.response:	
+##### STNC_megastructures.1010.detail.undine:	
+##### STNC_megastructures.1010.name:	
+##### STNC_megastructures.1010.undine:	
+##### STNC_megastructures.1010.undine.response:	
+##### STNC_megastructures.1100.close:	
+##### STNC_megastructures.1100.close.borg:	
+##### STNC_megastructures.1100.demolish:	
+##### STNC_megastructures.1100.demolish.borg:	
+##### STNC_megastructures.1100.demolish.borg.response:	
+##### STNC_megastructures.1100.demolish.response:	
+##### STNC_megastructures.1100.demolish.undine:	
+##### STNC_megastructures.1100.demolish.undine.response:	
+##### STNC_megastructures.1100.desc:	
+##### STNC_megastructures.1100.desc.borg:	
+##### STNC_megastructures.1100.desc.undine:	
+##### STNC_megastructures.1100.name:	
+##### STNC_megastructures.1110.close:	
+##### STNC_megastructures.1110.close.borg:	
+##### STNC_megastructures.1110.desc:	
+##### STNC_megastructures.1110.desc.borg:	
+##### STNC_megastructures.1110.desc.undine:	
+##### STNC_megastructures.1110.detail:	
+##### STNC_megastructures.1110.detail.borg:	
+##### STNC_megastructures.1110.detail.borg.response:	
+##### STNC_megastructures.1110.detail.response:	
+##### STNC_megastructures.1110.detail.undine:	
+##### STNC_megastructures.1110.name:	
+##### STNC_megastructures.1110.undine:	
+##### STNC_megastructures.1110.undine.response:	
+##### STNC_megastructures.1200.close:	
+##### STNC_megastructures.1200.close.borg:	
+##### STNC_megastructures.1200.demolish:	
+##### STNC_megastructures.1200.demolish.borg:	
+##### STNC_megastructures.1200.demolish.borg.response:	
+##### STNC_megastructures.1200.demolish.response:	
+##### STNC_megastructures.1200.demolish.undine:	
+##### STNC_megastructures.1200.demolish.undine.response:	
+##### STNC_megastructures.1200.desc:	
+##### STNC_megastructures.1200.desc.borg:	
+##### STNC_megastructures.1200.desc.undine:	
+##### STNC_megastructures.1200.name:	
+##### STNC_megastructures.1210.close:	
+##### STNC_megastructures.1210.close.borg:	
+##### STNC_megastructures.1210.desc:	
+##### STNC_megastructures.1210.desc.borg:	
+##### STNC_megastructures.1210.desc.undine:	
+##### STNC_megastructures.1210.detail:	
+##### STNC_megastructures.1210.detail.borg:	
+##### STNC_megastructures.1210.detail.borg.response:	
+##### STNC_megastructures.1210.detail.response:	
+##### STNC_megastructures.1210.detail.undine:	
+##### STNC_megastructures.1210.name:	
+##### STNC_megastructures.1210.undine:	
+##### STNC_megastructures.1210.undine.response:	
+##### STNC_megastructures.1310.close:	
+##### STNC_megastructures.1310.close.borg:	
+##### STNC_megastructures.1310.desc:	
+##### STNC_megastructures.1310.desc.borg:	
+##### STNC_megastructures.1310.desc.undine:	
+##### STNC_megastructures.1310.detail:	
+##### STNC_megastructures.1310.detail.borg:	
+##### STNC_megastructures.1310.detail.borg.response:	
+##### STNC_megastructures.1310.detail.response:	
+##### STNC_megastructures.1310.detail.undine:	
+##### STNC_megastructures.1310.detail.undine.response:	
+##### STNC_megastructures.1310.name:	
+##### STNC_MEMORIAL_1_PROJECT_DESC:	
+##### STNC_MEMORIAL_1_PROJECT:	
+##### STNC_memorial_category_desc:	
+##### STNC_memorial_category:	
+##### STNC_memorial_event.1.a:	
+##### STNC_memorial_event.1.desc:	
+##### STNC_memorial_event.1.name:	
+##### STNC_memorial_event.10.a:	
+##### STNC_memorial_event.10.desc:	
+##### STNC_memorial_event.10.name:	
+##### STNC_memorial_event.100.a:	
+##### STNC_memorial_event.100.desc:	
+##### STNC_memorial_event.100.name:	
+##### STNC_memorial_event.2.a:	
+##### STNC_memorial_event.2.desc:	
+##### STNC_memorial_event.2.name:	
+##### STNC_memorial_event.20.a:	
+##### STNC_memorial_event.20.desc:	
+##### STNC_memorial_event.20.name:	
+##### STNC_memorial_event.21.a:	
+##### STNC_memorial_event.21.desc:	
+##### STNC_memorial_event.21.name:	
+##### STNC_memorial_event.50.a:	
+##### STNC_memorial_event.50.desc:	
+##### STNC_memorial_event.50.name:	
+##### STNC_memorial_event.60.a:	
+##### STNC_memorial_event.60.b:	
+##### STNC_memorial_event.60.c:	
+##### STNC_memorial_event.60.desc:	
+##### STNC_memorial_event.60.name:	
 STNC_memorial_event.70.a:	"Bedauerlich."
 STNC_memorial_event.70.b:	"Und nicht zu früh."
 STNC_memorial_event.70.desc:	"Das Denkmal auf |___NS017472___| ist endlich ausgefallen und hat sich harmlos abgeschaltet. Mit ihm verschwindet auch die Erinnerung an die außerirdischen Kolonisten, die vor mehreren Jahrhunderten massakriert wurden."
@@ -19685,7 +19685,7 @@ STNC_technology.10154.desc:	"|___NS020592___| |___NS020593___| von den |___NS020
 STNC_technology.10154.name:	"|___NS020598___| schlägt Vertrag von |___NS020599___| vor"
 STNC_technology.10155.a:	"|___NS020600___|"
 STNC_technology.10155.desc:	" |___NS020601___| |___NS020602___| der |___NS020603___| hat dem Vertrag von |___NS020604___| zugestimmt und ihn unterzeichnet, wodurch die Bemühungen der |___NS020605___| zur Entwicklung der Tarnkappentechnologie aufgegeben werden."
-STNC_technology.10155.name:	
+##### STNC_technology.10155.name:	
 STNC_technology.10156.a:	"|___NS020608___|"
 STNC_technology.10156.desc:	 "|___NS020609___| |___NS020610___| von |___NS020611___| hat die Bedingungen des vorgeschlagenen Vertrags von |___NS020612___| abgelehnt und besteht auf dem Recht von |___NS020613___|, jede Technologie zu entwickeln, die es für angemessen hält."
 STNC_technology.10156.name:	"|___NS020614___| Lehnt Vertrag von |___NS020615___| ab"
@@ -20092,7 +20092,7 @@ STNC_temporal_events.1021.desc.temporal_mission_consolidate_ring:	 "Ihre Mission
 STNC_temporal_events.1021.desc.temporal_mission_defend_faction_leader:	" Ihre Mission ist es, den Anführer der |___CC008630___||___NS021089___|'s|___CC008631___| |___CC008632___||___NS021090___||___CC008633___| Fraktion zu schützen. |___NL016242__ _||___NL016243___||___CC008634___|Setzen Sie die |___CC008635___||___NE004742___||___CC008636___| Spionageoperation gegen dieses Ziel ein.|___CC008637___|"
 STNC_temporal_events.1021.desc.temporal_mission_dig_site:	" Ihre Mission ist es, die Zielstelle auf |___CC008638___||___NS021091___||___CC008639___| im System |___CC008640___||___NS021092___||___CC008641___| auszugraben. |___NL016244___||___NL016245___||___CC008642___|Graben Sie die Ausgrabungsstätte aus.|___CC008643___|"
 STNC_temporal_events.1021.desc.temporal_mission_discredit_leader:	"Ihre Mission ist es, |___CC008644___||___NS021093___||___CC008645___|, einen Anführer innerhalb der |___CC008646___||___NS021094___||___CC008647___|, zu diskreditieren. |___NL016246___||___NL016247___||___CC008648___|Nutzen Sie die |___CC008649___||___NE004743___||___CC008650___| Spionageoperation gegen dieses Ziel.|___CC008651___|"
-STNC_temporal_events.1021.desc.temporal_mission_disseminate_research:	
+##### STNC_temporal_events.1021.desc.temporal_mission_disseminate_research:	
 STNC_temporal_events.1021.desc.temporal_mission_eliminate_cluster_pirates:	"Ihre Mission ist es, die |___CC008658___||___NS021096___||___CC008659___| vor Piraten und anderen störenden Elementen zu verteidigen. |___NL016250___||___NL016251___||___CC008660___|Führen Sie das Sonderprojekt durch.|___CC008661___|"
 STNC_temporal_events.1021.desc.temporal_mission_form_alliance:	"Ihre Mission ist es, eine Allianz mit dem |___CC008662___||___NS021097___||___CC008663___| zu bilden."
 STNC_temporal_events.1021.desc.temporal_mission_observe_phenomena:	"Ihre Mission ist es, alle Aktivitäten im |___CC008664___||___NS021098___||___CC008665___| System zu beobachten und aufzuzeichnen. |___NL016252___||___NL016253___||___CC008666___|Schließen Sie das Sonderprojekt ab.|___CC008667___|"
@@ -20308,27 +20308,27 @@ STNC_temporal_events.3132.desc:	"Eine detaillierte Untersuchung der Umgebung zei
 STNC_temporal_events.3132.name:	"Zeitliche Anomalie"
 STNC_temporal_events.3133.a:	"|___NS021250___|"
 STNC_temporal_events.3133.desc:	"Nachdem wir die Daten zur zeitlichen Abweichung vorbereitet hatten, nahmen wir Kontakt zu unserem Wohltäter auf. |___NL016412___||___NL016413___|Ohne Vorwarnung wurde das archäologische Team von |___NS021251___|, das sich noch auf der Oberfläche von |___NS021252___| befand, aus unserer Zeit in die fünfhundert Jahre zurückliegende Vergangenheit transportiert. |___NL016414___||___NL016415___|Das Team berichtet, dass es von einer Projektion des Wohltäters Anweisungen erhielt, wie es genau die zeitliche Varianz erzeugen sollte, die wir später entdecken würden, um in die Gegenwart zurückkehren zu können."
-STNC_temporal_events.3133.name:	
-STNC_temporal_events.3141.a:	
-STNC_temporal_events.3141.desc:	
-STNC_temporal_events.3141.name:	
-STNC_temporal_events.3142.a:	
-STNC_temporal_events.3142.desc:	
-STNC_temporal_events.3142.name:	
-STNC_temporal_events.3202.a:	
-STNC_temporal_events.3202.desc.future_guy:	
-STNC_temporal_events.3202.desc.guardian_of_forever:	
-STNC_temporal_events.3202.desc.sphere_builders:	
-STNC_temporal_events.3202.desc.time_police:	
-STNC_temporal_events.3202.name:	
-STNC_temporal_events.3210.a:	
-STNC_temporal_events.3210.desc.future_guy:	
-STNC_temporal_events.3210.desc.guardian_of_forever:	
-STNC_temporal_events.3210.desc.sphere_builders:	
-STNC_temporal_events.3210.desc.time_police:	
-STNC_temporal_events.3210.name:	
-STNC_temporal_events.3222.a:	
-STNC_temporal_events.3222.desc.future_guy:	
+##### STNC_temporal_events.3133.name:	
+##### STNC_temporal_events.3141.a:	
+##### STNC_temporal_events.3141.desc:	
+##### STNC_temporal_events.3141.name:	
+##### STNC_temporal_events.3142.a:	
+##### STNC_temporal_events.3142.desc:	
+##### STNC_temporal_events.3142.name:	
+##### STNC_temporal_events.3202.a:	
+##### STNC_temporal_events.3202.desc.future_guy:	
+##### STNC_temporal_events.3202.desc.guardian_of_forever:	
+##### STNC_temporal_events.3202.desc.sphere_builders:	
+##### STNC_temporal_events.3202.desc.time_police:	
+##### STNC_temporal_events.3202.name:	
+##### STNC_temporal_events.3210.a:	
+##### STNC_temporal_events.3210.desc.future_guy:	
+##### STNC_temporal_events.3210.desc.guardian_of_forever:	
+##### STNC_temporal_events.3210.desc.sphere_builders:	
+##### STNC_temporal_events.3210.desc.time_police:	
+##### STNC_temporal_events.3210.name:	
+##### STNC_temporal_events.3222.a:	
+##### STNC_temporal_events.3222.desc.future_guy:	
 STNC_temporal_events.3222.desc.guardian_of_forever:	"Ein neuer Tag, ein neuer Mond. Es ist schade, dass die Ringe verschwunden sind, aber glaubt mir, der neue Stein wird noch lange Zeit viel Gutes bewirken. |___NL016442___||___NL016443___|Gut gemacht."
 STNC_temporal_events.3222.desc.sphere_builders:	"Wir sehen, dass der Mond geschaffen wurde. Ausgezeichnet gemacht. |___NL016444___||___NL016445___|Die Schönheit der Ringe wird zwar vermisst werden, aber diese Veränderung ist wichtig."
 STNC_temporal_events.3222.desc.time_police:	" Das Ringsystem wurde erfolgreich konsolidiert.|___NL016446___||___NL016447___|Es ist schade, da es ästhetisch sehr ansprechend war, aber der neue Mond hat eine wichtige Rolle zu spielen. Zu gegebener Zeit."
@@ -27346,7 +27346,7 @@ NAME_Unicomplex_02_Alpha:	"Unicomplex 02 Alpha"
 NAME_Unicomplex_02_Beta:	"Unicomplex 02 Beta"
 NAME_Unicomplex_02_Delta:	"Unicomplex 02 Gamma"
 NAME_Unicomplex_02_Eta:	"Unicomplex 02 Delta"
-NAME_Unicomplex_02_Gamma:	
+##### NAME_Unicomplex_02_Gamma:	
 NAME_Unicomplex_02:	"Unicomplex 02"
 NAME_Unicomplex_03_Alpha:	"Unicomplex 03 Alpha"
 NAME_Unicomplex_03_Beta:	"Unicomplex 03 Beta"
@@ -27383,7 +27383,7 @@ NAME_United_Federation_Of_Planets:	"Vereinigte Föderation der Planeten"
 NAME_United_Guilds_Of_Zibalia:	"Vereinigte Gilden von Zibalia"
 NAME_United_Planets_Of_Tellar_Adjective:	"Tellariten"
 NAME_United_Planets_Of_Tellar:	"Vereinigte Planeten von Tellar"
-NAME_vaadwaur_supremacy:	
+##### NAME_vaadwaur_supremacy:	
 NAME_Valerian_Freeholds_Adjective:	"Valerianer"
 NAME_valerian_freeholds:	"Valerianische Freihöfe"
 NAME_Valtese_Senate_Adjective:	"Valtesen"
@@ -27581,7 +27581,7 @@ PRESCRIPTED_ruler_name_OscheanHunters:	"Onash"
 PRESCRIPTED_ruler_name_ParadanAssembly:	"Noutal"
 PRESCRIPTED_ruler_name_PralorAuxiliary:	"Automated General A1"
 PRESCRIPTED_ruler_name_RakhariImperium:	"Natani"
-PRESCRIPTED_ruler_name_RigelianConsortium:	
+##### PRESCRIPTED_ruler_name_RigelianConsortium:	
 PRESCRIPTED_ruler_name_SelayClutches:	"Ssetar"
 PRESCRIPTED_ruler_name_SheliakCorporate:	"Sheldon"
 PRESCRIPTED_ruler_name_SkrreeanRepublic:	"Haneev"
@@ -28158,7 +28158,7 @@ format.cult_of_molor:	"Kult von Molor"
 SHIP_SQUADRON_NAME:	"|___NS025309___||___NS025310___| |___NS025311___|"
 NAME_borg_kingdom:	"Borg-Königreich"
 NAME_borg_kingdom_adjective:	"Borg"
-format.cult_of_the_pah_wraiths:	
+##### format.cult_of_the_pah_wraiths:	
 format.oralian_way:	"Oralianischer Weg"
 NAME_ha_amoran:	"Ha Amoran"
 NAME_ha_amoran_adjective:	"Ha Amoran"
@@ -33046,7 +33046,7 @@ BORG_CHR_ofFifteen:	"von Fünfzehn"
 BORG_CHR_ofFourteen:	"von Vierzehn"
 BORG_CHR_ofSeventeen:	"von Siebzehn"
 BORG_CHR_ofTen:	"von Zehn"
-BORG_CHR_ofThirteen:	
+##### BORG_CHR_ofThirteen:	
 BORG_CHR_ofTwelve:	"von zwölf"
 BORG_CHR_One:	"Eins"
 BORG_CHR_Primary:	"Primär"
@@ -33174,7 +33174,7 @@ BORG_SHIP_Vessel0103:	"Schiff 0103"
 BORG_SHIP_Vessel0104:	"Schiff 0104"
 BORG_SHIP_Vessel0105:	"Schiff 0105"
 BORG_SHIP_Vessel0106:	"Schiff 0106"
-BORG_SHIP_Vessel0107:	
+##### BORG_SHIP_Vessel0107:	
 BORG_SHIP_Vessel0108:	"Schiff 0108"
 BORG_SHIP_Vessel0109:	 "Schiff 0109"
 BORG_SHIP_Vessel0110:	"Schiff 0110"
@@ -33673,7 +33673,7 @@ BORG_SHIP_Vessel0602:	"Schiff 0602"
 BORG_SHIP_Vessel0603:	"Schiff 0603"
 BORG_SHIP_Vessel0604:	"Schiff 0604"
 BORG_SHIP_Vessel0605:	"Schiff 0605"
-BORG_SHIP_Vessel0606:	
+##### BORG_SHIP_Vessel0606:	
 BORG_SHIP_Vessel0607:	"Schiff 0607"
 BORG_SHIP_Vessel0608:	"Schiff 0608"
 BORG_SHIP_Vessel0609:	"Schiff 0609"
@@ -33836,7 +33836,7 @@ BORG_SHIP_Vessel0765:	"Schiff 0765"
 BORG_SHIP_Vessel0766:	"Schiff 0766"
 BORG_SHIP_Vessel0767:	"Schiff 0767"
 BORG_SHIP_Vessel0768:	"Schiff 0768"
-BORG_SHIP_Vessel0769:	
+##### BORG_SHIP_Vessel0769:	
 BORG_SHIP_Vessel0770:	"Schiff 0770"
 BORG_SHIP_Vessel0771:	"Schiff 0771"
 BORG_SHIP_Vessel0772:	"Schiff 0772"
@@ -42669,7 +42669,7 @@ FREE_BORG_SHIP_Vessel0615:	"Schiff 0615"
 FREE_BORG_SHIP_Vessel0616:	"Schiff 0616"
 FREE_BORG_SHIP_Vessel0617:	"Schiff 0617"
 FREE_BORG_SHIP_Vessel0618:	"Schiff 0618"
-FREE_BORG_SHIP_Vessel0619:	
+##### FREE_BORG_SHIP_Vessel0619:	
 FREE_BORG_SHIP_Vessel0620:	"Schiff 0620"
 FREE_BORG_SHIP_Vessel0621:	"Schiff 0621"
 FREE_BORG_SHIP_Vessel0622:	"Schiff 0622"
@@ -42861,7 +42861,7 @@ FREE_BORG_SHIP_Vessel0807:	"Schiff 0807"
 FREE_BORG_SHIP_Vessel0808:	"Schiff 0808"
 FREE_BORG_SHIP_Vessel0809:	"Schiff 0809"
 FREE_BORG_SHIP_Vessel0810:	"Schiff 0810"
-FREE_BORG_SHIP_Vessel0811:	
+##### FREE_BORG_SHIP_Vessel0811:	
 FREE_BORG_SHIP_Vessel0812:	"Schiff 0812"
 FREE_BORG_SHIP_Vessel0813:	"Schiff 0813"
 FREE_BORG_SHIP_Vessel0814:	" Schiff 0814"
@@ -50546,7 +50546,7 @@ JEMHADAR_SHIP_Vessel047:	"Schiff 04/7"
 JEMHADAR_SHIP_Vessel047a:	"Schiff 04/7/a"
 JEMHADAR_SHIP_Vessel047b:	"Schiff 04/7/b"
 JEMHADAR_SHIP_Vessel047c:	"Schiff 04/7/c"
-JEMHADAR_SHIP_Vessel047d:	
+##### JEMHADAR_SHIP_Vessel047d:	
 JEMHADAR_SHIP_Vessel047e:	" Schiff 04/7/e"
 JEMHADAR_SHIP_Vessel047f:	"Schiff 04/7/f"
 JEMHADAR_SHIP_Vessel047g:	"Schiff 04/7/g"
@@ -50851,7 +50851,7 @@ JEMHADAR_SHIP_Vessel080h:	"Schiff 08/0/h"
 JEMHADAR_SHIP_Vessel081:	"Schiff 08/1"
 JEMHADAR_SHIP_Vessel081a:	"Schiff 08/1/a"
 JEMHADAR_SHIP_Vessel081b:	"Schiff 08/1/b"
-JEMHADAR_SHIP_Vessel081c:	
+##### JEMHADAR_SHIP_Vessel081c:	
 JEMHADAR_SHIP_Vessel081d:	"Schiff 08/1/d"
 JEMHADAR_SHIP_Vessel081e:	"Schiff 08/1/e"
 JEMHADAR_SHIP_Vessel081f:	"Schiff 08/1/ f"
@@ -85870,7 +85870,7 @@ agenda_propose_cluster_pact_effect_2:	" |___CC010392___|Die folgenden Reiche wer
 agenda_propose_cluster_pact_effect_3:	"|___CC010394___|"
 agenda_propose_federation_effect_blocked_detail_end:	"|___CC010395___|"
 agenda_propose_federation_effect_blocked:	"|___NL018955___||___CC010396___|Umstände haben diese Agenda verzögert:|___CC010397___||___CC010398___"
-agenda_propose_federation_effect:	
+##### agenda_propose_federation_effect:	
 agenda_propose_galactic_market_effect:	"Es werden Vorbereitungen zur Gründung des Galaktischen Marktes getroffen."
 agenda_propose_ime_effect:	"Der interspeziesmedizinische Austausch wird eingerichtet und andere Imperien werden zur Teilnahme eingeladen."
 agenda_propose_isu_effect:	"Die Mitglieder der Allianz werden zur Gründung der |___CC010401___|Interstellaren Union|___CC010402___|" konsultiert."
@@ -86580,7 +86580,7 @@ ap_cybernetic_inclusion:	"Kybernetische Inklusion"
 ap_defender_of_the_galaxy_desc:	"Die Wahrnehmung einer ganzen Rasse sorgfältig zu formen und in etwas zu verwandeln, das sie nicht ist, unterscheidet sich nicht wesentlich davon, wie ein Künstler eine Statue aus Ton formt. Diplomaten sorgen dafür, dass unser Volk auch in den schlimmsten Zeiten in guter Erinnerung bleibt."
 ap_defender_of_the_galaxy_effect_opinion_desc:	 "Beschreibung in Arbeit"
 ap_defender_of_the_galaxy_effect_opinion:	"Jeder |___IC000696___| |___CC010439___|Meinung|___CC010440___| erhöht um |___CC010441___|+25|___CC010442___|"
-ap_defender_of_the_galaxy:	
+##### ap_defender_of_the_galaxy:	
 ap_dogs_of_war_desc:	"Ruft Chaos! Und lasst die Hunde des Krieges los!"
 ap_dogs_of_war_effect_bombardment:	"|___NL018958___|Schaltet frei |___CC010443___|Armageddon-Bombardement|___CC010444___|."
 ap_dogs_of_war:	"Kriegshunde"
@@ -87669,7 +87669,7 @@ bombardment_theta_radiation_desc:	"Schiffe im Orbit lassen Munition mit Theta-St
 bombardment_theta_radiation:	" Theta-Strahlung"
 boreth_colony_desc:	"Boreth ist eine Welt voller Leben und gefährlicher Raubtiere und wird seit Jahrhunderten von klingonischen Kriegern genutzt, um ihre Fähigkeiten zu verbessern. Hier befindet sich auch das Boreth-Kloster, ein altes Kloster, das angeblich der Ort ist, an dem Kahless zurückkehren wird."
 boreth_colony:	"Boreth"
-borg_admiral_specialisation:	
+##### borg_admiral_specialisation:	
 borg_assimilation_army:	"Assimilationsdrohnen"
 borg_assimilation_army_desc:	"Assimilationsdrohnen"
 borg_assimilator_cap:	"|___NE018571___|"
@@ -87777,10 +87777,10 @@ borg_probe_mid_3:	"Sonde 1.2"
 borg_probe_plural:	"Sondenklasse-Scouts"
 borg_probe_sci_cap:	"|___NE018590___|"
 borg_probe_sci_plural:	"Probe-Klasse Wissenschaftsschiffe"
-borg_probe_sci:	
-borg_probe:	
-borg_pyramid_cap:	
-borg_pyramid_mid_1:	
+##### borg_probe_sci:	
+##### borg_probe:	
+##### borg_pyramid_cap:	
+##### borg_pyramid_mid_1:	
 borg_pyramid_mid_2:	"Pyramide 1.1"
 borg_pyramid_mid_3:	"Pyramide 1.2"
 borg_pyramid_plural:	"Schwere Eskorten der Pyramidenklasse"
@@ -88175,7 +88175,7 @@ building_borg_manufactury_core_2:	"Produktionskern II"
 building_borg_manufactury_core_3_desc:	"|___NE018680___|"
 building_borg_manufactury_core_3:	"Produktionskern III"
 building_borg_matter_replicator_1_desc:	"Energieintensive Fusionstechniken können fast jede Legierung aus Rohstoffen herstellen, allerdings mit erheblichen Energiekosten."
-building_borg_matter_replicator_1:	
+##### building_borg_matter_replicator_1:	
 building_borg_matter_replicator_2_desc:	"Verbesserte industrielle Techniken ermöglichen eine größere Bandbreite an Produkten aus unseren industriellen Synthesizern."
 building_borg_matter_replicator_2:	"Fortschrittliche industrielle Synthesizer"
 building_borg_matter_replicator_3_desc:	"Als Ableger der Transportertechnologie wandeln industrielle Replikatoren Energie und gespeicherte Materie in Duplikate von vorab gescannten Legierungen und Komponenten um."
@@ -88195,7 +88195,7 @@ building_borg_naval_subroutine_hub:	"Marine-Subroutinen-Hub"
 building_borg_production_node_desc:	"Eine zentralisierte Suite aus dedizierter Verarbeitungshardware und zugehörigen Drohnen, die der Optimierung der lokalen Produktionseffizienz dienen."
 building_borg_production_node:	"Produktionsüberwachungsknoten"
 building_borg_regeneration_alcove_array_desc:	"|___NE018681___|"
-building_borg_regeneration_alcove_array:	
+##### building_borg_regeneration_alcove_array:	
 building_borg_regeneration_alcove_desc:	"Zusätzliche Alkoven, die gebaut wurden, um eine größere Anzahl von Drohnen für das Kollektiv unterzubringen."
 building_borg_regeneration_alcove:	"Regenerationsalkoven"
 building_borg_resource_silo_desc:	"|___NE018682___|"
@@ -88293,7 +88293,7 @@ building_manufactury_efficiency_1:	"Systemdesignbüro"
 building_manufactury_upkeep_1_desc:	"Zusatzanlagen zur Modernisierung älterer Komponenten, die das fertige Produkt wieder in die Fertigungskette zurückführen."
 building_manufactury_upkeep_1:	"Nachrüstungszentrum"
 building_matter_replicator_1_desc:	"Energieintensive Fusionstechniken können aus Rohstoffen fast jede Legierung herstellen, allerdings mit erheblichen Energiekosten."
-building_matter_replicator_1:	
+##### building_matter_replicator_1:	
 building_matter_replicator_2_desc:	"Verbesserte industrielle Techniken ermöglichen eine größere Bandbreite an Produkten aus unseren industriellen Synthesizern."
 building_matter_replicator_2:	"Fortschrittliche industrielle Synthesizer"
 building_matter_replicator_3_desc:	"Als Ableger der Transportertechnologie wandeln industrielle Replikatoren Energie und gespeicherte Materie in Duplikate von vorab gescannten Legierungen und Komponenten um."
@@ -90342,14 +90342,14 @@ crisobj_assimilate_planet_name:	"Planeten assimilieren"
 crisobj_assimilate_pop_desc:	"Mit jeder neuen Stimme, die dem Kollektiv hinzugefügt wird, werden wir stärker. |___NL019172___||___NL019173___||___CC011193___|Assimilieren |___IC000777___|"
 crisobj_assimilate_pop_name:	" Biologische Besonderheiten assimilieren"
 crisobj_assimilate_vessel_desc:	"Mit jeder neuen Technologie, die dem Kollektiv hinzugefügt wird, werden wir stärker. |___NL019174___||___NL019175___||___CC011195___|Assimilieren |___IC000778___|"
-crisobj_assimilate_vessel_name:	
+##### crisobj_assimilate_vessel_name:	
 crisobj_build_gateway_desc:	"Der Bau der transdimensionalen Tore, die die charakteristische Technologie unserer Meister sind, wird es ihnen ermöglichen, die Galaxie schneller zurückzuerobern."
 crisobj_build_gateway_name:	"Ein Tor bauen"
 crisobj_complete_iconian_dig_name:	"Ikonische archäologische Stätten vervollständigen"
 crisobj_control_iconia_desc:	"Die alte Heimatwelt unserer Meister wurde vor Hunderttausenden von Jahren zerstört. |___NL019176___||___NL019177___|Eine erneute Präsenz hier würde uns große Gunst einbringen."
 crisobj_control_iconia_name:	"Iconia kontrollieren"
 crisobj_designate_assimilation_target_desc:	"Die Vorbereitungen, die getroffen werden müssen, um eine neue Kultur in das Kollektiv zu integrieren, sind wertvoll. |___NL019178___||___NL019179___||___CC011197___|Die Agenda |___NE019053___| vollständig umsetzen|___CC011198___|"
-crisobj_designate_assimilation_target_name:	
+##### crisobj_designate_assimilation_target_name:	
 crisobj_particle_010_desc:	"Die Perfektion, die dieses Partikel verkörpert, ist unvergleichlich. |___NL019180___||___NL019181___||___CC011199___|Erzeugen Sie Partikel 010-Moleküle|___CC011200___|"
 crisobj_particle_010_name:	"Partikel 010"
 crisobj_research_a_boon_desc:	"Die Integration der einzigartigen Erkenntnisse unserer iconianischen Meister in unsere Kultur wird uns bei ihnen beliebt machen."
@@ -91380,7 +91380,7 @@ decision_build_terraform_weather_control_network_tooltip:	"Wetterkontrollnetzwer
 decision_build_terraform_weather_control_network:	"Wetterkontrollnetzwerk aufbauen"
 decision_colony_deconstruction_desc:	"Die Plünderung der Vermögenswerte und die Umsiedlung der Bevölkerung sind möglicherweise die effektivste Nutzung einer eroberten Kolonie mit minimalem strategischem Wert."
 decision_colony_deconstruction_tooltip:	" Kolonie wird zerstört |___NL019257___|Alle |___IC000802___| werden umgesiedelt |___NL019258___|+100 |___IC000803___| pro |___IC000804___| und |___IC000805___|"
-decision_colony_deconstruction:	
+##### decision_colony_deconstruction:	
 decision_convert_factory_to_foundry:	"|___NE019100___| zu |___NE019101___| Neukonfiguration"
 decision_convert_factory_to_manufactury:	"|___NE019102___| zu |___NE019103___| Neukonfiguration"
 decision_convert_foundry_to_factory:	"|___NE019104___| zu |___NE019105___| Neukonfiguration"
@@ -91662,7 +91662,7 @@ devore_overseer_plural:	"Kommandokreuzer der Aufseher-Klasse"
 devore_overseer:	"Kommandokreuzer der Overseer-Klasse"
 dilithium_deficit:	"|___NE019166___| Mangel"
 dilithium_desc:	"|___CC011399___||___CC011400___|Dilithium|___CC011401___| (|___IC000836___| ist ein seltenes trans uranisches Element, das für die Funktion von |___CC011402___|Schiffen|___CC011403___| unerlässlich ist. Wir können mehr davon gewinnen durch:|___NL019279___||___CC011404___|1.|___CC011405___| Bau von |___IC000837___| |___CC011406___|Dilithium-Mine|___CC011407___| Gebäude auf der Oberfläche kolonisierten Planeten. |___NL019280___||___CC011408___|2.|___CC011409___| Verwendung von |___CC011410___|Bauschiffen|___CC011411___| zum Bau von |___CC011412___|Bergbaustationen|___CC011413 ___| um dilithiumreiche Planeten oder Asteroiden herum. |___NL019281___||___CC011414___|3.|___CC011415___| Mehr auf dem |___CC011416___|Markt|___CC011417___| kaufen.|___CC011418___|"
-dilithium:	
+##### dilithium:	
 diplo_stance_assimilation_desc:	"Diplomatie ist irrelevant."
 diplo_stance_assimilation_name:	"Assimilation"
 diplo_stance_assimilation:	"Assimilation"
@@ -93491,7 +93491,7 @@ EMPIRE_DESIGN_BrunaliEmpire_desc:	"|___NS025568___||___NL019423___||___NL019424_
 EMPIRE_DESIGN_BrunaliEmpire:	"|___CC011565___|Brunali-Imperium|___CC011566___|"
 EMPIRE_DESIGN_BynarDomains_desc:	"|___NS025569___||___NL019429___||___NL019430___|Die Bynar haben eine technologische Symbiose erreicht – die Verschmelzung von Analogem und Digitalem. Trotz ihrer Vernetzung haben sie ihre Individualität, ihr Mitgefühl und ihre Empathie bewahrt."
 EMPIRE_DESIGN_BynarDomains:	"|___IC000857___| |___CC011567___|Bynar-Domänen|___CC011568___"
-EMPIRE_DESIGN_CaitianUnion_desc:	
+##### EMPIRE_DESIGN_CaitianUnion_desc:	
 EMPIRE_DESIGN_CaitianUnion:	"|___IC000858___| |___CC011569___|Caitianische Union|___CC011570___|"
 EMPIRE_DESIGN_CardassianUnion_desc:	"|___NS025571___||___NL019435___||___NL019436___|Die Cardassianer sind eine quasi-reptilienartige humanoide Spezies, die vom Planeten Cardassia stammt. |___NL019437___||___NL019438___|Sie scheinen sich aus einer Kreatur mit reptilienartigen und säugetierartigen Merkmalen entwickelt zu haben, mit grauer oder graugrüner Hautfarbe und tiefschwarzem Haar. Längliche Wirbel erstrecken sich entlang ihres Halses, und Kämme verlaufen entlang ihrer Stirn. |___NL019439___||___NL019440___|Die Cardassianer sind allgemein davon überzeugt, dass sie anderen Rassen in der Galaxie überlegen sind und dass alle ihnen dienen sollten."
 EMPIRE_DESIGN_CardassianUnion:	"|___IC000859___| |___IC000860___| |___CC011571___|Cardassianische Union|___CC011572___|"
@@ -93552,7 +93552,7 @@ EMPIRE_DESIGN_HaAmoran_desc:	"|___NS025603___|   |___CC011637___|Alternative Rea
 EMPIRE_DESIGN_HaAmoran:	"|___IC000881___| |___CC011641___|Ha'Amoran|___CC011642___|"
 EMPIRE_DESIGN_HazariCoalition_desc:	"|___NS025605___| |___NL019525___||___NL019526___|Die Hazari sind eine Rasse reptilienartiger Humanoiden aus dem Delta-Quadranten, die für ihre Fähigkeiten als Fährtenleser bekannt sind und häufig als Kopfgeldjäger eingesetzt werden."
 EMPIRE_DESIGN_HazariCoalition:	"|___IC000882___| |___CC011643___|Hazari-Koalition|___CC011644___"
-EMPIRE_DESIGN_HebitianUnion_desc:	
+##### EMPIRE_DESIGN_HebitianUnion_desc:	
 EMPIRE_DESIGN_HebitianUnion:	"|___IC000883___| |___CC011649___|Hebitianische Union|___CC011650___|"
 EMPIRE_DESIGN_HirogenHunters_desc:	" |___NS025608___||___NL019533___||___NL019534___|Die Hirogen werden oft als brutale, nomadische Wilde angesehen, doch tatsächlich bilden sie eine stolze, technologisch fortgeschrittene Gesellschaft, die älter ist als die meisten Spezies in der Galaxie. Die Hirogen sind unglaublich groß und kräftig, fähige Krieger und Jäger, die die Galaxie in Angst und Schrecken versetzen."
 EMPIRE_DESIGN_HirogenHunters:	"|___IC000884___| |___CC011651___|Hirogen-Jäger|___CC011652___|"
@@ -93739,7 +93739,7 @@ EMPIRE_DESIGN_WadiEmirates_desc:	" |___NS025702___||___NL019819___||___NL019820_
 EMPIRE_DESIGN_WadiEmirates:	"|___IC000953___| |___CC011863___|Wadi-Emirate|___CC011864___|"
 EMPIRE_DESIGN_XepoliteGuilds_desc:	"|___NS025703___||___NL019825___||___NL019826___|Die Xepoliten sind eine humanoide Rasse aus dem Alpha-Quadranten. Sie sind begeisterte Händler, von denen viele bereit sind, sich auf halblegale Schmuggelgeschäfte einzulassen, um Profit zu machen."
 EMPIRE_DESIGN_XepoliteGuilds:	"|___CC011865___|Xepolite-Gilden|___CC011866___"
-EMPIRE_DESIGN_XindiCouncil_desc:	
+##### EMPIRE_DESIGN_XindiCouncil_desc:	
 EMPIRE_DESIGN_XindiCouncil:	"|___IC000954___| |___CC011867___|Xindi-Rat|___CC011868___|"
 EMPIRE_DESIGN_YaderanRepublic_desc:	" |___NS025705___||___NL019829___||___NL019830___|Die Yaderaner sind eine zurückgezogen lebende, technologisch fortgeschrittene Spezies, die im Gamma-Quadranten beheimatet ist. Für kurze Zeit galten sie als die besten Holo-Künstler und KI-Programmierer der Galaxie, die in der Lage waren, völlig überzeugende und realistische virtuelle Welten zu erschaffen, die sich über Meilen erstrecken konnten."
 EMPIRE_DESIGN_YaderanRepublic:	"|___CC011869___|Yaderanische Republik|___CC011870___|"
@@ -94377,7 +94377,7 @@ EXTRA_LARGE_PHASED_ION_LANCE_8:	"Extra -große Phasen-Ionenlanze Mk VIII"
 EXTRA_LARGE_PHASED_ION_LANCE_9_DESC:	"|___NE019722___|"
 EXTRA_LARGE_PHASED_ION_LANCE_9:	"Extra-große Phasen-Ionenlanze Mk IX"
 EXTRA_LARGE_PHASER_CC_LANCE_1_DESC:	"|___NE019723___|"
-EXTRA_LARGE_PHASER_CC_LANCE_1:	
+##### EXTRA_LARGE_PHASER_CC_LANCE_1:	
 EXTRA_LARGE_PHASER_CC_LANCE_10_DESC:	"|___NE019724___|"
 EXTRA_LARGE_PHASER_CC_LANCE_10:	"Extra-Large Cold Cycle Phaser Lance Mk X"
 EXTRA_LARGE_PHASER_CC_LANCE_11_DESC:	"|___NE019725___|"
@@ -94571,7 +94571,7 @@ EXTRA_LARGE_TETRYON_LANCE_9:	"Extra große Tetryon-Lanze Mk IX "
 EXTRA_LARGE_VARON_LANCE_1_DESC:	"|___NE019819___|"
 EXTRA_LARGE_VARON_LANCE_1:	"Extra-große Varon-Disruptor-Lanze Mk I"
 EXTRA_LARGE_VARON_LANCE_10_DESC:	"|___NE019820___|"
-EXTRA_LARGE_VARON_LANCE_10:	
+##### EXTRA_LARGE_VARON_LANCE_10:	
 EXTRA_LARGE_VARON_LANCE_11_DESC:	"|___NE019821___|"
 EXTRA_LARGE_VARON_LANCE_11:	"Extra große Varon-Disruptor-Lanze Mk XI"
 EXTRA_LARGE_VARON_LANCE_12_DESC:	 "|___NE019822___|"
@@ -94645,7 +94645,7 @@ FER_DOW_PROPOSE_01:	"Die Erwerbsregel 95 besagt eindeutig: "Expandieren oder ste
 FER_DOW_SELECT_01:	"Sicherlich können wir zu einer Art ... Einigung kommen, die nicht auf Gewalt zurückgreift?"
 FER_DOW_SELECT_SS_01:	"|___NS025717___| kämpfen |___NS025718___|. .. wo liegt darin der Gewinn?"
 FER_DOW_VOTE_PROPOSE_01:	"Die 22. Regel besagt, dass ein weiser Mann den Gewinn im Wind hören kann. Schließt euch uns im Kampf gegen die |___CC011931___||___NS025719___||___CC011932___| an, dann gibt es reichlich Gewinn zu teilen!"
-FER_ear_plural:	
+##### FER_ear_plural:	
 FER_ear:	"Ohr"
 FER_EVENT_GREETING_01:	"Die |___NS025720___| bedauert den jüngsten Angriff der Xindi auf das Volk der |___NS025721___|. |___NL019865___||___NL019866___|Eine solche Zerstörung ist ... Nun, wo bleibt der Gewinn?"
 FER_FRIENDLY_DOW_ACCEPT_01:	"Und wir dachten, dass die |___NS025722___| ein zuverlässiger Handelspartner sei. Nach all den Gewinnen, die wir gemeinsam erzielt haben ... |___NL019867___||___NL019868___|Die 285. Regel bewährt sich einmal mehr."
@@ -95124,10 +95124,10 @@ garuths_bridal_gown_desc_short:	"Ein elegantes Kleid aus feinster kriosianischer
 garuths_bridal_gown:	"Garuths s Brautkleid"
 gateway_andorian_vulcan_ships:	"|___IC000961___| |___CC011943___|Andorianisch-Vulkanische Schiffe|___CC011944___||___NL019873___||___NL019874___||___CC01194 5___|Diese Technologie ist verfügbar, da sowohl andorianische als auch vulkanische Schiffsdesigns zugänglich sind.|___CC011946___|"
 gateway_bolian_starfleet_ships:	"|___IC000962___| |___CC011947___|Bolianische -Sternenflottenschiffe|___CC011948___||___NL019875___||___NL019876___||___CC011949___|Diese Technologie ist verfügbar, da sowohl bolianische als auch Sternenflottenschiff-Konstruktionen zugänglich sind.|___CC011950___|"
-gateway_caitian_romulan_ships:	
+##### gateway_caitian_romulan_ships:	
 gateway_caitian_vulcan_ships:	" |___IC000964___| |___CC011955___|Caitianisch-Vulkanische Schiffe|___CC011956___||___NL019879___||___NL019880___||___CC011957___|Diese Technologie ist verfügbar, da sowohl caitianische als auch vulkanische Schiffskonstruktionen.|___CC011958___|"
 gateway_cardassian_kessok_ships:	"|___IC000965___| |___CC011959___|Kardassianische -Kessok-Schiffe|___CC011960___||___NL019881___||___NL019882___||___CC011961___|Diese Technologie ist verfügbar, da sowohl cardassianische als auch kessokische Schiffsdesigns zugänglich sind.|___CC011962___|"
-gateway_cloak:	
+##### gateway_cloak:	
 gateway_computing:	 "|___IC000967___| |___CC011967___|Computing|___CC011968___||___NL019885___||___NL019886___||___CC011969___|Dieser Pfad schaltet fortgeschrittenere Arten von Raumschiffcomputern frei. |___CC011970___|"
 gateway_energy:	"|___IC000968___| |___CC011971___|Pfad der Energie|___CC011972___||___NL019887___||___NL019888___||___CC011973___|Diese Technologie wird zu weiteren Fortschritten im Bereich |___IC000969___| |___CC011974___|Energie|___CC011975___| Produktion, Speicherung und Verteilung führen und bessere |___CC011976___|Reaktoren|___CC011977___| für Stationen und Schiffe und |___IC000970___| |___CC011978___|Kraftwerke|___CC011979___| für unsere Kolonien erschließen.|___CC011980___|"
 gateway_genetics:	" |___IC000971___| |___CC011981___|Genetik|___CC011982___||___NL019889___||___NL019890___||___CC011983___|Dieser Pfad schaltet fortgeschrittenere Arten der Genmanipulationstechniken frei.|___CC011984 ___|"
@@ -96042,7 +96042,7 @@ has_solar_shade_4_tooltip:	"Hat |___CC012197___|4 Orbital-Sonnenschutzvorrichtun
 has_spatial_anomalies_sphere_builder:	" |___CC012199___|Räumliche Anomalien – kann unterstützen |___NE020086___||___CC012200___|"
 has_spatial_anomalies:	" |___CC012201___|Räumliche Anomalien|___CC012202___|"
 has_subject_civic_service_tradition:	"|___CC012203___|Standpunkt des Rates zu einem Thema mit bürgerlicher |___NE020087___||___CC012204___|"
-has_temporal_benefactor:	
+##### has_temporal_benefactor:	
 has_theta_radiation_dump:	"|___CC012205___|Theta-Strahlungsabfälle|___CC012206___|"
 has_variable_inertia_array_1_tooltip:	"Hat |___CC012207___|1 variables Trägheitsarray|___CC012208___|"
 has_variable_inertia_array_2_tooltip:	"Hat |___CC012209___|2 variable Trägheitsanordnungen|___CC012210___|"
@@ -97502,7 +97502,7 @@ KDF_FRIENDLY_DOW_SS_ACCEPT_01:	"Es kommt also zum Krieg? Testet das |___NS025835
 KDF_FRIENDLY_GREETING_01:	"Guten Tag, |___NS025836___|. Welche Ruhmestaten können die |___NS025837___| und |___NS025838___| gemeinsam vollbringen?"
 KDF_FRIENDLY_GREETING_SS_01:	"Guten Tag, |___NS025839___|. Welche Ruhmestaten können die |___NS025840___| und |___NS025841___| gemeinsam vollbringen?"
 KDF_HOSTILE_DOW_ACCEPT_01:	 "Das Volk der |___NS025842___| tut gut daran, sich an diesen Tag zu erinnern. Er markiert den ersten Tag ihrer Niederlage durch die |___NS025843___|. |___NL019977___||___NL019978___| Der ehrenvolle Tod, den euer Volk verdienen wird, ist mehr, als die PetaQs verdienen."
-KDF_HOSTILE_DOW_ACCEPT_SS_01:	
+##### KDF_HOSTILE_DOW_ACCEPT_SS_01:	
 KDF_HOSTILE_GREETING_01:	"Der |___NS025846___| hat keine Zeit für wertlose |___NS025847___| PetaQ."
 KDF_HOSTILE_GREETING_SS_01:	"Der |___NS025848___| hat Schande über sich gebracht. Du wagst es, die Zeit eines Kriegers zu verschwenden?"
 KDF_NEUTRAL_DOW_ACCEPT_01:	"Es kommt also zum Krieg? |___NS025849___| Krieger leben für nichts anderes. |___NL019981___||___NL019982___|Stirbt gut."
@@ -98502,7 +98502,7 @@ LARGE_ANTIPROTON_BOLT_3_DESC:	" |___NE020655___|"
 LARGE_ANTIPROTON_BOLT_3:	"Großer Antiprotonenbolzen Mk III"
 LARGE_ANTIPROTON_BOLT_4_DESC:	"|___NE020656___|"
 LARGE_ANTIPROTON_BOLT_4:	"Großer Antiprotonenbolzen Mk IV"
-LARGE_ANTIPROTON_BOLT_5_DESC:	
+##### LARGE_ANTIPROTON_BOLT_5_DESC:	
 LARGE_ANTIPROTON_BOLT_5:	"Großer Antiprotonenbolzen Mk V"
 LARGE_ANTIPROTON_BOLT_6_DESC:	"|___NE020658___|"
 LARGE_ANTIPROTON_BOLT_6:	" Großer Antiprotonenbolzen Mk VI"
@@ -98856,7 +98856,7 @@ LARGE_HANGAR_FIGHTER_5_DESC:	 "|___NE020832___|"
 LARGE_HANGAR_FIGHTER_5:	"Shuttle Wing Mk III"
 LARGE_HANGAR_FIGHTER_7_DESC:	"|___NE020833___|"
 LARGE_HANGAR_FIGHTER_7:	"Shuttle Wing Mk IV"
-LARGE_HANGAR_FIGHTER_9_DESC:	
+##### LARGE_HANGAR_FIGHTER_9_DESC:	
 LARGE_HANGAR_FIGHTER_9:	"Shuttle Wing Mk V"
 LARGE_ISOKINETIC_BOLT_1_DESC:	"|___NE020835___|"
 LARGE_ISOKINETIC_BOLT_1:	"Großer isokinetischer Bolzen Mk I"
@@ -99525,7 +99525,7 @@ leader_trait_genetic_memory_medical_enable:	"Schaltet |___CC012501___||___NE0210
 leader_trait_genetic_memory_medical:	"Medizinische Engramme"
 leader_trait_genetic_memory_navigation_desc:	"|___NS025898___| wurde mit den verfeinerten genetischen Erinnerungen zahlreicher |___NS025899___| Piloten und Navigatoren ausgestattet."
 leader_trait_genetic_memory_navigation_enable:	"Schaltet |___CC012505___||___NE021090___||___CC012506___| Eigenschaft für |___CC012507___||___NS025900___||___CC012508___| frei"
-leader_trait_genetic_memory_navigation:	
+##### leader_trait_genetic_memory_navigation:	
 leader_trait_genetically_engineered_desc:	"Dieser Anführer wurde genetisch manipuliert und verfügt über überragende Intelligenz, Stärke und Ambitionen. "
 leader_trait_genetically_engineered:	"Genetisch manipuliert"
 leader_trait_hero_desc:	"|___CC012509___|Dieser Anführer weist eine Reihe von Eigenschaften auf, die ihn von seinen Zeitgenossen abheben.|___CC012510___||___NL020007___|"
@@ -99577,7 +99577,7 @@ leader_trait_linguist_3:	"Linguist III"
 leader_trait_linguist_desc:	" |___CC012531___|Dieser Anführer ist ein begabter Linguist, der in der Lage ist, eine Vielzahl von fremden Sprachen schnell zu verstehen.|___CC012532___|"
 leader_trait_linguist:	"Linguist"
 leader_trait_logician_desc:	"|___CC012533___|Als Meisterlogiker weiß dieser Anführer genau, wo und wann er zuschlagen muss.|___CC012534___||___NL020016___"
-leader_trait_logician:	
+##### leader_trait_logician:	
 leader_trait_logistics_node_desc:	"|___CC012535___|In dieser Drohne ist ein Logistikknoten installiert, der ihr Vorrang vor anderen Einheiten einräumt.|___CC012536___||___NL020017___|"
 leader_trait_logistics_node:	"Logistikknoten"
 leader_trait_lucky_communicator_desc:	"Dieser Anführer hat eine Vorliebe für sein Kommunikationsgerät entwickelt und glaubt, dass es ihm Glück bringt."
@@ -101916,9 +101916,9 @@ mod_job_borg_nanite_drone_per_pop_short:	"|___NL020103___||___CC012841___|+1|___
 mod_job_borg_nanite_drone_per_pop:	"|___CC012843___|+1|___CC012844___| |___NE021841___| Job pro |___NE021842___| Pops"
 mod_job_borg_primary_adjunct_drone_add:	"|___NE021843___| Jobs"
 mod_job_borg_primary_adjunct_drone_per_pop_short:	"|___NL020104___||___CC012845___|+1|___CC012846___| |___IC001378___| pro |___NE021844___| |___IC001379___|"
-mod_job_borg_primary_adjunct_drone_per_pop:	
+##### mod_job_borg_primary_adjunct_drone_per_pop:	
 mod_job_deactivated_photonic_add:	"|___NE021847___| Jobs"
-mod_job_evaluator_add:	
+##### mod_job_evaluator_add:	
 mod_job_evaluator_per_pop_short:	" |___NL020105___||___CC012849___|+1|___CC012850___| |___IC001380___| pro |___NE021849___| |___IC001381___|"
 mod_job_evaluator_per_pop:	"|___CC012851___|+1|___CC012852___| |___NE021850___| Job pro |___NE021851___| Pops"
 mod_job_gas_refiner_add:	"|___NE021852___| Jobs"
@@ -102119,7 +102119,7 @@ mod_planet_civilians_consumer_goods_produces_add:	"|___IC001431___| |___NE021977
 mod_planet_civilians_energy_upkeep_add:	"|___IC001432___| |___NE021979___| Unterhalt pro |___NE021980___| |___NS025960___| |___NS025961___|"
 mod_planet_civilians_food_produces_add:	 "|___IC001433___| |___NE021981___| pro |___NE021982___| |___NS025962___| |___NS025963___|"
 mod_planet_clone_pop_capacity_add:	"Klonkapazität"
-mod_planet_cloners_upkeep_mult:	
+##### mod_planet_cloners_upkeep_mult:	
 mod_planet_commercial_buildings_job_trader_add:	"|___IC001434___| |___NE021984___| Jobs aus gewerblichen Gebäuden"
 mod_planet_continental_tropical_marsh_farmers_produces_mult:	"|___NE021985___| |___NE021986___|, |___NE021987___|, |___NE021988___| Output"
 mod_planet_coordinator_drones_produces_mult:	"Ausgabe Koordinator-Drohne"
@@ -102151,7 +102151,7 @@ mod_planet_jobs_complex_drone_sr_cpm_produces_mult:	"CPM-Produktion"
 mod_planet_jobs_components_produces_mult:	"|___IC001450___| |___NE022002___| aus |___IC001451___| Jobs"
 mod_planet_jobs_consumer_goods_upkeep_mult:	" |___IC001452___| |___NE022003___| Unterhalt aus Jobs"
 mod_planet_jobs_crew_produces_mult:	"|___IC001453___| |___NE022004___| aus |___IC001454___| Jobs"
-mod_planet_jobs_deuterium_produces_mult:	
+##### mod_planet_jobs_deuterium_produces_mult:	
 mod_planet_jobs_dilithium_produces_mult:	"|___IC001457___| |___NE022006___| von |___IC001458___| Jobs"
 mod_planet_jobs_energy_upkeep_mult:	"Jobs Energieversorgung"
 mod_planet_jobs_ketracel_white_produces_mult:	"|___IC001459___| |___NE022007___| von |___IC001460___| Jobs"
@@ -102995,7 +102995,7 @@ NRC_tooth_plural:	"Zähne"
 NRC_tooth:	"Zahn"
 NRC:	"Norcadianer"
 NUM_MINORS_TOOLTIP:	" |___CC013079___|Kleine Reiche|___CC013080___||___NL020148___|Steuert, wie viele Reiche das Spiel mit der |___CC013081___||___NE022264___||___CC013082___| Staatsform beginnen, wodurch eine Expansion verhindert wird."
-NUM_MINORS:	
+##### NUM_MINORS:	
 NX_SHIP_NAME:	"|___NS026005___| NX-|___NS026006___|"
 NYB_compliment_01:	"|___NE022265___|"
 NYB_compliment_plural_01:	"|___NE022266___|"
@@ -103385,7 +103385,7 @@ origin_efrosian_league_desc:	"|___NE022351___|"
 origin_efrosian_league:	"Efrosian League"
 origin_elachi_synarchy_desc:	"|___NE022352___|"
 origin_elachi_synarchy_effect:	" Beginnt mit |___CC013137___||___NS026011___||___CC013138___||___NL020173___|Beginnt mit |___CC013139___||___NE022353___||___CC013140___| Bombardierungshaltung"
-origin_elachi_synarchy:	
+##### origin_elachi_synarchy:	
 origin_enolian_order_desc:	"|___NE022354___|"
 origin_enolian_order:	"Enolianischer Orden"
 origin_excalbian_solidarity_desc:	"|___NE022355___|"
@@ -103797,7 +103797,7 @@ PAK_insult_plural_01:	"Idioten" "
 PAK_mouth:	"|___NE022496___|"
 PAK_organ_plural:	"|___NE022497___|"
 PAK_organ:	"|___NE022498___|"
-PAK_plural:	
+##### PAK_plural:	
 PAK_sound_01:	"knurrend"
 PAK_sound_02:	"grunzend"
 PAK_sound_03:	"brüllend"
@@ -106366,7 +106366,7 @@ r_ferengi_scepter_of_the_grand_nagus_desc:	"Ein Symbol für die Autorität des A
 r_ferengi_scepter_of_the_grand_nagus:	"Zepter des Großnagus"
 r_guardian_devils_heart_activate:	"Heilt alle Krankheiten, die |___IC001662___| Pops befallen, und verhindert gleichzeitig neue Ausbrüche für 10 Jahre."
 r_guardian_devils_heart_desc:	"Das |___NE023328___| ist ein Dibroxit-Dilithium-Kristall mit einzigartigen Eigenschaften, die sich bis in den Subraum erstrecken."
-r_guardian_devils_heart_unknown_activate:	
+##### r_guardian_devils_heart_unknown_activate:	
 r_guardian_devils_heart:	"Teufelsherz"
 r_guardian_eternity_barrier_desc:	"Oberflächlich betrachtet ist die Eternity Barrier ein felsiger Torus mit einem Durchmesser von zwei Metern, der vom Guardian of Forever geschaffen wurde und in der Lage ist, vor zeitlichen Einflüssen zu schützen und die Ergebnisse von Zeitreisen so zu lenken, dass sie für diejenigen, die ihn besitzen, günstiger ausfallen."
 r_guardian_eternity_barrier_passive:	"Leicht verbesserte Abwehr gegen zeitliche Eingriffswaffen|___NL020253___|Leicht verbesserte Ergebnisse von Zeitreiseeffekten"
@@ -109662,207 +109662,207 @@ REQUIRED_WARP_TRANSWARP_FRIGATE_8_DESC:	"|___NE026008___|"
 REQUIRED_WARP_TRANSWARP_FRIGATE_8:	"|___NE026009___|"
 REQUIRED_WARP_TRANSWARP_FRIGATE_9_DESC:	"|___NE026010___|"
 REQUIRED_WARP_TRANSWARP_FRIGATE_9:	"|___NE026011___|"
-required_warp:	
-requirement_no_plague:	
-requires_antiproton_weapons_7:	
-requires_ap_undine_non_fluidic_colonisation:	
-requires_ascension_perks_4:	
-requires_ascension_perks_5:	
-requires_asteroid:	
-requires_at_least_one_hull_type:	
-requires_at_least_one_shield_type:	
-requires_at_least_one_warp_type:	
-requires_barren_under_six:	
-requires_bolians:	
-requires_bonus_not_cardassian_triggered_effect:	
-requires_bonus_not_klingon_triggered_effect:	
-requires_both_sections:	
-requires_broken_planet:	
-requires_building_borg_capital:	
-requires_building_borg_major_capital:	
-requires_building_cardassian:	
-requires_building_kelpien:	
-requires_building_klingon:	
-requires_building_starbase_operations_1:	
-requires_building_starbase_operations_2:	
-requires_building_starbase_operations_3:	
-requires_building_undine_capital:	
-requires_building_undine_major_capital:	
-requires_capital_1:	
-requires_capital_2:	
-requires_capital_3:	
-requires_chroniton_chronoplasma_weapons_7:	
-requires_close_to_graviton_catapult:	
-requires_colonies:	
-requires_colonized_planet_planetary_starbase:	
-requires_colony:	
-requires_completed_iconian_herald_sphere:	
-requires_constructor_in_system:	
-requires_country_no_existing_dimensional_crossing:	
-requires_country_no_existing_fluidic_gateway:	
-requires_debris:	
-requires_denorios_belt:	
-requires_deuterium_2:	
-requires_deuterium_4:	
-requires_diplomacy:	
-requires_disruptor_weapons_7:	
-requires_domination_adopted:	
-requires_dyson_sphere_entry_1:	
-requires_dyson_sphere_entry_2:	
-requires_energy_funnel_not_mitigated:	
-requires_engineering_research:	
-requires_fewer_starbases:	
-requires_fewer_subcomplexes:	
-requires_flag_automatic_not_selected:	
-requires_flag_available:	
-requires_flag_manual_not_selected:	
-requires_flag_not_already_selected:	
-requires_fleet_with_leader_in_orbit:	
-requires_fluidic_weapons_7:	
-requires_food:	
-requires_free_tradition_tree:	
-requires_great_plume:	
-REQUIRES_H_CLASS_COLONY_TECH:	
-requires_head_of_research:	
-requires_helix_ops_1:	
-requires_helix_ops_2:	
-requires_helix_ops_3:	
-requires_helix_shelter:	
-requires_hostile_system:	
-REQUIRES_K_CLASS_COLONY_TECH:	
-requires_klingon_leader:	
-requires_leader_with_insight_or_other:	
-requires_leaders_exploring_guardian_of_forever:	
-REQUIRES_M_CLASS_COLONY_TECH:	
-requires_major_planetary_body:	
-requires_materialist:	
-requires_medical_leader:	
-requires_megacorp_or_merchant_or_mercantile:	
-requires_militarist_or_authoritarian:	
-requires_mined_energy_3:	
-requires_mined_minerals_3_or_dilithium_1:	
-requires_mined_resource:	
-requires_minerals:	
-requires_more_atmosphere_generators:	
-requires_more_atmosphere_processors:	
-requires_more_atmosphere_strippers:	
-requires_more_heat_increasers:	
-requires_more_heat_reducers:	
-requires_more_rotation_generators:	
-requires_more_water_generators:	
-requires_more_water_removers:	
-requires_more_weather_controllers:	
-REQUIRES_N_CLASS_COLONY_TECH:	
-requires_neighbouring_spatial_anomalies:	
-requires_no_civic_the_weak_will_perish:	
-requires_no_colonies:	
-requires_no_colony:	
-requires_no_current_destroy_sphere_delphic_expanse_project:	
-requires_no_current_explore_bitrus_expanse_project:	
-requires_no_current_explore_brechtian_cluster_project:	
-requires_no_current_explore_delphic_expanse_project:	
-requires_no_current_explore_delta_volanis_cluster_project:	
-requires_no_current_explore_dkel_cluster_project:	
-requires_no_current_explore_dyson_sphere_1_project:	
-requires_no_current_explore_fluidic_space_project:	
-requires_no_current_explore_gamma_quadrant_project:	
-requires_no_current_explore_guardian_of_forever_project:	
-requires_no_current_explore_hromi_cluster_project:	
-requires_no_current_explore_khazan_cluster_project:	
-requires_no_current_explore_kotaba_expanse_project:	
-requires_no_current_explore_lembatta_cluster_project:	
-requires_no_current_explore_mycelial_network_project:	
-requires_no_current_explore_obatta_cluster_project:	
-requires_no_current_explore_orlitus_cluster_project:	
-requires_no_current_explore_shackleton_expanse_project:	
-requires_no_current_explore_typhon_expanse_project:	
-requires_no_current_explore_vyntadi_expanse_project:	
-requires_no_current_explore_zenas_expanse_project:	
-requires_no_current_hunt_bitrus_expanse_project:	
-requires_no_current_hunt_brechtian_cluster_project:	
-requires_no_current_hunt_delphic_expanse_project:	
-requires_no_current_hunt_delta_volanis_cluster_project:	
-requires_no_current_hunt_dkel_cluster_project:	
-requires_no_current_hunt_hromi_cluster_project:	
-requires_no_current_hunt_khazan_cluster_project:	
-requires_no_current_hunt_kotaba_expanse_project:	
-requires_no_current_hunt_lembatta_cluster_project:	
-requires_no_current_hunt_obatta_cluster_project:	
-requires_no_current_hunt_orlitus_cluster_project:	
-requires_no_current_hunt_shackleton_expanse_project:	
-requires_no_current_hunt_typhon_expanse_project:	
-requires_no_current_hunt_vyntadi_expanse_project:	
-requires_no_current_hunt_zenas_expanse_project:	
-requires_no_current_retraining:	
-requires_no_current_support_prime_invasion_project:	
-requires_no_em_crown_of_the_first_mother:	
-requires_no_existing_baryon_sweep_array:	
-requires_no_existing_energy_funnel_inhibitor:	
-requires_no_existing_fleet_yard:	
-requires_no_existing_fusion_array:	
-requires_no_existing_gateway:	
-requires_no_existing_particle_010_synthesis_facility:	
-requires_no_existing_particle_fountain:	
-requires_no_existing_subspace_relay:	
-requires_no_existing_subspace_telescope:	
-requires_no_existing_surplus_depot:	
-requires_no_existing_theta_radiation_dump:	
-requires_no_existing_trading_station_in_sector:	
-requires_no_existing_trading_station:	
-requires_no_existing_traffic_control_station:	
-requires_no_existing_tuterian_sphere:	
-requires_no_existing_underspace_project:	
-requires_no_fanatic_ethos:	
-requires_no_fluidic_space_exploration_investigate_undine:	
-requires_no_fluidic_space_exploration_not_beneficial:	
-requires_no_fluidic_space_exploration_too_dangerous:	
-requires_no_moon:	
-requires_no_more_cityship:	
-requires_no_more_dominion_dreadnaught:	
-requires_no_more_super_cube:	
-requires_no_more_unicomplex_subsection:	
-requires_no_more_unicomplex:	
-requires_no_neighbouring_tuterian_sphere:	
-requires_no_ongoing_fluidic_space_exploration:	
-requires_no_other_shore_leave:	
-requires_no_prime_universe_defeat:	
-requires_no_prime_universe_victory:	
-requires_no_recent_destroy_sphere_delphic_expanse:	
-requires_no_recent_explore_bitrus_expanse:	
-requires_no_recent_explore_brechtian_cluster:	
-requires_no_recent_explore_delphic_expanse:	
-requires_no_recent_explore_delta_volanis_cluster:	
-requires_no_recent_explore_dkel_cluster:	
-requires_no_recent_explore_dyson_sphere_1:	
-requires_no_recent_explore_gamma_quadrant:	
-requires_no_recent_explore_guardian_of_forever:	
-requires_no_recent_explore_hromi_cluster:	
-requires_no_recent_explore_khazan_cluster:	
-requires_no_recent_explore_kotaba_expanse:	
-requires_no_recent_explore_lembatta_cluster:	
-requires_no_recent_explore_mycelial_network:	
-requires_no_recent_explore_obatta_cluster:	
-requires_no_recent_explore_orlitus_cluster:	
-requires_no_recent_explore_shackleton_expanse:	
-requires_no_recent_explore_typhon_expanse:	
-requires_no_recent_explore_vyntadi_expanse:	
-requires_no_recent_explore_zenas_expanse:	
-requires_no_recent_hunt_bitrus_expanse:	
-requires_no_recent_hunt_brechtian_cluster:	
-requires_no_recent_hunt_delphic_expanse:	
-requires_no_recent_hunt_delta_volanis_cluster:	
-requires_no_recent_hunt_dkel_cluster:	
-requires_no_recent_hunt_hromi_cluster:	
-requires_no_recent_hunt_khazan_cluster:	
-requires_no_recent_hunt_kotaba_expanse:	
-requires_no_recent_hunt_lembatta_cluster:	
-requires_no_recent_hunt_obatta_cluster:	
-requires_no_recent_hunt_orlitus_cluster:	
-requires_no_recent_hunt_shackleton_expanse:	
-requires_no_recent_hunt_typhon_expanse:	
-requires_no_recent_hunt_vyntadi_expanse:	
-requires_no_recent_hunt_zenas_expanse:	
-requires_no_recent_offer:	
+##### required_warp:	
+##### requirement_no_plague:	
+##### requires_antiproton_weapons_7:	
+##### requires_ap_undine_non_fluidic_colonisation:	
+##### requires_ascension_perks_4:	
+##### requires_ascension_perks_5:	
+##### requires_asteroid:	
+##### requires_at_least_one_hull_type:	
+##### requires_at_least_one_shield_type:	
+##### requires_at_least_one_warp_type:	
+##### requires_barren_under_six:	
+##### requires_bolians:	
+##### requires_bonus_not_cardassian_triggered_effect:	
+##### requires_bonus_not_klingon_triggered_effect:	
+##### requires_both_sections:	
+##### requires_broken_planet:	
+##### requires_building_borg_capital:	
+##### requires_building_borg_major_capital:	
+##### requires_building_cardassian:	
+##### requires_building_kelpien:	
+##### requires_building_klingon:	
+##### requires_building_starbase_operations_1:	
+##### requires_building_starbase_operations_2:	
+##### requires_building_starbase_operations_3:	
+##### requires_building_undine_capital:	
+##### requires_building_undine_major_capital:	
+##### requires_capital_1:	
+##### requires_capital_2:	
+##### requires_capital_3:	
+##### requires_chroniton_chronoplasma_weapons_7:	
+##### requires_close_to_graviton_catapult:	
+##### requires_colonies:	
+##### requires_colonized_planet_planetary_starbase:	
+##### requires_colony:	
+##### requires_completed_iconian_herald_sphere:	
+##### requires_constructor_in_system:	
+##### requires_country_no_existing_dimensional_crossing:	
+##### requires_country_no_existing_fluidic_gateway:	
+##### requires_debris:	
+##### requires_denorios_belt:	
+##### requires_deuterium_2:	
+##### requires_deuterium_4:	
+##### requires_diplomacy:	
+##### requires_disruptor_weapons_7:	
+##### requires_domination_adopted:	
+##### requires_dyson_sphere_entry_1:	
+##### requires_dyson_sphere_entry_2:	
+##### requires_energy_funnel_not_mitigated:	
+##### requires_engineering_research:	
+##### requires_fewer_starbases:	
+##### requires_fewer_subcomplexes:	
+##### requires_flag_automatic_not_selected:	
+##### requires_flag_available:	
+##### requires_flag_manual_not_selected:	
+##### requires_flag_not_already_selected:	
+##### requires_fleet_with_leader_in_orbit:	
+##### requires_fluidic_weapons_7:	
+##### requires_food:	
+##### requires_free_tradition_tree:	
+##### requires_great_plume:	
+##### REQUIRES_H_CLASS_COLONY_TECH:	
+##### requires_head_of_research:	
+##### requires_helix_ops_1:	
+##### requires_helix_ops_2:	
+##### requires_helix_ops_3:	
+##### requires_helix_shelter:	
+##### requires_hostile_system:	
+##### REQUIRES_K_CLASS_COLONY_TECH:	
+##### requires_klingon_leader:	
+##### requires_leader_with_insight_or_other:	
+##### requires_leaders_exploring_guardian_of_forever:	
+##### REQUIRES_M_CLASS_COLONY_TECH:	
+##### requires_major_planetary_body:	
+##### requires_materialist:	
+##### requires_medical_leader:	
+##### requires_megacorp_or_merchant_or_mercantile:	
+##### requires_militarist_or_authoritarian:	
+##### requires_mined_energy_3:	
+##### requires_mined_minerals_3_or_dilithium_1:	
+##### requires_mined_resource:	
+##### requires_minerals:	
+##### requires_more_atmosphere_generators:	
+##### requires_more_atmosphere_processors:	
+##### requires_more_atmosphere_strippers:	
+##### requires_more_heat_increasers:	
+##### requires_more_heat_reducers:	
+##### requires_more_rotation_generators:	
+##### requires_more_water_generators:	
+##### requires_more_water_removers:	
+##### requires_more_weather_controllers:	
+##### REQUIRES_N_CLASS_COLONY_TECH:	
+##### requires_neighbouring_spatial_anomalies:	
+##### requires_no_civic_the_weak_will_perish:	
+##### requires_no_colonies:	
+##### requires_no_colony:	
+##### requires_no_current_destroy_sphere_delphic_expanse_project:	
+##### requires_no_current_explore_bitrus_expanse_project:	
+##### requires_no_current_explore_brechtian_cluster_project:	
+##### requires_no_current_explore_delphic_expanse_project:	
+##### requires_no_current_explore_delta_volanis_cluster_project:	
+##### requires_no_current_explore_dkel_cluster_project:	
+##### requires_no_current_explore_dyson_sphere_1_project:	
+##### requires_no_current_explore_fluidic_space_project:	
+##### requires_no_current_explore_gamma_quadrant_project:	
+##### requires_no_current_explore_guardian_of_forever_project:	
+##### requires_no_current_explore_hromi_cluster_project:	
+##### requires_no_current_explore_khazan_cluster_project:	
+##### requires_no_current_explore_kotaba_expanse_project:	
+##### requires_no_current_explore_lembatta_cluster_project:	
+##### requires_no_current_explore_mycelial_network_project:	
+##### requires_no_current_explore_obatta_cluster_project:	
+##### requires_no_current_explore_orlitus_cluster_project:	
+##### requires_no_current_explore_shackleton_expanse_project:	
+##### requires_no_current_explore_typhon_expanse_project:	
+##### requires_no_current_explore_vyntadi_expanse_project:	
+##### requires_no_current_explore_zenas_expanse_project:	
+##### requires_no_current_hunt_bitrus_expanse_project:	
+##### requires_no_current_hunt_brechtian_cluster_project:	
+##### requires_no_current_hunt_delphic_expanse_project:	
+##### requires_no_current_hunt_delta_volanis_cluster_project:	
+##### requires_no_current_hunt_dkel_cluster_project:	
+##### requires_no_current_hunt_hromi_cluster_project:	
+##### requires_no_current_hunt_khazan_cluster_project:	
+##### requires_no_current_hunt_kotaba_expanse_project:	
+##### requires_no_current_hunt_lembatta_cluster_project:	
+##### requires_no_current_hunt_obatta_cluster_project:	
+##### requires_no_current_hunt_orlitus_cluster_project:	
+##### requires_no_current_hunt_shackleton_expanse_project:	
+##### requires_no_current_hunt_typhon_expanse_project:	
+##### requires_no_current_hunt_vyntadi_expanse_project:	
+##### requires_no_current_hunt_zenas_expanse_project:	
+##### requires_no_current_retraining:	
+##### requires_no_current_support_prime_invasion_project:	
+##### requires_no_em_crown_of_the_first_mother:	
+##### requires_no_existing_baryon_sweep_array:	
+##### requires_no_existing_energy_funnel_inhibitor:	
+##### requires_no_existing_fleet_yard:	
+##### requires_no_existing_fusion_array:	
+##### requires_no_existing_gateway:	
+##### requires_no_existing_particle_010_synthesis_facility:	
+##### requires_no_existing_particle_fountain:	
+##### requires_no_existing_subspace_relay:	
+##### requires_no_existing_subspace_telescope:	
+##### requires_no_existing_surplus_depot:	
+##### requires_no_existing_theta_radiation_dump:	
+##### requires_no_existing_trading_station_in_sector:	
+##### requires_no_existing_trading_station:	
+##### requires_no_existing_traffic_control_station:	
+##### requires_no_existing_tuterian_sphere:	
+##### requires_no_existing_underspace_project:	
+##### requires_no_fanatic_ethos:	
+##### requires_no_fluidic_space_exploration_investigate_undine:	
+##### requires_no_fluidic_space_exploration_not_beneficial:	
+##### requires_no_fluidic_space_exploration_too_dangerous:	
+##### requires_no_moon:	
+##### requires_no_more_cityship:	
+##### requires_no_more_dominion_dreadnaught:	
+##### requires_no_more_super_cube:	
+##### requires_no_more_unicomplex_subsection:	
+##### requires_no_more_unicomplex:	
+##### requires_no_neighbouring_tuterian_sphere:	
+##### requires_no_ongoing_fluidic_space_exploration:	
+##### requires_no_other_shore_leave:	
+##### requires_no_prime_universe_defeat:	
+##### requires_no_prime_universe_victory:	
+##### requires_no_recent_destroy_sphere_delphic_expanse:	
+##### requires_no_recent_explore_bitrus_expanse:	
+##### requires_no_recent_explore_brechtian_cluster:	
+##### requires_no_recent_explore_delphic_expanse:	
+##### requires_no_recent_explore_delta_volanis_cluster:	
+##### requires_no_recent_explore_dkel_cluster:	
+##### requires_no_recent_explore_dyson_sphere_1:	
+##### requires_no_recent_explore_gamma_quadrant:	
+##### requires_no_recent_explore_guardian_of_forever:	
+##### requires_no_recent_explore_hromi_cluster:	
+##### requires_no_recent_explore_khazan_cluster:	
+##### requires_no_recent_explore_kotaba_expanse:	
+##### requires_no_recent_explore_lembatta_cluster:	
+##### requires_no_recent_explore_mycelial_network:	
+##### requires_no_recent_explore_obatta_cluster:	
+##### requires_no_recent_explore_orlitus_cluster:	
+##### requires_no_recent_explore_shackleton_expanse:	
+##### requires_no_recent_explore_typhon_expanse:	
+##### requires_no_recent_explore_vyntadi_expanse:	
+##### requires_no_recent_explore_zenas_expanse:	
+##### requires_no_recent_hunt_bitrus_expanse:	
+##### requires_no_recent_hunt_brechtian_cluster:	
+##### requires_no_recent_hunt_delphic_expanse:	
+##### requires_no_recent_hunt_delta_volanis_cluster:	
+##### requires_no_recent_hunt_dkel_cluster:	
+##### requires_no_recent_hunt_hromi_cluster:	
+##### requires_no_recent_hunt_khazan_cluster:	
+##### requires_no_recent_hunt_kotaba_expanse:	
+##### requires_no_recent_hunt_lembatta_cluster:	
+##### requires_no_recent_hunt_obatta_cluster:	
+##### requires_no_recent_hunt_orlitus_cluster:	
+##### requires_no_recent_hunt_shackleton_expanse:	
+##### requires_no_recent_hunt_typhon_expanse:	
+##### requires_no_recent_hunt_vyntadi_expanse:	
+##### requires_no_recent_hunt_zenas_expanse:	
+##### requires_no_recent_offer:	
 requires_no_scoop_in_progress:	"|___CC013699___|Es kann immer nur ein |___CC013700___|Kolonieernte|___CC013701___| Projekt gleichzeitig ausgeführt werden!|___CC013702___|"
 requires_no_spaceport:	"|___CC013703___|Erfordert keine verteidigende Sternenbasis|___CC013704___|"
 requires_no_sphere_builder_crisis:	"Unsere Bemühungen in der Delphic-Expansion sollten sich auf die Zerstörung der Sphären konzentrieren"
@@ -110476,7 +110476,7 @@ SAU_hand:	 "Hand"
 SAU_insult_01:	"|___NE026395___|"
 SAU_insult_plural_01:	"|___NE026396___|"
 SAU_mouth:	"|___NE026397___|"
-SAU_organ_plural:	
+##### SAU_organ_plural:	
 SAU_organ:	"|___NE026399___|"
 SAU_plural:	"Saurians"
 SAU_sound_01:	"knurren"
@@ -110814,7 +110814,7 @@ sh_naval_recruitment_extensive_conscription:	"|___NE026436___|"
 sh_naval_recruitment_limited_conscription:	"|___NE026437___|"
 sh_naval_recruitment_professional:	"|___NE026438___|"
 sh_naval_recruitment_volunteer:	"|___NE026439___|"
-sh_recent_cloak_desc:	
+##### sh_recent_cloak_desc:	
 sh_recent_cloak:	"Kürzlich getarnt"
 sh_rom_cloak_1_desc:	"Schiff greift aus getarntem Zustand an!"
 sh_rom_cloak_1:	"Getarnt"
@@ -110849,11 +110849,11 @@ SHE_compliment_plural_01:	"|___NE026441___|"
 SHE_desc:	"|___NE026442___|"
 SHE_DOW_PROPOSE_01:	" |___NS026142___| Kreaturen gibt es |___NS026143___| in Gebieten, die gemäß Abschnitt einhundertdreiunddreißig, Absatz siebenundsiebzig der |___NS026144___| - |___NS026145___| Abhandlung rechtmäßig Teil des Unternehmens sind. Wir werden sofort mit der Entfernung beginnen. "
 SHE_DOW_SELECT_01:	"Gemäß Abschnitt 832, Absatz 21 der |___NS026146___| Vorschriften wird Ihre mögliche Kriegserklärung durch die |___NS026147___| gegen die |___NS026148___| dem Vorstand vorgelegt."
-SHE_DOW_SELECT_SS_01:	
+##### SHE_DOW_SELECT_SS_01:	
 SHE_DOW_VOTE_PROPOSE_01:	" Die |___CC013839___||___NS026152___||___CC013840___| greift in das Unternehmensvermögen ein. Gemäß Artikel 30, Abschnitt 612, Absätze 18 bis 32 laden wir Sie ein, sich uns als Verbündeter anzuschließen, damit wir gemeinsam unsere Kräfte gegen |___CC013841___||___NS026153___||___CC013842___| bündeln können."
 SHE_ear_plural:	"Ohren"
 SHE_ear:	"Ohr"
-SHE_FRIENDLY_DOW_ACCEPT_01:	
+##### SHE_FRIENDLY_DOW_ACCEPT_01:	
 SHE_FRIENDLY_DOW_SS_ACCEPT_01:	"Gemäß Abschnitt 832, Absatz 21 der |___NS026157___| Vorschriften wird Ihre Kriegserklärung der |___NS026158___| Kreaturen gegen die |___NS026159___| angenommen. Unsere Forderungen werden Ihnen in Kürze zugestellt."
 SHE_FRIENDLY_GREETING_01:	"Eine intelligente Unterhaltung ist mit den |___NS026160___| unmöglich. Ihr diskutiert nicht, Ihr plappert."
 SHE_FRIENDLY_GREETING_SS_01:	"Eine intelligente Unterhaltung ist mit den Rebellen aus dem |___NS026161___| unmöglich. Ihr diskutiert nicht, Ihr plappert."
@@ -110866,7 +110866,7 @@ SHE_insult_01:	"|___NE026443___|"
 SHE_insult_plural_01:	"|___NE026444___|"
 SHE_mouth:	"oriface"
 SHE_NEUTRAL_DOW_ACCEPT_01:	"Gemäß Abschnitt achthundertzweiunddreißig, Absatz einundzwanzig der |___NS026167___| Vorschriften wird die Kriegserklärung der |___NS026168___| Kreaturen gegen die |___NS026169___| angenommen. Unsere Forderungen werden Ihnen in Kürze zugestellt."
-SHE_NEUTRAL_GREETING_01:	
+##### SHE_NEUTRAL_GREETING_01:	
 SHE_NEUTRAL_GREETING_SS_01:	"Eine intelligente Unterhaltung ist mit den Rebellen aus dem |___NS026171___| unmöglich. Ihr diskutiert nicht, Ihr plappert nur."
 SHE_organ_plural:	"|___NE026445___|"
 SHE_organ:	"|___NE026446___|"
@@ -111925,7 +111925,7 @@ small_weapon_damage_mult:	"Schaden durch kleine Waffen"
 snwTest.1.a:	"|___NS026174___| essbar"
 snwTest.1.b:	"|___NS026175___| essbar"
 snwTest.1.desc:	" |___NS026176___| essbar |___NL020309___||___NS026177___| essbar |___NL020310___||___NS026178___| essbar |___NL020311___||___NS026179___| essbar"
-snwTest.1.name:	
+##### snwTest.1.name:	
 solanae_examination_table_desc_details:	"Der Tisch dient dazu, die darauf liegenden Personen festzuhalten, während die mit Solanogen arbeitenden Bediener Experimente an ihnen durchführen."
 solanae_examination_table_desc_short:	"Ein medizinisches Gerät, das von einer Spezies aus einer Subraumtasche geborgen wurde."
 solanae_examination_table:	"Untersuchungstisch"
@@ -113969,7 +113969,7 @@ SUPPRESS_EXTREMIST_FACTION_DESC:	"Es sind möglicherweise außergewöhnliche Ans
 SUPPRESS_EXTREMIST_FACTION:	"Fraktion unterdrücken"
 SUPPRESS_FACTION_GL_DESC:	" Unterdrücken Sie die Richtlinien und Werte der |___CC014285___||___NS026292___||___CC014286___|. Dadurch wird die |___NS026293___| für Elemente des Großen Links weniger attraktiv, solange sie aktiv ist."
 SUPPRESS_FACTION_GL:	"Unterdrückungsstrom"
-suppressed_gl_dominance:	
+##### suppressed_gl_dominance:	
 suppressed_gl_isolation:	"|___NE027183___| Unterdrückt"
 suppressed_gl_order:	"|___NE027184___| Unterdrückt"
 suppressed_gl_prosperity:	"|___NE027185___| Unterdrückt"
@@ -116020,7 +116020,7 @@ tech_chroniton_lance_10:	"Chroniton-Lanzen Mk X"
 tech_chroniton_lance_11_unlock_title:	"|___CC015087___|Schaltet Komponente frei:|___CC015088___| |___NE029190___|"
 tech_chroniton_lance_12_unlock_title:	"|___CC015089___|Schaltet Komponente frei: |___CC015090___| |___NE029191___|"
 tech_chroniton_lance_2_unlock_title:	"|___CC015091___|Schaltet Komponente frei:|___CC015092___| |___NE029192___|"
-tech_chroniton_lance_3_unlock_title:	
+##### tech_chroniton_lance_3_unlock_title:	
 tech_chroniton_lance_4_unlock_title:	"|___CC015095___|Entsperrt Komponente:|___CC015096___| |___NE029194___|"
 tech_chroniton_lance_5_unlock_title:	" |___CC015097___|Entsperrt Komponente:|___CC015098___| |___NE029195___|"
 tech_chroniton_lance_6_unlock_title:	"|___CC015099___|Entsperrt Komponente:|___CC015100___| |___NE029196___|"
@@ -116709,7 +116709,7 @@ tech_diplomacy_7:	"Vertrauensinitiativen"
 tech_diplomacy_8_desc:	"Es ist unvermeidlich, dass Nähe und Wettbewerb um Ressourcen selbst die stärksten Allianzen schwächen können. Interkulturelles Verständnis kann dazu beitragen, dies zu mildern."
 tech_diplomacy_8:	"Konfliktlösungstechniken"
 tech_directed_energy_manifold_1_desc:	"Durch die direkte Verbindung von zusätzlichen Verteilerblöcken mit Energieemittern wird die Feuerrate von |___CC015279___|Beam|___CC015280___|- und |___CC015281___|Lance|___CC015282___|-Waffen erhöht, verringert jedoch die Wirksamkeit von |___CC015283___|Bolt|___CC015284___|, |___CC015285___|Pulse Cannon|___CC015286___| und |___CC015287___|Burst|___CC015288___| Waffen."
-tech_directed_energy_manifold_1:	
+##### tech_directed_energy_manifold_1:	
 tech_directed_energy_manifold_2_desc:	"|___NE029571___|"
 tech_directed_energy_manifold_2:	"Gezielte Energieverteilungsvorrichtung Mk II"
 tech_directed_energy_manifold_3_desc:	"|___NE029572___|"
@@ -117957,7 +117957,7 @@ tech_generic_03_orsara_1:	"|___NE030584___|"
 tech_generic_03_orsara_2_desc:	"Die |___NE030585___|-Überholung fügt eine kleine Energiewaffenstation hinzu und erweitert die taktischen Kapazitäten der |___NE030586___|."
 tech_generic_03_orsara_2:	"|___NE030587___| - |___NE030588___| Umrüstung"
 tech_generic_03_orsara_3_desc:	"Die |___NE030589___| Umrüstung fügt eine mittlere Energiewaffenstellung hinzu und erweitert die technischen Kapazitäten des |___NE030590___|."
-tech_generic_03_orsara_3:	
+##### tech_generic_03_orsara_3:	
 tech_generic_03_orsara_unlock_title:	"|___CC015709___|Schiffstyp freischalten:|___CC015710___| |___NE030593___|"
 tech_generic_03_salec_1_desc:	"Die |___NE030594___| ist mit einer Punkt- und zwei kleinen Energiewaffenstellungen ausgestattet."
 tech_generic_03_salec_1:	"|___NE030595___|"
@@ -119060,7 +119060,7 @@ tech_husnock_okein_unlock_title:	"|___CC016023___|Schiffstyp freischalten:|___CC
 tech_husnock_suvjick_1_desc:	"Die |___NE031544___| ist mit einer Punkt-, zwei kleinen, zwei mittleren und zwei großen Energiewaffenstellungen sowie einem einzelnen Torpedowerfer ausgestattet."
 tech_husnock_suvjick_1:	"|___NE031545___|"
 tech_husnock_suvjick_2_desc:	"Die |___NE031546___|-Überholung fügt zwei mittlere Energiewaffenstellungen hinzu und erweitert die taktischen und wissenschaftlichen Kapazitäten der |___NE031547___|."
-tech_husnock_suvjick_2:	
+##### tech_husnock_suvjick_2:	
 tech_husnock_suvjick_3_desc:	"Die |___NE031550___| Überholung fügt einen Torpedowerfer hinzu und erweitert die technischen und zusätzlichen Kapazitäten der |___NE031551___|."
 tech_husnock_suvjick_3:	"|___NE031552___| - |___NE031553___| Umrüstung"
 tech_husnock_suvjick_unlock_title:	"|___CC016025___|Schiffstyp freischalten:|___CC016026___| |___NE031554___|"
@@ -119893,103 +119893,103 @@ tech_kreetassan_kelaas_2_desc:	"Die |___NE032423___|-Überholung fügt zwei Torp
 tech_kreetassan_kelaas_2:	"|___NE032425___| - |___NE032426___| Umrüstung"
 tech_kreetassan_kelaas_3_desc:	"Die |___NE032427___| Überholung erweitert das Schiff um zwei mittelstarke Waffenstellungen und bietet zusätzliche taktische, wissenschaftliche und Hilfskapazitäten für das |___NE032428___|."
 tech_kreetassan_kelaas_3:	"|___NE032429___|"
-tech_kreetassan_kelaas_unlock_title:	
-tech_kreetassan_seely_1_desc:	
-tech_kreetassan_seely_1:	
-tech_kreetassan_seely_2_desc:	
-tech_kreetassan_seely_2:	
-tech_kreetassan_seely_3_desc:	
-tech_kreetassan_seely_3:	
-tech_kreetassan_seely_unlock_title:	
-tech_krenim_anno_1_desc:	
-tech_krenim_anno_1:	
-tech_krenim_anno_2_desc:	
-tech_krenim_anno_2:	
-tech_krenim_anno_3_desc:	
-tech_krenim_anno_3:	
-tech_krenim_anno_unlock_title:	
-tech_krenim_biennium_1_desc:	
-tech_krenim_biennium_1:	
-tech_krenim_biennium_2_desc:	
-tech_krenim_biennium_2:	
-tech_krenim_biennium_3_desc:	
-tech_krenim_biennium_3:	
-tech_krenim_biennium_unlock_title:	
-tech_krenim_century_1_desc:	
-tech_krenim_century_1:	
-tech_krenim_century_2_desc:	
-tech_krenim_century_2:	
-tech_krenim_century_3_desc:	
-tech_krenim_century_3:	
-tech_krenim_century_unlock_title:	
-tech_krenim_decade_1_desc:	
-tech_krenim_decade_1:	
-tech_krenim_decade_2_desc:	
-tech_krenim_decade_2:	
-tech_krenim_decade_3_desc:	
-tech_krenim_decade_3:	
-tech_krenim_decade_unlock_title:	
-tech_krenim_eon_1_desc:	
-tech_krenim_eon_1:	
-tech_krenim_eon_2_desc:	
-tech_krenim_eon_2:	
-tech_krenim_eon_unlock_title:	
-tech_krenim_eternity_1_desc:	
-tech_krenim_eternity_1:	
-tech_krenim_eternity_2_desc:	
-tech_krenim_eternity_2:	
-tech_krenim_eternity_3_desc:	
-tech_krenim_eternity_3:	
-tech_krenim_eternity_pk_unlock_title:	
-tech_krenim_eternity_unlock_title:	
-tech_krenim_generation_1_desc:	
-tech_krenim_generation_1:	
-tech_krenim_generation_2_desc:	
-tech_krenim_generation_2:	
-tech_krenim_generation_3_desc:	
-tech_krenim_generation_3:	
-tech_krenim_generation_unlock_title:	
-tech_krenim_interval_1_desc:	
-tech_krenim_interval_1:	
-tech_krenim_interval_2_desc:	
-tech_krenim_interval_2:	
-tech_krenim_interval_3_desc:	
-tech_krenim_interval_3:	
-tech_krenim_interval_unlock_title:	
-tech_krenim_interval_xc_unlock_title:	
-tech_krenim_millenium_1_desc:	
-tech_krenim_millenium_1:	
-tech_krenim_millenium_2_desc:	
-tech_krenim_millenium_2:	
-tech_krenim_millenium_3_desc:	
-tech_krenim_millenium_3:	
-tech_krenim_millenium_unlock_title:	
-tech_krenim_moment_1_desc:	
-tech_krenim_moment_1:	
-tech_krenim_moment_2_desc:	
-tech_krenim_moment_2:	
-tech_krenim_moment_3_desc:	
-tech_krenim_moment_3:	
-tech_krenim_moment_unlock_title:	
-tech_kzinti_auratai_1_desc:	
-tech_kzinti_auratai_1:	
-tech_kzinti_auratai_2_desc:	
-tech_kzinti_auratai_2:	
-tech_kzinti_auratai_3_desc:	
-tech_kzinti_auratai_3:	
-tech_kzinti_auratai_unlock_title:	
-tech_kzinti_dastalkur_unlock_title:	
-tech_kzinti_dastalkur_1:	
-tech_kzinti_dastalkur_1_desc:	
-tech_kzinti_dastalkur_2:	
-tech_kzinti_dastalkur_2_desc:	
-tech_kzinti_bietir_1_desc:	
-tech_kzinti_bietir_1:	
-tech_kzinti_bietir_2_desc:	
-tech_kzinti_bietir_2:	
-tech_kzinti_bietir_3_desc:	
-tech_kzinti_bietir_3:	
-tech_kzinti_bietir_unlock_title:	
+##### tech_kreetassan_kelaas_unlock_title:	
+##### tech_kreetassan_seely_1_desc:	
+##### tech_kreetassan_seely_1:	
+##### tech_kreetassan_seely_2_desc:	
+##### tech_kreetassan_seely_2:	
+##### tech_kreetassan_seely_3_desc:	
+##### tech_kreetassan_seely_3:	
+##### tech_kreetassan_seely_unlock_title:	
+##### tech_krenim_anno_1_desc:	
+##### tech_krenim_anno_1:	
+##### tech_krenim_anno_2_desc:	
+##### tech_krenim_anno_2:	
+##### tech_krenim_anno_3_desc:	
+##### tech_krenim_anno_3:	
+##### tech_krenim_anno_unlock_title:	
+##### tech_krenim_biennium_1_desc:	
+##### tech_krenim_biennium_1:	
+##### tech_krenim_biennium_2_desc:	
+##### tech_krenim_biennium_2:	
+##### tech_krenim_biennium_3_desc:	
+##### tech_krenim_biennium_3:	
+##### tech_krenim_biennium_unlock_title:	
+##### tech_krenim_century_1_desc:	
+##### tech_krenim_century_1:	
+##### tech_krenim_century_2_desc:	
+##### tech_krenim_century_2:	
+##### tech_krenim_century_3_desc:	
+##### tech_krenim_century_3:	
+##### tech_krenim_century_unlock_title:	
+##### tech_krenim_decade_1_desc:	
+##### tech_krenim_decade_1:	
+##### tech_krenim_decade_2_desc:	
+##### tech_krenim_decade_2:	
+##### tech_krenim_decade_3_desc:	
+##### tech_krenim_decade_3:	
+##### tech_krenim_decade_unlock_title:	
+##### tech_krenim_eon_1_desc:	
+##### tech_krenim_eon_1:	
+##### tech_krenim_eon_2_desc:	
+##### tech_krenim_eon_2:	
+##### tech_krenim_eon_unlock_title:	
+##### tech_krenim_eternity_1_desc:	
+##### tech_krenim_eternity_1:	
+##### tech_krenim_eternity_2_desc:	
+##### tech_krenim_eternity_2:	
+##### tech_krenim_eternity_3_desc:	
+##### tech_krenim_eternity_3:	
+##### tech_krenim_eternity_pk_unlock_title:	
+##### tech_krenim_eternity_unlock_title:	
+##### tech_krenim_generation_1_desc:	
+##### tech_krenim_generation_1:	
+##### tech_krenim_generation_2_desc:	
+##### tech_krenim_generation_2:	
+##### tech_krenim_generation_3_desc:	
+##### tech_krenim_generation_3:	
+##### tech_krenim_generation_unlock_title:	
+##### tech_krenim_interval_1_desc:	
+##### tech_krenim_interval_1:	
+##### tech_krenim_interval_2_desc:	
+##### tech_krenim_interval_2:	
+##### tech_krenim_interval_3_desc:	
+##### tech_krenim_interval_3:	
+##### tech_krenim_interval_unlock_title:	
+##### tech_krenim_interval_xc_unlock_title:	
+##### tech_krenim_millenium_1_desc:	
+##### tech_krenim_millenium_1:	
+##### tech_krenim_millenium_2_desc:	
+##### tech_krenim_millenium_2:	
+##### tech_krenim_millenium_3_desc:	
+##### tech_krenim_millenium_3:	
+##### tech_krenim_millenium_unlock_title:	
+##### tech_krenim_moment_1_desc:	
+##### tech_krenim_moment_1:	
+##### tech_krenim_moment_2_desc:	
+##### tech_krenim_moment_2:	
+##### tech_krenim_moment_3_desc:	
+##### tech_krenim_moment_3:	
+##### tech_krenim_moment_unlock_title:	
+##### tech_kzinti_auratai_1_desc:	
+##### tech_kzinti_auratai_1:	
+##### tech_kzinti_auratai_2_desc:	
+##### tech_kzinti_auratai_2:	
+##### tech_kzinti_auratai_3_desc:	
+##### tech_kzinti_auratai_3:	
+##### tech_kzinti_auratai_unlock_title:	
+##### tech_kzinti_dastalkur_unlock_title:	
+##### tech_kzinti_dastalkur_1:	
+##### tech_kzinti_dastalkur_1_desc:	
+##### tech_kzinti_dastalkur_2:	
+##### tech_kzinti_dastalkur_2_desc:	
+##### tech_kzinti_bietir_1_desc:	
+##### tech_kzinti_bietir_1:	
+##### tech_kzinti_bietir_2_desc:	
+##### tech_kzinti_bietir_2:	
+##### tech_kzinti_bietir_3_desc:	
+##### tech_kzinti_bietir_3:	
+##### tech_kzinti_bietir_unlock_title:	
 tech_kzinti_chausr_1_desc:	"In Bearbeitung"
 tech_kzinti_chausr_1:	"|___NE032575___|"
 tech_kzinti_chausr_2_desc:	"In Bearbeitung"
@@ -120857,7 +120857,7 @@ tech_phased_ion_beam_9_unlock_title:	"|___CC016517___|Schaltet Komponente frei:|
 tech_phased_ion_beam_9:	"Phased Ion Beams Mk IX"
 tech_phased_ion_bolt_1_desc:	"|___NE033418___|"
 tech_phased_ion_bolt_1_unlock_title:	"|___CC016519___|Schaltet Komponente frei:|___CC016520___| |___NE033419___|"
-tech_phased_ion_bolt_1:	
+##### tech_phased_ion_bolt_1:	
 tech_phased_ion_bolt_10_desc:	"|___NE033420___|"
 tech_phased_ion_bolt_10_unlock_title:	"|___CC016521___|Schaltet Komponente frei:|___CC016522___| |___NE033421___|"
 tech_phased_ion_bolt_10:	"Phased Ion Bolts Mk X"
@@ -123568,30 +123568,30 @@ tech_starfleet_niagara_2_desc:	"Die |___NE035868___|-Überholung erweitert die t
 tech_starfleet_niagara_2:	"|___NE035870___| – |___NE035871___|-Überholung"
 tech_starfleet_niagara_unlock_title:	"|___CC017637___|Schiffstyp freischalten:|___CC017638___| |___NE035872___|"
 tech_starfleet_nimitz_1_desc:	"
-tech_starfleet_nimitz_1:	
-tech_starfleet_nimitz_2_desc:	
-tech_starfleet_nimitz_2:	
-tech_starfleet_nimitz_3_desc:	
-tech_starfleet_nimitz_3:	
-tech_starfleet_nimitz_unlock_title:	
-tech_starfleet_norway_1_desc:	
-tech_starfleet_norway_1:	
-tech_starfleet_norway_2_desc:	
-tech_starfleet_norway_2:	
-tech_starfleet_norway_unlock_title:	
-tech_starfleet_nova_1_desc:	
-tech_starfleet_nova_1:	
-tech_starfleet_nova_2_desc:	
-tech_starfleet_nova_2:	
-tech_starfleet_nova_unlock_title:	
-tech_starfleet_nx_1_desc:	
-tech_starfleet_nx_1:	
-tech_starfleet_nx_2_desc:	
-tech_starfleet_nx_2:	
-tech_starfleet_nx_3_desc:	
-tech_starfleet_nx_3:	
-tech_starfleet_nx_4_desc:	
-tech_starfleet_nx_4:	
+##### tech_starfleet_nimitz_1:	
+##### tech_starfleet_nimitz_2_desc:	
+##### tech_starfleet_nimitz_2:	
+##### tech_starfleet_nimitz_3_desc:	
+##### tech_starfleet_nimitz_3:	
+##### tech_starfleet_nimitz_unlock_title:	
+##### tech_starfleet_norway_1_desc:	
+##### tech_starfleet_norway_1:	
+##### tech_starfleet_norway_2_desc:	
+##### tech_starfleet_norway_2:	
+##### tech_starfleet_norway_unlock_title:	
+##### tech_starfleet_nova_1_desc:	
+##### tech_starfleet_nova_1:	
+##### tech_starfleet_nova_2_desc:	
+##### tech_starfleet_nova_2:	
+##### tech_starfleet_nova_unlock_title:	
+##### tech_starfleet_nx_1_desc:	
+##### tech_starfleet_nx_1:	
+##### tech_starfleet_nx_2_desc:	
+##### tech_starfleet_nx_2:	
+##### tech_starfleet_nx_3_desc:	
+##### tech_starfleet_nx_3:	
+##### tech_starfleet_nx_4_desc:	
+##### tech_starfleet_nx_4:	
 tech_starfleet_nx_unlock_title:	"|___CC017645___|Schiffstyp freischalten:|___CC017646___| |___NE035912___|"
 tech_starfleet_nx_xc_unlock_title:	"|___CC017647___|Schiffstyp freischalten:|___CC017648___| |___NE035913___|"
 tech_starfleet_obena_1_desc:	"Die |___NE035914___| ist mit einer Punkt-, zwei großen und vier extragroßen Energiewaffenstellungen sowie drei Torpedoabschussvorrichtungen ausgestattet."
@@ -123728,7 +123728,7 @@ tech_starfleet_spokane_1:	"|___NE036095___|"
 tech_starfleet_spokane_2_desc:	"Die |___NE036096___|-Überholung erweitert die technische Kapazität der |___NE036097___|."
 tech_starfleet_spokane_2:	"|___NE036098___| – |___NE036099___|-Überholung"
 tech_starfleet_spokane_unlock_title:	"|___CC017703___|Schiffstyp freischalten:|___CC017704___| |___NE036100___"
-tech_starfleet_springfield_1_desc:	
+##### tech_starfleet_springfield_1_desc:	
 tech_starfleet_springfield_1:	" |___NE036102___|"
 tech_starfleet_springfield_2_desc:	"Die |___NE036103___|-Überholung fügt dem |___NE036104___| einen zusätzlichen Jagdflügel hinzu."
 tech_starfleet_springfield_2:	"|___NE036105___| – |___NE036106___| Umrüstung"
@@ -123951,7 +123951,7 @@ tech_suliban_movel_lattice_2_desc:	"Die |___NE036360___|-Überholung fügt eine 
 tech_suliban_movel_lattice_2:	"|___NE036362___| - |___NE036363___| Umrüstung"
 tech_suliban_movel_lattice_3_desc:	" Die |___NE036364___|-Überholung fügt eine Energiewaffenstellung hinzu und erweitert die technischen und wissenschaftlichen Kapazitäten der |___NE036365___|."
 tech_suliban_movel_lattice_3:	"|___NE036366___| – |___NE036367___|-Überholung"
-tech_suliban_movel_lattice_unlock_title:	
+##### tech_suliban_movel_lattice_unlock_title:	
 tech_suliban_movel_unlock_title:	"|___CC017793___|Schiffstyp freischalten:|___CC017794___| |___NE036369___|"
 tech_suliban_movez_1_desc:	"Die |___NE036370___| ist mit einer mittleren Energiewaffenstellung und einem Torpedowerfer ausgestattet."
 tech_suliban_movez_1:	"|___NE036371___|"
@@ -126057,7 +126057,7 @@ tech_xindi_heliolus_unlock_title:	"|___CC018644___|Schiffstyp freischalten:|___C
 tech_xindi_lethselan_1_desc:	"Die |___NE038168___| ist mit einer Punkt-, zwei großen und zwei extra großen Energiewaffenstellungen, zwei Torpedowerfern und zwei Jagdflügeln ausgestattet. "
 tech_xindi_lethselan_1:	"|___NE038169___|"
 tech_xindi_lethselan_2_desc:	"Die |___NE038170___| Überholung fügt zwei Energie-Waffenstellungen hinzu und erweitert die technischen und wissenschaftlichen Kapazitäten der |___NE038171___|."
-tech_xindi_lethselan_2:	
+##### tech_xindi_lethselan_2:	
 tech_xindi_lethselan_3_desc:	"Die |___NE038174___| Umrüstung erweitert das Schiff um zwei mittelschwere Energiewaffenstellungen und zusätzliche Hilfskapazitäten. |___NE038175___|."
 tech_xindi_lethselan_3:	"|___NE038176___| - |___NE038177___| Umrüstung"
 tech_xindi_lethselan_unlock_title:	"|___CC018646___|Schiffstyp freischalten:|___CC018647___| |___NE038178___|"
@@ -127070,7 +127070,7 @@ tr_androids_emotional_synthesis_desc:	" Android |___IC001788___| |___CC018754___
 tr_androids_emotional_synthesis:	"Emotionale Synthese"
 tr_androids_finish:	"Androiden-Traditionen beendet"
 tr_androids_maintenance_subroutines_delayed:	"Erfordert Technologie: |___CC018760___||___NE038584___||___CC018761___| |___NL021518___||___NL021519___|Eine verbesserte Selbstreparatur-Software kann den Bedarf an Wartungsarbeiten durch Dritte reduzieren."
-tr_androids_maintenance_subroutines:	
+##### tr_androids_maintenance_subroutines:	
 tr_androids_positronic_brains_delayed:	" Erforderliche Technologie: |___CC018762___||___NE038585___||___CC018763___||___NL021520___|Erforderliche Technologie: |___CC018764___||___NE038586___||___CC018765___| |___NL02 1521___||___NL021522___|Positronische Gehirne sind hochentwickelte Rechenvorrichtungen, die künstliche Empfindungsfähigkeit besitzen und für die Weiterentwicklung der Maschinenintelligenz von entscheidender Bedeutung sind."
 tr_androids_positronic_brains_desc:	" Android |___IC001789___| |___CC018766___|Forschung|___CC018767___| Produktion: |___CC018768___|+10 %|___CC018769___||___NL021523___|Androiden können |___CC018770 ___|Admirale|___CC018771___| und |___CC018772___|Generäle|___CC018773___|"
 tr_androids_positronic_brains:	"Positronische Gehirne "
@@ -127256,7 +127256,7 @@ tr_command_captains_holiday_delayed:	"Pflicht und Dienst hindern einen |___NS026
 tr_command_captains_holiday_desc:	"Schaltet die Entscheidung |___CC018910___||___NE038606___||___CC018911___| frei, die es einem Anführer ermöglicht, einen vorübergehenden Leistungsbonus zu erhalten."
 tr_command_captains_holiday:	"Urlaub des Kapitäns"
 tr_command_finish_desc:	" |___NE038607___| Erlangt die Eigenschaft |___NS026359___| |___NL021538___|Schaltet frei |___NS026360___| |___CC018912___|Marine-Rekrutierungspolitik|___CC018913___||___NL021539__ _|Freischalten |___NS026361___| |___CC018914___|Ratsposition|___CC018915___||___NL021540___|Aufstiegsvorteile freigeschaltet: |___CC018916___|+1|___CC018917___|"
-tr_command_finish:	
+##### tr_command_finish:	
 tr_command_first_duty_delayed:	"Die erste Pflicht eines |___NS026362___| Offiziers ist es, |___NS026363___|. Die Entfernung derjenigen, die diesem Standard nicht gerecht werden, ist unerlässlich, um sicherzustellen, dass die nächste Generation von Führungskräften dies tut. "
 tr_command_first_duty_desc:	"Die Pensionierung eines Führers bietet die Chance, die Fähigkeiten eines anderen Führers im Rekrutierungspool zu verbessern."
 tr_command_first_duty:	"Erste Pflicht"
@@ -128015,7 +128015,7 @@ trait_photonic_labourer_tooltip:	" Aktiviert |___IC001859___| |___IC001860___| J
 trait_photonic_labourer:	"Arbeiter-Subroutinen"
 trait_photonic_officer_desc:	"Diese photonischen Lebensformen sind mit umfangreichem taktischem Wissen programmiert und können eine Reihe von militärischen Aufgaben übernehmen."
 trait_photonic_officer_tooltip:	" Ermöglicht |___IC001863___| Jobs |___NL021771___||___IC001864___| Crew aus |___IC001865___| Jobs: |___CC019466___|+25 %|___CC019467___|"
-trait_photonic_officer:	
+##### trait_photonic_officer:	
 trait_photonic_universal_skillset_desc:	"Dank ihrer Fähigkeit, neue Fähigkeiten zu erlernen und zu entwickeln, können diese photonischen Lebensformen nahezu jede Aufgabe erfüllen."
 trait_photonic_universal_skillset_tooltip:	"Alle Aufgaben aktiviert"
 trait_photonic_universal_skillset:	"Adaptive Subroutinen"
@@ -128286,7 +128286,7 @@ TRL_ear:	"Ohr"
 TRL_hand_plural:	"Hände"
 TRL_hand:	"Hand"
 TRL_insult_01:	"|___NE038967___|"
-TRL_insult_plural_01:	
+##### TRL_insult_plural_01:	
 TRL_mouth:	"|___NE038969___|"
 TRL_organ_plural:	"|___NE038970___|"
 TRL_organ:	"|___NE038971___|"
@@ -128428,7 +128428,7 @@ tuterian_gelvik_plural:	"Gelvik-Klasse-Kommandokreuzer"
 tuterian_gelvik:	"Gelvik-Klasse-Kommandokreuzer"
 tuterian_holvhe_cap:	"|___NE039010___|"
 tuterian_holvhe_mid_1:	"Holvhe"
-tuterian_holvhe_mid_2:	
+##### tuterian_holvhe_mid_2:	
 tuterian_holvhe_mid_3:	"Ia'Holvhe"
 tuterian_holvhe_plural:	"Kreuzer der Holvhe-Klasse"
 tuterian_holvhe:	"Kreuzer der Holvhe-Klasse"
@@ -129370,7 +129370,7 @@ utility_small_forcefield_4:	"Strukturelles Integritätsfeld"
 utility_small_forcefield_5_DESC:	"|___CC019906___|Technologie-Level: |___CC019907___| 9|___NL022074___||___NL022075___|Durch die Erweiterung unseres strukturellen Integritätsfeldes um fortschrittliche Kraftfeldgeneratoren und Dispersionsanordnungen sind unsere Raumschiffe noch besser in der Lage, den extremen Elementen und Kräften der interstellaren Raumfahrt standzuhalten."
 utility_small_forcefield_5:	" Rotierendes Strukturintegritätsfeld"
 utility_small_generator_1_DESC:	" |___CC019908___|Technologie-Level:|___CC019909___| 2|___NL022076___||___NL022077___|Neben Schildemittern können wir auch eine weitere Verwendung für den Prozess der Speicherung großer Gravitonfelder finden. Dies ermöglicht uns die Entwicklung eines Geräts, das die Stärke unserer Schilde erhöht."
-utility_small_generator_1:	
+##### utility_small_generator_1:	
 utility_small_generator_2_DESC:	" |___CC019910___|Technologie-Level:|___CC019911___| 3|___NL022078___||___NL022079___|Indem wir ein Schiff mit mehreren Graviton-Schichten umgeben, können wir unsere aktuellen Feldgeneratoren so aufrüsten, dass sie gegen bestimmte Frequenzbereiche von Teilchenstrahlen und Strahlung moduliert werden können."
 utility_small_generator_2:	"Schildgenerator II"
 utility_small_generator_3_DESC:	" |___CC019912___|Technologie-Level:|___CC019913___| 6|___NL022080___||___NL022081___|Durch sorgfältige Modulation der Phase der emittierten Gravitonen wurden die mehreren Schichten älterer Feldgeneratoren zu einer einzigen Schicht komprimiert, was eine sofortige Verstärkung unserer Schilde bewirkt. "
@@ -129549,7 +129549,7 @@ UTILITY_TACTICAL_EPS_3:	"EPS-Verteiler Mk III"
 utility_tactical_eps_4_set_DESC:	"|___NE039428___|"
 utility_tactical_eps_4_set:	"EPS-Verteiler IV"
 UTILITY_TACTICAL_EPS_4_tooltip:	"|___NE039429___|: |___CC020102___|+|___NE039430___||___CC020103___|"
-UTILITY_TACTICAL_EPS_4:	
+##### UTILITY_TACTICAL_EPS_4:	
 UTILITY_TACTICAL_MYCELIAL_REACTOR_1:	"|___NE039431___|"
 UTILITY_TACTICAL_MYCELIAL_REACTOR_2:	" |___NE039432___|"
 UTILITY_TACTICAL_MYCELIAL_REACTOR_3:	"|___NE039433___|"
@@ -130610,7 +130610,7 @@ weapon_type_polaron:	"|___CC020418___|Polaron|___CC020419___|"
 weapon_type_positron_torpedo:	"|___CC020420___|Positronentorpedo|___CC020421___|"
 weapon_type_proton_adjacent:	"|___CC020422___|Proton Adjacent|___CC020423___|"
 weapon_type_proton:	"|___CC020424___|Proton|___CC020425___|"
-weapon_type_pulse_cannon:	
+##### weapon_type_pulse_cannon:	
 weapon_type_quantum_torpedo:	"|___CC020428___|Quantentorpedo|___CC020429___|"
 weapon_type_resonance_torpedo:	" |___CC020430___|Resonanzladungs-Torpedo|___CC020431___|"
 weapon_type_spatial_torpedo:	"|___CC020432___|Torpedo|___CC020433___|"
@@ -131219,7 +131219,7 @@ already_has_transwarp_gateway_technology:	"|___NE040006___|Verfügt bereits übe
 ap_borg_locutor_tooltip:	"Schaltet frei |___CC020543___|Führerassimilation|___CC020544___|. |___NL022206___||___NL022207___|Wenn eine feindliche Flotte unter dem Kommando eines Anführers mit der Eigenschaft |___CC020545___|Schicksal|___CC020546___| besiegt wird, kann dieser Anführer als mächtiger |___CC020547___|Sprecher|___CC020 548___|."
 concept_academy_chancellor_desc:	"|___CC020549___||___NE040007___||___CC020550___| ist eine |___NS026462___| Position, die den Erfahrungsgewinn von Schiffen und Anführern erhöht. |___NL022208___||___NL022209___||___NE040008___||___NL022210___||___NL022211___|"
 concept_academy_chancellor:	"|___NE040009___|"
-concept_academy_graduate_desc:	
+##### concept_academy_graduate_desc:	
 concept_academy_graduate:	"|___NE040012___| "
 concept_elite_selection_desc:	"|___CC020553___||___NE040013___||___CC020554___| ist die höchste Stufe der Marine-Rekrutierung |___NS026464___|, die mächtige Boni gewährt, aber die |___IC001885___| Crew-Produktion aus der Bevölkerung erheblich reduziert. |___NL022216___||___NL022217___||___NE040014___|"
 concept_elite_selection:	"|___NE040015___|"
