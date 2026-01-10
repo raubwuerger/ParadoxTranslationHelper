@@ -28,13 +28,14 @@ namespace ParadoxTranslationHelper.LineCorrector
         {
             if( false == IsCorrectInitialized() )
             {
-                Log.Warning("Not");
+                Log.Warning($"{_substitutionSuffix}: Not correct initialized!");
                 return;
             }
 
             _correctedLines.Clear();
             Dictionary<string, string> keys = LinesToKey(lines);
 
+            int replaced = 0;
             foreach ( KeyValuePair<string,LineObjectSubstitutionFile> substitutePair in _substitutions )
             {
                 string substitute = substitutePair.Key;
@@ -44,7 +45,7 @@ namespace ParadoxTranslationHelper.LineCorrector
                 if( false == keys.ContainsKey(key) )
                 {
                     _keysNotFound.Add($"{key};{substitute};{original}");
-                    Log.Warning($"Key not found! {key}");
+                    Log.Warning($"{_substitutionSuffix}: Key not found! {key}");
                     continue;
                 }
 
@@ -56,16 +57,18 @@ namespace ParadoxTranslationHelper.LineCorrector
 
                 if( false == line.Contains(substitute) )
                 {
-                    Log.Debug($"Line doesn't contain substitute: {substitute} <> {line}");
+                    Log.Debug($"{_substitutionSuffix}: Line doesn't contain substitute: {substitute} <> {line}");
                     _incorrectLines.Add(substitute);
                     continue;
                 }
 
                 keys[key] = line.Replace(substitute, original);
+                replaced++;
             }
 
             _correctedLines = keys.Values.ToList<string>();
             WriteKeysNotFound(_keysNotFound);
+            Log.Information($"{_substitutionSuffix}: Corrected {replaced} items out of {_substitutions.Count}");
         }
 
         void WriteKeysNotFound(List<string> keysNotFound)

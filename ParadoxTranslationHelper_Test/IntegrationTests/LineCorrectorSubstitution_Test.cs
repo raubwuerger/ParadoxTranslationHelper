@@ -82,7 +82,6 @@ namespace ParadoxTranslationHelper_Test
         string file_SteamKeysToCreate_yml_NE = "_SteamKeysToCreate.yml.NE";
         string file_SteamKeysToCreate_yml_NS = "_SteamKeysToCreate.yml.NS";
         string file_SteamKeysToCreate_yml_NL = "_SteamKeysToCreate.yml.NL";
-        string file_SteamKeysToCreate_yml_sub = "_SteamKeysToCreate.yml.sub";
         string file_SteamKeysToCreate_yml_sub_german = "_SteamKeysToCreate.yml.sub.german";
         string file_SteamKeysToCreate_yml_sub_german_resub = "_SteamKeysToCreate.yml.sub.german.resub";
 
@@ -126,8 +125,8 @@ namespace ParadoxTranslationHelper_Test
 
 
             //INFO: 2025-11-28 - JHA - Check if translated files are correct
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub)));
-            Assert.IsTrue(new FileInfo(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub)).Length != 0);
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german)));
+            Assert.IsTrue(new FileInfo(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german)).Length != 0);
 
             Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub), "___KY"));
             Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub), "___CC"));

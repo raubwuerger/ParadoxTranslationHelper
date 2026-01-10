@@ -77,6 +77,36 @@ namespace ParadoxTranslationHelper
             return true;
         }
 
+        private List<TranslationFile> CreateUpdateFiles(List<TranslationFile> missingKeysToInsert)
+        {
+            List<TranslationFile> updatedFiles = new List<TranslationFile>();
+            foreach (TranslationFile translationFile in missingKeysToInsert)
+            {
+                TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
+                if (translationKeysToInsert == null)
+                {
+                    Log.Warning("File to insert not found! " + translationFile.FileNameWithBasePath);
+                    translationKeysToInsert = CreateMissingTranslationFile(translationFile);
+                    if (null == translationKeysToInsert)
+                    {
+                        continue;
+                    }
+                    AddMissingTranslationKeys(translationKeysToInsert, translationFile.Lines);
+                }
+
+                TranslationFile toInsert = InsertInto(translationKeysToInsert, translationFile);
+                if (null == toInsert)
+                {
+                    continue;
+                }
+
+                updatedFiles.Add(toInsert);
+            }
+
+            return updatedFiles;
+        }
+
+
         private TranslationFile InsertInto( TranslationFile original,  TranslationFile missing )
         {
             if( null == original )
@@ -118,28 +148,6 @@ namespace ParadoxTranslationHelper
             }
 
             return original;
-        }
-
-        private List<TranslationFile> CreateUpdateFiles( List<TranslationFile> missingKeysToInsert)
-        {
-            List<TranslationFile> updatedFiles = new List<TranslationFile>();
-            foreach (TranslationFile translationFile in missingKeysToInsert)
-            {
-                TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
-                if (translationKeysToInsert == null)
-                {
-                    Log.Warning("File to insert not found! " + translationFile.FileNameWithBasePath);
-                    translationKeysToInsert = CreateMissingTranslationFile(translationFile);
-                    if (null == translationKeysToInsert)
-                    {
-                        continue;
-                    }
-                    AddMissingTranslationKeys(translationKeysToInsert, translationFile.Lines);
-                }
-                updatedFiles.Add(InsertInto(translationKeysToInsert, translationFile));
-            }
-
-            return updatedFiles;
         }
 
         private TranslationFile CreateMissingTranslationFile( TranslationFile missing )
