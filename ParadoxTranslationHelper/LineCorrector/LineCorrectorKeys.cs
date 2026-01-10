@@ -15,8 +15,8 @@ namespace ParadoxTranslationHelper.LineCorrector
         public const string EXTENSION = "Keys_missing";
         List<string> _doubleKeys = new List<string> { "" };
         Dictionary<string,string> _uniqueKeys = new Dictionary<string,string>();
-        string _correctStart = FileSubstitutionConstants.SUBSTITUTION_END;
-        string _correctEnd = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.KEY_SUFFIX;
+        string _correctStart = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.KEY_SUFFIX;
+        string _correctEnd = FileSubstitutionConstants.SUBSTITUTION_END;
         int _correctEndLength = 0;
         int _correctLength = 16;
         Dictionary<string, string> _missingKeys = new Dictionary<string, string>();
@@ -78,22 +78,25 @@ namespace ParadoxTranslationHelper.LineCorrector
             {
                 if (true == LineHelper.IgnoreLine(line))
                 {
+                    _correctedKeys.Add(line);
                     continue;
                 }
 
-                if (true == IsKeyCorrect(line))
+                if (false == IsKeyCorrect(line))
                 {
-                    string key = line.Substring(0, _correctLength);
-                    if (_uniqueKeys.ContainsKey(key))
-                    {
-                        _doubleKeys.Add(line);
-                    }
-                    else
-                    {
-                        _uniqueKeys.Add(key, line);
-                        _correctedKeys.Add(line);
-                    }
+                    _correctedKeys.Add(InsertIgnoreAtLineStart(line));
                     continue;
+                }
+
+                string key = line.Substring(0, _correctLength);
+                if (_uniqueKeys.ContainsKey(key))
+                {
+                    _doubleKeys.Add(line);
+                }
+                else
+                {
+                    _uniqueKeys.Add(key, line.ReplaceFirst(key, _allOrginialKeys[key]));
+                    _correctedKeys.Add(line);
                 }
             }
         }
@@ -122,6 +125,11 @@ namespace ParadoxTranslationHelper.LineCorrector
             }
 
             return true;
+        }
+
+        private string InsertIgnoreAtLineStart(string line)
+        {
+            return line.Insert(0, Constants.IGNORE_LINE + " ");
         }
 
         Dictionary<string, string>? CheckMissingKeys(Dictionary<string, string> allOrginialKeys, Dictionary<string, string> uniqueKeys)
