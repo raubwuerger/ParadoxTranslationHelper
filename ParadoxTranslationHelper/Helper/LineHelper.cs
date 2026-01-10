@@ -45,6 +45,11 @@ namespace ParadoxTranslationHelper.Helper
 
         public static bool HasLineCorrectKey(string line)
         {
+            if (null == line)
+            {
+                return false;
+            }
+
             int indexStart = line.IndexOf(_correctStart);
             if (indexStart == -1)
             {
@@ -67,6 +72,37 @@ namespace ParadoxTranslationHelper.Helper
             }
 
             return true;
+        }
+
+        public static string? FindCorrectKey(string line)
+        {
+            if( null == line )
+            {
+                return null;
+            }
+
+            int indexStart = line.IndexOf(_correctStart);
+            if (indexStart == -1)
+            {
+                Log.Verbose($"Start string {_correctStart} not found!");
+                return null;
+            }
+
+            int indexEnd = line.IndexOf(_correctEnd);
+            if (indexEnd == -1)
+            {
+                Log.Verbose($"End string {_correctEnd} not found!");
+                return null;
+            }
+
+            int length = (indexEnd + _correctEndLength) - indexStart;
+            if (length != _correctLength)
+            {
+                Log.Verbose($"Length mismatch: should={_correctLength}, is={length}");
+                return null;
+            }
+
+            return line.Substring(0, _correctLength);
         }
 
         public static string SetLineToIgnore(string line)

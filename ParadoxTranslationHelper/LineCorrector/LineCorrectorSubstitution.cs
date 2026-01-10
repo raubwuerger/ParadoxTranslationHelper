@@ -1,7 +1,9 @@
 ﻿using ParadoxTranslationHelper.Helper;
+using ParadoxTranslationHelper.Utilities;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,8 @@ namespace ParadoxTranslationHelper.LineCorrector
     {
         string _substitutionSuffix;
         List<string> _correctedLines = new List<string>();
+        List<string> _incorrectLines = new List<string>();
+        List<string> _keysNotFound = new List<string>();
         Dictionary<string, LineObjectSubstitutionFile> _substitutions;
         Dictionary<string, LineObjectSubstitutionFile> _substitutionsKey;
 
@@ -29,45 +33,72 @@ namespace ParadoxTranslationHelper.LineCorrector
             }
 
             _correctedLines.Clear();
-
             Dictionary<string, string> keys = LinesToKey(lines);
 
-            foreach(KeyValuePair<string,LineObjectSubstitutionFile> key in _substitutions )
+            foreach ( KeyValuePair<string,LineObjectSubstitutionFile> substitutePair in _substitutions )
             {
-                //TODO: 2026-01-07 - JHA - Funktioniert nicht! In den lines stehen nur die substituierten Keys
-                if( false == keys.ContainsKey( key.Value.Key ) )
+                string substitute = substitutePair.Key;
+                string key = substitutePair.Value.Key;
+                string original = substitutePair.Value.SubstitutedValue;
+
+                if( false == keys.ContainsKey(key) )
                 {
-                    Log.Debug($"Key not found in key file {key.Value.Key}!");
+                    _keysNotFound.Add($"{key};{substitute};{original}");
+                    Log.Warning($"Key not found! {key}");
                     continue;
                 }
 
+                string line = keys[key];
+                if( null == line )
+                {
+                    continue;
+                }
 
+                if( false == line.Contains(substitute) )
+                {
+                    Log.Debug($"Line doesn't contain substitute: {substitute} <> {line}");
+                    _incorrectLines.Add(substitute);
+                    continue;
+                }
+
+                keys[key] = line.Replace(substitute, original);
             }
 
+            _correctedLines = keys.Values.ToList<string>();
+            WriteKeysNotFound(_keysNotFound);
         }
+
+        void WriteKeysNotFound(List<string> keysNotFound)
+        {
+            FileUtility.WriteLines(keysNotFound, Path.Combine(ParadoxTranslationHelperConfig.PathResult, $"{Name}.{_substitutionSuffix}{FileSubstitutionConstants.NOT_FOUND}"));
+        }
+
 
         Dictionary<string, string> LinesToKey(List<string> lines)
         {
             Dictionary<string, string> keys = new Dictionary<string, string>();
             foreach (string line in lines)
             {
-                try
+                if( true == LineHelper.IgnoreLine(line) )
                 {
-                    if( line.Length < 16 )
-                    {
-                        continue;
-                    }
-                    //TODO: 2026-01-07 - JHA - Nur solange die Ausgangsdatei nicht korrekt ist
-                    if (keys.ContainsKey(line.Substring(0, 16)))
-                    {
-                        continue;
-                    }
-                    keys.Add(line.Substring(0, 16), line.Substring(16, line.Length - 16));
+                    continue;
                 }
-                catch (Exception ex)
+
+                int endPos = line.IndexOf(Constants.SIGN_TABULATOR);
+                if( endPos == -1 )
                 {
-                    int what_the_fuck = 1;
+                    Log.Debug($"Not a valid line: {line}");
+                    continue;
                 }
+
+                string key = line.Substring(0, endPos);
+                if( true == string.IsNullOrWhiteSpace(key) )
+                {
+                    Log.Debug($"Not a valid key: {key}");
+                    continue;
+                }
+
+                keys.Add(key, line);
             }
 
             return keys;
@@ -91,7 +122,7 @@ namespace ParadoxTranslationHelper.LineCorrector
         }
         public List<string> GetIncorrect()
         {
-            return new List<string>();
+            return _incorrectLines;
         }
 
         public List<string> GetCorrected()
