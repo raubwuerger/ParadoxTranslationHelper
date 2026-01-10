@@ -63,12 +63,6 @@ namespace ParadoxTranslationHelper.LineCorrector
                     continue;
                 }
 
-                if (false == LineHelper.HasLineCorrectKey(line))
-                {
-                    _correctedKeys.Add(InsertIgnoreAtLineStart(line));
-                    continue;
-                }
-
                 string key = line.Substring(0, LineHelper.CorrectLength);
                 if (_uniqueKeys.ContainsKey(key))
                 {
@@ -81,10 +75,6 @@ namespace ParadoxTranslationHelper.LineCorrector
                     _correctedKeys.Add(corectedUnique);
                 }
             }
-        }
-        private string InsertIgnoreAtLineStart(string line)
-        {
-            return line.Insert(0, Constants.IGNORE_LINE + " ");
         }
         Dictionary<string, string>? CheckMissingKeys(Dictionary<string, string> allOrginialKeys, Dictionary<string, string> uniqueKeys)
         {

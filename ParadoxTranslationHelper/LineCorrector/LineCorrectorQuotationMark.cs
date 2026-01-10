@@ -39,21 +39,18 @@ namespace ParadoxTranslationHelper.LineCorrector
                     continue;
                 }
 
-                if( true == CorrectQuotationMarks(line) )
-                {
-                    continue;
-                }
+                _correctedLines.Add(CorrectQuotationMarks(line));
             }
         }
 
-        bool CorrectQuotationMarks( string line )
+        string CorrectQuotationMarks( string line )
         {
             foreach( string wrongQM in _wrongQuotationMarks )
             {
                 line = line.Replace(wrongQM, Constants.QUOTATION_MARKS);
             }
-            _correctedLines.Add(line);
-            return true;
+
+            return line;
         }
 
         public List<string> GetIncorrect()

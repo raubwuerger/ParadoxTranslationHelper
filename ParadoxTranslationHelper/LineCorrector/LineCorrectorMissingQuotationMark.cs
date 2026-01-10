@@ -37,19 +37,15 @@ namespace ParadoxTranslationHelper.LineCorrector
                     continue;
                 }
 
-                CorrectQuotationMarks(line);
+                _correctedLines.Add(CorrectQuotationMarks(line));
             }
         }
 
-        void CorrectQuotationMarks( string line )
+        string CorrectQuotationMarks( string line )
         {
-            if (true == string.IsNullOrWhiteSpace(line))
-            {
-                return;
-            }
             line = CorrectQuotationMarkEnd(line);
             line = CorrectQuotationMarkStart(line);
-            _correctedLines.Add(line);
+            return line;
         }
 
         string CorrectQuotationMarkEnd(string line)

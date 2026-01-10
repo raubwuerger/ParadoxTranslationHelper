@@ -37,6 +37,7 @@ namespace ParadoxTranslationHelper.LineCorrector
             {
                 if( true == LineHelper.IgnoreLine(line) )
                 {
+                    _splittedLines.Add(line);
                     continue;
                 }
 

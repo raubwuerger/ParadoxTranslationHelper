@@ -69,5 +69,10 @@ namespace ParadoxTranslationHelper.Helper
             return true;
         }
 
+        public static string SetLineToIgnore(string line)
+        {
+            return line.Insert(0, Constants.IGNORE_LINE + " ");
+        }
+
     }
 }

@@ -39,6 +39,11 @@ namespace ParadoxTranslationHelper.LineCorrector
             return new LineCorrectorMissingQuotationMark();
         }
 
+        public ILineCorrector CreateLineCorrectorMarkWrongKeys()
+        {
+            return new LineCorrectorMarkWrongKeys();
+        }
+
         public ILineCorrector CreateCorrectorSubstitution(string suffix)
         {
 

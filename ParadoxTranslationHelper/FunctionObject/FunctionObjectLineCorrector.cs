@@ -52,6 +52,7 @@ namespace ParadoxTranslationHelper
             LineCorrectorController lineCorrector = new LineCorrectorController();
             lineCorrector.Lines = fileSub;
             lineCorrector.FileName = _translationFileNameSub;
+            lineCorrector.Add(lineCorrectorFactory.CreateLineCorrectorMarkWrongKeys());
             lineCorrector.Add(lineCorrectorFactory.CreateCorrectorSplitByKeys());
             lineCorrector.Add(lineCorrectorFactory.CreateCorrectorQuotationMark());
             lineCorrector.Add(lineCorrectorFactory.CreateCorrectorMissingQuotationMark());
