@@ -45,7 +45,7 @@ namespace ParadoxTranslationHelper.LineCorrector
                 if( false == keys.ContainsKey(key) )
                 {
                     _keysNotFound.Add($"{key};{substitute};{original}");
-                    Log.Warning($"{_substitutionSuffix}: Key not found! {key}");
+                    Log.Debug($"{_substitutionSuffix}: Key not found! {key}");
                     continue;
                 }
 
@@ -84,6 +84,7 @@ namespace ParadoxTranslationHelper.LineCorrector
             {
                 if( true == LineHelper.IgnoreLine(line) )
                 {
+                    keys.Add(line, line);
                     continue;
                 }
 
@@ -97,7 +98,7 @@ namespace ParadoxTranslationHelper.LineCorrector
                 string key = line.Substring(0, endPos);
                 if( true == string.IsNullOrWhiteSpace(key) )
                 {
-                    Log.Debug($"Not a valid key: {key}");
+                    Log.Debug($"Not a valid key: IsNullOrWhiteSpace");
                     continue;
                 }
 
