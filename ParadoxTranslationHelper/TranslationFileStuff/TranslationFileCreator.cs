@@ -8,23 +8,23 @@ namespace ParadoxTranslationHelper
 {
     internal class TranslationFileCreator
     {
-        IStringParser stringParserKey = null;
-        IStringParser stringParserNamespaces = null;
-        IStringParser stringParserNestingStrings = null;
-        IStringParser stringParserIcons = null;
-        IStringParser stringParserNewLine = null;
-        IStringParser stringParserColorCodes = null;
-        IStringParser stringParserTabulator = null;
+        IStringParser _stringParserKey = null;
+        IStringParser _stringParserNamespaces = null;
+        IStringParser _stringParserNestingStrings = null;
+        IStringParser _stringParserIcons = null;
+        IStringParser _stringParserNewLine = null;
+        IStringParser _stringParserColorCodes = null;
+        IStringParser _stringParserTabulator = null;
 
         LineObjectCreator _lineObjectCreator = new LineObjectCreator();
 
-        public IStringParser StringParserKey { get => stringParserKey; set => stringParserKey = value; }
-        public IStringParser StringParserNamespaces { get => stringParserNamespaces; set => stringParserNamespaces = value; }
-        public IStringParser StringParserNestingStrings { get => stringParserNestingStrings; set => stringParserNestingStrings = value; }
-        public IStringParser StringParserIcons { get => stringParserIcons; set => stringParserIcons = value; }
-        public IStringParser StringParserNewLine { get => stringParserNewLine; set => stringParserNewLine = value; }
-        public IStringParser StringParserColorCodes { get => stringParserColorCodes; set => stringParserColorCodes = value; }
-        public IStringParser StringParserTabulator { get => stringParserTabulator; set => stringParserTabulator = value; }
+        public IStringParser StringParserKey { get => _stringParserKey; set => _stringParserKey = value; }
+        public IStringParser StringParserNamespaces { get => _stringParserNamespaces; set => _stringParserNamespaces = value; }
+        public IStringParser StringParserNestingStrings { get => _stringParserNestingStrings; set => _stringParserNestingStrings = value; }
+        public IStringParser StringParserIcons { get => _stringParserIcons; set => _stringParserIcons = value; }
+        public IStringParser StringParserNewLine { get => _stringParserNewLine; set => _stringParserNewLine = value; }
+        public IStringParser StringParserColorCodes { get => _stringParserColorCodes; set => _stringParserColorCodes = value; }
+        public IStringParser StringParserTabulator { get => _stringParserTabulator; set => _stringParserTabulator = value; }
 
         public TranslationFile? Create(string completeFileName)
         {
@@ -106,7 +106,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            if( null == stringParserKey )
+            if( null == _stringParserKey )
             {
                 Log.Debug($"Member <StringParserKey> must not be null!");
                 return null;
@@ -121,13 +121,13 @@ namespace ParadoxTranslationHelper
                 if( false == LineHelper.IgnoreLine(line) )
                 {
                     //TODO: 2025-12-06 - JHA - Macht bei Substituierter Datei keinen Sinn!
-                    SetKey(line, stringParserKey);
-                    SetNamespaces(line, stringParserNamespaces);
-                    SetNestingStrings(line, stringParserNestingStrings);
-                    SetIcons(line, stringParserIcons);
-                    SetNewLine(line, stringParserNewLine);
-                    SetColorCodes(line, stringParserColorCodes);
-                    SetTabulator(line, stringParserTabulator);
+                    SetKey(line, _stringParserKey);
+                    SetNamespaces(line, _stringParserNamespaces);
+                    SetNestingStrings(line, _stringParserNestingStrings);
+                    SetIcons(line, _stringParserIcons);
+                    SetNewLine(line, _stringParserNewLine);
+                    SetColorCodes(line, _stringParserColorCodes);
+                    SetTabulator(line, _stringParserTabulator);
                 }
 
                 lineNumber++;

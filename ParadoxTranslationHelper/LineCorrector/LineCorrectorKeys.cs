@@ -38,6 +38,9 @@ namespace ParadoxTranslationHelper.LineCorrector
             CorrectLines(linesToCorrect);
 
             _missingKeys = CheckMissingKeys(_allOrginialKeys, _uniqueKeys);
+            Log.Information($"Keys overall: {_allOrginialKeys.Count}");
+            Log.Information($"Keys unique: {_uniqueKeys.Count}");
+            Log.Information($"Keys missing: {_missingKeys.Count}");
             FileUtility.WriteLines(CreateLinesNotTranslated(_missingKeys, _originalDiffFile), Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS) + ".notTranslated");
 
             string subGerman = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_MISSING_KEYS) + FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED + FileSubstitutionConstants.FILE_SUFFIX_GERMAN;
