@@ -96,7 +96,7 @@ namespace ParadoxTranslationHelper.LineCorrector
                 return;
             }
 
-            using (StreamWriter outputFile = new StreamWriter(_fileName + ".corrected"))
+            using (StreamWriter outputFile = new StreamWriter(_fileName + FileSubstitutionConstants.FILE_SUFFIX_CORRECTED))
             {
                 foreach (string line in corrected)
                 {

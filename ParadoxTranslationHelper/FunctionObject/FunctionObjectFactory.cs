@@ -79,19 +79,6 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
-        public static IFunctionObject? CreateSteamResubstitute()
-        {
-            FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(FunctionTypes.Resub);
-            functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
-
-            functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
-            functionObject.TranslationFileNameDiff = Constants.FILE_NAME_STEAM_MISSING_KEYS;
-            functionObject.TranslationFileNameSub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffSubGerman());
-            functionObject.TranslationFileNameResub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman() );
-
-            return functionObject;
-        }
-
 
         public static IFunctionObject? CreateCheckForDoubleKeys()
         {
@@ -152,7 +139,7 @@ namespace ParadoxTranslationHelper
 
         private static string CreateFileNameDiffResubGerman()
         {
-            return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED;
+            return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_CORRECTED;
         }
 
         private static string CreateFileNameDiffSubGerman()
