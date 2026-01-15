@@ -1,0 +1,370 @@
+﻿l_german:
+
+industrial_requisition_category:0				"Industrielle Anforderung"
+industrial_requisition_category_desc:0				"Die Gefahr des Betriebs von Fabriken in den besetzten Gebieten könnte durch die Verlagerung der Werkzeugmaschinen in unser Land gemildert werden. Dies würde zwar das Sabotagerisiko verringern, aber wahrscheinlich einen Teil der Bevölkerung zum Widerstand gegen uns bewegen. "
+seize_machine_toolings_in_state:0				"Beschlagnahme von Werkzeugmaschinen in [FROM.GetName]"
+
+the_return_of_the_old_guard_category:0				"Die Rückkehr der alten Garde"
+hold_the_neutrality_national_referendum:0				"Bilden Sie eine reaktionäre Regierung"
+open_up_political_discourse_neutrality:0				"Öffnen Sie den politischen Diskurs"
+discredit_government_neutrality:0				"Diskreditieren Sie die Regierung"
+
+r56_alone_faction_leader:0				"Verbündete finden"
+r56_alone_faction_leader_desc:0				"Sollte es uns nicht gelingen, Verbündete zu finden, würde dies unsere diplomatische Position ad absurdum führen und uns zwingen, neue diplomatische Möglichkeiten zu erschließen. "
+
+ENG_restore_the_UK:0				"Das Vereinigte Königreich wiederherstellen"
+ENG_restore_the_UK_desc:0				"Wir müssen die Spaltung Großbritanniens beenden, unsere jahrhundertealte Union des Vereinigten Königreichs von England, Schottland, Wales und Nordirland wiederherstellen und neu festigen, um unsere Kräfte zu sammeln und unseren Platz auf der Weltbühne neu zu bestimmen."
+unite_britain:0				"Die britische Einheit wiederherstellen"
+
+reunite_germany:0				"Deutschland wiedervereinigen"
+reintegrate_lands_beyond_the_oder_neisse_line:0				"Wiedereingliederung der Länder jenseits der Oder-Neiße-Linie"
+
+reunite_italy:0				"Italien wiedervereinigen"
+
+unite_the_cossack_hosts:0				"Vereinigen Sie die Kosakenheere"
+
+recruit_women_pilots:0				"Weibliche Piloten rekrutieren"
+recruit_women_pilots_desc:0				"In dieser schicksalhaften Stunde für unsere Nation können wir es uns nicht leisten, das Talent Einzelner zu missbrauchen. Fliegerinnen haben in den 1930er Jahren mit ihren Heldentaten die Öffentlichkeit in Erstaunen versetzt. Sie müssen für die nationale Sache mobilisiert werden und an der Seite der Männer ihre Pflicht tun."
+r56_collect_civilian_aluminium_utensils:0				"Zivile Aluminiumgeräte sammeln"
+r56_collect_civilian_aluminium_utensils_desc:0				"Aluminium ist ein wichtiges Material für die Kriegsanstrengungen. In dieser Zeit der Not ist es notwendig, Sammelstellen zu organisieren, um Fahrräder, Töpfe und andere Gegenstände für die Kriegsanstrengungen wiederzuverwenden."
+
+r56_coordinate_land_equipment_manufacturers:0				"Koordinieren Sie die Hersteller von Landausrüstung"
+r56_coordinate_naval_equipment_manufacturers:0				"Koordinierung der Schiffsausrüstungshersteller"
+r56_land_equipment_manufacturers_coordination:0				"Koordinierung der Hersteller von Landausrüstung"
+r56_naval_equipment_manufacturers_coordination:0				"Koordinierung der Marineausrüstungshersteller "
+
+
+combat_reports:0				"Kampfberichte"
+r56_adopt_camelry:0				"Bildung eines Kamelkorps"
+r56_ENG_decision_support_percy_hobart:0				"Percy Hobart unterstützen"
+r56_ENG_decision_support_percy_hobart_desc:0				"Percy Hobart mag eine merkwürdige Ansicht über den Einsatz von Panzern haben und sich aufgrund dieser Ansichten bei anderen Generälen ziemlich unbeliebt machen. Sein revolutionäres Konzept für die Konstruktion und den Einsatz von Panzern kann sich jedoch als äußerst nützlich erweisen."
+percy_hobart_decision_cost:0				"§H100§!£Armee_Erfahrung §H50§!£Pol_macht"
+percy_hobart_decision_cost_blocked:0				"§R100§!£Armee_Erfahrung §R50§!£Pol_Kraft"
+percy_hobart_decision_cost_tooltip:0				"Es kostet 100£Armee_Erfahrung und 50£Pol_Macht, um dies zu wählen."
+r56_ENG_decision_support_frederick_browning:0				"Frederick Browning unterstützen"
+r56_ENG_decision_support_frederick_browning_desc:0				"Die Schaffung unserer Fallschirmjägereinheiten hat gezeigt, dass sie nur dann effizient sein können, wenn sie von spezialisierten Offizieren befehligt werden."
+frederick_browning_decision_cost:0				"§H25§!£Armee_Erfahrung §H25§!£Luft_Erfahrung §H25§!£Pol_macht"
+frederick_browning_decision_cost_blocked:0				"§R25§!£Armee_Erfahrung §H25§!£Luft_Erfahrung §R25§!£Pol_Kraft"
+frederick_browning_decision_cost_tooltip:0				"Es kostet 25£Armee_Erfahrung 25£Luft_Erfahrung und 25£Pol_Power, um dies auszuwählen."
+
+promote_general_decision_cost:0				"§H25§!£Armee_Erfahrung §H50§!£Pol_Power"
+promote_general_decision_cost_blocked:0				"§R25§!£Armee_Erfahrung §R50§!£Pol_Kraft"
+promote_general_decision_cost_tooltip:0				"Es kostet 25£Armee_Erfahrung und 50£Pol_Macht, dies auszuwählen.  "
+
+r56_ENG_decision_send_wavell_to_india:0				"Archibald Wavell nach Indien schicken"
+r56_ENG_decision_send_wavell_to_india_desc:0				"Archibald Wavell wird hier nicht optimal eingesetzt und könnte viel hilfreicher sein, wenn er die britisch-indische Armee verstärken würde."
+
+r56_ENG_decision_recall_gilbert_stephenson:0				"Gilbert Stephenson zurückrufen"
+r56_ENG_decision_recall_gilbert_stephenson_desc:0				"Um der erneuten Bedrohung durch U-Boote zu begegnen, ist es unerlässlich, sich auf die Erfahrung älterer Kommandeure zu stützen, die während des Ersten Weltkriegs deutsche Unterseeboote bekämpft haben. Als Veteran der U-Boot-Bekämpfung ist Gilbert Stephenson der ideale Mann, um eine neue Generation von Seeleuten zu führen. "
+gilbert_stephenson_decision_cost:0				"§H25§!£Marine_Erfahrung §H25§!£Pol_macht"
+gilbert_stephenson_decision_cost_blocked:0				"§R25§!£Marine_Erfahrung §R25§!£Pol_Power"
+gilbert_stephenson_decision_cost_tooltip:0				"Es kostet 25£navy_experience und 25£pol_power, um dies auszuwählen. "
+gilbert_stephenson:0				"Gilbert Stephenson"
+ENG_terror_of_tobermory:0				"Gilbert Stephenson ist von der Marine zurückgerufen worden."
+
+r56_GER_decision_support_eugen_meindl:0				"Unterstützen Sie Eugen Meindl"
+r56_GER_decision_support_eugen_meindl_desc:0				"Kurt Student mag der prominenteste Fallschirmjägerkommandeur im Heer sein, aber die Luftwaffe hat viele andere talentierte Führer. "
+r56_GER_decision_support_richard_heidrich:0				"Unterstützen Sie Richard Heidrich"
+r56_GER_decision_support_richard_heidrich_desc:0				"Kurt Student mag der prominenteste Fallschirmjägerkommandeur des Heeres sein, aber die Luftwaffe hat noch viele andere talentierte Führungskräfte. "
+r56_HUN_decision_support_bertalan_arpad:0				"Unterstütze Árpád Bertalan"
+r56_HUN_decision_support_bertalan_arpad_desc:0				"Árpád Bertalan, der Kriegsheld des Ersten Weltkriegs, arbeitet hart daran, eine Eliteeinheit aus den besten Soldaten Ungarns aufzubauen. Wir sollten uns seine Talente zunutze machen."
+NOR_nortraship_category:0				"Nortraship"
+NOR_nortraship_category_desc:0				"Nortraship ist das Unternehmen, das mit der Verwaltung aller norwegischen Handelsschiffe beauftragt ist, die sich nicht unter feindlicher Kontrolle befinden. Obwohl diese Schiffe von Zivilisten betrieben werden, werden sie unseren Verbündeten eine große Hilfe sein, damit wir unsere Freiheit zurückgewinnen können."
+NOR_nortraship_25_convoys:0				"Schicken Sie 25 Handelsschiffe nach [From.GetNameDef]"
+r56_SPR_decision_communist_generals:0				"Versammeln Sie die republikanischen Offiziere"
+r56_SPR_decision_fascist_generals:0				"Versammeln Sie die nationalistischen Offiziere "
+TUR_fascist_category:0				"Der neue türkische Staat"
+TUR_fascist_category_desc:0				"Nach der Demütigung unserer Niederlage im Großen Krieg haben wir uns zuerst erhoben, um unser Heimatland gegen die Yunanlılar zu schützen, aber Atatürk hat nur unsere Grenzen stabilisiert. Mit dem Aufstieg unserer Bewegung können wir unser Erbe zurückerobern und unsere kaiserliche Domäne wiederherstellen."
+
+r56_deploy_heavy_aa_capital:0				"Setzen Sie schwere Flak zum Schutz von [Root.Capital.GetCapitalVictoryPointName] ein."
+r56_deploy_heavy_aa_capital_cost:0				"£command_power §H25§! £pol_power §H25§!"
+r56_deploy_heavy_aa_capital_cost_blocked:0				"£command_power §R25§! £pol_power §R25§!"
+r56_deploy_heavy_aa_capital_cost_tooltip:0				"Es kostet £command_power §H25§! und £pol_power §H25§!, um dies auszuwählen  "
+r56_25_command_power_cost:0				"£command_power §H25§!"
+r56_25_command_power_cost_blocked:0				"£command_power §R25§!"
+r56_25_command_power_cost_tooltip:0				"Es kostet £command_power §H25§! um dies auszuwählen."
+
+r56_1_command_power_cost:0				"£command_power §H1§!"
+r56_1_command_power_cost_blocked:0				"£command_power §R1§!"
+r56_1_command_power_cost_tooltip:0				"Es kostet £command_power §H1§!, um dies auszuwählen."
+
+r56_3_command_power_cost:0				"£command_power §H3§!"
+r56_3_command_power_cost_blocked:0				"£command_power §R3§!"
+r56_3_command_power_cost_tooltip:0				"Es kostet £command_power §H3§!, um dies auszuwählen."
+
+r56_5_command_power_cost:0				"£Befehlskraft §H5§!"
+r56_5_command_power_cost_blocked:0				"£command_power §R5§!"
+r56_5_command_power_cost_tooltip:0				"Es kostet £command_power §H5§!, um dies auszuwählen."
+
+r56_10_command_power_cost:0				"£command_power §H10§!"
+r56_10_command_power_cost_blocked:0				"£command_power §R10§!"
+r56_10_command_power_cost_tooltip:0				"Es kostet £command_power §H10§!, um dies auszuwählen."
+
+r56_15_command_power_cost:0				"£command_power §H15§!"
+r56_15_command_power_cost_blocked:0				"£command_power §R15§!"
+r56_15_command_power_cost_tooltip:0				"Es kostet £command_power §H15§!, um dies auszuwählen."
+
+r56_35_command_power_cost:0				"£command_power §H35§!"
+r56_35_command_power_cost_blocked:0				"£command_power §R35§!"
+r56_35_command_power_cost_tooltip:0				"Es kostet £command_power §H35§!, um dies auszuwählen."
+
+r56_50_command_power_cost:0				"£command_power §H50§!"
+r56_50_command_power_cost_blocked:0				"£command_power §R50§!"
+r56_50_command_power_cost_tooltip:0				"Es kostet £command_power §H50§!, um dies auszuwählen."
+
+control_ai_allies_category:0				"Verbündete Koordinierung"
+ROOT_hide_ai_allies_decisions:0				"KI-Verbündete Entscheidungen ausblenden"
+ROOT_show_ai_allies_decisions:0				"KI-Verbündete-Entscheidungen anzeigen"
+control_ai_allies_category_desc:0				"Indem wir unseren Verbündeten klare Befehle erteilen, erhöhen wir unsere Chancen, unsere Aktionen zu koordinieren und unsere Feinde zu besiegen.\n\n§RDiese Entscheidungen beeinflussen nur das Verhalten der KI§! "
+ai_ally_favor_navy:0				"Bitten Sie die [FROM.GetAdjective] Regierung, sich auf ihre Marine zu konzentrieren"
+drop_ai_ally_favor_navy:0				"Fordern Sie die Aufgabe der [FROM.GetAdjective]-Marine-Initiative."
+ai_ally_favor_aviation:0				"Fordern Sie die [FROM.GetAdjective]-Regierung auf, sich auf ihre Luftfahrt zu konzentrieren"
+drop_ai_ally_favor_aviation:0				"Fordern Sie den Verzicht auf die [FROM.GetAdjective]-Luftfahrtinitiative."
+
+FROM_they_currently_have_so_much_political_power_tt:0				"[FROM.GetNameWithFlag] hat weniger als §H300§! politische Macht. Sie haben derzeit §G§![?.FROM.political_power|0G] politische Macht.\n"
+
+ai_ally_favor_defense:0				"Fordern Sie die [FROM.GetAdjective] Regierung auf, sich auf die Defensive zu konzentrieren"
+drop_ai_ally_favor_defense:0				"Fordern Sie die Aufgabe der [FROM.GetAdjective] Verpflichtung zur Defensive."
+
+ai_ally_favor_offense:0				"Fordern Sie die [FROM.GetAdjective]-Regierung auf, sich auf die Offensive zu konzentrieren"
+drop_ai_ally_favor_offense:0				"Fordern Sie die Aufgabe des [FROM.GetAdjective]-Engagements in der Offensive."
+
+
+ai_ally_favor_war_production:0				"Fordern Sie die [FROM.GetAdjective]-Regierung auf, sich auf ihre Kriegsproduktion zu konzentrieren"
+drop_ai_ally_favor_war_production:0				"Fordern Sie die Aufgabe der [FROM.GetAdjective]-Kriegsproduktions-Initiative."
+r56_ai_favor_defense:0				"KI-Priorität: Verteidigung"
+r56_ai_favor_offense:0				"KI-Priorität: Offensive"
+r56_ai_favor_war_production:0				"KI-Priorität: Kriegsproduktion"
+r56_ai_favor_aviation:0				"KI-Priorität: Luftfahrt"
+r56_ai_favor_navy:0				"KI-Priorität: Flotte"
+
+ROOT_ai_allies_decision_will_remain_hidden_tt:0				"KI-Verbündete Entscheidungen bleiben §Hverborgen§!!"
+
+form_camel_corps_cost:0				"£army_experience  §H50§! £pol_power  §H10§!"
+form_camel_corps_cost_blocked:0				"£army_experience  §R50§! £pol_power  §R10§!"
+form_camel_corps_cost_tooltip:0				"Es kostet £army_experience §H50§! und £pol_power §H10§! um dies zu wählen."
+
+r56_send_combat_reports_to_the_small_arms_manufacturers:0				"Berichte an die Hersteller von Kleinwaffen senden"
+r56_send_combat_reports_to_the_artillery_manufacturers:0				"Berichte an die Artillerie-Hersteller senden"
+r56_send_combat_reports_to_the_vehicles_manufacturers:0				"Berichte an die Fahrzeughersteller senden"
+r56_send_combat_reports_to_the_fighter_manufacturers:0				"Berichte an die Hersteller von Jagdflugzeugen senden"
+r56_send_combat_reports_to_the_light_bomber_manufacturers:0				"Berichte an die Hersteller von leichten Bombern senden"
+r56_send_combat_reports_to_the_bomber_manufacturers:0				"Berichte an die Bomberhersteller senden"
+r56_send_combat_reports_to_the_naval_plane_manufacturers:0				"Berichte an die Hersteller von Marineflugzeugen senden"
+r56_send_combat_reports_to_the_jet_plane_manufacturers:0				"Berichte an die Hersteller von Strahlflugzeugen senden"
+r56_send_combat_reports_to_the_small_ship_manufacturers:0				"Berichte an die Hersteller kleiner Schiffe senden"
+r56_send_combat_reports_to_the_submarines_manufacturers:0				"Berichte an die Hersteller von U-Booten senden"
+r56_send_combat_reports_to_the_capital_ship_manufacturers:0				"Berichte an die Hersteller von Großschiffen senden"
+r56_send_combat_reports_to_the_carrier_manufacturers:0				"Berichte an die Hersteller von Flugzeugträgern senden"
+
+xp_conversion_landxp:0				"§H100§!£Armee_Erfahrung §H10§!£Pol_kraft"
+xp_conversion_landxp_blocked:0				"§R100§!£Armee_Erfahrung §R10§!£Pol_Power"
+xp_conversion_landxp_tooltip:0				"Es kostet 100£Armee_Erfahrung und 10£Pol_Power, um dies auszuwählen."
+
+xp_conversion_land_50_xp:0				"§H50§!£Armee_Erfahrung §H10§!£Pol_Power"
+xp_conversion_land_50_xp_blocked:0				"§R50§!£Armee_Erfahrung §R10§!£Pol_Kraft"
+xp_conversion_land_50_xp_tooltip:0				"Es kostet 50£Armee_Erfahrung und 10£Pol_Kraft, dies zu wählen."
+
+xp_conversion_navyxp:0				"§H100§!£Marine_Erfahrung §H10§!£Pol_Power"
+xp_conversion_navyxp_blocked:0				"§R100§!£navy_experience §R10§!£pol_power"
+xp_conversion_navyxp_tooltip:0				"Es kostet 100£Marine_Erfahrung und 10£Pol_Power, um dies auszuwählen."
+
+xp_conversion_airxp:0				"§H100§!£Luft_Erfahrung §H10§!£Pol_Power"
+xp_conversion_airxp_blocked:0				"§R100§!£Luft_Erfahrung §R10§!£Pol_Power"
+xp_conversion_airxp_tooltip:0				"Es kostet 100£Lufterfahrung und 10£Polkraft, um dies auszuwählen."
+
+xp_conversion_carriers:0				"§H100§!£navy_experience §H50§!£air_experience §H10§!£pol_power"
+xp_conversion_carriers_blocked:0				"§R100§!£Marine_Erfahrung §R25§!£Luft_Erfahrung §R10§!£Pol_Power"
+xp_conversion_carriers_tooltip:0				"Es kostet 100£Marineerfahrung, 25£Lufterfahrung und 10£Polkraft, um dies auszuwählen."
+
+land_combat_report_analyzed:0				"Analysierte Landkampfberichte"
+air_combat_report_analyzed:0				"Analysierte Luftkampfberichte"
+naval_combat_report_analyzed:0				"Analyse der Seekampfberichte"
+
+remove_us_influnce:0				"U.S.-Einfluss entfernen"
+remove_us_influnce_desc:0				"Wir müssen diese Invasion der Politik unseres Landes durch Amerika stoppen!"
+
+democratic_political_violence:0				"Anstiftung zu politischer Gewalt"
+communist_political_violence:0				"Anstiftung zu politischer Gewalt"
+fascism_political_violence:0				"Anstiftung zu politischer Gewalt"
+
+try_to_recruit_lithuanian_officers:0				"Versuchen Sie, litauische Offiziere zu rekrutieren"
+try_to_recruit_estonian_officers:0				"Versuchen Sie, estnische Offiziere zu rekrutieren"
+try_to_recruit_latvian_officers:0				"Versuchen Sie, lettische Offiziere zu rekrutieren"
+
+
+try_to_recruit_norwegian_officers:0				"Versuchen Sie, norwegische Offiziere zu rekrutieren"
+try_to_recruit_finnish_officers:0				"Versuch der Anwerbung finnischer Offiziere"
+try_to_recruit_swedish_officers:0				"Versuchen Sie, schwedische Offiziere anzuwerben"
+try_to_recruit_danish_officers:0				"Versuchen Sie dänische Offiziere anzuwerben"
+
+try_to_recruit_mongol_officers:0				"Versuchen Sie mongolische Offiziere anzuwerben"
+try_to_recruit_mengjiang_officers:0				"Versuchen Sie, Mengjiang-Offiziere anzuwerben"
+
+try_to_recruit_irish_officers:0				"Irische Offiziere rekrutieren"
+try_to_recruit_scottish_officers:0				"Versuchen Sie schottische Offiziere anzuwerben"
+
+try_to_recruit_brazilian_officers:0				"Brasilianische Offiziere rekrutieren "
+
+try_to_recruit_moroccan_officers:0				"Versuch der Anwerbung marokkanischer Offiziere "
+
+r56_declare_independence:0				"Erklären Sie die Unabhängigkeit"
+
+r56_military_buildup:0				"Militärischer Aufschwung"
+r56_military_rewards:0				"Militärische Belohnungen"
+r56_military_rewards_desc:0				"Einige Abteilungen müssen für ihre Leistungen belohnt und ermutigt werden"
+r56_reward_medal_history:0				"Diese Einheit wurde von ihren Kameraden anerkannt und entsprechend belohnt."
+
+cite_an_airborne_unit:0				"Eine Luftlandeeinheit zitieren"
+cite_a_marine_unit:0				"Zitieren Sie eine Marine-Einheit"
+
+choose_the_medal_yourself_bba_tt:0				"§RSie müssen die Medaille selbst aussuchen; sie kostet §Y30§! £pol_power.§!"
+choose_the_medal_yourself_not_bba_tt:0				"§RDu musst die Medaille selbst aussuchen. Prägen Sie sich den Namen der zu ehrenden Einheit ein, klicken Sie auf das Symbol der Einheit und überprüfen Sie ihre Geschichte. Das Zuweisen der Medaille kostet §Y30§! £pol_power.§!"
+
+naval_decision_category:0				"Ausbau der Flotte"
+naval_decision_category_desc:0				"Unser Land hat keine Marine und es ist vielleicht ratsam, den Bau einer solchen in Betracht zu ziehen."
+
+dockyard_xp:0				"Studieren Sie erworbene Baupläne"
+dockyard_xp_desc:0				"Obwohl unser Land lange Zeit von der Außenwelt abgeschnitten war, konnten wir durch den kürzlichen Erwerb von Werften und anderen Schiffsbauanlagen verschiedene Baupläne und technische Dokumente erwerben - genug, um unsere Marine in Gang zu bringen."
+get_generic_DD_template:0				"Vorlage für einen frühen Zerstörer erhalten"
+get_generic_CL_template:0				"Vorlage Leichter Kreuzer erhalten"
+get_generic_BB_template:0				"Frühe Schlachtschiffvorlage erhalten"
+get_generic_CA_template:0				"Vorlage für einen schweren Kreuzer erhalten"
+get_generic_SS_template:0				"Frühe U-Boot-Vorlage erhalten"
+
+
+idea_r56_scrap_collection_campaign:0				"Schrottsammel-Kampagne"
+r56_collect_scrap_resources:0				"Schrott-Ressourcen sammeln"
+
+decision_cost_CP_1_pp_1:0				"Befehlsgewalt §Y1§! £pol_power §Y1§!"
+decision_cost_CP_1_pp_1_blocked:0				"£command_power §R1§! £pol_power §R1§!"
+decision_cost_CP_1_pp_1_tooltip:0				"Es kostet £command_power §H1§! und £pol_power §H1§!, um dies auszuwählen"
+
+decision_cost_CP_2_pp_2:0				"£command_power §Y2§! £pol_power §Y2§!"
+decision_cost_CP_2_pp_2_blocked:0				"£command_power §R2§! £pol_power §R2§!"
+decision_cost_CP_2_pp_2_tooltip:0				"Es kostet £command_power §H2§! und £pol_power §H2§!, um dies auszuwählen"
+
+decision_cost_CP_3_pp_3:0				"£command_power §Y3§! £pol_power §Y3§!"
+decision_cost_CP_3_pp_3_blocked:0				"£command_power §R3§! £pol_power §R3§!"
+decision_cost_CP_3_pp_3_tooltip:0				"Es kostet £command_power §H3§! und £pol_power §H3§!, um dies auszuwählen"
+
+decision_cost_CP_5_pp_5:0				"£command_power §Y5§! £pol_power §Y5§!"
+decision_cost_CP_5_pp_5_blocked:0				"£command_power §R5§! £pol_power §R5§!"
+decision_cost_CP_5_pp_5_tooltip:0				"Es kostet £command_power §H5§! und £pol_power §H5§!, um dies auszuwählen"
+
+
+decision_cost_CP_25_pp_50:0				"£command_power §Y25§! £pol_power §Y50§!"
+decision_cost_CP_25_pp_50_blocked:0				"£command_power §R25§! £pol_power §R50§!"
+decision_cost_CP_25_pp_50_tooltip:0				"Es kostet £command_power §H25§! und £pol_power §H50§!, um dies auszuwählen"
+
+decision_cost_CP_30_pp_25:0				"£command_power §Y30§! £pol_power §Y25§!"
+decision_cost_CP_30_pp_25_blocked:0				"£command_power §R30§! £pol_power §R25§!"
+decision_cost_CP_30_pp_25_tooltip:0				"Es kostet £command_power §H30§! und £pol_power §H25§!, um dies auszuwählen"
+
+decision_cost_CP_15_pp_15:0				"£command_power §Y15§! £pol_power §Y15§!"
+decision_cost_CP_15_pp_15_blocked:0				"£command_power §R15§! £pol_power §R15§!"
+decision_cost_CP_15_pp_15_tooltip:0				"Es kostet £command_power §H15§! und £pol_power §H15§!, um dies auszuwählen"
+
+decision_cost_CP_25_pp_25:0				"£command_power §Y25§! £pol_power §Y25§!"
+decision_cost_CP_25_pp_25_blocked:0				"£command_power §R25§! £pol_power §R25§!"
+decision_cost_CP_25_pp_25_tooltip:0				"Es kostet £command_power §H25§! und £pol_power §H25§!, um dies auszuwählen"
+
+decision_cost_CP_35_pp_35:0				"£command_power §Y35§! £pol_power §Y35§!"
+decision_cost_CP_35_pp_35_blocked:0				"£command_power §R35§! £pol_power §R35§!"
+decision_cost_CP_35_pp_35_tooltip:0				"Es kostet £command_power §H35§! und £pol_power §H35§!, um dies auszuwählen"
+
+decision_cost_CP_10_pp_10:0				"£command_power §Y10§! £pol_power §Y10§!"
+decision_cost_CP_10_pp_10_blocked:0				"£command_power §R10§! £pol_power §R10§!"
+decision_cost_CP_10_pp_10_tooltip:0				"Es kostet £command_power §H10§! und £pol_power §H10§!, um dies auszuwählen"
+
+LAT_contact_attaches_cost_blocked:0				"£command_power §R10§! £pol_power §R10§!"
+LAT_contact_attaches_cost_tooltip:0				"Es kostet £command_power §H10§! und £pol_power §H10§!, um dies auszuwählen"
+
+decision_cost_WS_15_pp_50:0				"£war_support_icon §Y15§! £pol_power §Y50§!"
+decision_cost_WS_15_pp_50_blocked:0				"£war_support_icon §R15§! £pol_power §R50§!"
+decision_cost_WS_15_pp_50_tooltip:0				"Es kostet £war_support_icon §H15§! und £pol_power §H50§! um dies auszuwählen"
+
+r56_activate_naval_invasion_event_country:0				"Aktivieren Sie das Naval Invasion Alert Event"
+r56_disable_naval_invasion_event_country:0				"Deaktivieren Sie den Invasionsalarm der Marine"
+
+unite_the_peninsula_category:0				"Vereinige die Halbinsel"
+unite_the_peninsula_desc:0				"Unser Land wurde aufgrund von Imperialismus und kleinlichen ideologischen Streitigkeiten gespalten. Jetzt, da wir die gesamte Halbinsel kontrollieren, können wir mit der Wiedervereinigung Koreas beginnen."
+r56_generic_investment_unlocked:0				"Ausländische Investitionen sind erlaubt"
+r56_generic_investments:0				"[FROM.GetAdjective] Investitionen"
+r56_generic_investments_tt:0				"Schaltet Entscheidungen zur Anziehung von §YAusländischen Investitionen§! frei "
+r56_generic_investment_running:0				"Derzeitige Anziehung von Investitionen"
+
+game_rules_reminder_category:0				"Erinnerung an die Spielregeln"
+game_rules_reminder_category_desc:0				"Vergessen Sie nicht, sich die Schaltfläche §YBenutzerdefinierte Spielregeln§! auf dem Startbildschirm der Karte anzusehen! Sie enthält viele Optionen wie §YFokusbaum-Auswahl§!, mit der Sie zwischen dem Basisspiel und den Fokusbäumen der Road to 56 für mehrere Länder wechseln können. Es gibt auch §YPlayer Peace Control§!, §YColour of Subjects Control§! und eine große Auswahl an Gameplay-Änderungen, wie das Umschalten von §YNational Characters§!!"
+game_rules_reminder:0				"Hinweis zu den Spielregeln"
+game_rules_reminder_desc:0				"Wenn der Timer abläuft, wird diese kurze Erinnerung für den Rest des Spiels entfernt."
+request_reinstatement:0				"Antrag auf Wiedereinsetzung von [From.GetAdjective]s"
+
+ #Vanilla overide Germany GER GER_reichskommissariats ""
+GER_reichskommissariats:0				"Reichskommissariate einrichten"
+GER_reichskommissariats_desc:0				"Mit dem Wachstum des von uns kontrollierten Landes wird die Verwaltung von Berlin aus zu einer kostspieligen Angelegenheit, sowohl materiell als auch für die Strafverfolgungsbehörden, die vor Ort für Ordnung sorgen. Die Schaffung kleinerer Verwaltungseinheiten, um einige unserer neu erworbenen Ländereien zu verwalten und Kollaborateure davon zu überzeugen, in ihrem neuen 'Staat' für Ordnung zu sorgen, könnte der einzige nachhaltige Weg nach vorne sein.\n\nJedes [ROOT.GetFlag]§YReichskommissariats§! oder [D10.GetFlag]§YReichsprotektorat§!, das wir errichten, gewährt uns §G3§! Off-Map-§YMilitärfabriken§! Die [ROOT.GetFlag]§YReichskommissariate§! werden auch versuchen, den Widerstand in den Staaten zu bekämpfen, die sie für uns betreuen. Es sollte jedoch erwähnt werden, dass die Auslagerung des Kampfes gegen den Widerstand an [ROOT.GetFlag]§YReichskommissariate§! mit der Zeit zu mehr §RAufständen§! und §RWiderstandswachstum§! in den von ihnen kontrollierten Staaten führen könnte."
+
+assimilate_chiapas:0				"Integrieren Sie [475.GetName]"
+assimilate_yucatan:0				"Assimilieren Sie [474.GetName]"
+assimilate_panama:0				"Beziehen sie ein [304.GetName]"
+
+support_puppet_government:0				"Unterstütze die [FROM.GetAdjective] Regierung"
+
+r56_dismiss_communist_revolutionary:0				"Kommunistischer Revolutionär entlassen"
+r56_dismiss_fascist_demagogue:0				"Entlassen Sie den faschistischen Demagogen"
+r56_dismiss_democratic_reformer:0				"Demokratischer Reformer entlassen"
+r56_dismiss_neutrality_advisor:0				"Neutralitäts-Berater entlassen"
+
+CHL_mapuche_liberate_tonga:				"Befreie das [TON.GetAdjective] Volk"
+ELS_purge_the_fourteen_families:0				"Säuberung der vierzehn Familien"
+r56_industrial_requisition_decisions_hidden:				"Industrial Requision Decisions bleiben §Hhidden§!!"
+disable_industrial_requisition:0				"Industrial Requision Decisions ausblenden"
+enable_industrial_requisition:0				"Industrial Requision Decisions anzeigen"
+decision_cost_CP_20_ArmXp_10:0				"£command_power §H20§! £army_experience §H10§!"
+decision_cost_CP_20_ArmXp_10_blocked:0				"£command_power §R20§! £army_experience §R10§!"
+decision_cost_CP_20_ArmXp_10_tooltip:0				"Es kostet £command_power §H20§! und £army_experience §H10§!, dies zu wählen"
+decision_cost_cp_50_ArmXp_20:0				"£command_power §H50§! £army_experience §H20§!"
+decision_cost_cp_50_ArmXp_20_blocked:0				"£command_power §R50§! £army_experience §R20§!"
+decision_cost_cp_50_ArmXp_20_tooltip:0				"Es kostet £command_power §H50§! und £army_experience §H20§!, dies zu wählen"
+decision_cost_MP_1000_IE_100:0				"£manpower_texticon §H1000§! £infantry_equipment_text_icon §H100§!"
+decision_cost_MP_1000_IE_100_blocked:0				"£manpower_texticon §R1000§! £infantry_equipment_text_icon §R100§!"
+decision_cost_MP_1000_IE_100_tooltip:0				"Es kostet £manpower_texticon §H1000§! und £infantry_equipment_text_icon §H100§!, dies zu wählen"
+decision_cost_WS_5:0				"£war_support_icon §H-5.00%§!"
+decision_cost_WS_5_blocked:0				"£war_support_icon §R-5.00%§!"
+decision_cost_WS_5_tooltip:0				"Es kostet £war_support_icon §H5.00%§! dies zu wählen"
+decision_cost_ST_5:0				"£stability_texticon §H-5.00%§!"
+decision_cost_ST_5_blocked:0				"£stability_texticon §R-5.00%§!"
+decision_cost_ST_5_tooltip:0				"Es kostet £stability_texticon §H5.00%§!, dies zu wählen"
+CHL_mapuche_liberate_niue:				"Befreien Sie das [NIU.GetAdjective] Volk"
+r56_accelerate_panama_canal_locks_reparations:0					"Beschleunigung des Wiederaufbaus der Schleusen des Panamakanals"
+debug_decisions:0					"Weg zu 56 Experiment Tools"
+debug_core_all:0					"Alles im Kern"
+kill_country_leader:0					"Den derzeitigen Anführer töten"
+GER_construct_westwall_tt:					"Baue eine Verteidigungslinie in §Y[51.GetName]§!, §Y[42.GetName]§!, §Y[1053.GetName]§! und §Y[923.GetName]§! entlang der westlichen Grenzen. Hinzufügen von §G1§! §Y$bunker$§!.\n "
+GER_controls_the_alps_tt:					"§Y[ROOT.GetName]§! kontrolliert ein [GER.GetAdjective] Untertan oder Fraktionsmitglied vollständig alle Staaten in den §YAlps§! von §Y[845.GetName]§! bis §Y[1054.GetName]§!. "
+GER_not_controls_the_alps_tt:					"§Y[ROOT.GetName]§!, ein [GER.GetAdjective] Untertan oder Fraktionsmitglied kontrolliert §Ynicht§! vollständig alle Staaten in den §YAlps§! von §Y[845.GetName]§! bis §Y[1054.GetName]§!. "
+GER_construct_alpenwall_tt:					"Baue eine Verteidigungslinie in den Alpen von §Y[845.GetName]§! bis §Y[1054.GetName]§! in jedem Staat, der vollständig von §Y[ROOT.GetNameDef]§!, einem [GER.GetAdjective] Untertan oder Fraktionsmitglied kontrolliert wird. Aktuelle Auswirkung:\n "
+r56_accelerate_panama_canal_locks_reparations:0				"Beschleunigung des Wiederaufbaus der Schleusen des Panamakanals"
+debug_decisions:0				"Weg zu 56 Experiment Tools"
+debug_core_all:0				"Alles im Kern"
+kill_country_leader:0				"Den derzeitigen Anführer töten"
+GER_construct_westwall_tt:				"Baue eine Verteidigungslinie in §Y[51.GetName]§!, §Y[42.GetName]§!, §Y[1053.GetName]§! und §Y[923.GetName]§! entlang der westlichen Grenzen. Hinzufügen von §G1§! §Y$bunker$§!.\n "
+GER_controls_the_alps_tt:				"§Y[ROOT.GetName]§! kontrolliert ein [GER.GetAdjective] Untertan oder Fraktionsmitglied vollständig alle Staaten in den §YAlps§! von §Y[845.GetName]§! bis §Y[1054.GetName]§!. "
+GER_not_controls_the_alps_tt:				"§Y[ROOT.GetName]§!, ein [GER.GetAdjective] Untertan oder Fraktionsmitglied kontrolliert §Ynicht§! vollständig alle Staaten in den §YAlps§! von §Y[845.GetName]§! bis §Y[1054.GetName]§!. "
+GER_construct_alpenwall_tt:				"Baue eine Verteidigungslinie in den Alpen von §Y[845.GetName]§! bis §Y[1054.GetName]§! in jedem Staat, der vollständig von §Y[ROOT.GetNameDef]§!, einem [GER.GetAdjective] Untertan oder Fraktionsmitglied kontrolliert wird. Aktuelle Auswirkung:\n "
+r56_accelerate_panama_canal_locks_reparations:0			"Beschleunigung des Wiederaufbaus der Schleusen des Panamakanals"
+debug_decisions:0			"Weg zu 56 Experiment Tools"
+debug_core_all:0			"Alles im Kern"
+kill_country_leader:0			"Den derzeitigen Anführer töten"
+GER_construct_westwall_tt:			"Baue eine Verteidigungslinie in §Y[51.GetName]§!, §Y[42.GetName]§!, §Y[1053.GetName]§! und §Y[923.GetName]§! entlang der westlichen Grenzen. Hinzufügen von §G1§! §Y$bunker$§!.\n "
+GER_controls_the_alps_tt:			"§Y[ROOT.GetName]§! kontrolliert ein [GER.GetAdjective] Untertan oder Fraktionsmitglied vollständig alle Staaten in den §YAlps§! von §Y[845.GetName]§! bis §Y[1054.GetName]§!. "
+GER_not_controls_the_alps_tt:			"§Y[ROOT.GetName]§!, ein [GER.GetAdjective] Untertan oder Fraktionsmitglied kontrolliert §Ynicht§! vollständig alle Staaten in den §YAlps§! von §Y[845.GetName]§! bis §Y[1054.GetName]§!. "
+GER_construct_alpenwall_tt:			"Baue eine Verteidigungslinie in den Alpen von §Y[845.GetName]§! bis §Y[1054.GetName]§! in jedem Staat, der vollständig von §Y[ROOT.GetNameDef]§!, einem [GER.GetAdjective] Untertan oder Fraktionsmitglied kontrolliert wird. Aktuelle Auswirkung:\n "
+r56_accelerate_panama_canal_locks_reparations:0		"Beschleunigung des Wiederaufbaus der Schleusen des Panamakanals"
+debug_decisions:0		"Weg zu 56 Experiment Tools"
+debug_core_all:0		"Alles im Kern"
+kill_country_leader:0		"Den derzeitigen Anführer töten"
+GER_construct_westwall_tt:		"Baue eine Verteidigungslinie in §Y[51.GetName]§!, §Y[42.GetName]§!, §Y[1053.GetName]§! und §Y[923.GetName]§! entlang der westlichen Grenzen. Hinzufügen von §G1§! §Y$bunker$§!.\n "
+GER_controls_the_alps_tt:		"§Y[ROOT.GetName]§! kontrolliert ein [GER.GetAdjective] Untertan oder Fraktionsmitglied vollständig alle Staaten in den §YAlps§! von §Y[845.GetName]§! bis §Y[1054.GetName]§!. "
+GER_not_controls_the_alps_tt:		"§Y[ROOT.GetName]§!, ein [GER.GetAdjective] Untertan oder Fraktionsmitglied kontrolliert §Ynicht§! vollständig alle Staaten in den §YAlps§! von §Y[845.GetName]§! bis §Y[1054.GetName]§!. "
+GER_construct_alpenwall_tt:		"Baue eine Verteidigungslinie in den Alpen von §Y[845.GetName]§! bis §Y[1054.GetName]§! in jedem Staat, der vollständig von §Y[ROOT.GetNameDef]§!, einem [GER.GetAdjective] Untertan oder Fraktionsmitglied kontrolliert wird. Aktuelle Auswirkung:\n "
