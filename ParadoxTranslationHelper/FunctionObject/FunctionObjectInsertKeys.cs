@@ -14,10 +14,12 @@ namespace ParadoxTranslationHelper
         private string _localisationFileNameKeysToCreate;
         private string _localisationFilePathGerman;
         private string _localisationFilePathAnalyze;
+        private string _localisationFilePathSteam;
 
         public string LocalisationFileNameKeysToCreate { get => _localisationFileNameKeysToCreate; set => _localisationFileNameKeysToCreate = value; }
         public string LocalisationFilePathGerman { get => _localisationFilePathGerman; set => _localisationFilePathGerman = value; }
         public string LocalisationFilePathAnalyze { get => _localisationFilePathAnalyze; set => _localisationFilePathAnalyze = value; }
+        public string LocalisationFilePathSteam { get => _localisationFilePathSteam; set => _localisationFilePathSteam = value; }
 
         public FunctionObjectInsertKeys(string name) : base(name)
         {
@@ -133,7 +135,7 @@ namespace ParadoxTranslationHelper
 
             string fileName = missing.FileNameWithBasePath;
 
-            FileUtility.Write(original, Path.Combine(LocalisationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
+            FileUtility.Write(original, Path.Combine(LocalisationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.EXTENSION_FILE_BACKUP));
 
             RemoveTranslationFileIdentifier(original.Lines);
 

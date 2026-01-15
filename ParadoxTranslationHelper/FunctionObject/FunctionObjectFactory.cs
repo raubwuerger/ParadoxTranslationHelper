@@ -17,8 +17,7 @@ namespace ParadoxTranslationHelper
 
             functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
-            functionObject.FileNameMissingKeys = Constants.FILE_NAME_STEAM_MISSING_KEYS;
-            functionObject.FileNameKeysToDelete = Constants.FILE_NAME_STEAM_TO_DELETE_KEYS;
+            functionObject.FileExtensionToDelete = Constants.FILE_NAME_STEAM_TO_DELETE_KEYS;
 
             return functionObject;
         }
@@ -36,7 +35,7 @@ namespace ParadoxTranslationHelper
         public static IFunctionObject? CreateInsertKeys()
         {
             FunctionObjectInsertKeys functionObject = new FunctionObjectInsertKeys(FunctionTypes.Insert);
-            functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
+            functionObject.Description = "Inserts keys into german translation files.";
 
             functionObject.LocalisationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman());
             functionObject.LocalisationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;

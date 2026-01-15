@@ -42,12 +42,6 @@
       <german>german</german>
       <steam>..\..\..\testData\functions\SUB\localisation\steam</steam>
     </Mod>
-    <Mod name="Test_RESUB">
-      <basePath>..\..\..\testData\functions\RESUB\localisation</basePath>
-      <english>english</english>
-      <german>german</german>
-      <steam>..\..\..\testData\functions\RESUB\localisation\steam</steam>
-    </Mod>
     <Mod name="Test_INSERT">
       <basePath>..\..\..\testData\functions\INSERT\localisation</basePath>
       <english>english</english>

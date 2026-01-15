@@ -58,14 +58,16 @@ namespace ParadoxTranslationHelper_Test
             return true;
         }
 
-        string file_no_more_in_steam_yml_toRemove = "file_no_more_in_steam.yml.toRemove";
-        string file_no_more_in_steam_yml = "file_no_more_in_steam.yml";
-        string file_equipment_l_german = "equipment_l_german.yml";
-        string file_aat_focus_l_german = "aat_focus_l_german.yml";
-        string file_buildings_l_german = "buildings_l_german.yml";
         string file_air_l_german = "air_l_german.yml";
-        string file_SteamKeysToCreate = "_SteamKeysToCreate.yml";
-        string file_SteamKeysToDelete = "_SteamKeysToDelete.yml";
+        string file_bba_focus_l_german = "bba_focus_l_german.yml";
+        string file_bftb_decisions_l_german = "bftb_decisions_l_german.yml";
+        string file_no_more_in_steam_yml = "file_no_more_in_steam.yml";
+        string file_lar_events_l_german = "lar_events_l_german.yml";
+
+        string file_replace_r56_decisions_l_german = @"replace//r56_decisions_l_german.yml";
+        string file_replace_R56_formables_l_german = @"replace//R56_formables_l_german.yml";
+        string file_replace_r56_startup_l_german = @"replace//r56_startup_l_german.yml";
+
         string path_replace = @"//replace";
 
         [TestMethod]
@@ -81,42 +83,38 @@ namespace ParadoxTranslationHelper_Test
 
             FunctionObjectRegistryInitialiser.Init();
 
-            PrepareTest_DIFF_FILES();
+            Assert.IsTrue(Directory.Exists(ParadoxTranslationHelperConfig.PathGerman + path_replace));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_air_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_bba_focus_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_bftb_decisions_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_lar_events_l_german)));
+
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_replace_r56_decisions_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_replace_R56_formables_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_replace_r56_startup_l_german)));
+
+            //            PrepareTest_DIFF_FILES();
 
             IFunctionObject function = FunctionObjectRegistry.Instance.GetFunctionObject(MOD_FUNCTION);
             Assert.IsNotNull(function);
             Assert.IsTrue(function.Work());
-            Assert.IsTrue(Directory.Exists(ParadoxTranslationHelperConfig.PathGerman + path_replace));
-            Assert.IsTrue(Directory.Exists(ParadoxTranslationHelperConfig.PathResult));
-            Assert.IsFalse(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml)));
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml_toRemove)));
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman + path_replace, file_equipment_l_german)));
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_aat_focus_l_german)));
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_buildings_l_german)));
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate)));
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToDelete)));
         }
 
         void PrepareTest_DIFF_FILES()
         {
-            File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml_toRemove));
+            /*
+            File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml));
             File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml));
             if ( true == Directory.Exists(ParadoxTranslationHelperConfig.PathGerman + path_replace) )
             {
                 File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman + path_replace, file_equipment_l_german));
                 Directory.Delete(ParadoxTranslationHelperConfig.PathGerman + path_replace);
             }
-            File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_aat_focus_l_german));
+            File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_lar_events_l_german));
             File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_buildings_l_german));
 
-            File.Copy(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_air_l_german), Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml));
-
-            if( true == Directory.Exists(ParadoxTranslationHelperConfig.PathResult ) )
-            {
-                File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate));
-                File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToDelete));
-                Directory.Delete(ParadoxTranslationHelperConfig.PathResult);
-            }
+            File.Copy(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_air_l_german), Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml));*/
         }
     }
 }

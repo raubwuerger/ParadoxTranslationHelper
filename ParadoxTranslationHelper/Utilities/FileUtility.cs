@@ -297,7 +297,12 @@ namespace ParadoxTranslationHelper.Utilities
 
         public static bool WriteEmptyFileUTF8_BOM(string fileName)
         {
-            if (string.IsNullOrEmpty(fileName))
+            return WriteFileUTF8_BOM(fileName, string.Empty);
+        }
+
+        public static bool WriteFileUTF8_BOM(string fileName, string content)
+        {
+            if (string.IsNullOrWhiteSpace(fileName))
             {
                 Log.Verbose("Parameter <filename> must not be null or empty!");
                 return false;
@@ -309,13 +314,14 @@ namespace ParadoxTranslationHelper.Utilities
                 using (Stream stream = File.OpenWrite(fileName))
                 using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
+                    outputFile.Write(content);
                 }
                 Log.Information($"Wrote empty file {fileName}");
                 return true;
             }
             catch (Exception e)
             {
-                Log.Fatal("Exception occurred: " + e.ToString());
+                Log.Fatal($"Exception occurred: {e.Message}");
                 return false;
             }
         }
@@ -477,7 +483,7 @@ namespace ParadoxTranslationHelper.Utilities
                 return true;
             }
 
-            string fileNameBakup = fileName + Constants.FILE_BACKUP_EXTENSION;
+            string fileNameBakup = fileName + Constants.EXTENSION_FILE_BACKUP;
             File.Copy(fileName, fileNameBakup, true);
             
             bool renamingSuccessful = File.Exists(fileNameBakup);

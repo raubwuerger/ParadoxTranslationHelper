@@ -37,7 +37,6 @@ namespace ParadoxTranslationHelper
         public static string TABULATOR = "\\t";
 
         public static string FILE_SUFFIX_SUBSTITUTED = ".sub";
-        //        public static string FILE_SUFFIX_RESUBSTITUTED = ".resub";
         public static string FILE_SUFFIX_CORRECTED = ".corrected";
 
         public static string FILE_SUFFIX_GERMAN = ".german";

@@ -14,16 +14,6 @@ using System.Threading.Tasks;
 
 namespace ParadoxTranslationHelper_Test
 {
-    /**
-     * Dateiübersicht
-     * steam\replace\equipment_l_english.yml -> german\replace\>muss angelegt werden<
-     * steam\aat_focus_l_english.yml -> german\>muss angelegt werden<
-     * steam\air_l_english.yml -> german\>es müssen 10 Zeilen entfernt werden<
-     * steam\bba_focus_l_english.yml -> german\>identisch<
-     * steam\bftb_decisions_l_english.yml -> >10 Zeilen zu viel, 10 Zeilen zu wenig<
-     * steam\lar_events_l_english.yml -> german\>Es fehlen 20 Zeilen<
-     */
-
     [TestClass]
     public class Insert_Test
     {
@@ -81,14 +71,13 @@ namespace ParadoxTranslationHelper_Test
         string file_SteamKeysToCreate_yml_IC = "_SteamKeysToCreate.yml.IC";
         string file_SteamKeysToCreate_yml_NE = "_SteamKeysToCreate.yml.NE";
         string file_SteamKeysToCreate_yml_NS = "_SteamKeysToCreate.yml.NS";
-        string file_SteamKeysToCreate_yml_sub = "_SteamKeysToCreate.yml.sub";
         string file_SteamKeysToCreate_yml_sub_german = "_SteamKeysToCreate.yml.sub.german";
-        string file_SteamKeysToCreate_yml_sub_german_resub = "_SteamKeysToCreate.yml.sub.german.resub";
+        string file_SteamKeysToCreate_yml_sub_german_corrected = "_SteamKeysToCreate.yml.sub.german.corrected";
 
 
         [TestMethod]
         [DataRow(DisplayName = "INSERT")]
-        public void TestMethod_RESUB()
+        public void TestMethod_INSERT()
         {
             const string MOD_NAME = "Test_INSERT";
             const string MOD_FUNCTION = FunctionTypes.Insert;
@@ -105,6 +94,7 @@ namespace ParadoxTranslationHelper_Test
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NE)));
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NS)));
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_corrected)));
 
             FunctionObjectRegistryInitialiser.Init();
 
@@ -114,15 +104,15 @@ namespace ParadoxTranslationHelper_Test
 
 
             //INFO: 2025-11-28 - JHA - Check if translated files are correct
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub)));
-            Assert.IsTrue(new FileInfo(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub)).Length != 0);
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_corrected)));
+            Assert.IsTrue(new FileInfo(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_corrected)).Length != 0);
 
-            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub), "___KY"));
-            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub), "___CC"));
-            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub), "___IC"));
-            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub), "___NE"));
-            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub), "___NS"));
-            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_resub), "___"));
+            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_corrected), "___KY"));
+            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_corrected), "___CC"));
+            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_corrected), "___IC"));
+            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_corrected), "___NE"));
+            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_corrected), "___NS"));
+            Assert.AreEqual(0, CountOccurences(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_corrected), "___"));
         }
 
     }

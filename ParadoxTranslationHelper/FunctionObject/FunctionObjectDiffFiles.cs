@@ -12,200 +12,140 @@ namespace ParadoxTranslationHelper.FunctionObject
     {
         string _pathSteam;
         string _pathGerman;
-        string _fileNameMissingKeys;
-        string _fileNameNoMissingKeysFound = "Diff_NoMissingKeysFound.txt";
-        string _fileNameKeysToDelete;
-        string _fileNameNoKeysToDeleteFound = "Diff_NoKeysToDeleteFound.txt";
+        string _fileExtensionToDelete;
         public FunctionObjectDiffFiles(string name) : base(name)
         {
         }
 
         public string PathSteam { get => _pathSteam; set => _pathSteam = value; }
         public string PathGerman { get => _pathGerman; set => _pathGerman = value; }
-        public string FileNameMissingKeys { get => _fileNameMissingKeys; set => _fileNameMissingKeys = value; }
-        public string FileNameKeysToDelete { get => _fileNameKeysToDelete; set => _fileNameKeysToDelete = value; }
+        public string FileExtensionToDelete { get => _fileExtensionToDelete; set => _fileExtensionToDelete = value; }
 
         public override bool DoWork()
         {
-            if (true == string.IsNullOrEmpty(_pathGerman))
+            if (false == Directory.Exists(_pathGerman))
             {
-                Log.Verbose("Member <PathGerman> must not be null or empty!");
+                Log.Verbose($"Directory <{_pathGerman}> doesn't exist!");
                 return false;
             }
 
-            if (true == string.IsNullOrEmpty(_pathSteam))
+            if (false == Directory.Exists(_pathSteam))
             {
-                Log.Verbose("Member <PathSteam> must not be null or empty!");
+                Log.Verbose($"Directory <{_pathSteam}> doesn't exist!");
                 return false;
             }
 
-            if (true == string.IsNullOrEmpty(_fileNameMissingKeys))
-            {
-                Log.Verbose("Member <FileNameMissingKeys> must not be null or empty!");
-                return false;
-            }
+            string[] allfilesSteam = Directory.GetFiles(_pathSteam, "*" + Constants.LOCALISATION_EXTENSION, SearchOption.AllDirectories);
+            string[] allfilesGerman = Directory.GetFiles(_pathGerman, "*" + Constants.LOCALISATION_EXTENSION, SearchOption.AllDirectories);
 
-            if (true == string.IsNullOrEmpty(_fileNameKeysToDelete))
-            {
-                Log.Verbose("Member <FileNameKeysToDelete> must not be null or empty!");
-                return false;
-            }
+            Log.Debug($"Red count files <{allfilesSteam.Length}> from path {_pathSteam}.");
+            Log.Debug($"Red count files <{allfilesGerman.Length}> from path {_pathGerman}.");
 
-            LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_pathSteam);
-            if (null == LocalisationFilesSteam)
-            {
-                Log.Warning("Steam path not set! " + _pathSteam);
-                return false;
-            }
+            List<string> filesToDelete = DetermineFilesToDelete(allfilesSteam.ToList<string>(), allfilesGerman.ToList<string>());
+            List<string> filesToCreate = DetermineFilesToCreate(allfilesSteam.ToList<string>(), allfilesGerman.ToList<string>());
 
-            Log.Information("Parsing directory: " + _pathSteam);
-            if ( LocalisationFilesSteam.Count == 0 )
-            {
-                Log.Warning("Steam path contains no files: " + _pathSteam);
-                return false;
-            }
-
-            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
-            if( null == LocalisationFilesGerman )
-            {
-                return false;
-            }
-
-            return DiffFiles();
-        }
-
-        protected bool DiffFiles()
-        {
-            RemoveFilesNoLongerInSteamExisting(CreateFilesNoLongerInSteamExistent());
-
-            CreateFilesMissingLocally(CreateFilesMissingLocally());
-
-            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
-
-            Dictionary<string, LineObject> steam = Utility.ExtractKeys(LocalisationFilesSteam);
-            Dictionary<string, LineObject> repository = Utility.ExtractKeys(LocalisationFilesGerman);
-
-            CreateFileKeys(FunctionUtility.FindToCreate(steam, repository), _fileNameKeysToDelete);
-            CreateFileKeys(FunctionUtility.FindToCreate(repository, steam), _fileNameMissingKeys);
+            RenameFilesToDelete(filesToDelete);
+            CreateFiles(filesToCreate);
 
             return true;
         }
 
-        private bool CreateFileKeys(Dictionary<string, LineObject> keys, string fileName )
+        List<string> DetermineFilesToDelete( List<string> filesSteam, List<string> filesGerman)
         {
-            string directory = FileUtility.CreateDirectoryAnalysis();
-            if (null == directory)
+            List<string> filesToDelete = new List<string>();
+            foreach( string fileGerman in filesGerman )
             {
-                Log.Warning("Unable to create directory! " + directory);
-                return false;
+                if (true == filesSteam.Any(sub => sub.Contains(CreateFileNameWithoutLocalisation(fileGerman, Constants.LOCALISATION_GERMAN), StringComparison.OrdinalIgnoreCase)) )
+                {
+                    continue;
+                }
+                filesToDelete.Add(fileGerman);
             }
-
-            if (keys.Values.Count > 0)
-            {
-                FileUtility.WriteLinesPushFrontTranslationIdentifier(keys.Values.ToList(), Path.Combine(directory, fileName));
-            }
-            else
-            {
-                FileUtility.WriteEmptyFileUTF8_BOM(Path.Combine(directory, fileName));
-            }
-            return true;
+            return filesToDelete;
         }
 
-        private List<TranslationFile>? CreateFilesNoLongerInSteamExistent()
+        string CreateFileNameWithoutLocalisation( string fileName, string localisation )
+        {
+            return Path.GetFileName(fileName).Replace( localisation + Constants.LOCALISATION_EXTENSION, "");
+        }
+
+        List<string> DetermineFilesToCreate(List<string> filesSteam, List<string> filesGerman)
+        {
+            List<string> filesToCreate = new List<string>();
+            foreach (string fileSteam in filesSteam)
+            {
+                if (true == filesGerman.Any(sub => sub.Contains(CreateFileNameWithoutLocalisation(fileSteam, Constants.LOCALISATION_ENGLISH), StringComparison.OrdinalIgnoreCase)))
+                {
+                    continue;
+                }
+                filesToCreate.Add(fileSteam);
+            }
+            return filesToCreate;
+        }
+
+        bool RenameFilesToDelete( List<string> fileNames )
         {
             try
             {
-                return LocalisationFilesGerman.ExceptBy(
-                    LocalisationFilesSteam.Select(locFilesSteam => locFilesSteam.FileNameWithoutLocalisation.ToUpper()),
-                    locFilesGerman => locFilesGerman.FileNameWithoutLocalisation.ToUpper())
-                    .ToList();
-            }
-            catch (Exception ex) 
-            {
-                Log.Fatal(ex.Message);
-                return null;
-            }
-        }
-        private void RemoveFilesNoLongerInSteamExisting( List<TranslationFile>? filesToRemove )
-        {
-            if( filesToRemove == null ) 
-            {
-                return;
-            }
-
-            const string fileToRemove = ".toRemove";
-
-            foreach(TranslationFile file in filesToRemove ) 
-            {
-                string fileNameToRemove = file.FileNameWithBasePath + fileToRemove;
-                if ( File.Exists(fileNameToRemove) )
+                foreach (string fileName in fileNames)
                 {
-                    File.Delete(fileNameToRemove);
+                    File.Move(fileName, fileName + Constants.EXTENSION_FILE_TO_DELETE, true);
+                    Log.Debug($"Renamed file from {fileName} to {fileName + Constants.EXTENSION_FILE_TO_DELETE}");
                 }
-                File.Move(file.FileNameWithBasePath, fileNameToRemove);
+                return true;
+            }
+            catch( Exception ex )
+            {
+                Log.Warning($"Exception occured: {ex.Message}");
+                return false;
             }
         }
 
-        private List<TranslationFile>? CreateFilesMissingLocally()
+        bool CreateFiles( List<string> fileNames )
         {
-            try 
+            try
             {
-                return LocalisationFilesSteam.ExceptBy(
-                        LocalisationFilesGerman.Select(LocalisationFilesGerman => LocalisationFilesGerman.FileNameWithoutLocalisation.ToUpper()),
-                        LocalisationFilesSteam => LocalisationFilesSteam.FileNameWithoutLocalisation.ToUpper())
-                    .ToList();
+                foreach (string fileName in fileNames)
+                {
+                    string fileNameCorrected = CorrectFilePathAndName(fileName);
+
+                    string pathGerman = ParadoxTranslationHelperConfig.PathGerman;
+
+                    string finalPath = Path.Combine(pathGerman, GetSubPath(Path.GetDirectoryName(fileName)));
+                    Directory.CreateDirectory(finalPath);
+                    string fullFileName = Path.Combine(finalPath, fileNameCorrected);
+                    FileUtility.WriteFileUTF8_BOM(fullFileName, Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER );
+                    Log.Information($"Created file {fullFileName}");
+                }
+                return true;
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
-                Log.Fatal(ex.Message);
-                return null;    
+                Log.Warning($"Exception occured: {ex.Message}");
+                return false;
             }
         }
 
-        private void CreateFilesMissingLocally(List<TranslationFile>? translationFiles)
+        string GetSubPath( string path )
         {
-            if (translationFiles == null)
+            int directoryCountPathSteam = ParadoxTranslationHelperConfig.PathSteam.Split(Path.DirectorySeparatorChar).Count();
+            int directoryCountPathFile = path.Split(Path.DirectorySeparatorChar).Count();
+
+            if( directoryCountPathSteam == directoryCountPathFile )
             {
-                return;
+                return "";
             }
 
-            foreach (TranslationFile translationFile in translationFiles )
-            {
-                TranslationFile translationCreated = TranslationFileCreator.CreateEmpty(CreateFilePath(translationFile));
-
-                if ( translationCreated == null )
-                {
-                    Log.Warning("Unable to create TranslationFile!");
-                    continue;
-                }
-                
-                LineObject lineObject = LineObjectCreator.CreateLineObjectLanguageIdentifierGerman();
-                if( lineObject == null )
-                {
-                    Log.Warning("Unable to create LineObject!");
-                    continue;
-                }
-
-                translationCreated.Lines.Add(lineObject.LineNumber, lineObject);
-
-                if ( false == FileUtility.Write(translationCreated) )
-                {
-                    Log.Warning("Unable to create file:" +translationCreated.FileNameWithBasePath);
-                }
-            }
+            return path.Split(Path.DirectorySeparatorChar).Last();
         }
 
-        private string CreateFilePath(TranslationFile translationFile)
+        string CorrectFilePathAndName( string fileName )
         {
-            string subPathRelative = Path.GetRelativePath(ParadoxTranslationHelperConfig.PathSteam, translationFile.BasePath);
-            if( true == subPathRelative.Equals(".") )
-            {
-                return Path.Combine(ParadoxTranslationHelperConfig.PathGerman, $"{translationFile.FileNameWithoutLocalisation}{Constants.LOCALISATION_GERMAN_FULL}{Constants.LOCALISATION_EXTENSION}");
-            }
-            else
-            {
-                return Path.Combine(ParadoxTranslationHelperConfig.PathGerman, subPathRelative, $"{translationFile.FileNameWithoutLocalisation}{Constants.LOCALISATION_GERMAN_FULL}{Constants.LOCALISATION_EXTENSION}");
-            }
+            string fileNameOnly = Path.GetFileName(fileName);
+            fileNameOnly = fileNameOnly.Replace(Constants.LOCALISATION_ENGLISH, Constants.LOCALISATION_GERMAN);
+
+            return fileNameOnly;
         }
+
     }
 }
