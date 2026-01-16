@@ -66,7 +66,14 @@ namespace ParadoxTranslationHelper_Test
 
         string file_replace_r56_decisions_l_german = @"replace//r56_decisions_l_german.yml";
         string file_replace_R56_formables_l_german = @"replace//R56_formables_l_german.yml";
+        
+        //After unit test
         string file_replace_r56_startup_l_german = @"replace//r56_startup_l_german.yml";
+        string file_aat_focus_l_german = "aat_focus_l_german.yml";
+        string file_buildings_l_german = "buildings_l_german.yml";
+
+        //r56_decisions_l_german.yml
+        //file_no_more_in_steam.yml
 
         string path_replace = @"//replace";
 
@@ -74,6 +81,8 @@ namespace ParadoxTranslationHelper_Test
         [DataRow(DisplayName = "DIFF_FILES")]
         public void TestMethod_DIFF_FILES()
         {
+            //INFO: 2026-01-16 - JHA - Vor Test sicherstellen das, die Verzeichnisse korrekt sind
+            //TODO: 2026-01-16 - JHA - Die Verzeichnisse mit git-revert auf korrekten Ausgangsstand bringen
             const string MOD_NAME = "Test_DIFF_FILES";
             const string MOD_FUNCTION = "DIFF_FILES";
 
@@ -92,29 +101,24 @@ namespace ParadoxTranslationHelper_Test
 
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_replace_r56_decisions_l_german)));
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_replace_R56_formables_l_german)));
-            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_replace_r56_startup_l_german)));
-
-            //            PrepareTest_DIFF_FILES();
 
             IFunctionObject function = FunctionObjectRegistry.Instance.GetFunctionObject(MOD_FUNCTION);
             Assert.IsNotNull(function);
             Assert.IsTrue(function.Work());
-        }
 
-        void PrepareTest_DIFF_FILES()
-        {
-            /*
-            File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml));
-            File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml));
-            if ( true == Directory.Exists(ParadoxTranslationHelperConfig.PathGerman + path_replace) )
-            {
-                File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman + path_replace, file_equipment_l_german));
-                Directory.Delete(ParadoxTranslationHelperConfig.PathGerman + path_replace);
-            }
-            File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_lar_events_l_german));
-            File.Delete(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_buildings_l_german));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_aat_focus_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_air_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_bba_focus_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_bftb_decisions_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_buildings_l_german)));
+            Assert.IsFalse(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml + Constants.EXTENSION_FILE_TO_DELETE)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_lar_events_l_german)));
 
-            File.Copy(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_air_l_german), Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_no_more_in_steam_yml));*/
+            Assert.IsFalse(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_replace_r56_decisions_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_replace_r56_decisions_l_german + Constants.EXTENSION_FILE_TO_DELETE)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_replace_R56_formables_l_german)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathGerman, file_replace_r56_startup_l_german)));
         }
     }
 }
