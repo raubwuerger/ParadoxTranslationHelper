@@ -35,6 +35,8 @@ namespace ParadoxTranslationHelper
 
         public const string EXTENSION_FILE_BACKUP = ".bak";
         public const string EXTENSION_FILE_TO_DELETE = ".delete";
+        public const string EXTENSION_KEYS_TO_REMOVE = ".toRemove";
+
         public const string SIGN_HASH_TAG = "#";
         public const string QUOTATION_MARKS = "\"";
         public const char QUOTATION_MARKS_CHAR = '"';

@@ -75,6 +75,7 @@ namespace ParadoxTranslationHelper
             Console.WriteLine("Registered functions");
             Console.WriteLine("----- RECOMMENDED STEPS -----");
             Console.WriteLine(FunctionTypes.DiffFiles);
+            Console.WriteLine(FunctionTypes.DiffKeys);
             Console.WriteLine(FunctionTypes.RemoveKeys);
             Console.WriteLine(FunctionTypes.Sub);
             Console.WriteLine(FunctionTypes.LineCorrector);
@@ -82,7 +83,6 @@ namespace ParadoxTranslationHelper
             Console.WriteLine(FunctionTypes.Insert);
             Console.WriteLine("----- ADDITIONAL STEPS ------");
             Console.WriteLine(FunctionTypes.Analyse);
-            Console.WriteLine(FunctionTypes.DiffKeys);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeys);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFiles);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFilesFix);
