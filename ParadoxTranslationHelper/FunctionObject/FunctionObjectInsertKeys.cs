@@ -66,7 +66,7 @@ namespace ParadoxTranslationHelper
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathGerman);
             if( LocalisationFilesGerman == null )
             {
-                Log.Warning("Directory invalid: " + _localisationFilePathGerman);
+                Log.Warning($"Directory contains no translation files: {_localisationFilePathGerman}");
                 return false;
             }
 

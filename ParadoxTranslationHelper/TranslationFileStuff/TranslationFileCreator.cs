@@ -66,17 +66,11 @@ namespace ParadoxTranslationHelper
         /**
          * First entry must contain filename
          */
-        public TranslationFile Create(List<string> lines)
+        public TranslationFile? Create(List<string> lines)
         {
-            if( lines == null ) 
+            if( false == IsInitialzed(lines) )
             {
-                Log.Verbose("Parameter <lines> must not be null!");
-                return null;
-            }
-
-            if (lines.Count == 0)
-            {
-                Log.Verbose("Parameter <lines> must not be empty!");
+                Log.Warning("Not correct initialized!");
                 return null;
             }
 
@@ -99,16 +93,69 @@ namespace ParadoxTranslationHelper
             return translationFile;
         }
 
+        private bool IsInitialzed(List<string> lines)
+        {
+            if (lines == null)
+            {
+                Log.Verbose("Parameter <lines> must not be null!");
+                return false;
+            }
+
+            if (lines.Count == 0)
+            {
+                Log.Verbose("Parameter <lines> must not be empty!");
+                return false;
+            }
+
+            if (null == StringParserKey)
+            {
+                Log.Debug($"Member <StringParserKey> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserNamespaces)
+            {
+                Log.Debug($"Member <StringParserNamespaces> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserNestingStrings)
+            {
+                Log.Debug($"Member <StringParserNestingStrings> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserIcons)
+            {
+                Log.Debug($"Member <StringParserIcons> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserNewLine)
+            {
+                Log.Debug($"Member <StringParserNewLine> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserColorCodes)
+            {
+                Log.Debug($"Member <StringParserColorCodes> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserTabulator)
+            {
+                Log.Debug($"Member <StringParserTabulator> must not be null!");
+                return false;
+            }
+
+            return true;
+        }
+
         private Dictionary<int,LineObject> CreateLineObjects(string[] lines)
         {
             if (lines == null || lines.Length == 0)
             {  
-                return null;
-            }
-
-            if( null == _stringParserKey )
-            {
-                Log.Debug($"Member <StringParserKey> must not be null!");
                 return null;
             }
 

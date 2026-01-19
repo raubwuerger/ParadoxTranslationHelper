@@ -51,6 +51,13 @@ namespace ParadoxTranslationHelper.Utilities
 
             List<TranslationFile> keys = new List<TranslationFile>();
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
+            translationFileCreator.StringParserKey = StringParserFactory.Instance.CreateParserKey();
+            translationFileCreator.StringParserNamespaces = StringParserFactory.Instance.CreateParserNamespaces();
+            translationFileCreator.StringParserNestingStrings = StringParserFactory.Instance.CreateParserNestingStrings();
+            translationFileCreator.StringParserIcons = StringParserFactory.Instance.CreateParserIcons();
+            translationFileCreator.StringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+            translationFileCreator.StringParserColorCodes = StringParserFactory.Instance.CreateParserColorCodes();
+            translationFileCreator.StringParserTabulator = StringParserFactory.Instance.CreateParserTabulator();
 
             List<string> lines = Utility.ConvertToList(File.ReadAllLines(pathKeys));
             List<string> foundFile = new List<string>();

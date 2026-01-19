@@ -73,7 +73,7 @@ namespace ParadoxTranslationHelper.LineCorrector
 
         void WriteKeysNotFound(List<string> keysNotFound)
         {
-            FileUtility.WriteLines(keysNotFound, Path.Combine(ParadoxTranslationHelperConfig.PathResult, $"{Name}.{_substitutionSuffix}{FileSubstitutionConstants.NOT_FOUND}"));
+            FileUtility.WriteLines(keysNotFound, Path.Combine(ParadoxTranslationHelperConfig.PathResult, $"{Name}.{_substitutionSuffix}{FileSubstitutionConstants.FILE_SUFFIX_NOT_FOUND}"));
         }
 
 

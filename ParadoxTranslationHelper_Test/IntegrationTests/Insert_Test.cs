@@ -66,13 +66,14 @@ namespace ParadoxTranslationHelper_Test
             return matchCollection.Count;
         }
 
-        string file_SteamKeysToCreate_yml_KY = "_SteamKeysToCreate.yml.KY";
-        string file_SteamKeysToCreate_yml_CC = "_SteamKeysToCreate.yml.CC";
-        string file_SteamKeysToCreate_yml_IC = "_SteamKeysToCreate.yml.IC";
-        string file_SteamKeysToCreate_yml_NE = "_SteamKeysToCreate.yml.NE";
-        string file_SteamKeysToCreate_yml_NS = "_SteamKeysToCreate.yml.NS";
-        string file_SteamKeysToCreate_yml_sub_german = "_SteamKeysToCreate.yml.sub.german";
-        string file_SteamKeysToCreate_yml_sub_german_corrected = "_SteamKeysToCreate.yml.sub.german.corrected";
+        string file_SteamKeysToCreate_yml_KY = $"{Constants.FILE_NAME_STEAM_MISSING_KEYS}.{FileSubstitutionConstants.KEY_SUFFIX}";
+        string file_SteamKeysToCreate_yml_CC = $"{Constants.FILE_NAME_STEAM_MISSING_KEYS}.{FileSubstitutionConstants.COLOR_CODE_SUFFIX}";
+        string file_SteamKeysToCreate_yml_IC = $"{Constants.FILE_NAME_STEAM_MISSING_KEYS}.{FileSubstitutionConstants.ICON_SUFFIX}";
+        string file_SteamKeysToCreate_yml_NE = $"{Constants.FILE_NAME_STEAM_MISSING_KEYS}.{FileSubstitutionConstants.NESTING_STRING_SUFFIX}";
+        string file_SteamKeysToCreate_yml_NS = $"{Constants.FILE_NAME_STEAM_MISSING_KEYS}.{FileSubstitutionConstants.NAMESPACE_SUFFIX}";
+        string file_SteamKeysToCreate_yml_NL = $"{Constants.FILE_NAME_STEAM_MISSING_KEYS}.{FileSubstitutionConstants.NEW_LINE_SUFFIX}";
+        string file_SteamKeysToCreate_yml_sub_german = $"{Constants.FILE_NAME_STEAM_MISSING_KEYS}{FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED}{FileSubstitutionConstants.FILE_SUFFIX_GERMAN}";
+        string file_SteamKeysToCreate_yml_sub_german_corrected = $"{Constants.FILE_NAME_STEAM_MISSING_KEYS}{FileSubstitutionConstants.FILE_SUFFIX_SUBSTITUTED}{FileSubstitutionConstants.FILE_SUFFIX_GERMAN}{FileSubstitutionConstants.FILE_SUFFIX_CORRECTED}";
 
 
         [TestMethod]
@@ -93,6 +94,7 @@ namespace ParadoxTranslationHelper_Test
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_IC)));
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NE)));
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NS)));
+            Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_NL)));
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german)));
             Assert.IsTrue(File.Exists(Path.Combine(ParadoxTranslationHelperConfig.PathResult, file_SteamKeysToCreate_yml_sub_german_corrected)));
 

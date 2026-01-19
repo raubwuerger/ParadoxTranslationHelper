@@ -41,7 +41,7 @@ namespace ParadoxTranslationHelper
 
         public static string FILE_SUFFIX_GERMAN = ".german";
 
-        public static string NOT_FOUND = ".notFound";
+        public static string FILE_SUFFIX_NOT_FOUND = ".notFound";
 
     }
 }
