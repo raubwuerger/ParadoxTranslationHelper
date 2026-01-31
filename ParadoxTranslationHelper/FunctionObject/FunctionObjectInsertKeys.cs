@@ -149,6 +149,7 @@ namespace ParadoxTranslationHelper
                 original.Lines.Add( newLineNumber, new LineObject( newLineNumber, line.Value ) );
             }
 
+            Log.Information($"Added {missing.Lines.Count} lines to file {original.FileName}");
             return original;
         }
 

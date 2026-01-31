@@ -291,6 +291,11 @@ namespace ParadoxTranslationHelper.Utilities
                 return;
             }
 
+            if( true == Directory.Exists(fileName) )
+            {
+                return;
+            }
+
             DirectoryInfo directoryInfo = Directory.CreateDirectory(Path.GetDirectoryName(fileName));
             Log.Debug($"Created directory: {directoryInfo}");
         }
@@ -316,7 +321,7 @@ namespace ParadoxTranslationHelper.Utilities
                 {
                     outputFile.Write(content);
                 }
-                Log.Information($"Wrote empty file {fileName}");
+                Log.Debug($"Wrote empty file {fileName}");
                 return true;
             }
             catch (Exception e)

@@ -26,6 +26,16 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
+            if(translationFile.Lines == null)
+            {
+                return false;
+            }
+
+            if (translationFile.Lines.Count == 0)
+            {
+                return false;
+            }
+
             Log.Information("Substituting file: " + translationFile.FileNameWithBasePath);
             Substitute(translationFile.Lines.Values.ToList());
             Log.Information($"Substituted keys: {_keySubstitute.Count}");

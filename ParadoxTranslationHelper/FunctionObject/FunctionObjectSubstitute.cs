@@ -34,6 +34,7 @@ namespace ParadoxTranslationHelper
                 Log.Warning($"No files found in path {_pathToSubstitute}");
                 return false;
             }
+            
             RemoveFileOnIgnoreList();
 
             foreach (TranslationFile translationFile in LocalisationFilesGerman)
