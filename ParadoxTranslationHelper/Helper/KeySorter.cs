@@ -9,18 +9,22 @@ namespace ParadoxTranslationHelper.Helper
 {
     internal class KeySorter
     {
-        Dictionary<string, string> _originalKeys;
-        Dictionary<string, string> _translatedKeys;
-        Dictionary<string, string> _notTranslatedKeys;
-        Dictionary<string, string> _sortedKeys = new Dictionary<string, string>();
-        Dictionary<string, string> _notFoundKeys = new Dictionary<string, string>();
+        Dictionary<int, LineObject> _originalKeys;
+        Dictionary<int, LineObject> _translatedKeys;
+        List<LineObject> _multipleKeys;
+        Dictionary<int, LineObject> _sortedKeys = new Dictionary<int, LineObject>();
+        Dictionary<int, LineObject> _notFoundKeys = new Dictionary<int, LineObject>();
 
-        public Dictionary<string, string> OriginalKeys { get => _originalKeys; set => _originalKeys = value; }
-        public Dictionary<string, string> TranslatedKeys { get => _translatedKeys; set => _translatedKeys = value; }
-        public Dictionary<string, string> NotTranslatedKeys { get => _notTranslatedKeys; set => _notTranslatedKeys = value; }
-        public Dictionary<string, string> SortedKeys { get => _sortedKeys; }
-        public Dictionary<string, string> NotFoundKeys { get => _notFoundKeys; set => _notFoundKeys = value; }
+        public Dictionary<int, LineObject> OriginalKeys { get => _originalKeys; set => _originalKeys = value; }
+        public Dictionary<int, LineObject> TranslatedKeys { get => _translatedKeys; set => _translatedKeys = value; }
+        public List<LineObject> MultipleKeys { get => _multipleKeys; }
+        public Dictionary<int, LineObject> SortedKeys { get => _sortedKeys; }
+        public Dictionary<int, LineObject> NotFoundKeys { get => _notFoundKeys; }
 
+        /*
+         * returns true if alle keys, in both dictionarys, match each other
+         * 
+         */
         public bool Sort()
         {
             if( false == IsCorrectInitialized() )
@@ -28,24 +32,38 @@ namespace ParadoxTranslationHelper.Helper
                 return false;
             }
 
-            foreach( KeyValuePair<string,string> keyValuePair in _originalKeys )
+            foreach( KeyValuePair<int, LineObject> keyValuePair in _originalKeys )
             {
-                if( true == _translatedKeys.ContainsKey(keyValuePair.Key) )
+                if( false == _translatedKeys.Any(value => value.Value.Key == keyValuePair.Value.Key) )
                 {
-                    _sortedKeys.Add(keyValuePair.Key, _translatedKeys[keyValuePair.Key]);
+                    _notFoundKeys.Add(keyValuePair.Key, keyValuePair.Value);
                     continue;
                 }
 
-                if( true == _notTranslatedKeys.ContainsKey(keyValuePair.Key) )
+                if ( false == _sortedKeys.Any(value => value.Value.Key == keyValuePair.Value.Key) )
                 {
-                    _sortedKeys.Add(keyValuePair.Key, _notTranslatedKeys[keyValuePair.Key]);
+                    _sortedKeys.Add(keyValuePair.Key, keyValuePair.Value);
                     continue;
                 }
 
-                _notFoundKeys.Add(keyValuePair.Key, keyValuePair.Value);
+                _multipleKeys.Add(keyValuePair.Value);
             }
 
-            return _notFoundKeys.Count == 0;
+            Log.Debug($"Keys sorted: {_originalKeys.Count}");
+            Log.Debug($"Keys not found: {_notFoundKeys.Count}");
+            Log.Debug($"Keys multiple: {_multipleKeys.Count}");
+
+            if(_notFoundKeys.Count != 0)
+            {
+                return false;
+            }
+
+            if(_multipleKeys.Count != 0)
+            {
+                return false;
+            }
+            
+            return true;
         }
 
         bool IsCorrectInitialized()
@@ -59,12 +77,6 @@ namespace ParadoxTranslationHelper.Helper
             if (false == DictionaryHelper.IsValid(_translatedKeys))
             {
                 Log.Warning($"Member TranslatedKeys must not be null!");
-                return false;
-            }
-
-            if (false == DictionaryHelper.IsValid(_notTranslatedKeys))
-            {
-                Log.Warning($"Member NotTranslatedKeys must not be null!");
                 return false;
             }
 

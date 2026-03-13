@@ -465,7 +465,7 @@ namespace ParadoxTranslationHelper.Utilities
                 }
             }
 
-            Log.Warning($"Reading file {fileName}. Line count={readLines.Count}");
+            Log.Information($"Reading file {fileName}. Line count={readLines.Count}");
             return readLines;
         }
 

@@ -81,6 +81,7 @@ namespace ParadoxTranslationHelper
             Console.WriteLine(FunctionTypes.LineCorrector);
             Console.WriteLine(FunctionTypes.LineCorrectorSubstitute);
             Console.WriteLine(FunctionTypes.Insert);
+            Console.WriteLine(FunctionTypes.Validate);
             Console.WriteLine("----- ADDITIONAL STEPS ------");
             Console.WriteLine(FunctionTypes.Analyse);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeys);

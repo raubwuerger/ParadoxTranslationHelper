@@ -104,7 +104,6 @@ namespace ParadoxTranslationHelper
         public string OriginalLineSubstituted { get => _originalLineSubstituted; set => _originalLineSubstituted = value; }
         public List<string> NewLines { get => _newLines; set => _newLines = value; }
         public List<string> Tabulators { get => _tabulators; set => _tabulators = value; }
-
         public bool HasKey() { return false == string.IsNullOrEmpty(_key); }
     }
 }

@@ -112,13 +112,13 @@ namespace ParadoxTranslationHelper.LineCorrector
         {
             if( false == DictionaryHelper.IsValid(_substitutions) )
             {
-                Log.Debug("Member <Substitutions> isn't valid!");
+                Log.Debug($"Member <Substitutions> isn't valid! Substitution: {_substitutionSuffix}");
                 return false;
             }
 
             if (false == DictionaryHelper.IsValid(_substitutionsKey))
             {
-                Log.Debug("Member <SubstitutionsKey> isn't valid!");
+                Log.Debug($"Member <SubstitutionsKey> isn't valid! Substitution: {_substitutionSuffix}");
                 return false;
             }
 

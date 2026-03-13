@@ -139,6 +139,12 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
+        public static IFunctionObject? CreateValidate()
+        {
+            //TODO: 2026-03-14 - JHA - To implement
+            return null;
+        }
+
         private static string CreateFileNameDiffResubGerman()
         {
             return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_CORRECTED;

@@ -104,6 +104,21 @@ namespace ParadoxTranslationHelper.Helper
             return true;
         }
 
+        public static bool IsValid(Dictionary<int, LineObject> dict)
+        {
+            if (null == dict)
+            {
+                return false;
+            }
+
+            if (dict.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public static bool IsValid(Dictionary<string, LineObjectSubstitutionFile> dict)
         {
             if (null == dict)

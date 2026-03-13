@@ -29,45 +29,59 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
-            if (false == Directory.Exists(_localisationFilePathSteam))
+            if( true == String.IsNullOrWhiteSpace(_localisationFilePathSteam) )
             {
                 Log.Verbose("Member <LocalisationFilePathSteam> must not be null!");
                 return false;
             }
 
+            if (false == Directory.Exists(_localisationFilePathSteam))
+            {
+                Log.Error($"Directory {_localisationFilePathSteam} dosen't exist!");
+                return false;
+            }
+
+            if (true == String.IsNullOrWhiteSpace(_localisationFilePathGerman))
+            {
+                Log.Verbose("Member <_localisationFilePathGerman> must not be null!");
+                return false;
+            }
+
             if (false == Directory.Exists(_localisationFilePathGerman))
             {
-                Log.Verbose("Member <LocalisationFilePathGerman> must not be null!");
+                Log.Error($"Directory {_localisationFilePathGerman} dosen't exist!");
                 return false;
             }
 
             if (false == Directory.Exists(LocalisationFilePathAnalyze))
             {
-                Log.Verbose("Member <LocalisationFilePathAnalyze> must not be null! --> Creating it ...");
+                Log.Information($"Member <LocalisationFilePathAnalyze> must not be null! --> Creating directory {LocalisationFilePathAnalyze} ...");
                 Directory.CreateDirectory(LocalisationFilePathAnalyze);
+            }
+
+            LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathSteam);
+            if (LocalisationFilesSteam == null)
+            {
+                Log.Error($"Unable to read directory {_localisationFilePathSteam}!");
+                return false;
+            }
+
+            if (LocalisationFilesSteam.Count == 0)
+            {
+                Log.Error("Path contains no files:" + _localisationFilePathSteam);
+                return false;
             }
 
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathGerman);
             if (LocalisationFilesGerman == null)
             {
+                Log.Error($"Unable to read directory {_localisationFilePathSteam}!");
                 return false;
             }
 
             if (LocalisationFilesGerman.Count == 0)
             {
                 Log.Verbose("Path contains no files:" + _localisationFilePathGerman);
-                return false;
-            }
-
-            LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathSteam);
-            if (LocalisationFilesSteam == null)
-            {
-                return false;
-            }
-
-            if (LocalisationFilesSteam.Count == 0)
-            {
-                Log.Verbose("Path contains no files:" + _localisationFilePathSteam);
                 return false;
             }
 

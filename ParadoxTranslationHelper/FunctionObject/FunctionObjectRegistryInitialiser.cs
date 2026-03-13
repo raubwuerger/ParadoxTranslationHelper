@@ -15,6 +15,7 @@ namespace ParadoxTranslationHelper.FunctionObject
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateLineCorrector());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateLineCorrectorSubstitute());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateInsertKeys());
+            FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateValidate());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateRemoveKeys()); 
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateCheckForDoubleKeys());
             FunctionObjectRegistry.Instance.Register(FunctionObjectFactory.CreateCheckForDoubleKeysAllFiles());
