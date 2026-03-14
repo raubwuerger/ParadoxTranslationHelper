@@ -141,8 +141,12 @@ namespace ParadoxTranslationHelper
 
         public static IFunctionObject? CreateValidate()
         {
-            //TODO: 2026-03-14 - JHA - To implement
-            return null;
+            FunctionObjectValidate functionObject = new FunctionObjectValidate(FunctionTypes.Validate);
+            functionObject.Description = "Checks for multiple keys and sorts them according to original order.";
+
+            functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
+            return functionObject;
         }
 
         private static string CreateFileNameDiffResubGerman()

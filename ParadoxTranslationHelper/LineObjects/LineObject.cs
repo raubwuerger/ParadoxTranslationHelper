@@ -105,5 +105,21 @@ namespace ParadoxTranslationHelper
         public List<string> NewLines { get => _newLines; set => _newLines = value; }
         public List<string> Tabulators { get => _tabulators; set => _tabulators = value; }
         public bool HasKey() { return false == string.IsNullOrEmpty(_key); }
+
+/*        public override bool Equals(object other)
+        {
+            if( other == null )
+            {
+                return false;
+            }
+
+            if(object.ReferenceEquals(this,other))
+            {
+                return true;
+            }
+
+            LineObject otherObject = other as LineObject;
+            return this._key == otherObject._key;
+        }*/
     }
 }

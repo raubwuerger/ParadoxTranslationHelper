@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -148,5 +149,29 @@ namespace ParadoxTranslationHelper.Helper
 
             return true;
         }
+
+        /**
+         * Wandelt ein Dictionary welches auf Zeilennummern basiert in ein Dictionary welches auf Keys basiert um.
+         * Dies hat den Nebeneffekt das doppelte Keys entfernt werden.
+         * 
+         */
+        public static Dictionary<string, LineObject> ConvertDictionary(Dictionary<int, LineObject> toConvert)
+        {
+            Dictionary<string, LineObject> converted = new Dictionary<string, LineObject>();
+
+            foreach (KeyValuePair<int, LineObject> keyValuePair in toConvert)
+            {
+                if (true == converted.ContainsKey(keyValuePair.Value.Key.Trim()))
+                {
+                    Log.Debug($"Key exists: {keyValuePair.Value.Key.Trim()}");
+                    continue;
+                }
+
+                converted.Add(keyValuePair.Value.Key, keyValuePair.Value);
+            }
+
+            return converted;
+        }
+
     }
 }
