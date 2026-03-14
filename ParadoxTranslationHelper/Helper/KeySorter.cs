@@ -47,7 +47,7 @@ namespace ParadoxTranslationHelper.Helper
 
                 if ( false == translatedConverted.ContainsKey(keyValuePair.Value.Key.Trim()) )
                 {
-                    keyValuePair.Value.OriginalLine += "##### NOT TRANSLATED #####";
+                    keyValuePair.Value.OriginalLine += Constants.LINE_NOT_TRANSLATED;
                     _sortedKeys.Add(keyValuePair.Key, keyValuePair.Value);
                     continue;
                 }
@@ -56,7 +56,7 @@ namespace ParadoxTranslationHelper.Helper
                 {
                     if( false == _translatedKeys.ContainsKey(keyValuePair.Key) )
                     {
-                        keyValuePair.Value.OriginalLine += "##### NOT TRANSLATED #####";
+                        keyValuePair.Value.OriginalLine += Constants.LINE_NOT_TRANSLATED;
                         _sortedKeys.Add(keyValuePair.Key, keyValuePair.Value);
                         continue;
                     }

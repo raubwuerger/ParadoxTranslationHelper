@@ -42,5 +42,7 @@ namespace ParadoxTranslationHelper
         public const string SIGN_NEW_LINE = "\n";
         public const string DEFAULT_SEPARATOR = ";";
         public const string IGNORE_LINE = "#####";
+
+        public const string LINE_NOT_TRANSLATED = "<<<<< NOT TRANSLATED >>>>>";
     }
 }
