@@ -17,7 +17,6 @@ namespace ParadoxTranslationHelper
 
             functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
-            functionObject.FileExtensionToDelete = Constants.FILE_NAME_STEAM_TO_DELETE_KEYS;
 
             return functionObject;
         }
@@ -30,28 +29,15 @@ namespace ParadoxTranslationHelper
             functionObject.LocalisationFilePathSteam = ParadoxTranslationHelperConfig.PathSteam;
             functionObject.LocalisationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
             functionObject.FileNameMissingKeys = Constants.FILE_NAME_STEAM_MISSING_KEYS;
-            functionObject.FileNameKeysToDelete = Constants.FILE_NAME_STEAM_TO_DELETE_KEYS;
 
             return functionObject;
         }
 
-        public static IFunctionObject? CreateRemoveKeys()
-        {
-            FunctionObjectRemoveKeys functionObject = new FunctionObjectRemoveKeys(FunctionTypes.RemoveKeys);
-            functionObject.Description = "Deletes keys no longer available";
-
-            functionObject.LocalisationFileNameKeysToDelete = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_TO_DELETE_KEYS);
-            functionObject.LocalisationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
-            functionObject.LocalisationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
-
-            return functionObject;
-        }
         public static IFunctionObject? CreateSteamSubstitute()
         {
             FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(FunctionTypes.Sub);
             functionObject.Description = "substitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
-            functionObject.TranslationFileToIgnore = Constants.FILE_NAME_STEAM_TO_DELETE_KEYS_WITHOUT_EXTENSION;
             functionObject.PathToSubstitute = ParadoxTranslationHelperConfig.PathResult;
             functionObject.SubstituteAgainstSteam = true;
 

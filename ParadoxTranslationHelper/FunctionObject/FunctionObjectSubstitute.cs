@@ -18,7 +18,6 @@ namespace ParadoxTranslationHelper
 
         public string PathToSubstitute { get => _pathToSubstitute; set => _pathToSubstitute = value; }
         public bool SubstituteAgainstSteam { get => _substituteAgainstSteam; set => _substituteAgainstSteam = value; }
-        public string TranslationFileToIgnore { get => _translationFileToIgnore; set => _translationFileToIgnore = value; }
 
         public override bool DoWork()
         {
