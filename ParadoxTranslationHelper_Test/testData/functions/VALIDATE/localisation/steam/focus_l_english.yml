@@ -2,7 +2,6 @@
  USA_great_depression_cooldown_tt:5 "After this law is passed, it will take §Y230 days§! until further New Deal legislation is drafted and ready to be signed.\n\n"
  USA_limited_intervention_tt:5 "\n\nPassing this law will make it §Rsignificantly harder§! to mobilize your economy.\n\n"
 
-
  ##### GERMANY #####
  german_focus:5 "Führer Directives"
  GER_reintegrate_luxemburg_and_alsace_lorraine:5 "Reintegrate Luxemburg & Alsace"
@@ -10,27 +9,12 @@
  GER_train_panzergrenadiere_TT:5 "Unlocks the §YEncirclement Breakout§! ability for all unit leaders.\n"
  GER_german_focus:5 "Führer Directives"
  GER_Wunderwaffen_TT:5 "§YWunderwaffen§! Decisions will appear in the upcoming weeks\n"
- GER_autobahn:5 "Reichsautobahn"
- GER_autobahn_tt:5 "Add 1 level §YInfrastructure§! in several provinces across Germany"
- GER_autobahn_desc:5 "Since its inception in 1933, the autobahn project has been a glorious success. The construction efforts have reduced unemployment, and the wide roads stand as a monument to Germany's economic recovery. Much work remains to be done, however."
- GER_Moscow_autobahn:5 "Upgrade the 'Rollbahn' Minsk-Moscow highway"
- GER_Moscow_autobahn_desc:5 "The famous highway from Minsk to Moscow should be upgraded for our glorious panzers. Once we control the states the highway passes through we can improve it."
- GER_Kiev_autobahn:5 "Upgrade the 'Rollbahn' Gomel-Kiev highway"
- GER_Kiev_autobahn_LOCALNAMES:5 "Upgrade the 'Rollbahn' Gomel-Kyiv highway"
- GER_Kiev_autobahn_desc:5 "The highway to Kiev should be upgraded for our glorious panzers. Once we control the states the highway passes through we can improve it."
- GER_Kiev_autobahn_desc_LOCALNAMES:5 "The highway to Kyiv should be upgraded for our glorious panzers. Once we control the states the highway passes through we can improve it."
- GER_Leningrad_autobahn:5 "Upgrade the 'Rollbahn' Vitebsk-Leningrad highway"
- GER_Leningrad_autobahn_desc:5 "The highway to Leningrad should be upgraded for our glorious panzers. Once we control the states the highway passes through we can improve it."
  GER_Goering_Plan:5 "Göring Four Year Plan"
  GER_Goering_Plan_desc:5 "The Four-Year Plan was an economic initiative which Hitler started. It involved, amongst other things, reducing unemployment and undertaking public works projects such as the German Autobahns. Hermann Göring was chosen to see the plan brought into action."
- GER_autobahn_I:5 "Reichsautobahn"
  GER_autobahn_I_tt:5 "Will begin a series of yearly improvements to Infrastructure"
  GER_autobahn_I_desc:5 "Since its inception in 1933, the autobahn project has been a glorious success. The construction efforts have reduced unemployment, and the wide roads stand as a monument to Germany's economic recovery. Much work remains to be done, however."
  #GER_autobahn_II:5 "Reichsautobahn-II"
  GER_autobahn_II_tt:5 "Add 1 level §YInfrastructure§! in §YSachsen§!, §YBrandenburg§!, §YThuringen§!, §YHannover§! and §YFranken§!"
- #GER_autobahn_II_desc:5 "Since its inception in 1933, the autobahn project has been a glorious success. The construction efforts have reduced unemployment, and the wide roads stand as a monument to Germany's economic recovery. Much work remains to be done, however."
- #GER_autobahn_III:5 "Reichsautobahn-III"
- GER_autobahn_III_tt:5 "Add 1 level §YInfrastructure§! in §YNord Ost-Preußen§!, §YSud Ost-Preußen§!, §YBaden§!, §YMoselland§!, §YSaarland§! and §YRhineland§!"
  #GER_autobahn_III_desc:5 "Since its inception in 1933, the autobahn project has been a glorious success. The construction efforts have reduced unemployment, and the wide roads stand as a monument to Germany's economic recovery. Much work remains to be done, however."
  #GER_autobahn_IV:5 "Reichsautobahn-IV"
  GER_autobahn_IV_tt:5 "Add 1 level §YInfrastructure§! in §YHessen§!, §YWestfalen§!, §YWeser-Ems§!, §YSchlegwig-Holstein§!, §YMecklenburg§!, §YWestpommern§! and §YPommern§!"
@@ -38,7 +22,5 @@
  
  GER_dismantle_maginot_tooltip:5 "Dismantling the §YMaginot Line§! will §Greduce the cost§! of other Fortification Projects.\n"
  GER_dismantled_maginot_tooltip:5  "§GCost is Reduced§! because we have §Ydismantled§! the §YMaginot Line§!.\n"  
- GER_westwall:5 "Construct the Westwall"
- GER_westwall_desc:5 "The Westwall runs parallel to France's vaunted Maginot Line, occupying much of the same ground as the Siegfried Line did in the previous Weltkrieg. Fortifying its defences will allow us to hold the border with fewer men, freeing up divisions to participate in any potential eastern campaigns."
  GER_westwall_tt:5 "§RIf the Rhineland is remilitarized, you will also gain:§!\n"
  ## EOF ##
