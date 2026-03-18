@@ -155,12 +155,27 @@ namespace ParadoxTranslationHelper.Helper
          * Dies hat den Nebeneffekt das doppelte Keys entfernt werden.
          * 
          */
-        public static Dictionary<string, LineObject> ConvertDictionary(Dictionary<int, LineObject> toConvert)
+        public static Dictionary<string, LineObject>? ConvertDictionary(Dictionary<int, LineObject> toConvert)
         {
+            if (toConvert == null)
+            {
+                return null;
+            }
+
             Dictionary<string, LineObject> converted = new Dictionary<string, LineObject>();
 
             foreach (KeyValuePair<int, LineObject> keyValuePair in toConvert)
             {
+                if( keyValuePair.Value == null )
+                {
+                    return null;
+                }
+
+                if (keyValuePair.Value.Key == null)
+                {
+                    return null;
+                }
+
                 if (true == converted.ContainsKey(keyValuePair.Value.Key.Trim()))
                 {
                     Log.Debug($"Key exists: {keyValuePair.Value.Key.Trim()}");
@@ -173,5 +188,32 @@ namespace ParadoxTranslationHelper.Helper
             return converted;
         }
 
+        public static Dictionary<int, LineObject>? ConvertDictionary(Dictionary<string, LineObject> toConvert)
+        {
+            if (toConvert == null)
+            {
+                return null;
+            }
+
+            Dictionary<int, LineObject> converted = new Dictionary<int, LineObject>();
+
+            foreach (KeyValuePair<string, LineObject> keyValuePair in toConvert)
+            {
+                if (keyValuePair.Value == null)
+                {
+                    return null;
+                }
+
+                if (keyValuePair.Value.Key == null)
+                {
+                    return null;
+                }
+
+                LineObject updated = new LineObject(converted.Count, keyValuePair.Value);
+                converted.Add(converted.Count, updated);
+              }
+
+            return converted;
+        }
     }
 }

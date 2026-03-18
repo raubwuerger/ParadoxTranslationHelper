@@ -11,11 +11,11 @@ namespace ParadoxTranslationHelper.Helper
     {
         Dictionary<int, LineObject> _originalKeys;
         Dictionary<int, LineObject> _translatedKeys;
-        Dictionary<int, LineObject> _sortedKeys = new Dictionary<int, LineObject>();
+        Dictionary<string, LineObject> _sortedKeys = new Dictionary<string, LineObject>();
 
         public Dictionary<int, LineObject> OriginalKeys { get => _originalKeys; set => _originalKeys = value; }
         public Dictionary<int, LineObject> TranslatedKeys { get => _translatedKeys; set => _translatedKeys = value; }
-        public Dictionary<int, LineObject> SortedKeys { get => _sortedKeys; }
+        public Dictionary<string, LineObject> SortedKeys { get => _sortedKeys; }
 
         /*
          * returns true if alle keys, in both dictionarys, match each other
@@ -29,8 +29,9 @@ namespace ParadoxTranslationHelper.Helper
             }
 
             Dictionary<string, LineObject> translatedConverted = DictionaryHelper.ConvertDictionary(_translatedKeys);
+            Dictionary<string, LineObject> orgConverted = DictionaryHelper.ConvertDictionary(_originalKeys);
 
-            foreach ( KeyValuePair<int, LineObject> keyValuePair in _originalKeys )
+            foreach ( KeyValuePair<string, LineObject> keyValuePair in orgConverted)
             {
                 if( true == IsLanguageLine(keyValuePair.Value) )
                 {
@@ -45,23 +46,23 @@ namespace ParadoxTranslationHelper.Helper
                     continue;
                 }
 
-                if ( false == translatedConverted.ContainsKey(keyValuePair.Value.Key.Trim()) )
+                if ( false == translatedConverted.ContainsKey(keyValuePair.Key.Trim()) )
                 {
                     keyValuePair.Value.OriginalLine += Constants.LINE_NOT_TRANSLATED;
                     _sortedKeys.Add(keyValuePair.Key, keyValuePair.Value);
                     continue;
                 }
 
-                if ( false == _sortedKeys.ContainsValue(keyValuePair.Value) )
+                if ( false == _sortedKeys.ContainsKey(keyValuePair.Key) )
                 {
-                    if( false == _translatedKeys.ContainsKey(keyValuePair.Key) )
+                    if( false == translatedConverted.ContainsKey(keyValuePair.Key) )
                     {
                         keyValuePair.Value.OriginalLine += Constants.LINE_NOT_TRANSLATED;
                         _sortedKeys.Add(keyValuePair.Key, keyValuePair.Value);
                         continue;
                     }
                     
-                    _sortedKeys.Add(keyValuePair.Key, _translatedKeys[keyValuePair.Key]);
+                    _sortedKeys.Add(keyValuePair.Key, translatedConverted[keyValuePair.Key]);
                     continue;
                 }
             }

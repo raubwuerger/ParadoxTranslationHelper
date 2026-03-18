@@ -56,7 +56,6 @@ namespace ParadoxTranslationHelper
                 MultipleKeyRemover multipleKeyRemover = new MultipleKeyRemover();
                 Dictionary<int, LineObject> withoutMultipleKeys = multipleKeyRemover.RemoveMultipleKeys(translationFile.Lines);
 
-
                 KeySorter keySorter = new KeySorter();
                 keySorter.OriginalKeys = translationFile.Lines;
                 keySorter.TranslatedKeys = found.Lines;
@@ -65,7 +64,7 @@ namespace ParadoxTranslationHelper
                     Log.Warning("Keys mismatch");
                 }
 
-                found.Lines = keySorter.SortedKeys;
+                found.Lines = DictionaryHelper.ConvertDictionary(keySorter.SortedKeys);
                 BackupOriginalFile(found);
                 SaveSortedFile(found);
             }

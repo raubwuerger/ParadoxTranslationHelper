@@ -1,0 +1,20 @@
+﻿l_english:
+ GER_Goering_Plan:5 "GERMAN Göring Four Year Plan"
+ GER_Goering_Plan_desc:5 "GERMAN The Four-Year Plan was an economic initiative which Hitler started. It involved, amongst other things, reducing unemployment and undertaking public works projects such as the German Autobahns. Hermann Göring was chosen to see the plan brought into action."
+
+ ##### GERMANY #####
+ german_focus:5 "GERMAN Führer Directives"
+ GER_german_focus:5 "GERMAN Führer Directives"
+ GER_Wunderwaffen_TT:5 "GERMAN §YWunderwaffen§! Decisions will appear in the upcoming weeks\n"
+ USA_great_depression_cooldown_tt:5 "GERMAN After this law is passed, it will take §Y230 days§! until further New Deal legislation is drafted and ready to be signed.\n\n"
+ GER_autobahn_I_tt:5 "GERMAN Will begin a series of yearly improvements to Infrastructure"
+ GER_autobahn_I_desc:5 "GERMAN Since its inception in 1933, the autobahn project has been a glorious success. The construction efforts have reduced unemployment, and the wide roads stand as a monument to Germany's economic recovery. Much work remains to be done, however."
+ #GER_autobahn_II:5 "GERMAN Reichsautobahn-II"
+ GER_autobahn_II_tt:5 "GERMAN Add 1 level §YInfrastructure§! in §YSachsen§!, §YBrandenburg§!, §YThuringen§!, §YHannover§! and §YFranken§!"
+ #GER_autobahn_III_desc:5 "GERMAN Since its inception in 1933, the autobahn project has been a glorious success. The construction efforts have reduced unemployment, and the wide roads stand as a monument to Germany's economic recovery. Much work remains to be done, however."
+ #GER_autobahn_IV:5 "GERMAN Reichsautobahn-IV"
+ GER_autobahn_IV_tt:5 "GERMAN Add 1 level §YInfrastructure§! in §YHessen§!, §YWestfalen§!, §YWeser-Ems§!, §YSchlegwig-Holstein§!, §YMecklenburg§!, §YWestpommern§! and §YPommern§!"
+ #GER_autobahn_IV_desc:5 "GERMAN Since its inception in 1933, the autobahn project has been a glorious success. The construction efforts have reduced unemployment, and the wide roads stand as a monument to Germany's economic recovery. Much work remains to be done, however."
+ GER_reintegrate_luxemburg_and_alsace_lorraine:5 "GERMAN Reintegrate Luxemburg & Alsace"
+ 
+ ## EOF ##
