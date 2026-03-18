@@ -14,13 +14,11 @@ namespace ParadoxTranslationHelper
         private string _localisationFilePathGerman;
         private string _localisationFilePathAnalyze;
         string _fileNameMissingKeys;
-        string _fileNameKeysToDelete;
 
         public string LocalisationFilePathGerman { get => _localisationFilePathGerman; set => _localisationFilePathGerman = value; }
         public string LocalisationFilePathAnalyze { get => _localisationFilePathAnalyze; set => _localisationFilePathAnalyze = value; }
         public string LocalisationFilePathSteam { get => _localisationFilePathSteam; set => _localisationFilePathSteam = value; }
         public string FileNameMissingKeys { get => _fileNameMissingKeys; set => _fileNameMissingKeys = value; }
-        public string FileNameKeysToDelete { get => _fileNameKeysToDelete; set => _fileNameKeysToDelete = value; }
 
 
         public FunctionObjectDiffKeys(string name) : base(name)
@@ -98,7 +96,6 @@ namespace ParadoxTranslationHelper
             Dictionary<string, LineObject> steam = Utility.ExtractKeys(LocalisationFilesSteam);
             Dictionary<string, LineObject> repository = Utility.ExtractKeys(LocalisationFilesGerman);
 
-            CreateFileKeys(FunctionUtility.FindToCreate(steam, repository), _fileNameKeysToDelete);
             CreateFileKeys(FunctionUtility.FindToCreate(repository, steam), _fileNameMissingKeys);
 
             return true;
