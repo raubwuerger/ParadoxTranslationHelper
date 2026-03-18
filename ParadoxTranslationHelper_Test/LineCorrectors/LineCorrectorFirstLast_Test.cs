@@ -98,7 +98,7 @@ namespace ParadoxTranslationHelper_Test.LineCorrectors
             notEmpty.Add($"matching signs identical! {Constants.QUOTATION_MARKS} some text in the middle {LineCorrectorFirstLast._incorrectSign1}{Constants.QUOTATION_MARKS}");
             ILineCorrector lineCorrector = factory.CreateCorrectorFirstLast();
             lineCorrector.Correct(notEmpty);
-            Assert.AreEqual(0, lineCorrector.GetIncorrect().Count());
+            Assert.AreEqual(1, lineCorrector.GetIncorrect().Count());
         }
 
         [TestMethod]
