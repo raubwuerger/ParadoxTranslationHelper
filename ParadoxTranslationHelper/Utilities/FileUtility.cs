@@ -42,7 +42,7 @@ namespace ParadoxTranslationHelper.Utilities
             return translationFiles;
         }
 
-        public static TranslationFile CreateTranslationFileFromFile( string fileName )
+        public static TranslationFile? CreateTranslationFileFromFile( string fileName )
         {
             if( false == File.Exists(fileName) )
             {
