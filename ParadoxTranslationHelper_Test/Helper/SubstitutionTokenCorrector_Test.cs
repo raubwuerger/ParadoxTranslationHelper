@@ -71,10 +71,11 @@ public class SubstitutionTokenCorrector_Test
     [DataRow(DisplayName = "corrupt token -> null")]
     public void TestMethod010()
     {
+        string toCorrect = "asdklljl|___NL00 0072___|asas";
         SubstitutionTokenCorrector corrector = new SubstitutionTokenCorrector();
-        string corrected = corrector.CorrectLine("asdklljl|___NL00 0072___|asas");
+        string corrected = corrector.CorrectLine(toCorrect);
         Assert.IsNotNull(corrected);
-        Assert.AreEqual(SubstitutionTokenCorrector.TOKEN_LENGTH_CORRECT, corrected.Length);
+        Assert.AreEqual(toCorrect.Length, corrected.Length + 1);
     }
     
 }

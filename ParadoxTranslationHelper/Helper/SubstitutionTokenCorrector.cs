@@ -41,7 +41,7 @@ namespace ParadoxTranslationHelper.Helper
             }
 
             Log.Debug($"Corrected token: {joined}");
-            return joined;
+            return line.Replace(token,joined);
         }
 
         string? FindStringTokenStartEnd( string line )
