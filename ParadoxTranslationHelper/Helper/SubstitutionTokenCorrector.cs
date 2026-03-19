@@ -7,7 +7,7 @@ namespace ParadoxTranslationHelper.Helper
     {
         public static readonly int TOKEN_LENGTH_CORRECT = 16;
         public static readonly int TOKEN_LENGTH_CORRUPT = 17;
-        public string? CorrectLine( string line )
+        public string? CorrectLine( string line, int startIndex = 0 )
         {
             if( null == line )
             {
@@ -19,7 +19,7 @@ namespace ParadoxTranslationHelper.Helper
                 return null;
             }
 
-            string token = FindStringTokenStartEnd(line);
+            string token = FindStringTokenStartEnd(line, startIndex);
             if( token == null )
             {
                 return null;
@@ -29,6 +29,18 @@ namespace ParadoxTranslationHelper.Helper
             {
                 Log.Debug($"Found token start and end but token is to short: {token.Length};{token}");
                 return null;
+            }
+
+            if( false == token.Contains(" ") )
+            {
+                Log.Debug($"Found token without whitespace: {token.Length};{token}");
+                return null;
+            }
+
+            if( token.Length == TOKEN_LENGTH_CORRECT )
+            {
+                Log.Debug($"Found correct token: {token}");
+                return line;
             }
 
             string[] splitted = token.Split(" ");
@@ -44,9 +56,9 @@ namespace ParadoxTranslationHelper.Helper
             return line.Replace(token,joined);
         }
 
-        string? FindStringTokenStartEnd( string line )
+        string? FindStringTokenStartEnd( string line, int startIndex )
         {
-            int indexStart = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN);
+            int indexStart = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN, startIndex);
             if( indexStart == -1 )
             {
                 return null;
@@ -57,13 +69,13 @@ namespace ParadoxTranslationHelper.Helper
                 return null;
             }
 
-            int indexEnd = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN, indexStart + 1);
+            int indexEnd = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN, startIndex + indexStart + 1);
             if( indexEnd == -1 )
             {
                 return null;
             }
 
-            return line.Substring(indexStart,indexEnd - indexStart + 1);
+            return line.Substring(indexStart + startIndex ,indexEnd - indexStart + 1 + startIndex);
         }
     }
 }
