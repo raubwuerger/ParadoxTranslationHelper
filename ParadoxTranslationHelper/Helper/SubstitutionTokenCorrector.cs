@@ -7,7 +7,9 @@ namespace ParadoxTranslationHelper.Helper
     {
         public static readonly int TOKEN_LENGTH_CORRECT = 16;
         public static readonly int TOKEN_LENGTH_CORRUPT = 17;
-        public string? CorrectLine( string line, int startIndex = 0 )
+
+        private int globalEndIndex = 0;
+        public string? CorrectLine( string line, int globalStartIndex = 0 )
         {
             if( null == line )
             {
@@ -16,31 +18,47 @@ namespace ParadoxTranslationHelper.Helper
 
             if( line.Length < TOKEN_LENGTH_CORRECT )
             {
-                return null;
+                if (globalStartIndex == 0)
+                {
+                    return null;
+                }
+                return line;
             }
 
-            string token = FindStringTokenStartEnd(line, startIndex);
+            string token = FindStringTokenStartEnd(line, globalStartIndex);
             if( token == null )
             {
-                return null;
+                if( globalStartIndex == 0 )
+                {
+                    return null;
+                }
+                return line;
             }
 
             if( token.Length < TOKEN_LENGTH_CORRECT )
             {
                 Log.Debug($"Found token start and end but token is to short: {token.Length};{token}");
-                return null;
+                if (globalStartIndex == 0)
+                {
+                    return null;
+                }
+                return line;
             }
 
             if( false == token.Contains(" ") )
             {
                 Log.Debug($"Found token without whitespace: {token.Length};{token}");
-                return null;
+                if (globalStartIndex == 0)
+                {
+                    return null;
+                }
+                return CorrectLine(line,globalEndIndex);
             }
 
-            if( token.Length == TOKEN_LENGTH_CORRECT )
+            if ( token.Length == TOKEN_LENGTH_CORRECT )
             {
                 Log.Debug($"Found correct token: {token}");
-                return line;
+                return CorrectLine(line, globalEndIndex);
             }
 
             string[] splitted = token.Split(" ");
@@ -49,33 +67,38 @@ namespace ParadoxTranslationHelper.Helper
             if( joined.Length != TOKEN_LENGTH_CORRECT )
             {
                 Log.Debug($"Corrected token is to short: {joined.Length};{joined}");
-                return null;
+                if (globalStartIndex == 0)
+                {
+                    return null;
+                }
+                return CorrectLine(line, globalEndIndex);
             }
 
             Log.Debug($"Corrected token: {joined}");
-            return line.Replace(token,joined);
+            return CorrectLine(line.Replace(token,joined),globalEndIndex);   //TODO: 2026-03-19 - JHA - Stimmt der lastIndex wenn das korrigierte Token eingefügt wurde?
         }
 
-        string? FindStringTokenStartEnd( string line, int startIndex )
+        string? FindStringTokenStartEnd( string line, int globalStartIndex )
         {
-            int indexStart = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN, startIndex);
-            if( indexStart == -1 )
+            int localStartIndex = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN, globalStartIndex);
+            if( localStartIndex == -1 )
             {
                 return null;
             }
 
-            if( indexStart + 1 >= line.Length )
+            if( localStartIndex + 1 >= line.Length )
             {
                 return null;
             }
 
-            int indexEnd = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN, startIndex + indexStart + 1);
-            if( indexEnd == -1 )
+            int localEndIndex = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN, localStartIndex + 1);
+            if( localEndIndex == -1 )
             {
                 return null;
             }
 
-            return line.Substring(indexStart + startIndex ,indexEnd - indexStart + 1 + startIndex);
+            globalEndIndex = localEndIndex;
+            return line.Substring(localStartIndex ,localEndIndex - localStartIndex + 1);
         }
     }
 }

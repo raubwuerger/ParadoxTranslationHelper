@@ -2,7 +2,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ParadoxTranslationHelper;
 using ParadoxTranslationHelper.Helper;
 using ParadoxTranslationHelper.Utilities;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace ParadoxTranslationHelper_Test;
 
@@ -68,7 +70,7 @@ public class SubstitutionTokenCorrector_Test
     }
 
     [TestMethod]
-    [DataRow(DisplayName = "corrupt token -> null")]
+    [DataRow(DisplayName = "corrupt token -> not null")]
     public void TestMethod010()
     {
         string toCorrect = "asdklljl|___NL00 0072___|asas";
@@ -77,6 +79,61 @@ public class SubstitutionTokenCorrector_Test
         Assert.IsNotNull(corrected);
         Assert.AreEqual(toCorrect.Length, corrected.Length + 1);
     }
-    
+
+    [TestMethod]
+    [DataRow(DisplayName = "corrupt token x 2 -> not null")]
+    public void TestMethod011()
+    {
+        string toCorrect = "asdklljl|___NL00 0072___|asas lljl|___NL00 0073___|dsdgf";
+        SubstitutionTokenCorrector corrector = new SubstitutionTokenCorrector();
+        string corrected = corrector.CorrectLine(toCorrect);
+        Assert.IsNotNull(corrected);
+        Assert.AreEqual(toCorrect.Length, corrected.Length + 2);
+    }
+
+    [TestMethod]
+    [DataRow(DisplayName = "corrupt token, correct token -> not null")]
+    public void TestMethod012()
+    {
+        string toCorrect = "asdklljl|___NL00 0072___|asas lljl|___NL000073___|dsdgf";
+        SubstitutionTokenCorrector corrector = new SubstitutionTokenCorrector();
+        string corrected = corrector.CorrectLine(toCorrect);
+        Assert.IsNotNull(corrected);
+        Assert.AreEqual(toCorrect.Length, corrected.Length + 1);
+    }
+
+    [TestMethod]
+    [DataRow(DisplayName = "corrupt token, corrupt token, correct token -> not null")]
+    public void TestMethod013()
+    {
+        string toCorrect = "asdklljl|___NL00 0072___|asaljl|___NL00 0073___|ass lljl|___NL000075___|dsdgf";
+        SubstitutionTokenCorrector corrector = new SubstitutionTokenCorrector();
+        string corrected = corrector.CorrectLine(toCorrect);
+        Assert.IsNotNull(corrected);
+        Assert.AreEqual(toCorrect.Length, corrected.Length + 2);
+    }
+
+    [TestMethod]
+    [DataRow(DisplayName = "corrupt token, corrupt token, correct token, invalid token -> null")]
+    public void TestMethod014()
+    {
+        string toCorrect = "asdklljl|___NL00 0072___|asaljl|___NL00 0073___|ass lljl|___NL000075___|dsdgf|___NL00 ";
+        SubstitutionTokenCorrector corrector = new SubstitutionTokenCorrector();
+        string corrected = corrector.CorrectLine(toCorrect);
+        Assert.IsNotNull(corrected);
+        Assert.AreEqual(toCorrect.Length, corrected.Length + 2);
+    }
+
+    [TestMethod]
+    [DataRow(DisplayName = "Real test")]
+    public void TestMethod999()
+    {
+        List<LineObject> lineObjects = translationFile.Lines.Values.ToList<LineObject>();
+        foreach (LineObject lineObject in lineObjects )
+        {
+            SubstitutionTokenCorrector corrector = new SubstitutionTokenCorrector();
+            lineObject.OriginalLineSubstituted = corrector.CorrectLine(lineObject.OriginalLine);
+        }
+    }
 }
 
