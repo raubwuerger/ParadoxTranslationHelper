@@ -50,7 +50,7 @@ namespace ParadoxTranslationHelper.Helper
                 Log.Debug($"Found token without whitespace: {token.Length};{token}");
                 if (globalStartIndex == 0)
                 {
-                    return null;
+                    return line;
                 }
                 return CorrectLine(line,globalEndIndex);
             }

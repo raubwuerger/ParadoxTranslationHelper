@@ -58,5 +58,10 @@ namespace ParadoxTranslationHelper.LineCorrector
             return lineCorrector;
         }
 
+        public ILineCorrector CreateLineCorrectorSubsituteTokens()
+        {
+            return new LineCorrectorSubsituteTokens();
+        }
+
     }
 }
