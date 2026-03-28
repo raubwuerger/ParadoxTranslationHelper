@@ -26,7 +26,16 @@ namespace ParadoxTranslationHelper.LineCorrector
                     continue;
                 }
                 SubstitutionTokenCorrector corrector = new SubstitutionTokenCorrector();
-                _correctedLines.Add(corrector.CorrectLine(line));
+                string corrected = corrector.CorrectLine(line);
+                if( corrected == null )
+                {
+                    if( true == corrector.ContainsAtLeastOneCorruptToken )
+                    {
+                        Log.Warning($"Line contains corrupt token: {line}");
+                    }
+                    corrected = line;
+                }
+                _correctedLines.Add(corrected);
             }
         }
 

@@ -9,8 +9,38 @@ namespace ParadoxTranslationHelper.Helper
         public static readonly int TOKEN_LENGTH_CORRUPT = 17;
 
         private int globalEndIndex = 0;
+        private int foundToken = 0;
+        private bool containsNoToken = true;
+        private bool containsAtLeastOneCorruptToken = false;
+
+        public bool HasNoTokenAtAll
+        {
+            get
+            {
+                if (foundToken > 0)
+                {
+                    return false;
+                }
+                if (containsAtLeastOneCorruptToken == true)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+        public bool ContainsNoToken { get => containsNoToken; }
+        public int FoundToken { get => foundToken; }
+        public bool ContainsAtLeastOneCorruptToken { get => containsAtLeastOneCorruptToken; set => containsAtLeastOneCorruptToken = value; }
+
         public string? CorrectLine( string line, int globalStartIndex = 0 )
         {
+            if( globalEndIndex == 0 )
+            {
+                containsNoToken = true;
+                foundToken = 0;
+                containsAtLeastOneCorruptToken = false;
+            }
+
             if( null == line )
             {
                 return null;
@@ -37,6 +67,7 @@ namespace ParadoxTranslationHelper.Helper
 
             if( token.Length < TOKEN_LENGTH_CORRECT )
             {
+                foundToken++;
                 Log.Debug($"Found token start and end but token is to short: {token.Length};{token}");
                 if (globalStartIndex == 0)
                 {
@@ -47,7 +78,8 @@ namespace ParadoxTranslationHelper.Helper
 
             if( false == token.Contains(" ") )
             {
-                Log.Debug($"Found token without whitespace: {token.Length};{token}");
+                foundToken++;
+                Log.Verbose($"Found token without whitespace: {token.Length};{token}");
                 if (globalStartIndex == 0 && line.Length < TOKEN_LENGTH_CORRECT + TOKEN_LENGTH_CORRUPT)
                 {
                     return line;
@@ -58,6 +90,7 @@ namespace ParadoxTranslationHelper.Helper
 
             if ( token.Length == TOKEN_LENGTH_CORRECT )
             {
+                foundToken++;
                 Log.Debug($"Found correct token: {token}");
                 return CorrectLine(line, globalEndIndex);
             }
@@ -75,6 +108,7 @@ namespace ParadoxTranslationHelper.Helper
                 return CorrectLine(line, globalEndIndex);
             }
 
+            foundToken++;
             Log.Debug($"Corrected token: {joined}");
             return CorrectLine(line.Replace(token,joined),globalEndIndex);   //TODO: 2026-03-19 - JHA - Stimmt der lastIndex wenn das korrigierte Token eingefügt wurde?
         }
@@ -95,9 +129,11 @@ namespace ParadoxTranslationHelper.Helper
             int localEndIndex = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN, localStartIndex + 1);
             if( localEndIndex == -1 )
             {
+                containsAtLeastOneCorruptToken = true;
                 return null;
             }
 
+            containsNoToken = false;
             globalEndIndex = localEndIndex + 1;
             return line.Substring(localStartIndex ,localEndIndex - localStartIndex + 1);
         }

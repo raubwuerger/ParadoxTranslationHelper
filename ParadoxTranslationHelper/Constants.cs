@@ -44,5 +44,7 @@ namespace ParadoxTranslationHelper
         public const string IGNORE_LINE = "#####";
 
         public const string LINE_NOT_TRANSLATED = "<<<<< NOT TRANSLATED >>>>>";
+
+        public const int MINIMUM_KEY_LENGTH = 3;
     }
 }

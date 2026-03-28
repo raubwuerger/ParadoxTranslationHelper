@@ -107,11 +107,19 @@ namespace ParadoxTranslationHelper.Helper
 
         public static string SetLineToIgnore(string line)
         {
+            if( null == line )
+            {
+                return Constants.IGNORE_LINE;
+            }
             return line.Insert(0, Constants.IGNORE_LINE + " ");
         }
 
         public static bool IsLineFileToStoreLine(string line)
         {
+            if( null == line )
+            {
+                return false;
+            }
             return line.Contains(Constants.TRANSLATION_FILE_IDENTIFIER);
         }
 

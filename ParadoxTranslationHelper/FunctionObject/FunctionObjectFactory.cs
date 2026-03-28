@@ -60,7 +60,7 @@ namespace ParadoxTranslationHelper
             functionObject.Description = "tries to correct substitute translation file in folder analysis (MissingTranslationKeysSteam) by substitute files IC, CC, NE, NL, NS";
 
             functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
-            functionObject.TranslationFileNameSub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffSubGerman());
+            functionObject.TranslationFileNameSub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman());
 
             return functionObject;
         }
