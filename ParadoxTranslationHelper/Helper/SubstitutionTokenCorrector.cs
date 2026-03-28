@@ -48,10 +48,11 @@ namespace ParadoxTranslationHelper.Helper
             if( false == token.Contains(" ") )
             {
                 Log.Debug($"Found token without whitespace: {token.Length};{token}");
-                if (globalStartIndex == 0)
+                if (globalStartIndex == 0 && line.Length < TOKEN_LENGTH_CORRECT + TOKEN_LENGTH_CORRUPT)
                 {
                     return line;
                 }
+
                 return CorrectLine(line,globalEndIndex);
             }
 
@@ -97,7 +98,7 @@ namespace ParadoxTranslationHelper.Helper
                 return null;
             }
 
-            globalEndIndex = localEndIndex;
+            globalEndIndex = localEndIndex + 1;
             return line.Substring(localStartIndex ,localEndIndex - localStartIndex + 1);
         }
     }

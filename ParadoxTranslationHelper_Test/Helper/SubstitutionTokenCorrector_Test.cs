@@ -125,6 +125,19 @@ public class SubstitutionTokenCorrector_Test
     }
 
     [TestMethod]
+    [DataRow(DisplayName = "7 valid token, corrupt token -> not null")]
+    public void TestMethod015()
+    {
+        string toCorrect = "decision_cost_Manpower1000_Guns_1000_cp_25: |___IC000000___|  |___CC000208___|1000|___CC000209___| |___IC000001___|  |___CC000210___|1000|___CC000211___||___NL000031___|| ___IC000002___|  |___CC000212___|25|___CC000213___|";
+        SubstitutionTokenCorrector corrector = new SubstitutionTokenCorrector();
+        string corrected = corrector.CorrectLine(toCorrect);
+        Assert.IsNotNull(corrected);
+        Assert.AreEqual(toCorrect.Length, corrected.Length + 1);
+    }
+
+    //""
+
+    [TestMethod]
     [DataRow(DisplayName = "Real test")]
     public void TestMethod999()
     {
