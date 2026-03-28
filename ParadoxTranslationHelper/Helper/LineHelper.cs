@@ -115,5 +115,19 @@ namespace ParadoxTranslationHelper.Helper
             return line.Contains(Constants.TRANSLATION_FILE_IDENTIFIER);
         }
 
+        public static bool IsLanguageLine(LineObject lineObject)
+        {
+            if (true == lineObject.OriginalLine.TrimStart().StartsWith(Constants.LOCALISATION_ENGLISH_FILE_IDENTIFIER))
+            {
+                return true;
+            }
+
+            if (true == lineObject.OriginalLine.TrimStart().StartsWith(Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

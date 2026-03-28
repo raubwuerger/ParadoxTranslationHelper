@@ -33,7 +33,7 @@ namespace ParadoxTranslationHelper.Helper
 
             foreach ( KeyValuePair<string, LineObject> keyValuePair in orgConverted)
             {
-                if( true == IsLanguageLine(keyValuePair.Value) )
+                if( true == LineHelper.IsLanguageLine(keyValuePair.Value) )
                 {
                     keyValuePair.Value.OriginalLine = Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER;
                     _sortedKeys.Add(keyValuePair.Key, keyValuePair.Value);
@@ -95,21 +95,6 @@ namespace ParadoxTranslationHelper.Helper
             }
 
             return true;
-        }
-
-        bool IsLanguageLine(LineObject lineObject)
-        {
-            if (true == lineObject.OriginalLine.TrimStart().StartsWith(Constants.LOCALISATION_ENGLISH_FILE_IDENTIFIER))
-            {
-                return true;
-            }
-
-            if (true == lineObject.OriginalLine.TrimStart().StartsWith(Constants.LOCALISATION_GERMAN_FILE_IDENTIFIER))
-            {
-                return true;
-            }
-
-            return false;
         }
 
         bool IsValidLine(LineObject lineObject)
