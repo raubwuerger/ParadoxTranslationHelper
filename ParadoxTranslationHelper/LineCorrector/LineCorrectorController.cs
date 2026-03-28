@@ -51,7 +51,7 @@ namespace ParadoxTranslationHelper.LineCorrector
 
             foreach ( ILineCorrector lineCorrector in _lineCorrectors )
             {
-                Corrector.Correct(_lines);
+                lineCorrector.Correct(_lines);
 
                 List<string> incorrect = lineCorrector.GetIncorrect();
                 if (incorrect.Count() != 0)
