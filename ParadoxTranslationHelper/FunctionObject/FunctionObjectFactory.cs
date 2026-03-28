@@ -69,7 +69,7 @@ namespace ParadoxTranslationHelper
             FunctionObjectInsertKeys functionObject = new FunctionObjectInsertKeys(FunctionTypes.Insert);
             functionObject.Description = "Inserts keys into german translation files.";
 
-            functionObject.LocalisationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman());
+            functionObject.LocalisationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameCorrectedCorrected());
             functionObject.LocalisationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.LocalisationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 
@@ -140,6 +140,10 @@ namespace ParadoxTranslationHelper
             return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_CORRECTED;
         }
 
+        private static string CreateFileNameCorrectedCorrected()
+        {
+            return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_CORRECTED + FileSubstitutionConstants.FILE_SUFFIX_CORRECTED;
+        }
         private static string CreateFileNameDiffSubGerman()
         {
             return CreateFileNameDiffSub() + FileSubstitutionConstants.FILE_SUFFIX_GERMAN;
