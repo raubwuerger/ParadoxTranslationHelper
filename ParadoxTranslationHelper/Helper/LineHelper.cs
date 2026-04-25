@@ -43,7 +43,7 @@ namespace ParadoxTranslationHelper.Helper
 
         public static int CorrectLength { get => _correctLength; }
 
-        public static bool HasLineCorrectKey(string line)
+        public static bool HasLineKeySub(string line)
         {
             if (null == line)
             {
@@ -74,7 +74,7 @@ namespace ParadoxTranslationHelper.Helper
             return true;
         }
 
-        public static string? FindCorrectKey(string line)
+        public static string? FindKeySub(string line)
         {
             if( null == line )
             {
@@ -137,5 +137,112 @@ namespace ParadoxTranslationHelper.Helper
 
             return false;
         }
+
+        public static bool HasLineKeyReal(string line)
+        {
+            if( line == null )
+            {
+                return false;
+            }
+
+            int endPos = line.IndexOf(Constants.SIGN_TABULATOR);
+            if (endPos == -1)
+            {
+                Log.Debug($"Not a valid line: {line}");
+                return false;
+            }
+
+            string key = line.Substring(0, endPos);
+            if (true == string.IsNullOrWhiteSpace(key))
+            {
+                Log.Debug($"Not a valid key: IsNullOrWhiteSpace");
+                return false;
+            }
+
+            return true;
+        }
+
+        public static string? FindKeyReal(string line)
+        {
+            if (line == null)
+            {
+                return null;
+            }
+
+            int endPos = line.IndexOf(Constants.SIGN_TABULATOR);
+            if (endPos == -1)
+            {
+                Log.Debug($"Not a valid line: {line}");
+                return null;
+            }
+
+            string key = line.Substring(0, endPos);
+            if (true == string.IsNullOrWhiteSpace(key))
+            {
+                Log.Debug($"Not a valid key: IsNullOrWhiteSpace");
+                return null;
+            }
+
+            return key;
+        }
+
+        public static Dictionary<string, string>? LinesToKeySub(List<string> lines)
+        {
+            if( lines == null )
+            {
+                return null;
+            }
+
+            Dictionary<string, string> keys = new Dictionary<string, string>();
+            foreach (string line in lines)
+            {
+                if (true == LineHelper.IgnoreLine(line))
+                {
+                    keys.Add(line, line);
+                    continue;
+                }
+
+                string key = LineHelper.FindKeySub(line);
+                if (key == null)
+                {
+                    Log.Debug($"Line contains no key: {line}");
+                    continue;
+                }
+
+                keys.Add(key, line);
+            }
+
+            return keys;
+        }
+
+        public static Dictionary<string, string>? LinesToKeyReal(List<string> lines)
+        {
+            if (lines == null)
+            {
+                return null;
+            }
+
+            Dictionary<string, string> keys = new Dictionary<string, string>();
+            foreach (string line in lines)
+            {
+                if (true == LineHelper.IgnoreLine(line))
+                {
+                    keys.Add(line, line);
+                    continue;
+                }
+
+                string key = LineHelper.FindKeyReal(line);
+                if (key == null)
+                {
+                    Log.Debug($"Line contains no key: {line}");
+                    continue;
+                }
+
+                keys.Add(key, line);
+            }
+
+            return keys;
+        }
+
     }
 }

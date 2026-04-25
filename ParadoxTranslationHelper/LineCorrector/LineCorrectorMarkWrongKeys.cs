@@ -20,7 +20,7 @@ namespace ParadoxTranslationHelper.LineCorrector
         {
             foreach(string line in linesToCorrect)
             {
-                if (false == LineHelper.HasLineCorrectKey(line))
+                if (false == LineHelper.HasLineKeySub(line))
                 {
                     if( false == LineHelper.IsLineFileToStoreLine(line) )
                     {

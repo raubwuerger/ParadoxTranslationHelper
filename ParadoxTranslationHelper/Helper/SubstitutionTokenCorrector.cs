@@ -65,7 +65,7 @@ namespace ParadoxTranslationHelper.Helper
                 return line;
             }
 
-            if( token.Length < TOKEN_LENGTH_CORRECT )
+            if ( token.Length < TOKEN_LENGTH_CORRECT )
             {
                 foundToken++;
                 Log.Debug($"Found token start and end but token is to short: {token.Length};{token}");
@@ -115,7 +115,7 @@ namespace ParadoxTranslationHelper.Helper
 
         string? FindStringTokenStartEnd( string line, int globalStartIndex )
         {
-            int localStartIndex = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN, globalStartIndex);
+            int localStartIndex = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_SIGN, globalStartIndex);
             if( localStartIndex == -1 )
             {
                 return null;
@@ -126,7 +126,7 @@ namespace ParadoxTranslationHelper.Helper
                 return null;
             }
 
-            int localEndIndex = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_START_END_SIGN, localStartIndex + 1);
+            int localEndIndex = line.IndexOf(FileSubstitutionConstants.SUBSTITUTION_END_SIGN, localStartIndex + 1);
             if( localEndIndex == -1 )
             {
                 containsAtLeastOneCorruptToken = true;

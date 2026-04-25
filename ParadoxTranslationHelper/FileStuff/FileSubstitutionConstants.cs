@@ -8,11 +8,12 @@ namespace ParadoxTranslationHelper
 {
     internal class FileSubstitutionConstants
     {
-        public static string SUBSTITUTION_START_END_SIGN = "|";
+        public static string SUBSTITUTION_START_SIGN = "<";
+        public static string SUBSTITUTION_END_SIGN = ">";
         public static string SUBSTITUTION_START_END_SIGN_DELIMITER = "_";
 
-        public static string SUBSTITUTION_START = "|___";
-        public static string SUBSTITUTION_END = "___|";
+        public static string SUBSTITUTION_START = "<___";
+        public static string SUBSTITUTION_END = "___>";
 
         public static string NESTING_STRING_SUFFIX = "NE";
         public static string NESTING_STRING_SIGN_START = StringParserFactory.NESTING_STRINGS_START;

@@ -33,7 +33,7 @@ namespace ParadoxTranslationHelper.LineCorrector
             }
 
             _correctedLines.Clear();
-            Dictionary<string, string> keys = LinesToKey(lines);
+            Dictionary<string, string> keys = LineHelper.LinesToKeySub(lines);
 
             int replaced = 0;
             foreach ( KeyValuePair<string,LineObjectSubstitutionFile> substitutePair in _substitutions )
@@ -76,37 +76,6 @@ namespace ParadoxTranslationHelper.LineCorrector
             FileUtility.WriteLines(keysNotFound, Path.Combine(ParadoxTranslationHelperConfig.PathResult, $"{Name}.{_substitutionSuffix}{FileSubstitutionConstants.FILE_SUFFIX_NOT_FOUND}"));
         }
 
-
-        Dictionary<string, string> LinesToKey(List<string> lines)
-        {
-            Dictionary<string, string> keys = new Dictionary<string, string>();
-            foreach (string line in lines)
-            {
-                if( true == LineHelper.IgnoreLine(line) )
-                {
-                    keys.Add(line, line);
-                    continue;
-                }
-
-                int endPos = line.IndexOf(Constants.SIGN_TABULATOR);
-                if( endPos == -1 )
-                {
-                    Log.Debug($"Not a valid line: {line}");
-                    continue;
-                }
-
-                string key = line.Substring(0, endPos);
-                if( true == string.IsNullOrWhiteSpace(key) )
-                {
-                    Log.Debug($"Not a valid key: IsNullOrWhiteSpace");
-                    continue;
-                }
-
-                keys.Add(key, line);
-            }
-
-            return keys;
-        }
 
         bool IsCorrectInitialized()
         {
