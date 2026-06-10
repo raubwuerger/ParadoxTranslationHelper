@@ -33,7 +33,7 @@ namespace ParadoxTranslationHelper.LineCorrector
             }
 
             _correctedLines.Clear();
-            Dictionary<string, string> keys = LineHelper.LinesToKeySub(lines);
+            Dictionary<string, string> keys = LineHelper.LinesToKeyReal(lines);
 
             int replaced = 0;
             foreach ( KeyValuePair<string,LineObjectSubstitutionFile> substitutePair in _substitutions )

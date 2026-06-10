@@ -172,8 +172,12 @@ namespace ParadoxTranslationHelper.Helper
             int endPos = line.IndexOf(Constants.SIGN_TABULATOR);
             if (endPos == -1)
             {
-                Log.Debug($"Not a valid line: {line}");
-                return null;
+                endPos = line.IndexOf(@": """);
+                if (endPos == -1)
+                {
+                    Log.Debug($"Not a valid line: {line}");
+                    return null;
+                }
             }
 
             string key = line.Substring(0, endPos);
