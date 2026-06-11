@@ -100,7 +100,7 @@ namespace ParadoxTranslationHelper.Helper
 
             if( joined.Length != TOKEN_LENGTH_CORRECT )
             {
-                Log.Debug($"Corrected token is to short: {joined.Length};{joined}");
+                Log.Debug($"Corrected token mismatch length: {joined.Length};{joined}");
                 if (globalStartIndex == 0)
                 {
                     return null;
