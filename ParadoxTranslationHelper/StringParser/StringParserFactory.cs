@@ -35,9 +35,11 @@ namespace ParadoxTranslationHelper
         public static string ICON_START = "£";
         public static string ICON_END = "£";
 
-        public static string NEW_LINE_START = "\\";
-        public static string NEW_LINE_END = "n";
+        public static string NEW_LINE_START = "\\n";
+        public static string NEW_LINE_END = "\\n";
 
+        public static string TABULATOR_START = "\\t";
+        public static string TABULATOR_END = "\\t";
 
         public IStringParser CreateParserNamespaces()
         {
@@ -49,16 +51,33 @@ namespace ParadoxTranslationHelper
             IgnoreCommentLines(stringParser);
             return stringParser;
         }
+        public IStringParser CreateParserNamespacesResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NAMESPACE_SUFFIX;
+            stringParser.StartIndexShift = 16;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
 
         public StringParser CreateParserIcons()
         {
             StringParser stringParser = new StringParser();
             stringParser.StartTag = ICON_START;
-            stringParser.EndTags.Add(" ");
-            stringParser.EndTags.Add("\n");
-            stringParser.EndTags.Add("\"");
             stringParser.EndTags.Add("|");
+            stringParser.EndTags.Add(" ");
+            stringParser.EndTags.Add("\\n");
+            stringParser.EndTags.Add("\"");
             stringParser.EndOfLineIsEndTag = true;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
+        public StringParser CreateParserIconsResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.ICON_SUFFIX;
+            stringParser.SubStringCount = 16;
             IgnoreCommentLines(stringParser);
             return stringParser;
         }
@@ -73,12 +92,28 @@ namespace ParadoxTranslationHelper
             return stringParser;
         }
 
+        public IStringParser CreateParserNestingStringsResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NESTING_STRING_SUFFIX;
+            stringParser.SubStringCount = 16;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
         public IStringParser CreateParserColorCodes()
         {
             StringParser stringParser = new StringParser();
             stringParser.StartTag = COLOR_CODE_START;
-            stringParser.EndTags.Add(COLOR_CODE_END);
             stringParser.SubStringCount = 2;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
+        public IStringParser CreateParserColorCodesResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.COLOR_CODE_SUFFIX;
+            stringParser.SubStringCount = 16;
             IgnoreCommentLines(stringParser);
             return stringParser;
         }
@@ -88,8 +123,35 @@ namespace ParadoxTranslationHelper
             StringParser stringParser = new StringParser();
             stringParser.StartTag = NEW_LINE_START;
             stringParser.EndTags.Add(NEW_LINE_END);
-            stringParser.SubStringCount = 2;
-            stringParser.StartIndexShift = -1;
+            stringParser.HasEndTag = false;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
+        public IStringParser CreateParserNewLineResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.NEW_LINE_SUFFIX;
+            stringParser.SubStringCount = 16;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
+        public IStringParser CreateParserTabulator()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = TABULATOR_START;
+            stringParser.EndTags.Add(TABULATOR_END);
+            stringParser.HasEndTag = false;
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
+        public IStringParser CreateParserTabulatorResub()
+        {
+            StringParser stringParser = new StringParser();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.TABULATOR_SUFFIX;
+            stringParser.SubStringCount = 16;
             IgnoreCommentLines(stringParser);
             return stringParser;
         }
@@ -106,6 +168,15 @@ namespace ParadoxTranslationHelper
         {
             StringParserKey stringParser = new StringParserKey();
             stringParser.StartTag = "\"";
+            IgnoreCommentLines(stringParser);
+            return stringParser;
+        }
+
+        public IStringParser CreateParserKeyResub()
+        {
+            StringParserKey stringParser = new StringParserKey();
+            stringParser.StartTag = FileSubstitutionConstants.SUBSTITUTION_START + FileSubstitutionConstants.KEY_SUFFIX;
+            stringParser.SubStringCount = 16;
             IgnoreCommentLines(stringParser);
             return stringParser;
         }

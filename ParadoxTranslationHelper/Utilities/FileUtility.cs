@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using Serilog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Serilog;
 
 namespace ParadoxTranslationHelper.Utilities
 {
@@ -41,7 +42,7 @@ namespace ParadoxTranslationHelper.Utilities
             return translationFiles;
         }
 
-        public static TranslationFile CreateTranslationFileFromFile( string fileName )
+        public static TranslationFile? CreateTranslationFileFromFile( string fileName )
         {
             if( false == File.Exists(fileName) )
             {
@@ -50,6 +51,33 @@ namespace ParadoxTranslationHelper.Utilities
             }
 
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
+            translationFileCreator.StringParserKey = StringParserFactory.Instance.CreateParserKey();
+            translationFileCreator.StringParserNamespaces = StringParserFactory.Instance.CreateParserNamespaces();
+            translationFileCreator.StringParserNestingStrings = StringParserFactory.Instance.CreateParserNestingStrings();
+            translationFileCreator.StringParserIcons = StringParserFactory.Instance.CreateParserIcons();
+            translationFileCreator.StringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+            translationFileCreator.StringParserColorCodes = StringParserFactory.Instance.CreateParserColorCodes();
+            translationFileCreator.StringParserTabulator = StringParserFactory.Instance.CreateParserTabulator();
+
+            return translationFileCreator.Create(fileName);
+        }
+
+        public static TranslationFile CreateTranslationFileFromFileResub(string fileName)
+        {
+            if (false == File.Exists(fileName))
+            {
+                Log.Verbose("File not found! " + fileName);
+                return null;
+            }
+
+            TranslationFileCreator translationFileCreator = new TranslationFileCreator();
+            translationFileCreator.StringParserKey = StringParserFactory.Instance.CreateParserKeyResub();
+            translationFileCreator.StringParserNamespaces = StringParserFactory.Instance.CreateParserNamespacesResub();
+            translationFileCreator.StringParserNestingStrings = StringParserFactory.Instance.CreateParserNestingStringsResub();
+            translationFileCreator.StringParserIcons = StringParserFactory.Instance.CreateParserIconsResub();
+            translationFileCreator.StringParserNewLine = StringParserFactory.Instance.CreateParserNewLineResub();
+            translationFileCreator.StringParserColorCodes = StringParserFactory.Instance.CreateParserColorCodesResub();
+            translationFileCreator.StringParserTabulator = StringParserFactory.Instance.CreateParserTabulatorResub();
             return translationFileCreator.Create(fileName);
         }
 
@@ -78,9 +106,9 @@ namespace ParadoxTranslationHelper.Utilities
                     string missingKeyFile = "";
                     foreach (LineObject line in lineObjects)
                     {
-                        if (false == missingKeyFile.Equals(line.TranslationFile.FileName))
+                        if (false == missingKeyFile.Equals(line.TranslationFile.FileNameWithBasePath))
                         {
-                            missingKeyFile = line.TranslationFile.FileName;
+                            missingKeyFile = line.TranslationFile.FileNameWithBasePath;
                             outputFile.WriteLine(Constants.TRANSLATION_FILE_IDENTIFIER + missingKeyFile);
                         }
                         outputFile.WriteLine(Utility.GetSubstitutedLineTabbed(line));
@@ -128,6 +156,68 @@ namespace ParadoxTranslationHelper.Utilities
             }
         }
 
+        public static void WriteLines(List<string>? lines, string fileName)
+        {
+            if (null == lines)
+            {
+                Log.Verbose("Parameter <lineObjects> must not be null!");
+                return;
+            }
+
+            try
+            {
+                ClearFileContent(fileName);
+                using (Stream stream = File.OpenWrite(fileName))
+                using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+                {
+                    foreach (string line in lines)
+                    {
+                        outputFile.WriteLine(line);
+                    }
+                }
+                Log.Verbose($"Wrote file {fileName} successful. Line count={lines.Count}");
+            }
+            catch (Exception ex)
+            {
+                Log.Warning($"Writing file {fileName} failed!");
+                Log.Fatal(ex.ToString());
+            }
+        }
+
+        public static void WriteLines(Dictionary<string, string> strings, string fileName)
+        {
+            if (null == strings)
+            {
+                Log.Verbose("Parameter <lineObjects> must not be null!");
+                return;
+            }
+
+            if (true == string.IsNullOrEmpty(fileName))
+            {
+                Log.Verbose("Parameter <fileName> must not be null!");
+                return;
+            }
+
+            Log.Verbose("Writing file: " + fileName);
+            try
+            {
+                ClearFileContent(fileName);
+                using (Stream stream = File.OpenWrite(fileName))
+                using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
+                {
+                    foreach (KeyValuePair<string,string> line in strings)
+                    {
+                        outputFile.WriteLine(line);
+                    }
+                }
+                Log.Verbose("Writing file: " + fileName + " successful.");
+            }
+            catch (Exception ex)
+            {
+                Log.Warning("Writing file: " + fileName + " failed!");
+                Log.Fatal(ex.ToString());
+            }
+        }
         public static bool Write(TranslationFile translationFile)
         {
             if (translationFile == null)
@@ -136,7 +226,7 @@ namespace ParadoxTranslationHelper.Utilities
                 return false;
             }
 
-            return Write(translationFile, translationFile.FileName);
+            return Write(translationFile, translationFile.FileNameWithBasePath);
         }
 
         public static bool Write(TranslationFile translationFile, string fileName)
@@ -156,10 +246,11 @@ namespace ParadoxTranslationHelper.Utilities
             Dictionary<int, LineObject> _lines = translationFile.Lines;
             List<LineObject> lineObjects = _lines.Values.ToList();
 
-            Log.Verbose("Writing file: " + fileName);
+            Log.Verbose($"Writing file: {fileName}");
             try
             {
                 ClearFileContent(fileName);
+                CreateDirectoryNotExists(fileName);
                 using (Stream stream = File.OpenWrite(fileName))
                 using (StreamWriter outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
@@ -172,7 +263,7 @@ namespace ParadoxTranslationHelper.Utilities
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex.ToString());
+                Log.Fatal($"Exception occured: {ex.ToString()}");
                 return false;
             }
         }
@@ -193,9 +284,30 @@ namespace ParadoxTranslationHelper.Utilities
             }
         }
 
+        public static void CreateDirectoryNotExists( string fileName )
+        {
+            if (true == File.Exists(fileName))
+            {
+                return;
+            }
+
+            if( true == Directory.Exists(fileName) )
+            {
+                return;
+            }
+
+            DirectoryInfo directoryInfo = Directory.CreateDirectory(Path.GetDirectoryName(fileName));
+            Log.Debug($"Created directory: {directoryInfo}");
+        }
+
         public static bool WriteEmptyFileUTF8_BOM(string fileName)
         {
-            if (string.IsNullOrEmpty(fileName))
+            return WriteFileUTF8_BOM(fileName, string.Empty);
+        }
+
+        public static bool WriteFileUTF8_BOM(string fileName, string content)
+        {
+            if (string.IsNullOrWhiteSpace(fileName))
             {
                 Log.Verbose("Parameter <filename> must not be null or empty!");
                 return false;
@@ -207,12 +319,14 @@ namespace ParadoxTranslationHelper.Utilities
                 using (Stream stream = File.OpenWrite(fileName))
                 using (var outputFile = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
+                    outputFile.Write(content);
                 }
+                Log.Debug($"Wrote empty file {fileName}");
                 return true;
             }
             catch (Exception e)
             {
-                Log.Fatal("Exception occurred: " + e.ToString());
+                Log.Fatal($"Exception occurred: {e.Message}");
                 return false;
             }
         }
@@ -293,18 +407,102 @@ namespace ParadoxTranslationHelper.Utilities
 
         public static string? CreateDirectoryAnalysis()
         {
-            string pathAnalyze = Path.Combine(ParadoxTranslationHelperConfig.PathBase, ParadoxTranslationHelperConfig.PathResult);
-            if (false == Directory.Exists(pathAnalyze))
+            if (false == Directory.Exists(ParadoxTranslationHelperConfig.PathResult))
             {
-                DirectoryInfo directoryInfo = Directory.CreateDirectory(pathAnalyze);
+                DirectoryInfo directoryInfo = Directory.CreateDirectory(ParadoxTranslationHelperConfig.PathResult);
                 if (null == directoryInfo)
                 {
                     return null;
                 }
             }
-            return pathAnalyze;
+            return ParadoxTranslationHelperConfig.PathResult;
         }
 
+        public static Dictionary<string,string>? ReadSuffixFile(string suffixFile)
+        {
+            if( true == string.IsNullOrWhiteSpace(suffixFile) )
+            {
+                Log.Warning("Parameter <suffix> must not be null!");
+                return null;
+            }
+
+            Dictionary<string, string> suffixContent = new Dictionary<string, string>();
+
+            if( false == File.Exists(suffixFile) )
+            {
+                Log.Warning($"File {suffixFile} doesn't exists.");
+                return null;
+            }
+            var lines = File.ReadLines(suffixFile);
+            foreach (var line in lines)
+            {
+                string[] splitted = line.Split(";");
+                if( splitted.Length < 2 )
+                {
+                    continue;
+                }
+                suffixContent.Add(splitted[0], splitted[1]);
+            }
+
+            return suffixContent;
+        }
+
+        public static List<string>? ReadFile( string fileName )
+        {
+            if( false == File.Exists(fileName) )
+            {
+                Log.Warning($"File {fileName} doesn't exist!");
+                return null;
+            }
+
+            List<string> readLines = new List<string>();
+            using (Stream stream = File.OpenRead(fileName))
+            {
+                var lines = File.ReadLines(fileName);
+                foreach (string line in lines)
+                {
+                    readLines.Add(line);
+                }
+            }
+
+            Log.Information($"Reading file {fileName}. Line count={readLines.Count}");
+            return readLines;
+        }
+
+        /*
+         *  Copies given file fileName -> fileName.bak (fileName.bak will be overwritten)
+         * 
+         * parameter:
+         *  - fileName
+         *      File name to backup
+         * result:
+         *  - true
+         *      if file doesn't exist
+         *      if file was successfully moved
+         */
+        public static bool BackupFile( string fileName )
+        {
+            if( false == File.Exists(fileName) )
+            {
+                Log.Debug($"File {fileName} doesn't exist!");
+                return true;
+            }
+
+            string fileNameBakup = fileName + Constants.EXTENSION_FILE_BACKUP;
+            File.Copy(fileName, fileNameBakup, true);
+            
+            bool renamingSuccessful = File.Exists(fileNameBakup);
+            if( false == renamingSuccessful )
+            {
+                Log.Warning($"Renaming file from {fileName} to {fileNameBakup} failed!");
+            }
+            else
+            {
+                Log.Debug($"Renaming file from {fileName} to {fileNameBakup} succeeded!");
+            }
+
+            return renamingSuccessful;
+        }
 
     }
 }

@@ -43,8 +43,21 @@ namespace ParadoxTranslationHelper.Utilities
                 return null;
             }
 
+            if( false == File.Exists(pathKeys) )
+            {
+                Log.Warning($"File doesn't exist: {pathKeys}");
+                return null;
+            }
+
             List<TranslationFile> keys = new List<TranslationFile>();
             TranslationFileCreator translationFileCreator = new TranslationFileCreator();
+            translationFileCreator.StringParserKey = StringParserFactory.Instance.CreateParserKey();
+            translationFileCreator.StringParserNamespaces = StringParserFactory.Instance.CreateParserNamespaces();
+            translationFileCreator.StringParserNestingStrings = StringParserFactory.Instance.CreateParserNestingStrings();
+            translationFileCreator.StringParserIcons = StringParserFactory.Instance.CreateParserIcons();
+            translationFileCreator.StringParserNewLine = StringParserFactory.Instance.CreateParserNewLine();
+            translationFileCreator.StringParserColorCodes = StringParserFactory.Instance.CreateParserColorCodes();
+            translationFileCreator.StringParserTabulator = StringParserFactory.Instance.CreateParserTabulator();
 
             List<string> lines = Utility.ConvertToList(File.ReadAllLines(pathKeys));
             List<string> foundFile = new List<string>();
@@ -125,7 +138,7 @@ namespace ParadoxTranslationHelper.Utilities
 
             if (startFileExtension == -1)
             {
-                Log.Verbose("Not a valid localization file: LOCALISATION_EXTENSION not found!");
+                Log.Verbose("Not a valid localisation file: LOCALISATION_EXTENSION not found!");
                 return null;
             }
 
@@ -172,11 +185,11 @@ namespace ParadoxTranslationHelper.Utilities
                 TranslationFile translationFile = translationFiles.Find(x => x.FileNameWithoutLocalisation.Equals(toFind.FileNameWithoutLocalisation,StringComparison.CurrentCultureIgnoreCase));
                 if ( null == translationFile)
                 {
-                    Log.Warning("### Corresponding translation file not found: " + toFind.FileName);
+                    Log.Warning("### Corresponding translation file not found: " + toFind.FileNameWithBasePath);
                 }
                 else 
                 {
-                    Log.Information("### Corresponding translation file found: " + toFind.FileName +" --> " + translationFile.FileName);
+                    Log.Information("### Corresponding translation file found: " + toFind.FileNameWithBasePath +" --> " + translationFile.FileNameWithBasePath);
                 }
                 return translationFile;
             }
@@ -265,7 +278,7 @@ namespace ParadoxTranslationHelper.Utilities
                 return false;
             }
 
-            Log.Information("Analyzing file: " + org.FileName);
+            Log.Information("Analyzing file: " + org.FileNameWithBasePath);
 
             if (org.Lines.Count() == 0)
             {

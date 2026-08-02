@@ -8,7 +8,7 @@ namespace ParadoxTranslationHelper
 {
     public class StringParserKey : StringParserBase
     {
-        public override List<string> GetToken(string source, List<string> tokens)
+        protected override List<string> GetToken(string source, List<string> tokens)
         {
             if (false == source.Contains(StartTag))
             {
@@ -45,5 +45,5 @@ namespace ParadoxTranslationHelper
             return tokens;
         }
 
-    }
+   }
 }

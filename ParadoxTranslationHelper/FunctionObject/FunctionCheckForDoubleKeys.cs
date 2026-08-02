@@ -86,7 +86,7 @@ namespace ParadoxTranslationHelper
 
         private string CreateFileNameDoubleKey(TranslationFile translationFile)
         {
-            return Path.Combine(PathAnalyze, Path.GetFileName(translationFile.FileName) + ResultFileNameAppendix);
+            return Path.Combine(PathAnalyze, Path.GetFileName(translationFile.FileNameWithBasePath) + ResultFileNameAppendix);
         }
 
         private List<string>? CheckForDoubleKeys(TranslationFile translationFile)

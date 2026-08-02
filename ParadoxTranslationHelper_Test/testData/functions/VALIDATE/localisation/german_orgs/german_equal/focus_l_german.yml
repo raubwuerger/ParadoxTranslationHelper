@@ -1,0 +1,26 @@
+﻿l_english:
+ USA_great_depression_cooldown_tt:5 "GERMAN After this law is passed, it will take §Y230 days§! until further New Deal legislation is drafted and ready to be signed.\n\n"
+ USA_limited_intervention_tt:5 "GERMAN \n\nPassing this law will make it §Rsignificantly harder§! to mobilize your economy.\n\n"
+
+ ##### GERMANY #####
+ german_focus:5 "GERMAN Führer Directives"
+ GER_reintegrate_luxemburg_and_alsace_lorraine:5 "GERMAN Reintegrate Luxemburg & Alsace"
+ GER_winter_equipment_production_TT:5 "GERMAN Unlocks the §YRequisition Winter Gear§! ability for all unit leaders.\n"
+ GER_train_panzergrenadiere_TT:5 "GERMAN Unlocks the §YEncirclement Breakout§! ability for all unit leaders.\n"
+ GER_german_focus:5 "GERMAN Führer Directives"
+ GER_Wunderwaffen_TT:5 "GERMAN §YWunderwaffen§! Decisions will appear in the upcoming weeks\n"
+ GER_Goering_Plan:5 "GERMAN Göring Four Year Plan"
+ GER_Goering_Plan_desc:5 "GERMAN The Four-Year Plan was an economic initiative which Hitler started. It involved, amongst other things, reducing unemployment and undertaking public works projects such as the German Autobahns. Hermann Göring was chosen to see the plan brought into action."
+ GER_autobahn_I_tt:5 "GERMAN Will begin a series of yearly improvements to Infrastructure"
+ GER_autobahn_I_desc:5 "GERMAN Since its inception in 1933, the autobahn project has been a glorious success. The construction efforts have reduced unemployment, and the wide roads stand as a monument to Germany's economic recovery. Much work remains to be done, however."
+ #GER_autobahn_II:5 "GERMAN Reichsautobahn-II"
+ GER_autobahn_II_tt:5 "GERMAN Add 1 level §YInfrastructure§! in §YSachsen§!, §YBrandenburg§!, §YThuringen§!, §YHannover§! and §YFranken§!"
+ #GER_autobahn_III_desc:5 "GERMAN Since its inception in 1933, the autobahn project has been a glorious success. The construction efforts have reduced unemployment, and the wide roads stand as a monument to Germany's economic recovery. Much work remains to be done, however."
+ #GER_autobahn_IV:5 "GERMAN Reichsautobahn-IV"
+ GER_autobahn_IV_tt:5 "GERMAN Add 1 level §YInfrastructure§! in §YHessen§!, §YWestfalen§!, §YWeser-Ems§!, §YSchlegwig-Holstein§!, §YMecklenburg§!, §YWestpommern§! and §YPommern§!"
+ #GER_autobahn_IV_desc:5 "GERMAN Since its inception in 1933, the autobahn project has been a glorious success. The construction efforts have reduced unemployment, and the wide roads stand as a monument to Germany's economic recovery. Much work remains to be done, however."
+ 
+ GER_dismantle_maginot_tooltip:5 "GERMAN Dismantling the §YMaginot Line§! will §Greduce the cost§! of other Fortification Projects.\n"
+ GER_dismantled_maginot_tooltip:5  "GERMAN §GCost is Reduced§! because we have §Ydismantled§! the §YMaginot Line§!.\n"  
+ GER_westwall_tt:5 "GERMAN §RIf the Rhineland is remilitarized, you will also gain:§!\n"
+ ## EOF ##

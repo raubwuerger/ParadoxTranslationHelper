@@ -5,6 +5,7 @@ using Serilog.Formatting.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -19,17 +20,20 @@ namespace ParadoxTranslationHelper
         static void Main(string[] args)
         {
             InitLogger();
+
+            Log.Information(CreateInitialLoggingString());
+            
             ReadConfig();
 
             if (args.Length < 2)
             {
-                LogInfosMods("Too few arguments passed ...");
+                LogInfosMods($"Too few arguments passed ...");
                 return;
             }
 
             if ( false == SetActiveMod(args[0]))
             {
-                LogInfosMods("No mod selected ...");
+                LogInfosMods($"No mod selected ...");
                 return;
             }
 
@@ -43,6 +47,15 @@ namespace ParadoxTranslationHelper
             }
             functionObject.Work();
             Log.CloseAndFlush();
+        }
+        static string CreateInitialLoggingString()
+        {
+            FileVersionInfo fileVersion = FileVersionInfo.GetVersionInfo(Process.GetCurrentProcess().MainModule.FileName);
+            string initial = "##### ";
+            initial += DateTime.Now + " ";
+            initial += Path.GetFileName(Process.GetCurrentProcess().MainModule.FileName) + " ";
+            initial += fileVersion.FileVersion;
+            return initial;
         }
 
         private static void LogInfosMods(string text)
@@ -61,14 +74,14 @@ namespace ParadoxTranslationHelper
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Registered functions");
             Console.WriteLine("----- RECOMMENDED STEPS -----");
-            Console.WriteLine(FunctionTypes.DiffFiles);
-            Console.WriteLine(FunctionTypes.RemoveKeys);
+            Console.WriteLine(FunctionTypes.DiffKeys);
             Console.WriteLine(FunctionTypes.Sub);
-            Console.WriteLine(FunctionTypes.Resub);
+            Console.WriteLine(FunctionTypes.LineCorrector);
+            Console.WriteLine(FunctionTypes.LineCorrectorSubstitute);
             Console.WriteLine(FunctionTypes.Insert);
+            Console.WriteLine(FunctionTypes.Validate);
             Console.WriteLine("----- ADDITIONAL STEPS ------");
             Console.WriteLine(FunctionTypes.Analyse);
-            Console.WriteLine(FunctionTypes.DiffKeys);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeys);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFiles);
             Console.WriteLine(FunctionTypes.CheckForDoubleKeysAllFilesFix);
@@ -103,15 +116,6 @@ namespace ParadoxTranslationHelper
             Log.Logger = new LoggerConfiguration()
                             .WriteTo.Console()
                             .WriteTo.File("./logs/ParadoxTranslationHelper.log", rollingInterval: RollingInterval.Day, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level}] {Message}{NewLine}{Exception}")
-                            .WriteTo.Map("KeysToDelete",
-                                (name, wt) => wt.File($"./logs/KeysToDelete.log"),
-                                sinkMapCountLimit: 10)
-                            .WriteTo.Map("KeysToCreate",
-                                (name, wt) => wt.File($"./logs/KeysToCreate.log"),
-                                sinkMapCountLimit: 10)
-                            .WriteTo.Map("KeysInWrongFile",
-                                (name, wt) => wt.File($"./logs/KeysInWrongFile.log"),
-                                sinkMapCountLimit: 10)
                             .MinimumLevel.Debug()
                             .CreateLogger();
         }

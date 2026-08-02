@@ -10,13 +10,16 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectDiffKeys : FunctionObjectBase
     {
-        private string _localizationFilePathSteam;
-        private string _localizationFilePathGerman;
-        private string _localizationFilePathAnalyze;
+        private string _localisationFilePathSteam;
+        private string _localisationFilePathGerman;
+        private string _localisationFilePathAnalyze;
+        string _fileNameMissingKeys;
 
-        public string LocalizationFilePathGerman { get => _localizationFilePathGerman; set => _localizationFilePathGerman = value; }
-        public string LocalizationFilePathAnalyze { get => _localizationFilePathAnalyze; set => _localizationFilePathAnalyze = value; }
-        public string LocalizationFilePathSteam { get => _localizationFilePathSteam; set => _localizationFilePathSteam = value; }
+        public string LocalisationFilePathGerman { get => _localisationFilePathGerman; set => _localisationFilePathGerman = value; }
+        public string LocalisationFilePathAnalyze { get => _localisationFilePathAnalyze; set => _localisationFilePathAnalyze = value; }
+        public string LocalisationFilePathSteam { get => _localisationFilePathSteam; set => _localisationFilePathSteam = value; }
+        public string FileNameMissingKeys { get => _fileNameMissingKeys; set => _fileNameMissingKeys = value; }
+
 
         public FunctionObjectDiffKeys(string name) : base(name)
         {
@@ -24,215 +27,124 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
-            if (true == string.IsNullOrEmpty(_localizationFilePathSteam))
+            if( true == String.IsNullOrWhiteSpace(_localisationFilePathSteam) )
             {
-                Log.Verbose("Member <LocalizationFilePathSteam> must not be null!");
+                Log.Verbose("Member <LocalisationFilePathSteam> must not be null!");
                 return false;
             }
 
-            if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
+            if (false == Directory.Exists(_localisationFilePathSteam))
             {
-                Log.Verbose("Member <LocalizationFilePathGerman> must not be null!");
+                Log.Error($"Directory {_localisationFilePathSteam} dosen't exist!");
                 return false;
             }
 
-            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
-            if (LocalisationFilesGerman == null)
+            if (true == String.IsNullOrWhiteSpace(_localisationFilePathGerman))
             {
+                Log.Verbose("Member <_localisationFilePathGerman> must not be null!");
                 return false;
             }
 
-            if (LocalisationFilesGerman.Count == 0)
+            if (false == Directory.Exists(_localisationFilePathGerman))
             {
-                Log.Verbose("Path contains no files:" + _localizationFilePathGerman);
+                Log.Error($"Directory {_localisationFilePathGerman} dosen't exist!");
                 return false;
             }
 
-            LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathSteam);
+            if (false == Directory.Exists(LocalisationFilePathAnalyze))
+            {
+                Log.Information($"Member <LocalisationFilePathAnalyze> must not be null! --> Creating directory {LocalisationFilePathAnalyze} ...");
+                Directory.CreateDirectory(LocalisationFilePathAnalyze);
+            }
+
+            LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathSteam);
             if (LocalisationFilesSteam == null)
             {
+                Log.Error($"Unable to read directory {_localisationFilePathSteam}!");
                 return false;
             }
 
             if (LocalisationFilesSteam.Count == 0)
             {
-                Log.Verbose("Path contains no files:" + _localizationFilePathSteam);
+                Log.Error("Path contains no files:" + _localisationFilePathSteam);
                 return false;
             }
 
-            DiffNestingStrings(LocalisationFilesSteam, LocalisationFilesGerman);
-//            DiffKeys();
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathGerman);
+            if (LocalisationFilesGerman == null)
+            {
+                Log.Error($"Unable to read directory {_localisationFilePathSteam}!");
+                return false;
+            }
+
+            if (LocalisationFilesGerman.Count == 0)
+            {
+                Log.Verbose("Path contains no files:" + _localisationFilePathGerman);
+                return false;
+            }
+
+            DiffKeys();
+
+            return true;
+        }
+        protected bool DiffKeys()
+        {
+            RemoveFilesNoLongerInSteamExisting(CreateFilesNoLongerInSteamExistent());
+
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathGerman);
+
+            Dictionary<string, LineObject> steam = Utility.ExtractKeys(LocalisationFilesSteam);
+            Dictionary<string, LineObject> repository = Utility.ExtractKeys(LocalisationFilesGerman);
+
+            CreateFileKeys(FunctionUtility.FindToCreate(repository, steam), _fileNameMissingKeys);
 
             return true;
         }
 
-        private void DiffKeys()
+        private bool CreateFileKeys(Dictionary<string, LineObject> keys, string fileName)
         {
-            foreach (TranslationFile translationFile in LocalisationFilesSteam)
+            if (keys.Values.Count > 0)
             {
-                DiffKeys(translationFile, FunctionUtility.FindCorrespondingTranslationFile(LocalisationFilesGerman, translationFile));
+                FileUtility.WriteLinesPushFrontTranslationIdentifier(keys.Values.ToList(), Path.Combine(_localisationFilePathAnalyze, fileName));
             }
-        }
-
-        private void DiffKeys(TranslationFile org, TranslationFile toVerify)
-        {
-            if (org == null)
+            else
             {
-                Log.Verbose("Parameter <org> must not be null!");
-                return;
+                FileUtility.WriteEmptyFileUTF8_BOM(Path.Combine(_localisationFilePathAnalyze, fileName));
             }
-
-            if (toVerify == null)
-            {
-                Log.Verbose("Parameter <toVerify> must not be null!");
-                return;
-            }
-
-            foreach (LineObject line in org.Lines.Values.ToList())
-            {
-                if (false == line.HasKey())
-                {
-                    continue;
-                }
-
-                if (false == DiffColorCodes(line, FunctionUtility.FindCorrespondingLineObject(toVerify.Lines.Values.ToList(), line)))
-                {
-                    Log.Information("Key not found: " + line.Key);
-                }
-            }
-        }
-
-        private bool DiffColorCodes(LineObject org, LineObject toVerify)
-        {
-            if (org == null)
-            {
-                Log.Verbose("Parameter <org> must not be null!");
-                return false;
-            }
-
-            if (toVerify == null)
-            {
-                Log.Verbose("Parameter <toVerify> must not be null!");
-                return false;
-            }
-
-            List<string> orgCopy = org.ColorCodes.ConvertAll(x => String.Copy(x));
-            List<string> toVerifyCopy = toVerify.ColorCodes.ConvertAll(x => String.Copy(x));
-
-            foreach (string item in toVerify.ColorCodes)
-            {
-                if (false == orgCopy.Contains(item))
-                {
-                    continue;
-                }
-                orgCopy.Remove(item);
-                toVerifyCopy.Remove(item);
-            }
-
-            if (orgCopy.Count > 0)
-            {
-                Log.Information(LoggerConstants.MAP_DIFF_COLOR_CODES + " ColorCodes not found in toVerify: " + org.Key + ": " + string.Join(",", orgCopy));
-            }
-
-            if (toVerifyCopy.Count > 0)
-            {
-                Log.Information(LoggerConstants.MAP_DIFF_COLOR_CODES + " ColorCodes wrong in toVerify: " + toVerify.Key + ": " + string.Join(",", toVerifyCopy));
-            }
-
             return true;
         }
-
-        private void DiffNestingStrings(List<TranslationFile> org, List<TranslationFile> toVerify)
+        private List<TranslationFile>? CreateFilesNoLongerInSteamExistent()
         {
-            ComparatorNestedString comparatorNestedString = new ComparatorNestedString();
-            foreach (TranslationFile file in org)
+            try
             {
-                TranslationFile correspondingTranslationFile = FunctionUtility.FindCorrespondingTranslationFile(toVerify, file);
-                if (correspondingTranslationFile == null)
+                return LocalisationFilesGerman.ExceptBy(
+                    LocalisationFilesSteam.Select(locFilesSteam => locFilesSteam.FileNameWithoutLocalisation.ToUpper()),
+                    locFilesGerman => locFilesGerman.FileNameWithoutLocalisation.ToUpper())
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex.Message);
+                return null;
+            }
+        }
+        private void RemoveFilesNoLongerInSteamExisting(List<TranslationFile>? filesToRemove)
+        {
+            if (filesToRemove == null)
+            {
+                return;
+            }
+
+            foreach (TranslationFile file in filesToRemove)
+            {
+                string fileNameToRemove = file.FileNameWithBasePath + Constants.EXTENSION_KEYS_TO_REMOVE;
+                if (File.Exists(fileNameToRemove))
                 {
-                    Log.Warning("### Corresponding translation file not found!");
-                    continue;
+                    File.Delete(fileNameToRemove);
                 }
-
-                List<LineObject> lineObjects = file.Lines.Values.ToList<LineObject>();
-                foreach (LineObject lineObject in lineObjects)
-                {
-                    LineObject correspondingLineObject = FunctionUtility.FindCorrespondingLineObject(correspondingTranslationFile.Lines.Values.ToList<LineObject>(), lineObject);
-                    if (correspondingLineObject == null)
-                    {
-                        Log.Verbose("Corresponding LineObject not found! " + lineObject.ToString());
-                        continue;
-                    }
-                    comparatorNestedString.Compare(lineObject.NestingStrings, correspondingLineObject.NestingStrings);
-                    if (true == comparatorNestedString.Ok())
-                    {
-                        continue;
-                    }
-
-                    List<string> onlyInToVerify = comparatorNestedString.OnlyInToVerify;
-                    List<string> onlyInOrg = comparatorNestedString.OnlyInOrg;
-
-                    if (onlyInToVerify.Count == 1 && onlyInOrg.Count == 1)
-                    {
-                        Log.Information("Change NestingString from " + onlyInToVerify[0] + " --> " + onlyInOrg[0] + ": Key: " + lineObject.Key);
-                        ChangeNestingString(onlyInToVerify[0], correspondingLineObject, onlyInOrg[0]);
-                        continue;
-                    }
-
-                    if( onlyInOrg.Count > onlyInToVerify.Count )
-                    {
-                        Log.Information("Missing in translation: " + string.Join(", ", onlyInOrg) +": Key: " + lineObject.Key);
-                        continue;
-                    }
-
-                    if (onlyInOrg.Count < onlyInToVerify.Count)
-                    {
-                        Log.Information("Unnecessary (to delete): " + string.Join(", ", onlyInOrg) + ": Key: " + lineObject.Key);
-                        continue;
-                    }
-                }
-
-                FileUtility.Write(correspondingTranslationFile);
+                File.Move(file.FileNameWithBasePath, fileNameToRemove);
             }
         }
 
-        private void ChangeNestingString( string nestingStringWrong, LineObject lineObject, string nestingStringToChange )
-        {
-            if( null == lineObject )
-            {
-                Log.Verbose("Parameter <LineObject::lineObject> must not be null!");
-                return;
-            }
-
-            if( false == lineObject.NestingStrings.Any() )
-            {
-                Log.Verbose("Parameter <LineObject::lineObject> has no nesting strings!");
-                return;
-            }
-
-            if ( true == string.IsNullOrEmpty(nestingStringToChange) ) 
-            {
-                Log.Verbose("Parameter <string::nestingStringToChange> must not be null or empty!");
-                return;
-            }
-
-            if (true == string.IsNullOrEmpty(nestingStringWrong))
-            {
-                Log.Verbose("Parameter <string::nestingStringWrong> must not be null or empty!");
-                return;
-            }
-
-            //TODO: 2025-06-12 - JHA - In separate Funktion auslagern
-            //TODO: 2025-06-12 - JHA - Fehler: Wenn mehrere nestringStrings in der falschen Reihenfolge vorhanden sind wird das nicht erkannt. Kann nicht immer korrigiert werden. Andere Satzstruktur im englischen!
-            int indexOfWring = lineObject.NestingStrings.IndexOf(nestingStringWrong);
-            if( indexOfWring == -1 )
-            {
-                Log.Verbose("Parameter <string::nestingStringWrong> not found in NestingString: " +string.Join(", ", lineObject.NestingStrings));
-                return;
-            }
-            lineObject.NestingStrings[indexOfWring] = nestingStringToChange;
-            lineObject.OriginalLine = lineObject.OriginalLine.Replace(StringParserFactory.NESTING_STRINGS_START +nestingStringWrong + StringParserFactory.NESTING_STRINGS_END, StringParserFactory.NESTING_STRINGS_START +nestingStringToChange + StringParserFactory.NESTING_STRINGS_END);
-            Log.Information("Changed nesting string from " + nestingStringWrong + " to " + nestingStringToChange);
-        }
     }
 }

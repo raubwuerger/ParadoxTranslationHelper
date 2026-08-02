@@ -51,6 +51,10 @@ namespace ParadoxTranslationHelper
             return toString;
         }
 
+        public static string PadLeft_6_0( int value )
+        {
+            return value.ToString("000000");
+        }
         public static string GetSubstitutedLineTabbed(LineObject lineObject)
         {
             if (lineObject.OriginalLineSubstituted == null)
@@ -78,32 +82,37 @@ namespace ParadoxTranslationHelper
                 return lineObject.OriginalLineSubstituted;
             }
 
-            if ( true == lineObject.OriginalLineSubstituted.Contains(Constants.SIGN_TAB) )
+            if ( true == lineObject.OriginalLineSubstituted.Contains(Constants.SIGN_TABULATOR) )
             {
                 return lineObject.OriginalLineSubstituted;
             }
 
-            int indexOfKay = lineObject.OriginalLineSubstituted.IndexOf(lineObject.Key);
-            int endOfKey = indexOfKay +lineObject.Key.Length;
-
-            //Remove space after key.
-            if( lineObject.OriginalLineSubstituted[endOfKey] == ' ' )
+            int indexOfKey = lineObject.OriginalLineSubstituted.IndexOf(lineObject.Key);
+            int endOfKey = indexOfKey +lineObject.Key.Length;
+            if( endOfKey >= lineObject.OriginalLineSubstituted.Length )
             {
-                endOfKey++;
+                endOfKey = lineObject.OriginalLineSubstituted.Length - 1;
+            }
+            else
+            {
+                if (lineObject.OriginalLineSubstituted[endOfKey] == ' ')
+                {
+                    endOfKey++;
+                }
             }
 
             StringBuilder sb = new StringBuilder();
             sb.Append(lineObject.Key);
-            sb.Append(Constants.SIGN_TAB);
+            sb.Append(Constants.SIGN_TABULATOR);
             sb.Append(lineObject.OriginalLineSubstituted.Substring(endOfKey));
             lineObject.OriginalLineSubstituted = sb.ToString();
 
             return lineObject.OriginalLineSubstituted;
         }
 
-        public static string ReplaceWithAnalyseDirectory(TranslationFile translationFile )
+        public static string GetPathReplacedWithAnalysePath(TranslationFile translationFile )
         {
-            string fullPath = Path.GetDirectoryName(translationFile.FileName);
+            string fullPath = Path.GetDirectoryName(translationFile.FileNameWithBasePath);
             DirectoryInfo directoryInfo = Directory.GetParent(fullPath);
             string analysePath = Path.Combine(directoryInfo.FullName, ParadoxTranslationHelperConfig.PathResult);
 
@@ -117,7 +126,7 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            return translationFile.FileName.Replace(Constants.LOCALISATION_ENGLISH, Constants.LOCALISATION_GERMAN);
+            return translationFile.FileNameWithBasePath.Replace(Constants.LOCALISATION_ENGLISH, Constants.LOCALISATION_GERMAN);
         }
 
         public static TranslationFile ConvertToGerman(TranslationFile translationFile)
@@ -130,7 +139,7 @@ namespace ParadoxTranslationHelper
 
             TranslationFileCreator translationFileCreator = new();
 
-            TranslationFile translationConverted = translationFileCreator.CopyExceptFileName(ConvertLocalisationToGerman(translationFile.FileName), translationFile);
+            TranslationFile translationConverted = translationFileCreator.CopyExceptFileName(ConvertLocalisationToGerman(translationFile.FileNameWithBasePath), translationFile);
             translationConverted = ConvertFileContentIdentifierToGerman(translationConverted);
 
             return translationConverted;
@@ -301,6 +310,34 @@ namespace ParadoxTranslationHelper
             }
 
             return line.Substring(0, lastIndex);
+        }
+
+        public static int CountStringOccurrences(string text, string pattern)
+        {
+            if( true == string.IsNullOrEmpty(text) )
+            {
+                return -1;
+            }
+
+            if (true == string.IsNullOrEmpty(pattern))
+            {
+                return -1;
+            }
+
+            if( pattern.Length > text.Length )
+            {
+                return -1;
+            }
+
+            int count = 0;
+            int i = 0;
+            while ((i = text.IndexOf(pattern, i)) != -1)
+            {
+                i += pattern.Length;
+                count++;
+            }
+
+            return count;
         }
 
     }

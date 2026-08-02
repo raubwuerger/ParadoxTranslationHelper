@@ -17,30 +17,18 @@ namespace ParadoxTranslationHelper
 
             functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
             functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
+
+            return functionObject;
+        }
+        public static IFunctionObject? CreateKeysDiff()
+        {
+            FunctionObjectDiffKeys functionObject = new FunctionObjectDiffKeys(FunctionTypes.DiffKeys);
+            functionObject.Description = "Diffs keys content (colors, icons, nested strings, namespaces ) file by file";
+
+            functionObject.LocalisationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.LocalisationFilePathSteam = ParadoxTranslationHelperConfig.PathSteam;
+            functionObject.LocalisationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
             functionObject.FileNameMissingKeys = Constants.FILE_NAME_STEAM_MISSING_KEYS;
-            functionObject.FileNameKeysToDelete = Constants.FILE_NAME_STEAM_TO_DELETE_KEYS;
-
-            return functionObject;
-        }
-        public static IFunctionObject? CreateRemoveKeys()
-        {
-            FunctionObjectRemoveKeys functionObject = new FunctionObjectRemoveKeys(FunctionTypes.RemoveKeys);
-            functionObject.Description = "Deletes keys no longer available";
-
-            functionObject.LocalizationFileNameKeysToDelete = Path.Combine(ParadoxTranslationHelperConfig.PathResult, Constants.FILE_NAME_STEAM_TO_DELETE_KEYS);
-            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
-            functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
-
-            return functionObject;
-        }
-        public static IFunctionObject? CreateInsertKeys()
-        {
-            FunctionObjectInsertKeys functionObject = new FunctionObjectInsertKeys(FunctionTypes.Insert);
-            functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
-
-            functionObject.LocalizationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman());
-            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
-            functionObject.LocalizationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
 
             return functionObject;
         }
@@ -50,25 +38,45 @@ namespace ParadoxTranslationHelper
             FunctionObjectSubstitute functionObject = new FunctionObjectSubstitute(FunctionTypes.Sub);
             functionObject.Description = "substitute translation file in folder analysis (MissingTranslationKeysSteam)";
 
-            functionObject.TranslationFileToIgnore = Constants.FILE_NAME_STEAM_TO_DELETE_KEYS_WITHOUT_EXTENSION;
             functionObject.PathToSubstitute = ParadoxTranslationHelperConfig.PathResult;
             functionObject.SubstituteAgainstSteam = true;
 
             return functionObject;
         }
-
-        public static IFunctionObject? CreateSteamResubstitute()
+        public static IFunctionObject? CreateLineCorrector()
         {
-            FunctionObjectReSubstitute functionObject = new FunctionObjectReSubstitute(FunctionTypes.Resub);
-            functionObject.Description = "resubstitute translation file in folder analysis (MissingTranslationKeysSteam)";
+            FunctionObjectLineCorrector functionObject = new FunctionObjectLineCorrector(FunctionTypes.LineCorrector);
+            functionObject.Description = "tries to correct substitute translation file in folder analysis (MissingTranslationKeysSteam) by Key and quotation marks";
 
             functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
-            functionObject.TranslationFileNameDiff = Constants.FILE_NAME_STEAM_MISSING_KEYS;
             functionObject.TranslationFileNameSub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffSubGerman());
-            functionObject.TranslationFileNameResub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman() );
 
             return functionObject;
         }
+
+        public static IFunctionObject? CreateLineCorrectorSubstitute()
+        {
+            FunctionObjectLineCorrectorSubstitute functionObject = new FunctionObjectLineCorrectorSubstitute(FunctionTypes.LineCorrectorSubstitute);
+            functionObject.Description = "tries to correct substitute translation file in folder analysis (MissingTranslationKeysSteam) by substitute files IC, CC, NE, NL, NS";
+
+            functionObject.PathToReSubstitute = ParadoxTranslationHelperConfig.PathResult;
+            functionObject.TranslationFileNameSub = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameDiffResubGerman());
+
+            return functionObject;
+        }
+        public static IFunctionObject? CreateInsertKeys()
+        {
+            FunctionObjectInsertKeys functionObject = new FunctionObjectInsertKeys(FunctionTypes.Insert);
+            functionObject.Description = "Inserts keys into german translation files.";
+
+            functionObject.LocalisationFileNameKeysToCreate = Path.Combine(ParadoxTranslationHelperConfig.PathResult, CreateFileNameCorrectedCorrected());
+            functionObject.LocalisationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.LocalisationFilePathAnalyze = ParadoxTranslationHelperConfig.PathResult;
+
+            return functionObject;
+        }
+
+
 
 
         public static IFunctionObject? CreateCheckForDoubleKeys()
@@ -106,17 +114,6 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
-        public static IFunctionObject? CreateKeysDiff()
-        {
-            FunctionObjectDiffKeys functionObject = new FunctionObjectDiffKeys(FunctionTypes.DiffKeys);
-            functionObject.Description = "Diffs keys content (colors, icons, nested strings, namespaces ) file by file";
-
-            functionObject.LocalizationFilePathGerman = ParadoxTranslationHelperConfig.PathGerman;
-            functionObject.LocalizationFilePathSteam = ParadoxTranslationHelperConfig.PathSteam;
-
-            return functionObject;
-        }
-
         public static IFunctionObject? CreateAnalyse()
         {
             FunctionObjectAnalyse functionObject = new FunctionObjectAnalyse(FunctionTypes.Analyse);
@@ -128,11 +125,25 @@ namespace ParadoxTranslationHelper
             return functionObject;
         }
 
-        private static string CreateFileNameDiffResubGerman()
+        public static IFunctionObject? CreateValidate()
         {
-            return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_RESUBSTITUTED;
+            FunctionObjectValidate functionObject = new FunctionObjectValidate(FunctionTypes.Validate);
+            functionObject.Description = "Checks for multiple keys and sorts them according to original order.";
+
+            functionObject.PathGerman = ParadoxTranslationHelperConfig.PathGerman;
+            functionObject.PathSteam = ParadoxTranslationHelperConfig.PathSteam;
+            return functionObject;
         }
 
+        private static string CreateFileNameDiffResubGerman()
+        {
+            return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_CORRECTED;
+        }
+
+        private static string CreateFileNameCorrectedCorrected()
+        {
+            return CreateFileNameDiffSubGerman() + FileSubstitutionConstants.FILE_SUFFIX_CORRECTED + FileSubstitutionConstants.FILE_SUFFIX_CORRECTED;
+        }
         private static string CreateFileNameDiffSubGerman()
         {
             return CreateFileNameDiffSub() + FileSubstitutionConstants.FILE_SUFFIX_GERMAN;

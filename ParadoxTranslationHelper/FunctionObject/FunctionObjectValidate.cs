@@ -1,19 +1,18 @@
-﻿using ParadoxTranslationHelper.Utilities;
+﻿using ParadoxTranslationHelper.Helper;
+using ParadoxTranslationHelper.Utilities;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Serilog;
 
 namespace ParadoxTranslationHelper
 {
     public class FunctionObjectValidate : FunctionObjectBase
     {
-        string _pathEnglish;
         string _pathGerman;
         string _pathSteam;
 
-        public string PathEnglish { get => _pathEnglish; set => _pathEnglish = value; }
         public string PathGerman { get => _pathGerman; set => _pathGerman = value; }
         public string PathSteam { get => _pathSteam; set => _pathSteam = value; }
 
@@ -23,12 +22,6 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
-            if( true == string.IsNullOrEmpty(_pathEnglish) )
-            {
-                Log.Verbose("Member <PathEnglish> must not be null or empty!");
-                return false;
-            }
-
             if (true == string.IsNullOrEmpty(_pathGerman))
             {
                 Log.Verbose("Member <PathGerman> must not be null or empty!");
@@ -41,285 +34,51 @@ namespace ParadoxTranslationHelper
                 return false;
             }
 
-            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathEnglish);
             LocalisationFilesSteam = FileUtility.CreateTranslationFilesFromDirectory(_pathSteam);
             LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_pathGerman);
 
-            CheckTranslationFilesMissingUpdate();
-            CheckTranslationFilesDeletedUpdate();
+            Sort();
 
-            CheckMissingTranslationFile();
-            CheckMissingKeys();
-
-
-            return false;
+            return true;
         }
 
-        private void CheckTranslationFilesMissingUpdate()
+        private void Sort()
         {
-            if (false == LocalisationFilesSteam.Any() || false == LocalisationFilesGerman.Any())
+            foreach( TranslationFile translationFile in LocalisationFilesSteam )
             {
-                Log.Verbose("No translation files found!");
-                return;
+                TranslationFile? found = FunctionUtility.FindCorrespondingTranslationFile(LocalisationFilesGerman, translationFile);
+                if( null == found )
+                {
+                    Log.Warning($"Corresponding german translation file not found! {translationFile.FileNameWithBasePath}");
+                    continue;
+                }
+
+                MultipleKeyRemover multipleKeyRemover = new MultipleKeyRemover();
+                Dictionary<int, LineObject> withoutMultipleKeys = multipleKeyRemover.RemoveMultipleKeys(translationFile.Lines);
+
+                KeySorter keySorter = new KeySorter();
+                keySorter.OriginalKeys = translationFile.Lines;
+                keySorter.TranslatedKeys = found.Lines;
+                if( false == keySorter.Sort() )
+                {
+                    Log.Warning("Keys mismatch");
+                }
+
+                found.Lines = DictionaryHelper.ConvertDictionary(keySorter.SortedKeys);
+                BackupOriginalFile(found);
+                SaveSortedFile(found);
             }
 
-            Log.Verbose("Following transtlation files are no more existant in update: " + Path.GetFullPath(LocalisationFilesSteam[0].FileName) + Environment.NewLine);
-            List<string> localisationFileNamesEnglish = LocalisationFilesGerman.ConvertAll(s => s.FileNameWithoutLocalisation);
-            List<string> localisationFileNamesEnglishUpdated = LocalisationFilesSteam.ConvertAll(s => s.FileNameWithoutLocalisation);
-            List<string> missingTranslationFiles = localisationFileNamesEnglish.Except(localisationFileNamesEnglishUpdated).ToList<string>();
-
-            if (missingTranslationFiles.Count > 0)
-            {
-                foreach (string translationFile in missingTranslationFiles)
-                {
-                    Log.Verbose(translationFile + Environment.NewLine);
-                }
-            }
         }
 
-        private void CheckTranslationFilesDeletedUpdate()
+        private bool SaveSortedFile( TranslationFile translationFile )
         {
-            if (false == LocalisationFilesSteam.Any() || false == LocalisationFilesGerman.Any())
-            {
-                Log.Verbose("No translation files found!");
-                return;
-            }
-
-            Log.Verbose("Following transtlation files are new in update: " + Path.GetFullPath(LocalisationFilesSteam[0].FileName) + Environment.NewLine);
-            List<string> localisationFileNamesEnglish = LocalisationFilesGerman.ConvertAll(s => s.FileNameWithoutLocalisation);
-            List<string> localisationFileNamesEnglishUpdated = LocalisationFilesSteam.ConvertAll(s => s.FileNameWithoutLocalisation);
-            List<string> translationFilesToDelete = localisationFileNamesEnglishUpdated.Except(localisationFileNamesEnglish).ToList<string>();
-
-            foreach (string translationFile in translationFilesToDelete)
-            {
-                Log.Verbose(translationFile + Environment.NewLine);
-            }
+            return FileUtility.Write(translationFile, translationFile.FileNameWithBasePath);
         }
 
-        private void CheckMissingTranslationFile()
+        private bool BackupOriginalFile( TranslationFile translationFile )
         {
-            List<string> localisationFileNamesEnglish = LocalisationFilesGerman.ConvertAll(s => s.FileNameWithoutLocalisation);
-            List<string> localisationFileNamesGerman = LocalisationFilesGerman.ConvertAll(s => s.FileNameWithoutLocalisation);
-            List<string> missingTranslationFiles = localisationFileNamesEnglish.Except(localisationFileNamesGerman).ToList<string>();
-
-            if (missingTranslationFiles.Count > 0)
-            {
-                Log.Verbose("Following transtlation files are missing:" + Environment.NewLine);
-                foreach (string translationFile in missingTranslationFiles)
-                {
-                    Log.Verbose(translationFile + Environment.NewLine);
-                }
-            }
+            return FileUtility.BackupFile(translationFile.FileNameWithBasePath);
         }
-
-        private void CheckMissingKeys()
-        {
-            DataSetLineObjectCompare dataSetLineObjectCompareEnglish = CreateDataSetLineObjectMultipleKeys(LocalisationFilesGerman);
-            DataSetLineObjectCompare dataSetLineObjectCompareGerman = CreateDataSetLineObjectMultipleKeys(LocalisationFilesGerman);
-
-            LogMissingKeys(dataSetLineObjectCompareEnglish.keysUnique, dataSetLineObjectCompareGerman.keysUnique);
-            LogMissingNamespaces(dataSetLineObjectCompareEnglish.keysUnique, dataSetLineObjectCompareGerman.keysUnique);
-            LogMissingNestingStrings(dataSetLineObjectCompareEnglish.keysUnique, dataSetLineObjectCompareGerman.keysUnique);
-
-            LogMultipleKeys(dataSetLineObjectCompareEnglish.keysMultiple);
-            LogMultipleKeys(dataSetLineObjectCompareGerman.keysMultiple);
-        }
-
-        private DataSetLineObjectCompare CreateDataSetLineObjectMultipleKeys(List<TranslationFile> localisation)
-        {
-            DataSetLineObjectCompare dataSetLineObjectCompare = new DataSetLineObjectCompare();
-
-            foreach (TranslationFile translationFile in localisation)
-            {
-                foreach (var item in translationFile.Lines)
-                {
-                    if (true == string.IsNullOrWhiteSpace(item.Value.Key))
-                    {
-                        continue;
-                    }
-
-                    if (true == dataSetLineObjectCompare.keysUnique.ContainsKey(item.Value.Key))
-                    {
-                        dataSetLineObjectCompare.keysMultiple.Add(item.Value);
-                    }
-                    else
-                    {
-                        dataSetLineObjectCompare.keysUnique.Add(item.Value.Key, item.Value);
-                    }
-                }
-            }
-            return dataSetLineObjectCompare;
-        }
-
-        private void LogMultipleKeys(List<LineObject> keysMultiple)
-        {
-            Log.Verbose(">>>>> Keys existing multiple times <<<<<");
-            keysMultiple.ForEach(key => { Log.Verbose(key.TranslationFile + ": " + key.Key + ":" + key.LineNumber); });
-            Log.Verbose(Environment.NewLine);
-        }
-
-        private void LogMissingKeys(Dictionary<string, LineObject> keysBase, Dictionary<string, LineObject> keysShould)
-        {
-            Log.Verbose(">>>>> Missing keys <<<<<");
-            List<LineObject> missingKeys = new List<LineObject>();
-            keysBase.ToList().ForEach
-            (
-                pair =>
-                {
-                    if (false == keysShould.ContainsKey(pair.Key))
-                    {
-                        missingKeys.Add(pair.Value);
-                    }
-                }
-            );
-
-            missingKeys.ForEach(keys => Log.Verbose(keys.Key));
-            Log.Verbose(Environment.NewLine);
-        }
-
-        private void LogMissingNamespaces(Dictionary<string, LineObject> dictionaryEnglish, Dictionary<string, LineObject> dictionaryGerman)
-        {
-            Log.Verbose(">>>>> Missing namespaces [] <<<<<");
-            List<LineObject> missingNamespacesGerman = new List<LineObject>();
-            List<LineObject> missingNamespacesEnglish = new List<LineObject>();
-
-            dictionaryEnglish.ToList().ForEach
-            (
-                pair =>
-                {
-                    if (true == dictionaryGerman.ContainsKey(pair.Key))
-                    {
-                        LineObject lineObject = new LineObject(0);
-
-                        if (true == dictionaryGerman.TryGetValue(pair.Key, out lineObject))
-                        {
-                            List<string> missingGermanNamespaces = pair.Value.NameSpaces.Except(lineObject.NameSpaces, StringComparer.OrdinalIgnoreCase).ToList();
-                            if (missingGermanNamespaces.Count > 0)
-                            {
-                                missingNamespacesGerman.Add(CreateLineObjectMissingNamespaces(missingGermanNamespaces, pair));
-                            }
-
-                            List<string> missingEnglishNamespaces = lineObject.NameSpaces.Except(pair.Value.NameSpaces, StringComparer.OrdinalIgnoreCase).ToList();
-                            if (missingEnglishNamespaces.Count > 0)
-                            {
-                                missingNamespacesEnglish.Add(CreateLineObjectMissingNamespaces(missingEnglishNamespaces, pair));
-                            }
-                        }
-                    }
-                }
-            );
-
-            string translationFileName = "";
-            Log.Verbose(">>>>> Missing Namespaces [] german <<<<<");
-            missingNamespacesGerman.ForEach
-            (
-                item =>
-                {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        translationFileName = item.TranslationFile.FileName;
-                        Log.Verbose(translationFileName);
-                    }
-                    Log.Verbose(item.Key + " (" + item.LineNumber + "): " + string.Join(", ", item.NameSpaces));
-                }
-            );
-
-            Log.Verbose(">>>>> Missing Namespaces [] english <<<<<");
-            missingNamespacesEnglish.ForEach
-            (
-                item =>
-                {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        translationFileName = item.TranslationFile.FileName;
-                        Log.Verbose(translationFileName);
-                    }
-                    Log.Verbose(item.Key + " (" + item.LineNumber + "): " + string.Join(", ", item.NameSpaces));
-                }
-            );
-        }
-
-        private void LogMissingNestingStrings(Dictionary<string, LineObject> dictionaryEnglish, Dictionary<string, LineObject> dictionaryGerman)
-        {
-            Log.Verbose(">>>>> Missing NestingStrings $$ <<<<<");
-            List<LineObject> missingNestingStringsGerman = new List<LineObject>();
-            List<LineObject> missingNestingStringsEnglish = new List<LineObject>();
-
-            dictionaryEnglish.ToList().ForEach
-            (
-                pair =>
-                {
-                    if (true == dictionaryGerman.ContainsKey(pair.Key))
-                    {
-                        LineObject lineObject = new LineObject(0);
-
-                        if (true == dictionaryGerman.TryGetValue(pair.Key, out lineObject))
-                        {
-                            List<string> missingGermanNestingStrings = pair.Value.NestingStrings.Except(lineObject.NestingStrings, StringComparer.OrdinalIgnoreCase).ToList();
-                            if (missingGermanNestingStrings.Count > 0)
-                            {
-                                missingNestingStringsGerman.Add(CreateLineObjectMissingNestingStrings(missingGermanNestingStrings, pair));
-                            }
-
-                            List<string> missingEnglishNestingStrings = lineObject.NestingStrings.Except(pair.Value.NestingStrings, StringComparer.OrdinalIgnoreCase).ToList();
-                            if (missingEnglishNestingStrings.Count > 0)
-                            {
-                                missingNestingStringsEnglish.Add(CreateLineObjectMissingNestingStrings(missingEnglishNestingStrings, pair));
-                            }
-                        }
-                    }
-                }
-            );
-
-            string translationFileName = "";
-            Log.Verbose(">>>>> Missing NestingStrings $$ german <<<<<");
-            missingNestingStringsGerman.ForEach
-            (
-                item =>
-                {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        translationFileName = item.TranslationFile.FileName;
-                        Log.Verbose(translationFileName);
-                    }
-                    Log.Verbose(item.Key + " (" + item.LineNumber + "): " + string.Join(", ", item.NestingStrings));
-                }
-            );
-
-            Log.Verbose(">>>>> Missing NestingStrings $$ english <<<<<");
-            missingNestingStringsEnglish.ForEach
-            (
-                item =>
-                {
-                    if (false == translationFileName.Equals(item.TranslationFile.FileName, StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        translationFileName = item.TranslationFile.FileName;
-                        Log.Verbose(translationFileName);
-                    }
-                    Log.Verbose(item.Key + " (" + item.LineNumber + "): " + string.Join(", ", item.NestingStrings));
-                }
-            );
-        }
-
-        private LineObject CreateLineObjectMissingNestingStrings(List<string> missingEnglishNestingStrings, KeyValuePair<string, LineObject> pair)
-        {
-            LineObject missingLineObject = new LineObject(pair.Value.LineNumber);
-            missingLineObject.NameSpaces = pair.Value.NameSpaces;
-            missingLineObject.TranslationFile = pair.Value.TranslationFile;
-            missingLineObject.Key = pair.Key;
-            missingLineObject.NestingStrings = missingEnglishNestingStrings;
-            return missingLineObject;
-        }
-
-        private LineObject CreateLineObjectMissingNamespaces(List<string> missingEnglishNamespaces, KeyValuePair<string, LineObject> pair)
-        {
-            LineObject missingLineObject = new LineObject(pair.Value.LineNumber);
-            missingLineObject.NameSpaces = missingEnglishNamespaces;
-            missingLineObject.TranslationFile = pair.Value.TranslationFile;
-            missingLineObject.Key = pair.Key;
-            missingLineObject.NestingStrings = pair.Value.NestingStrings;
-            return missingLineObject;
-        }
-
     }
 }

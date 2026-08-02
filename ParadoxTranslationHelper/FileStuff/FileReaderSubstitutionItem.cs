@@ -1,4 +1,5 @@
 ﻿using ParadoxTranslationHelper.Helper;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,6 +22,13 @@ namespace ParadoxTranslationHelper
         {
             if (_fileName == null)
             {
+                Log.Warning("Parameter <FileName> must not be null!");
+                return new Dictionary<string, string>();
+            }
+
+            if( false == File.Exists(_fileName) )
+            {
+                Log.Warning($"Parameter <FileName={FileName}> not found!");
                 return new Dictionary<string, string>();
             }
 

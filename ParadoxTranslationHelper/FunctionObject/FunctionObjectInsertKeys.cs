@@ -11,13 +11,15 @@ namespace ParadoxTranslationHelper
 {
     public class FunctionObjectInsertKeys : FunctionObjectBase
     {
-        private string _localizationFileNameKeysToCreate;
-        private string _localizationFilePathGerman;
-        private string _localizationFilePathAnalyze;
+        private string _localisationFileNameKeysToCreate;
+        private string _localisationFilePathGerman;
+        private string _localisationFilePathAnalyze;
+        private string _localisationFilePathSteam;
 
-        public string LocalizationFileNameKeysToCreate { get => _localizationFileNameKeysToCreate; set => _localizationFileNameKeysToCreate = value; }
-        public string LocalizationFilePathGerman { get => _localizationFilePathGerman; set => _localizationFilePathGerman = value; }
-        public string LocalizationFilePathAnalyze { get => _localizationFilePathAnalyze; set => _localizationFilePathAnalyze = value; }
+        public string LocalisationFileNameKeysToCreate { get => _localisationFileNameKeysToCreate; set => _localisationFileNameKeysToCreate = value; }
+        public string LocalisationFilePathGerman { get => _localisationFilePathGerman; set => _localisationFilePathGerman = value; }
+        public string LocalisationFilePathAnalyze { get => _localisationFilePathAnalyze; set => _localisationFilePathAnalyze = value; }
+        public string LocalisationFilePathSteam { get => _localisationFilePathSteam; set => _localisationFilePathSteam = value; }
 
         public FunctionObjectInsertKeys(string name) : base(name)
         {
@@ -25,31 +27,31 @@ namespace ParadoxTranslationHelper
 
         public override bool DoWork()
         {
-            if (true == string.IsNullOrEmpty(_localizationFileNameKeysToCreate))
+            if (true == string.IsNullOrEmpty(_localisationFileNameKeysToCreate))
             {
-                Log.Verbose("Member <LocalizationFileNameKeysToCreate> must not be null!");
+                Log.Verbose("Member <LocalisationFileNameKeysToCreate> must not be null!");
                 return false;
             }
 
-            if (true == string.IsNullOrEmpty(_localizationFilePathGerman))
+            if (true == string.IsNullOrEmpty(_localisationFilePathGerman))
             {
-                Log.Verbose("Member <LocalizationFilePathGerman> must not be null!");
+                Log.Verbose("Member <LocalisationFilePathGerman> must not be null!");
                 return false;
             }
 
-            if (true == string.IsNullOrEmpty(_localizationFilePathAnalyze))
+            if (true == string.IsNullOrEmpty(_localisationFilePathAnalyze))
             {
-                Log.Verbose("Member <LocalizationFilePathAnalyze> must not be null!");
+                Log.Verbose("Member <LocalisationFilePathAnalyze> must not be null!");
                 return false;
             }
 
-            if( false == Directory.Exists(_localizationFilePathGerman)) 
+            if( false == Directory.Exists(_localisationFilePathGerman)) 
             {
-                Log.Warning("File doesn't exist: " + _localizationFilePathGerman);
+                Log.Warning("File doesn't exist: " + _localisationFilePathGerman);
                 return false;
             }
 
-            List<TranslationFile> keysToInsert = FunctionUtility.LoadFileAndCreateKeys(_localizationFileNameKeysToCreate);
+            List<TranslationFile> keysToInsert = FunctionUtility.LoadFileAndCreateKeys(_localisationFileNameKeysToCreate);
             if( keysToInsert == null )
             {
                 return false;
@@ -57,25 +59,55 @@ namespace ParadoxTranslationHelper
 
             if( keysToInsert.Count == 0 )
             { 
-                Log.Warning("File doesn't contain keys to insert: " + _localizationFileNameKeysToCreate);
+                Log.Warning("File doesn't contain keys to insert: " + _localisationFileNameKeysToCreate);
                 return false; 
             }   
 
-            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localizationFilePathGerman);
+            LocalisationFilesGerman = FileUtility.CreateTranslationFilesFromDirectory(_localisationFilePathGerman);
             if( LocalisationFilesGerman == null )
             {
-                Log.Warning("Directory invalid: " + _localizationFilePathGerman);
+                Log.Warning($"Directory contains no translation files: {_localisationFilePathGerman}");
                 return false;
             }
 
             List<TranslationFile> updatedFiles = CreateUpdateFiles(keysToInsert);
             foreach (TranslationFile file in updatedFiles) 
             {
-                FileUtility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileName);
+                FileUtility.WriteLines(file.Lines.Values.ToList<LineObject>(), file.FileNameWithBasePath);
             }
 
             return true;
         }
+
+        private List<TranslationFile> CreateUpdateFiles(List<TranslationFile> missingKeysToInsert)
+        {
+            List<TranslationFile> updatedFiles = new List<TranslationFile>();
+            foreach (TranslationFile translationFile in missingKeysToInsert)
+            {
+                TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
+                if (translationKeysToInsert == null)
+                {
+                    Log.Warning("File to insert not found! " + translationFile.FileNameWithBasePath);
+                    translationKeysToInsert = CreateMissingTranslationFile(translationFile);
+                    if (null == translationKeysToInsert)
+                    {
+                        continue;
+                    }
+                    AddMissingTranslationKeys(translationKeysToInsert, translationFile.Lines);
+                }
+
+                TranslationFile toInsert = InsertInto(translationKeysToInsert, translationFile);
+                if (null == toInsert)
+                {
+                    continue;
+                }
+
+                updatedFiles.Add(toInsert);
+            }
+
+            return updatedFiles;
+        }
+
 
         private TranslationFile InsertInto( TranslationFile original,  TranslationFile missing )
         {
@@ -101,9 +133,9 @@ namespace ParadoxTranslationHelper
                 return null;
             }
 
-            string fileName = missing.FileName;
+            string fileName = missing.FileNameWithBasePath;
 
-            FileUtility.Write(original, Path.Combine(LocalizationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.FILE_BACKUP_EXTENSION));
+            FileUtility.Write(original, Path.Combine(LocalisationFilePathAnalyze, original.FileNameWithoutLocalisation +Constants.LOCALISATION_GERMAN_FULL + Constants.EXTENSION_FILE_BACKUP));
 
             RemoveTranslationFileIdentifier(original.Lines);
 
@@ -117,43 +149,22 @@ namespace ParadoxTranslationHelper
                 original.Lines.Add( newLineNumber, new LineObject( newLineNumber, line.Value ) );
             }
 
+            Log.Information($"Added {missing.Lines.Count} lines to file {original.FileName}");
             return original;
-        }
-
-        private List<TranslationFile> CreateUpdateFiles( List<TranslationFile> missingKeysToInsert)
-        {
-            List<TranslationFile> updatedFiles = new List<TranslationFile>();
-            foreach (TranslationFile translationFile in missingKeysToInsert)
-            {
-                TranslationFile translationKeysToInsert = LocalisationFilesGerman.Find(x => x.FileNameWithoutLocalisation.Equals(translationFile.FileNameWithoutLocalisation));
-                if (translationKeysToInsert == null)
-                {
-                    Log.Warning("File to insert not found! " + translationFile.FileName);
-                    translationKeysToInsert = CreateMissingTranslationFile(translationFile);
-                    if (null == translationKeysToInsert)
-                    {
-                        continue;
-                    }
-                    AddMissingTranslationKeys(translationKeysToInsert, translationFile.Lines);
-                }
-                updatedFiles.Add(InsertInto(translationKeysToInsert, translationFile));
-            }
-
-            return updatedFiles;
         }
 
         private TranslationFile CreateMissingTranslationFile( TranslationFile missing )
         {
-            string fileNameOnly = Path.GetFileName(missing.FileName);
-            string filePath = Path.Combine(_localizationFilePathGerman, fileNameOnly.Replace(Constants.LOCALISATION_ENGLISH_FULL, Constants.LOCALISATION_GERMAN_FULL));
+            string fileNameOnly = Path.GetFileName(missing.FileNameWithBasePath);
+            string filePath = Path.Combine(_localisationFilePathGerman, fileNameOnly.Replace(Constants.LOCALISATION_ENGLISH_FULL, Constants.LOCALISATION_GERMAN_FULL));
             TranslationFile toCreate = TranslationFileCreator.CreateEmpty(filePath);
             toCreate.Lines.Add( 0, LineObjectCreator.CreateLineObjectLanguageIdentifierGerman());
             if ( false == FileUtility.Write(toCreate) )
             {
-                Log.Warning("Unable to create file! " + toCreate.FileName);
+                Log.Warning("Unable to create file! " + toCreate.FileNameWithBasePath);
                 return null;
             }
-            Log.Information("Created file: " + toCreate.FileName);
+            Log.Information("Created file: " + toCreate.FileNameWithBasePath);
             return toCreate;
         }
 

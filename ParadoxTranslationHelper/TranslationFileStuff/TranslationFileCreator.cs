@@ -1,13 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using ParadoxTranslationHelper.Helper;
 using Serilog;
 
 namespace ParadoxTranslationHelper
 {
     internal class TranslationFileCreator
     {
+        IStringParser _stringParserKey = null;
+        IStringParser _stringParserNamespaces = null;
+        IStringParser _stringParserNestingStrings = null;
+        IStringParser _stringParserIcons = null;
+        IStringParser _stringParserNewLine = null;
+        IStringParser _stringParserColorCodes = null;
+        IStringParser _stringParserTabulator = null;
+
         LineObjectCreator _lineObjectCreator = new LineObjectCreator();
+
+        public IStringParser StringParserKey { get => _stringParserKey; set => _stringParserKey = value; }
+        public IStringParser StringParserNamespaces { get => _stringParserNamespaces; set => _stringParserNamespaces = value; }
+        public IStringParser StringParserNestingStrings { get => _stringParserNestingStrings; set => _stringParserNestingStrings = value; }
+        public IStringParser StringParserIcons { get => _stringParserIcons; set => _stringParserIcons = value; }
+        public IStringParser StringParserNewLine { get => _stringParserNewLine; set => _stringParserNewLine = value; }
+        public IStringParser StringParserColorCodes { get => _stringParserColorCodes; set => _stringParserColorCodes = value; }
+        public IStringParser StringParserTabulator { get => _stringParserTabulator; set => _stringParserTabulator = value; }
+
         public TranslationFile? Create(string completeFileName)
         {
             if (string.IsNullOrEmpty(completeFileName))
@@ -48,17 +66,11 @@ namespace ParadoxTranslationHelper
         /**
          * First entry must contain filename
          */
-        public TranslationFile Create(List<string> lines)
+        public TranslationFile? Create(List<string> lines)
         {
-            if( lines == null ) 
+            if( false == IsInitialzed(lines) )
             {
-                Log.Verbose("Parameter <lines> must not be null!");
-                return null;
-            }
-
-            if (lines.Count == 0)
-            {
-                Log.Verbose("Parameter <lines> must not be empty!");
+                Log.Warning("Not correct initialized!");
                 return null;
             }
 
@@ -81,12 +93,71 @@ namespace ParadoxTranslationHelper
             return translationFile;
         }
 
+        private bool IsInitialzed(List<string> lines)
+        {
+            if (lines == null)
+            {
+                Log.Verbose("Parameter <lines> must not be null!");
+                return false;
+            }
+
+            if (lines.Count == 0)
+            {
+                Log.Verbose("Parameter <lines> must not be empty!");
+                return false;
+            }
+
+            if (null == StringParserKey)
+            {
+                Log.Debug($"Member <StringParserKey> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserNamespaces)
+            {
+                Log.Debug($"Member <StringParserNamespaces> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserNestingStrings)
+            {
+                Log.Debug($"Member <StringParserNestingStrings> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserIcons)
+            {
+                Log.Debug($"Member <StringParserIcons> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserNewLine)
+            {
+                Log.Debug($"Member <StringParserNewLine> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserColorCodes)
+            {
+                Log.Debug($"Member <StringParserColorCodes> must not be null!");
+                return false;
+            }
+
+            if (null == StringParserTabulator)
+            {
+                Log.Debug($"Member <StringParserTabulator> must not be null!");
+                return false;
+            }
+
+            return true;
+        }
+
         private Dictionary<int,LineObject> CreateLineObjects(string[] lines)
         {
             if (lines == null || lines.Length == 0)
             {  
                 return null;
-            }   
+            }
 
             Dictionary<int, LineObject> lineObjects = new Dictionary<int, LineObject>();
             List<LineTextTupel> lineTextTupels = new List<LineTextTupel>();
@@ -94,14 +165,16 @@ namespace ParadoxTranslationHelper
             int lineNumber = 0;
             foreach (string line in lines)
             {
-                if( false == IgnoreLine(line) )
+                if( false == LineHelper.IgnoreLine(line) )
                 {
-                    SetKey(line);
-                    SetNamespaces(line);
-                    SetNestingStrings(line);
-                    SetIcons(line);
-                    SetNewLine(line);
-                    SetColorCodes(line);
+                    //TODO: 2025-12-06 - JHA - Macht bei Substituierter Datei keinen Sinn!
+                    SetKey(line, _stringParserKey);
+                    SetNamespaces(line, _stringParserNamespaces);
+                    SetNestingStrings(line, _stringParserNestingStrings);
+                    SetIcons(line, _stringParserIcons);
+                    SetNewLine(line, _stringParserNewLine);
+                    SetColorCodes(line, _stringParserColorCodes);
+                    SetTabulator(line, _stringParserTabulator);
                 }
 
                 lineNumber++;
@@ -113,65 +186,48 @@ namespace ParadoxTranslationHelper
             return lineObjects;
         }
 
-        private bool IgnoreLine(string line) 
+        private List<string> FindToken(string line, IStringParser parser )
         {
-            if( true == string.IsNullOrEmpty(line) )
-            {
-                return true;
-            }
-            string lineTrimmed = line.Trim();
-            if (lineTrimmed.StartsWith(Constants.SIGN_HASH_TAG) )
-            {
-                return true;
-            }
-
-            return false;
+            return parser.GetToken(line);
         }
 
-        private void SetKey(string line)
+        private void SetKey(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserKey();
-            List<string> token = new List<string>();
-            token = stringParser.GetToken(line, token);
+            List<string> token = stringParser.GetToken(line);
             if (token.Count > 0)
             {
                 _lineObjectCreator.Key = token[0];
             }
         }
 
-        private void SetNamespaces(string line)
+        private void SetNamespaces(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNamespaces();
-            List<string> token = new List<string>();
-            _lineObjectCreator.NameSpace = stringParser.GetToken(line, token);
+            _lineObjectCreator.NameSpace = stringParser.GetToken(line);
         }
 
-        private void SetNestingStrings(string line)
+        private void SetNestingStrings(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNestingStrings();
-            List<string> token = new List<string>();
-            _lineObjectCreator.NestingStrings = stringParser.GetToken(line, token);
+            _lineObjectCreator.NestingStrings = stringParser.GetToken(line);
         }
 
-        private void SetColorCodes(string line)
+        private void SetColorCodes(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserColorCodes(); 
-            List<string> token = new List<string>();
-            _lineObjectCreator.ColorCodes = stringParser.GetToken(line, token);
+            _lineObjectCreator.ColorCodes = stringParser.GetToken(line);
         }
 
-        private void SetIcons(string line) 
+        private void SetIcons(string line, IStringParser stringParser) 
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserIcons();
-            List<string> token = new List<string>();
-            _lineObjectCreator.Icons = stringParser.GetToken(line, token);
+            _lineObjectCreator.Icons = stringParser.GetToken(line);
         }
 
-        private void SetNewLine(string line)
+        private void SetNewLine(string line, IStringParser stringParser)
         {
-            IStringParser stringParser = StringParserFactory.Instance.CreateParserNewLine();
-            List<string> token = new List<string>();
-            _lineObjectCreator.NewLines = stringParser.GetToken(line, token);
+            _lineObjectCreator.NewLines = stringParser.GetToken(line);
+        }
+
+        private void SetTabulator(string line, IStringParser stringParser)
+        {
+            _lineObjectCreator.Tabulators = stringParser.GetToken(line);
         }
 
         private static TranslationFile FileNameSetter(string fileNameComplete)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -89,5 +90,130 @@ namespace ParadoxTranslationHelper.Helper
             return keys;
         }
 
+        public static bool IsValid(Dictionary<string, string> dict)
+        {
+            if( null == dict )
+            {
+                return false;
+            }
+
+            if( dict.Count == 0 )
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool IsValid(Dictionary<int, LineObject> dict)
+        {
+            if (null == dict)
+            {
+                return false;
+            }
+
+            if (dict.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool IsValid(Dictionary<string, LineObjectSubstitutionFile> dict)
+        {
+            if (null == dict)
+            {
+                return false;
+            }
+
+            if (dict.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool IsValid(Dictionary<string, LineObject> dict)
+        {
+            if (null == dict)
+            {
+                return false;
+            }
+
+            if (dict.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /**
+         * Wandelt ein Dictionary welches auf Zeilennummern basiert in ein Dictionary welches auf Keys basiert um.
+         * Dies hat den Nebeneffekt das doppelte Keys entfernt werden.
+         * 
+         */
+        public static Dictionary<string, LineObject>? ConvertDictionary(Dictionary<int, LineObject> toConvert)
+        {
+            if (toConvert == null)
+            {
+                return null;
+            }
+
+            Dictionary<string, LineObject> converted = new Dictionary<string, LineObject>();
+
+            foreach (KeyValuePair<int, LineObject> keyValuePair in toConvert)
+            {
+                if( keyValuePair.Value == null )
+                {
+                    return null;
+                }
+
+                if (keyValuePair.Value.Key == null)
+                {
+                    return null;
+                }
+
+                if (true == converted.ContainsKey(keyValuePair.Value.Key.Trim()))
+                {
+                    Log.Debug($"Key exists: {keyValuePair.Value.Key.Trim()}");
+                    continue;
+                }
+
+                converted.Add(keyValuePair.Value.Key, keyValuePair.Value);
+            }
+
+            return converted;
+        }
+
+        public static Dictionary<int, LineObject>? ConvertDictionary(Dictionary<string, LineObject> toConvert)
+        {
+            if (toConvert == null)
+            {
+                return null;
+            }
+
+            Dictionary<int, LineObject> converted = new Dictionary<int, LineObject>();
+
+            foreach (KeyValuePair<string, LineObject> keyValuePair in toConvert)
+            {
+                if (keyValuePair.Value == null)
+                {
+                    return null;
+                }
+
+                if (keyValuePair.Value.Key == null)
+                {
+                    return null;
+                }
+
+                LineObject updated = new LineObject(converted.Count, keyValuePair.Value);
+                converted.Add(converted.Count, updated);
+              }
+
+            return converted;
+        }
     }
 }

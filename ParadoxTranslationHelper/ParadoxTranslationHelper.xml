@@ -24,23 +24,55 @@
       <german>german</german>
       <steam>D:\Spiele\SteamLibrary\steamapps\workshop\content\394360\3506850939\localisation\english</steam>
     </Mod>
-    <Mod name="DIFF_FILES">
-      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\DiffFiles</basePath>
+    <Mod name="Test_DIFF_FILES">
+      <basePath>..\..\..\testData\functions\DIFF_FILES\localisation</basePath>
       <english>english</english>
       <german>german</german>
-      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\DiffFiles\english</steam>
+      <steam>..\..\..\testData\functions\DIFF_FILES\localisation\steam</steam>
     </Mod>
-    <Mod name="DIFF_KEYS">
-      <basePath>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\diffKeys</basePath>
+    <Mod name="Test_REMOVE_KEYS">
+      <basePath>..\..\..\testData\functions\REMOVE_KEYS\localisation</basePath>
       <english>english</english>
       <german>german</german>
-      <steam>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper_Test\testData\diffKeys\english</steam>
+      <steam>..\..\..\testData\functions\REMOVE_KEYS\localisation\steam</steam>
+    </Mod>
+    <Mod name="Test_SUB">
+      <basePath>..\..\..\testData\functions\SUB\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>..\..\..\testData\functions\SUB\localisation\steam</steam>
+    </Mod>
+    <Mod name="Test_INSERT">
+      <basePath>..\..\..\testData\functions\INSERT\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>..\..\..\testData\functions\INSERT\localisation\steam</steam>
+    </Mod>
+    <Mod name="Test_CLEAN">
+      <basePath>..\..\..\testData\functions\CLEAN\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>..\..\..\testData\functions\CLEAN\localisation\steam</steam>
+    </Mod>
+    <Mod name="Test_LINE_CORRECTOR">
+      <basePath>..\..\..\testData\functions\LINE_CORRECTOR\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>..\..\..\testData\functions\LINE_CORRECTOR\localisation\steam</steam>
+    </Mod>
+    <Mod name="Test_LINE_CORRECTOR_SUB">
+      <basePath>..\..\..\testData\functions\LINE_CORRECTOR_SUB\localisation</basePath>
+      <english>english</english>
+      <german>german</german>
+      <steam>..\..\..\testData\functions\LINE_CORRECTOR_SUB\localisation\steam</steam>
     </Mod>
   </Mods>
   <Global>
     <ResultPath>analysis</ResultPath>
   </Global>
-  <Function>
-    <SubFile>C:\Projects\ParadoxTranslationHelper\ParadoxTranslationHelper\bin\Release\net8.0\publish\updateMissingKeys.txt</SubFile>
-  </Function>
+  <Functions>
+    <Function>
+      <ValidateKeys></ValidateKeys>
+    </Function>
+  </Functions>
 </ParadoxTranslationHelper>

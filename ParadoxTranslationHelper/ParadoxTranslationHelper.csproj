@@ -6,8 +6,8 @@
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup>
-	<AssemblyVersion>1.0.1.185</AssemblyVersion>
-	<FileVersion>1.0.1.185</FileVersion>
+	<AssemblyVersion>1.0.1.211</AssemblyVersion>
+	<FileVersion>1.0.1.211</FileVersion>
 </PropertyGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="ParadoxTranslationHelper_Test" />
@@ -29,5 +29,8 @@
       <PackageReference Include="Serilog.Sinks.Console" />
       <PackageReference Include="Serilog.Sinks.File" />
       <PackageReference Include="Serilog.Sinks.Map" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Repositories\" />
     </ItemGroup>
 </Project>

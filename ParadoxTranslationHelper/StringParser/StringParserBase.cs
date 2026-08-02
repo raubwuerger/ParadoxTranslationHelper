@@ -9,7 +9,14 @@ namespace ParadoxTranslationHelper
     public abstract class StringParserBase : IStringParser
     {
         private string _startTag;
-        public string StartTag { get => _startTag; set => _startTag = value; }
+        public string StartTag
+        { 
+            get => _startTag; 
+            set => _startTag = value; 
+        }
+
+        private List<string> _endTags = new List<string>() { };
+        public List<string> EndTags { get => _endTags; set => _endTags = value; }
 
         private int _subStringCount = 0;
         public int SubStringCount { get => _subStringCount; set => _subStringCount = value; }
@@ -17,8 +24,6 @@ namespace ParadoxTranslationHelper
         private int _startIndexShift = 0;
         public int StartIndexShift { get => _startIndexShift; set => _startIndexShift = value; }
 
-        private List<string> _endTags = new List<string>() { };
-        public List<string> EndTags { get => _endTags; set => _endTags = value; }
 
         private List<string> _lineIgnores = new List<string>() { };
         public List<string> LineIgnores { get => _lineIgnores; set => _lineIgnores = value; }
@@ -29,7 +34,22 @@ namespace ParadoxTranslationHelper
             get { return _endOfLineIsEndTag; }
             set { _endOfLineIsEndTag = value; }
         }
-        abstract public List<string> GetToken(string source, List<string> tokens);
+
+        private bool _hasEndTag = true;
+        public bool HasEndTag { get => _hasEndTag; set => _hasEndTag = value; }
+        public List<string> SubStringBreakCharacters { get => _subStringBreakCharacters; set => _subStringBreakCharacters = value; }
+
+        private List<string> _subStringBreakCharacters = new List<string>();
+
+        public bool HasSubStringBreakCharacters { get => _subStringBreakCharacters.Any(); }
+
+        public List<string> GetToken(string source)
+        {
+            List<string> tokens = new List<string>();
+            return GetToken(source, tokens);
+
+        }
+        abstract protected List<string> GetToken(string source, List<string> tokens);
 
         protected bool IsValid()
         {
