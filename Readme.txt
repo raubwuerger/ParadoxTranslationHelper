@@ -10,7 +10,7 @@
 						->	_SteamKeysToCreate.yml.NS -> Datei mit den NameSpace-Substitutionen (|___NS000001___|;[AUS.GetNameDefCap];AUS_integrated_military_desc:0;4)
 						->	_SteamKeysToCreate.yml.NL -> Datei mit den NewLine-Substitutionen (|___NL000001___|;[AUS.GetNameDefCap];AUS_integrated_military_desc:0;4)
  - LINE_CORRECOR:		->	In der Datei _SteamKeysToCreate.yml.sub.german werden die Schlüssel zurück substituiert -> Datei _SteamKeysToCreate.yml.sub.german.corrected wird erstellt
- - LINE_CORRECOR_SUB:	->	In der Datei _SteamKeysToCreate.yml.sub.german.corrected werden die übrigen Susbstitutionen ersetzt
+ - LINE_CORRECOR_SUB:	->	In der Datei _SteamKeysToCreate.yml.sub.german.corrected werden die übrigen Susbstitutionen ersetzt und in die Datei _SteamKeysToCreate.yml.sub.german.corrected.corrected geschrieben
  - INSERT:				->	Fügt die übersetzten Zeilen in die jeweilige Dateien ein, legt von den Originaldateien eine Kopie an. Nicht vorhandene Datei werden neu erstellt. (Codierung UTF-8 BOM)
 
 =========================================================================================================================================
